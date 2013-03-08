@@ -20,8 +20,8 @@ if ($_GET["origin"] != 'whoisonline') {
 } else {
 	$origin = $_SESSION['origin'];
 	$target = $_SESSION['target'];
-	$_SESSION['origin']=$_GET["origin"];
-	$_SESSION['target']=$_GET["target"];
+	$_SESSION['origin']= Security::remove_XSS($_GET["origin"]);
+	$_SESSION['target']= Security::remove_XSS($_GET["target"]);
 }
 
 /*  TRACKING */

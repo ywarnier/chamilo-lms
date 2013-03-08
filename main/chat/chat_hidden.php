@@ -113,7 +113,7 @@ if (api_get_setting('show_navigation_menu') != 'false') {
 }
 ?>
 
-<form name="formHidden" method="post" action="<?php echo api_get_self().'?cidReq='.$_GET['cidReq']; ?>">
+<form name="formHidden" method="post" action="<?php echo api_get_self().'?'.api_get_cidreq(); ?>">
 <input type="hidden" name="chat_size_old" value="<?php echo $chat_size_new; ?>">
 <input type="hidden" name="connected_old" value="<?php echo $connected_new; ?>">
 </form>
