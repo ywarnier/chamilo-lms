@@ -2,13 +2,13 @@
 /* For licensing terms, see /license.txt */
 
 /**
-* This file displays the user's profile,
-* optionally it allows users to modify their profile as well.
-*
-* See inc/conf/profile.conf.php to modify settings
-*
-* @package chamilo.auth
-*/
+ * This file displays the user's profile,
+ * optionally it allows users to modify their profile as well.
+ *
+ * See inc/conf/profile.conf.php to modify settings
+ *
+ * @package chamilo.auth
+ */
 
 use Chamilo\UserBundle\Entity\User;
 use ChamiloSession as Session;
@@ -117,7 +117,7 @@ $form = new FormValidator(
 );
 
 if (api_is_western_name_order()) {
-    //    FIRST NAME and LAST NAME
+    // FIRST NAME and LAST NAME
     $form->addElement('text', 'firstname', get_lang('FirstName'), array('size' => 40));
     $form->addElement('text', 'lastname',  get_lang('LastName'),  array('size' => 40));
 } else {
@@ -125,7 +125,8 @@ if (api_is_western_name_order()) {
     $form->addElement('text', 'lastname',  get_lang('LastName'),  array('size' => 40));
     $form->addElement('text', 'firstname', get_lang('FirstName'), array('size' => 40));
 }
-if (api_get_setting('profile', 'name') !== 'true') {
+
+if (api_get_setting('profile', 'name') !== 'true' && (!isset($_SESSION['forceUpdateProfile']) || $_SESSION['forceUpdateProfile'] != 1)) {
     $form->freeze(array('lastname', 'firstname'));
 }
 $form->applyFilter(array('lastname', 'firstname'), 'stripslashes');
@@ -154,7 +155,7 @@ $form->addRule('username', get_lang('ThisFieldIsRequired'), 'required');
 $form->addRule('username', get_lang('UsernameWrong'), 'username');
 $form->addRule('username', get_lang('UserTaken'), 'username_available', $user_data['username']);
 
-//    OFFICIAL CODE
+// OFFICIAL CODE
 if (CONFVAL_ASK_FOR_OFFICIAL_CODE) {
     $form->addElement('text', 'official_code', get_lang('OfficialCode'), array('size' => 40));
     if (api_get_setting('profile', 'officialcode') !== 'true') {
@@ -168,9 +169,9 @@ if (CONFVAL_ASK_FOR_OFFICIAL_CODE) {
     }
 }
 
-//    EMAIL
+// EMAIL
 $form->addElement('email', 'email', get_lang('Email'), array('size' => 40));
-if (api_get_setting('profile', 'email') !== 'true') {
+if (api_get_setting('profile', 'email') !== 'true'  && (!isset($_SESSION['forceUpdateProfile']) || $_SESSION['forceUpdateProfile'] != 1)) {
     $form->freeze('email');
 }
 
@@ -222,13 +223,13 @@ if (is_profile_editable() && api_get_setting('profile', 'picture') == 'true') {
     );
 }
 
-//    LANGUAGE
+// LANGUAGE
 $form->addElement('select_language', 'language', get_lang('Language'));
 if (api_get_setting('profile', 'language') !== 'true') {
     $form->freeze('language');
 }
 
-//THEME
+// THEME
 if (is_profile_editable() && api_get_setting('user_selected_theme') == 'true') {
     $form->addElement('SelectTheme', 'theme', get_lang('Theme'));
     if (api_get_setting('profile', 'theme') !== 'true') {
@@ -277,7 +278,7 @@ if (api_get_setting('extended_profile') == 'true') {
         )
     );
 
-    //    MY PRODUCTIONS
+    // MY PRODUCTIONS
     $form->addElement('file', 'production', get_lang('MyProductions'));
     if ($production_list = UserManager::build_production_list(api_get_user_id(), '', true)) {
         $form->addElement('static', 'productions_list', null, $production_list);
@@ -351,7 +352,7 @@ if (api_get_setting('profile', 'apikeys') == 'true') {
         )
     ); //generate_open_id_form()
 }
-//    SUBMIT
+// SUBMIT
 if (is_profile_editable()) {
     $form->addButtonUpdate(get_lang('SaveSettings'), 'apply_change');
 } else {
@@ -378,9 +379,7 @@ function is_profile_editable() {
     return $GLOBALS['profileIsEditable'];
 }
 
-/*
-    PRODUCTIONS FUNCTIONS
-*/
+/* PRODUCTIONS FUNCTIONS */
 
 /**
  * Upload a submitted user production.
@@ -466,7 +465,9 @@ if ($form->validate()) {
         $allow_users_to_change_email_with_no_password = false;
     }
 
-    // If user sending the email to be changed (input available and not frozen )
+    $formPostEmail = $user_data['email'];
+
+    //If user sending the email to be changed (input available and not frozen )
     if (api_get_setting('profile', 'email') == 'true') {
         if ($allow_users_to_change_email_with_no_password) {
             if (!check_user_email($user_data['email'])) {
@@ -606,6 +607,22 @@ if ($form->validate()) {
         }
     }
 
+    // if user has to update is profile firstname, lastname, email (if first SSO login, for example)
+    if (isset($_SESSION['forceUpdateProfile']) && $_SESSION['forceUpdateProfile'] == 1) {
+        // if user came with no firstname, lastname, email
+        if (!in_array('firstname', $available_values_to_modify)) {
+            $available_values_to_modify[] = 'firstname';
+        }
+        if (!in_array('lastname', $available_values_to_modify)) {
+            $available_values_to_modify[] = 'lastname';
+        }
+        if (!in_array('email', $available_values_to_modify)) {
+            $available_values_to_modify[] = 'email';
+        }
+        $allow_users_to_change_email_with_no_password = true;
+        $changeemail = $formPostEmail;
+    }
+
     //Fixing missing variables
     $available_values_to_modify = array_merge(
         $available_values_to_modify,
@@ -620,8 +637,12 @@ if ($form->validate()) {
         if (substr($key, 0, 6) == 'extra_') { //an extra field
            continue;
         } elseif (strpos($key, 'remove_extra_') !== false) {
+            $extra_value = Security::filter_filename(urldecode(key($value)));
+            // To remove from user_field_value and folder
+            UserManager::update_extra_field_value(api_get_user_id(), substr($key,13), $extra_value);
         } else {
             if (in_array($key, $available_values_to_modify)) {
+
                 $sql .= " $key = '".Database::escape_string($value)."',";
             }
         }
@@ -672,7 +693,6 @@ if ($form->validate()) {
     }
 
     $sql .= " WHERE user_id  = '".api_get_user_id()."'";
-    Database::query($sql);
 
     if ($passwordWasChecked == false) {
         Display::addFlash(
@@ -695,7 +715,13 @@ if ($form->validate()) {
     // re-init the system to take new settings into account
     //$_SESSION['_user']['uidReset'] = true;
     //$_SESSION['noredirection'] = true;
-    $url = api_get_self();
+    if ($_SESSION['forceUpdateProfile'] == 1) {
+        $url = api_get_path(WEB_PATH)."user_portal.php";
+        $_SESSION['forceUpdateProfile'] = 0;
+    } else {
+        $url = api_get_self();
+    }
+
     header("Location: ".$url);
     exit;
 }
