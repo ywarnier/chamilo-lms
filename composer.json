@@ -11,6 +11,11 @@
         "docs": "https://github.com/chamilo/docs",
         "issues": "https://support.chamilo.org/projects/chamilo-18"
     },
+    "repositories": [
+        {"type": "composer", "url": "https://toran.chamilo.org/repo/private/"},
+        {"type": "composer", "url": "https://toran.chamilo.org/repo/packagist/"},
+        {"packagist": false}
+    ],
     "autoload": {
         "psr-4": {
             "Chamilo\\": "src/Chamilo/",
