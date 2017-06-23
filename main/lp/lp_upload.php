@@ -178,6 +178,19 @@ if (isset($_POST) && $is_error) {
             $first_item_id = $o_doc->convert_document($_FILES['user_file']);
             Display::addFlash(Display::return_message(get_lang('UplUploadSucceeded')));
             break;
+        case 'cc': //common cartridge
+            require_once __DIR__.'/CommonCartridge.php';
+            $oCC = new CommonCartridge();
+            $manifest = $oCC->import_package($_FILES['user_file'], $current_dir);
+            if (!empty($manifest)) {
+                $oCC->parse_manifest($manifest);
+                $oCC->import_manifest(api_get_course_int_id(), $_REQUEST['use_max_score']);
+                Display::addFlash(Display::return_message(get_lang('UplUploadSucceeded')));
+            }
+            //$oCC->set_proximity($proximity);
+            $oCC->set_maker($maker);
+            //$oCC->set_jslib('scorm_api.php');
+            break;
         case '':
         default:
             Display::addFlash(Display::return_message(get_lang('ScormUnknownPackageFormat'), 'warning'));
@@ -253,6 +266,10 @@ if (isset($_POST) && $is_error) {
             $oAICC->set_proximity($proximity);
             $oAICC->set_maker($maker);
             $oAICC->set_jslib('aicc_api.php');
+            break;
+        case 'cc': //common cartridge
+            require_once api_get_path(SYS_INC_PATH.'lib/CommonCartridge.php');
+            $oCC = new CommonCartridge();
             break;
         case '':
         default:

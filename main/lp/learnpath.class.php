@@ -2088,6 +2088,9 @@ class learnpath
             ))) {
             return 'woogie';
         }
+        if (strtolower($extension) == 'imscc') {
+            return 'cc';
+        }
 
         $zipFile = new PclZip($file_path);
         // Check the zip content (real size and file extension).
@@ -2107,6 +2110,7 @@ class learnpath
                     // New behaviour: Don't do anything. These files will be removed in scorm::import_package.
                 } elseif (stristr($thisContent['filename'], 'imsmanifest.xml') !== false) {
                     $manifest = $thisContent['filename']; // Just the relative directory inside scorm/
+                    error_log($manifest);
                     $package_type = 'scorm';
                     break; // Exit the foreach loop.
                 } elseif (
