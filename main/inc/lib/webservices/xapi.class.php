@@ -10,7 +10,7 @@ class XAPI
 {
     public function __construct()
     {
-        //
+        error_log(__CLASS__.' constructor called');
     }
     /**
      * Test the web service response
@@ -20,6 +20,7 @@ class XAPI
      */
     public function test()
     {
+        error_log(__METHOD__.' called on class '.__CLASS__);
         return "Hello World";
     }
     /**
