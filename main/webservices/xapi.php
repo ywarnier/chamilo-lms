@@ -10,9 +10,12 @@ $server->refreshCache(); // uncomment momentarily to clear the cache if classes 
 
 $class = 'XAPI';
 
+error_log(__FILE__.' called');
+
 if (class_exists($class)) {
     $server->addClass($class, '/xapi');
     $server->handle();
+    error_log(__FILE__.' executed');
 } else {
     echo "Class $class does not exist";
 }
