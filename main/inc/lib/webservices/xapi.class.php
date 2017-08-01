@@ -33,7 +33,7 @@ class XAPI
      */
     public function statements($params = array())
     {
-        error_log(print_r($params, 1));
+        error_log(__FUNCTION__.' -- '.print_r(func_get_args(), 1));
         return "{ 'msg': 'Hello World statements'}";
     }
     /**
@@ -70,7 +70,7 @@ class XAPI
      */
     public function activities($id)
     {
-        error_log(print_r(func_get_args(), 1));
+        error_log(__FUNCTION__.' -- '.print_r(func_get_args(), 1));
         return "{}";
     }
 }
