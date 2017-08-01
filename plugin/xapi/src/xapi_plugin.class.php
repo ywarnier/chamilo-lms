@@ -20,7 +20,7 @@ class XAPIPlugin extends Plugin
     /**
      * XAPIPlugin constructor.
      */
-    protected function __construct()
+    public function __construct()
     {
         parent::__construct(
             '0.9',
@@ -61,7 +61,7 @@ class XAPIPlugin extends Plugin
      */
     public function statements()
     {
-        return "Hello World statements";
+        return "{ 'msg': 'Hello World statements'}";
     }
     /**
      * Install
