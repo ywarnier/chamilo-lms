@@ -14,6 +14,7 @@ class XAPI
     }
     /**
      * Test the web service response
+     * @return string
      *
      * @url GET /
      */
@@ -23,6 +24,8 @@ class XAPI
     }
     /**
      * Statements
+     * @param   array   $params Parameters
+     * @return string
      *
      * @url POST /statements
      * @url GET /statements
@@ -35,6 +38,7 @@ class XAPI
     }
     /**
      * Actors
+     * @return string
      *
      * @url POST /actors
      * @url GET /actors
@@ -46,6 +50,7 @@ class XAPI
     }
     /**
      * Verbs
+     * @return string
      *
      * @url POST /verbs
      * @url GET /verbs
