@@ -27,8 +27,6 @@ class XAPI
      * @return string
      *
      * @url POST /statements
-     * @url GET /statements
-     * @url HEAD /statements
      */
     public function statements()
     {
