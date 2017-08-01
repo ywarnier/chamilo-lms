@@ -40,6 +40,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/jmontoyaa/PHPWord"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ywarnier/RestServer"
         }
     ],
     "require": {
