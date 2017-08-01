@@ -8,7 +8,7 @@ $mode = 'debug'; // 'debug' or 'production'
 $server = new \Jacwright\RestServer\RestServer($mode);
 $server->refreshCache(); // uncomment momentarily to clear the cache if classes change in production mode
 
-$class = 'XAPIPlugin';
+$class = 'XAPI';
 
 if (class_exists($class)) {
     $server->addClass($class, '/xapi');
