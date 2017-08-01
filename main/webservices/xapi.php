@@ -2,13 +2,13 @@
 /* For licensing terms, see /license.txt */
 
 require_once __DIR__.'/../inc/global.inc.php';
-use \Plugin\TinCanPlugin;
+use \Plugin\XAPIPlugin;
 
 $mode = 'debug'; // 'debug' or 'production'
 $server = new \Jacwright\RestServer\RestServer($mode);
 $server->refreshCache(); // uncomment momentarily to clear the cache if classes change in production mode
 
-$server->addClass('TinCanPlugin', '/tincan');
+$server->addClass('XAPIPlugin', '/xapi');
 
 $server->handle();
 
