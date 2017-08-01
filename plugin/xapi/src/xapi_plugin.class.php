@@ -7,7 +7,6 @@
  * main/img/icons/64/plugin_name.png
  * main/img/icons/64/plugin_name_na.png
 */
-namespace Plugin\XAPI;
 /**
  * XAPI API plugin
  */
