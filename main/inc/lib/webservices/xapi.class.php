@@ -24,14 +24,13 @@ class XAPI
     }
     /**
      * Statements
-     * @param   array   $params Parameters
      * @return string
      *
      * @url POST /statements
      * @url GET /statements
      * @url HEAD /statements
      */
-    public function statements($params = array())
+    public function statements()
     {
         error_log(__FUNCTION__.' -- '.print_r(func_get_args(), 1));
         return "{ 'msg': 'Hello World statements'}";
