@@ -112,7 +112,9 @@
         "chamilo/chash": "dev-master",
         "ircmaxell/random-lib": "^1.2",
         "ocramius/proxy-manager": "~1.0|2.0.*",
-        "culqi/culqi-php": "v1.3.3"
+        "culqi/culqi-php": "v1.3.3",
+        "rusticisoftware/tincan": "@stable",
+        "jacwright/restserver": "dev-master"
     },
     "require-dev": {
         "behat/behat": "@stable",
