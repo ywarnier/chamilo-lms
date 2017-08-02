@@ -4,22 +4,17 @@
 require_once __DIR__.'/../inc/global.inc.php';
 require_once __DIR__.'/../inc/lib/webservices/xapi.class.php';
 
-use Symfony\Component\HttpFoundation\Request;
+$mode = 'debug'; // 'debug' or 'production'
+$server = new \Jacwright\RestServer\RestServer($mode);
+$server->refreshCache(); // uncomment momentarily to clear the cache if classes change in production mode
 
-$request = Request::createFromGlobals();
+$class = 'XAPI';
 
 error_log(__FILE__.' called');
-$resources = $request->query->get('resources');
 
-if (class_exists('XAPI')) {
-    $xapi = new XAPI();
-    switch ($resources) {
-        case 'statements':
-            $xapi->statements($request);
-            break;
-        default:
-            break;
-    }
+if (class_exists($class)) {
+    $server->addClass($class, '/xapi');
+    $server->handle();
     error_log(__FILE__.' executed');
 } else {
     echo "Class $class does not exist";
