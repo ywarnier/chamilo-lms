@@ -31,7 +31,7 @@ class XAPI
      */
     public function statements()
     {
-        error_log(__FUNCTION__.' -- '.print_r(func_get_args(), 1));
+        error_log(__FUNCTION__.' -- '.print_r($_REQUEST, 1));
         return "{ 'msg': 'Hello World statements'}";
     }
     /**
