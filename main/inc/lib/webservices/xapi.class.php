@@ -29,9 +29,9 @@ class XAPI
      *
      * @url POST /statements
      */
-    public function statements()
+    public function statements($request)
     {
-        error_log(__FUNCTION__.' -- '.print_r($_REQUEST, 1));
+        error_log(__FUNCTION__.' -- '.print_r($request->getContent(), 1));
         return "{ 'msg': 'Hello World statements'}";
     }
     /**
