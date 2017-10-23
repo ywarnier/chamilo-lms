@@ -23,7 +23,7 @@ sudo apt-get install libapache2-mod-php mysql-server php5-gd php5-intl php5-curl
 
 The development version 1.11.x requires you to have Git installed. If you are working on a Debian-based system (Debian, Ubuntu, Mint, etc), just type
 ```
-sudo apt-get install git
+sudo apt-get install git tralala
 ```
 
 ### Install Composer
