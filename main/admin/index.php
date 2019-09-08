@@ -580,6 +580,10 @@ if (api_is_platform_admin()) {
             'label' => get_lang('DatabaseManager'),
         ];
     }
+    $items[] = [
+        'url' => api_get_path(WEB_CODE_PATH).'admin/recycle_bin.php',
+        'label' => get_lang('RecycleBin'),
+    ];
 
     $blocks['settings']['items'] = $items;
     $blocks['settings']['extra'] = null;
