@@ -123,7 +123,7 @@ if ($formSent) {
             $document = new CDocument();
             $resource->resourceData = 'test data<br />';
             $resource->resourceData .= Display::url(
-                Display::return_icon('outbox.png', get_lang('Restore')),
+                Display::return_icon('recycle_bin.png', get_lang('Restore')),
                 $urlExercise.http_build_query([
                     'cidReq' => $courseCode,
                     'id_session' => $resource->getSessionId(),
