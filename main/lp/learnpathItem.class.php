@@ -3937,7 +3937,7 @@ class learnpathItem
                                     $my_status
                                     max_score = '".$this->get_max()."',
                                     suspend_data = '".Database::escape_string($this->current_data)."',
-                                    lesson_location = '".$this->lesson_location."'
+                                    lesson_location = '".$this->lesson_location."',
                                     core_exit = '".$this->core_exit."'
                                 WHERE
                                     c_id = $course_id AND
