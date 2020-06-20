@@ -3682,6 +3682,7 @@ class learnpathItem
                     "suspend_data" => $this->current_data,
                     //"max_time_allowed" => ,
                     "lesson_location" => $this->lesson_location,
+                    "core_exit" => $this->core_exit,
                 ];
                 if ($debug) {
                     error_log(
@@ -3729,6 +3730,7 @@ class learnpathItem
                     "suspend_data" => $this->current_data,
                     //"max_time_allowed" => ,$this->get_max_time_allowed()
                     "lesson_location" => $this->lesson_location,
+                    "core_exit" => $this->core_exit,
                 ];
 
                 if ($debug) {
@@ -3919,7 +3921,8 @@ class learnpathItem
                                     $my_status
                                     max_score = '".$this->get_max()."',
                                     suspend_data = '".Database::escape_string($this->current_data)."',
-                                    lesson_location = '".$this->lesson_location."'
+                                    lesson_location = '".$this->lesson_location."',
+                                    core_exit = '".$this->core_exit."'
                                 WHERE
                                     c_id = $course_id AND
                                     lp_item_id = ".$this->db_id." AND
@@ -3935,6 +3938,7 @@ class learnpathItem
                                     max_score = '".$this->get_max()."',
                                     suspend_data = '".Database::escape_string($this->current_data)."',
                                     lesson_location = '".$this->lesson_location."'
+                                    core_exit = '".$this->core_exit."'
                                 WHERE
                                     c_id = $course_id AND
                                     lp_item_id = ".$this->db_id." AND
