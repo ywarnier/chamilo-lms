@@ -1,4 +1,5 @@
 <?php
+
 /* For licensing terms, see /license.txt */
 
 namespace Chamilo\PluginBundle\Zoom;
@@ -13,7 +14,6 @@ use Exception;
 /**
  * Class RegistrantEntity.
  *
- * @package Chamilo\PluginBundle\Zoom
  * @ORM\Entity(repositoryClass="Chamilo\PluginBundle\Zoom\RegistrantEntityRepository")
  * @ORM\Table(
  *     name="plugin_zoom_registrant",
@@ -31,19 +31,18 @@ class RegistrantEntity
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var User
-     * @ORM\ManyToOne(
-     *     targetEntity="Chamilo\UserBundle\Entity\User",
-     * )
+     * @ORM\ManyToOne(targetEntity="Chamilo\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="user_id", nullable=false)
      */
-    private $user;
+    protected $user;
 
     /**
      * @var MeetingEntity
@@ -53,34 +52,34 @@ class RegistrantEntity
      * )
      * @ORM\JoinColumn(name="meeting_id")
      */
-    private $meeting;
+    protected $meeting;
 
     /**
      * @var string
      * @ORM\Column(type="text", name="created_registration_json", nullable=true)
      */
-    private $createdRegistrationJson;
+    protected $createdRegistrationJson;
 
     /**
      * @var string
      * @ORM\Column(type="text", name="meeting_registrant_list_item_json", nullable=true)
      */
-    private $meetingRegistrantListItemJson;
+    protected $meetingRegistrantListItemJson;
 
     /**
      * @var string
      * @ORM\Column(type="text", name="meeting_registrant_json", nullable=true)
      */
-    private $meetingRegistrantJson;
+    protected $meetingRegistrantJson;
 
     /** @var CreatedRegistration */
-    private $createdRegistration;
+    protected $createdRegistration;
 
     /** @var MeetingRegistrant */
-    private $meetingRegistrant;
+    protected $meetingRegistrant;
 
     /** @var MeetingRegistrantListItem */
-    private $meetingRegistrantListItem;
+    protected $meetingRegistrantListItem;
 
     /**
      * @return string
@@ -99,44 +98,6 @@ class RegistrantEntity
     }
 
     /**
-     * @return User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * @throws Exception
-     *
-     * @return MeetingRegistrantListItem
-     */
-    public function getMeetingRegistrantListItem()
-    {
-        return $this->meetingRegistrantListItem;
-    }
-
-    /**
-     * @throws Exception
-     *
-     * @return CreatedRegistration
-     */
-    public function getCreatedRegistration()
-    {
-        return $this->createdRegistration;
-    }
-
-    /**
-     * @throws Exception
-     *
-     * @return MeetingRegistrant
-     */
-    public function getMeetingRegistrant()
-    {
-        return $this->meetingRegistrant;
-    }
-
-    /**
      * @param MeetingEntity $meeting
      *
      * @return $this
@@ -147,6 +108,14 @@ class RegistrantEntity
         $this->meeting->getRegistrants()->add($this);
 
         return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 
     /**
@@ -162,11 +131,21 @@ class RegistrantEntity
     }
 
     /**
-     * @param MeetingRegistrantListItem $meetingRegistrantListItem
-     *
+     * @return MeetingRegistrantListItem
      * @throws Exception
      *
+     */
+    public function getMeetingRegistrantListItem()
+    {
+        return $this->meetingRegistrantListItem;
+    }
+
+    /**
+     * @param MeetingRegistrantListItem $meetingRegistrantListItem
+     *
      * @return $this
+     * @throws Exception
+     *
      */
     public function setMeetingRegistrantListItem($meetingRegistrantListItem)
     {
@@ -179,16 +158,43 @@ class RegistrantEntity
         return $this;
     }
 
+    public function computeFullName()
+    {
+        $this->fullName = api_get_person_name(
+            $this->meetingRegistrant->first_name,
+            $this->meetingRegistrant->last_name
+        );
+    }
+
+    public function getJoinUrl()
+    {
+        if (!$this->createdRegistration) {
+            return '';
+        }
+
+        return $this->createdRegistration->join_url;
+    }
+
+    /**
+     * @return CreatedRegistration
+     * @throws Exception
+     *
+     */
+    public function getCreatedRegistration()
+    {
+        return $this->createdRegistration;
+    }
+
     /**
      * @param CreatedRegistration $createdRegistration
      *
+     * @return $this
      * @throws Exception
      *
-     * @return $this
      */
     public function setCreatedRegistration($createdRegistration)
     {
-        if (is_null($this->id)) {
+        if (null === $this->id) {
             $this->id = $createdRegistration->registrant_id;
         } elseif ($this->id != $createdRegistration->registrant_id) {
             throw new Exception('RegistrantEntity id differs from CreatedRegistration identifier');
@@ -199,11 +205,21 @@ class RegistrantEntity
     }
 
     /**
-     * @param MeetingRegistrant $meetingRegistrant
-     *
+     * @return MeetingRegistrant
      * @throws Exception
      *
+     */
+    public function getMeetingRegistrant()
+    {
+        return $this->meetingRegistrant;
+    }
+
+    /**
+     * @param MeetingRegistrant $meetingRegistrant
+     *
      * @return $this
+     * @throws Exception
+     *
      */
     public function setMeetingRegistrant($meetingRegistrant)
     {
@@ -220,13 +236,13 @@ class RegistrantEntity
      */
     public function postLoad()
     {
-        if (!is_null($this->meetingRegistrantJson)) {
+        if (null !== $this->meetingRegistrantJson) {
             $this->meetingRegistrant = MeetingRegistrant::fromJson($this->meetingRegistrantJson);
         }
-        if (!is_null($this->createdRegistrationJson)) {
+        if (null !== $this->createdRegistrationJson) {
             $this->createdRegistration = CreatedRegistration::fromJson($this->createdRegistrationJson);
         }
-        if (!is_null($this->meetingRegistrantListItemJson)) {
+        if (null !== $this->meetingRegistrantListItemJson) {
             $this->meetingRegistrantListItem = MeetingRegistrantListItem::fromJson(
                 $this->meetingRegistrantListItemJson
             );
@@ -239,22 +255,14 @@ class RegistrantEntity
      */
     public function preFlush()
     {
-        if (!is_null($this->meetingRegistrant)) {
+        if (null !== $this->meetingRegistrant) {
             $this->meetingRegistrantJson = json_encode($this->meetingRegistrant);
         }
-        if (!is_null($this->createdRegistration)) {
+        if (null !== $this->createdRegistration) {
             $this->createdRegistrationJson = json_encode($this->createdRegistration);
         }
-        if (!is_null($this->meetingRegistrantListItem)) {
+        if (null !== $this->meetingRegistrantListItem) {
             $this->meetingRegistrantListItemJson = json_encode($this->meetingRegistrantListItem);
         }
-    }
-
-    public function computeFullName()
-    {
-        $this->fullName = api_get_person_name(
-            $this->meetingRegistrant->first_name,
-            $this->meetingRegistrant->last_name
-        );
     }
 }

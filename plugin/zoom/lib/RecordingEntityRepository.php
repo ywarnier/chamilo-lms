@@ -1,4 +1,5 @@
 <?php
+
 /* For licensing terms, see /license.txt */
 
 namespace Chamilo\PluginBundle\Zoom;
@@ -12,8 +13,6 @@ use Doctrine\ORM\EntityRepository;
 
 /**
  * Class RecordingEntityRepository.
- *
- * @package Chamilo\PluginBundle\Zoom
  */
 class RecordingEntityRepository extends EntityRepository
 {
@@ -21,9 +20,7 @@ class RecordingEntityRepository extends EntityRepository
     {
         $matching = [];
         foreach ($this->findAll() as $candidate) {
-            if ($candidate->startDateTime >= $startDate
-                && $candidate->startDateTime <= $endDate
-            ) {
+            if ($candidate->startDateTime >= $startDate && $candidate->startDateTime <= $endDate) {
                 $matching[] = $candidate;
             }
         }
@@ -57,12 +54,11 @@ class RecordingEntityRepository extends EntityRepository
      *
      * @return ArrayCollection|RecordingEntity[]
      */
-    public function getPeriodUserRecordings($start, $end, $user)
+    public function getPeriodUserRecordings($start, $end, $user = null)
     {
         return $this->userRecordings($user)->filter(
             function ($meeting) use ($start, $end) {
-                return $meeting->startDateTime >= $start
-                    && $meeting->startDateTime <= $end;
+                return $meeting->startDateTime >= $start && $meeting->startDateTime <= $end;
             }
         );
     }

@@ -693,7 +693,7 @@ echo '<a href="'.api_get_self().'?'.Security::remove_XSS($_SERVER['QUERY_STRING'
     .Display::return_icon('export_excel.png', get_lang('ExportAsXLS'), '', ICON_SIZE_MEDIUM).'</a> ';
 
 echo Display::url(
-    Display::return_icon('attendance.png', get_lang('AccessDetails'), '', ICON_SIZE_MEDIUM),
+    Display::return_icon('activity_monitor.png', get_lang('AccessDetails'), '', ICON_SIZE_MEDIUM),
     api_get_path(WEB_CODE_PATH).'mySpace/access_details_session.php?user_id='.$student_id
 );
 
@@ -1013,7 +1013,7 @@ if (isset($_GET['action']) and $_GET['action'] == 'all_attendance') {
     $defaults['startDate'] = $startDateText;
     $defaults['endDate'] = $endDateText;
     $form = new FormValidator('all_attendance_list', 'GET',
-        'myStudents.php?action=all_attendance&student='.$_GET['student'].'&startDate='.$defaults['startDate'].'&endDate='.$defaults['endDate'].'&&'.api_get_cidreq(),
+        'myStudents.php?action=all_attendance&student='.$student_id.'&startDate='.$defaults['startDate'].'&endDate='.$defaults['endDate'].'&&'.api_get_cidreq(),
         '');
     $form->addElement('html', '<input type="hidden" name="student" value="'.$student_id.'" >');
     $form->addElement('html', '<input type="hidden" name="action" value="all_attendance" >');
@@ -1037,7 +1037,7 @@ if (isset($_GET['action']) and $_GET['action'] == 'all_attendance') {
     $data = $attendance->getCoursesWithAttendance($student_id, $startDate, $endDate);
 
     // 'attendance from %s to %s'
-    $title = sprintf(get_lang('AttendanceFromTo'), $startDateText, $endDateText);
+    $title = sprintf(get_lang('AttendanceFromXToY'), $startDateText, $endDateText);
     echo '
     <h3>'.$title.'</h3>
     <div class="">

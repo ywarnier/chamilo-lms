@@ -14,8 +14,6 @@ use Doctrine\ORM\EntityRepository;
 
 /**
  * Class MeetingEntityRepository.
- *
- * @package Chamilo\PluginBundle\Zoom
  */
 class MeetingEntityRepository extends EntityRepository
 {
@@ -30,10 +28,9 @@ class MeetingEntityRepository extends EntityRepository
     public function periodMeetings($startDate, $endDate)
     {
         $matching = [];
-        foreach ($this->findAll() as $candidate) {
-            if ($candidate->startDateTime >= $startDate
-            && $candidate->startDateTime <= $endDate
-            ) {
+        $all = $this->findAll();
+        foreach ($all as $candidate) {
+            if ($candidate->startDateTime >= $startDate && $candidate->startDateTime <= $endDate) {
                 $matching[] = $candidate;
             }
         }
@@ -81,9 +78,8 @@ class MeetingEntityRepository extends EntityRepository
             Criteria::create()->where(
                 Criteria::expr()->andX(
                     Criteria::expr()->eq('course', null),
-                    is_null($user)
-                        ? Criteria::expr()->neq('user', null)
-                        : Criteria::expr()->eq('user', $user)
+                    Criteria::expr()->orX(Criteria::expr()->eq('user', null), Criteria::expr()->eq('user', $user))
+
                 )
             )
         );
@@ -106,7 +102,7 @@ class MeetingEntityRepository extends EntityRepository
     /**
      * @param DateTime  $start
      * @param DateTime  $end
-     * @param User|null $user
+     * @param User $user
      *
      * @return ArrayCollection|Collection|MeetingEntity[]
      */
@@ -114,8 +110,7 @@ class MeetingEntityRepository extends EntityRepository
     {
         return $this->userMeetings($user)->filter(
             function ($meeting) use ($start, $end) {
-                return $meeting->startDateTime >= $start
-                    && $meeting->startDateTime <= $end;
+                return $meeting->startDateTime >= $start && $meeting->startDateTime <= $end;
             }
         );
     }

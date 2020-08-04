@@ -2314,13 +2314,13 @@ class CourseManager
         $tbl_session_course_user = Database::get_main_table(TABLE_MAIN_SESSION_COURSE_USER);
 
         $sql = "SELECT DISTINCT
-                    u.user_id,
+                    u.id as user_id,
                     u.lastname,
                     u.firstname,
                     u.username
                 FROM $tbl_user u
                 INNER JOIN $tbl_session_course_user scu
-                ON (u.user_id = scu.user_id)
+                ON (u.id = scu.user_id)
                 WHERE
                     scu.session_id = $session_id AND
                     scu.c_id = $courseId AND
@@ -3369,7 +3369,7 @@ class CourseManager
 
     /**
      * Gets extra field value data and formatted values of a course
-     * for extra fields listed in configuration.php in My_course_course_extrafields_to_be_presented
+     * for extra fields listed in configuration.php in my_course_course_extrafields_to_be_presented
      * (array of variables as value of key 'fields').
      *
      * @param $courseId  int The numeric identifier of the course
@@ -3379,7 +3379,7 @@ class CourseManager
     public static function getExtraFieldsToBePresented($courseId)
     {
         $extraFields = [];
-        $fields = api_get_configuration_sub_value('My_course_course_extrafields_to_be_presented/fields');
+        $fields = api_get_configuration_sub_value('my_course_course_extrafields_to_be_presented/fields');
         if (!empty($fields) && is_array($fields)) {
             $extraFieldManager = new ExtraField('course');
             $dataAndFormattedValues = $extraFieldManager->getDataAndFormattedValues($courseId);
