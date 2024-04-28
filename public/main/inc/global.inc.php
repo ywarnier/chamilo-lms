@@ -126,9 +126,9 @@ try {
     // Container::setContainer($container);
     // Container::setLegacyServices($container);
 
-    // The code below is not needed. The connections is now made in the file:
+    // The code below is not needed. The connection is now made in the file:
     // src/CoreBundle/EventListener/LegacyListener.php
-    // This is called when when doing the $kernel->handle
+    // This is called when doing the $kernel->handle
     $charset = 'UTF-8';
     ini_set('log_errors', '1');
     $this_section = SECTION_GLOBAL;
