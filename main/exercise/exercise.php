@@ -274,7 +274,7 @@ if (!empty($action) && $is_allowedToEdit) {
                     );
 
                     if (!$visibleOnBaseCourse) {
-                        Display::addFlash(Display::return_message(get_lang('CanNotHide') . ' ' . $objExerciseTmp->name, 'error'));
+                        Display::addFlash(Display::return_message(sprintf(get_lang('CannotChangeVisibilityOfBaseCourseResourceX'), $objExerciseTmp->name), 'error'));
                         break;
                     }
 
