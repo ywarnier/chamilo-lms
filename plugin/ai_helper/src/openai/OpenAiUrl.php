@@ -3,9 +3,9 @@
 
 class OpenAiUrl
 {
-    public const ORIGIN = 'https://api.openai.com';
+    public const ORIGIN = 'https://api.deepseek.com/chat';
     public const API_VERSION = 'v1';
-    public const OPEN_AI_URL = self::ORIGIN."/".self::API_VERSION;
+    public const OPEN_AI_URL = self::ORIGIN;//."/".self::API_VERSION;
 
     public static function completionsURL(): string
     {

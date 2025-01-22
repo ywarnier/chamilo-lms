@@ -5,7 +5,7 @@ require_once 'OpenAiUrl.php';
 
 class OpenAi
 {
-    private $model = "gpt-4o"; // See https://platform.openai.com/docs/models for possible models
+    private $model = "deepseek-coder-instruct"; // See https://platform.openai.com/docs/models for possible models
     private $headers;
     private $contentTypes;
     private $timeout = 0;
@@ -324,7 +324,10 @@ class OpenAi
         $curl = curl_init();
 
         curl_setopt_array($curl, $curl_info);
+        $command_line = curl_getinfo($curl, CURLINFO_EFFECTIVE_URL) . ' ' . print_r($post_fields, 1);
+error_log($command_line);
         $response = curl_exec($curl);
+        error_log(print_r($response, 1));
         curl_close($curl);
 
         return $response;

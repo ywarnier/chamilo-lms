@@ -76,7 +76,7 @@ class AiHelperPlugin extends Plugin
         $ai = new OpenAi($apiKey, $organizationId);
 
         $temperature = 0.2;
-        $model = 'gpt-3.5-turbo-instruct';
+        $model = 'deepseek-chat';
         $maxTokens = 2000;
         $frequencyPenalty = 0;
         $presencePenalty = 0.6;
@@ -84,7 +84,10 @@ class AiHelperPlugin extends Plugin
 
         $complete = $ai->completion([
             'model' => $model,
-            'prompt' => $prompt,
+            'messages' => [
+                ['content' => 'You are a helpful assistant', 'role' => 'system'],
+                ['content' => $prompt, 'role' => 'user'],
+            ],
             'temperature' => $temperature,
             'max_tokens' => $maxTokens,
             'frequency_penalty' => $frequencyPenalty,
@@ -95,7 +98,7 @@ class AiHelperPlugin extends Plugin
         $result = json_decode($complete, true);
         $resultText = '';
         if (!empty($result['choices'])) {
-            $resultText = $result['choices'][0]['text'];
+            $resultText = $result['choices'][0]['message']['content'];
             // saves information of user results.
             $values = [
                 'user_id' => api_get_user_id(),
