@@ -324,10 +324,7 @@ class OpenAi
         $curl = curl_init();
 
         curl_setopt_array($curl, $curl_info);
-        $command_line = curl_getinfo($curl, CURLINFO_EFFECTIVE_URL) . ' ' . print_r($post_fields, 1);
-error_log($command_line);
         $response = curl_exec($curl);
-        error_log(print_r($response, 1));
         curl_close($curl);
 
         return $response;
