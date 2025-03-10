@@ -931,31 +931,56 @@ class Statistics
         $content .= $form->returnForm();
         $content .= '</div>';
 
-        $table = new SortableTable(
-            'activities',
-            ['Statistics', 'getNumberOfActivities'],
-            ['Statistics', 'getActivitiesData'],
-            7,
-            50,
-            'DESC'
-        );
-        $parameters = [];
+        if (!empty($_GET['keyword'])) {
+            $table = new SortableTable(
+                'activities',
+                ['Statistics', 'getNumberOfActivities'],
+                ['Statistics', 'getActivitiesData'],
+                7,
+                50,
+                'DESC'
+            );
+            $parameters = [];
 
-        $parameters['report'] = 'activities';
-        if (isset($_GET['keyword'])) {
+            $parameters['report'] = 'activities';
             $parameters['keyword'] = Security::remove_XSS($_GET['keyword']);
+
+            $table->set_additional_parameters($parameters);
+            $table->set_header(0, get_lang('Event type'));
+            $table->set_header(1, get_lang('Data type'));
+            $table->set_header(2, get_lang('Value'));
+            $table->set_header(3, get_lang('Course'));
+            $table->set_header(4, get_lang('Session'));
+            $table->set_header(5, get_lang('Username'));
+            $table->set_header(6, get_lang('IP address'));
+            $table->set_header(7, get_lang('Date'));
+            $content .= $table->return_table();
         }
 
-        $table->set_additional_parameters($parameters);
-        $table->set_header(0, get_lang('Event type'));
-        $table->set_header(1, get_lang('Data type'));
-        $table->set_header(2, get_lang('Value'));
-        $table->set_header(3, get_lang('Course'));
-        $table->set_header(4, get_lang('Session'));
-        $table->set_header(5, get_lang('Username'));
-        $table->set_header(6, get_lang('IP address'));
-        $table->set_header(7, get_lang('Date'));
-        $content .= $table->return_table();
+        $content .= '<div class="alert alert-info">'.get_lang('ImportantActivities').' : '.'<br>';
+        $prefix = 'LOG_';
+        $userDefinedConstants = get_defined_constants(true)['user'];
+        $filteredConstants = array_filter($userDefinedConstants, function ($constantName) use ($prefix) {
+            return strpos($constantName, $prefix) === 0;
+        }, ARRAY_FILTER_USE_KEY);
+        $constantNames = array_keys($filteredConstants);
+        $link = api_get_self().'?report=activities&activities_direction=DESC&activities_column=7&keyword=';
+        foreach ($constantNames as $constantName) {
+            if ($constantName != 'LOG_WS') {
+                if (substr($constantName, -3) == '_ID') {
+                    continue;
+                }
+                $content .= '- <a href="'.$link.constant($constantName).'">'.constant($constantName).'</a><br>'.PHP_EOL;
+            } else {
+                $constantValue = constant($constantName);
+                $reflection = new ReflectionClass('Rest');
+                $constants = $reflection->getConstants();
+                foreach ($constants as $name => $value) {
+                    $content .= '- <a href="'.$link.$constantValue.$value.'">'.$constantValue.$value.'</a><br>'.PHP_EOL;
+                }
+            }
+        }
+        $content .= '</div>';
 
         return $content;
     }
