@@ -1632,8 +1632,8 @@ switch ($report) {
         $content .= $form->returnForm();
 
         $content .= '<canvas class="col-md-12" id="canvas" height="200px" style="margin-bottom: 20px"></canvas>';
-        $content .= Statistics::printRecentLoginStats(false, $sessionDuration);
-        $content .= Statistics::printRecentLoginStats(true, $sessionDuration);
+        $content .= Statistics::printRecentLoginStats(false, $sessionDuration?:0);
+        $content .= Statistics::printRecentLoginStats(true, $sessionDuration?:0);
         break;
     case 'logins':
         $content .= Statistics::printLoginStats($_GET['type']);
