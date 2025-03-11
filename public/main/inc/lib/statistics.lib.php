@@ -626,7 +626,7 @@ class Statistics
                 $stat_date = ('day' === $type) ? $periodCollection[$obj->stat_date] : $obj->stat_date;
                 $result_last_x[$stat_date] = $obj->number_of_logins;
             }
-            $content .= self::printStats(get_lang('LastLogins').' ('.$period.')', $result_last_x, true);
+            $content .= self::printStats(get_lang('Last logins').' ('.$period.')', $result_last_x, true);
             flush(); //flush web request at this point to see something already while the full data set is loading
             $content .= '<br />';
         }
@@ -646,7 +646,7 @@ class Statistics
             }
             $result[$stat_date] = $obj->number_of_logins;
         }
-        $content .= self::printStats(get_lang('AllLogins').' ('.$period.')', $result, true);
+        $content .= self::printStats(get_lang('All logins').' ('.$period.')', $result, true);
 
         return $content;
     }
@@ -737,7 +737,7 @@ class Statistics
         }
 
         if ($distinct) {
-            $content = self::printStats(get_lang('DistinctUsersLogins'), $totalLogin, false);
+            $content = self::printStats(get_lang('Distinct users logins'), $totalLogin, false);
         } else {
             $content = self::printStats(get_lang('Logins'), $totalLogin, false);
         }
@@ -1546,7 +1546,7 @@ class Statistics
 
             if (!empty($result)) {
                 $actions = Display::url(
-                    Display::getMdiIcon(ActionIcon::EXPORT_SPREADSHEET, 'ch-tool-icon', null, ICON_SIZE_MEDIUM, get_lang('ExportToXls')),
+                    Display::getMdiIcon(ActionIcon::EXPORT_SPREADSHEET, 'ch-tool-icon', null, ICON_SIZE_MEDIUM, get_lang('Export to XLS')),
                     api_get_self().'?'.http_build_query(
                         [
                             'report' => 'logins_by_date',
@@ -1609,7 +1609,6 @@ class Statistics
             $table = new HTML_Table(['class' => 'table table-responsive', 'id' => 'table_'.$bossId]);
             $headers = [
                 get_lang('Name'),
-                //get_lang('LastName'),
             ];
             $row = 0;
             $column = 0;
