@@ -275,7 +275,7 @@ class Statistics
      * @return int Number of activities counted
      * @throws Exception
      */
-    public static function getNumberOfActivities(?int $courseId = 0, ?int $sessionId = 0): int
+    public static function getNumberOfActivities(mixed $courseId = 0, ?int $sessionId = 0): int
     {
         // Database table definitions
         $track_e_default = Database::get_main_table(TABLE_STATISTIC_TRACK_E_DEFAULT);
@@ -283,6 +283,10 @@ class Statistics
         $access_url_rel_user_table = Database::get_main_table(TABLE_MAIN_ACCESS_URL_REL_USER);
         /** @var AccessUrlHelper $accessUrlHelper */
         $accessUrlHelper = Container::$container->get(AccessUrlHelper::class);
+        if (is_array($courseId)) {
+            // Usually when no param is given, we get an empty array from SortableTable
+            $courseId = 0;
+        }
 
         if ($accessUrlHelper->isMultiple()) {
             $accessUrl = $accessUrlHelper->getCurrent();
@@ -337,7 +341,7 @@ class Statistics
         int $numberOfItems,
         int $column,
         string $direction,
-        ?int $courseId = 0,
+        mixed $courseId = 0,
         ?int $sessionId = 0
     ): array
     {
@@ -345,6 +349,10 @@ class Statistics
         $table_user = Database::get_main_table(TABLE_MAIN_USER);
         $access_url_rel_user_table = Database::get_main_table(TABLE_MAIN_ACCESS_URL_REL_USER);
         $direction = strtoupper($direction);
+        if (is_array($courseId)) {
+            // Usually when no param is given, we get an empty array from SortableTable
+            $courseId = 0;
+        }
 
         if (!in_array($direction, ['ASC', 'DESC'])) {
             $direction = 'DESC';
