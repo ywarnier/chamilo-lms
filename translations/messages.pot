@@ -27827,3 +27827,12 @@ msgstr ""
 
 msgid "User registrations by creator"
 msgstr ""
+
+msgid "Tools access"
+msgstr ""
+
+msgid "Courses count"
+msgstr ""
+
+msgid "Courses count by language"
+msgstr ""

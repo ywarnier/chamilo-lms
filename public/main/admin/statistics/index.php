@@ -42,7 +42,7 @@ in_array(
             break;
         case 'tools':
             $url = api_get_path(WEB_CODE_PATH).'inc/ajax/statistics.ajax.php?a=tools_usage';
-            $reportName = 'PlatformToolAccess';
+            $reportName = 'Tools access';
             $reportType = 'pie';
             $reportOptions = '
                 legend: {
@@ -58,7 +58,7 @@ in_array(
             break;
         case 'courses':
             $url = api_get_path(WEB_CODE_PATH).'inc/ajax/statistics.ajax.php?a=courses';
-            $reportName = 'CountCours';
+            $reportName = 'Courses count';
             $reportType = 'pie';
             $reportOptions = '
                 legend: {
@@ -74,7 +74,7 @@ in_array(
             break;
         case 'coursebylanguage':
             $url = api_get_path(WEB_CODE_PATH).'inc/ajax/statistics.ajax.php?a=courses_by_language';
-            $reportName = 'CountCourseByLanguage';
+            $reportName = 'Courses count by language';
             $reportType = 'pie';
             $reportOptions = '
                 legend: {
