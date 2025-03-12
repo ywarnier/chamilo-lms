@@ -6104,13 +6104,13 @@ SQL;
         $res = Database::query($sql);
         if (Database::num_rows($res) > 0) {
             while ($row = Database::fetch_array($res)) {
-                if (!isset($courses[$row['cid']])) {
-                    $courses[$row['cid']] = [
+                if (!isset($courses[$row['code']])) {
+                    $courses[$row['code']] = [
                         'subscribed' => 0,
                         'finished' => 0,
                     ];
                 }
-                $courses[$row['cid']]['subscribed']++;
+                $courses[$row['code']]['subscribed']++;
                 $entityManager = Database::getManager();
                 $repository = $entityManager->getRepository(GradebookCategory::class);
                 //todo check when have more than 1 gradebook
@@ -6122,7 +6122,7 @@ SQL;
                     $certificateRepo = $entityManager->getRepository(\Chamilo\CoreBundle\Entity\GradebookCertificate::class);
                     $finished = $certificateRepo->getCertificateByUserId($gradebook->getId(), $row['user_id']);
                     if (!empty($finished)) {
-                        $courses[$row['cid']]['finished']++;
+                        $courses[$row['code']]['finished']++;
                     }
                 }
             }
@@ -6166,7 +6166,7 @@ SQL;
                 /** @var GradebookCategory $gradebook */
                 $gradebook = $repository->findOneBy(
                     [
-                        'course' => $row['code'],
+                        'course' => $row['cid'],
                         'sessionId' => $row['session_id'],
                     ]
                 );
