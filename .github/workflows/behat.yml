@@ -25,6 +25,7 @@ jobs:
                 sudo a2enmod rewrite actions
                 sudo cp -f .github/gh-apache /etc/apache2/sites-available/000-default.conf
                 sudo chmod 777 -R $HOME
+                ls /etc/apache2/sites-available
                 cat /etc/apache2/sites-available/000-default.conf
                 sudo service apache2 restart
                 sudo systemctl restart apache2
@@ -140,8 +141,8 @@ jobs:
             - name: Check chamilo
               run: |
                  sudo chmod 777 -R ${{ github.workspace }}
-                 curl http://localhost/index.php
-                 tail /var/log/apache2/error.log
+                 ls /etc/apache2/sites-enabled
+                 curl http://localhost/main/install/index.php
 
             - name: Install chamilo
               run: |
