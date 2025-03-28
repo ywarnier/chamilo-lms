@@ -140,10 +140,8 @@ jobs:
             - name: Check chamilo
               run: |
                  sudo chmod 777 -R ${{ github.workspace }}
-                 ls /home/runner/work/chamilo-lms/
-                 ls /home/runner/work/chamilo-lms/chamilo-lms/
-                 ls /home/runner/work/chamilo-lms/chamilo-lms/public
                  curl http://localhost/index.php
+                 tail /var/log/apache2/error.log
 
             - name: Install chamilo
               run: |
