@@ -140,7 +140,8 @@ jobs:
             - name: Check chamilo
               run: |
                  sudo chmod 777 -R ${{ github.workspace }}
-                 cat /etc/apache2/sites-enabled/000-default.conf
+                 sudo cp -f ${{ github.workspace }}/.github/gh-apache /etc/apache2/sites-available/000-default.conf
+                 sudo systemctl reload apache2
                  curl http://localhost/main/install/index.php
 
             - name: Install chamilo
