@@ -23,10 +23,12 @@ jobs:
                 sudo apt-get update
                 sudo apt-get install nodejs npm apache2 php${{ matrix.php-versions }} php${{ matrix.php-versions }}-common php${{ matrix.php-versions }}-cli libapache2-mod-php${{ matrix.php-versions }}
                 sudo a2enmod rewrite actions
-                sudo cp -f .github/gh-apache /etc/apache2/sites-available/000-default.conf
+                sudo a2dissite 000-default
+                sudo cp -f ${{ github.workspace }}/.github/gh-apache /etc/apache2/sites-available/000-default.conf
+                sudo a2ensite 000-default
                 sudo chmod 777 -R $HOME
                 cat /etc/apache2/sites-available/000-default.conf
-                sudo service apache2 restart
+                #sudo service apache2 restart
                 sudo systemctl restart apache2
 
             - name: Setup PHP, with composer and extensions
@@ -129,7 +131,7 @@ jobs:
             - name: Start mysql service
               run: |
                 sudo /etc/init.d/mysql start
-                sudo systemctl restart apache2
+                #sudo systemctl restart apache2
 
             - name: Check PHP settings
               run: |
@@ -140,8 +142,6 @@ jobs:
             - name: Check chamilo
               run: |
                  sudo chmod 777 -R ${{ github.workspace }}
-                 sudo cp -f ${{ github.workspace }}/.github/gh-apache /etc/apache2/sites-available/000-default.conf
-                 sudo systemctl reload apache2
                  curl http://localhost/main/install/index.php
 
             - name: Install chamilo
