@@ -23,11 +23,11 @@ jobs:
                 sudo apt-get update
                 sudo apt-get install nodejs npm apache2 php${{ matrix.php-versions }} php${{ matrix.php-versions }}-common php${{ matrix.php-versions }}-cli libapache2-mod-php${{ matrix.php-versions }}
                 sudo a2enmod rewrite actions
-                sudo a2dissite 000-default
+                sudo a2dissite 000-default.conf
                 sudo cp -f ${{ github.workspace }}/.github/gh-apache /etc/apache2/sites-available/000-default.conf
-                sudo a2ensite 000-default
+                sudo a2ensite 000-default.conf
                 sudo chmod 777 -R $HOME
-                cat /etc/apache2/sites-available/000-default.conf
+                cat /etc/apache2/sites-enabled/000-default.conf
                 #sudo service apache2 restart
                 sudo systemctl restart apache2
 
