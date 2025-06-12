@@ -460,7 +460,7 @@ class FeatureContext extends MinkContext
     public function waitVeryLongForThePageToBeLoaded()
     {
         //$this->getSession()->wait(10000, "document.readyState === 'complete'");
-        $this->getSession()->wait(7000);
+        $this->getSession()->wait(10000);
     }
 
     /**
