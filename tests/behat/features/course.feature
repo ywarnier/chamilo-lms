@@ -2,12 +2,13 @@
 @common @tools
 Feature: Course tools basic testing
   In order to use a course
-  As a teacher
-  I need to be able to enter a course and each of its tools
+  As a course creator
+  I need to be able to create a course, enter the course and each of its tools
 
   Scenario: See the courses list without access error
     Given I am a platform administrator
-    Given I am on "/main/admin/course_list.php"
+    And wait for the page to be loaded
+    And I am on "/main/admin/course_list.php"
     Then I should not see "not allowed"
 
   Scenario: See the course creation link on the admin page
