@@ -8,10 +8,13 @@ Feature: Course tools basic testing
   Background:
     Given I am a platform administrator
 
+  Scenario: See the courses list without access error
+    Given I am on "/main/admin/course_list.php"
+    Then I should not see "not authorized"
+
   Scenario: See the courses list
     Given I am on "/main/admin/course_list.php"
-    Then I should see "Course list"
-    And I should not see "not authorized"
+    Then I should see "Standard List"
 
   Scenario: See the course creation link on the admin page
     Given I am on "/main/admin/index.php"
