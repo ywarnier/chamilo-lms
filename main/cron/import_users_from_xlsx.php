@@ -26,7 +26,7 @@ if (php_sapi_name() !== 'cli') {
 }
 
 // Configuration
-$domain = 'stib.be'; // Manually configured domain for generated emails
+$domain = 'example.com'; // Manually configured domain for generated emails
 
 // Include Chamilo bootstrap and necessary classes
 require_once __DIR__.'/../../main/inc/global.inc.php';
