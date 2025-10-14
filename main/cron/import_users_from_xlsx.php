@@ -258,7 +258,7 @@ function generateMailFromFirstAndLastNames(string $firstname, string $lastname, 
 $usedLogins = ['logins' => [], 'counts' => []];
 $generatedEmailCounts = [];
 $emptyRowCount = 0;
-foreach ($xlsxRows as $rowIndex => $xlsxRow) {
+foreach ($xlsxRows as $rowIndex => &$xlsxRow) {
     // Check for empty row
     $isEmpty = true;
     foreach ($xlsxRow as $cell) {
@@ -310,8 +310,8 @@ foreach ($xlsxRows as $rowIndex => $xlsxRow) {
             $generatedEmailCounts[$baseEmail][] = $rowData;
 
             $rowData['Mail'] = $generatedEmail;
-            $xlsxUserData['email'] = $generatedEmail;
-            $xlsxUserData['emailSource'] = 'Generated during import';
+            $xlsxRow['email'] = $xlsxUserData['email'] = $generatedEmail;
+            $xlsxRow['emailSource'] = 'Generated during import';
             $emailMissing[] = $rowData;
             $xlsxEmailCounts[$generatedEmail][] = $rowData;
         }
