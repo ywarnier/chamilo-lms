@@ -304,7 +304,7 @@ foreach ($xlsxRows as $rowIndex => $xlsxRow) {
             $generatedEmail = $baseEmail = generateMailFromFirstAndLastNames($xlsxUserData['firstname'], $xlsxUserData['lastname'], $domain);
             $suffix = isset($generatedEmailCounts[$baseEmail]) ? count($generatedEmailCounts[$baseEmail]) + 1 : 1;
             if ($suffix > 1) {
-                $generatedEmail = preg_replace('/^([^@]+)@(.+)/', "$1".$suffix."@$2", $baseEmail);
+                $generatedEmail = preg_replace('/^([^@]+)@(.+)/', '${1}'.$suffix.'@${2}', $baseEmail);
             }
             $generatedEmail = strtoupper($generatedEmail);
             $generatedEmailCounts[$baseEmail][] = $rowData;
@@ -452,6 +452,7 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
     // Decision logic
     if (empty($dbUser) && empty($xlsxUserData['active'])) {
         echo '['.$rowTime->format('H:i:s').'] Row '.($rowIndex + 2).": Skipped - 'Actif' is empty and no matching user in database (username: $dbUsername)\n";
+        $emailSource = 'Not relevant (user ignored)';
         $userActions[] = [
             'Action Type' => 'skipped',
             'User ID' => '',
@@ -460,7 +461,7 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
             'E-mail' => $xlsxUserData['email'],
             'E-mail source' => $emailSource,
             'External User ID' => $xlsxMatricule,
-            'Updated Fields' => 'Actif is empty and no matching user in database',
+            'Updated Fields' => 'Actif field is empty and no matching user in database',
         ];
         continue;
     }
