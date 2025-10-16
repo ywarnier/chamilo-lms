@@ -128,6 +128,7 @@ $xlsxEmailCounts = [];
 $xlsxNameCounts = [];
 $duplicateEmails = [];
 $duplicateNames = [];
+$generatedEmails = []; // username -> generatedEmail
 $xlsxUsernames = []; // Store usernames from XLSX
 
 // Output columns for missing field and duplicate files
@@ -144,8 +145,8 @@ function normalizeName($name)
 // Remove accents from strings
 function removeAccents($str) {
     $str = str_replace(
-        ['à','á','â','ã','ä','ç','è','é','ê','ë','ì','í','î','ï','ñ','ò','ó','ô','õ','ö','ù','ú','û','ü','ý','ÿ','À','Á','Â','Ã','Ä','Å','Ç','È','É','Ê','Ë','Ì','Í','Î','Ï','Ñ','Ò','Ó','Ô','Õ','Ö','Ù','Ú','Û','Ü','Ý'],
-        ['a','a','a','a','a','c','e','e','e','e','i','i','i','i','n','o','o','o','o','o','u','u','u','u','y','y','A','A','A','A','A','A','C','E','E','E','E','I','I','I','I','N','O','O','O','O','O','U','U','U','U','Y'],
+        ['à','á','â','ã','ä','ç','è','é','ê','ë','ì','í','î','ï','ñ','ò','ó','ô','õ','ö','ù','ú','û','ü','ý','ÿ','À','Á','Â','Ã','Ä','Å','Ç','È','É','Ê','Ë','Ì','Í','Î','Ï','Ñ','Ò','Ó','Ô','Õ','Ö','Ù','Ú','Û','Ü','Ý',"'"],
+        ['a','a','a','a','a','c','e','e','e','e','i','i','i','i','n','o','o','o','o','o','u','u','u','u','y','y','A','A','A','A','A','A','C','E','E','E','E','I','I','I','I','N','O','O','O','O','O','U','U','U','U','Y',''],
         $str
     );
     return $str;
@@ -258,7 +259,7 @@ function generateMailFromFirstAndLastNames(string $firstname, string $lastname, 
 $usedLogins = ['logins' => [], 'counts' => []];
 $generatedEmailCounts = [];
 $emptyRowCount = 0;
-foreach ($xlsxRows as $rowIndex => &$xlsxRow) {
+foreach ($xlsxRows as $rowIndex => $xlsxRow) {
     // Check for empty row
     $isEmpty = true;
     foreach ($xlsxRow as $cell) {
@@ -310,10 +311,11 @@ foreach ($xlsxRows as $rowIndex => &$xlsxRow) {
             $generatedEmailCounts[$baseEmail][] = $rowData;
 
             $rowData['Mail'] = $generatedEmail;
-            $xlsxRow['email'] = $xlsxUserData['email'] = $generatedEmail;
-            $xlsxRow['emailSource'] = 'Generated during import';
+            $xlsxUserData['email'] = $generatedEmail;
+            $xlsxUserData['emailSource'] = 'Generated during import';
             $emailMissing[] = $rowData;
             $xlsxEmailCounts[$generatedEmail][] = $rowData;
+            $generatedEmails[$xlsxUserData['official_code']] = [$generatedEmail];
         }
 
         if (empty($xlsxUserData['lastname'])) {
@@ -386,9 +388,6 @@ $userSkippedWhileActive = []; // Initialize array to store special cases
 foreach ($xlsxRows as $rowIndex => $rowData) {
     // Check for empty row
     $emailSource = 'SAP';
-    if (!empty($rowData['emailSource'])) {
-        $emailSource = $rowData['emailSource'];
-    }
     $isEmpty = true;
     foreach ($rowData as $cell) {
         if (!empty(trim($cell))) {
@@ -416,6 +415,14 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
     $isActive = !empty($xlsxUserData['active']);
     $xlsxUserData['username'] = generateProposedLogin($xlsxUserData['lastname'], $xlsxUserData['firstname'], $isActive, $usedLogins);
     $dbUsername = Database::escape_string($xlsxUserData['username']);
+
+    if (!empty($xlsxUserData['official_code']) && !empty($generatedEmails[$xlsxUserData['official_code']]))
+    {
+        $emailSource = 'E-mail generated during import';
+        $xlsxUserData['email'] = $generatedEmails[$xlsxUserData['official_code']];
+    } elseif (!empty($rowData['emailSource'])) {
+        $emailSource = $rowData['emailSource'];
+    }
 
     // Get current time for row logging
     $rowTime = new DateTime();
@@ -461,7 +468,7 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
             'E-mail' => $xlsxUserData['email'],
             'E-mail source' => $emailSource,
             'External User ID' => $xlsxMatricule,
-            'Updated Fields' => 'Actif field is empty and no matching user in database',
+            'Updated Fields' => '"Active" field is empty and no matching user in database',
         ];
         continue;
     }
@@ -475,6 +482,8 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
             if ($field == 'email') {
                 $emailSource = 'EMPTY IN SAP';
             }
+        } elseif ($field == 'email' && empty($rowData['Mail'])) {
+            $missingFields[] .= $field;
         }
     }
 
@@ -603,7 +612,7 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
                 'Username' => $dbUsername,
                 'Official Code' => $xlsxUserData['official_code'],
                 'E-mail' => $xlsxUserData['email'],
-                'E-mail source' => 'SAP same as Chamilo',
+                'E-mail source' => $emailSource,
                 'External User ID' => $xlsxMatricule,
                 'Updated Fields' => 'No changes needed',
             ];
