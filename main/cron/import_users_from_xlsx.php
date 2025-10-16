@@ -482,8 +482,6 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
             if ($field == 'email') {
                 $emailSource = 'EMPTY IN SAP';
             }
-        } elseif ($field == 'email' && empty($rowData['Mail'])) {
-            $missingFields[] .= $field;
         }
     }
 
