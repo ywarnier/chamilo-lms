@@ -446,7 +446,7 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
     }
 
     // Check for existing user by username
-    $sql = "SELECT id, firstname, lastname, email, official_code, phone, active
+    $sql = "SELECT id, firstname, lastname, email, official_code, phone, active, status, picture_uri, expiration_date, language, creator_id
             FROM user
             WHERE username = '$dbUsername'";
     $stmt = $database->query($sql);
@@ -538,12 +538,16 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
                         null, // password not updated
                         null, // auth_source
                         $xlsxUserData['email'],
-                        null, // status
+                        $dbUser['status'], // status
                         $xlsxUserData['official_code'],
                         $xlsxUserData['phone'],
-                        null, // picture_uri
-                        null, // expiration_date
-                        $xlsxActive
+                        $dbUser['picture_uri'], // picture_uri
+                        $dbUser['expiration_date'], // expiration_date
+                        $xlsxActive,
+                        $dbUser['creator_id'],
+                        0,
+                        null,
+                        $dbUser['language']
                     );
                     if ($user) {
                         // Update extra field 'external_user_id'
