@@ -636,7 +636,7 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
                     null,
                     null,
                     $xlsxActive,
-                    null,
+                    0,
                     null  // creator_id
                 );
                 if ($userId) {
