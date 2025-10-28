@@ -1758,6 +1758,7 @@ class BuyCoursesPlugin extends Plugin
             'payment_type' => $paymentType,
             'price_without_discount' => $priceWithoutDiscount,
             'discount_amount' => $couponDiscount,
+            'invoice' => 0,
         ];
 
         return Database::insert(self::TABLE_SALE, $values);
