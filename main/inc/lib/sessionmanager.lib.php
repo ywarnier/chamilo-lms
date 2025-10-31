@@ -2,6 +2,7 @@
 
 /* For licensing terms, see /license.txt */
 
+use Chamilo\CoreBundle\Component\HTMLPurifier\Filter\RemoveOnAttributes;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ExtraField;
 use Chamilo\CoreBundle\Entity\Repository\SequenceResourceRepository;
@@ -2051,6 +2052,22 @@ class SessionManager
             $course_list[] = $row['c_id'];
         }
 
+        // Build list of users already subscribed to the session as students.
+        // This allows us to avoid re-enrolling them into all courses again
+        // when they are already part of the session (preserves manual
+        // unsubscriptions at the course level).
+        $usersAlreadyInSession = [];
+        if (!empty($userList)) {
+            $userIdsStr = "'".implode("','", $userList)."'";
+            $sql = "SELECT user_id FROM $tbl_session_rel_user
+                    WHERE session_id = $sessionId AND relation_type = 0
+                    AND user_id IN ($userIdsStr)";
+            $resUsersInSession = Database::query($sql);
+            while ($row = Database::fetch_array($resUsersInSession)) {
+                $usersAlreadyInSession[] = (int) $row['user_id'];
+            }
+        }
+
         if ($session->getSendSubscriptionNotification() &&
             is_array($userList)
         ) {
@@ -2153,8 +2170,8 @@ class SessionManager
 
                 $usersToSubscribeInCourse = array_filter(
                     $userList,
-                    function ($userId) use ($existingUsers) {
-                        return !in_array($userId, $existingUsers);
+                    function ($userId) use ($existingUsers, $usersAlreadyInSession) {
+                        return !in_array($userId, $existingUsers) && !in_array($userId, $usersAlreadyInSession);
                     }
                 );
 
@@ -3066,7 +3083,10 @@ class SessionManager
     ) {
         $tbl_session_category = Database::get_main_table(TABLE_MAIN_SESSION_CATEGORY);
 
-        $name = Database::escape_string(trim($sname));
+        $name = trim($sname);
+        $name = html_filter($name);
+        $name = RemoveOnAttributes::filter($name);
+        $name = Database::escape_string($name);
 
         $year_start = intval($syear_start);
         $month_start = intval($smonth_start);
@@ -3150,7 +3170,9 @@ class SessionManager
         $sday_end
     ) {
         $tbl_session_category = Database::get_main_table(TABLE_MAIN_SESSION_CATEGORY);
-        $name = html_filter(trim($sname));
+        $name = trim($sname);
+        $name = html_filter($name);
+        $name = RemoveOnAttributes::filter($name);
         $year_start = intval($syear_start);
         $month_start = intval($smonth_start);
         $day_start = intval($sday_start);
@@ -3463,7 +3485,12 @@ class SessionManager
                 ORDER BY name ASC';
         $result = Database::query($sql);
         if (Database::num_rows($result) > 0) {
-            $data = Database::store_result($result, 'ASSOC');
+            $data = [];
+
+            while ($category = Database::fetch_assoc($result)) {
+                $category['name'] = Security::remove_XSS($category['name']);
+                $data[] = $category;
+            }
 
             return $data;
         }
@@ -4625,7 +4652,9 @@ class SessionManager
             $s['duration'],
             $s['description'],
             $s['show_description'],
-            $extraFieldsValuesToCopy
+            $extraFieldsValuesToCopy,
+            0,
+            $s['send_subscription_notification']
         );
 
         if (!is_numeric($sid) || empty($sid)) {
@@ -10034,9 +10063,9 @@ class SessionManager
         }
 
         // 2. SESSION DATA
-        $row2 = [$courseInfo['title']];
-        $row2[] = $sessionInfo['access_start_date'];
-        $row2[] = $sessionInfo['access_end_date'];
+        $row2 = $config['course_field_value'] ? [$config['course_field_value']] : [$courseInfo['title']];
+        $row2[] = (new DateTime($sessionInfo['access_start_date']))->format('d/m/Y');
+        $row2[] = (new DateTime($sessionInfo['access_end_date']))->format('d/m/Y');
 
         $extraValuesObj = new ExtraFieldValue('session');
         $sessionExtra = $extraValuesObj->getAllValuesByItem($sessionId);
@@ -10045,6 +10074,9 @@ class SessionManager
         foreach ($sessionFields as $entry) {
             if (!empty($entry['field'])) {
                 $value = $sessionExtraMap[$entry['field']] ?? '';
+                if (!empty($entry['numberOfLetter']) && $entry['numberOfLetter'] > 0) {
+                    $value = mb_substr($value, 0, $entry['numberOfLetter']);
+                }
             } else {
                 $value = '';
             }
@@ -10091,7 +10123,7 @@ class SessionManager
                 $userInfo = api_get_user_info($userId);
 
                 $row = [];
-                $row[] = $rowIndex === 0 ? get_lang('Learners') : '';
+                $row[] = get_lang('Learners');
 
                 $userExtraObj = new ExtraFieldValue('user');
                 $userExtra = $userExtraObj->getAllValuesByItem($userId);

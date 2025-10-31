@@ -711,6 +711,9 @@ $_configuration['send_all_emails_to'] = [
         'admin2@example.com',
     ]
 ];*/
+// Add a new type of scheduled announcement, based on user course session progress
+// Requires a "use_base_progress" extra field in: main/admin/extra_fields.php?type=scheduled_announcement&action=add
+//$_configuration['scheduled_announcements_use_base_progress'] = false;
 // Allow ticket projects to be access by specific chamilo roles
 /*$_configuration['ticket_project_user_roles'] = [
     'permissions' => [
@@ -725,6 +728,11 @@ $_configuration['send_all_emails_to'] = [
 // ALTER TABLE ticket_ticket ADD lp_id INT DEFAULT NULL AFTER exercise_id;
 // ALTER TABLE ticket_ticket ADD CONSTRAINT FK_EB5B2A0D6285C231 FOREIGN KEY (lp_id) REFERENCES c_lp (iid);
 // $_configuration['ticket_lp_quiz_info_add'] = false;
+
+// Allow session admins to manage tickets settings and report like global admins
+//$_configuration['allow_session_admin_manage_tickets_and_export_ticket_report'] = false;
+// Show ticket created by the user insted of ticket assigned to the user on MyTicket page.
+//$_configuration['ticket_show_ticket_created_by_user_on_my_ticket_page'] = false;
 
 // Exercises configuration settings
 // Send only quiz answer notifications to course coaches and not general coach
@@ -1153,6 +1161,9 @@ ALTER TABLE portfolio ADD CONSTRAINT FK_A9ED1062FC4CB679 FOREIGN KEY (duplicated
 CREATE INDEX IDX_A9ED1062FC4CB679 ON portfolio (duplicated_from);
 */
 //$_configuration['portfolio_show_base_course_post_in_sessions'] = false;
+//
+// Show all post in portfolio by alphabetical order instead of reverse date order.
+//$_configuration['portfolio_order_post_by_alphabetical_order'] = false;
 
 // DEPRECATED: gradebook_enable_best_score is deprecated. Use gradebook_display_extra_stats instead.
 // Enable best score column in gradebook. Previously called disable_gradebook_stats
@@ -1374,6 +1385,9 @@ VALUES (2, 13, 'session_courses_read_only_mode', 'Lock Course In Session', 1, 1,
         'send_mail_default_option' => '1',
     ]
 ];*/
+
+// This option hide the old relationships in the session import view for drh users
+//$_configuration['session_import_drh_hide_old_relationships_check_box'] = false;
 
 /*
  * Fields visibility in the profile user page
@@ -1935,6 +1949,16 @@ $_configuration['auth_password_links'] = [
 // Default items per page in main/mySpace/users.php
 // $_configuration['my_space_users_items_per_page'] = 10;
 
+//Add an expected theorical time spent in a course to show in main/mySpace/myStudents.php and main/session/resume_session.php
+//Create an extra field for courses with identifier "theoretical_time"
+//$_configuration['display_theoretical_time'] = false;
+
+// Show subscription column in session course list on main/mySpace/myStudents.php
+//$_configuration['display_session_subscription_column'] = false;
+
+// Enable improved tracking section in main/mySpace/myStudents.php
+//$_configuration['improve_tracking_in_mystudent_php'] = false;
+
 // Add teachers column in course list.
 // $_configuration['add_teachers_in_course_list'] = false;
 
@@ -2051,9 +2075,6 @@ $_configuration['auth_password_links'] = [
     'hide_score_weight' => true,
     'hide_feedback_textarea' => true,
 ];*/
-
-// Use exercise score in platform settings in gradebook total rows/columns.
-//$_configuration['gradebook_use_exercise_score_settings_in_total'] = false;
 
 // Use exercise score in platform settings in gradebook total rows/columns.
 //$_configuration['gradebook_use_exercise_score_settings_in_total'] = false;
@@ -2274,6 +2295,13 @@ VALUES (21, 13, 'send_notification_at_a_specific_date', 'Send notification at a 
 
 // Enable image upload as file when doing a copy in the content or a drag and drop.
 //$_configuration['enable_uploadimage_editor'] = false;
+
+// Automatic image resize before upload image with CKEditor
+/*$_configuration['wysiwyg_image_auto_resize_max'] = [
+    'w'=> 800, //max width
+    'h' => 600, //max height
+    'mb' => 2 //max size (in MB)
+];*/
 
 // Ckeditor settings.
 //$_configuration['editor_settings'] = ['config' => ['youtube_responsive' => true, 'image_responsive' => true]];
@@ -2520,6 +2548,9 @@ INSERT INTO extra_field (extra_field_type, field_type, variable, display_text, d
 // 3. Uncomment $parentId var in src/Chamilo/CoreBundle/Entity/Career.php
 // $_configuration['career_hierarchy_enable'] = false;
 
+// Use courses categories as top horizontal bar menu (#navbar) entries and submenus, to point to the catalogue with a filter on these categories
+//$_configuration['display_menu_use_course_categories'] = false;
+
 // KEEP THIS AT THE END
 // -------- Custom DB changes
 // Set to true to hide settings completely in a sub-URL if the setting is disabled in the
@@ -2647,10 +2678,12 @@ INSERT INTO extra_field (extra_field_type, field_type, variable, display_text, d
     'session_end_date_header' => 'Fecha Fin',
     'user_firstname_header' => 'Nombre',
     'user_lastname_header' => 'Apellido 1',
+    'course_field_value' => 'CURSO',
     'session_fields' => [
         '0' => [
             'header' => '1st session header',
-            'field' => 'modalidad'
+            'field' => 'modalidad',
+            'numberOfLetter' => 3
         ],
         '1' => [
             'header' => 'Sesion header without value',
@@ -2677,3 +2710,5 @@ INSERT INTO extra_field (extra_field_type, field_type, variable, display_text, d
         ],
     ],
 ]; */
+// Extra field variable name to validate as unique per URL during user registration (e.g. 'dni')
+//$_configuration['extra_field_to_validate_on_user_registration'] = ''; // set in admin or directly (e.g. 'dni')

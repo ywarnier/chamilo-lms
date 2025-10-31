@@ -788,8 +788,8 @@ class ExtraField extends Model
             if (!empty($showOnlyTheseFields)) {
                 $setData = [];
                 foreach ($showOnlyTheseFields as $variable) {
-                    $extraName = 'extra_'.$variable;
-                    if (in_array($extraName, array_keys($extraData))) {
+                    $extraName = 'extra_' . $variable;
+                    if (array_key_exists($extraName, $extraData)) {
                         $setData[$extraName] = $extraData[$extraName];
                     }
                 }
@@ -824,17 +824,87 @@ class ExtraField extends Model
             $help
         );
 
-        if (!empty($requiredFields)) {
-            /** @var HTML_QuickForm_input $element */
-            foreach ($form->getElements() as $element) {
-                $name = str_replace('extra_', '', $element->getName());
-                if (in_array($name, $requiredFields)) {
-                    $form->setRequired($element);
-                }
+        // Ensure $requiredFields is an array
+        $requiredFields = is_array($requiredFields) ? $requiredFields : [];
+        // Fetch the configured “unique extra field” var
+        $uniqueField = api_get_configuration_value('extra_field_to_validate_on_user_registration');
+        // Determine if we’re editing an existing user (item_id present) or creating a new one
+        $currentUserId = $form->getElementValue('item_id') ?: null;
+
+        // Always mark the unique extra field as required on user forms
+        if (
+            $this->type === 'user'
+            && !empty($uniqueField)
+            && !in_array($uniqueField, $requiredFields, true)
+        ) {
+            $requiredFields[] = $uniqueField;
+        }
+
+        /** @var HTML_QuickForm_element $element */
+        foreach ($form->getElements() as $element) {
+            // Strip the “extra_” prefix to get the field name
+            $name = str_replace('extra_', '', $element->getName());
+
+            // 1) Mark as required if configured
+            if (in_array($name, $requiredFields, true)) {
+                $form->setRequired($element);
+            }
+
+            // 2) If this is the special extra field on a user form, add uniqueness validation
+            if ($this->type === 'user' && !empty($uniqueField) && $name === $uniqueField) {
+                $this->applyExtraFieldUniquenessRule(
+                    $form,
+                    $name,
+                    $uniqueField,
+                    $currentUserId
+                );
             }
         }
 
         return $extra;
+    }
+
+    /**
+     * Add the “unique per URL” validation rule for the extra‑field.
+     *
+     * @param  &$form
+     * @param string    $fieldVar       The extra‐field variable name (without “extra_”)
+     * @param string    $uniqueField    Configured unique field var
+     * @param int|null  $currentUserId  Null for creation, or the existing user ID when editing
+     */
+    protected function applyExtraFieldUniquenessRule(&$form, string $fieldVar, string $uniqueField, ?int $currentUserId): void
+    {
+        // Only apply if this is the configured unique field
+        if ($fieldVar !== $uniqueField) {
+            return;
+        }
+
+        $elementName = 'extra_' . $fieldVar;
+        $message     = sprintf(
+            get_lang('A user with the same %s already exists in this portal'),
+            $fieldVar
+        );
+
+        if ($currentUserId === null) {
+            // Creation: forbid any existing match
+            $form->addRule(
+                $elementName,
+                $message,
+                'callback',
+                ['UserManager', 'isExtraFieldValueUniquePerUrl']
+            );
+        } else {
+            // Editing: allow if the only match is this same user
+            $form->addRule(
+                $elementName,
+                $message,
+                'callback',
+                function(string $value) use ($currentUserId) {
+                    $existingId = UserManager::isExtraFieldValueUniquePerUrl($value, true);
+                    return $existingId === null || $existingId == $currentUserId;
+                }
+            );
+        }
     }
 
     /**

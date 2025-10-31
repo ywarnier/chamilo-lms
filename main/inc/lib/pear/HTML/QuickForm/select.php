@@ -419,8 +419,11 @@ class HTML_QuickForm_select extends HTML_QuickForm_element
                 if (!empty($strValues) && in_array($option['attr']['value'], $strValues, true)) {
                     $option['attr']['selected'] = 'selected';
                 }
-                $strHtml .= $tabs . "<option" . $this->_getAttrString($option['attr']) . '>' .
-                    $option['text'] . "</option>";
+                $strHtml .= $tabs.Display::tag(
+                    'option',
+                    Security::remove_XSS($option['text']),
+                    $option['attr']
+                );
             }
             foreach ($this->_optgroups as $optgroup) {
                 $strHtml .= $tabs . '<optgroup label="' . $optgroup['label'] . '">';
@@ -432,7 +435,11 @@ class HTML_QuickForm_select extends HTML_QuickForm_element
                         $option['selected'] = 'selected';
                     }
 
-                    $strHtml .= $tabs . " <option" . $this->_getAttrString($option) . '>' .$text . "</option>";
+                    $strHtml .= $tabs.Display::tag(
+                        'option',
+                        Security::remove_XSS($text),
+                        $option
+                    );
                 }
                 $strHtml .= "</optgroup>";
             }
@@ -581,6 +588,21 @@ class HTML_QuickForm_select extends HTML_QuickForm_element
                 </div>';
                 break;
             case FormValidator::LAYOUT_HORIZONTAL:
+                if ($this instanceof HTML_QuickForm_advmultiselect) {
+                    return '
+                    <div class="form-group {error_class}">
+                        <label {label-for} class="col-sm-'.$size[0].' control-label {extra_label_class}">
+                            <!-- BEGIN required --><span class="form_required">*</span><!-- END required -->
+                            {label}
+                        </label>
+                        <div class="col-sm-'.$size[1].'">
+                            {icon}
+                            {element}
+                            <!-- BEGIN error --><span class="help-inline help-block">{error}</span><!-- END error -->
+                        </div>
+                    </div>';
+                }
+
                 return '
                 <div class="form-group {error_class}">
                     <label {label-for}  class="col-sm-'.$size[0].' control-label  {extra_label_class}" >

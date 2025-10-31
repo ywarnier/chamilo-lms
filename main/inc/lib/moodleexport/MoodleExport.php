@@ -69,8 +69,15 @@ class MoodleExport
         $courseExport->exportCourse($tempDir);
 
         // Export files-related data and actual files
+        $pageExport = new PageExport($this->course);
+        $pageFiles = [];
+        $pageData = $pageExport->getData(0, 1);
+        if (!empty($pageData['files'])) {
+            $pageFiles = $pageData['files'];
+        }
         $fileExport = new FileExport($this->course);
         $filesData = $fileExport->getFilesData();
+        $filesData['files'] = array_merge($filesData['files'], $pageFiles);
         $fileExport->exportFiles($filesData, $tempDir);
 
         // Export sections of the course
@@ -98,8 +105,12 @@ class MoodleExport
         $xmlContent .= '<question_categories>'.PHP_EOL;
 
         foreach ($questionsData as $quiz) {
-            $categoryId = $quiz['questions'][0]['questioncategoryid'] ?? '0';
-
+            $categoryId = $quiz['questions'][0]['questioncategoryid'] ?? '1';
+            $hash = md5($categoryId . $quiz['name']);
+            if (isset($categoryHashes[$hash])) {
+              continue;
+            }
+            $categoryHashes[$hash] = true;
             $xmlContent .= '  <question_category id="'.$categoryId.'">'.PHP_EOL;
             $xmlContent .= '    <name>Default for '.htmlspecialchars($quiz['name'] ?? 'Unknown').'</name>'.PHP_EOL;
             $xmlContent .= '    <contextid>'.($quiz['contextid'] ?? '0').'</contextid>'.PHP_EOL;
@@ -440,6 +451,7 @@ class MoodleExport
             'title' => 'Documents',
         ];
         $activities[] = $documentsFolder;
+        $htmlPageIds = [];
         foreach ($this->course->resources as $resourceType => $resources) {
             foreach ($resources as $resource) {
                 $exportClass = null;
@@ -479,13 +491,14 @@ class MoodleExport
                 // Handle documents (HTML pages)
                 elseif ($resourceType === RESOURCE_DOCUMENT && $resource->source_id > 0) {
                     $document = \DocumentManager::get_document_data_by_id($resource->source_id, $this->course->code);
-                    if ('html' === pathinfo($document['path'], PATHINFO_EXTENSION)) {
+                    if ('html' === pathinfo($document['path'], PATHINFO_EXTENSION) && substr_count($resource->path, '/') === 1) {
                         $exportClass = PageExport::class;
                         $moduleName = 'page';
                         $id = $resource->source_id;
                         $title = $document['title'];
+                        $htmlPageIds[] = $id;
                     }
-                    if ('file' === $resource->file_type) {
+                    if ('file' === $resource->file_type && !in_array($resource->source_id, $htmlPageIds)) {
                         $resourceExport = new ResourceExport($this->course);
                         if ($resourceExport->getSectionIdForActivity($resource->source_id, $resourceType) > 0) {
                             $isRoot = substr_count($resource->path, '/') === 1;

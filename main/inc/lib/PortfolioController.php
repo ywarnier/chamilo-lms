@@ -16,6 +16,7 @@ use Chamilo\CourseBundle\Entity\CItemProperty;
 use Chamilo\UserBundle\Entity\User;
 use Doctrine\ORM\Query\Expr\Join;
 use Mpdf\MpdfException;
+use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
@@ -1087,6 +1088,7 @@ class PortfolioController
 
         $template = new Template(null, false, false, false, false, false, false);
         $template->assign('user', $this->owner);
+        $template->assign('listByUser', $listByUser);
         $template->assign('course', $this->course);
         $template->assign('session', $this->session);
         $template->assign('portfolio', $portfolio);
@@ -1133,7 +1135,7 @@ class PortfolioController
      * @throws \Doctrine\ORM\OptimisticLockException
      * @throws \Doctrine\ORM\TransactionRequiredException
      */
-    public function view(Portfolio $item)
+    public function view(Portfolio $item, $urlUser)
     {
         global $interbreadcrumb;
 
@@ -1415,10 +1417,15 @@ class PortfolioController
             $this->baseUrl.http_build_query(['action' => 'edit_item', 'id' => $item->getId()])
         );
 
+        $urlUserString = "";
+        if (!empty($urlUser)) {
+            $urlUserString = "user=".$urlUser;
+        }
+
         $actions = [];
         $actions[] = Display::url(
             Display::return_icon('back.png', get_lang('Back'), [], ICON_SIZE_MEDIUM),
-            $this->baseUrl
+            $this->baseUrl.$urlUserString
         );
 
         if ($this->itemBelongToOwner($item)) {
@@ -2344,11 +2351,23 @@ class PortfolioController
             $itemDirectory = $item->getCreationDate()->format('Y-m-d-H-i-s');
 
             $itemFilename = sprintf('%s/items/%s/item.html', $tempPortfolioDirectory, $itemDirectory);
-            $itemFileContent = $this->fixImagesSourcesToHtml($itemsHtml[$i]);
+            $imagePaths = [];
+            $itemFileContent = $this->fixMediaSourcesToHtml($itemsHtml[$i], $imagePaths);
 
             $fs->dumpFile($itemFilename, $itemFileContent);
 
             $filenames[] = $itemFilename;
+
+            foreach ($imagePaths as $imagePath) {
+                $inlineFile = dirname($itemFilename).'/'.basename($imagePath);
+
+                try {
+                    $filenames[] = $inlineFile;
+                    $fs->copy($imagePath, $inlineFile);
+                } catch (FileNotFoundException $notFoundException) {
+                    continue;
+                }
+            }
 
             $attachments = $attachmentsRepo->findFromItem($item);
 
@@ -2361,12 +2380,15 @@ class PortfolioController
                     $attachment->getFilename()
                 );
 
-                $fs->copy(
-                    $attachmentsDirectory.$attachment->getPath(),
-                    $attachmentFilename
-                );
-
-                $filenames[] = $attachmentFilename;
+                try {
+                    $fs->copy(
+                        $attachmentsDirectory.$attachment->getPath(),
+                        $attachmentFilename
+                    );
+                    $filenames[] = $attachmentFilename;
+                } catch (FileNotFoundException $notFoundException) {
+                    continue;
+                }
             }
 
             $tblItemsData[] = [
@@ -2391,12 +2413,24 @@ class PortfolioController
         foreach ($comments as $i => $comment) {
             $commentDirectory = $comment->getDate()->format('Y-m-d-H-i-s');
 
-            $commentFileContent = $this->fixImagesSourcesToHtml($commentsHtml[$i]);
+            $imagePaths = [];
+            $commentFileContent = $this->fixMediaSourcesToHtml($commentsHtml[$i], $imagePaths);
             $commentFilename = sprintf('%s/comments/%s/comment.html', $tempPortfolioDirectory, $commentDirectory);
 
             $fs->dumpFile($commentFilename, $commentFileContent);
 
             $filenames[] = $commentFilename;
+
+            foreach ($imagePaths as $imagePath) {
+                $inlineFile = dirname($commentFilename).'/'.basename($imagePath);
+
+                try {
+                    $filenames[] = $inlineFile;
+                    $fs->copy($imagePath, $inlineFile);
+                } catch (FileNotFoundException $notFoundException) {
+                    continue;
+                }
+            }
 
             $attachments = $attachmentsRepo->findFromComment($comment);
 
@@ -2409,12 +2443,15 @@ class PortfolioController
                     $attachment->getFilename()
                 );
 
-                $fs->copy(
-                    $attachmentsDirectory.$attachment->getPath(),
-                    $attachmentFilename
-                );
-
-                $filenames[] = $attachmentFilename;
+                try {
+                    $fs->copy(
+                        $attachmentsDirectory.$attachment->getPath(),
+                        $attachmentFilename
+                    );
+                    $filenames[] = $attachmentFilename;
+                } catch (FileNotFoundException $notFoundException) {
+                    continue;
+                }
             }
 
             $tblCommentsData[] = [
@@ -3676,19 +3713,21 @@ class PortfolioController
 
         $frmStudentList->addHtml("<p>$link</p>");
 
-        if ($listAlphabeticalOrder) {
-            $link = Display::url(
-                get_lang('BackToDateOrder'),
-                $this->baseUrl
-            );
-        } else {
-            $link = Display::url(
-                get_lang('SeeAlphabeticalOrder'),
-                $this->baseUrl.http_build_query(['list_alphabetical' => true])
-            );
-        }
+        if (true !== api_get_configuration_value('portfolio_order_post_by_alphabetical_order')) {
+            if ($listAlphabeticalOrder) {
+                $link = Display::url(
+                    get_lang('BackToDateOrder'),
+                    $this->baseUrl
+                );
+            } else {
+                $link = Display::url(
+                    get_lang('SeeAlphabeticalOrder'),
+                    $this->baseUrl.http_build_query(['list_alphabetical' => true])
+                );
+            }
 
-        $frmStudentList->addHtml("<p>$link</p>");
+            $frmStudentList->addHtml("<p>$link</p>");
+        }
 
         return $frmStudentList;
     }
@@ -3918,7 +3957,7 @@ class PortfolioController
             }
 
             $queryBuilder->setParameter('current_user', $currentUserId);
-            if ($alphabeticalOrder) {
+            if ($alphabeticalOrder || true === api_get_configuration_value('portfolio_order_post_by_alphabetical_order')) {
                 $queryBuilder->orderBy('pi.title', 'ASC');
             } else {
                 $queryBuilder->orderBy('pi.creationDate', 'DESC');
@@ -4269,44 +4308,73 @@ class PortfolioController
         return $commentsHtml;
     }
 
-    private function fixImagesSourcesToHtml(string $htmlContent): string
+    /**
+     * @param string $htmlContent
+     * @param array $imagePaths Relative paths found in $htmlContent
+     *
+     * @return string
+     */
+    private function fixMediaSourcesToHtml(string $htmlContent, array &$imagePaths): string
     {
         $doc = new DOMDocument();
         @$doc->loadHTML($htmlContent);
 
-        $elements = $doc->getElementsByTagName('img');
+        $tagsWithSrc = ['img', 'video', 'audio', 'source'];
+        /** @var array<int, \DOMElement> $elements */
+        $elements = [];
 
-        if (empty($elements->length)) {
+        foreach ($tagsWithSrc as $tag) {
+            foreach ($doc->getElementsByTagName($tag) as $element) {
+                if ($element->hasAttribute('src')) {
+                    $elements[] = $element;
+                }
+            }
+        }
+
+        if (empty($elements)) {
             return $htmlContent;
         }
 
-        $webCoursePath = api_get_path(WEB_COURSE_PATH);
-        $webUploadPath = api_get_path(WEB_UPLOAD_PATH);
+        /** @var array<int, \DOMElement> $anchorElements */
+        $anchorElements = $doc->getElementsByTagName('a');
 
-        /** @var \DOMElement $element */
+        $webPath = api_get_path(WEB_PATH);
+        $sysPath = rtrim(api_get_path(SYS_PATH), '/');
+
+        $paths = [
+            '/app/upload/' => $sysPath,
+            '/courses/' => $sysPath.'/app'
+        ];
+
         foreach ($elements as $element) {
             $src = trim($element->getAttribute('src'));
 
-            if (strpos($src, 'http') === 0) {
+            if (!str_starts_with($src, '/')
+                && !str_starts_with($src, $webPath)
+            ) {
                 continue;
             }
 
-            if (strpos($src, '/app/upload/') === 0) {
-                $element->setAttribute(
-                    'src',
-                    preg_replace('/\/app/upload\//', $webUploadPath, $src, 1)
-                );
+            // to search anchors linking to files
+            if ($anchorElements->length > 0) {
+                foreach ($anchorElements as $anchorElement) {
+                    if (!$anchorElement->hasAttribute('href')) {
+                        continue;
+                    }
 
-                continue;
+                    if ($src === $anchorElement->getAttribute('href')) {
+                        $anchorElement->setAttribute('href', basename($src));
+                    }
+                }
             }
 
-            if (strpos($src, '/courses/') === 0) {
-                $element->setAttribute(
-                    'src',
-                    preg_replace('/\/courses\//', $webCoursePath, $src, 1)
-                );
+            $src = str_replace($webPath, '/', $src);
 
-                continue;
+            foreach ($paths as $prefix => $basePath) {
+                if (str_starts_with($src, $prefix)) {
+                    $imagePaths[] = $basePath.urldecode($src);
+                    $element->setAttribute('src', basename($src));
+                }
             }
         }
 

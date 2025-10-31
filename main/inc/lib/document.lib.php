@@ -3,6 +3,7 @@
 /* For licensing terms, see /license.txt */
 
 use ChamiloSession as Session;
+use enshrined\svgSanitize\Sanitizer;
 
 /**
  *  Class DocumentManager
@@ -360,7 +361,7 @@ class DocumentManager
         $fixLinksHttpToHttps = false,
         $extraHeaders = []
     ) {
-        session_write_close(); //we do not need write access to session anymore
+        session_write_close(); //we do not need to write access to session anymore
         if (!is_file($full_file_name)) {
             return false;
         }
@@ -383,7 +384,7 @@ class DocumentManager
             // Force the browser to save the file instead of opening it
             if (isset($sendFileHeaders) &&
                 !empty($sendFileHeaders)) {
-                header("X-Sendfile: $filename");
+                header("X-Sendfile: $full_file_name");
             }
 
             header('Content-type: application/octet-stream');
@@ -486,6 +487,13 @@ class DocumentManager
                 }
                 echo $content;
             } else {
+                if ('image/svg+xml' === $contentType) {
+                    $svgContent = file_get_contents($full_file_name);
+
+                    echo (new Sanitizer())->sanitize($svgContent);
+                    return true;
+                }
+
                 if (isset($enableMathJaxScript) && $enableMathJaxScript === true) {
                     $content = file_get_contents($full_file_name);
                     $content = self::includeMathJaxScript($content);
@@ -7652,5 +7660,40 @@ class DocumentManager
         }
 
         return $content;
+    }
+
+    public static function autoResizeImageIfNeeded(int $size, string $tmpName): int
+    {
+        $resizeMax = api_get_configuration_value('wysiwyg_image_auto_resize_max');
+
+        if (is_array($resizeMax)) {
+            if ($size > ($resizeMax['mb'] * 1024 * 1024)) {
+                throw new Exception(get_lang('UplFileTooBig'));
+            }
+
+            $temp = new Image($tmpName);
+            $pictureInfo = $temp->get_image_info();
+
+            $thumbSize = 0;
+
+            if ($pictureInfo['width'] > $pictureInfo['height']) {
+                if ($pictureInfo['width'] > $resizeMax['w']) {
+                    $thumbSize = $resizeMax['w'];
+                }
+            } else {
+                if ($pictureInfo['height'] > $resizeMax['h']) {
+                    $thumbSize = $resizeMax['h'];
+                }
+            }
+
+            if ($thumbSize) {
+                $temp->resize($thumbSize);
+                $temp->send_image($tmpName);
+
+                return filesize($tmpName);
+            }
+        }
+
+        return $size;
     }
 }

@@ -23,6 +23,20 @@ api_protect_webservices();
 
 $httpRequest = HttpRequest::createFromGlobals();
 
+$jsonContent = 'application/json' === $httpRequest->headers->get('Content-Type')
+    ? json_decode($httpRequest->getContent(), true)
+    : null;
+
+if ($jsonContent) {
+    foreach ($jsonContent as $key => $value) {
+        $value = Security::remove_XSS($value);
+
+        $httpRequest->query->set($key, $value);
+        $httpRequest->request->set($key, $value);
+        $httpRequest->overrideGlobals();
+    }
+}
+
 $hash = $httpRequest->query->get('hash');
 
 if ($hash) {
@@ -1070,6 +1084,113 @@ try {
             $data = $restApi->getAuditItems($defaultEventType, $cId, $sessionId, $afterDate, $beforeDate, $userId, $offset, $limit);
             Event::addEvent(LOG_WS.$action, 'success', 'true');
             $restResponse->setData($data);
+            break;
+        /**
+         * Subscribe a course to a session using extra field values for identification.
+         *
+         * Validates parameters from $_POST and calls the Rest method.
+         *
+         * Required POST parameters:
+         * - api_key: API key for authentication.
+         * - username: Username for authentication.
+         * - session_field_name: Name of the extra field for sessions.
+         * - session_field_value: Value of the session extra field.
+         * - course_field_name: Name of the extra field for courses.
+         * - course_field_value: Value of the course extra field.
+         *
+         * @return void Outputs JSON response via existing echo.
+         */
+        case Rest::SUBSCRIBE_COURSE_TO_SESSION_FROM_EXTRA_FIELD:
+            $required_params = ['api_key', 'username', 'session_field_name', 'session_field_value', 'course_field_name', 'course_field_value'];
+            $missing = [];
+            foreach ($required_params as $param) {
+                if (empty($_POST[$param])) {
+                    $missing[] = $param;
+                }
+            }
+            if (!empty($missing)) {
+                $result = [
+                    'error' => true,
+                    'message' => 'Missing required parameters: ' . implode(', ', $missing)
+                ];
+                break;
+            }
+            $params = $_POST;
+            $result = $restApi->subscribeCourseToSessionFromExtraField($params);
+            if ($result['error']) {
+                $restResponse->setErrorMessage($result['message']);
+            } else {
+                $restResponse->setData($result['data']);
+            }
+            break;
+        /**
+         * Subscribe a user to a session using extra field values for identification.
+         *
+         * Validates parameters from $_POST and calls the Rest method, handling response via $restResponse.
+         *
+         * Required POST parameters:
+         * - api_key: API key for authentication.
+         * - username: Username for authentication.
+         * - session_field_name: Name of the extra field for sessions.
+         * - session_field_value: Value of the session extra field.
+         * - user_field_name: Name of the extra field for users.
+         * - user_field_value: Value of the user extra field.
+         *
+         * @return void Sets response via existing $restResponse object.
+         */
+        case Rest::SUBSCRIBE_USER_TO_SESSION_FROM_EXTRA_FIELD:
+            $required_params = ['api_key', 'username', 'session_field_name', 'session_field_value', 'user_field_name', 'user_field_value'];
+            $missing = [];
+            foreach ($required_params as $param) {
+                if (empty($_POST[$param])) {
+                    $missing[] = $param;
+                }
+            }
+            if (!empty($missing)) {
+                $restResponse->setErrorMessage('Missing required parameters: ' . implode(', ', $missing));
+                break;
+            }
+            $params = $_POST;
+            $result = $restApi->subscribeUserToSessionFromExtraField($params);
+            if ($result['error']) {
+                $restResponse->setErrorMessage($result['message']);
+            } else {
+                $restResponse->setData($result['data']);
+            }
+            break;
+        /**
+         * Update a session using extra field value for identification.
+         *
+         * Validates parameters from $_POST and calls the Rest method, handling response via $restResponse.
+         *
+         * Required POST parameters:
+         * - api_key: API key for authentication.
+         * - username: Username for authentication.
+         * - field_name: Name of the extra field for sessions.
+         * - field_value: Value of the session extra field.
+         * - Optional: name, coach_username, access_start_date, access_end_date, etc.
+         *
+         * @return void Sets response via existing $restResponse object.
+         */
+        case Rest::UPDATE_SESSION_FROM_EXTRA_FIELD:
+            $required_params = ['api_key', 'username', 'field_name', 'field_value'];
+            $missing = [];
+            foreach ($required_params as $param) {
+                if (empty($_POST[$param])) {
+                    $missing[] = $param;
+                }
+            }
+            if (!empty($missing)) {
+                $restResponse->setErrorMessage('Missing required parameters: ' . implode(', ', $missing));
+                break;
+            }
+            $params = $_POST;
+            $result = $restApi->updateSessionFromExtraField($params);
+            if ($result['error']) {
+                $restResponse->setErrorMessage($result['message']);
+            } else {
+                $restResponse->setData($result['data']);
+            }
             break;
         default:
             throw new Exception(get_lang('InvalidAction'));

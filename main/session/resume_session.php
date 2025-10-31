@@ -56,22 +56,34 @@ $sessionCategory = $session->getCategory();
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 $url_id = api_get_current_access_url_id();
 
+// Course DRAG & DROP via AJAX
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] == 'reorder_courses') {
+    api_protect_admin_script(true);
+    $order = $_POST['order'] ?? [];
+    if (!empty($order) && is_array($order)) {
+        foreach ($order as $position => $courseId) {
+            $qb = $em->createQueryBuilder();
+            $qb->update('ChamiloCoreBundle:SessionRelCourse', 'src')
+                ->set('src.position', ':position')
+                ->where('src.session = :session')
+                ->andWhere('src.course = :course')
+                ->setParameter('position', $position + 1)
+                ->setParameter('session', $sessionId)
+                ->setParameter('course', $courseId)
+                ->getQuery()
+                ->execute();
+        }
+        echo json_encode(['success' => true]);
+        exit;
+    }
+}
+
 switch ($action) {
     case 'export_certified_course_users':
         $courseCode = $_GET['course_code'] ?? null;
         if (!empty($courseCode)) {
             SessionManager::exportCourseSessionReport($sessionId, $courseCode);
         }
-        break;
-    case 'move_up':
-        SessionManager::moveUp($sessionId, $_GET['course_id']);
-        header('Location: resume_session.php?id_session='.$sessionId);
-        exit;
-        break;
-    case 'move_down':
-        SessionManager::moveDown($sessionId, $_GET['course_id']);
-        header('Location: resume_session.php?id_session='.$sessionId);
-        exit;
         break;
     case 'add_user_to_url':
         $user_id = $_REQUEST['user_id'];
@@ -164,15 +176,28 @@ $url = Display::url(
     Display::return_icon('edit.png', get_lang('Edit'), [], ICON_SIZE_SMALL),
     "add_courses_to_session.php?page=resume_session.php&id_session=$sessionId"
 );
+
+$theoreticalTimeEnabled = api_get_configuration_value('display_theoretical_time');
 $courseListToShow = Display::page_subheader(get_lang('CourseList').$url);
 
 $courseListToShow .= '<table id="session-list-course" class="table table-hover table-striped data_table">
-<tr>
-  <th width="35%">'.get_lang('CourseTitle').'</th>
-  <th width="30%">'.get_lang('CourseCoach').'</th>
-  <th width="10%">'.get_lang('UsersNumber').'</th>
-  <th width="25%">'.get_lang('Actions').'</th>
-</tr>';
+<thead>+<tr>';
+if ($theoreticalTimeEnabled) {
+    $courseListToShow .=   '<th></th>
+      <th width="30%">'.get_lang('CourseTitle').'</th>
+      <th width="20%">'.get_lang('TheoreticalTime').'</th>
+      <th width="15%">'.get_lang('CourseCoach').'</th>
+      <th width="10%">'.get_lang('UsersNumber').'</th>
+      <th width="25%">'.get_lang('Actions').'</th>
+    </tr></thead><tbody id="sortable-course-list">';
+} else {
+    $courseListToShow .=   '<th></th>
+      <th width="35%">'.get_lang('CourseTitle').'</th>
+      <th width="30%">'.get_lang('CourseCoach').'</th>
+      <th width="10%">'.get_lang('UsersNumber').'</th>
+      <th width="25%">'.get_lang('Actions').'</th>
+    </tr></thead><tbody id="sortable-course-list">';
+}
 
 if ($session->getNbrCourses() === 0) {
     $courseListToShow .= '<tr>
@@ -213,6 +238,8 @@ if ($session->getNbrCourses() === 0) {
         $courseList = $newCourseList;
     }
 
+    $totalTheoreticalTime = 0;
+
     /** @var Course $course */
     foreach ($courseList as $course) {
         // Select the number of users
@@ -229,41 +256,34 @@ if ($session->getNbrCourses() === 0) {
             }
         }
 
-        $orderButtons = '';
-        if (SessionManager::orderCourseIsEnabled()) {
-            $orderButtons = Display::url(
-                Display::return_icon(
-                    !$count ? 'up_na.png' : 'up.png',
-                    get_lang('MoveUp')
-                ),
-                !$count
-                    ? '#'
-                    : api_get_self().'?id_session='.$sessionId.'&course_id='.$course->getId().'&action=move_up'
-            );
-
-            $orderButtons .= Display::url(
-                Display::return_icon(
-                    $count + 1 == count($courses) ? 'down_na.png' : 'down.png',
-                    get_lang('MoveDown')
-                ),
-                $count + 1 == count($courses)
-                    ? '#'
-                    : api_get_self().'?id_session='.$sessionId.'&course_id='.$course->getId().'&action=move_down'
-            );
-        }
-
         $courseUrl = api_get_course_url($course->getCode(), $sessionId);
         $courseBaseUrl = api_get_course_url($course->getCode());
+ 
+        if ($theoreticalTimeEnabled) {
+            $theoreticalTime = CourseManager::get_course_extra_field_value('theoretical_time',$course->getCode());
+            if (is_numeric($theoreticalTime) && (float)$theoreticalTime != 0) {
+                $totalTheoreticalTime += (float)$theoreticalTime;
+                $hours = floor($theoreticalTime / 60);
+                $minutes = $theoreticalTime % 60;
+                $theoreticalTimeDisplay = sprintf('%02d:%02d', $hours, $minutes);
+            } else {
+                $theoreticalTimeDisplay = '00:00';
+            }
+        }
 
         // hide_course_breadcrumb the parameter has been added to hide the name
         // of the course, that appeared in the default $interbreadcrumb
-        $courseItem .= '<tr>
-			<td class="title">'
+        $courseItem .= '<tr data-course-id="'.$course->getId().'">';
+        $courseItem .= '<td class="handle" style="cursor:move;text-align:center;width:30px;"><span style="font-size:1.4em;">&#9776;</span></td>';
+        $courseItem .= '<td class="title">'
             .Display::url(
                 $course->getTitle().' ('.$course->getVisualCode().')',
                 $courseUrl
             )
             .'</td>';
+        if ($theoreticalTimeEnabled) {
+            $courseItem .= '<td>'.$theoreticalTimeDisplay.'</td>';
+        }
         $courseItem .= '<td>'.($namesOfCoaches ? implode('<br>', $namesOfCoaches) : get_lang('None')).'</td>';
         $courseItem .= '<td>'.$numberOfUsers.'</td>';
         $courseItem .= '<td>';
@@ -281,7 +301,6 @@ if ($session->getNbrCourses() === 0) {
                 $codePath.'admin/skill_rel_course.php?session_id='.$sessionId.'&course_id='.$course->getId()
             );
         }
-        $courseItem .= $orderButtons;
 
         $courseItem .= Display::url(
             Display::return_icon('new_user.png', get_lang('AddUsers')),
@@ -336,9 +355,20 @@ if ($session->getNbrCourses() === 0) {
         $courseItem .= '</td></tr>';
         $count++;
     }
+    if ($theoreticalTimeEnabled) {
+        $totalHours = floor($totalTheoreticalTime / 60);
+        $totalMinutes = $totalTheoreticalTime % 60;
+        $totalTheoreticalTimeDisplay = sprintf('%02d:%02d', $totalHours, $totalMinutes);
+        $courseItem .= '<tr style="font-weight:bold"><td></td><td>Total</td>';
+        $courseItem .= '<td>'.$totalTheoreticalTimeDisplay.'</td>';
+        $courseItem .= '<td>-</td>';
+        $courseItem .= '<td>-</td>';
+        $courseItem .= '<td>-</td></tr>';
+    }
+
     $courseListToShow .= $courseItem;
 }
-$courseListToShow .= '</table><br />';
+$courseListToShow .= '</tbody></table><br />';
 
 $url = '&nbsp;'.Display::url(
     Display::return_icon('user_subscribe_session.png', get_lang('Add')),
@@ -434,14 +464,14 @@ if (!empty($userList)) {
         }
 
         $editUrl = null;
-        /*
+
         if (isset($sessionInfo['duration']) && !empty($sessionInfo['duration'])) {
             $editUrl = $codePath . 'session/session_user_edit.php?session_id=' . $sessionId . '&user_id=' . $userId;
             $editUrl = Display::url(
                 Display::return_icon('agenda.png', get_lang('SessionDurationEdit')),
                 $editUrl
             );
-        }*/
+        }
 
         $table->setCellContents($row, 0, $userLink);
         $link = $reportingLink.$courseUserLink.$removeLink.$addUserToUrlLink.$editUrl;
@@ -495,6 +525,37 @@ $programmedAnnouncement = new ScheduledAnnouncement();
 $programmedAnnouncement = $programmedAnnouncement->allowed();
 
 $htmlHeadXtra[] = api_get_jquery_libraries_js(['jquery-ui', 'jquery-upload']);
+$htmlHeadXtra[] = <<<EOD
+<script>
+$(function() {
+    $("#sortable-course-list").sortable({
+        handle: '.handle',
+        placeholder: "ui-sortable-placeholder",
+        update: function(event, ui) {
+            var order = [];
+            $("#sortable-course-list tr").each(function() {
+                order.push($(this).data('course-id'));
+            });
+            $.ajax({
+                url: window.location.pathname + window.location.search,
+                method: "POST",
+                data: {
+                    action: "reorder_courses",
+                    order: order
+                },
+                success: function(response) {
+                    // Optionnel : affiche un message
+                }
+            });
+        }
+    }).disableSelection();
+});
+</script>
+<style>
+    .ui-sortable-placeholder { background: #fffae6; height:40px; }
+    .handle { cursor:move; }
+</style>
+EOD;
 
 $tpl = new Template($tool_name);
 $tpl->assign('session_header', $sessionHeader);

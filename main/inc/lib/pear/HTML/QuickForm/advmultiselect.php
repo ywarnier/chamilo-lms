@@ -925,7 +925,7 @@ class HTML_QuickForm_advmultiselect extends HTML_QuickForm_select
                             left: \''.$search.'\',
                             right: \''.$search.'\'
                         },
-                        fireSearch: function(value) {                        
+                        fireSearch: function(value) {
                             return value.length > 2;
                         }
                     });

@@ -190,7 +190,9 @@ switch ($action) {
             break;
         }
 
-        $controller->view($item);
+        $urlUser = $httpRequest->query->getInt('user');
+
+        $controller->view($item, $urlUser);
 
         return;
     case 'copy':

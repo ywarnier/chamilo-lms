@@ -44,7 +44,6 @@ jobs:
                 sudo cp -f tests/travis/gh-apache /etc/apache2/sites-available/000-default.conf
                 sudo chmod 777 -R $HOME
                 cat /etc/apache2/sites-available/000-default.conf
-                sudo service apache2 restart
                 sudo systemctl restart apache2
 
             - name: Setup PHP, with composer and extensions
@@ -69,7 +68,7 @@ jobs:
                   restore-keys: v1-${{ runner.os }}-composer-
 
             - name: Install dependencies with composer
-              run: composer install --prefer-dist --no-progress
+              run: php7.4 /usr/local/bin/composer install --prefer-dist --no-progress
 
 #            - name: Install assets
 #              run: php bin/console assets:install
@@ -100,20 +99,21 @@ jobs:
 #              with:
 #                  cmd: run encore dev
 
+            - name: Install chrome
+              uses: browser-actions/setup-chrome@v1
+              id: setup-chrome
+
             - name: Start chrome
               run: |
-                sudo apt-get install google-chrome-stable
-                google-chrome --version
-                google-chrome-stable --version
-                google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-                whereis google-chrome-stable
+                ${{ steps.setup-chrome.outputs.chrome-path }} --version
+                ${{ steps.setup-chrome.outputs.chrome-path }} --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
             # https://github.com/marketplace/actions/setup-chromedriver
             - name: Start chromedriver
               uses: nanasess/setup-chromedriver@master
               with:
                   # Optional: do not specify to match Chrome's version
-                  chromedriver-version: '88.0.4324.96'
+                  chromedriver-version: '100.0.4896.60'
 
             - run: |
                 export DISPLAY=:99
@@ -170,30 +170,25 @@ jobs:
                   php -v
                   php -m
 
-#            - name: Check chamilo
-#              run: |
-#                 sudo chmod 777 -R ${{ github.workspace }}
-#                 curl http://localhost/main/install/index.php
-
             - name: Install chash
               run: |
                   git clone https://github.com/chamilo/chash
                   cd chash
                   git checkout 0.2.x
-                  composer install
-                  php -d phar.readonly=0 createPhar.php
+                  php7.4 /usr/local/bin/composer install
+                  php7.4 -d phar.readonly=0 createPhar.php
                   chmod +x chash.phar
                   sudo mv chash.phar /usr/local/bin/chash
 
             - name: Install chamilo
               run: |
-                  php ${{ github.workspace }}/chash/chash.php chash:chamilo_install 1.11.x ${{ github.workspace }} --no-interaction --sitename="Chamilo" --site_url="http://localhost/" --institution="Chamilo" --institution_url="https://chamilo.org" --encrypt_method="sha1" --firstname="John" --lastname="Doe" --language="english" --driver="pdo_mysql" --host="localhost" --port="3306" --dbname="chamilo" --dbuser="root" --dbpassword="root" --permissions_for_new_directories="0777" --permissions_for_new_files="0666" --linux-user="www-data" --linux-group="www-data" --username="admin" --password="admin" --email="admin@example.com" --phone="555-5555"
+                  php7.4 ${{ github.workspace }}/chash/chash.php chash:chamilo_install 1.11.x ${{ github.workspace }} --no-interaction --sitename="Chamilo" --site_url="http://localhost/" --institution="Chamilo" --institution_url="https://chamilo.org" --encrypt_method="sha1" --firstname="John" --lastname="Doe" --language="english" --driver="pdo_mysql" --host="localhost" --port="3306" --dbname="chamilo" --dbuser="root" --dbpassword="root" --permissions_for_new_directories="0777" --permissions_for_new_files="0666" --linux-user="www-data" --linux-group="www-data" --username="admin" --password="admin" --email="admin@example.com" --phone="555-5555"
+                  php7.4 ${{ github.workspace }}/chash/chash.php chash:chamilo_status
                   sudo chmod -R 777 app/cache app/logs app/courses app/upload web
-                  php ${{ github.workspace }}/chash/chash.php chash:chamilo_status
-                  ls -la
                   bash tests/travis/post_installation.sh
+                  sudo cp -f tests/travis/gh-apache /etc/apache2/sites-available/000-default.conf
+                  sudo systemctl restart apache2
                   curl http://localhost/index.php
-                  ls -la web/build
 
             - name: Behat tests
               run: |

@@ -113,9 +113,15 @@ $formUsers->addElement('hidden', 'user_form', 1);
 $userMultiSelect = $formUsers->addElement(
     'advmultiselect',
     'users',
-    get_lang('Users'),
+    null,
     $choices
 );
+
+$userMultiSelect->setLabel([
+    get_lang('Users'),
+    get_lang('UserNotSubscribed'),
+    get_lang('Subscribed'),
+]);
 $formUsers->addButtonSave(get_lang('Save'));
 
 $defaults = [];
@@ -161,10 +167,15 @@ if (!empty($subscribedGroupsInLp)) {
 $groupMultiSelect = $form->addElement(
     'advmultiselect',
     'groups',
-    get_lang('Groups'),
+    null,
     $groupChoices
 );
 
+$groupMultiSelect->setLabel([
+    get_lang('Groups'),
+    get_lang('UserNotSubscribed'),
+    get_lang('Subscribed'),
+]);
 $form->addButtonSave(get_lang('Save'));
 
 // UserGroup
@@ -359,7 +370,12 @@ if ($allowUserGroups) {
     $items[] = $formUserGroup->toHtml();
 }
 
-$menu = $oLP->build_action_menu(true, false, true, false);
+$noEdition = false;
+if (!isset($sessionId) || $sessionId !== 0) {
+    $noEdition = true;
+}
+
+$menu = $oLP->build_action_menu(true, false, true, false, '', [], $noEdition);
 
 $tpl = new Template();
 $tabs = Display::tabs($headers, $items);

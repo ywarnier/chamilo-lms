@@ -342,7 +342,7 @@
                 <li>php-pcre:  L'extension pcre partagée pour php</li>
                 <li>php-xml</li>
                 <li>php-json</li>
-                <li>php-iconv ou php5-mbstring (au choix)</li>
+                <li>php-iconv ou php-mbstring (au choix)</li>
                 <li>php-gd L'extension de manipulation d'images pour PHP</li>
                 <li>php-intl L'extension pour la gestion de l'internationalisation pour PHP</li>
             </ul>
@@ -422,7 +422,7 @@
                     l'ancienne version (ou dézippez les fichiers dans un répertoire et copiez-les ensuite
                     là où se trouve votre version actuelle de Chamilo, le zip contenant un sous-répertoire qui ne porte peut-être pas le même nom que votre installation)</li>
                 <li> Éditez le fichier app/config/configuration.php : localisez le numéro de version antérieur dans le paramètre <i>$_configuration['system_version']</i> (p.ex. '1.11.18') et remplacez-le
-                    par le numéro de la nouvelle version (p.ex. '1.11.28')</li>
+                    par le numéro de la nouvelle version (p.ex. '1.11.30')</li>
                 <li> Videz votre dossier app/cache/twig/ : supprimez tous les contenus *dans* ce dossier (ne supprimez pas le dossier, juste ses contenus). Vous pouvez également vider ce dossier depuis le lien "Vidange du cache et des fichiers temporaires" du bloc "Système" de l'interface d'administration.</li>
                 <li> C'est fini! Il n'y a pas d'autre étape requise.</li>
             </ul>
@@ -720,14 +720,30 @@ Please note that, although Chamilo allows you to define its position, the "title
 <hr style="width: 100%; height: 2px;" />
 <h2><a id="14._Improving_files_download"></a>12. Améliorer la performance des téléchargements de fichiers</h2>
 <div>
-    File download can be very slow when passing through a PHP script to control permissions. One solution to this
-    is to use the X-Sendfile header, which depends on a module on the webserver. <a href="https://stackoverflow.com/a/3731639/1406662">Check https://stackoverflow.com/a/3731639/1406662 for more details on implementing Sendfile</a>.
-    Chamilo LMS 1.9.8 (and following versions) supports the X-Sendfile headers, but requires a specific line of configuration to be
-    added to configuration.php:
+Le téléchargement de fichiers peut &ecirc;tre très lent quand il passe au travers d'un script PHP qui contr&ocirc;le les permissions. One solution to this
+Une solution pour cela est d'utiliser les en-t&ecirc;tes X-Sendfile, qui dépendent d'un module du serveur web. <a href="https://stackoverflow.com/a/3731639/1406662">Lisez https://stackoverflow.com/a/3731639/1406662 pour plus de d&eacute;tails concernant son impl&eacut;mentation</a>.
+Chamilo LMS 1.9.8 (et les versions suivantes) supporte les en-t&ecirc;tes X-Sendfile, mais exige une ligne de configuration spéciale à ajouter à configuration.php :
 <pre>
 $_configuration['enable_x_sendfile_headers'] = true;
 </pre>
-If you have issues with files taking a long time to download, make sure you reconfigure your webserver and add this line. You should see a notable difference in download time.
+Si vous avez des soucis avec le téléchargement trop lent de fichiers, essayez cette option. Vous devriez observer une différence sensible dans les temps de téléchargement.
+
+Votre serveur web doit &ecirc;tre configuré pour supporter X-Sendfile, en activant le moédule correspondant ainsi qu'une configuration de votre vhost.<br>
+
+Si vous utilisez Apache 2.4 sur Ubuntu, par exemple, ça voudrait dire installer et activer le module X-Sendfile :
+<pre>
+    sudo apt install libapache2-mod-xsendfile
+    sudo a2enmod xsendfile
+</pre>
+Ensuite il faut configurer le vhost actif de Chamilo en ajoutant les lignes suivantes, où le path est le m&ecirc;me que votre DocumentRoot (nous utilisons /var/www/chamilo dans cet exemple) :
+<pre>
+    XSendFile On
+    XSendFilePath /var/www/chamilo
+</pre>
+Puis red&eacute;marrer Apache :
+<pre>
+    sudo systemctl restart apache2
+</pre>
 </div>
 <hr style="width: 100%; height: 2px;" />
 <h2><a id="15._Videoconference"></a>13. Vidéo-conférence</h2>
@@ -787,11 +803,11 @@ ou, si vous travaillez avec Apache 2.4, la syntaxe est légèrement différente 
     RewriteRule ^certificates/$ certificates/index.php?id=%1 [L]
     RewriteRule ^courses/([^/]+)/?$ main/course_home/course_home.php?cDir=$1 [QSA,L]
     RewriteRule ^courses/([^/]+)/index.php$ main/course_home/course_home.php?cDir=$1 [QSA,L]
-    RewriteRule ^courses/([^/]+)/scorm/(.*([\.js|\.css|\.png|\.jpg|\.jpeg|\.gif]))$ app/courses/$1/scorm/$2 [QSA,L]
+    RewriteRule ^courses/([^/]+)/scorm/(.*\.(js|css|png|jpg|jpeg|gif))$ app/courses/$1/scorm/$2 [QSA,L]
     RewriteRule ^courses/([^/]+)/scorm/(.*)$ main/document/download_scorm.php?doc_url=/$2&cDir=$1 [QSA,L]
     RewriteRule ^courses/([^/]+)/document/certificates/(.*)$ app/courses/$1/document/certificates/$2 [QSA,L]
     RewriteRule ^courses/([^/]+)/document/(.*)$ main/document/download.php?doc_url=/$2&cDir=$1 [QSA,L]
-    RewriteRule ^courses/([^/]+)/upload/course_home_icons/(.*([\.js|\.css|\.png|\.jpg|\.jpeg|\.gif]))$ app/courses/$1/upload/course_home_icons/$2 [QSA,L]
+    RewriteRule ^courses/([^/]+)/upload/course_home_icons/(.*\.(js|css|png|jpg|jpeg|gif))$ app/courses/$1/upload/course_home_icons/$2 [QSA,L]
     RewriteRule ^courses/([^/]+)/upload/([^/]+)/(.*)$ main/document/download_uploaded_files.php?code=$1&type=$2&file=$3 [QSA,L]
     RewriteRule ^courses/([^/]+)/work/(.*)$ main/work/download.php?file=work/$2&cDir=$1 [QSA,L]
     RewriteRule ^courses/([^/]+)/course-pic85x85.png$ main/inc/ajax/course.ajax.php?a=get_course_image&code=$1&image=course_image_source [QSA,L]
@@ -842,7 +858,7 @@ Ce sont uniquement les redirections à placer dans un bloc server{}, comme les a
     rewrite ^certificates/$ certificates/index.php last;
     rewrite ^/courses/([^/]+)/$ /main/course_home/course_home.php?cDir=$1 last;
     rewrite ^/courses/([^/]+)/index.php$ /main/course_home/course_home.php?cDir=$1 last;
-    rewrite ^/courses/([^/]+)/scorm/(.*([\.js|\.css|\.png|\.jpg|\.jpeg|\.gif]))$ app/courses/$1/scorm/$2 last;
+    rewrite ^/courses/([^/]+)/scorm/(.*\.(js|css|png|jpg|jpeg|gif))$ app/courses/$1/scorm/$2 last;
     rewrite ^/courses/([^/]+)/scorm/(.*)$ /main/document/download_scorm.php?doc_url=/$2&cDir=$1 last;
     # Alternatively, you can choose to give direct access to all SCORM files, which is much faster but less secure
     # rewrite "^/courses/([^/]+)/scorm/(.*)$" /app/courses/$1/scorm/$2 break;
@@ -851,7 +867,7 @@ Ce sont uniquement les redirections à placer dans un bloc server{}, comme les a
     rewrite ^/courses/([^/]+)/document/(.*)$ /main/document/download.php?doc_url=/$2&cDir=$1 last;
     rewrite ^/courses/([^/]+)/upload/([^/]+)/(.*)$ /main/document/download_uploaded_files.php?code=$1&type=$2&file=$3 last;
     rewrite ^/courses/([^/]+)/work/(.*)$ /main/work/download.php?file=work/$2&cDir=$1 last;
-    rewrite ^/courses/([^/]+)/upload/course_home_icons/(.*([\.png|\.jpg|\.jpeg|\.gif]))$ app/courses/$1/upload/course_home_icons/$2 last;
+    rewrite ^/courses/([^/]+)/upload/course_home_icons/(.*\.(png|jpg|jpeg|gif))$ app/courses/$1/upload/course_home_icons/$2 last;
     rewrite ^/courses/([^/]+)/(.*)$ /app/courses/$1/$2 last;
     rewrite ^/session/([^/]+)/about/?$ /main/session/about.php?session_id=$1 last;
     rewrite ^/course/([^/]+)/about/?$ /main/course_info/about.php?course_id=$1 last;
@@ -935,7 +951,7 @@ Ce sont uniquement les redirections à placer dans un bloc server{}, comme les a
                     &lt;action type="Rewrite" url="main/course_home/course_home.php?cDir={R:1}" /&gt;
                 &lt;/rule&gt;
                 &lt;rule name="rule 4v" stopProcessing="true"&gt;
-                    &lt;match url="^courses/([^/]+)/scorm/(.*([\.js|\.css|\.png|\.jpg|\.jpeg|\.gif]))$" /&gt;
+                    &lt;match url="^courses/([^/]+)/scorm/(.*\.(js|css|png|jpg|jpeg|gif))$" /&gt;
                     &lt;action type="Rewrite" url="app/courses/{R:1}/scorm/{R:2}" /&gt;
                 &lt;/rule&gt;
                 &lt;rule name="rule 5v" stopProcessing="true"&gt;
@@ -951,7 +967,7 @@ Ce sont uniquement les redirections à placer dans un bloc server{}, comme les a
                     &lt;action type="Rewrite" url="main/document/download.php?doc_url=/{R:2}&amp;cDir={R:1}" /&gt;
                 &lt;/rule&gt;
                 &lt;rule name="rule v8" stopProcessing="true"&gt;
-                    &lt;match url="^courses/([^/]+)/upload/course_home_icons/(.*([\.js|\.css|\.png|\.jpg|\.jpeg|\.gif]))$" /&gt;
+                    &lt;match url="^courses/([^/]+)/upload/course_home_icons/(.*\.(js|css|png|jpg|jpeg|gif))$" /&gt;
                     &lt;action type="Rewrite" url="app/courses/{R:1}/upload/course_home_icons/{R:2}" /&gt;
                 &lt;/rule&gt;
                 &lt;rule name="rule v9" stopProcessing="true"&gt;
