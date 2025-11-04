@@ -17,12 +17,12 @@
  * - Username format: lastname + first letter of each firstname word; for active duplicates, append next letter from last firstname part
  * - For 3+ occurrences of lastname + firstname, append increasing letters from last firstname part (e.g., jpii, jpiii)
  * - Generates unmatched_db_users.xlsx listing database users not found in the input XLSX based on username
- * - Exports terminal output to import-yyyymmddhhiiss.log in the output directory
+ * - Exports terminal output to import-yyyymmddhhiiss.log in the output directory.
  */
 
 // Ensure the script is run from the command line
 if (php_sapi_name() !== 'cli') {
-    die('This script must be run from the command line.');
+    exit('This script must be run from the command line.');
 }
 
 // Configuration
@@ -57,11 +57,11 @@ for ($i = 2; $i < count($argv); $i++) {
 // Validate and prepare output directory
 if (!is_dir($outputDir)) {
     if (!mkdir($outputDir, 0755, true)) {
-        die("Error: Could not create output directory '$outputDir'\n");
+        exit("Error: Could not create output directory '$outputDir'\n");
     }
 }
 if (!is_writable($outputDir)) {
-    die("Error: Output directory '$outputDir' is not writable\n");
+    exit("Error: Output directory '$outputDir' is not writable\n");
 }
 // Ensure trailing slash for consistency
 $outputDir = rtrim($outputDir, '/').'/';
@@ -80,7 +80,7 @@ echo "  Proceed: ".($proceed ? 'true' : 'false')."\n";
 echo "  Output directory: $outputDir\n";
 
 if (empty($xlsxFile) || !file_exists($xlsxFile)) {
-    die("Usage: php import_users_from_xlsx.php <path_to_xlsx_file> [-p|--proceed] [-o <directory>|--output-dir=<directory>]\n");
+    exit("Usage: php import_users_from_xlsx.php <path_to_xlsx_file> [-p|--proceed] [-o <directory>|--output-dir=<directory>]\n");
 }
 
 // Initialize database connection
@@ -94,7 +94,7 @@ try {
     $worksheet = $phpExcel->getActiveSheet();
     $xlsxRows = $worksheet->toArray();
 } catch (Exception $e) {
-    die("Error loading XLSX file: {$e->getMessage()}\n");
+    exit("Error loading XLSX file: {$e->getMessage()}\n");
 }
 
 // Map XLSX columns to Chamilo database user table fields
@@ -115,7 +115,7 @@ $xlsxColumnIndices = [];
 foreach ($xlsxColumnMap as $xlsxHeader => $dbField) {
     $index = array_search($xlsxHeader, $xlsxHeaders);
     if ($index === false) {
-        die("Missing required column: {$xlsxHeader}\n");
+        exit("Missing required column: {$xlsxHeader}\n");
     }
     $xlsxColumnIndices[$dbField] = $index;
 }
@@ -139,21 +139,25 @@ function normalizeName($name)
 {
     $name = strtolower(trim($name));
     $name = preg_replace('/[\s-]+/', ' ', $name);
+
     return $name;
 }
 
 // Remove accents from strings
-function removeAccents($str) {
+function removeAccents($str)
+{
     $str = str_replace(
-        ['à','á','â','ã','ä','ç','è','é','ê','ë','ì','í','î','ï','ñ','ò','ó','ô','õ','ö','ù','ú','û','ü','ý','ÿ','À','Á','Â','Ã','Ä','Å','Ç','È','É','Ê','Ë','Ì','Í','Î','Ï','Ñ','Ò','Ó','Ô','Õ','Ö','Ù','Ú','Û','Ü','Ý',"'"],
-        ['a','a','a','a','a','c','e','e','e','e','i','i','i','i','n','o','o','o','o','o','u','u','u','u','y','y','A','A','A','A','A','A','C','E','E','E','E','I','I','I','I','N','O','O','O','O','O','U','U','U','U','Y',''],
+        ['à', 'á', 'â', 'ã', 'ä', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ñ', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ', 'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ñ', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ù', 'Ú', 'Û', 'Ü', 'Ý',"'"],
+        ['a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'n', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'u', 'y', 'y', 'A', 'A', 'A', 'A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'N', 'O', 'O', 'O', 'O', 'O', 'U', 'U', 'U', 'U', 'Y',''],
         $str
     );
+
     return $str;
 }
 
 // Generate login based on lastname and firstname
-function generateProposedLogin($xlsxLastname, $xlsxFirstname, $isActive, &$usedLogins) {
+function generateProposedLogin($xlsxLastname, $xlsxFirstname, $isActive, &$usedLogins)
+{
     $lastname = strtolower(trim(removeAccents($xlsxLastname)));
     $lastname = preg_replace('/[\s-]+/', '', $lastname);
 
@@ -174,50 +178,38 @@ function generateProposedLogin($xlsxLastname, $xlsxFirstname, $isActive, &$usedL
     $lastFirstnamePart = end($firstnameParts);
     $lastPartLetters = strtolower(preg_replace('/[\s-]+/', '', $lastFirstnamePart));
 
-    // Increment occurrence count for this login
-    $usedLogins['counts'][$login] = isset($usedLogins['counts'][$login]) ? $usedLogins['counts'][$login] + 1 : 1;
-    $occurrence = $usedLogins['counts'][$login];
-
-    // Handle duplicates
-    if (isset($usedLogins['logins'][$login])) {
-        // Only modify if both current and previous users are active
-        if ($isActive && $usedLogins['logins'][$login]['active']) {
-            if ($occurrence == 2) {
-                // Second occurrence: append next letter from last firstname part
-                if (strlen($lastPartLetters) > 1) {
-                    $login = $baseLogin.substr($lastPartLetters, 1, 1); // e.g., 'i' from 'Pierre'
-                } else {
-                    $login = $baseLogin.'1'; // Fallback if no more letters
-                }
-            } elseif ($occurrence >= 3) {
-                // Third+ occurrence: append increasing letters from last firstname part
-                $extraLetters = min($occurrence - 1, strlen($lastPartLetters) - 1); // e.g., 2 letters for 3rd, 3 for 4th
-                if ($extraLetters > 0) {
-                    $login = $baseLogin.substr($lastPartLetters, 1, $extraLetters); // e.g., 'ii', 'iii'
-                } else {
-                    $login = $baseLogin.($occurrence - 1); // Fallback to number
-                }
+    // Handle duplicates by incrementally adding letters from the last firstname part if active
+    if ($isActive) {
+        $letterCount = 0;
+        while (isset($usedLogins['logins'][$login]) && $usedLogins['logins'][$login]['active']) {
+            $letterCount++;
+            if ($letterCount > strlen($lastPartLetters) - 1) {
+                break; // No more letters available. Will append a number below
             }
+            $login = $baseLogin . substr($lastPartLetters, 1, $letterCount);
         }
     }
 
     // Ensure uniqueness by appending a number if still conflicting
     $suffix = 1;
     $originalLogin = $login;
-    while (isset($usedLogins['logins'][$login])) {
-        $login = $originalLogin.$suffix;
+    while (isset($usedLogins['logins'][$login]) && $usedLogins['logins'][$login]['active']) {
+        $login = $originalLogin . $suffix;
         $suffix++;
     }
 
     // Store login with active status
     $usedLogins['logins'][$login] = ['active' => $isActive];
+
     return $login;
 }
 
 // Generate XLSX files for missing fields and duplicates
-function createMissingFieldFile($filename, $rows, $columns) {
+function createMissingFieldFile($filename, $rows, $columns)
+{
     if (empty($rows)) {
         echo "No rows to write for $filename\n";
+
         return;
     }
 
@@ -446,7 +438,7 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
     }
 
     // Check for existing user by username
-    $sql = "SELECT id, firstname, lastname, email, official_code, phone, active
+    $sql = "SELECT id, firstname, lastname, email, official_code, phone, active, status, picture_uri, expiration_date, language, creator_id
             FROM user
             WHERE username = '$dbUsername'";
     $stmt = $database->query($sql);
@@ -538,12 +530,16 @@ foreach ($xlsxRows as $rowIndex => $rowData) {
                         null, // password not updated
                         null, // auth_source
                         $xlsxUserData['email'],
-                        null, // status
+                        $dbUser['status'], // status
                         $xlsxUserData['official_code'],
                         $xlsxUserData['phone'],
-                        null, // picture_uri
-                        null, // expiration_date
-                        $xlsxActive
+                        $dbUser['picture_uri'], // picture_uri
+                        $dbUser['expiration_date'], // expiration_date
+                        $xlsxActive,
+                        $dbUser['creator_id'],
+                        0,
+                        null,
+                        $dbUser['language']
                     );
                     if ($user) {
                         // Update extra field 'external_user_id'
