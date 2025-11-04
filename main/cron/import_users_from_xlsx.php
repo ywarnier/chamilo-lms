@@ -171,45 +171,30 @@ function generateProposedLogin($xlsxLastname, $xlsxFirstname, $isActive, &$usedL
     }
 
     // Base username: lastname + first letter of each firstname word
-    $baseLogin = $lastname.$firstLetters;
+    $baseLogin = $lastname . $firstLetters;
     $login = $baseLogin;
 
     // Get last part of firstname for duplicate resolution
     $lastFirstnamePart = end($firstnameParts);
     $lastPartLetters = strtolower(preg_replace('/[\s-]+/', '', $lastFirstnamePart));
 
-    // Increment occurrence count for this login
-    $usedLogins['counts'][$login] = isset($usedLogins['counts'][$login]) ? $usedLogins['counts'][$login] + 1 : 1;
-    $occurrence = $usedLogins['counts'][$login];
-
-    // Handle duplicates
-    if (isset($usedLogins['logins'][$login])) {
-        // Only modify if both current and previous users are active
-        if ($isActive && $usedLogins['logins'][$login]['active']) {
-            if ($occurrence == 2) {
-                // Second occurrence: append next letter from last firstname part
-                if (strlen($lastPartLetters) > 1) {
-                    $login = $baseLogin.substr($lastPartLetters, 1, 1); // e.g., 'i' from 'Pierre'
-                } else {
-                    $login = $baseLogin.'1'; // Fallback if no more letters
-                }
-            } elseif ($occurrence >= 3) {
-                // Third+ occurrence: append increasing letters from last firstname part
-                $extraLetters = min($occurrence - 1, strlen($lastPartLetters) - 1); // e.g., 2 letters for 3rd, 3 for 4th
-                if ($extraLetters > 0) {
-                    $login = $baseLogin.substr($lastPartLetters, 1, $extraLetters); // e.g., 'ii', 'iii'
-                } else {
-                    $login = $baseLogin.($occurrence - 1); // Fallback to number
-                }
+    // Handle duplicates by incrementally adding letters from the last firstname part if active
+    if ($isActive) {
+        $letterCount = 0;
+        while (isset($usedLogins['logins'][$login]) && $usedLogins['logins'][$login]['active']) {
+            $letterCount++;
+            if ($letterCount > strlen($lastPartLetters) - 1) {
+                break; // No more letters available. Will append a number below
             }
+            $login = $baseLogin . substr($lastPartLetters, 1, $letterCount);
         }
     }
 
     // Ensure uniqueness by appending a number if still conflicting
     $suffix = 1;
     $originalLogin = $login;
-    while (isset($usedLogins['logins'][$login])) {
-        $login = $originalLogin.$suffix;
+    while (isset($usedLogins['logins'][$login]) && $usedLogins['logins'][$login]['active']) {
+        $login = $originalLogin . $suffix;
         $suffix++;
     }
 
