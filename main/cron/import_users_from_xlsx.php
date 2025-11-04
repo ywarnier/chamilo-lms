@@ -171,7 +171,7 @@ function generateProposedLogin($xlsxLastname, $xlsxFirstname, $isActive, &$usedL
     }
 
     // Base username: lastname + first letter of each firstname word
-    $baseLogin = $lastname . $firstLetters;
+    $baseLogin = $lastname.$firstLetters;
     $login = $baseLogin;
 
     // Get last part of firstname for duplicate resolution
