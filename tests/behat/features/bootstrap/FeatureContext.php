@@ -2,6 +2,8 @@
 
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
+use Behat\Behat\Hook\Scope\AfterScenarioScope;
+use Behat\Behat\Context\Context;
 
 /**
  * Features context. (MinkContext extends BehatContext)
@@ -710,5 +712,27 @@ class FeatureContext extends MinkContext
         $element = $page->find('css', $selector);
 
         $element->click();
+    }
+
+    /**
+     * @AfterScenario
+     */
+    public function dumpFpmLogOnFailure(AfterScenarioScope $scope): void
+    {
+        // Only dump on failure
+        if ($scope->getTestResult()->isPassed()) {
+            return;
+        }
+
+        // Configurable via env var
+        $logPath = getenv('BEHAT_FPM_LOG') ?: __DIR__ . '/../../var/log/php-fpm-error.log';
+
+        if (file_exists($logPath)) {
+            echo "\n\n==== PHP-FPM error log ({$logPath}) ====\n";
+            echo file_get_contents($logPath);
+            echo "\n==== end PHP-FPM error log ====\n\n";
+        } else {
+            echo "\n\n==== PHP-FPM error log not found at {$logPath} ====\n";
+        }
     }
 }
