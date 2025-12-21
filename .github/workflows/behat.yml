@@ -41,7 +41,7 @@ jobs:
               with:
                   php-version: ${{ matrix.php-versions }}
                   extensions: bcmath, ctype, curl, dom, gd, iconv, intl, json, ldap, mbstring, mysql, opcache, soap, xml, zip
-                  ini-values: error_log=${{ github.workspace }}/var/log/php-error.log, post_max_size=256M, max_execution_time=600, memory_limit=4096M, date.timezone=Europe/Paris, opcache.enable=1, opcache.memory_consumption=64M
+                  ini-values: error_log=${{ github.workspace }}/var/log/php-error.log, log_errors=1, post_max_size=256M, max_execution_time=600, memory_limit=4096M, date.timezone=Europe/Paris, opcache.enable=1, opcache.memory_consumption=64M
 
             - name: Restart Apache to apply PHP ini changes
               run: sudo systemctl restart apache2
@@ -160,8 +160,8 @@ jobs:
                   ../../vendor/behat/behat/bin/behat features/actionInstall.feature -vvv
                   cd ..
                   cd ..
-                  #sed -i "s/APP_ENV='dev'/APP_ENV='prod'/g" .env
-                  #sed -i "s/APP_DEBUG='1'/APP_DEBUG='0'/g" .env
+                  sed -i "s/APP_ENV='dev'/APP_ENV='prod'/g" .env
+                  sed -i "s/APP_DEBUG='1'/APP_DEBUG='0'/g" .env
                   sudo php bin/console cache:clear
                   sudo chmod -R 777 var
 
