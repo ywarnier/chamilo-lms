@@ -725,7 +725,7 @@ class FeatureContext extends MinkContext
         }
 
         // Configurable via env var
-        $logPath = getenv('BEHAT_FPM_LOG') ?: __DIR__ . '/../../../../var/log/php-fpm-error.log';
+        $logPath = getenv('BEHAT_FPM_LOG') ?: __DIR__ . '/../../../../var/log/dev.log';
 
         if (file_exists($logPath)) {
             echo "\n\n==== PHP-FPM error log ({$logPath}) ====\n";
