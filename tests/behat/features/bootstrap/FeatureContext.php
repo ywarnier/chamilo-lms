@@ -728,11 +728,11 @@ class FeatureContext extends MinkContext
         $logPath = getenv('BEHAT_FPM_LOG') ?: __DIR__ . '/../../../../var/log/php-error.log';
 
         if (file_exists($logPath)) {
-            echo "\n\n==== PHP-FPM error log ({$logPath}) ====\n";
+            echo "\n\n==== PHP error log ({$logPath}) ====\n";
             echo file_get_contents($logPath);
-            echo "\n==== end PHP-FPM error log ====\n\n";
+            echo "\n==== end PHP error log ====\n\n";
         } else {
-            echo "\n\n==== PHP-FPM error log not found at {$logPath} ====\n";
+            echo "\n\n==== PHP error log not found at {$logPath} ====\n";
         }
     }
 }
