@@ -18,16 +18,23 @@ switch ($action) {
         api_protect_course_script(true);
         $path = isset($_GET['path']) ? $_GET['path'] : '';
         $isAllowedToEdit = api_is_allowed_to_edit();
-        $size = $repo->getFolderSize(api_get_course_int_id(), $path);
+        $courseId = api_get_course_int_id();
+        // Close the session as we don't need it any further
+        session_write_close();
+
+        $size = $repo->getFolderSize($courseId, $path);
 
         echo format_file_size($size);
         break;
     case 'get_document_quota':
         // Getting the course quota
         $courseQuota = DocumentManager::get_course_quota();
+        $courseId = api_get_course_int_id();
+        // Close the session as we don't need it any further
+        session_write_close();
 
         // Calculating the total space
-        $total = $repo->getTotalSpace(api_get_course_int_id());
+        $total = $repo->getTotalSpace($courseId);
 
         // Displaying the quota
         echo DocumentManager::displaySimpleQuota($courseQuota, $total);
@@ -50,6 +57,13 @@ switch ($action) {
         break;
     case 'upload_file':
         api_protect_course_script(true);
+        $isEdit = api_is_allowed_to_edit(null, true);
+        $course  = api_get_course_entity();
+        $userId = api_get_user_id();
+        $courseInfo = api_get_course_info();
+
+        // Close the session as we don't need it any further
+        session_write_close();
 
         $ifExists = $_POST['if_exists'] ?? api_get_setting('document.document_if_file_exists_option') ?? 'rename';
         $unzip    = !empty($_POST['unzip']);
@@ -80,7 +94,6 @@ switch ($action) {
             exit;
         }
 
-        $isEdit = api_is_allowed_to_edit(null, true);
         if (!$isEdit) {
             exit;
         }
@@ -105,11 +118,36 @@ switch ($action) {
 
         $repo    = Container::getDocumentRepository();
         $em      = Database::getManager();
-        $course  = api_get_course_entity();
         $results = [];
 
-        $createDocument = function(string $path, string $filename, string $mimetype, int $filesize, bool $ifExists) use (
-            $repo, $em, $course, $directoryParentId, &$results
+        // --------- LP context (optional): auto-create LP items when uploading from LP builder ----------
+        $lpId = (int) ($_REQUEST['lp_id'] ?? ($_POST['lp_id'] ?? 0));
+        $lpAutoAdd = ((int) ($_REQUEST['lp_auto_add'] ?? ($_POST['lp_auto_add'] ?? 0))) === 1;
+
+        $oLP = null;
+        $lpItemsCreated = [];
+
+        if ($lpAutoAdd && $lpId > 0) {
+            $lp = Container::getLpRepository()->find($lpId);
+            if ($lp) {
+                $oLP = new learnpath($lp, $courseInfo, $userId);
+            }
+        }
+
+        $createDocument = function(
+            string $path,
+            string $filename,
+            string $mimetype,
+            int $filesize,
+            string $ifExists
+        ) use (
+            $repo,
+            $em,
+            $course,
+            $directoryParentId,
+            &$results,
+            $oLP,
+            &$lpItemsCreated
         ) {
             $qb = $em->createQueryBuilder()
                 ->select('d')
@@ -153,12 +191,33 @@ switch ($action) {
 
             $repo->addFileFromPath($doc, $filename, $path);
 
+            // --------- If in LP mode, also create the LP item (c_lp_item) ----------
+            $createdLpItemId = 0;
+            if ($oLP) {
+                $lpItemRepo = Container::getLpItemRepository();
+                $root = $lpItemRepo->getRootItem($oLP->get_id());
+
+                $createdLpItemId = (int) $oLP->add_item(
+                    $root,            // parent
+                    '',              // previous
+                    TOOL_DOCUMENT,   // item type
+                    (string) $doc->getIid(), // path = document iid
+                    $doc->getTitle(),
+                    '',              // description
+                    ''               // prerequisites
+                );
+
+                $oLP->set_modified_on();
+                $lpItemsCreated[] = $createdLpItemId;
+            }
+
             $results[] = [
-                'name'   => api_htmlentities($doc->getTitle()),
-                'url'    => $repo->getResourceFileUrl($doc),
-                'size'   => format_file_size($filesize),
-                'type'   => api_htmlentities($mimetype),
-                'result' => Display::return_icon('accept.png', get_lang('Uploaded.'))
+                'name'       => api_htmlentities($doc->getTitle()),
+                'url'        => $repo->getResourceFileUrl($doc),
+                'size'       => format_file_size($filesize),
+                'type'       => api_htmlentities($mimetype),
+                'result'     => Display::return_icon('accept.png', get_lang('Uploaded.')),
+                'lp_item_id' => $createdLpItemId,
             ];
         };
 
@@ -182,7 +241,7 @@ switch ($action) {
                                 $f->getFilename(),
                                 mime_content_type($f->getRealPath()),
                                 $f->getSize(),
-                                $ifExists
+                                (string) $ifExists
                             );
                         }
                     }
@@ -194,13 +253,17 @@ switch ($action) {
                 $fileInfo['tmp_name'],
                 $fileInfo['name'],
                 $fileInfo['type'],
-                $fileInfo['size'],
-                $ifExists
+                (int) $fileInfo['size'],
+                (string) $ifExists
             );
         }
 
         header('Content-Type: application/json');
-        echo json_encode(['files' => $results]);
+        echo json_encode([
+            'files' => $results,
+            'lp_refresh' => !empty($lpItemsCreated),
+            'lp_items_created' => $lpItemsCreated,
+        ]);
         exit;
 }
 exit;

@@ -455,11 +455,14 @@ class IndexBlocksController extends BaseController
             'route' => ['name' => 'CCalendarEventList', 'query' => ['type' => 'global']],
             'label' => $this->translator->trans('Global agenda'),
         ];
+        // Disabled until it is reemplemented to work with Chamilo 2
+        /*
         $items[] = [
             'class' => 'item-agenda-reminders',
             'url' => '/main/admin/import_course_agenda_reminders.php',
             'label' => $this->translator->trans('Import course events'),
         ];
+        */
         $items[] = [
             'class' => 'item-pages-list',
             'route' => ['name' => 'PageList'],
@@ -624,11 +627,13 @@ class IndexBlocksController extends BaseController
             'label' => $this->translator->trans('Tickets'),
         ];
 
+        // Disabled until it is reemplemented to work with Chamilo 2
+        /*
         $items[] = [
             'url' => '/main/session/cron_status.php',
             'label' => $this->translator->trans('Update session status'),
         ];
-
+        */
         $items[] = [
             'class' => 'item-colors',
             'route' => ['name' => 'AdminConfigurationColors'],
@@ -676,7 +681,7 @@ class IndexBlocksController extends BaseController
 
         $items[] = [
             'class' => 'item-skill-ranking',
-            'url' => '/main/social/skills_ranking.php',
+            'url' => '/main/social/skills_ranking.php?origin=admin',
             'label' => $this->translator->trans('Skills ranking'),
         ];
         $items[] = [
@@ -782,11 +787,13 @@ class IndexBlocksController extends BaseController
             'url' => '/documentation/optimization.html',
             'label' => $this->translator->trans('Optimization guide'),
         ];
+        /*
         $items[] = [
             'class' => 'item-extensions',
             'url' => 'https://chamilo.org/extensions',
             'label' => $this->translator->trans('Chamilo extensions'),
         ];
+        */
         $items[] = [
             'class' => 'item-providers',
             'url' => 'https://chamilo.org/providers',
@@ -841,7 +848,7 @@ class IndexBlocksController extends BaseController
 
         $items[] = [
             'class' => 'item-session-course-copy',
-            'url' => '/main/coursecopy/copy_course_session.php',
+            'url' => '/main/course_copy/copy_course_session.php',
             'label' => $this->translator->trans('Copy from course in session to another session'),
         ];
 
@@ -854,12 +861,12 @@ class IndexBlocksController extends BaseController
                                 'url' => '/main/admin/user_move_stats.php',
                                 'label' => $this->translator->trans('Move users results from/to a session'),
                             ];
-             */
             $items[] = [
                 'class' => 'item-session-user-move',
                 'url' => '/main/coursecopy/move_users_from_course_to_session.php',
                 'label' => $this->translator->trans('Move users results from base course to a session'),
             ];
+             */
 
             $items[] = [
                 'class' => 'item-career-dashboard',
@@ -987,6 +994,64 @@ class IndexBlocksController extends BaseController
                 'label' => $this->translator->trans('At least one URL has no admin assigned'),
             ];
         }
+
+        // ---------------------------------------------------------------------
+        // File permissions checks
+        // ---------------------------------------------------------------------
+        $projectDir = (string) $this->getParameter('kernel.project_dir');
+
+        // Help links (optional but avoids null URLs)
+        $securityGuideUrl = '/documentation/security.html';
+        $optimizationGuideUrl = '/documentation/optimization.html';
+
+        // .env should NOT be writable by the web server user
+        $envPath = $projectDir.'/.env';
+        $envIsWritable = is_file($envPath) && is_writable($envPath);
+
+        $items[] = [
+            'className' => 'item-health-check-env-perms '.($envIsWritable ? 'text-error' : 'text-success'),
+            'url' => $securityGuideUrl,
+            'label' => \sprintf(
+                $this->translator->trans($envIsWritable ? '%s is writeable' : '%s is not writeable'),
+                '.env'
+            ),
+        ];
+
+        // config/ should NOT be writable by the web server user
+        $configPath = $projectDir.'/config';
+        $configIsWritable = is_dir($configPath) && is_writable($configPath);
+
+        $items[] = [
+            'className' => 'item-health-check-config-perms '.($configIsWritable ? 'text-error' : 'text-success'),
+            'url' => $securityGuideUrl,
+            'label' => \sprintf(
+                $this->translator->trans($configIsWritable ? '%s is writeable' : '%s is not writeable'),
+                'config/'
+            ),
+        ];
+
+        // var/cache MUST be writable (Symfony cache)
+        $cachePath = $projectDir.'/var/cache';
+        $cacheIsWritable = is_dir($cachePath) && is_writable($cachePath);
+
+        $items[] = [
+            'className' => 'item-health-check-cache-perms '.($cacheIsWritable ? 'text-success' : 'text-error'),
+            'url' => $optimizationGuideUrl,
+            'label' => \sprintf(
+                $this->translator->trans($cacheIsWritable ? '%s is writeable' : '%s is not writeable'),
+                'var/cache'
+            ),
+        ];
+
+        // public/main/install existence -> orange if present
+        $installPath = $projectDir.'/public/main/install';
+        $installExists = is_dir($installPath);
+
+        $items[] = [
+            'className' => 'item-health-check-install-folder '.($installExists ? 'text-warning' : 'text-success'),
+            'url' => $securityGuideUrl,
+            'label' => $this->translator->trans($installExists ? 'Install folder is still present' : 'Install folder is not present'),
+        ];
 
         return $items;
     }

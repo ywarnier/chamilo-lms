@@ -53,6 +53,7 @@ use Database;
 use DateTimeInterface;
 use Display;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Event;
 use Exception;
 use Exercise;
@@ -83,7 +84,19 @@ class CourseController extends ToolBaseController
         private readonly EntityManagerInterface $em,
         private readonly SerializerInterface $serializer,
         private readonly UserHelper $userHelper,
+        private readonly ManagerRegistry $doctrine,
     ) {}
+
+    /**
+     * Extend the controller service locator to include "doctrine".
+     * This prevents runtime errors when legacy code tries to access it through the controller container.
+     */
+    public static function getSubscribedServices(): array
+    {
+        return array_merge(parent::getSubscribedServices(), [
+            'doctrine' => ManagerRegistry::class,
+        ]);
+    }
 
     #[IsGranted('ROLE_USER')]
     #[Route('/{cid}/checkLegal.json', name: 'chamilo_core_course_check_legal_json')]
@@ -248,7 +261,6 @@ class CourseController extends ToolBaseController
             $cid = $course->getId();
             $sid = $this->getSessionId() ?: null;
 
-            /** @var CShortcut $shortcut */
             /** @var CShortcut $shortcut */
             foreach ($shortcuts as $shortcut) {
                 $resourceNode = $shortcut->getShortCutNode();
@@ -483,6 +495,7 @@ class CourseController extends ToolBaseController
         return new JsonResponse($payload);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/{courseId}/next-course', name: 'chamilo_course_next_course')]
     public function getNextCourse(
         int $courseId,
@@ -495,6 +508,11 @@ class CourseController extends ToolBaseController
         $sessionId = $request->query->getInt('sid');
         $useDependents = $request->query->getBoolean('dependents', false);
         $user = $security->getUser();
+
+        if (null === $user || !method_exists($user, 'getId')) {
+            return new JsonResponse(['error' => 'Authentication required.'], Response::HTTP_UNAUTHORIZED);
+        }
+
         $userId = $user->getId();
 
         if ($useDependents) {
@@ -581,24 +599,6 @@ class CourseController extends ToolBaseController
 
         return $this->redirect($url);
     }
-
-    /*public function redirectToShortCut(string $toolName, CToolRepository $repo, ToolChain $toolChain): RedirectResponse
-     * {
-     * $tool = $repo->findOneBy([
-     * 'name' => $toolName,
-     * ]);
-     * if (null === $tool) {
-     * throw new NotFoundHttpException($this->trans('Tool not found'));
-     * }
-     * $tool = $toolChain->getToolFromName($tool->getTool()->getTitle());
-     * $link = $tool->getLink();
-     * if (strpos($link, 'nodeId')) {
-     * $nodeId = (string) $this->getCourse()->getResourceNode()->getId();
-     * $link = str_replace(':nodeId', $nodeId, $link);
-     * }
-     * $url = $link.'?'.$this->getCourseUrlQuery();
-     * return $this->redirect($url);
-     * }*/
 
     /**
      * Edit configuration with given namespace.
@@ -838,49 +838,88 @@ class CourseController extends ToolBaseController
     #[Route('/{id}/getToolIntro', name: 'chamilo_core_course_gettoolintro')]
     public function getToolIntro(Request $request, Course $course, EntityManagerInterface $em): Response
     {
-        $sessionId = (int) $request->get('sid');
-
-        // $session = $this->getSession();
-        $responseData = [];
-        $ctoolRepo = $em->getRepository(CTool::class);
-        $sessionRepo = $em->getRepository(Session::class);
-        $createInSession = false;
+        $sessionId = (int) $request->query->get('sid', 0);
 
         $session = null;
-
-        if (!empty($sessionId)) {
-            $session = $sessionRepo->find($sessionId);
+        if ($sessionId > 0) {
+            $session = $em->getRepository(Session::class)->find($sessionId);
         }
 
-        $ctool = $this->findIntroOfCourse($course);
+        $ctoolRepo = $em->getRepository(CTool::class);
+        $ctoolintroRepo = $em->getRepository(CToolIntro::class);
+
+        // Base tool + base intro (course context, no session).
+        $baseTool = $this->findIntroOfCourse($course);
+        if (!$baseTool) {
+            // ensure the base tool exists (should rarely happen).
+            $baseTool = $this->ensureCourseHomepageTool($course, null, $em);
+        }
+
+        $baseIntro = null;
+        if ($baseTool) {
+            $baseIntro = $ctoolintroRepo->findOneBy(
+                ['courseTool' => $baseTool],
+                ['iid' => 'DESC']
+            );
+        }
+
+        $activeTool = $baseTool;
+        $activeIntro = $baseIntro;
+        $createInSession = false;
 
         if ($session) {
-            $ctoolSession = $ctoolRepo->findOneBy(['title' => 'course_homepage', 'course' => $course, 'session' => $session]);
+            // Ensure the session tool exists so the frontend can create the intro in the right context.
+            $sessionTool = $ctoolRepo->findOneBy([
+                'title' => 'course_homepage',
+                'course' => $course,
+                'session' => $session,
+            ]);
 
-            if (!$ctoolSession) {
-                $createInSession = true;
+            if (!$sessionTool) {
+                $sessionTool = $this->ensureCourseHomepageTool($course, $session, $em);
+            }
+
+            // Use session tool for editing/creation in session context.
+            if ($sessionTool) {
+                $activeTool = $sessionTool;
+
+                $sessionIntro = $ctoolintroRepo->findOneBy(
+                    ['courseTool' => $sessionTool],
+                    ['iid' => 'DESC']
+                );
+
+                if ($sessionIntro) {
+                    // Session-specific intro exists: show it.
+                    $activeIntro = $sessionIntro;
+                    $createInSession = false;
+                } else {
+                    // No session-specific intro yet: show base intro (if any), but allow creating in session.
+                    $activeIntro = $baseIntro;
+                    $createInSession = true;
+                }
             } else {
-                $ctool = $ctoolSession;
+                // If session tool cannot be created, fallback to base (display only).
+                $activeTool = $baseTool;
+                $activeIntro = $baseIntro;
+                $createInSession = false;
             }
         }
 
-        if ($ctool) {
-            $ctoolintroRepo = $em->getRepository(CToolIntro::class);
+        $responseData = [
+            'createInSession' => $createInSession,
+        ];
 
-            /** @var CToolIntro $ctoolintro */
-            $ctoolintro = $ctoolintroRepo->findOneBy(['courseTool' => $ctool]);
-            if ($ctoolintro) {
-                $responseData = [
-                    'iid' => $ctoolintro->getIid(),
-                    'introText' => $ctoolintro->getIntroText(),
-                    'createInSession' => $createInSession,
-                    'cToolId' => $ctool->getIid(),
-                ];
-            }
+        if ($activeTool) {
+            $responseData['cToolId'] = $activeTool->getIid();
             $responseData['c_tool'] = [
-                'iid' => $ctool->getIid(),
-                'title' => $ctool->getTitle(),
+                'iid' => $activeTool->getIid(),
+                'title' => $activeTool->getTitle(),
             ];
+        }
+
+        if ($activeIntro) {
+            $responseData['iid'] = $activeIntro->getIid();
+            $responseData['introText'] = $activeIntro->getIntroText();
         }
 
         return new JsonResponse($responseData);
@@ -911,7 +950,6 @@ class CourseController extends ToolBaseController
                     ->setTitle('course_homepage')
                     ->setCourse($course)
                     ->setPosition(1)
-                    ->setVisibility(true)
                     ->setParent($course)
                     ->setCreator($course->getCreator())
                     ->setSession($session)
@@ -937,6 +975,7 @@ class CourseController extends ToolBaseController
             return new JsonResponse([
                 'status' => 'created',
                 'cToolId' => $ctoolSession->getIid(),
+                'iid' => $ctoolIntro->getIid(),
                 'introIid' => $ctoolIntro->getIid(),
                 'introText' => $ctoolIntro->getIntroText(),
             ]);
@@ -950,6 +989,7 @@ class CourseController extends ToolBaseController
             return new JsonResponse([
                 'status' => 'updated',
                 'cToolId' => $ctoolSession->getIid(),
+                'iid' => $ctoolIntro->getIid(),
                 'introIid' => $ctoolIntro->getIid(),
                 'introText' => $ctoolIntro->getIntroText(),
             ]);
@@ -1302,6 +1342,47 @@ class CourseController extends ToolBaseController
                 )
             );
         }
+    }
+
+    /**
+     * Ensure a "course_homepage" CTool exists for the given course + session context.
+     * - If $session is null, it creates/returns the base tool.
+     * - If $session is not null, it creates/returns the session tool.
+     */
+    private function ensureCourseHomepageTool(Course $course, ?Session $session, EntityManagerInterface $em): ?CTool
+    {
+        $ctoolRepo = $em->getRepository(CTool::class);
+
+        $existing = $ctoolRepo->findOneBy([
+            'title' => 'course_homepage',
+            'course' => $course,
+            'session' => $session,
+        ]);
+
+        if ($existing) {
+            return $existing;
+        }
+
+        $toolEntity = $em->getRepository(Tool::class)->findOneBy(['title' => 'course_homepage']);
+        if (!$toolEntity) {
+            return null;
+        }
+
+        $ctool = (new CTool())
+            ->setTool($toolEntity)
+            ->setTitle('course_homepage')
+            ->setCourse($course)
+            ->setPosition(1)
+            ->setParent($course)
+            ->setCreator($course->getCreator())
+            ->setSession($session)
+            ->addCourseLink($course)
+        ;
+
+        $em->persist($ctool);
+        $em->flush();
+
+        return $ctool;
     }
 
     // Implement the real logic to check course enrollment

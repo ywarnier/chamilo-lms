@@ -118,6 +118,7 @@ readonly class AuthenticationConfigHelper
             'data_correspondence' => $this->getLdapDataCorrespondenceConfig(
                 $ldapConfig['data_correspondence'] ?? []
             ),
+            'object_class' => $ldapConfig['object_class'] ?? 'inetOrgPerson',
         ];
     }
 
@@ -228,5 +229,20 @@ readonly class AuthenticationConfigHelper
         }
 
         return null;
+    }
+
+    public function getScimConfig(?AccessUrl $accessUrl = null): array
+    {
+        $authentication = $this->getAuthSources($accessUrl);
+        $config = [];
+
+        if (isset($authentication['scim'])) {
+            $config = $authentication['scim'];
+        }
+
+        return [
+            'enabled' => $config['enabled'] ?? false,
+            'auth_source' => $config['auth_source'] ?? UserAuthSource::PLATFORM,
+        ];
     }
 }

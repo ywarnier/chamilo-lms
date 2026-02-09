@@ -1257,8 +1257,8 @@ function api_get_navigator()
 function api_get_user_id()
 {
     $userInfo = Session::read('_user');
-    if ($userInfo && isset($userInfo['user_id'])) {
-        return (int) $userInfo['user_id'];
+    if ($userInfo && isset($userInfo['id'])) {
+        return (int) $userInfo['id'];
     }
 
     return 0;
@@ -2743,19 +2743,6 @@ function api_get_setting($variable, $isArray = false, $key = null)
             // These behave as disabled.
             return false;
         }
-
-        case 'tool_visible_by_default_at_creation': {
-            // Original semantics: return an array map of "<tool>" => "true"
-            $values = $settingsManager->getSetting($full);
-            $newResult = [];
-            if (is_array($values)) {
-                foreach ($values as $parameter) {
-                    $newResult[$parameter] = 'true';
-                }
-            }
-            return $newResult;
-        }
-
         default: {
             // Get typed value when possible
             $settingValue = $settingsManager->getSetting($full, true);
@@ -3380,6 +3367,20 @@ function api_is_allowed_to_edit(
         }
     }
 
+    // ---------------------------------------------------------------------
+    // Explicit student subscription guard (no session context).
+    // If the user is subscribed as a learner in the course, do NOT grant edit
+    // rights even if "current course teacher" roles are polluted/persisted.
+    // ---------------------------------------------------------------------
+    $courseCode = api_get_course_id();
+    $inCourse = !empty($courseCode) && $courseCode != -1;
+
+    if ($inCourse && empty($sessionId)) {
+        if (api_is_explicit_course_student(api_get_user_id(), api_get_course_int_id())) {
+            return false;
+        }
+    }
+
     $isCourseAdmin = api_is_course_admin();
     $isCoach = api_is_coach(0, null, $check_student_view);
 
@@ -3442,6 +3443,35 @@ function api_is_allowed_to_edit(
     }
 
     return $isAllowed;
+}
+
+/**
+ * UI/legacy safeguard: returns true if the user is explicitly subscribed as STUDENT
+ * in the current course (course_rel_user), regardless of Symfony/serialized roles.
+ *
+ * This is intentionally a low-level check to avoid polluted context roles.
+ */
+function api_is_explicit_course_student(?int $userId = null, ?int $courseIntId = null): bool
+{
+    $userId = $userId ?? api_get_user_id();
+    $courseIntId = $courseIntId ?? api_get_course_int_id();
+
+    if (empty($userId) || empty($courseIntId)) {
+        return false;
+    }
+
+    $studentStatus = defined('STUDENT') ? (int) STUDENT : 5;
+    $table = Database::get_main_table(TABLE_MAIN_COURSE_USER);
+    $sql = "SELECT status
+            FROM $table
+            WHERE c_id = ".((int) $courseIntId)."
+              AND user_id = ".((int) $userId)."
+            LIMIT 1";
+
+    $res = Database::query($sql);
+    $row = Database::fetch_array($res, 'ASSOC');
+
+    return !empty($row) && (int) $row['status'] === $studentStatus;
 }
 
 /**
@@ -5792,7 +5822,7 @@ function api_get_jquery_libraries_js($libraries)
 {
     $js = '';
 
-    //Document multiple upload funcionality
+    // Document multiple upload functionality
     if (in_array('jquery-upload', $libraries)) {
         $js .= api_get_asset('blueimp-load-image/js/load-image.all.min.js');
         $js .= api_get_asset('blueimp-canvas-to-blob/js/canvas-to-blob.min.js');
@@ -5804,8 +5834,19 @@ function api_get_jquery_libraries_js($libraries)
         $js .= api_get_asset('jquery-file-upload/js/jquery.fileupload-video.js');
         $js .= api_get_asset('jquery-file-upload/js/jquery.fileupload-validate.js');
 
-        $js .= api_get_css(api_get_path(WEB_PUBLIC_PATH).'assets/jquery-file-upload/css/jquery.fileupload.css');
-        $js .= api_get_css(api_get_path(WEB_PUBLIC_PATH).'assets/jquery-file-upload/css/jquery.fileupload-ui.css');
+        $cssBaseWeb = api_get_path(WEB_PUBLIC_PATH).'assets/jquery-file-upload/css/';
+        $cssBaseFs  = api_get_path(SYS_PUBLIC_PATH).'assets/jquery-file-upload/css/';
+
+        $cssFiles = [
+            'jquery.fileupload.css',
+            'jquery.fileupload-ui.css',
+        ];
+
+        foreach ($cssFiles as $file) {
+            if (is_file($cssBaseFs.$file)) {
+                $js .= api_get_css($cssBaseWeb.$file);
+            }
+        }
     }
 
     // jquery datepicker
@@ -6214,35 +6255,34 @@ function api_set_default_visibility(
             $tool_id = 'quiz';
             break;
     }
-    $setting = api_get_setting('tool_visible_by_default_at_creation');
+
+    $tools = api_get_setting('course.active_tools_on_create', true);
+    $setting = array_fill_keys($tools, 'true');
 
     if (isset($setting[$tool_id])) {
+        $visibility = 'visible';
+    } else {
         $visibility = 'invisible';
-        if ('true' === $setting[$tool_id]) {
-            $visibility = 'visible';
-        }
+    }
 
-        // Read the portal and course default visibility
-        if ('documents' === $tool_id) {
-            $visibility = DocumentManager::getDocumentDefaultVisibility($courseInfo);
-        }
+    if ('documents' === $tool_id) {
+        $visibility = DocumentManager::getDocumentDefaultVisibility($courseInfo);
+    }
 
-        // Fixes default visibility for tests
-        switch ($original_tool_id) {
-            case TOOL_QUIZ:
-                if (empty($sessionId)) {
-                    $objExerciseTmp = new Exercise($courseId);
-                    $objExerciseTmp->read($item_id);
-                    if ('visible' === $visibility) {
-                        $objExerciseTmp->enable();
-                        $objExerciseTmp->save();
-                    } else {
-                        $objExerciseTmp->disable();
-                        $objExerciseTmp->save();
-                    }
+    switch ($original_tool_id) {
+        case TOOL_QUIZ:
+            if (empty($sessionId)) {
+                $objExerciseTmp = new Exercise($courseId);
+                $objExerciseTmp->read($item_id);
+                if ('visible' === $visibility) {
+                    $objExerciseTmp->enable();
+                    $objExerciseTmp->save();
+                } else {
+                    $objExerciseTmp->disable();
+                    $objExerciseTmp->save();
                 }
-                break;
-        }
+            }
+            break;
     }
 }
 
@@ -6841,31 +6881,50 @@ function api_get_configuration_value($variable)
 }
 
 /**
- * Gets a specific hosting limit.
+ * Gets a specific hosting limit, as defined in config/settings_overrides.yaml
  *
  * @param int $urlId The URL ID.
  * @param string $limitName The name of the limit.
- * @return mixed The value of the limit, or null if not found.
+ * @return ?int The value of the limit, or null if not found.
  */
-function get_hosting_limit(int $urlId, string $limitName): mixed
+function get_hosting_limit(int $urlId, string $limitName): ?int
 {
     if (!Container::$container->hasParameter('settings_overrides')) {
-        return [];
+        return null;
     }
 
-    $settingsOverrides = Container::$container->getParameter('settings_overrides');
+    $settingsOverrides = Container::$container->getParameter('settings_overrides') ?? [];
 
-    $limits = $settingsOverrides[$urlId]['hosting_limit'] ?? $settingsOverrides['default']['hosting_limit'];
+    // Defensive: ensure array
+    if (!is_array($settingsOverrides)) {
+        return null;
+    }
 
-    foreach ($limits as $limitArray) {
-        if (isset($limitArray[$limitName])) {
-            return $limitArray[$limitName];
+    $urlOverrides = (isset($settingsOverrides[$urlId]) && is_array($settingsOverrides[$urlId]))
+        ? $settingsOverrides[$urlId]
+        : [];
+
+    $defaultOverrides = (isset($settingsOverrides['default']) && is_array($settingsOverrides['default']))
+        ? $settingsOverrides['default']
+        : [];
+
+    $limits = $urlOverrides['hosting_limit'] ?? ($defaultOverrides['hosting_limit'] ?? null);
+
+    // Defensive: ensure iterable array
+    if (!is_array($limits)) {
+        $limits = null;
+    }
+
+    if (is_array($limits)) {
+        foreach ($limits as $limitArray) {
+            if (is_array($limitArray) && array_key_exists($limitName, $limitArray)) {
+                return (int) $limitArray[$limitName];
+            }
         }
     }
 
     return null;
 }
-
 
 /**
  * Retrieves an environment variable value with validation and handles boolean conversion.

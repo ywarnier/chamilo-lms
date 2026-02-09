@@ -53,12 +53,12 @@ switch ($action) {
         exit();
     case 'copy':
         $result = SessionManager::copy(
-          (int) $idChecked,
-          true,
-          true,
-          false,
-          false,
-          $copySessionContent
+            (int) $idChecked,
+            true,
+            true,
+            false,
+            false,
+            $copySessionContent
         );
         if ($result) {
             Display::addFlash(Display::return_message(get_lang('Item copied')));
@@ -128,8 +128,72 @@ if (!empty($courseId)) {
     $courseSelect->addOption($courseInfo['title'], $courseInfo['code'], ['selected' => 'selected']);
 }
 
-$url = api_get_self();
+$selfUrl = api_get_self();
 $actions = '
+<style>
+#session-table {
+    width: 100%;
+    overflow-x: auto;
+}
+#session-table .ui-jqgrid {
+    max-width: 100%;
+}
+#session-table.sessions-grid-wrap .ui-jqgrid tr.jqgrow,
+#session-table.sessions-grid-wrap .ui-jqgrid tr.jqgrow td {
+    height: auto !important;
+}
+#session-table.sessions-grid-wrap .ui-jqgrid tr.jqgrow td {
+    white-space: normal !important;
+    line-height: 1.25 !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    vertical-align: top !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+#session-table.sessions-grid-wrap .ui-jqgrid-htable th div {
+    white-space: normal !important;
+    height: auto !important;
+    line-height: 1.2 !important;
+}
+#session-table.sessions-grid-wrap .ui-jqgrid .ui-jqgrid-bdiv {
+    overflow-x: auto !important;
+}
+#session-table #gbox_sessions,
+#session-table #gview_sessions,
+#session-table #gview_sessions .ui-jqgrid-hdiv,
+#session-table #gview_sessions .ui-jqgrid-bdiv,
+#session-table #gview_sessions .ui-jqgrid-pager {
+  width: 100% !important;
+}
+.sessions-advanced-search-float {
+    position: fixed !important;
+    z-index: 3000 !important;
+    width: 420px;
+    max-width: calc(100vw - 24px);
+    border: 1px solid #d1d5db !important;
+    border-radius: 10px !important;
+    background: #fff !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+.sessions-advanced-search-float .ui-jqgrid {
+    font-size: 13px;
+}
+#sessions_pager .ui-pg-button.ui-state-hover .ch-tool-icon,
+#sessions_pager .ui-pg-button:hover .ch-tool-icon,
+#sessions_pager .ui-pg-button.ui-state-hover .mdi,
+#sessions_pager .ui-pg-button:hover .mdi {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+#sessions_pager .ui-pg-button.ui-state-hover svg,
+#sessions_pager .ui-pg-button:hover svg {
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+</style>
 <script>
 $(function() {
     $("#course_name").on("change", function() {
@@ -137,7 +201,7 @@ $(function() {
        if (!courseId) {
         return;
        }
-       window.location = "'.$url.'?course_id="+courseId;
+       window.location = "'.$selfUrl.'?course_id="+courseId;
     });
 });
 </script>';
@@ -208,6 +272,8 @@ $columns = $result['columns'];
 $column_model = $result['column_model'];
 $extra_params['autowidth'] = 'true';
 $extra_params['height'] = 'auto';
+$extra_params['shrinkToFit'] = false;
+$extra_params['forceFit'] = false;
 
 switch ($listType) {
     case 'custom':
@@ -226,22 +292,36 @@ if (!isset($_GET['keyword'])) {
 }
 
 $hideSearch = ('true' === api_get_setting('session.hide_search_form_in_session_list'));
-$copySessionContentLink = '';
+$confirmMsg = addslashes(api_htmlentities(get_lang('Please confirm your choice'), ENT_QUOTES));
+$deleteTitle = addslashes(get_lang('Delete'));
+$iconEdit = addslashes(Display::getMdiIcon('pencil', 'ch-tool-icon', null, 22, get_lang('Edit')));
+$iconUsers = addslashes(Display::getMdiIcon('account-multiple-plus', 'ch-tool-icon', null, 22, get_lang('Subscribe users to this session')));
+$iconCourses = addslashes(Display::getMdiIcon('book-open-page-variant', 'ch-tool-icon', null, 22, get_lang('Add courses to this session')));
+$iconCopy = addslashes(Display::getMdiIcon('text-box-plus', 'ch-tool-icon', null, 22, get_lang('Copy')));
+$iconDelete = addslashes(Display::getMdiIcon('delete', 'ch-tool-icon', null, 22, get_lang('Delete')));
+
+// Optional action: copy with session content
+$copyWithContentJs = '';
 if ($addSessionContent) {
-    $copySessionContentLink = ' <a onclick="javascript:if(!confirm('."\'".addslashes(api_htmlentities(get_lang("Please confirm your choice"), ENT_QUOTES))."\'".')) return false;" href="session_list.php?copy_session_content=1&list_type='.$listType.'&action=copy&idChecked=\'+options.rowId+\'">'.
-        Display::return_icon('copy.png', get_lang('Copy with session content')).'</a>';
+    $iconCopyWithContent = addslashes(
+        Display::getMdiIcon('content-duplicate', 'ch-tool-icon', null, 22, get_lang('Copy with session content'))
+    );
+    $copyWithContentJs =
+        " + '&nbsp;<a onclick=\"if(!confirm(\\'{$confirmMsg}\\')) return false;\""
+        ." href=\"session_list.php?copy_session_content=1&list_type={$listType}&action=copy&idChecked=' + options.rowId + '\">"
+        ."{$iconCopyWithContent}</a>'";
 }
 
-//With this function we can add actions to the jgrid (edit, delete, etc)
-$action_links = 'function action_formatter(cellvalue, options, rowObject) {
-     return \'<a href="session_edit.php?page=resume_session.php&id=\'+options.rowId+\'">'.Display::getMdiIcon('pencil', 'ch-tool-icon', null, 22, get_lang('Edit')).'</a>'.
-    '&nbsp;<a href="add_users_to_session.php?page=session_list.php&id_session=\'+options.rowId+\'">'.Display::getMdiIcon('account-multiple-plus', 'ch-tool-icon', null, 22, get_lang('Subscribe users to this session')).'</a>'.
-    '&nbsp;<a href="add_courses_to_session.php?page=session_list.php&id_session=\'+options.rowId+\'">'.Display::getMdiIcon('book-open-page-variant', 'ch-tool-icon', null, 22, get_lang('Add courses to this session')).'</a>'.
-    '&nbsp;<a onclick="javascript:if(!confirm('."\'".addslashes(api_htmlentities(get_lang("Please confirm your choice"), ENT_QUOTES))."\'".')) return false;"  href="session_list.php?action=copy&idChecked=\'+options.rowId+\'">'.Display::getMdiIcon('text-box-plus', 'ch-tool-icon', null, 22, get_lang('Copy')).'</a>'.
-    $copySessionContentLink.
-    '<button type="button" title="'.get_lang('Delete').'" onclick="if(confirm('."\'".addslashes(api_htmlentities(get_lang("Please confirm your choice"), ENT_QUOTES))."\'".')) window.location = '."\'session_list.php?action=delete&idChecked=\' + ".'\' + options.rowId +\';">'.Display::getMdiIcon('delete', 'ch-tool-icon', null, 22, get_lang('Delete')).'</button>'.
-    '\';
-}';
+// Build JS formatter using ONLY JS concatenation (+)
+$action_links = "function action_formatter(cellvalue, options, rowObject) {
+    return ''
+        + '<a href=\"session_edit.php?page=resume_session.php&id=' + options.rowId + '\">{$iconEdit}</a>'
+        + '&nbsp;<a href=\"add_users_to_session.php?page=session_list.php&id_session=' + options.rowId + '\">{$iconUsers}</a>'
+        + '&nbsp;<a href=\"add_courses_to_session.php?page=session_list.php&id_session=' + options.rowId + '\">{$iconCourses}</a>'
+        + '&nbsp;<a onclick=\"if(!confirm(\\'{$confirmMsg}\\')) return false;\" href=\"session_list.php?action=copy&idChecked=' + options.rowId + '\">{$iconCopy}</a>'"
+    . $copyWithContentJs .
+    " + '<button type=\"button\" title=\"{$deleteTitle}\" onclick=\"if(confirm(\\'{$confirmMsg}\\')) window.location = \\'session_list.php?action=delete&idChecked=' + options.rowId + '\\';\">{$iconDelete}</button>';
+}";
 
 $urlAjaxExtraField = api_get_path(WEB_AJAX_PATH).'extra_field.ajax.php?1=1';
 $orderUrl = api_get_path(WEB_AJAX_PATH).'session.ajax.php?a=order';
@@ -254,10 +334,11 @@ $extra_params['multiselect'] = true;
 ?>
     <script>
         function setSearchSelect(columnName) {
-            $("#sessions").jqGrid('setColProp', columnName, {});
+            $("#sessions").jqGrid("setColProp", columnName, {});
         }
         var added_cols = [];
         var original_cols = [];
+        var second_filters = [];
 
         function clean_cols(grid, added_cols) {
             // Cleaning
@@ -277,8 +358,6 @@ $extra_params['multiselect'] = true;
             }
         }
 
-        var second_filters = [];
-
         $(function() {
             date_pick_today = function(elem) {
                 $(elem).datetimepicker({dateFormat: "yy-mm-dd"});
@@ -290,7 +369,7 @@ $extra_params['multiselect'] = true;
                 $(elem).datetimepicker('setDate', next_month);
             }
 
-            //Great hack
+            // Great hack
             register_second_select = function(elem) {
                 second_filters[$(elem).val()] = $(elem);
             }
@@ -335,37 +414,171 @@ $extra_params['multiselect'] = true;
             setSearchSelect("status");
             var grid = $("#sessions");
 
-            var prmSearch = {
-                    multipleSearch : true,
-                    overlay : false,
-                    width: 'auto',
-                    caption: '<?php echo addslashes(get_lang('Search')); ?>',
-                    formclass:'data_table',
-                    onSearch : function() {
-                        var postdata = grid.jqGrid('getGridParam', 'postData');
+            function resizeSessionsGrid() {
+                var container = document.getElementById("session-table");
+                if (!container) {
+                    return;
+                }
 
-                        if (postdata && postdata.filters) {
-                            filters = jQuery.parseJSON(postdata.filters);
-                            clean_cols(grid, added_cols);
-                            added_cols = [];
-                            $.each(filters, function(key, value) {
-                                if (key == 'rules') {
-                                    $.each(value, function(subkey, subvalue) {
-                                        if (subvalue.data == undefined) {
-                                        }
-                                        added_cols[subvalue.field] = subvalue.field;
-                                    });
-                                }
-                            });
-                            show_cols(grid, added_cols);
-                        }
-                    },
-                    onReset: function() {
-                        clean_cols(grid, added_cols);
+                var rect = container.getBoundingClientRect();
+                var newWidth = Math.floor(rect.width);
+
+                // Avoid applying invalid widths (e.g. while hidden inside a tab)
+                if (!newWidth || newWidth < 200) {
+                    return;
+                }
+
+                grid.jqGrid("setGridWidth", newWidth, true);
+            }
+
+            function applySessionsTooltips() {
+                // Add a tooltip with full text to each simple cell (skip action/icon cells).
+                var $cells = grid.closest("#gbox_sessions").find("tr.jqgrow td");
+                $cells.each(function() {
+                    var $td = $(this);
+                    if ($td.attr("title")) {
+                        return;
                     }
-                };
+                    if ($td.find("a,button,svg,i").length) {
+                        return;
+                    }
+                    var text = $.trim($td.text());
+                    if (text) {
+                        $td.attr("title", text);
+                    }
+                });
+            }
 
-            original_cols = grid.jqGrid('getGridParam', 'colModel');
+            // Re-apply width and tooltips after each data render
+            grid.jqGrid("setGridParam", {
+                gridComplete: function () {
+                    setTimeout(function () {
+                        resizeSessionsGrid();
+                        applySessionsTooltips();
+                    }, 0);
+                }
+            });
+
+            // Ensure width is correct after page load (fonts/tabs/layout final width)
+            $(window).on("load", function () {
+                resizeSessionsGrid();
+                applySessionsTooltips();
+            });
+
+            // If tabs affect layout, recalc when tab is shown (Bootstrap) + fallback click
+            $(document).on("shown.bs.tab", 'a[data-toggle="tab"]', function () {
+                setTimeout(function () {
+                    resizeSessionsGrid();
+                }, 50);
+            });
+            $(document).on("click", ".nav-tabs a", function () {
+                setTimeout(function () {
+                    resizeSessionsGrid();
+                }, 50);
+            });
+
+            // Advanced search is enabled unless disabled by platform setting
+            var advancedSearchEnabled = <?php echo (true !== $hideSearch) ? 'true' : 'false'; ?>;
+
+            function getSearchDialog() {
+                return $("#searchmodfbox_" + grid[0].id);
+            }
+
+            function positionSearchDialog() {
+                var $dlg = getSearchDialog();
+                if (!$dlg.length) {
+                    return;
+                }
+
+                // Place it under the toolbar, aligned to the right.
+                var top = 110;
+                var $toolbar = $("#toolbar");
+                if ($toolbar.length) {
+                    // Convert document coordinates to viewport coordinates for "fixed" positioning.
+                    top = $toolbar.offset().top + $toolbar.outerHeight() + 12 - $(window).scrollTop();
+                    top = Math.max(70, Math.min(top, 220));
+                }
+
+                $dlg.addClass("sessions-advanced-search-float");
+                $dlg.css({
+                    top: top + "px",
+                    right: "16px",
+                    left: "auto"
+                });
+            }
+
+            function hideAdvancedSearch() {
+                var $dlg = getSearchDialog();
+                if ($dlg.length && $dlg.is(":visible")) {
+                    // jqGrid modal helper (works even with overlay:false)
+                    $.jgrid.hideModal("#searchmodfbox_" + grid[0].id);
+                }
+                $("#sessions-advanced-search-toggle").attr("aria-expanded", "false");
+            }
+
+            function toggleAdvancedSearch() {
+                if (!advancedSearchEnabled) {
+                    return;
+                }
+
+                var $dlg = getSearchDialog();
+                if ($dlg.length && $dlg.is(":visible")) {
+                    hideAdvancedSearch();
+                    return;
+                }
+
+                grid.jqGrid("searchGrid", prmSearch);
+            }
+
+            var prmSearch = {
+                multipleSearch: true,
+                overlay: false,
+                width: "auto",
+                caption: "<?php echo addslashes(get_lang('Search')); ?>",
+                formclass: "data_table",
+
+                afterShowSearch: function() {
+                    // Keep the dialog floating and well-positioned.
+                    positionSearchDialog();
+
+                    // Select first elements by default (UX: avoid confusing empty selectors)
+                    $(".input-elm").each(function(){
+                        $(this).find("option:first").attr("selected", "selected");
+                    });
+
+                    $("#sessions-advanced-search-toggle").attr("aria-expanded", "true");
+                },
+
+                onSearch: function() {
+                    var postdata = grid.jqGrid("getGridParam", "postData");
+
+                    if (postdata && postdata.filters) {
+                        filters = jQuery.parseJSON(postdata.filters);
+                        clean_cols(grid, added_cols);
+                        added_cols = [];
+                        $.each(filters, function(key, value) {
+                            if (key == "rules") {
+                                $.each(value, function(subkey, subvalue) {
+                                    if (subvalue.data == undefined) {
+                                    }
+                                    added_cols[subvalue.field] = subvalue.field;
+                                });
+                            }
+                        });
+                        show_cols(grid, added_cols);
+                    }
+                },
+
+                onReset: function() {
+                    clean_cols(grid, added_cols);
+                },
+
+                onClose: function() {
+                    $("#sessions-advanced-search-toggle").attr("aria-expanded", "false");
+                }
+            };
+
+            original_cols = grid.jqGrid("getGridParam", "colModel");
 
             options = {
                 update: function (e, ui) {
@@ -388,14 +601,15 @@ $extra_params['multiselect'] = true;
             // Sortable rows
             grid.jqGrid('sortableRows', options);
 
-            grid.jqGrid('navGrid','#sessions_pager',
-                {edit:false,add:false,del:true},
+            // navGrid (we disable default search button to avoid confusion; we provide our own toggle)
+            grid.jqGrid("navGrid","#sessions_pager",
+                {edit:false,add:false,del:true,search:false},
                 {height:280,reloadAfterSubmit:false}, // edit options
                 {height:280,reloadAfterSubmit:false}, // add options
                 {reloadAfterSubmit:true, url: '<?php echo $deleteUrl; ?>' }, // del options
                 prmSearch
             ).navButtonAdd('#sessions_pager',{
-                caption:"<?php echo addslashes(Display::return_icon('copy.png', get_lang('Copy'))); ?>",
+                caption:"<?php echo addslashes(Display::getMdiIcon('content-duplicate', 'ch-tool-icon', null, 22, get_lang('Copy'))); ?>",
                 buttonicon:"ui-icon ui-icon-plus",
                 onClickButton: function(a) {
                     var list = $("#sessions").jqGrid('getGridParam', 'selarrrow');
@@ -406,7 +620,7 @@ $extra_params['multiselect'] = true;
                     }
                 }
             }).navButtonAdd('#sessions_pager',{
-                caption:"<?php echo addslashes(Display::return_icon('save_pack.png', get_lang('Courses reports'))); ?>",
+                caption:"<?php echo addslashes(Display::getMdiIcon('archive-arrow-down', 'ch-tool-icon', null, 22, get_lang('Courses reports'))); ?>",
                 buttonicon:"ui-icon ui-icon-plus",
                 onClickButton: function(a) {
                     var list = $("#sessions").jqGrid('getGridParam', 'selarrrow');
@@ -417,13 +631,13 @@ $extra_params['multiselect'] = true;
                     }
                 },
                 position:"last"
-            }).navButtonAdd('#sessions_pager',{
-                caption:"<?php echo addslashes(Display::return_icon('export_csv.png', get_lang('Export courses reports complete'))); ?>",
+            }).navButtonAdd("#sessions_pager",{
+                caption:"<?php echo addslashes(Display::getMdiIcon('file-delimited-outline', 'ch-tool-icon', null, 22, get_lang('Export courses reports complete'))); ?>",
                 buttonicon:"ui-icon ui-icon-plus",
                 onClickButton: function(a) {
-                    var list = $("#sessions").jqGrid('getGridParam', 'selarrrow');
+                    var list = $("#sessions").jqGrid("getGridParam", "selarrrow");
                     if (list.length) {
-                        window.location.replace('<?php echo $exportCsvUrl; ?>&id='+list.join(','));
+                        window.location.replace("<?php echo $exportCsvUrl; ?>&id="+list.join(","));
                     } else {
                         alert("<?php echo addslashes(get_lang('Please select an option')); ?>");
                     }
@@ -431,43 +645,28 @@ $extra_params['multiselect'] = true;
                 position:"last"
             });
 
-            <?php
-            // Create the searching dialog.
-            if (true !== $hideSearch) {
-                echo 'grid.searchGrid(prmSearch);';
-            }
-            ?>
-
-            // Fixes search table.
-            var searchDialogAll = $("#fbox_"+grid[0].id);
-            searchDialogAll.addClass("table");
-            var searchDialog = $("#searchmodfbox_"+grid[0].id);
-            searchDialog.addClass("ui-jqgrid ui-widget ui-widget-content ui-corner-all");
-            searchDialog.css({
-                position: "absolute",
-                "z-index": "100",
-                "float": "left",
-                "top": "55%",
-                "left": "25%",
-                "padding": "5px",
-                "border": "1px solid #CCC"
-            })
-            var gbox = $("#gbox_"+grid[0].id);
-            gbox.before(searchDialog);
-            gbox.css({clear:"left"});
-
-            // Select first elements by default
-            $('.input-elm').each(function(){
-                $(this).find('option:first').attr('selected', 'selected');
+            // Custom advanced search toggle (toolbar button)
+            $(document).on("click", "#sessions-advanced-search-toggle", function(e) {
+                e.preventDefault();
+                toggleAdvancedSearch();
             });
 
-            $('.delete-rule').each(function(){
-                $(this).click(function(){
-                    $('.input-elm').each(function(){
-                        $(this).find('option:first').attr('selected', 'selected');
-                    });
-                });
+            // Keep grid width in sync with the page width
+            $(window).on("resize", function() {
+                resizeSessionsGrid();
+                positionSearchDialog();
             });
+
+            // Reposition dialog on scroll (since it's fixed and we compute top)
+            $(window).on("scroll", function() {
+                positionSearchDialog();
+            });
+
+            // Initial paint adjustments
+            setTimeout(function() {
+                resizeSessionsGrid();
+                applySessionsTooltips();
+            }, 0);
         });
     </script>
 <?php
@@ -499,11 +698,20 @@ if (api_is_platform_admin()) {
     $form->addHidden('list_type', $listType);
     $form->addButtonSearch(get_lang('Search'));
     $actionsRight .= $form->returnForm();
+
+    // Advanced search toggle (do not auto-open)
+    if (true !== $hideSearch) {
+        $actionsRight .=
+            '<button type="button" id="sessions-advanced-search-toggle" class="btn btn-default" aria-expanded="false" title="'.api_htmlentities(get_lang('Advanced search'), ENT_QUOTES).'">'.
+            Display::getMdiIcon('magnify', 'ch-tool-icon', null, 22, get_lang('Advanced search')).
+            ' '.api_htmlentities(get_lang('Advanced search'), ENT_QUOTES).
+            '</button>';
+    }
 }
 
 echo Display::toolbarAction('toolbar', [$actionsLeft, $actionsRight]);
 echo SessionManager::getSessionListTabs($listType);
-echo '<div id="session-table" class="table-responsive">';
+echo '<div id="session-table" class="table-responsive sessions-grid-wrap">';
 echo Display::grid_html('sessions');
 echo '</div>';
 

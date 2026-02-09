@@ -19414,9 +19414,6 @@ msgstr "Fshij bazën e të dhënave të vjetër"
 msgid "Remove old tables"
 msgstr "Fshij tabelat e vjetra"
 
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "Hapësira totale e përdorur nga portali %s kufiri është %s MB"
-
 msgid "Event message management"
 msgstr "Menaxhimi i mesazheve të ngjarjeve"
 
@@ -31072,8 +31069,8 @@ msgstr "Shto koment"
 msgid "Write your comment here..."
 msgstr "Shkruani komentin tuaj këtu..."
 
-msgid "%d selected"
-msgstr "%d të zgjedhura"
+msgid "%s selected"
+msgstr "%s të zgjedhura"
 
 msgid "Search by title or path..."
 msgstr "Kërko sipas titullit ose shtegut..."
@@ -31081,8 +31078,8 @@ msgstr "Kërko sipas titullit ose shtegut..."
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "Menaxho kopjer rezervë, rikrijo, kopjo, riciklo dhe fshij të dhënat e kursit."
 
-msgid "%d comment(s)"
-msgstr "%d komente(r)"
+msgid "%s comment(s)"
+msgstr "%s komente(r)"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "Gabim në përditësimin e palës së tretë. Ju lutemi verifikoni të dhënat."
@@ -31437,4 +31434,1138 @@ msgstr "Vetëm shkronja, shifra dhe nënvija (_) lejohen në emrin e bazës së 
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "Çfarë kushtesh të përgjithshme dhe kushtesh përdorimi u jepen përdoruesve për të përdorur këtë platformë?"
+
+msgid "ex. {examplePassword}"
+msgstr "p.sh. {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "Mirësevini në Chamilo!"
+
+msgid "Welcome to this platform"
+msgstr "Mirësevini në këtë platformë"
+
+msgid "For more details visit %s"
+msgstr "Për më shumë detaje vizitoni %s"
+
+msgid "Manager"
+msgstr "Menaxher"
+
+msgid "Mark as"
+msgstr "Shëno si"
+
+msgid "Reply to all"
+msgstr "Përgjigju të gjithëve"
+
+msgid "SCIM external ID"
+msgstr "SCIM ID e jashtme"
+
+msgid "OAuth2 ID"
+msgstr "OAuth2 ID"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "Ju lutemi pranoni versionin më të fundit të kushteve dhe kushteve."
+
+msgid "Required value for operation without path"
+msgstr "Vlerë e kërkuar për operacionin pa shteg"
+
+msgid "Available space (%s)"
+msgstr "Hapësirë e disponueshme (%s)"
+
+msgid "Index this description for the global search"
+msgstr "Indekso këtë përshkrim për kërkimin global"
+
+msgid "Unknown course"
+msgstr "Kurs i panjohur"
+
+msgid "Certificate not found."
+msgstr "Certifikata nuk u gjet."
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "Token i sigurisë ka skaduar. Ju lutemi rifreskoni faqen dhe provoni përsëri."
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "Vetëm administratorët e platformës mund të ndryshojnë dukshmërinë e kursit."
+
+msgid "Unexpected error while subscribing the user"
+msgstr "Gabim i papritur gjatë regjistrimit të përdoruesit"
+
+msgid "Search in resource logs"
+msgstr "Kërko në log-et e burimeve"
+
+msgid "Include this learning path in the global search results"
+msgstr "Përfshi këtë shteg mësimor në rezultatet e kërkimit global"
+
+msgid "The course code already exists"
+msgstr "Kodi i kursit ekziston tashmë"
+
+msgid "Latest news"
+msgstr "Lajmet më të fundit"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "Merrni lajmet më të fundit nga Chamilo, përfshirë dobësitë e sigurisë dhe eventet, direkt në panelin tuaj të administrimit. Këto lajme do të kontrollohen në serverin e lajmeve të Chamilo çdo herë që ngarkoni faqen e administrimit dhe janë të dukshme vetëm për administratorët."
+
+msgid "Chamilo support block"
+msgstr "Bllok mbështetjeje Chamilo"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "Merrni këshilla pro dhe një mënyrë të lehtë për të kontaktuar ofruesit zyrtarë të shërbimeve për mbështetje profesionale, direkt nga krijuesit e Chamilo. Ky bllok shfaqet në faqen tuaj të administrimit, është i dukshëm vetëm nga administratorët dhe rifreskohet çdo herë që ngarkoni faqen e administrimit."
+
+msgid "Hide option to send announcements to HR users"
+msgstr "Fsheh opsionin për të dërguar njoftime te përdoruesit HR"
+
+msgid "Allow session admins to download private certificates"
+msgstr "Lejo administratorët e sesioneve të shkarkojnë certifikata private"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "Nëse aktivizohet, administratorët e sesioneve mund të shkarkojnë certifikata edhe nëse nuk janë publikuar publikisht."
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "Nëse nuk është bosh, procesi i krijimit të kursit do të kërkojë disa fusha në profilin e përdoruesit dhe do t'i mbushë automatikisht për kursin. Për shembull, një mësues i specializuar në marketing dixhital mund të vendosë automatikisht një shenjë « marketing dixhital » në çdo kurs (e) që krijon."
+
+msgid "Main menu entries"
+msgstr "Hyrjet e menu kryesore"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "Zgjidhni hyrjen që dëshironi të shfaqet në menunë kryesore"
+
+msgid "Main menu entries per role"
+msgstr "Hyrjet e menu kryesore për rol"
+
+msgid "Define header tabs visibility per role."
+msgstr "Përcaktoni dukshmërinë e skedarëve të kryesisë për rol."
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "Përcaktoni opsionet që dëshironi të shfaqen në navigimin rreth një tabele për të treguar më pak ose më shumë rreshta në një faqe. p.sh. [50, 100, 200, 500]."
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "Array i veçorive shtesë që mund të aktivizoni për videolojtësin në Chamilo. Opsionet përfshijnë 'speed', që ju lejon të ndryshoni shpejtësinë e riprodhimit të një videoje."
+
+msgid "Mail: character set"
+msgstr "Postë: grup karakteresh"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "Në rast se duhet të përcaktoni charset-in për t'u përdorur kur dërgoni ato email-e. Lini bosh nëse nuk jeni të sigurt."
+
+msgid "Mail: Debug"
+msgstr "Postë: Debug"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "Zgjidhni nëse dëshironi të aktivizoni regjistrat e debug për dërgimin e email-eve. Këto do t'ju japin më shumë informacion për atë që po ndodh kur lidheni me shërbimin e postës, por nuk janë elegante dhe mund të prishin dizajnin e faqes. Përdorni vetëm kur nuk ka aktivitet përdoruesish."
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "Postë: Shmangni përdorimin e LD+JSON"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "Disa klientë email nuk e kuptojnë formatin përshkrues LD+JSON, duke e shfaqur atë si një varg JSON të lirë për përdoruesin përfundimtar. Nëse ky është rasti juaj, mund të dëshironi të vendosni variablin më poshtë në 'false' për të çaktivizuar këtë krye."
+
+msgid "Mail: DKIM headers"
+msgstr "Postë: Kryetë DKIM"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "Futni një array JSON të cilësimeve tuaja të konfigurimit DKIM (shihni shembullin)."
+
+msgid "Mail: XOAuth2 options"
+msgstr "Postë: Opsione XOAuth2"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "Nëse përdorni një shërbim email të bazuar në XOAuth2, përdorni këtë cilësim në JSON për të ruajtur konfigurimin tuaj specifik (shihni shembullin) dhe zgjidhni XOAuth2 në cilësimin e shërbimit të postës."
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "Përcakton llojin e mjedisit: \"prod\" (prodhim normal), \"validation\" (si prodhimi por pa raportimin e statistikave), ose \"test\" (modalitet debug me mjete zhvillimi si treguesit e stringjeve të papërkthyera)."
+
+msgid "Global limit of users per course"
+msgstr "Kufi global i përdoruesve për kurs"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "Përcakton një numër maksimal global të përdoruesve (përfshirë mësuesit) të lejuar të abonojnë në çdo kurs të vetëm në platformë. Vendosni këtë vlerë në 0 për të çaktivizuar kufirin. Kjo ndihmon për të shmangur mbingarkesën e kurseve në portale të hapura."
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "Aktivizoni për të përdorur një array për të përcaktuar cilat role duhet të shfaqen qartë dhe cilat duhet të fshehen."
+
+msgid "Show base course posts in session course"
+msgstr "Shfaqni postimet bazë të kursit në kursin e sesionit"
+
+msgid "Limit identical email usage"
+msgstr "Kufizoni përdorimin e email-it identik"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "Numri maksimal i llogarive të lejuara për të ndarë të njëjtën adresë e-mail. Vendosni në 0 për të çaktivizuar këtë kufizim."
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "Lejo adminët e sesioneve të shohin të gjithë përdoruesit në të gjitha URL-të"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "Nëse aktivizohet, adminët e sesioneve mund të kërkojnë dhe listojnë përdoruesit nga të gjitha URL-të e aksesit, pavarësisht nga URL-ja e tyre aktuale."
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "Aktivizo mundësinë për përdoruesit të zgjedhin zonën e tyre kohore. Pasi të konfigurohet, përdoruesit do të jenë në gjendje të shohin afatet e detyrave dhe referencat e tjera kohore në zonën e tyre kohore, çka do të reduktojë gabimet në kohën e dorëzimit."
+
+msgid "Redirect after login (per profile)"
+msgstr "Ridrejtim pas hyrjes (për profil)"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "Përcaktoni ridrejtimin për profil pas hyrjes duke përdorur një objekt JSON si {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "Fsheh checkbox-in e pranimit ligjor në faqen e Kushteve dhe Konditave"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "Nëse vendoset në true, heq checkbox-in \"E kam lexuar dhe pranoj\" në rrjedhën e faqes së Kushteve dhe Konditave."
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "Array që përcakton host dhe port për serverin LDAP."
+
+msgid "Enable 2FA"
+msgstr "Aktivizo 2FA"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "Shto fusha në faqen e përditësimit të fjalëkalimit për të aktivizuar 2FA duke përdorur një aplikacion autentifikues TOTP. Kur çaktivizohet globalisht, përdoruesit nuk do të shohin fushat 2FA dhe nuk do të nxitohen për 2FA në hyrje, edhe nëse e kishin aktivizuar më parë."
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "Disa veçori të Chamilo do të lidhen me jashtë nga serveri. Për shembull, për të siguruar që një përmbajtje e jashtme ekziston kur krijohet një lidhje ose shfaqet një faqe e ngulitur në shtegun e mësimit. Nëse serveri juaj Chamilo përdor një proxy për të dalë nga rrjeti i tij, ky është vendi për ta konfiguruar atë."
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "Aktivizo ose çaktivizo ri-regjistrimin automatik kur vlefshmëria e kursit skadon. Punën e cron të lidhur duhet të aktivizohet gjithashtu."
+
+msgid "Show remaining days in My Sessions"
+msgstr "Shfaq ditët e mbetura në Sesionet e Mia"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "Nëse aktivizohet, datat e sesioneve në faqen \"Sesionet e Mia\" do të zëvendësohen nga numri i ditëve të mbetura."
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "Shfaq \"Anketat në pritje\" në menu"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "Shfaq një element menu që lejon përdoruesit të aksesojnë anketat e tyre në pritje."
+
+msgid "Disclose AI assistance"
+msgstr "Zbuloni ndihmën me AI"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "Shfaq një etiketë në çdo përmbajtje ose reagim që është gjeneruar ose bashkë-gjeneruar nga ndonjë sistem AI, duke dëshmuar për përdoruesin se përmbajtja u ndërtua me ndihmën e ndonjë sistemi AI. Detajet rreth se cili sistem AI u përdor në cilin rast ruhen brenda bazës së të dhënave për auditim, por nuk janë të aksesueshme drejtpërdrejt nga përdoruesi final."
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "Konfigurim JSON për katalogun e kurseve: cilësime lidhjesh, filtra, opsione renditjeje dhe më shumë."
+
+msgid "Session Catalog Settings"
+msgstr "Cilësimet e Katalogut të Sesioneve"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "Konfigurim JSON për katalogun e sesioneve: filtra dhe opsione shfaqjeje."
+
+msgid "Show Course Descriptions"
+msgstr "Shfaq Përshkrimet e Kurseve"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "Shfaqni përshkrimet e kurseve brenda listimit të katalogut."
+
+msgid "Published Courses Only"
+msgstr "Vetëm Kurset e Publikuara"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "Kufizoni katalogun vetëm në kurset e shënuara si të publikuara."
+
+msgid "Display Catalog on Homepage"
+msgstr "Shfaq Katalogun në Faqen Kryesore"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "Shfaqni bllokun e katalogut të kurseve në faqen kryesore të platformës."
+
+msgid "Hide Public Link"
+msgstr "Fsheh Lidhjen Publike"
+
+msgid "Remove the public URL link from course cards."
+msgstr "Hiqni lidhjen e URL-së publike nga kartat e kurseve."
+
+msgid "Only Selected Courses"
+msgstr "Vetëm Kurset e Zgjedhura"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "Shfaqni vetëm kurset e zgjedhura manualisht në katalog."
+
+msgid "Allow Student Browsing"
+msgstr "Lejo Shfletimin nga Studentët"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "Lejoni studentët të shfletojnë dhe filtrojnë katalogun e kurseve."
+
+msgid "Hide Private Courses"
+msgstr "Fsheh Kurset Private"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "Përjashtoni kurset private nga shfaqja e katalogut."
+
+msgid "Show Courses & Sessions"
+msgstr "Shfaq Kurset dhe Seancat"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "Përfshini si kurset ashtu edhe seancat në rezultatet e katalogut."
+
+msgid "Auto Session Subscription"
+msgstr "Abonezim i Automatizuar i Seancës"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "Aktivizoni abonimin e automatizuar të seancave për përdoruesit."
+
+msgid "Subscription in Session View"
+msgstr "Abonezim në Pamjen e Seancës"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "Lejoni përdoruesit të abonojnë në kurse direkt nga faqja e tyre e seancës."
+
+msgid "Enable redirection plugin"
+msgstr "Aktivizo plugin-in e ridrejtimit"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "Array që përcakton 'ditët' dhe 'muajt' për të vendosur datën e skadimit të llogarisë kur përdoruesi hyn për herë të parë."
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "Një array i rol => numër që përfaqëson numrin e ditëve që një llogari ka para skadimit, në varësi të rolit."
+
+msgid "Extra user field used to search and name sessions"
+msgstr "Fushë shtesë përdoruesi e përdorur për të kërkuar dhe emërtuar seancat"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "Kjo cilësim përcakton çelësin e fushës shtesë të përdoruesit (p.sh., \"company\") që do të përdoret për të kërkuar përdoruesit dhe për të përcaktuar emrin e seancës kur regjistrohen studentët nga /admin-dashboard/register."
+
+msgid "Glossary terms generator"
+msgstr "Gjeneruesi i termave të fjalorit"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "Lejoni mësuesit të kërkojnë terma të fjalorit të gjeneruar nga AI në kursin e tyre. Kjo do të gjenerojë 20 terma bazuar në titullin e kursit dhe përshkrimin e përgjithshëm në mjetin e përshkrimit të kursit. Nëse përdoret më shumë se një herë, do të përjashtojë termat e tashmë të pranishëm në atë fjalor (sigurohuni që përmbajtja mund të ndahet me shërbimet e konfiguruar të AI-së)."
+
+msgid "Video generator"
+msgstr "Gjeneruesi i videove"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "Gjeneron video bazuar në urdhra ose përmbajtje duke përdorur AI (kjo mund të konsumojë shumë tokena)."
+
+msgid "Course analyser"
+msgstr "Analizuesi i kursit"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "Analizon të gjitha burimet në një ose shumë kurse dhe para-trenon modelin e AI-së për të përgjigjur çdo pyetje në këtë ose këto kurse (sigurohuni që përmbajtja mund të ndahet me shërbimet e konfiguruar të AI-së)."
+
+msgid "Test/development"
+msgstr "Test/zhvillim"
+
+msgid "Crons"
+msgstr "Crons"
+
+msgid "Editor"
+msgstr "Redaktues"
+
+msgid "Gradebook"
+msgstr "Regjistër notash"
+
+msgid "Internationalization"
+msgstr "Ndërkombëtarizim"
+
+msgid "User profiles"
+msgstr "Profili i përdoruesve"
+
+msgid "Support tickets"
+msgstr "Ticketat e mbështetjes"
+
+msgid "Webservices"
+msgstr "Webserviset"
+
+msgid "Catalogue"
+msgstr "Katalog"
+
+msgid "Workflows"
+msgstr "Rrjedhat e punës"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "Cilësimi është i editueshëm në nën-URL"
+
+msgid "Show JSON Template"
+msgstr "Shfaq Shablonin JSON"
+
+msgid "JSON Template"
+msgstr "Shablloni JSON"
+
+msgid "Installing Xapian bindings"
+msgstr "Instalimi i lidhjeve Xapian"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "Fragmenti i mëposhtëm tregon një shembull instalimi të lidhjeve PHP Xapian në Ubuntu 25.04 me PHP 8.3. Përshtatni shtigjet dhe versionet për mjedisin tuaj."
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "Sigurohuni që keni vetëm versionin e PHP që përdorni vërtet (p.sh. 8.3) dhe shmangni përzierjen e disa versioneve me direktori të ndryshme shtesash."
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "Pasi shtesa të jetë ngarkuar siç duhet për CLI dhe serverin web, diagnostikat e kërkimit të mësipërm duhet të raportojnë se moduli Xapian është instaluar."
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "Pastrimi i ngarkimeve të përkohshme dhe cache"
+
+msgid "Directory"
+msgstr "Direktorium"
+
+msgid "Only delete files older than (minutes)"
+msgstr "Fshij vetëm skedarët më të vjetër se (minuta)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "Vendos 0 për të fshirë të gjithë skedarët. Përdor një vlerë pozitive (p.sh., 60) për të shmangur heqjen e skedarëve që ende po ngarkohen."
+
+msgid "Preview only (do not delete)"
+msgstr "Parapamje vetëm (mos fshij)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "Paralajmërim: ju jeni gati të fshini TË GJITHË skedarët e përkohshëm. Kjo veprim nuk mund të zhbëhet."
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "Kjo do të fshijë të gjithë skedarët e përkohshëm. Vazhdo?"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "Kjo do të fshijë skedarët më të vjetër se %minutes% minuta. Vazhdo?"
+
+msgid "The value must match exactly: %s"
+msgstr "Vlera duhet të përputhet saktësisht: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "Data e përsëritjes së fundit duhet të jetë pas datës së fillimit."
+
+msgid "Index document content?"
+msgstr "Indekso përmbajtjen e dokumentit?"
+
+msgid "Upload SVG logo to platform header"
+msgstr "Ngarko logo SVG në kryen e platformës"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "Ngarko logo PNG në kryen e platformës (%s)"
+
+msgid "Write something to %s"
+msgstr "Shkruaj diçka te %s"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "E preferuara: SVG. Gjerësia e rekomanduar PNG: %spx."
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "Ngarko logo PNG për email-et (~%spx gjerësi)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "PNG kryen duhet të jetë ≤ %spx."
+
+msgid "Require specific file format"
+msgstr "Kërko format specifik skedari"
+
+msgid "Select allowed file formats"
+msgstr "Zgjidh formatet e lejuara të skedarëve"
+
+msgid "Custom extensions (separated by space)"
+msgstr "Shtesa të personalizuara (të ndara me hapësirë)"
+
+msgid "Other extensions"
+msgstr "Shtesa të tjera"
+
+msgid "My invitations"
+msgstr "Ftesat e mia"
+
+msgid "Delete access"
+msgstr "Fshij aksesin"
+
+msgid "Certificate tags"
+msgstr "Etiketat e certifikatës"
+
+msgid "Copy all"
+msgstr "Kopjo të gjitha"
+
+msgid "Click to insert"
+msgstr "Kliko për të futur"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "I preferuari: SVG. Madhësia maksimale PNG: %spx."
+
+msgid "View badge"
+msgstr "Shih badge"
+
+msgid "%d min"
+msgstr "%d min"
+
+msgid "Duration in minutes"
+msgstr "Koha në minuta"
+
+msgid "Go back to standard view"
+msgstr "Kthehu te pamja standarde"
+
+msgid "Search for student..."
+msgstr "Kërko për student..."
+
+msgid "This date is locked or read-only."
+msgstr "Kjo datë është e bllokuar ose vetëm për lexim."
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "Deshtoi ngarkimi i pranisë. Provoni më vonë."
+
+msgid "Nothing to save"
+msgstr "Asgjë për të ruajtur"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "Keni ndryshime të ruajtura. Të largoheshit gjithsesi?"
+
+msgid "Storage usage unavailable"
+msgstr "Përdorimi i ruajtjes i padisponueshëm"
+
+msgid "Search for members..."
+msgstr "Kërko për anëtarë..."
+
+msgid "Current members"
+msgstr "Anëtarët aktualë"
+
+msgid "Add members"
+msgstr "Shto anëtarë"
+
+msgid "Search for users in course/session..."
+msgstr "Kërko për përdorues në kurs/sesion..."
+
+msgid "No users available."
+msgstr "Asnjë përdorues i disponueshëm."
+
+msgid "Browse and publish new posts"
+msgstr "Shfleto dhe publiko postime të reja"
+
+msgid "Create and assign tasks"
+msgstr "Krijo dhe cakto detyra"
+
+msgid "Filtered by %s"
+msgstr "Filtruar sipas %s"
+
+msgid "Select a score"
+msgstr "Zgjidh një notë"
+
+msgid "Edit comment"
+msgstr "Ndrysho komentin"
+
+msgid "Failed to update the post."
+msgstr "Deshtoi përditësimi i postimit."
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "Fshij këtë postim? Kjo veprim nuk mund të zhbëhet."
+
+msgid "Failed to delete the post."
+msgstr "Dështoi fshirja e postimit."
+
+msgid "Failed to update the comment."
+msgstr "Dështoi përditësimi i komentes."
+
+msgid "Delete this comment?"
+msgstr "Fshij këtë koment?"
+
+msgid "Failed to delete the comment."
+msgstr "Dështoi fshirja e komentes."
+
+msgid "Search for projects..."
+msgstr "Kërko për projekte..."
+
+msgid "Only visible"
+msgstr "Vetëm i dukshëm"
+
+msgid "Rename project"
+msgstr "Riemërto projektin"
+
+msgid "New title"
+msgstr "Titull i ri"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "Duhet të jesh admin ose mësues për të menaxhuar projektet."
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "Fshij këtë projekt? Kjo veprimtari nuk mund të zhbëhet."
+
+msgid "Task list"
+msgstr "Listë detyrash"
+
+msgid "Change status"
+msgstr "Ndrysho statusin"
+
+msgid "Waiting for validation"
+msgstr "Duke pritur validimin"
+
+msgid "Delete this task?"
+msgstr "Fshij këtë detyrë?"
+
+msgid "Failed to delete the task."
+msgstr "Dështoi fshirja e detyrës."
+
+msgid "Failed to update status."
+msgstr "Dështoi përditësimi i statusit."
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "A je i sigurt që dëshiron të fshish këtë palë të tretë? Kjo veprimtari nuk mund të zhbëhet."
+
+msgid "Please fix the errors before saving."
+msgstr "Ju lutemi, rregulloni gabimet para ruajtjes."
+
+msgid "Error creating third party. Please verify the data."
+msgstr "Gabim në krijimin e palës së tretë. Ju lutemi, verifikoni të dhënat."
+
+msgid "Error deleting third party."
+msgstr "Gabim në fshirjen e palës së tretë."
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "Ngarko logo opsionale për krye dhe email. SVG është i preferuar; PNG përdoret si rezervë."
+
+msgid "Data exchange updated successfully."
+msgstr "Shkëmbimi i të dhënave u përditësua me sukses."
+
+msgid "Error deleting data exchange."
+msgstr "Gabim në fshirjen e shkëmbimit të të dhënave."
+
+msgid "Failed to recycle course."
+msgstr "Dështoi riciklimi i kursit."
+
+msgid "Select source course"
+msgstr "Zgjidh kursin burim"
+
+msgid "Course to copy from"
+msgstr "Kursi nga i cili të kopjohet"
+
+msgid "Search by code or title..."
+msgstr "Kërko sipas kodit ose titullit..."
+
+msgid "No courses match your search."
+msgstr "Asnjë kurs nuk përputhet me kërkimin tuaj."
+
+msgid "Copy options"
+msgstr "Opsione kopjimi"
+
+msgid "Include users (enrollments)"
+msgstr "Përfshij përdoruesit (regjistrimet)"
+
+msgid "Reset dates"
+msgstr "Rivendos datat"
+
+msgid "When a file with the same name exists"
+msgstr "Kur ekziston një skedar me të njëjtin emër"
+
+msgid "Ready to copy"
+msgstr "I gatshëm për kopjim"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "Do të kopjojmë përmbajtjen nga kursi i zgjedhur në këtë kurs. Mund të kthehesh mbrapsht për të ndryshuar opsionet."
+
+msgid "Start copying"
+msgstr "Fillo kopjimin"
+
+msgid "Select resources to copy"
+msgstr "Zgjidh burimet për t'u kopjuar"
+
+msgid "Copy selected"
+msgstr "Kopjo të zgjedhurit"
+
+msgid "Copy completed."
+msgstr "Kopjimi u përfundua."
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "Zona e rrezikshme: fshirja e një kursi është e përhershme."
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "Shkruaj kodin e kursit për të konfirmuar. Të gjitha të dhënat do të fshihen përgjithmonë."
+
+msgid "The code must match '%s' exactly."
+msgstr "Kodi duhet të përputhet saktësisht me '%s'."
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "Fshij gjithashtu dokumentet që përdoren vetëm në këtë kurs (nëse ka)."
+
+msgid "Delete course"
+msgstr "Fshij kursin"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "Kjo veprimtari nuk mund të zhbëhet. Vazhdo?"
+
+msgid "Course deleted successfully."
+msgstr "Kursi u fshi me sukses."
+
+msgid "Failed to delete course."
+msgstr "Dështoi fshirja e kursit."
+
+msgid "Create .mbz"
+msgstr "Krijo .mbz"
+
+msgid "Backup scope"
+msgstr "Hapësira e kopjeruajtjes"
+
+msgid "Full course"
+msgstr "Kurs i plotë"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "Artikujt e zgjedhur do të jenë të vetmit të përfshirë në skedarin e eksportuar."
+
+msgid "Moodle export"
+msgstr "Eksportimi në Moodle"
+
+msgid "Moodle version"
+msgstr "Versioni i Moodle"
+
+msgid "Admin ID"
+msgstr "ID Administratori"
+
+msgid "Internal integer user id"
+msgstr "ID e brendshme e përdoruesit si numër i plotë"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle kërkon një ID të brendshme të përdoruesit të ruajtur në XML. Nëse keni dyshime, përdorni 1."
+
+msgid "Username to appear as owner of imported items"
+msgstr "Emri i përdoruesit që do të shfaqet si pronar i elementeve të importuara"
+
+msgid "Email to use in the archive metadata"
+msgstr "Email-i për t'u përdorur në metadatat e arkivës"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr "Do të gjenerohet një skedar .mbz. Do të mund ta shkarkoni sapo të përfundojë."
+
+msgid "Select resources to include"
+msgstr "Zgjidhni burimet për t'i përfshirë"
+
+msgid "Export completed"
+msgstr "Eksportimi u përfundua"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "Kopjerbackup-i juaj i Moodle u krijua. Mund ta gjeni në listën e kopjerbackup-eve të kursit."
+
+msgid "Please complete all required fields."
+msgstr "Ju lutemi, plotësoni të gjitha fushat e kërkuara."
+
+msgid "Failed to create Moodle backup."
+msgstr "Deshtoi krijimi i kopjerbackup-it të Moodle."
+
+msgid "More actions"
+msgstr "Më shumë veprime"
+
+msgid "Write something"
+msgstr "Shkruaj diçka"
+
+msgid "Friends of %s"
+msgstr "Miqtë e %s"
+
+msgid "Error loading learning paths."
+msgstr "Gabim në ngarkimin e shtegjeve të mësimit."
+
+msgid "You don't have any learning path."
+msgstr "Nuk keni asnjë shteg mësimi."
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "Krijoni shtegun tuaj të parë të mësimit për të filluar organizimin e përmbajtjes së kursit."
+
+msgid "Could not save the new category order."
+msgstr "Nuk mund të ruhet rendi i ri i kategorisë."
+
+msgid "Could not save the new order."
+msgstr "Nuk mund të ruhet rendi i ri."
+
+msgid "Assignment"
+msgstr "Detyrë"
+
+msgid "Allowed file formats: %s"
+msgstr "Formatet e lejuara të skedarëve: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "Lloji i skedarit nuk lejohet. Shtesat e lejuara: %s"
+
+msgid "Folder name"
+msgstr "Emri i dosjes"
+
+msgid "Rename folder"
+msgstr "Riemërto dosjen"
+
+msgid "New name"
+msgstr "Emër i ri"
+
+msgid "Choose an action"
+msgstr "Zgjidhni një veprim"
+
+msgid "New version"
+msgstr "Version i ri"
+
+msgid "Change title to selected filename"
+msgstr "Ndrysho titullin në emrin e skedarit të zgjedhur"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "Mund ta zëvendësoni skedarin, ta zhvendosni në një dosje tjetër, ose të dyja."
+
+msgid "Move %s"
+msgstr "Zhvendos %s"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "Tregohen vetëm dosjet jo-root për të shmangur lënien e artikujve në root."
+
+msgid "No feedback yet."
+msgstr "Nuk ka feedback ende."
+
+msgid "Upload first, organize later"
+msgstr "Ngarko së pari, organizo më vonë"
+
+msgid "Drag & drop or browse to add files"
+msgstr "Drag & drop ose shfleto për të shtuar skedarë"
+
+msgid "Social wall..."
+msgstr "Mur social..."
+
+msgid "Wall of %s"
+msgstr "Muri i %s"
+
+msgid "Version currently loaded"
+msgstr "Versioni i ngarkuar aktualisht"
+
+msgid "Completion"
+msgstr "Përfundim"
+
+msgid "Quick navigation"
+msgstr "Navigim i shpejtë"
+
+msgid "Filled"
+msgstr "Mbushur"
+
+msgid "Terms sections"
+msgstr "Seksione kushtesh"
+
+msgid "Open a section to edit its content."
+msgstr "Hap një seksion për të edituar përmbajtjen e tij."
+
+msgid "Open this section to load the editor."
+msgstr "Hap këtë seksion për të ngarkuar editorin."
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "Zona e rrezikut: fshirja e një URL hyrjeje është e përhershme."
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "Shkruaj URL-në e plotë për të konfirmuar. URL-ja dhe marrëdhëniet e saj do të fshihen përgjithmonë."
+
+msgid "Unable to load the badge's image."
+msgstr "Nuk mund të ngarkohet imazhi i badge-ut."
+
+msgid "Invalid role selection"
+msgstr "Zgjedhje e pavlefshme roli"
+
+msgid "Select relation type first to enable user management."
+msgstr "Zgjidh llojin e marrëdhënies së parë për të aktivizuar menaxhimin e përdoruesve."
+
+msgid "This question has no course context. Preview is not available."
+msgstr "Kjo pyetje nuk ka kontekst kursi. Parashikimi nuk është i disponueshëm."
+
+msgid "Unknown test"
+msgstr "Test i panjohur"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "Fshirja nuk lejohet pa kontekst kursi."
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "Fshirja dështoi: mungon konteksti i kursit ose kjo pyetje i përket një testi. Editoni atë nga brenda testit ose filtro vetëm për pyetje jetimë.id pyetjeje të vlefshme."
+
+msgid "Delete failed: question not found."
+msgstr "Fshirja dështoi: pyetja nuk u gjet."
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "Fshirja dështoi: kjo pyetje ende referohet nga burime të tjera."
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "Kjo pyetje i përket një testi. Editoni atë nga brenda testit ose filtro vetëm për pyetje jetimë."
+
+msgid "Access the group tools and resources"
+msgstr "Akceso mjetet dhe burimet e grupit"
+
+msgid "%s members"
+msgstr "%s anëtarë"
+
+msgid "View certificate (HTML)"
+msgstr "Shih certifikatën (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "Lidh një aftësi me këtë libër notash"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "Menaxho lidhjen midis certifikatave dhe aftësive për çdo libër notash"
+
+msgid "Please select a specific badge issue to download"
+msgstr "Ju lutemi, zgjidhni një lëshim specifike badge për të shkarkuar"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM nuk është i aktivizuar."
+
+msgid "Invalid token."
+msgstr "Token i pavlefshëm."
+
+msgid "Schema not supported."
+msgstr "Skema e mos mbështetur."
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "Skema të pavlefshme për operacionin PATCH."
+
+msgid "Missing required \"Operations\" array."
+msgstr "Mungon array e kërkuar \"Operations\"."
+
+msgid "The '%s' operation is not supported."
+msgstr "Operacioni '%s' nuk mbështetet."
+
+msgid "Drupal user ID"
+msgstr "ID përdoruesi Drupal"
+
+msgid "There are no terms that match the search: %s"
+msgstr "Nuk ka terma që përputhen me kërkimin: %s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "Konfigurimi është i bllokuar globalisht (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "Nëse aktivizohet, mesazhet e chatit privat 1:1 do të pasqyrohen në dokumentet e historikut të chatit të kursit. Rekomandohet të mbahet i çaktivizuar për privatësi."
+
+msgid "Save private conversations in documents"
+msgstr "Ruaj bisedat private në dokumente"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "Ligji i BE-së për AI – Njoftim transparencë & rrezik"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "Sipas Ligjit të Bashkimit Evropian për Inteligjencën Artificiale (Rregullorja (BE) 2024/1689), sistemet AI të përdorura në arsim klasifikohen përgjithësisht si “me rrezik të lartë”. Ky software vetë <strong>nuk</strong> është një sistem AI, por mund të integrojë sisteme opsionale AI të brendshme ose të jashtme—në varësi të konfigurimit tuaj—për të përmirësuar performancën e detyrave të përdoruesit. Këto sisteme mund të kenë qasje në të dhëna personale <em>vetëm nëse</em> përdoruesit përfshijnë të tilla në promptet e tyre. Sipas dizajnit, ky software nuk ndan të dhëna personale me sistemet AI pa hyrjen aktive të përdoruesit. Sipas paracaktimit, të gjitha veçoritë AI janë të çaktivizuara."
+
+msgid "Admin responsibility & disclosures"
+msgstr "Përgjegjësia e adminit & zbulesat"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "Kjo faqe konfigurimi detajon çdo veçori AI dhe qëllimin e saj. Si deployer, duhet t'i shqyrtoni me kujdes dhe të përditësoni politikat tuaja të privatësisë së të dhënave në përputhje me GDPR për të reflektuar opsionet që aktivizoni. Ndërsa shumica e veçorive AI nuk ndajnë drejtpërdrejt të dhëna personale me sisteme të jashtme, promptet e dërguara te AI nga përdoruesit mund të përfshijnë pa dashje informacion personal. Si deployer, <strong>ju jeni përgjegjës</strong> për të informuar përdoruesit për këtë rrezik. Për transparencë, versionet e ardhshme mund të shfaqin etiketa jo-invazive për përdoruesit përfundimtarë që tregojnë se përmbajtja ose feedback-u i caktuar është gjeneruar me ndihmën e AI."
+
+msgid "Positioning"
+msgstr "Pozicionimi"
+
+msgid "Quiz"
+msgstr "Test"
+
+msgid "Customcertificate"
+msgstr "Customcertificate"
+
+msgid "Update profile"
+msgstr "Përditëso profilin"
+
+msgid "Enable learning path generator"
+msgstr "Aktivizo gjeneruesin e shtegut të mësimit"
+
+msgid "Enable exercise generator"
+msgstr "Aktivizo gjeneruesin e ushtrimeve"
+
+msgid "Enable open answers grader"
+msgstr "Aktivizo vlerësuesin e përgjigjeve të hapura"
+
+msgid "Enable tutor chatbot"
+msgstr "Aktivizo chatbot-in e tutor-it"
+
+msgid "Enable task grader"
+msgstr "Aktivizo vlerësuesin e detyrave"
+
+msgid "Enable content analyser"
+msgstr "Aktivizo analizuesin e përmbajtjes"
+
+msgid "Enable image generator"
+msgstr "Aktivizo gjeneruesin e imazheve"
+
+msgid "Enable glossary terms generator"
+msgstr "Aktivizo gjeneruesin e termave të fjalorit"
+
+msgid "Enable video generator"
+msgstr "Aktivizo gjeneruesin e videove"
+
+msgid "Enable course analyser"
+msgstr "Aktivizo analizuesin e kursit"
+
+msgid "The operation '%s' is not supported."
+msgstr "Operacioni '%s' nuk mbështetet."
+
+msgid "AI feedback on %s in course %s"
+msgstr "Përfshirje AI në %s në kursin %s"
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr "Fshirja dështoi: mungon konteksti i kursit ose id e pyetjes e pavlefshme."
+
+msgid "AI Tutor"
+msgstr "Tutor AI"
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr "Shtesa APCu duhet të jetë e instaluar dhe e aktivizuar për të mundësuar platformën ta përdorë atë."
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr "Lejojeni konsumimin e memories OPCache të arrijë të paktën %sMB RAM rekomandohet."
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr "Moduli OPcache duhet të jetë i instaluar dhe i aktivizuar për të mundësuar platformën ta përdorë atë."
+
+msgid "You are here"
+msgstr "Ju jeni këtu"
+
+msgid "Click an event type to filter results."
+msgstr "Klikoni një lloj eventi për të filtruar rezultatet."
+
+msgid "Require unique presence"
+msgstr "Kërkoj prani unike"
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr "Nëse aktivizohet, libri i notave do t'i japë një nxënësi 100% kur është i pranishëm të paktën një herë."
+
+msgid "AI feedback"
+msgstr "Përfshirje AI"
+
+msgid "Prompt"
+msgstr ""
+
+msgid "Tip"
+msgstr ""
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr ""
+
+msgid "Result (you can apply it to the comment)"
+msgstr ""
+
+msgid "Apply to comment"
+msgstr ""
+
+msgid "Apply score"
+msgstr ""
+
+msgid "AI grade"
+msgstr ""
+
+msgid "AI tutor is disabled during tests"
+msgstr ""
+
+msgid "Generate glossary terms"
+msgstr ""
+
+msgid "Generate media"
+msgstr ""
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr ""
+
+msgid "AI helpers are disabled at platform level."
+msgstr ""
+
+msgid "AI media generation is disabled in course settings."
+msgstr ""
+
+msgid "No AI media providers available."
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Select a provider"
+msgstr ""
+
+msgid "Example: generated_media"
+msgstr ""
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr ""
+
+msgid "Describe what you want to generate..."
+msgstr ""
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr ""
+
+msgid "Generating..."
+msgstr ""
+
+msgid "Save to Documents"
+msgstr ""
+
+msgid "Document IRI"
+msgstr ""
+
+msgid "Go to folder"
+msgstr ""
+
+msgid "Provider used"
+msgstr ""
+
+msgid "This video result cannot be saved yet"
+msgstr ""
+
+msgid "Video polling was stopped because the provider changed."
+msgstr ""
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr ""
+
+msgid "Failed to check video status."
+msgstr ""
+
+msgid "Video generated successfully. You can now save it."
+msgstr ""
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr ""
+
+msgid "Video generation failed."
+msgstr ""
+
+msgid "Waiting for the video to be ready..."
+msgstr ""
+
+msgid "Please complete all fields."
+msgstr ""
+
+msgid "Image generation is not enabled for this course."
+msgstr ""
+
+msgid "Video generation is not enabled for this course."
+msgstr ""
+
+msgid "Generation failed."
+msgstr ""
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr ""
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr ""
+
+msgid "Video generation started. Waiting for the result..."
+msgstr ""
+
+msgid "AI returned an empty response."
+msgstr ""
+
+msgid "Nothing to save yet."
+msgstr ""
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr ""
+
+msgid "Saving failed."
+msgstr ""
+
+msgid "Get AI feedback"
+msgstr ""
+
+msgid "Copy answer to clipboard"
+msgstr ""
+
+msgid "Save answer to my inbox"
+msgstr ""
+
+msgid "The document is already in this folder"
+msgstr ""
+
+msgid "Copied"
+msgstr ""
+
+msgid "You do not have permission to generate glossary terms."
+msgstr ""
+
+msgid "Video generation is in progress"
+msgstr ""
+
+msgid "Job"
+msgstr ""
+
+msgid "Modified prompt"
+msgstr ""
+
+msgid "Saved in Documents"
+msgstr ""
 

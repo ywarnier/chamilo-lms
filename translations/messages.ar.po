@@ -19428,9 +19428,6 @@ msgstr "ازالة قاعدة البيانات القديمة"
 msgid "Remove old tables"
 msgstr "ازالة الجداول القديمة"
 
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "مجموع المساحة المستخدمة من قبل النظام %s الحد الاقصى هو %s MB"
-
 msgid "Event message management"
 msgstr "ادارة رسالة الحدث"
 
@@ -31086,8 +31083,8 @@ msgstr "إضافة تعليق"
 msgid "Write your comment here..."
 msgstr "اكتب تعليقك هنا..."
 
-msgid "%d selected"
-msgstr "%d محدد"
+msgid "%s selected"
+msgstr "%s محدد"
 
 msgid "Search by title or path..."
 msgstr "البحث حسب العنوان أو المسار..."
@@ -31095,8 +31092,8 @@ msgstr "البحث حسب العنوان أو المسار..."
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "إدارة النسخ الاحتياطية، الاستعادة، النسخ، سلة المهملات وحذف بيانات المقرر الدراسي."
 
-msgid "%d comment(s)"
-msgstr "%d تعليق(ات)"
+msgid "%s comment(s)"
+msgstr "%s تعليق(ات)"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "خطأ في تحديث الطرف الثالث. يرجى التحقق من البيانات."
@@ -31451,4 +31448,1138 @@ msgstr "يُسمح فقط بالحروف والأرقام وشرطة سفلية 
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "ما هي الشروط والأحكام العامة المقدمة للمستخدمين لاستخدام هذه المنصة؟"
+
+msgid "ex. {examplePassword}"
+msgstr "مثال: {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "مرحباً بك في Chamilo!"
+
+msgid "Welcome to this platform"
+msgstr "مرحباً بك في هذه المنصة"
+
+msgid "For more details visit %s"
+msgstr "لمزيد من التفاصيل، قم بزيارة %s"
+
+msgid "Manager"
+msgstr "مدير"
+
+msgid "Mark as"
+msgstr "وضع علامة كـ"
+
+msgid "Reply to all"
+msgstr "الرد على الجميع"
+
+msgid "SCIM external ID"
+msgstr "معرف خارجي SCIM"
+
+msgid "OAuth2 ID"
+msgstr "معرف OAuth2"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "يرجى قبول النسخة الأحدث من شروط الاستخدام."
+
+msgid "Required value for operation without path"
+msgstr "قيمة مطلوبة للعملية بدون مسار"
+
+msgid "Available space (%s)"
+msgstr "المساحة المتاحة (%s)"
+
+msgid "Index this description for the global search"
+msgstr "فهرسة هذا الوصف للبحث العام"
+
+msgid "Unknown course"
+msgstr "مساق غير معروف"
+
+msgid "Certificate not found."
+msgstr "لم يتم العثور على الشهادة."
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "انتهت صلاحية رمز الأمان. يرجى إعادة تحميل الصفحة والمحاولة مرة أخرى."
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "يُسمح لمديري المنصة فقط بتغيير رؤية المساق."
+
+msgid "Unexpected error while subscribing the user"
+msgstr "خطأ غير متوقع أثناء تسجيل المستخدم"
+
+msgid "Search in resource logs"
+msgstr "البحث في سجلات الموارد"
+
+msgid "Include this learning path in the global search results"
+msgstr "تضمين هذا المسار التعليمي في نتائج البحث العام"
+
+msgid "The course code already exists"
+msgstr "رمز المساق موجود بالفعل"
+
+msgid "Latest news"
+msgstr "آخر الأخبار"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "احصل على أحدث أخبار Chamilo، بما في ذلك الثغرات الأمنية والأحداث، مباشرة داخل لوحة الإدارة الخاصة بك. سيتم التحقق من هذه الأخبار على خادم أخبار Chamilo في كل مرة تقوم فيها بتحميل صفحة الإدارة وهي مرئية للمديرين فقط."
+
+msgid "Chamilo support block"
+msgstr "كتلة دعم Chamilo"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "احصل على نصائح احترافية وطريقة سهلة للاتصال بمزودي الخدمات الرسميين للحصول على دعم احترافي، مباشرة من صانعي Chamilo. تظهر هذه الكتلة في صفحة الإدارة الخاصة بك، وهي مرئية للمديرين فقط، وتُحدث في كل مرة تقوم فيها بتحميل صفحة الإدارة."
+
+msgid "Hide option to send announcements to HR users"
+msgstr "إخفاء خيار إرسال الإعلانات إلى مستخدمي الموارد البشرية"
+
+msgid "Allow session admins to download private certificates"
+msgstr "السماح لمديري الجلسات بتحميل الشهادات الخاصة"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "إذا تم تفعيلها، يمكن لمديري الجلسات تحميل الشهادات حتى لو لم يتم نشرها علنًا."
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "إذا لم تكن فارغة، فإن عملية إنشاء المساق ستبحث عن بعض الحقول في ملف تعريف المستخدم وتملأها تلقائيًا للمساق. على سبيل المثال، يمكن لمعلم متخصص في التسويق الرقمي تعيين علامة «التسويق الرقمي» تلقائيًا على كل مساق ينشئه."
+
+msgid "Main menu entries"
+msgstr "مدخلات القائمة الرئيسية"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "حدد المدخلات التي تريد رؤيتها في القائمة الرئيسية"
+
+msgid "Main menu entries per role"
+msgstr "مدخلات القائمة الرئيسية حسب الدور"
+
+msgid "Define header tabs visibility per role."
+msgstr "تحديد رؤية علامات الرأس حسب الدور."
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "حدد الخيارات التي تريد ظهورها في التنقل حول الجدول لإظهار صفوف أقل أو أكثر في صفحة واحدة. مثال: [50, 100, 200, 500]."
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "مصفوفة من الميزات الإضافية التي يمكنك تفعيلها لمشغل الفيديو في Chamilo. تشمل الخيارات 'speed'، والتي تسمح لك بتغيير سرعة تشغيل الفيديو."
+
+msgid "Mail: character set"
+msgstr "البريد: مجموعة الأحرف"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "في حالة الحاجة إلى تحديد مجموعة الأحرف المستخدمة عند إرسال هذه الرسائل الإلكترونية. اتركها فارغة إذا لم تكن متأكدًا."
+
+msgid "Mail: Debug"
+msgstr "البريد: تصحيح الأخطاء"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "حدد ما إذا كنت تريد تفعيل سجلات تصحيح أخطاء إرسال البريد الإلكتروني. ستوفر هذه السجلات معلومات أكثر حول ما يحدث عند الاتصال بخدمة البريد، لكنها غير أنيقة وقد تكسر تصميم الصفحة. استخدمها فقط عند عدم وجود نشاط مستخدم."
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "البريد: تجنب استخدام LD+JSON"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "بعض عملاء البريد الإلكتروني لا يفهمون تنسيق LD+JSON الوصفي، ويعرضونه كسلسلة JSON مفككة للمستخدم النهائي. إذا كان هذا هو حالتك، قد ترغب في تعيين المتغير أدناه إلى 'false' لتعطيل هذا الرأس."
+
+msgid "Mail: DKIM headers"
+msgstr "البريد: رؤوس DKIM"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "أدخل مصفوفة JSON لإعدادات تكوين DKIM الخاصة بك (انظر المثال)."
+
+msgid "Mail: XOAuth2 options"
+msgstr "البريد: خيارات XOAuth2"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "إذا كنت تستخدم خدمة بريد إلكتروني تعتمد على XOAuth2، استخدم هذا الإعداد بتنسيق JSON لحفظ تكوينك الخاص (انظر المثال) واختر XOAuth2 في إعداد خدمة البريد."
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "يحدد نوع البيئة: \"prod\" (الإنتاج العادي)، \"validation\" (مثل الإنتاج لكن بدون إحصاءات التقارير)، أو \"test\" (وضع التصحيح مع أدوات المطور مثل مؤشرات النصوص غير المترجمة)."
+
+msgid "Global limit of users per course"
+msgstr "الحد الأقصى العام لعدد المستخدمين لكل مساق"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "يحدد الحد الأقصى العام لعدد المستخدمين (بما في ذلك المعلمين) المسموح لهم بالاشتراك في أي مساق واحد في المنصة. اضبط هذه القيمة على 0 لتعطيل الحد. يساعد هذا في تجنب تحميل المساقات بشكل زائد في البوابات المفتوحة."
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "فعّل لاستخدام مصفوفة لتحديد الأدوار التي يجب عرضها بوضوح والتي يجب إخفاؤها."
+
+msgid "Show base course posts in session course"
+msgstr "عرض منشورات المساق الأساسي في مساق الجلسة"
+
+msgid "Limit identical email usage"
+msgstr "حد استخدام البريد الإلكتروني المتطابق"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "الحد الأقصى لعدد الحسابات المسموح بها لمشاركة نفس عنوان البريد الإلكتروني. اضبط على 0 لتعطيل هذا الحد."
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "السماح لمديري الجلسات برؤية جميع المستخدمين على جميع عناوين URL"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "إذا تم تمكينه، يمكن لمديري الجلسات البحث عن المستخدمين وعرض قائمة بهم من جميع عناوين URL للوصول، بغض النظر عن عنوان URL الحالي."
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "تمكين إمكانية اختيار المستخدمين لمنطقة الوقت الخاصة بهم. بمجرد الإعداد، سيتمكن المستخدمون من رؤية مواعيد تسليم المهام ومراجع الوقت الأخرى في منطقة الوقت الخاصة بهم، مما سيقلل من الأخطاء في وقت التسليم."
+
+msgid "Redirect after login (per profile)"
+msgstr "إعادة التوجيه بعد تسجيل الدخول (لكل ملف تعريف)"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "تحديد إعادة التوجيه لكل ملف تعريف بعد تسجيل الدخول باستخدام كائن JSON مثل {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "إخفاء مربع اختيار القبول القانوني في صفحة الشروط والأحكام"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "إذا تم تعيينه إلى true، يتم إزالة مربع الاختيار \"لقد قرأت وقبلت\" في تدفق صفحة الشروط والأحكام."
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "مصفوفة تحدد المضيف والمنفذ لخادم LDAP."
+
+msgid "Enable 2FA"
+msgstr "تمكين 2FA"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "إضافة حقول في صفحة تحديث كلمة المرور لتمكين 2FA باستخدام تطبيق مصادقة TOTP. عند تعطيله عالميًا، لن يرى المستخدمون حقول 2FA ولن يُطلب منهم 2FA عند تسجيل الدخول، حتى لو كانوا قد مكنوه سابقًا."
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "بعض ميزات Chamilo ستتصل بالخارج من الخادم. على سبيل المثال، للتأكد من وجود محتوى خارجي عند إنشاء رابط أو عرض صفحة مدمجة في مسار التعلم. إذا كان خادم Chamilo يستخدم وكيلًا للخروج من شبكته، فهذا هو المكان لإعداده."
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "تمكين أو تعطيل إعادة التسجيل التلقائي عند انتهاء صلاحية المقرر. يجب تفعيل مهمة cron ذات الصلة أيضًا."
+
+msgid "Show remaining days in My Sessions"
+msgstr "عرض الأيام المتبقية في جلساتي"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "إذا تم تمكينه، سيتم استبدال تواريخ الجلسة في صفحة \"جلساتي\" بعدد الأيام المتبقية."
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "عرض \"الاستطلاعات المعلقة\" في القائمة"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "عرض عنصر قائمة يسمح للمستخدمين بالوصول إلى استطلاعاتهم المعلقة."
+
+msgid "Disclose AI assistance"
+msgstr "كشف مساعدة الذكاء الاصطناعي"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "عرض علامة على أي محتوى أو تعليق تم إنشاؤه أو إنتاجه بالاشتراك بواسطة أي نظام ذكاء اصطناعي، مما يثبت للمستخدم أن المحتوى تم بناؤه بمساعدة نظام ذكاء اصطناعي ما. يتم حفظ التفاصيل حول أي نظام ذكاء اصطناعي تم استخدامه في أي حالة داخل قاعدة البيانات للتدقيق، لكنها غير متاحة مباشرة للمستخدم النهائي."
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "إعدادات JSON لكتالوج المقررات: إعدادات الروابط، المرشحات، خيارات الترتيب، وأكثر."
+
+msgid "Session Catalog Settings"
+msgstr "إعدادات كتالوج الجلسات"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "إعدادات JSON لكتالوج الجلسات: المرشحات وخيارات العرض."
+
+msgid "Show Course Descriptions"
+msgstr "عرض وصف المقررات"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "عرض وصف المقررات ضمن قائمة الكتالوج."
+
+msgid "Published Courses Only"
+msgstr "المقررات المنشورة فقط"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "تقييد الكتالوج على المقررات المعلَمة كمنشورة فقط."
+
+msgid "Display Catalog on Homepage"
+msgstr "عرض الكتالوج في الصفحة الرئيسية"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "عرض كتلة كتالوج المقررات في الصفحة الرئيسية للمنصة."
+
+msgid "Hide Public Link"
+msgstr "إخفاء الرابط العام"
+
+msgid "Remove the public URL link from course cards."
+msgstr "إزالة رابط عنوان URL العام من بطاقات المقرر."
+
+msgid "Only Selected Courses"
+msgstr "المقررات المحددة فقط"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "عرض المقررات المحددة يدويًا فقط في الكتالوج."
+
+msgid "Allow Student Browsing"
+msgstr "السماح بتصفح الطلاب"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "السماح للطلاب بتصفح وتصفية كتالوج المقررات."
+
+msgid "Hide Private Courses"
+msgstr "إخفاء المقررات الخاصة"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "استثناء المقررات الخاصة من عرض الكتالوج."
+
+msgid "Show Courses & Sessions"
+msgstr "عرض المقررات والجلسات"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "تضمين المقررات والجلسات في نتائج الكتالوج."
+
+msgid "Auto Session Subscription"
+msgstr "الاشتراك التلقائي في الجلسة"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "تفعيل الاشتراك التلقائي في الجلسات للمستخدمين."
+
+msgid "Subscription in Session View"
+msgstr "الاشتراك في عرض الجلسة"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "السماح للمستخدمين بالاشتراك في الدورات مباشرة من صفحة الجلسة الخاصة بهم."
+
+msgid "Enable redirection plugin"
+msgstr "تفعيل إضافة التوجيه"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "مصفوفة تحدد 'الأيام' و'الشهر' لتعيين تاريخ انتهاء صلاحية الحساب عند تسجيل دخول المستخدم لأول مرة."
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "مصفوفة من الدور => الرقم التي تمثل عدد الأيام قبل انتهاء صلاحية الحساب، حسب الدور."
+
+msgid "Extra user field used to search and name sessions"
+msgstr "حقل مستخدم إضافي يُستخدم للبحث عن الجلسات وتسميتها"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "هذا الإعداد يحدد مفتاح حقل المستخدم الإضافي (مثل \"company\") الذي سيُستخدم للبحث عن المستخدمين ولتحديد اسم الجلسة عند تسجيل الطلاب من /admin-dashboard/register."
+
+msgid "Glossary terms generator"
+msgstr "مولد مصطلحات المصطلحات"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "السماح للمعلمين بطلب مصطلحات مصطلحات مولدة بالذكاء الاصطناعي في دورتهم. سيتم توليد 20 مصطلحًا بناءً على عنوان الدورة والوصف العام في أداة وصف الدورة. إذا تم استخدامها أكثر من مرة، سيستثني المصطلحات الموجودة بالفعل في ذلك المصطلحات (تأكد من أن المحتوى يمكن مشاركته مع خدمات الذكاء الاصطناعي المُهيأة)."
+
+msgid "Video generator"
+msgstr "مولد الفيديو"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "يولد فيديوهات بناءً على التلميحات أو المحتوى باستخدام الذكاء الاصطناعي (قد يستهلك العديد من الرموز)."
+
+msgid "Course analyser"
+msgstr "محلل الدورة"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "يحلل جميع الموارد في دورة واحدة أو عدة دورات ويدرب نموذج الذكاء الاصطناعي مسبقًا للإجابة على أي سؤال حول هذه الدورة أو هذه الدورات (تأكد من أن المحتوى يمكن مشاركته مع خدمات الذكاء الاصطناعي المُهيأة)."
+
+msgid "Test/development"
+msgstr "اختبار/تطوير"
+
+msgid "Crons"
+msgstr "الكرون"
+
+msgid "Editor"
+msgstr "المحرر"
+
+msgid "Gradebook"
+msgstr "دفتر الدرجات"
+
+msgid "Internationalization"
+msgstr "التدويل"
+
+msgid "User profiles"
+msgstr "ملفات تعريف المستخدمين"
+
+msgid "Support tickets"
+msgstr "تذاكر الدعم"
+
+msgid "Webservices"
+msgstr "خدمات الويب"
+
+msgid "Catalogue"
+msgstr "الكتالوج"
+
+msgid "Workflows"
+msgstr "سير العمل"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "الإعداد قابل للتعديل في الروابط الفرعية"
+
+msgid "Show JSON Template"
+msgstr "عرض نموذج JSON"
+
+msgid "JSON Template"
+msgstr "نموذج JSON"
+
+msgid "Installing Xapian bindings"
+msgstr "تثبيت روابط Xapian"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "يظهر الاقتباس التالي مثالًا لتثبيت روابط Xapian PHP على Ubuntu 25.04 مع PHP 8.3. قم بتكييف المسارات والإصدارات مع بيئتك الخاصة."
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "تأكد من أن لديك إصدار PHP الذي تستخدمه فقط (مثل 8.3) وتجنب خلط عدة إصدارات مع مجلدات امتدادات مختلفة."
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "بمجرد تحميل الامتداد بشكل صحيح لكل من CLI وخادم الويب، يجب أن يبلغ تشخيص البحث أعلاه أن وحدة Xapian مثبتة."
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "تنظيف الرفع المؤقت وذاكرة التخزين المؤقت"
+
+msgid "Directory"
+msgstr "دليل"
+
+msgid "Only delete files older than (minutes)"
+msgstr "احذف الملفات الأقدم من (دقائق)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "اضبط 0 لحذف جميع الملفات. استخدم قيمة إيجابية (مثل 60) لتجنب حذف الملفات التي لا تزال قيد الرفع."
+
+msgid "Preview only (do not delete)"
+msgstr "معاينة فقط (لا تحذف)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "تحذير: أنت على وشك حذف جميع الملفات المؤقتة. لا يمكن التراجع عن هذا الإجراء."
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "سيحذف هذا جميع الملفات المؤقتة. هل تتابع؟"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "سيحذف هذا الملفات الأقدم من %minutes% دقيقة. هل تتابع؟"
+
+msgid "The value must match exactly: %s"
+msgstr "يجب أن تتطابق القيمة تمامًا: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "يجب أن تكون تاريخ نهاية التكرار بعد تاريخ البدء."
+
+msgid "Index document content?"
+msgstr "فهرسة محتوى المستند؟"
+
+msgid "Upload SVG logo to platform header"
+msgstr "رفع شعار SVG إلى رأس المنصة"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "رفع شعار PNG إلى رأس المنصة (%s)"
+
+msgid "Write something to %s"
+msgstr "اكتب شيئًا إلى %s"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "مفضل: SVG. عرض PNG الموصى به: %spx."
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "رفع شعار PNG للبريد الإلكتروني (عرض ~%spx)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "يجب أن يكون PNG الرأس ≤ %spx."
+
+msgid "Require specific file format"
+msgstr "طلب تنسيق ملف محدد"
+
+msgid "Select allowed file formats"
+msgstr "حدد تنسيقات الملفات المسموح بها"
+
+msgid "Custom extensions (separated by space)"
+msgstr "الامتدادات المخصصة (مفصولة بمسافة)"
+
+msgid "Other extensions"
+msgstr "امتدادات أخرى"
+
+msgid "My invitations"
+msgstr "دعواتي"
+
+msgid "Delete access"
+msgstr "حذف الوصول"
+
+msgid "Certificate tags"
+msgstr "وسوم الشهادة"
+
+msgid "Copy all"
+msgstr "نسخ الكل"
+
+msgid "Click to insert"
+msgstr "انقر للإدراج"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "مفضل: SVG. الحد الأقصى لحجم PNG: %spx."
+
+msgid "View badge"
+msgstr "عرض الشارة"
+
+msgid "%d min"
+msgstr "%d دقيقة"
+
+msgid "Duration in minutes"
+msgstr "المدة بالدقائق"
+
+msgid "Go back to standard view"
+msgstr "العودة إلى العرض القياسي"
+
+msgid "Search for student..."
+msgstr "البحث عن طالب..."
+
+msgid "This date is locked or read-only."
+msgstr "هذا التاريخ مقفل أو للقراءة فقط."
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "فشل في تحميل الحضور. يرجى المحاولة لاحقًا."
+
+msgid "Nothing to save"
+msgstr "لا يوجد شيء للحفظ"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "لديك تغييرات غير محفوظة. هل تريد الخروج على أي حال؟"
+
+msgid "Storage usage unavailable"
+msgstr "استخدام التخزين غير متاح"
+
+msgid "Search for members..."
+msgstr "البحث عن الأعضاء..."
+
+msgid "Current members"
+msgstr "الأعضاء الحاليون"
+
+msgid "Add members"
+msgstr "إضافة أعضاء"
+
+msgid "Search for users in course/session..."
+msgstr "البحث عن مستخدمين في المقرر/الجلسة..."
+
+msgid "No users available."
+msgstr "لا يوجد مستخدمون متاحون."
+
+msgid "Browse and publish new posts"
+msgstr "تصفح ونشر منشورات جديدة"
+
+msgid "Create and assign tasks"
+msgstr "إنشاء وتخصيص المهام"
+
+msgid "Filtered by %s"
+msgstr "مفلتر حسب %s"
+
+msgid "Select a score"
+msgstr "اختر درجة"
+
+msgid "Edit comment"
+msgstr "تعديل التعليق"
+
+msgid "Failed to update the post."
+msgstr "فشل في تحديث المنشور."
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "حذف هذا المنشور؟ لا يمكن التراجع عن هذا الإجراء."
+
+msgid "Failed to delete the post."
+msgstr "فشل في حذف المنشور."
+
+msgid "Failed to update the comment."
+msgstr "فشل في تحديث التعليق."
+
+msgid "Delete this comment?"
+msgstr "حذف هذا التعليق؟"
+
+msgid "Failed to delete the comment."
+msgstr "فشل في حذف التعليق."
+
+msgid "Search for projects..."
+msgstr "البحث عن المشاريع..."
+
+msgid "Only visible"
+msgstr "مرئي فقط"
+
+msgid "Rename project"
+msgstr "إعادة تسمية المشروع"
+
+msgid "New title"
+msgstr "العنوان الجديد"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "يجب أن تكون مديرًا أو معلمًا لإدارة المشاريع."
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "حذف هذا المشروع؟ لا يمكن التراجع عن هذا الإجراء."
+
+msgid "Task list"
+msgstr "قائمة المهام"
+
+msgid "Change status"
+msgstr "تغيير الحالة"
+
+msgid "Waiting for validation"
+msgstr "في انتظار التحقق"
+
+msgid "Delete this task?"
+msgstr "حذف هذه المهمة؟"
+
+msgid "Failed to delete the task."
+msgstr "فشل في حذف المهمة."
+
+msgid "Failed to update status."
+msgstr "فشل في تحديث الحالة."
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "هل أنت متأكد من حذف هذا الطرف الثالث؟ هذا الإجراء لا يمكن التراجع عنه."
+
+msgid "Please fix the errors before saving."
+msgstr "يرجى إصلاح الأخطاء قبل الحفظ."
+
+msgid "Error creating third party. Please verify the data."
+msgstr "خطأ في إنشاء الطرف الثالث. يرجى التحقق من البيانات."
+
+msgid "Error deleting third party."
+msgstr "خطأ في حذف الطرف الثالث."
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "رفع شعار رأس اختياري وشعارات البريد الإلكتروني. SVG مفضل؛ PNG يُستخدم كبديل."
+
+msgid "Data exchange updated successfully."
+msgstr "تم تحديث تبادل البيانات بنجاح."
+
+msgid "Error deleting data exchange."
+msgstr "خطأ في حذف تبادل البيانات."
+
+msgid "Failed to recycle course."
+msgstr "فشل في إعادة تدوير المقرر."
+
+msgid "Select source course"
+msgstr "اختر المقرر المصدر"
+
+msgid "Course to copy from"
+msgstr "المقرر للنسخ منه"
+
+msgid "Search by code or title..."
+msgstr "البحث حسب الرمز أو العنوان..."
+
+msgid "No courses match your search."
+msgstr "لا توجد مقررات تطابق بحثك."
+
+msgid "Copy options"
+msgstr "خيارات النسخ"
+
+msgid "Include users (enrollments)"
+msgstr "تضمين المستخدمين (التسجيلات)"
+
+msgid "Reset dates"
+msgstr "إعادة تعيين التواريخ"
+
+msgid "When a file with the same name exists"
+msgstr "عند وجود ملف بنفس الاسم"
+
+msgid "Ready to copy"
+msgstr "جاهز للنسخ"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "سنقوم بنسخ المحتوى من المقرر المحدد إلى هذا المقرر. يمكنك العودة لتغيير الخيارات."
+
+msgid "Start copying"
+msgstr "بدء النسخ"
+
+msgid "Select resources to copy"
+msgstr "اختر الموارد للنسخ"
+
+msgid "Copy selected"
+msgstr "نسخ المحدد"
+
+msgid "Copy completed."
+msgstr "تم النسخ بنجاح."
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "منطقة الخطر: حذف المقرر نهائي."
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "اكتب رمز المقرر للتأكيد. سيتم حذف جميع البيانات نهائياً."
+
+msgid "The code must match '%s' exactly."
+msgstr "يجب أن يتطابق الرمز مع '%s' تماماً."
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "حذف الوثائق التي تُستخدم فقط في هذا المقرر (إن وجدت)."
+
+msgid "Delete course"
+msgstr "حذف المقرر"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "هذا الإجراء لا يمكن التراجع عنه. هل تتابع؟"
+
+msgid "Course deleted successfully."
+msgstr "تم حذف المقرر بنجاح."
+
+msgid "Failed to delete course."
+msgstr "فشل في حذف المقرر."
+
+msgid "Create .mbz"
+msgstr "إنشاء .mbz"
+
+msgid "Backup scope"
+msgstr "نطاق النسخ الاحتياطي"
+
+msgid "Full course"
+msgstr "المقرر الكامل"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "سيتم تضمين العناصر المحددة فقط في الملف المُصدر."
+
+msgid "Moodle export"
+msgstr "تصدير مودل"
+
+msgid "Moodle version"
+msgstr "إصدار مودل"
+
+msgid "Admin ID"
+msgstr "معرف المسؤول"
+
+msgid "Internal integer user id"
+msgstr "معرف المستخدم الصحيح الداخلي"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "يتطلب مودل معرف مستخدم داخلي مخزن في XML. إذا كنت غير متأكد، استخدم 1."
+
+msgid "Username to appear as owner of imported items"
+msgstr "اسم المستخدم الذي سيظهر كمالك للعناصر المستوردة"
+
+msgid "Email to use in the archive metadata"
+msgstr "البريد الإلكتروني لاستخدامه في بيانات وصف الأرشيف"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr "سيتم إنشاء ملف .mbz. يمكنك تنزيله بعد الانتهاء."
+
+msgid "Select resources to include"
+msgstr "اختر الموارد للتضمين"
+
+msgid "Export completed"
+msgstr "تم التصدير"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "تم إنشاء نسخة احتياطية مودل الخاصة بك. يمكنك العثور عليها في قائمة نسخ احتياطية المقرر."
+
+msgid "Please complete all required fields."
+msgstr "يرجى إكمال جميع الحقول المطلوبة."
+
+msgid "Failed to create Moodle backup."
+msgstr "فشل في إنشاء نسخة احتياطية مودل."
+
+msgid "More actions"
+msgstr "مزيد من الإجراءات"
+
+msgid "Write something"
+msgstr "اكتب شيئاً"
+
+msgid "Friends of %s"
+msgstr "أصدقاء %s"
+
+msgid "Error loading learning paths."
+msgstr "خطأ في تحميل مسارات التعلم."
+
+msgid "You don't have any learning path."
+msgstr "ليس لديك أي مسار تعلم."
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "أنشئ مسار تعلمك الأول لبدء تنظيم محتوى الدورة."
+
+msgid "Could not save the new category order."
+msgstr "تعذر حفظ ترتيب الفئة الجديد."
+
+msgid "Could not save the new order."
+msgstr "تعذر حفظ الترتيب الجديد."
+
+msgid "Assignment"
+msgstr "مهمة"
+
+msgid "Allowed file formats: %s"
+msgstr "صيغ الملفات المسموح بها: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "نوع الملف غير مسموح. الامتدادات المسموح بها: %s"
+
+msgid "Folder name"
+msgstr "اسم المجلد"
+
+msgid "Rename folder"
+msgstr "إعادة تسمية المجلد"
+
+msgid "New name"
+msgstr "الاسم الجديد"
+
+msgid "Choose an action"
+msgstr "اختر إجراءً"
+
+msgid "New version"
+msgstr "إصدار جديد"
+
+msgid "Change title to selected filename"
+msgstr "تغيير العنوان إلى اسم الملف المحدد"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "يمكنك استبدال الملف، أو نقله إلى مجلد آخر، أو كليهما."
+
+msgid "Move %s"
+msgstr "نقل %s"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "يتم عرض المجلدات غير الجذرية فقط لتجنب ترك العناصر في الجذر."
+
+msgid "No feedback yet."
+msgstr "لا يوجد تعليق بعد."
+
+msgid "Upload first, organize later"
+msgstr "ارفع أولاً، نظّم لاحقاً"
+
+msgid "Drag & drop or browse to add files"
+msgstr "اسحب وأفلت أو تصفح لإضافة الملفات"
+
+msgid "Social wall..."
+msgstr "جدار اجتماعي..."
+
+msgid "Wall of %s"
+msgstr "جدار %s"
+
+msgid "Version currently loaded"
+msgstr "الإصدار المحمل حالياً"
+
+msgid "Completion"
+msgstr "الإكمال"
+
+msgid "Quick navigation"
+msgstr "التنقل السريع"
+
+msgid "Filled"
+msgstr "مملوء"
+
+msgid "Terms sections"
+msgstr "أقسام الشروط"
+
+msgid "Open a section to edit its content."
+msgstr "افتح قسماً لتحرير محتواه."
+
+msgid "Open this section to load the editor."
+msgstr "افتح هذا القسم لتحميل المحرر."
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "منطقة الخطر: حذف رابط الوصول دائم."
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "اكتب الرابط الكامل للتأكيد. سيتم حذف الرابط وعلاقه نهائياً."
+
+msgid "Unable to load the badge's image."
+msgstr "تعذر تحميل صورة الشارة."
+
+msgid "Invalid role selection"
+msgstr "اختيار دور غير صالح"
+
+msgid "Select relation type first to enable user management."
+msgstr "حدد نوع العلاقة أولاً لتفعيل إدارة المستخدمين."
+
+msgid "This question has no course context. Preview is not available."
+msgstr "هذا السؤال ليس له سياق دورة. المعاينة غير متاحة."
+
+msgid "Unknown test"
+msgstr "اختبار غير معروف"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "الحذف غير مسموح بدون سياق مسار دراسي."
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "فشل الحذف: سياق مسار دراسي مفقود أو معرف سؤال صالح لهذا السؤال ينتمي إلى اختبار. قم بتحريره من داخل الاختبار أو قم بالتصفية للأسئلة اليتيمة فقط."
+
+msgid "Delete failed: question not found."
+msgstr "فشل الحذف: السؤال غير موجود."
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "فشل الحذف: هذا السؤال ما زال مرتبطاً بموارد أخرى."
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "هذا السؤال ينتمي إلى اختبار. قم بتحريره من داخل الاختبار أو قم بالتصفية للأسئلة اليتيمة فقط."
+
+msgid "Access the group tools and resources"
+msgstr "الوصول إلى أدوات المجموعة والموارد"
+
+msgid "%s members"
+msgstr "%s أعضاء"
+
+msgid "View certificate (HTML)"
+msgstr "عرض الشهادة (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "ربط مهارة بهذا دفتر الدرجات"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "إدارة الرابط بين الشهادات والمهارات لكل دفتر درجات"
+
+msgid "Please select a specific badge issue to download"
+msgstr "يرجى اختيار إصدار شارة محدد للتنزيل"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM غير مفعّل."
+
+msgid "Invalid token."
+msgstr "رمز غير صالح."
+
+msgid "Schema not supported."
+msgstr "السكيما غير مدعوم."
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "سكيمات غير صالحة لعملية PATCH."
+
+msgid "Missing required \"Operations\" array."
+msgstr "مصفوفة \"Operations\" المطلوبة مفقودة."
+
+msgid "The '%s' operation is not supported."
+msgstr "عملية '%s' غير مدعومة."
+
+msgid "Drupal user ID"
+msgstr "معرف مستخدم Drupal"
+
+msgid "There are no terms that match the search: %s"
+msgstr "لا توجد مصطلحات تطابق البحث: %s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "الإعداد مقفل عالميًا (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "إذا تم تفعيله، ستُنسخ رسائل الدردشة الخاصة 1:1 في وثائق تاريخ الدردشة في المقرر. يُوصى بإبقائها معطلة للخصوصية."
+
+msgid "Save private conversations in documents"
+msgstr "حفظ المحادثات الخاصة في الوثائق"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "قانون الذكاء الاصطناعي الأوروبي – إشعار الشفافية والمخاطر"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "بموجب قانون الذكاء الاصطناعي الأوروبي (اللائحة (EU) 2024/1689)، يُصنف أنظمة الذكاء الاصطناعي المستخدمة في التعليم عمومًا كـ\"عالية المخاطر\". هذا البرنامج نفسه <strong>ليس</strong> نظام ذكاء اصطناعي، لكنه يمكن أن يدمج أنظمة ذكاء اصطناعي داخلية أو خارجية اختيارية —حسب تكوينك— لتحسين أداء مهام المستخدم. قد تتمكن هذه الأنظمة من الوصول إلى البيانات الشخصية <em>فقط إذا</em> تضمن المستخدمون مثل هذه البيانات في استفساراتهم. بتصميم البرنامج، لا يتم مشاركة البيانات الشخصية مع أنظمة الذكاء الاصطناعي دون إدخال نشط من المستخدم. افتراضيًا، جميع ميزات الذكاء الاصطناعي معطلة."
+
+msgid "Admin responsibility & disclosures"
+msgstr "مسؤولية المسؤول والإفصاحات"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "توضح صفحة التكوين هذه كل ميزة ذكاء اصطناعي وغرضها. كمنشئ، يجب عليك مراجعتها بعناية وتحديث سياسات الخصوصية المتوافقة مع GDPR لتعكس الخيارات التي تفعلها. بينما معظم ميزات الذكاء الاصطناعي لا تشارك بيانات شخصية مباشرة مع الأنظمة الخارجية، قد تحتوي استفسارات المستخدمين المرسلة إلى الذكاء الاصطناعي عن غير قصد على معلومات شخصية. كمنشئ، <strong>أنت مسؤول</strong> عن إبلاغ المستخدمين بهذا المخاطر. للشفافية، قد تعرض الإصدارات المستقبلية علامات غير تدخلية للمستخدم النهائي تشير إلى أن محتوى أو تعليقًا معينًا تم إنشاؤه بمساعدة الذكاء الاصطناعي."
+
+msgid "Positioning"
+msgstr "الموضع"
+
+msgid "Quiz"
+msgstr "اختبار"
+
+msgid "Customcertificate"
+msgstr "شهادة_مخصصة"
+
+msgid "Update profile"
+msgstr "تحديث الملف الشخصي"
+
+msgid "Enable learning path generator"
+msgstr "تفعيل مولد مسار التعلم"
+
+msgid "Enable exercise generator"
+msgstr "تفعيل مولد التمارين"
+
+msgid "Enable open answers grader"
+msgstr "تفعيل تصحيح الإجابات المفتوحة"
+
+msgid "Enable tutor chatbot"
+msgstr "تفعيل روبوت الدردشة للمعلم"
+
+msgid "Enable task grader"
+msgstr "تفعيل تصحيح المهام"
+
+msgid "Enable content analyser"
+msgstr "تفعيل محلل المحتوى"
+
+msgid "Enable image generator"
+msgstr "تفعيل مولد الصور"
+
+msgid "Enable glossary terms generator"
+msgstr "تفعيل مولد مصطلحات المصطلحات"
+
+msgid "Enable video generator"
+msgstr "تفعيل مولد الفيديو"
+
+msgid "Enable course analyser"
+msgstr "تفعيل محلل المقرر"
+
+msgid "The operation '%s' is not supported."
+msgstr "العملية '%s' غير مدعومة."
+
+msgid "AI feedback on %s in course %s"
+msgstr "تعليقات AI حول %s في المقرر %s"
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr "فشل الحذف: نقص سياق المقرر أو معرف سؤال غير صالح."
+
+msgid "AI Tutor"
+msgstr "مساعد AI"
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr "يجب تثبيت وتفعيل امتداد APCu لكي تستخدمه المنصة."
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr "يُوصى بلسماح لاستهلاك ذاكرة OPCache بالوصول إلى %s ميغابايت من الذاكرة العشوائية على الأقل."
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr "يجب تثبيت وتفعيل وحدة OPcache لكي تستخدمها المنصة."
+
+msgid "You are here"
+msgstr "أنت هنا"
+
+msgid "Click an event type to filter results."
+msgstr "انقر على نوع الحدث لتصفية النتائج."
+
+msgid "Require unique presence"
+msgstr "الحضور الفريد مطلوب"
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr "إذا تم تفعيله، سيعطي دفتر الدرجات المتعلم 100% عند الحضور مرة واحدة على الأقل."
+
+msgid "AI feedback"
+msgstr "تعليقات AI"
+
+msgid "Prompt"
+msgstr "الموجه"
+
+msgid "Tip"
+msgstr "تلميح"
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr "يمكنك تعديل الموجه قبل طلب التعليقات."
+
+msgid "Result (you can apply it to the comment)"
+msgstr "النتيجة (يمكنك تطبيقها على التعليق)"
+
+msgid "Apply to comment"
+msgstr "تطبيق على التعليق"
+
+msgid "Apply score"
+msgstr "تطبيق الدرجة"
+
+msgid "AI grade"
+msgstr "درجة AI"
+
+msgid "AI tutor is disabled during tests"
+msgstr "مساعد AI معطل أثناء الاختبارات"
+
+msgid "Generate glossary terms"
+msgstr "توليد مصطلحات المصطلحات"
+
+msgid "Generate media"
+msgstr "توليد الوسائط"
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr "ليس لديك إذن لتوليد وسائط AI في هذا المقرر."
+
+msgid "AI helpers are disabled at platform level."
+msgstr "مساعدي AI معطلون على مستوى المنصة."
+
+msgid "AI media generation is disabled in course settings."
+msgstr "توليد وسائط AI معطل في إعدادات المقرر."
+
+msgid "No AI media providers available."
+msgstr "لا توجد مزودات وسائط AI متاحة."
+
+msgid "Provider"
+msgstr "المزود"
+
+msgid "Select a provider"
+msgstr "اختر مزودًا"
+
+msgid "Example: generated_media"
+msgstr "مثال: generated_media"
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr "الاسم لا يُضاف إلى الطلب؛ يُستخدم فقط لحفظ الملف."
+
+msgid "Describe what you want to generate..."
+msgstr "صف ما تريد إنشاءه..."
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr "نصيحة: انقر على إعداد مسبق لتحديد الحجم بسرعة."
+
+msgid "Generating..."
+msgstr "جاري الإنشاء..."
+
+msgid "Save to Documents"
+msgstr "حفظ في المستندات"
+
+msgid "Document IRI"
+msgstr "IRI المستند"
+
+msgid "Go to folder"
+msgstr "الذهاب إلى المجلد"
+
+msgid "Provider used"
+msgstr "المزود المستخدم"
+
+msgid "This video result cannot be saved yet"
+msgstr "لا يمكن حفظ نتيجة هذا الفيديو بعد"
+
+msgid "Video polling was stopped because the provider changed."
+msgstr "تم إيقاف استطلاع الفيديو لأن المزود تغير."
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr "إنشاء الفيديو يستغرق وقتًا طويلاً. يرجى المحاولة لاحقًا."
+
+msgid "Failed to check video status."
+msgstr "فشل في التحقق من حالة الفيديو."
+
+msgid "Video generated successfully. You can now save it."
+msgstr "تم إنشاء الفيديو بنجاح. يمكنك الآن حفظه."
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr "اكتمل إنشاء الفيديو، لكن لم يُعاد محتوى قابل للتشغيل."
+
+msgid "Video generation failed."
+msgstr "فشل إنشاء الفيديو."
+
+msgid "Waiting for the video to be ready..."
+msgstr "في انتظار جاهزية الفيديو..."
+
+msgid "Please complete all fields."
+msgstr "يرجى إكمال جميع الحقول."
+
+msgid "Image generation is not enabled for this course."
+msgstr "إنشاء الصور غير مفعل لهذه المقرر الدراسي."
+
+msgid "Video generation is not enabled for this course."
+msgstr "إنشاء الفيديو غير مفعّل لهذا المقرر."
+
+msgid "Generation failed."
+msgstr "فشل الإنشاء."
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr "تم الإنشاء بنجاح. راجع المعاينة واحفظ عند الاستعداد."
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr "تم الإنشاء بنجاح. الحفظ معطل لأن المزود أعاد رابطًا."
+
+msgid "Video generation started. Waiting for the result..."
+msgstr "بدأ إنشاء الفيديو. في انتظار النتيجة..."
+
+msgid "AI returned an empty response."
+msgstr "أعاد الذكاء الاصطناعي ردًا فارغًا."
+
+msgid "Nothing to save yet."
+msgstr "لا يوجد شيء لحفظه بعد."
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr "هذا المزود لم يُعد محتوى base64. جرب مزودًا آخر."
+
+msgid "Saving failed."
+msgstr "فشل الحفظ."
+
+msgid "Get AI feedback"
+msgstr "الحصول على تعليقات الذكاء الاصطناعي"
+
+msgid "Copy answer to clipboard"
+msgstr "نسخ الإجابة إلى الحافظة"
+
+msgid "Save answer to my inbox"
+msgstr "حفظ الإجابة في صندوقي الوارد"
+
+msgid "The document is already in this folder"
+msgstr "المستند موجود بالفعل في هذا المجلد"
+
+msgid "Copied"
+msgstr "تم النسخ"
+
+msgid "You do not have permission to generate glossary terms."
+msgstr "ليس لديك صلاحية لإنشاء مصطلحات المصطلحات."
+
+msgid "Video generation is in progress"
+msgstr "إنشاء الفيديو قيد التقدم"
+
+msgid "Job"
+msgstr "مهمة"
+
+msgid "Modified prompt"
+msgstr "الموجه المُعدّل"
+
+msgid "Saved in Documents"
+msgstr "تم حفظها في المستندات"
 

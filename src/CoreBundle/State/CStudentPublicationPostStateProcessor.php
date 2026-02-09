@@ -24,6 +24,7 @@ use GradebookUtils;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Throwable;
 
 /**
  * @implements ProcessorInterface<CStudentPublication, CStudentPublication>
@@ -47,7 +48,30 @@ final class CStudentPublicationPostStateProcessor implements ProcessorInterface
     ): CStudentPublication {
         /** @var CStudentPublication $publication */
         $publication = $data;
+        $isUpdate = null !== $publication->getIid();
+        $previous = $context['previous_data'] ?? null;
+        $originalUser = $previous instanceof CStudentPublication ? $previous->getUser() : null;
 
+        /** @var User|null $currentUser */
+        $currentUser = $this->security->getUser();
+        if (!$currentUser instanceof User) {
+            $currentUser = null;
+        }
+
+        // Ensure we always assign a managed User reference BEFORE any persist/flush happens.
+        // This prevents Doctrine from treating the User as a new/unknown entity.
+        $targetUserId = null;
+        if ($isUpdate && $originalUser instanceof User && null !== $originalUser->getId()) {
+            $targetUserId = $originalUser->getId();
+        } elseif (!$isUpdate && $currentUser instanceof User && null !== $currentUser->getId()) {
+            $targetUserId = $currentUser->getId();
+        }
+
+        if (null !== $targetUserId) {
+            $publication->setUser($this->entityManager->getReference(User::class, $targetUserId));
+        }
+
+        // Persist/flush (ApiPlatform default processor)
         $result = $this->persistProcessor->process($publication, $operation, $uriVariables, $context);
 
         $assignment = $publication->getAssignment();
@@ -56,11 +80,6 @@ final class CStudentPublicationPostStateProcessor implements ProcessorInterface
         $session = $courseLink->getSession();
         $group = $courseLink->getGroup();
 
-        /** @var User $currentUser */
-        $currentUser = $this->security->getUser();
-
-        $isUpdate = null !== $publication->getIid();
-
         if (!$assignment) {
             $assignment = new CStudentPublicationAssignment();
             $assignment->setPublication($publication);
@@ -68,14 +87,22 @@ final class CStudentPublicationPostStateProcessor implements ProcessorInterface
             $this->entityManager->persist($assignment);
         }
 
-        $payload = $context['request']->toArray();
+        $payload = [];
+        if (isset($context['request'])) {
+            try {
+                $payload = $context['request']->toArray();
+            } catch (Throwable $e) {
+                // Non-fatal: keep processing without payload.
+                $payload = [];
+            }
+        }
 
         if (\array_key_exists('qualification', $payload)) {
             $publication->setQualification((float) $payload['qualification']);
 
-            $user = $this->security->getUser();
-            if ($user instanceof User) {
-                $publication->setQualificatorId($user->getId());
+            // Store who graded (qualificator) and when.
+            if ($currentUser instanceof User) {
+                $publication->setQualificatorId($currentUser->getId());
                 $publication->setDateOfQualification(new DateTime());
             }
         }
@@ -101,11 +128,8 @@ final class CStudentPublicationPostStateProcessor implements ProcessorInterface
         if (null !== $assignment->getIid()) {
             $publication->setHasProperties($assignment->getIid());
         }
-        $publication
-            ->setViewProperties(true)
-            ->setUser($currentUser)
-        ;
 
+        $publication->setViewProperties(true);
         $this->entityManager->flush();
 
         $this->saveGradebookConfig($publication, $course, $session);
@@ -158,11 +182,16 @@ final class CStudentPublicationPostStateProcessor implements ProcessorInterface
             $color = $agendaColors['student_publication'];
         }
 
+        $creator = $publication->getCreator();
+        if ($creator instanceof User && null !== $creator->getId()) {
+            $creator = $this->entityManager->getReference(User::class, $creator->getId());
+        }
+
         $event = (new CCalendarEvent())
             ->setTitle($eventTitle)
             ->setContent($content)
             ->setParent($course)
-            ->setCreator($publication->getCreator())
+            ->setCreator($creator)
             ->addLink(clone $courseLink)
             ->setStartDate($startDate)
             ->setEndDate($endDate)

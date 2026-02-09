@@ -19414,9 +19414,6 @@ msgstr "ဒေတာဘေ့စ်ဟောင်းကို ဖယ်ရှ�
 msgid "Remove old tables"
 msgstr "ဇယားဟောင်းများကို ဖယ်ရှားပါ"
 
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "ပေါ်တယ် %s မှ အသုံးပြုထားသော စုစုပေါင်းနေရာသည် %s MB ဖြစ်သည်"
-
 msgid "Event message management"
 msgstr "ဖြစ်ရပ်စာစီမံခန့်ခွဲမှု"
 
@@ -31072,8 +31069,8 @@ msgstr "မှတ်ချက်ထည့်ရန်"
 msgid "Write your comment here..."
 msgstr "သင်၏မှတ်ချက်ကို ဤနေရာတွင် ရေးပါ..."
 
-msgid "%d selected"
-msgstr "%d ရွေးချယ်ထားသည်"
+msgid "%s selected"
+msgstr "%s ရွေးချယ်ထားသည်"
 
 msgid "Search by title or path..."
 msgstr "ခေါင်းစဉ် သို့မဟုတ် လမ်းကြောင်းဖြင့် ရှာဖွေပါ..."
@@ -31081,8 +31078,8 @@ msgstr "ခေါင်းစဉ် သို့မဟုတ် လမ်းက�
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "သိမ်းဆည်းမှုများ၊ ပြန်လည်သိမ်းဆည်း၊ မိတ္တူကူး၊ ပြန်အသုံးပြုရန်နှင့် သင်တန်းဒေတာကို ဖျက်ရန် စီမံခန့်ခွဲပါ။"
 
-msgid "%d comment(s)"
-msgstr "%d မှတ်ချက်(များ)"
+msgid "%s comment(s)"
+msgstr "%s မှတ်ချက်(များ)"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "တတိယပုဂ္ဂိုလ်ကို အပ်ဒိတ်လုပ်ရန် အမှားဖြစ်ပါသည်။ ဒေတာကို စစ်ဆေးပါ။"
@@ -31437,4 +31434,1138 @@ msgstr "ဒေတာဘေ့စ်နာမည်တွင် အက္ခရ�
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "ဤပလက်ဖောင်းကို အသုံးပြုရန် အသုံးပြုသူများအား ပေးထားသော ယေဘုယျ စည်းမျဉ်းများနှင့် အခြေအနေများမှာ အဘယ်နည်း?"
+
+msgid "ex. {examplePassword}"
+msgstr "ဥပမာ။ {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "Chamilo သို့ ကြိုဆိုပါသည်!"
+
+msgid "Welcome to this platform"
+msgstr "ဤပလက်ဖောင်း သို့ ကြိုဆိုပါသည်"
+
+msgid "For more details visit %s"
+msgstr "အသေးစိတ်အချက်အလက်များအတွက် %s ကို လည်ပတ်ရန်"
+
+msgid "Manager"
+msgstr "မန်နေဂျာ"
+
+msgid "Mark as"
+msgstr ""
+
+msgid "Reply to all"
+msgstr ""
+
+msgid "SCIM external ID"
+msgstr ""
+
+msgid "OAuth2 ID"
+msgstr ""
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr ""
+
+msgid "Required value for operation without path"
+msgstr ""
+
+msgid "Available space (%s)"
+msgstr ""
+
+msgid "Index this description for the global search"
+msgstr ""
+
+msgid "Unknown course"
+msgstr ""
+
+msgid "Certificate not found."
+msgstr ""
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr ""
+
+msgid "Only platform administrators can change the course visibility."
+msgstr ""
+
+msgid "Unexpected error while subscribing the user"
+msgstr ""
+
+msgid "Search in resource logs"
+msgstr ""
+
+msgid "Include this learning path in the global search results"
+msgstr ""
+
+msgid "The course code already exists"
+msgstr ""
+
+msgid "Latest news"
+msgstr ""
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr ""
+
+msgid "Chamilo support block"
+msgstr ""
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr ""
+
+msgid "Hide option to send announcements to HR users"
+msgstr ""
+
+msgid "Allow session admins to download private certificates"
+msgstr ""
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr ""
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr ""
+
+msgid "Main menu entries"
+msgstr ""
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr ""
+
+msgid "Main menu entries per role"
+msgstr ""
+
+msgid "Define header tabs visibility per role."
+msgstr ""
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr ""
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr ""
+
+msgid "Mail: character set"
+msgstr ""
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr ""
+
+msgid "Mail: Debug"
+msgstr ""
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr ""
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr ""
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr ""
+
+msgid "Mail: DKIM headers"
+msgstr ""
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr ""
+
+msgid "Mail: XOAuth2 options"
+msgstr ""
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr ""
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr ""
+
+msgid "Global limit of users per course"
+msgstr ""
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr ""
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr ""
+
+msgid "Show base course posts in session course"
+msgstr ""
+
+msgid "Limit identical email usage"
+msgstr ""
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr ""
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr ""
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr ""
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "အသုံးပြုသူများက မိမိတိုင်း timezone ကို ရွေးချယ်နိုင်ရန် ဖွင့်ပါ။ ဆက်တင်ပြီးသောအခါ အသုံးပြုသူများသည် သူတို့ရဲ့ timezone တွင် ခန့်အလုပ်သက်တမ်ကုန်ဆုံးရက်များနှင့် အခြားအချိန်ကိုးကားချက်များကို မြင်နိုင်ပြီး ပို့ဆောင်ချိန်တွင် အမှားများကို လျှော့ချနိုင်မည်။"
+
+msgid "Redirect after login (per profile)"
+msgstr "အကောင့်ဝင်ပြီးနောက် ပြန်ညွှန်း (profile တစ်ခုချင်း)"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "{\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"} ကဲ့သို့ JSON object ကို အသုံးပြု၍ profile တစ်ခုချင်း အကောင့်ဝင်ပြီးနောက် ပြန်ညွှန်းမှုကို သတ်မှတ်ပါ"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "စည်းမျဉ်းနှင့် အခြေအနေများ စာမျက်နှာတွင် ဥပဒေလက်ခံ checkbox ကို ဖုံးပါ"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "true ဖြစ်သောအခါ စည်းမျဉ်းနှင့် အခြေအနေများ စာမျက်နှာ flow မှ \"ကျွန်ုပ်ဖတ်ပြီး လက်ခံပါသည်\" checkbox ကို ဖယ်ရှားပါ။"
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "LDAP server အတွက် host နှင့် port ကို သတ်မှတ်သော array။"
+
+msgid "Enable 2FA"
+msgstr "2FA ကို ဖွင့်ပါ"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "TOTP authenticator app ကို အသုံးပြု၍ 2FA ကို ဖွင့်ရန် password အပ်ဒိတ်စာမျက်နှာတွင် ဖွဲ့စည်းမှုများ ထည့်ပါ။ ကမ္ဘာလုံးဆိုင်ရာ ပိတ်ထားလျှင် အသုံးပြုသူများသည် 2FA ဖွဲ့စည်းမှုများကို မမြင်ရဘဲ ယခင်ဖွင့်ထားခဲ့ရန်တောင် အကောင့်ဝင်ချိန်တွင် 2FA ကို တောင်းမည်မဟုတ်။"
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "Chamilo ၏ အချို့လုပ်ဆောင်ချက်များသည် server မှ ပြင်ပသို့ ချိတ်ဆက်မည်။ ဥပမာ learning path တွင် embedded page ပြရန် သို့မဟုတ် link ဖန်တီးရာတွင် ပြင်ပအကြောင်းအရာရှိကြောင်း သေချာရန်။ သင့် Chamilo server သည် network မှ ထွက်ရန် proxy ကို အသုံးပြုပါက ဤနေရာတွင် ဆက်တင်ပါ။"
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "course သက်တမ်ကုန်ဆုံးချိန်တွင် အလိုအလျောက် ပြန်မှတ်ပုံငွေစွဲ ဖွင့်/ပိတ်ပါ။ ဆက်စပ်သော cron job ကိုလည်း ဖွင့်ရပါမည်။"
+
+msgid "Show remaining days in My Sessions"
+msgstr "ကျွန်ုပ်၏ သင်တန်းများတွင် ကျန်ရှိနေသော ရက်များကို ပြပါ"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "ဖွင့်ထားလျှင် \"ကျွန်ုပ်၏ သင်တန်းများ\" စာမျက်နှာတွင် သင်တန်းရက်များကို ကျန်ရှိနေသော ရက်အရေအတွက်ဖြင့် အစားထိုးပါမည်။"
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "မီနူတွင် \"စောင့်ဆိုင်းနေသော စစ်တမ်းများ\" ကို ပြပါ"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "အသုံးပြုသူများက စောင့်ဆိုင်းနေသော စစ်တမ်းများကို ဝင်ရောက်နိုင်သော မီနူတစ်ခု ပြပါ။"
+
+msgid "Disclose AI assistance"
+msgstr "AI အကူအညီကို ထုတ်ဖော်ပါ"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "မည်သည့် AI စနစ်မှ ထုတ်လုပ်ခဲ့သော သို့မဟုတ် ပူးပေါင်းထုတ်လုပ်ခဲ့သော အကြောင်းအရာ သို့မဟုတ် feedback များပေါ်တွင် tag တစ်ခု ပြပါ၊ အသုံးပြုသူအား အကြောင်းအရာကို အချို့ AI စနစ်များဖြင့် တည်ဆောက်ခဲ့ကြောင်း သက်သေပြပါ။ မည်သည့် AI စနစ်ကို အသုံးပြုခဲ့ကြောင်း အသေးစိတ်များကို audit အတွက် database တွင် သိမ်းဆည်းထားသော်လည်း အဆုံးစွန်အသုံးပြုသူများက တိုက်ရိုက်ဝင်ရောက်မရပါ။"
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "course catalog အတွက် JSON ဆက်တင်။ link ဆက်တင်များ၊ filter များ၊ sort ရွေးချယ်စရာများ စသည်တို့။"
+
+msgid "Session Catalog Settings"
+msgstr "သင်တန်း ကတ်တာလော့ဂ် ဆက်တင်များ"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "သင်တန်း ကတ်တာလော့ဂ် အတွက် JSON ဆက်တင်။ filter များနှင့် ပြသမှု ရွေးချယ်စရာများ။"
+
+msgid "Show Course Descriptions"
+msgstr "သင်တန်း ဖော်ပြချက်များကို ပြပါ"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "ကတ်တာလော့ဂ် စာရင်းတွင် သင်တန်း ဖော်ပြချက်များကို ပြပါ။"
+
+msgid "Published Courses Only"
+msgstr "ထုတ်ဝေထားသော သင်တန်းများသာ"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "ကတ်တာလော့ဂ်ကို ထုတ်ဝေထားသော သင်တန်းများသာ ကန့်သတ်ပါ။"
+
+msgid "Display Catalog on Homepage"
+msgstr "ပင်မစာမျက်နှာတွင် ကတ်တာလော့ဂ်ကို ပြပါ"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "platform ပင်မစာမျက်နှာတွင် သင်တန်း ကတ်တာလော့ဂ် block ကို ပြပါ။"
+
+msgid "Hide Public Link"
+msgstr "အများပြည်သူ link ကို ဖုံးပါ"
+
+msgid "Remove the public URL link from course cards."
+msgstr "သင်တန်း card များမှ အများပြည်သူ URL link ကို ဖယ်ရှားပါ။"
+
+msgid "Only Selected Courses"
+msgstr "ရွေးချယ်ထားသော သင်တန်းများသာ"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "ကတ်တာလော့ဂ်တွင် လက်စွဲရွေးချယ်ထားသော သင်တန်းများသာ ပြပါ။"
+
+msgid "Allow Student Browsing"
+msgstr "ကျောင်းသားများ ရှာဖွေခြင်း ခွင့်ပြုပါ"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "ကျောင်းသားများကို သင်တန်း ကတ်တာလော့ဂ်ကို ရှာဖွေပြီး filter လုပ်ခွင့်ပြုပါ။"
+
+msgid "Hide Private Courses"
+msgstr "ပုဂ္ဂလိက သင်တန်းများကို ဖုံးပါ"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "ကတ်တာလော့ဂ် ပြသမှုမှ ပုဂ္ဂလိက သင်တန်းများကို ချန်လှပ်ပါ။"
+
+msgid "Show Courses & Sessions"
+msgstr "သင်တန်းများနှင့် သင်တန်းများကို ပြပါ"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "ကတ်တာလော့ဂ် ရလဒ်များတွင် သင်တန်းများနှင့် သင်တန်းများကို ပါဝင်ပါ။"
+
+msgid "Auto Session Subscription"
+msgstr "အလိုအလျောက် သင်တန်း မှတ်ပုံငွေစွဲ"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "အသုံးပြုသူများအတွက် သင်တန်းများသို့ အလိုအလျောက် မှတ်ပုံငွေစွဲ ဖွင့်ပါ။"
+
+msgid "Subscription in Session View"
+msgstr "သင်တန်း ကြည့်ရှုမှုတွင် မှတ်ပုံငွေစွဲ"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "အသုံးပြုသူများကို သူတို့၏ သင်တန်းစာမျက်နှာမှ တိုက်ရိုက် သင်တန်းများသို့ မှတ်ပုံငွေစွဲ ခွင့်ပြုပါ။"
+
+msgid "Enable redirection plugin"
+msgstr "ပြန်ညွှန်း plugin ကို ဖွင့်ပါ"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "အသုံးပြုသူ ပထမဆုံး အကောင့်ဝင်ချိန်တွင် အကောင့် သက်တမ်ကုန်ဆုံးရက်ကို သတ်မှတ်ရန် 'days' နှင့် 'months' ကို သတ်မှတ်သော array။"
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "role => number ၏ array ဖြစ်ပြီး role ပေါ်မူတည်၍ အကောင့် သက်တမ်ကုန်ဆုံးမီ ရက်အရေအတွက်ကို ကိုယ်စားပြုသည်။"
+
+msgid "Extra user field used to search and name sessions"
+msgstr "သင်တန်းများကို ရှာဖွေပြီး အမည်ပေးရန် အသုံးပြုသူ အပိုဖွဲ့စည်းမှု"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "ဤဆက်တင်သည် /admin-dashboard/register မှ ကျောင်းသားများ မှတ်ပုံငွေစွဲချိန်တွင် သင်တန်း အမည်ကို သတ်မှတ်ရန်နှင့် အသုံးပြုသူများကို ရှာဖွေရန် အသုံးပြုသူ အပိုဖွဲ့စည်းမှု key (ဥပမာ \"company\") ကို သတ်မှတ်သည်။"
+
+msgid "Glossary terms generator"
+msgstr "စာလုံးစာရင်း အသုံးအနှုန်များ ထုတ်လုပ်ကိရိယာ"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "ဆရာများကို သူတို့ သင်တန်းတွင် AI-ထုတ်လုပ်သော စာလုံးစာရင်း အသုံးအနှုန်များကို တောင်းခံနိုင်ရန် ခွင့်ပြုပါ။ ဤသည်မှာ သင်တန်း အမည်နှင့် သင်တန်း ဖော်ပြချက် ကိရိယာရှိ အထွေထွေ ဖော်ပြချက်ပေါ်အခြေခံ၍ အသုံးအနှုန် ၂၀ ခု ထုတ်လုပ်မည်။ တစ်ကြိမ်ထက်ပို အသုံးပြုပါက ထိုစာလုံးစာရင်းတွင် ရှိပြီးသော အသုံးအနှုန်များကို ချန်လှပ်မည် (ဆက်တင်ထားသော AI ဝန်ဆောင်မှုများနှင့် အကြောင်းအရာ မျှဝေနိုင်ကြောင်း သေချာပါ)။"
+
+msgid "Video generator"
+msgstr "ဗီဒီယို ထုတ်လုပ်ကိရိယာ"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "prompt များ သို့မဟုတ် အကြောင်းအရာများပေါ်အခြေခံ၍ AI ကို အသုံးပြု၍ ဗီဒီယိုများ ထုတ်လုပ်သည် (ဤသည်မှာ token များစွာ အသုံးပြုနိုင်သည်)။"
+
+msgid "Course analyser"
+msgstr "သင်တန်း ခွဲခြမ်းစိတ်ဖြာကိရိယာ"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "သင်တန်း တစ်ခု သို့မဟုတ် များစွာရှိ အရင်းအမြစ်အားလုံးကို ခွဲခြမ်းစိတ်ဖြာပြီး AI model ကို ဤသင်တန်း သို့မဟုတ် သင်တန်းများနှင့် ပတ်သက်သော မည်သည့်မေးခွန်းမဆို ဖြေနိုင်ရန် pre-train လုပ်သည် (ဆက်တင်ထားသော AI ဝန်ဆောင်မှုများနှင့် အကြောင်းအရာ မျှဝေနိုင်ကြောင်း သေချာပါ)။"
+
+msgid "Test/development"
+msgstr "စမ်းသပ်မှု/ဖွံ့ဖြိုးတိုးတက်မှု"
+
+msgid "Crons"
+msgstr "ကရန်များ"
+
+msgid "Editor"
+msgstr "တည်းဖြတ်ကိရိယာ"
+
+msgid "Gradebook"
+msgstr "အမှတ်စာရင်း"
+
+msgid "Internationalization"
+msgstr "နိုင်ငံတကာဖြစ်စဉ်"
+
+msgid "User profiles"
+msgstr "အသုံးပြုသူ ပရိုဖိုင်များ"
+
+msgid "Support tickets"
+msgstr "ပံ့ပိုးမှု လက်မှတ်များ"
+
+msgid "Webservices"
+msgstr "ဝက်ဘ်ဝန်ဆောင်မှုများ"
+
+msgid "Catalogue"
+msgstr "ကတ်တာလော့ဂ်"
+
+msgid "Workflows"
+msgstr "အလုပ်စဉ်များ"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "ဆက်တင်ကို ဆင့်လျင်လိပ်ရာများတွင် တည်းဖြတ်နိုင်သည်"
+
+msgid "Show JSON Template"
+msgstr "JSON ပုံစံဇယားကို ပြပါ"
+
+msgid "JSON Template"
+msgstr "JSON ပုံစံဇယား"
+
+msgid "Installing Xapian bindings"
+msgstr "Xapian ချိတ်ဆက်မှုများကို ထည့်သွင်းခြင်း"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "အောက်ပါ အပိုင်းငယ်သည် Ubuntu 25.04 တွင် PHP 8.3 ဖြင့် Xapian PHP ချိတ်ဆက်မှုကို ထည့်သွင်းခြင်း၏ ဥပမာကို ပြသထားသည်။ သင်၏ ပတ်ဝန်းကျင်နှင့် လိုက်လျောညီထွေဖြစ်အောင် လမ်းကြောင်းများနှင့် ဗားရှင်းများကို ပြင်ဆင်ပါ။"
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "သင်အမှန်တကယ် အသုံးပြုသော PHP ဗားရှင်း (ဥပမာ 8.3) ကိုသာ ရှိစေကာ ချဲ့ထွင်ချက် ဖိုဒါများကွဲပြားသော ဗားရှင်းများကို ရောနှောမှုကို ရှောင်ကြဉ်ကြောင်း သေချာပါစေ။"
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "ချဲ့ထွင်မှုကို CLI နှင့် ဝက်ဘ်ဆာဗာအတွက် မှန်ကန်စွာ တင်သွင်းပြီးသည်နှင့် အထက်ပါ ရှာဖွေရေး ရှာဖွေရေးဆိုင်ရာ အစီရင်ခံစာက ရှာဖွေရေး မော်ဂျူး Xapian ကို ထည့်သွင်းပြီဟု အစီရင်ခံရမည်။"
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "ယာယီအပ်လုဒ်များနှင့် ကက်ရှ်ကို ရှင်းလင်းရန်"
+
+msgid "Directory"
+msgstr "ဖိုလ်ဒါ"
+
+msgid "Only delete files older than (minutes)"
+msgstr "အသက်ရှိနေသော ဖိုင်များကို ဖျက်ရန် (မိနစ်)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "ဖိုင်အားလုံးကို ဖျက်ရန် ၀ သတ်မှတ်ပါ။ အပ်လုဒ်လုပ်နေသေးသော ဖိုင်များကို မဖယ်ရှားရန် အပေါင်း တန်ဖိုး (ဥပမာ၊ ၆၀) သုံးပါ။"
+
+msgid "Preview only (do not delete)"
+msgstr "ကြည့်ရှုရန်သာ (မဖျက်ရန်)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "သတိပေးချက်။ ယာယီ ဖိုင်များ အားလုံးကို ဖျက်ရန် လုပ်နေပါသည်။ ဤလုပ်ဆောင်မှုကို ပြန်လည်မလုပ်နိုင်ပါ။"
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "ယာယီ ဖိုင်များ အားလုံးကို ဖျက်ပါမည်။ ဆက်လက်လုပ်ဆောင်မလား?"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "%minutes% မိနစ်ထက် ဟောင်းနေသော ဖိုင်များကို ဖျက်ပါမည်။ ဆက်လက်လုပ်ဆောင်မလား?"
+
+msgid "The value must match exactly: %s"
+msgstr "တန်ဖိုးသည် အတိအကျ ကိုက်ညီရမည်။ %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "ထပ်ကွင်း အဆုံးသတ်ရက်သည် စတင်ရက်မှ နောက်ကျရမည်။"
+
+msgid "Index document content?"
+msgstr "စာရွက်စာတမ်း အကြောင်းအရာကို အညွှန်း လုပ်မလား။"
+
+msgid "Upload SVG logo to platform header"
+msgstr "ပလက်ဖောင်း ခေါင်းစဉ်သို့ SVG လိုဂို တင်ပါ"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "ပလက်ဖောင်း ခေါင်းစဉ်သို့ PNG လိုဂို တင်ပါ (%s)"
+
+msgid "Write something to %s"
+msgstr "%s သို့ တစ်စုံတစ်ရာ ရေးပါ"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "အကြံပြုချက်။ SVG။ PNG အကြံပြုချက် အကျယ်အဝန်း။ %spx။"
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "အီးမေးလ်များအတွက် PNG လိုဂို တင်ပါ (~%spx အကျယ်အဝန်း)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "ခေါင်းစဉ် PNG သည် %spx ထက် မပိုရပါ။"
+
+msgid "Require specific file format"
+msgstr "သတ်မှတ်ထားသော ဖိုင်ပုံစံ လိုအပ်သည်"
+
+msgid "Select allowed file formats"
+msgstr "ခွင့်ပြုထားသော ဖိုင်ပုံစံများ ရွေးပါ"
+
+msgid "Custom extensions (separated by space)"
+msgstr "စိတ်ကြိုက် ချဲ့ထွင်မှုများ (စာကွက်ဖြင့် ခွဲထားသည်)"
+
+msgid "Other extensions"
+msgstr "အခြားချဲ့ထွင်မှုများ"
+
+msgid "My invitations"
+msgstr "ကျွန်ုပ်၏ ဖိတ်ကြားချက်များ"
+
+msgid "Delete access"
+msgstr "ဝင်ရောက်ခွင့်ကို ဖျက်ပါ"
+
+msgid "Certificate tags"
+msgstr "ဒါထက်လက်မှတ် တံဆိပ်များ"
+
+msgid "Copy all"
+msgstr "အားလုံး မိတ္တူကူးပါ"
+
+msgid "Click to insert"
+msgstr "ထည့်ရန် နှိပ်ပါ"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "ကြိုက်တာ: SVG။ PNG အများဆုံး အရွယ်အစား: %spx။"
+
+msgid "View badge"
+msgstr "မှတ်ပုံကြည့်ရန်"
+
+msgid "%d min"
+msgstr "%d မိနစ်"
+
+msgid "Duration in minutes"
+msgstr "မိနစ်များဖြင့် ကြာချိန်"
+
+msgid "Go back to standard view"
+msgstr "စံပုံစံသို့ ပြန်သွားရန်"
+
+msgid "Search for student..."
+msgstr "ကျောင်းသားရှာရန်..."
+
+msgid "This date is locked or read-only."
+msgstr "ဤနေ့စွဲသည် သော့ခတ်ထားသည် သို့မဟုတ် ဖတ်သာရန်သာ ဖြစ်သည်။"
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "တက်ရောက်မှုများ မပို့လွှန်နိုင်ပါ။ နောက်မှ ထပ်မံကြိုးစားပါ။"
+
+msgid "Nothing to save"
+msgstr "သိမ်းရန် ဘာမျှမရှိပါ"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "သင့်တွင် မသိမ်းရသေးသော ပြောင်းလဲမှုများရှိသည်။ မည်သို့မဆို ထွက်မည်လား?"
+
+msgid "Storage usage unavailable"
+msgstr "သိုလှောင်မှု အသုံးပြုမှု မရရှိနိုင်ပါ"
+
+msgid "Search for members..."
+msgstr "အဖွဲ့ဝင်များ ရှာရန်..."
+
+msgid "Current members"
+msgstr "လက်ရှိ အဖွဲ့ဝင်များ"
+
+msgid "Add members"
+msgstr "အဖွဲ့ဝင်များ ထပ်မံထည့်ရန်"
+
+msgid "Search for users in course/session..."
+msgstr "သင်တန်း/သင်တန်းသုံးဝင်များ ရှာရန်..."
+
+msgid "No users available."
+msgstr "ရရှိနိုင်သော အသုံးပြုသူ မရှိပါ။"
+
+msgid "Browse and publish new posts"
+msgstr "ပို့စ်အသစ်များ ရှာဖွေပြီး ထုတ်ဝေရန်"
+
+msgid "Create and assign tasks"
+msgstr "အလုပ်များ ဖန်တီးပြီး ချထားရန်"
+
+msgid "Filtered by %s"
+msgstr "%s ဖြင့် စစ်ထုတ်ထားသည်"
+
+msgid "Select a score"
+msgstr "ရမှတ်တစ်ခု ရွေးချယ်ပါ"
+
+msgid "Edit comment"
+msgstr "မှတ်ချက် တည်းဖြတ်ရန်"
+
+msgid "Failed to update the post."
+msgstr "ပို့စ်ကို မပြင်ဆင်နိုင်ပါ။"
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "ဤပို့စ်ကို ဖျက်မည်လား? ဤလုပ်ဆောင်ချက်ကို ပြန်လည်မလုပ်နိုင်ပါ။"
+
+msgid "Failed to delete the post."
+msgstr "ပို့စ်ကို မဖျက်နိုင်ပါ။"
+
+msgid "Failed to update the comment."
+msgstr "မှတ်ချက်ကို မပြင်ဆင်နိုင်ပါ။"
+
+msgid "Delete this comment?"
+msgstr "ဤမှတ်ချက်ကို ဖျက်မည်လား?"
+
+msgid "Failed to delete the comment."
+msgstr "မှတ်ချက်ကို မဖျက်နိုင်ပါ။"
+
+msgid "Search for projects..."
+msgstr "ပရောဂျက်များ ရှာရန်..."
+
+msgid "Only visible"
+msgstr "မြင်နိုင်သာ"
+
+msgid "Rename project"
+msgstr "ပရောဂျက် အမည်ပြောင်း"
+
+msgid "New title"
+msgstr "ခေါင်းစဉ်အသစ်"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "ပရောဂျက်များကို စီမံရန် အုပ်စုအုပ်ချုပ်သူ သို့မဟုတ် ဆရာတစ်ဦး ဖြစ်ရမည်။"
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "ဤပရောဂျက်ကို ဖျက်မည်လား? ဤလုပ်ဆောင်ချက်ကို ပြန်လည်မလုပ်နိုင်ပါ။"
+
+msgid "Task list"
+msgstr "အလုပ်များ စာရင်း"
+
+msgid "Change status"
+msgstr "အခြေအနေ ပြောင်းလဲရန်"
+
+msgid "Waiting for validation"
+msgstr "အတည်ပြုရန် စောင့်နေသည်"
+
+msgid "Delete this task?"
+msgstr "ဤအလုပ်ကို ဖျက်မည်လား?"
+
+msgid "Failed to delete the task."
+msgstr "အလုပ်ကို မဖျက်နိုင်ပါ။"
+
+msgid "Failed to update status."
+msgstr "အခြေအနေကို မပြင်ဆင်နိုင်ပါ။"
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "ဤတတိယပုဂ္ဂိုလ်ကို ဖျက်ရန် သေချာပါသလား? ဤလုပ်ဆောင်ချက်ကို ပြန်လည်မလုပ်နိုင်ပါ။"
+
+msgid "Please fix the errors before saving."
+msgstr "သိမ်းရန်မီ အမှားများကို ပြင်ဆင်ပါ။"
+
+msgid "Error creating third party. Please verify the data."
+msgstr "တတိယပုဂ္ဂိုလ် ဖန်တီးရာတွင် အမှား။ ဒေတာကို စစ်ဆေးပါ။"
+
+msgid "Error deleting third party."
+msgstr "တတိယပုဂ္ဂိုလ် ဖျက်ရာတွင် အမှား။"
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "ရွေးချယ်ထားသော ခေါင်းစဉ်နှင့် အီးမေးလ် လိုဂိုများ တင်လွှင်ပါ။ SVG ကို ဦးစားပေးသည်; PNG ကို အရန်အဖြစ် အသုံးပြုသည်။"
+
+msgid "Data exchange updated successfully."
+msgstr "ဒေတာလဲလှယ်မှု အောင်မြင်စွာ အပ်ဒိတ်လုပ်ပြီးပါပြီ။"
+
+msgid "Error deleting data exchange."
+msgstr "ဒေတာလဲလှယ်မှု ဖျက်ရာတွင် အမှား။"
+
+msgid "Failed to recycle course."
+msgstr "သင်တန်းကို ပြန်လည်အသုံးပြုရန် မအောင်မြင်ပါ။"
+
+msgid "Select source course"
+msgstr "ရင်းမြစ်သင်တန်း ရွေးချယ်ပါ"
+
+msgid "Course to copy from"
+msgstr "ကူးယူရန် သင်တန်း"
+
+msgid "Search by code or title..."
+msgstr "ကုဒ် သို့မဟုတ် ခေါင်းစဉ်ဖြင့် ရှာရန်..."
+
+msgid "No courses match your search."
+msgstr "သင်၏ ရှာဖွေမှုနှင့် ကိုက်ညီသော သင်တန်း မရှိပါ။"
+
+msgid "Copy options"
+msgstr "ကူးယူရန် ရွေးချယ်စရာများ"
+
+msgid "Include users (enrollments)"
+msgstr "အသုံးပြုသူများ (စာရင်းသွင်းခြင်း) ပါဝင်ရန်"
+
+msgid "Reset dates"
+msgstr "နေ့စွဲများ ပြန်လည်သတ်မှတ်ရန်"
+
+msgid "When a file with the same name exists"
+msgstr "အတူတူအမည်ရှိ ဖိုင်တစ်ခု ရှိနေလျှင်"
+
+msgid "Ready to copy"
+msgstr "ကူးယူရန် အဆင်သင့်ဖြစ်ပါပြီ"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "ရွေးချယ်ထားသော သင်တန်းမှ ဤသင်တန်းသို့ အကြောင်းအရာများ ကူးယူပါမည်။ ရွေးချယ်စရာများ ပြောင်းလဲရန် ပြန်ရောက်နိုင်ပါသည်။"
+
+msgid "Start copying"
+msgstr "ကူးယူခြင်း စတင်ရန်"
+
+msgid "Select resources to copy"
+msgstr "ကူးယူရန် အရင်းအမြစ်များ ရွေးချယ်ပါ"
+
+msgid "Copy selected"
+msgstr "ရွေးချယ်ထားသည်များ ကူးယူရန်"
+
+msgid "Copy completed."
+msgstr "ကူးယူခြင်း ပြီးဆုံးပါပြီ။"
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "အန္တရာယ်ဧရိယာ။ သင်တန်းကို ဖျက်ခြင်းသည် ထာဝရဖြစ်ပါသည်။"
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "အတည်ပြုရန် သင်တန်းကုဒ်ကို ရိုက်ထည့်ပါ။ ဒေတာအားလုံး ထာဝရ ဖယ်ရှားပစ်ပါမည်။"
+
+msgid "The code must match '%s' exactly."
+msgstr "ကုဒ်သည် '%s' နှင့် အတိအကျ ကိုက်ညီရမည်။"
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "ဤသင်တန်းတွင်သာ အသုံးပြုသော စာရွက်စာတမ်းများကိုလည်း ဖျက်ပါ (ရှိလျှင်)။"
+
+msgid "Delete course"
+msgstr "သင်တန်း ဖျက်ရန်"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "ဤလုပ်ဆောင်ချက်ကို ပြန်လည်မလုပ်နိုင်ပါ။ ဆက်လက်လုပ်ဆောင်မည်လား။"
+
+msgid "Course deleted successfully."
+msgstr "သင်တန်း အောင်မြင်စွာ ဖျက်ပြီးပါပြီ။"
+
+msgid "Failed to delete course."
+msgstr "သင်တန်း ဖျက်ရန် မအောင်မြင်ပါ။"
+
+msgid "Create .mbz"
+msgstr ".mbz ဖန်တီးရန်"
+
+msgid "Backup scope"
+msgstr "ဘက်အပ်အဖြစ် နယ်ပယ်"
+
+msgid "Full course"
+msgstr "သင်တန်း အပြည့်အစုံ"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "ရွေးချယ်ထားသော အရာများသည် တင်ပို့ဖိုင်တွင် ပါဝင်မည့် တစ်ခုတည်းသော အရာများဖြစ်ပါမည်။"
+
+msgid "Moodle export"
+msgstr "Moodle တင်ပို့ခြင်း"
+
+msgid "Moodle version"
+msgstr "Moodle ဗားရှင်း"
+
+msgid "Admin ID"
+msgstr "အက်မင် ID"
+
+msgid "Internal integer user id"
+msgstr "XML တွင် သိမ်းဆည်းထားသော အတွင်းပိုင်း အသုံးပြုသူ အင်တိုဂျာ ID"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle သည် XML တွင် သိမ်းဆည်းထားသော အတွင်းပိုင်း အသုံးပြုသူ ID လိုအပ်သည်။ သံသယရှိလျှင် ၁ ကို အသုံးပြုပါ။"
+
+msgid "Username to appear as owner of imported items"
+msgstr "တင်သွင်းထားသော အရာများ၏ ပိုင်ရှင်အဖြစ် ပေါ်ထွက်ရန် အသုံးပြုသူအမည်"
+
+msgid "Email to use in the archive metadata"
+msgstr "ရှင်းလင်းသိမ်းဆည်းမှု မက်တာဒေတာတွင် အသုံးပြုရန် အီးမေးလ်"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr ".mbz ဖိုင်တစ်ခု ထုတ်လုပ်ပါမည်။ ပြီးဆုံးသောအခါ ဒေါင်းလုဒ်လုပ်နိုင်ပါမည်။"
+
+msgid "Select resources to include"
+msgstr "ပါဝင်ရန် အရင်းအမြစ်များ ရွေးချယ်ပါ"
+
+msgid "Export completed"
+msgstr "တင်ပို့ခြင်း ပြီးဆုံးပါပြီ"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "သင်၏ Moodle ဘက်အပ်ကို ဖန်တီးပြီးပါပြီ။ သင်တန်း ဘက်အပ်များ စာရင်းတွင် တွေ့နိုင်ပါသည်။"
+
+msgid "Please complete all required fields."
+msgstr "လိုအပ်သော ဖွဲ့စည်းကွက်အားလုံး ဖြည့်စွမ်းပါ။"
+
+msgid "Failed to create Moodle backup."
+msgstr "Moodle ဘက်အပ် ဖန်တီးရန် မအောင်မြင်ပါ။"
+
+msgid "More actions"
+msgstr "အခြားလုပ်ဆောင်ချက်များ"
+
+msgid "Write something"
+msgstr "တစ်စုံတစ်ရာ ရေးပါ"
+
+msgid "Friends of %s"
+msgstr "%s ၏ မိတ်ဆွေများ"
+
+msgid "Error loading learning paths."
+msgstr "သင်ယူမှုလမ်းကြောင်းများ ဖွင့်ယူရန် အမှားတစ်ခု ဖြစ်ပေါ်ပါသည်။"
+
+msgid "You don't have any learning path."
+msgstr "သင့်တွင် သင်ယူမှုလမ်းကြောင်း မရှိပါ။"
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "သင်ခန်းစာအကြောင်းအရာများကို စီစဉ်ရန် သင့်ပထမဆုံး သင်ယူမှုလမ်းကြောင်းကို ဖန်တီးပါ။"
+
+msgid "Could not save the new category order."
+msgstr "အမျိုးအစားအစဉ်အသစ်ကို သိမ်းရန် မအောင်မြင်ပါ။"
+
+msgid "Could not save the new order."
+msgstr "အစဉ်အသစ်ကို သိမ်းရန် မအောင်မြင်ပါ။"
+
+msgid "Assignment"
+msgstr "တာဝန်ပေးခြင်း"
+
+msgid "Allowed file formats: %s"
+msgstr "ခွင့်ပြုထားသော ဖိုင်ပုံစံများ။ %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "ဖိုင်အမျိုးအစား ခွင့်မပြုပါ။ ခွင့်ပြုထားသော ချဲ့ထွင်မှုများ။ %s"
+
+msgid "Folder name"
+msgstr "ဖိုလ်ဒါအမည်"
+
+msgid "Rename folder"
+msgstr "ဖိုလ်ဒါ အမည်ပြန်ပေး"
+
+msgid "New name"
+msgstr "အမည်အသစ်"
+
+msgid "Choose an action"
+msgstr "လုပ်ဆောင်ချက်တစ်ခု ရွေးချယ်ပါ"
+
+msgid "New version"
+msgstr "ဗားရှင်းအသစ်"
+
+msgid "Change title to selected filename"
+msgstr "ရွေးချယ်ထားသော ဖိုင်အမည်ဖြင့် ခေါင်းစဉ်ပြောင်း"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "ဖိုင်ကို အစားထိုး၊ အခြားဖိုလ်ဒါသို့ ရွှေ့ပြောင်း သို့မဟုတ် နှစ်ခုလုံး လုပ်နိုင်ပါသည်။"
+
+msgid "Move %s"
+msgstr "%s ကို ရွှေ့"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "မူရင်း ဖိုလ်ဒါများမှလွဲ၍ မူရင်းတွင် အရာများ ထားခဲ့ရန် ရှောင်ရှားရန် ဖိုလ်ဒါများကိုသာ ပြသထားပါသည်။"
+
+msgid "No feedback yet."
+msgstr "အကြောင်းပြန်မှု မရှိသေးပါ။"
+
+msgid "Upload first, organize later"
+msgstr "အရင်တင်ပါ၊ နောက်မှ စီစဉ်ပါ"
+
+msgid "Drag & drop or browse to add files"
+msgstr "ဖိုင်များ ထပ်ထည့်ရန် ဆွဲချပါ သို့မဟုတ် ရှာဖွေပါ"
+
+msgid "Social wall..."
+msgstr "လူမှုရေးနံရံ..."
+
+msgid "Wall of %s"
+msgstr "%s ၏ နံရံ"
+
+msgid "Version currently loaded"
+msgstr "လက်ရှိ ဖွင့်ထားသော ဗားရှင်း"
+
+msgid "Completion"
+msgstr "ပြီးစီးမှု"
+
+msgid "Quick navigation"
+msgstr "လျင်မြန်စွာ သွားလာရန်"
+
+msgid "Filled"
+msgstr "ဖြည့်ထားသည်"
+
+msgid "Terms sections"
+msgstr "စည်းမျဉ်းအပိုင်းများ"
+
+msgid "Open a section to edit its content."
+msgstr "အကြောင်းအရာကို တည်းဖြတ်ရန် အပိုင်းကို ဖွင့်ပါ။"
+
+msgid "Open this section to load the editor."
+msgstr "တည်းဖြတ်ကိရိယာကို ဖွင့်ရန် ဤအပိုင်းကို ဖွင့်ပါ။"
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "အန္တရာယ်ရှိသော နေရာ။ ဝင်ရောက်ရန် URL ကို ဖျက်ခြင်းသည် ထာဝရဖြစ်ပါသည်။"
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "အတည်ပြုရန် အပြည့်အစုံ URL ကို ရိုက်ထည့်ပါ။ URL နှင့် ၎င်း၏ ဆက်နွယ်မှုများကို ထာဝရ ဖယ်ရှားပါမည်။"
+
+msgid "Unable to load the badge's image."
+msgstr "ဘက်ဇ်ရုပ်ပုံကို ဖွင့်ယူရန် မအောင်မြင်ပါ။"
+
+msgid "Invalid role selection"
+msgstr "အခန်းကဏ္ဍ ရွေးချယ်မှု မမှန်ကန်ပါ"
+
+msgid "Select relation type first to enable user management."
+msgstr "အသုံးပြုသူ စီမံခန့်ခွဲမှုကို ဖွင့်ရန် ဆက်နွယ်မှု အမျိုးအစားကို အရင်ရွေးချယ်ပါ။"
+
+msgid "This question has no course context. Preview is not available."
+msgstr "ဤမေးခွန်းတွင် သင်ခန်းစာ အကြောင်းအရာ မရှိပါ။ ကြည့်ရှုမှု မရရှိနိုင်ပါ။"
+
+msgid "Unknown test"
+msgstr "မသိနိုင်သော စာမေးပွဲ"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "သင်ခန်းစာ အကြောင်းအရာ မရှိပါက ဖျက်ရန် ခွင့်မပြုပါ။"
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "ဖျက်ရန် မအောင်မြင်ပါ။ သင်ခန်းစာ အကြောင်းအရာ မရှိခြင်း သို့မဟုတ် ဤမေးခွန်းသည် စာမေးပွဲတစ်ခုနှင့် ဆက်နွယ်ပါသည်။ စာမေးပွဲအတွင်း တည်းဖြတ်ပါ သို့မဟုတ် မိသားစု မဲ့ မေးခွန်းများကိုသာ စစ်ထုတ်ပါ။ မမှန်ကန်သော မေးခွန်း ID ဖြစ်ပါသည်။"
+
+msgid "Delete failed: question not found."
+msgstr "ဖျက်ရန် မအောင်မြင်ပါ။ မေးခွန်း မတွေ့ရပါ။"
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "ဖျက်ရန် မအောင်မြင်ပါ။ ဤမေးခွန်းကို အခြားအရင်းအမြစ်များက ကိုးကားထားနေဆဲဖြစ်ပါသည်။"
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "ဤမေးခွန်းသည် စာမေးပွဲတစ်ခုနှင့် ဆက်နွယ်ပါသည်။ စာမေးပွဲအတွင်း တည်းဖြတ်ပါ သို့မဟုတ် မိသားစု မဲ့ မေးခွန်းများကိုသာ စစ်ထုတ်ပါ။"
+
+msgid "Access the group tools and resources"
+msgstr "အုပ်စုကိရိယာများနှင့် အရင်းအမြစ်များကို ဝင်ရောက်ပါ"
+
+msgid "%s members"
+msgstr "%s သာသနာ့ဝင်များ"
+
+msgid "View certificate (HTML)"
+msgstr "ဒါထောက် (HTML) ကြည့်ရှု"
+
+msgid "Link a skill to this gradebook"
+msgstr "ဤအမှတ်စာအုပ်သို့ ကျွမ်းကျင်မှု ချိတ်ဆက်ပါ"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "အမှတ်စာအုပ်တစ်ခုစီအတွက် ဒါထောက်များနှင့် ကျွမ်းကျင်မှုများ ကြားဆက်နွယ်မှုကို စီမံပါ"
+
+msgid "Please select a specific badge issue to download"
+msgstr "ဒေါင်းလုဒ်ဖို့ ဘက်ဇ်ထုတ်ပေးမှု တစ်ခုကို ရွေးချယ်ပါ"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM ကို ဖွင့်မထားပါ။"
+
+msgid "Invalid token."
+msgstr "မမှန်ကန်သော token။"
+
+msgid "Schema not supported."
+msgstr "Schema ကို မထောက်ပံ့ပါ။"
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "PATCH လုပ်ဆောင်မှုအတွက် မမှန်ကန်သော schemas များ။"
+
+msgid "Missing required \"Operations\" array."
+msgstr "\"Operations\" array လိုအပ်သော မရှိပါ။"
+
+msgid "The '%s' operation is not supported."
+msgstr "'%s' လုပ်ဆောင်မှုကို မထောက်ပံ့ပါ။"
+
+msgid "Drupal user ID"
+msgstr "Drupal အသုံးပြုသူ ID"
+
+msgid "There are no terms that match the search: %s"
+msgstr "ရှာဖွေမှုနှင့် ကိုက်ညီသော အသုံးအနှုန်များ မရှိပါ။ %s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "ဆက်တင်ကို ကမ္ဘာလုံးဆိုင်ရာ သော့ခတ်ထားသည် (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "ဖွင့်ထားပါက၊ ၁:၁ ပုဂ္ဂိုလ်ရေးအချက်ပြမှုများကို သင်တန်းချက်သမိုင်းစာရွက်စာတမ်းများတွင် ထင်ဟပ်ပြသမည်။ ကိုယ်ရေးအချက်အလက်ကိုကာကွယ်ရန် ပိတ်ထားရန် အကြံပြုသည်။"
+
+msgid "Save private conversations in documents"
+msgstr "ပုဂ္ဂိုလ်ရေးဆက်သွယ်မှုများကို စာရွက်စာတမ်းများတွင် သိမ်းဆည်း"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "EU AI ဥပဒေ – ပွင့်လင်းမြင်သာမှု နှင့် အန္တရာယ်သတိပေးချက်"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "EU ဉာဏ်ရည်တု ဥပဒေ (Regulation (EU) 2024/1689) အရ၊ ပညာရေးတွင် အသုံးပြုသော AI စနစ်များကို ယေဘုယျအားဖြင့် “အန္တရာယ်မြင့်မားသော” အဖြစ် ခွဲခြားသတ်မှတ်သည်။ ဤဆော့ဖ်ဝဲလ်ကိုယ်တိုင်မှာ <strong>မဟုတ်</strong> AI စနစ်တစ်ခုဖြစ်သော်လည်း၊ သင်၏ ပုံစံတည်းမှုပေါ်မူတည်၍ အသုံးပြုသူရဲ့ လုပ်ဆောင်ချက်စွမ်းဆောင်ရည်ကို မြှင့်တင်ရန် ရွေးချယ်နိုင်သော အတွင်းပိုင် သို့မဟုတ် ပြင်ပရှိ AI စနစ်များကို ပေါင်းစည်းနိုင်သည်။ ဤစနစ်များသည် အသုံးပြုသူများက သူတို့၏ ညွှန်ကြားချက်များတွင် ထည့်သွင်းထားပါက <em>သက်သက်သာ</em> ကိုယ်ရေးအချက်အလက်များကို အသုံးပြုနိုင်သည်။ ဒီဇိုင်းအရ၊ ဤဆော့ဖ်ဝဲလ်သည် အသုံးပြုသူ၏ တက်ကြွသော ထည့်သွင်းမှုမရှိပဲ AI စနစ်များနှင့် ကိုယ်ရေးအချက်အလက်များကို မမျှဝေပါ။ မူလတန်းအတိုင်း၊ အားလုံး AI လုပ်ဆောင်ချက်များကို ပိတ်ထားသည်။"
+
+msgid "Admin responsibility & disclosures"
+msgstr "အုပ်ချုပ်ရေးမှူး တာဝန်နှင့် ထုတ်ဖော်ချက်များ"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "ဤပုံစံတည်းမှုစာမျက်နှာတွင် အင်္ဂါရပ်တစ်ခုချင်းစီနှင့် ၎င်း၏ ရည်ရွယ်ချက်ကို အသေးစိတ်ဖော်ပြထားသည်။ ထုတ်လွှင့်သူအဖြစ်၊ သင်သည် ၎င်းတို့ကို ဂရုတစိုက်သုံးသပ်ရမည်ဖြစ်ပြီး သင်ဖွင့်ထားသော ရွေးချယ်စရာများကို ထင်ဟပ်ပြသရန် GDPR နှင့်ကိုက်ညီသော ဒေတာကိုယ်ရေးအချက်အလက် ကာကွယ်မူဝါဒများကို အပ်ဒိတ်လုပ်ရမည်။ အင်္ဂါရပ်အများစုသည် ပြင်ပစနစ်များနှင့် ကိုယ်ရေးအချက်အလက်များကို တိုက်ရိုက်မမျှဝေသော်လည်း၊ AI သို့ ပို့လွှတ်သော အသုံးပြုသူ ညွှန်ကြားချက်များတွင် ကိုယ်ရေးအချက်အလက်များ မတော်မတရား ပါဝင်နိုင်သည်။ ထုတ်လွှင့်သူအဖြစ်၊ <strong>သင်တာဝန်ရှိသည်</strong> ဤအန္တရာယ်ကို အသုံးပြုသူများကို အသိပေးရန်။ ပွင့်လင်းမြင်သာမှုအတွက်၊ အနာဂတ်ထုတ်ဝေမှုများတွင် အကြောင်းအရာအချို့ သို့မဟုတ် တုံ့ပြန်ချက်များကို AI ၏ အကူအညီနှင့် ထုတ်လုပ်ထားကြောင်း ညွှန်ပြသော အသုံးပြုသူအဆုံးမှ မအနှောင့်အယှက်ဖြစ်သော တံဆိပ်များကို ပြသရနိုင်သည်။"
+
+msgid "Positioning"
+msgstr "အနေအထား"
+
+msgid "Quiz"
+msgstr "ဉာဏ်စမ်းစာ"
+
+msgid "Customcertificate"
+msgstr "Customcertificate"
+
+msgid "Update profile"
+msgstr "ပရိုဖိုင်ကို အပ်ဒိတ်လုပ်ရန်"
+
+msgid "Enable learning path generator"
+msgstr ""
+
+msgid "Enable exercise generator"
+msgstr ""
+
+msgid "Enable open answers grader"
+msgstr ""
+
+msgid "Enable tutor chatbot"
+msgstr ""
+
+msgid "Enable task grader"
+msgstr ""
+
+msgid "Enable content analyser"
+msgstr ""
+
+msgid "Enable image generator"
+msgstr ""
+
+msgid "Enable glossary terms generator"
+msgstr ""
+
+msgid "Enable video generator"
+msgstr ""
+
+msgid "Enable course analyser"
+msgstr ""
+
+msgid "The operation '%s' is not supported."
+msgstr ""
+
+msgid "AI feedback on %s in course %s"
+msgstr ""
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr ""
+
+msgid "AI Tutor"
+msgstr ""
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr ""
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr ""
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr ""
+
+msgid "You are here"
+msgstr ""
+
+msgid "Click an event type to filter results."
+msgstr ""
+
+msgid "Require unique presence"
+msgstr ""
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr ""
+
+msgid "AI feedback"
+msgstr ""
+
+msgid "Prompt"
+msgstr ""
+
+msgid "Tip"
+msgstr ""
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr ""
+
+msgid "Result (you can apply it to the comment)"
+msgstr ""
+
+msgid "Apply to comment"
+msgstr ""
+
+msgid "Apply score"
+msgstr ""
+
+msgid "AI grade"
+msgstr ""
+
+msgid "AI tutor is disabled during tests"
+msgstr ""
+
+msgid "Generate glossary terms"
+msgstr ""
+
+msgid "Generate media"
+msgstr ""
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr ""
+
+msgid "AI helpers are disabled at platform level."
+msgstr ""
+
+msgid "AI media generation is disabled in course settings."
+msgstr ""
+
+msgid "No AI media providers available."
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Select a provider"
+msgstr ""
+
+msgid "Example: generated_media"
+msgstr ""
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr ""
+
+msgid "Describe what you want to generate..."
+msgstr ""
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr ""
+
+msgid "Generating..."
+msgstr ""
+
+msgid "Save to Documents"
+msgstr ""
+
+msgid "Document IRI"
+msgstr ""
+
+msgid "Go to folder"
+msgstr ""
+
+msgid "Provider used"
+msgstr ""
+
+msgid "This video result cannot be saved yet"
+msgstr ""
+
+msgid "Video polling was stopped because the provider changed."
+msgstr ""
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr ""
+
+msgid "Failed to check video status."
+msgstr "ဗီဒီယိုအခြေအနေစစ်ဆေးရန် မအောင်မြင်ပါ။"
+
+msgid "Video generated successfully. You can now save it."
+msgstr "ဗီဒီယိုထုတ်လုပ်မှု အောင်မြင်ပါသည်။ ယခုသိမ်းနိုင်ပါပြီ။"
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr "ဗီဒီယိုထုတ်လုပ်မှု ပြီးဆုံးခဲ့သော်လည်း ဖျော်ဖြေနိုင်သော အကြောင်းအရာများ မပြန်ပေးပါ။"
+
+msgid "Video generation failed."
+msgstr "ဗီဒီယိုထုတ်လုပ်မှု မအောင်မြင်ပါ။"
+
+msgid "Waiting for the video to be ready..."
+msgstr "ဗီဒီယိုအဆင်သင့်ဖြစ်ရန် စောင့်နေသည်..."
+
+msgid "Please complete all fields."
+msgstr "စာရွက်စာတမ်အားလုံးဖြည့်စွမ်းပါ။"
+
+msgid "Image generation is not enabled for this course."
+msgstr "ဤကိုးစ်အတွက် ပုံပြင်ထုတ်လုပ်မှု မဖွင့်ထားပါ။"
+
+msgid "Video generation is not enabled for this course."
+msgstr "ဤကိုးစ်အတွက် ဗီဒီယိုထုတ်လုပ်မှု မဖွင့်ထားပါ။"
+
+msgid "Generation failed."
+msgstr "ထုတ်လုပ်မှု မအောင်မြင်ပါ။"
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr "အောင်မြင်စွာ ထုတ်လုပ်ပြီးပါပြီ။ ကြည့်ရှုမှုကို ပြန်လည်သုံးသပ်ပြီး အဆင်သင့်ဖြစ်လျှင် သိမ်းပါ။"
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr "အောင်မြင်စွာ ထုတ်လုပ်ပြီးပါပြီ။ ပံ့ပိုးသူက URL ပြန်ပေးသောကြောင့် သိမ်းခြင်း ပိတ်ထားပါသည်။"
+
+msgid "Video generation started. Waiting for the result..."
+msgstr "ဗီဒီယိုထုတ်လုပ်မှု စတင်ပြီးပါပြီ။ ရလဒ်ကို စောင့်နေသည်..."
+
+msgid "AI returned an empty response."
+msgstr "AI က ဗလာဖြေကြားချက် ပြန်ပေးပါသည်။"
+
+msgid "Nothing to save yet."
+msgstr "သိမ်းရန် မရှိသေးပါ။"
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr "ဤပံ့ပိုးသူက base64 အကြောင်းအရာ မပြန်ပေးပါ။ အခြားပံ့ပိုးသူကို စမ်းပါ။"
+
+msgid "Saving failed."
+msgstr "သိမ်းခြင်း မအောင်မြင်ပါ။"
+
+msgid "Get AI feedback"
+msgstr "AI အကြံပြုချက်ရယူရန်"
+
+msgid "Copy answer to clipboard"
+msgstr "ဖြေကြားချက်ကို ကလစ်ဘုတ်သို့ မိတ္တူကူးရန်"
+
+msgid "Save answer to my inbox"
+msgstr "ဖြေကြားချက်ကို ကျွန်ုပ်၏ စာရွက်စာတမ်သို့ သိမ်းရန်"
+
+msgid "The document is already in this folder"
+msgstr "စာရွက်စာတမ်သည် ဤဖိုလ်ဒါတွင် ရှိနေပါပြီ"
+
+msgid "Copied"
+msgstr "မိတ္တူကူးပြီး"
+
+msgid "You do not have permission to generate glossary terms."
+msgstr "စာလုံးစာရင်းအသုံးအနှုန်းများ ထုတ်လုပ်ရန် ခွင့်ပြုချက် မရှိပါ။"
+
+msgid "Video generation is in progress"
+msgstr "ဗီဒီယိုထုတ်လုပ်မှု ဆက်လက်ဖြစ်ပျက်နေသည်"
+
+msgid "Job"
+msgstr "အလုပ်"
+
+msgid "Modified prompt"
+msgstr "ပြုပြင်ထားသော တိုက်တွန်း"
+
+msgid "Saved in Documents"
+msgstr "စာရွက်စာတမ်များတွင် သိမ်းဆည်းပြီး"
 

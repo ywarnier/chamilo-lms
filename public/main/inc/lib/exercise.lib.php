@@ -9,6 +9,7 @@ use Chamilo\CoreBundle\Entity\GradebookCategory;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
 use Chamilo\CoreBundle\Enums\ActionIcon;
 use Chamilo\CoreBundle\Framework\Container;
+use Chamilo\CoreBundle\Helpers\AiHelper;
 use Chamilo\CoreBundle\Helpers\ChamiloHelper;
 use Chamilo\CoreBundle\Repository\ResourceNodeRepository;
 use Chamilo\CourseBundle\Entity\CLpItem;
@@ -630,7 +631,7 @@ class ExerciseLib
 
                         if ($debug_mark_answer) {
                             if ($answerCorrect) {
-                                $attributes['checked'] = 1;
+                                $attributes['checked'] = 'checked';
                                 $attributes['selected'] = 1;
                             }
                         }
@@ -670,14 +671,12 @@ class ExerciseLib
                         );
 
                         $answer_input = null;
-                        $attributes['class'] = 'checkradios';
                         if (UNIQUE_ANSWER_IMAGE == $answerType) {
-                            $attributes['class'] = '';
                             $attributes['style'] = 'display: none;';
                             $answer = '<div class="thumbnail">'.$answer.'</div>';
                         }
 
-                        $answer_input .= '<label class="radio '.$hidingClass.'">';
+                        $answer_input .= '<label class="flex gap-2 items-center '.$hidingClass.'">';
                         $answer_input .= Display::input(
                             'radio',
                             'choice['.$questionId.']',
@@ -710,7 +709,7 @@ class ExerciseLib
                         $userStatus = STUDENT;
                         // Allows to do a remove_XSS in question of exersice with user status COURSEMANAGER
                         // see BT#18242
-                        if (api_get_configuration_value('question_exercise_html_strict_filtering')) {
+                        if (api_get_setting('exercise.question_exercise_html_strict_filtering')) {
                             $userStatus = COURSEMANAGERLOWSECURITY;
                         }
                         $answer = Security::remove_XSS($answer, $userStatus);
@@ -727,15 +726,14 @@ class ExerciseLib
 
                         if ($debug_mark_answer) {
                             if ($answerCorrect) {
-                                $attributes['checked'] = 1;
+                                $attributes['checked'] = 'checked';
                                 $attributes['selected'] = 1;
                             }
                         }
 
                         if (MULTIPLE_ANSWER == $answerType || GLOBAL_MULTIPLE_ANSWER == $answerType) {
                             $s .= '<input type="hidden" name="choice2['.$questionId.']" value="0" />';
-                            $attributes['class'] = 'checkradios';
-                            $answer_input = '<label class="checkbox">';
+                            $answer_input = '<label class="flex gap-2 items-center">';
                             $answer_input .= Display::input(
                                 'checkbox',
                                 'choice['.$questionId.']['.$numAnswer.']',
@@ -784,7 +782,7 @@ class ExerciseLib
 
                                     if ($debug_mark_answer) {
                                         if ($j == $answerCorrect) {
-                                            $attributes['checked'] = 1;
+                                            $attributes['checked'] = 'checked';
                                             $attributes['selected'] = 1;
                                         }
                                     }
@@ -849,12 +847,12 @@ class ExerciseLib
 
                                     if ($debug_mark_answer) {
                                         if ($j == $answerCorrect) {
-                                            $attributes['checked'] = 1;
+                                            $attributes['checked'] = 'checked';
                                             $attributes['selected'] = 1;
                                         }
                                     }
 
-                                    if ('True' == $item['name'] || 'False' == $item['name']) {
+                                    if ('True' == $item['title'] || 'False' == $item['title']) {
                                         $s .= Display::tag('td',
                                             Display::input('radio',
                                                 'choice['.$questionId.']['.$numAnswer.']',
@@ -909,7 +907,7 @@ class ExerciseLib
 
                         if ($debug_mark_answer) {
                             if ($answerCorrect) {
-                                $attributes['checked'] = 1;
+                                $attributes['checked'] = 'checked';
                                 $attributes['selected'] = 1;
                             }
                         }
@@ -977,7 +975,7 @@ class ExerciseLib
 
                             if ($debug_mark_answer) {
                                 if ($key == $answerCorrect) {
-                                    $attributes['checked'] = 1;
+                                    $attributes['checked'] = 'checked';
                                     $attributes['selected'] = 1;
                                 }
                             }
@@ -1641,7 +1639,7 @@ HTML;
             $hotspotColor = 0;
             if (HOT_SPOT_DELINEATION != $answerType) {
                 $answerList = '
-        <div class="p-4 rounded-md border border-gray-25">
+        <div class="card p-4 rounded-md border border-gray-25">
             <h5 class="font-bold text-lg mb-2 text-primary">'.get_lang('Image zones').'</h5>
             <ol class="list-decimal ml-6 space-y-2 text-primary">
         ';
@@ -1667,12 +1665,12 @@ HTML;
             if ($freeze) {
                 $relPath = api_get_path(WEB_CODE_PATH);
                 echo "
-        <div class=\"flex space-x-4\">
-            <div class=\"w-3/4\">
-                <div id=\"hotspot-preview-$questionId\" class=\"bg-gray-10 w-full bg-center bg-no-repeat bg-contain border border-gray-25\"></div>
-            </div>
-            <div class=\"w-1/4\">
+        <div class=\"w-100\">
                 $answerList
+            </div>
+        <div class=\"flex space-x-4\">
+            <div class=\"w-100\">
+                <div id=\"hotspot-preview-$questionId\" class=\"bg-gray-10 w-full bg-center bg-no-repeat bg-contain border border-gray-25\"></div>
             </div>
         </div>
         <script>
@@ -1702,12 +1700,15 @@ HTML;
         <input type="hidden" name="hidden_hotspot_id" value="$questionId" />
         <div class="exercise_questions">
             $questionDescription
+            <div class="mb-4">
+              $answerList
+            </div>
             <div class="flex space-x-4">
 HOTSPOT;
             }
 
             $relPath = api_get_path(WEB_CODE_PATH);
-            $s .= "<div class=\"w-3/4\">
+            $s .= "<div>
            <div class=\"hotspot-image bg-gray-10 border border-gray-25 bg-center bg-no-repeat bg-contain\"></div>
             <script>
                 $(function() {
@@ -1721,9 +1722,6 @@ HOTSPOT;
                     });
                 });
             </script>
-        </div>
-        <div class=\"w-1/4\">
-            $answerList
         </div>
     ";
 
@@ -3405,12 +3403,12 @@ EOT;
 
         $qb = $repo->getResourcesByCourse($course, $session);
 
-        $qb->andWhere('resourceLink.endVisibilityAt IS NULL');
-
+        $qb->andWhere('links.deletedAt IS NULL');
+        $qb->andWhere('links.endVisibilityAt IS NULL');
         if ($onlyActiveExercises) {
-            $qb->andWhere('resourceLink.visibility = 2');
+            $qb->andWhere('links.visibility = 2');
         } else {
-            $qb->andWhere('resourceLink.visibility IN (0,2)');
+            $qb->andWhere('links.visibility IN (0,2)');
         }
 
         $qb->orderBy('resource.title', 'ASC');
@@ -4456,24 +4454,48 @@ EOT;
         return $res;
     }
 
-    /**
-     * @param int $exe_id
-     */
     public static function create_chat_exercise_session($exe_id)
     {
-        if (!isset($_SESSION['current_exercises'])) {
+        $exeId = (int) $exe_id;
+        if ($exeId <= 0) {
+            return;
+        }
+
+        if (!isset($_SESSION['current_exercises']) || !is_array($_SESSION['current_exercises'])) {
             $_SESSION['current_exercises'] = [];
         }
-        $_SESSION['current_exercises'][$exe_id] = true;
+        $_SESSION['current_exercises'][$exeId] = true;
+
+        try {
+            /** @var AiHelper $aiHelper */
+            $aiHelper = Container::$container->get(AiHelper::class);
+            $aiHelper->markUserInTest((int) $exeId);
+        } catch (\Throwable $e) {
+            // Ignore on legacy context (no hard dependency).
+        }
     }
 
-    /**
-     * @param int $exe_id
-     */
     public static function delete_chat_exercise_session($exe_id)
     {
-        if (isset($_SESSION['current_exercises'])) {
-            $_SESSION['current_exercises'][$exe_id] = false;
+        $exeId = (int) $exe_id;
+        if ($exeId <= 0) {
+            return;
+        }
+
+        if (isset($_SESSION['current_exercises']) && is_array($_SESSION['current_exercises'])) {
+            unset($_SESSION['current_exercises'][$exeId]);
+
+            if (empty($_SESSION['current_exercises'])) {
+                unset($_SESSION['current_exercises']);
+            }
+        }
+
+        try {
+            /** @var AiHelper $aiHelper */
+            $aiHelper = Container::$container->get(AiHelper::class);
+            $aiHelper->clearUserInTest((int) $exeId);
+        } catch (\Throwable $e) {
+            // Ignore on legacy context (no hard dependency).
         }
     }
 
@@ -7038,4 +7060,112 @@ EOT;
         }
     }
 
+    /**
+     * Normalize the attempt question list:
+     * - Media questions are containers and must NOT be counted as real questions.
+     * - When random questions are enabled ($objExercise->random > 0),
+     *   ensure we have exactly N answerable questions by topping up from the exercise pool.
+     *
+     * @param Exercise $objExercise
+     * @param int[]    $ids
+     *
+     * @return int[]
+     */
+    public static function normalizeAttemptQuestionList(Exercise $objExercise, array $ids): array
+    {
+        $ids = array_values(array_unique(array_map('intval', $ids)));
+
+        $randomCount = isset($objExercise->random) ? (int) $objExercise->random : 0;
+
+        // Remove media questions from the list (and page breaks only in random mode).
+        $normalized = [];
+        foreach ($ids as $qid) {
+            $q = Question::read((int) $qid);
+            if (!$q) {
+                continue;
+            }
+
+            // Media questions are not answerable.
+            if ((int) $q->type === MEDIA_QUESTION) {
+                continue;
+            }
+
+            // Random selection applies to answerable questions, not structural breaks.
+            if ($randomCount > 0 && (int) $q->type === PAGE_BREAK) {
+                continue;
+            }
+
+            $normalized[] = (int) $qid;
+        }
+
+        if ($randomCount <= 0) {
+            return $normalized;
+        }
+
+        // Trim if we somehow have too many.
+        if (count($normalized) > $randomCount) {
+            return array_slice($normalized, 0, $randomCount);
+        }
+
+        // Top up if we have too few after removing media questions.
+        if (count($normalized) < $randomCount) {
+            $pool = [];
+            foreach ((array) $objExercise->getQuestionOrderedList() as $qid) {
+                $qid = (int) $qid;
+                $q = Question::read($qid);
+                if (!$q) {
+                    continue;
+                }
+
+                if ((int) $q->type === MEDIA_QUESTION || (int) $q->type === PAGE_BREAK) {
+                    continue;
+                }
+
+                $pool[] = $qid;
+            }
+
+            // Remove already selected.
+            $pool = array_values(array_diff($pool, $normalized));
+
+            if (!empty($pool)) {
+                shuffle($pool);
+            }
+
+            $needed = $randomCount - count($normalized);
+            if ($needed > 0) {
+                $normalized = array_merge($normalized, array_slice($pool, 0, $needed));
+            }
+        }
+
+        return $normalized;
+    }
+
+    /**
+     * Persist corrected data_tracking back to DB so the attempt stays stable.
+     *
+     * @param int   $exeId
+     * @param int[] $questionList
+     * @param array $exerciseStatInfo
+     */
+    public static function updateAttemptDataTrackingIfNeeded(int $exeId, array $questionList, array &$exerciseStatInfo): void
+    {
+        if ($exeId <= 0) {
+            return;
+        }
+
+        $newTracking = implode(',', array_map('intval', $questionList));
+        $oldTracking = isset($exerciseStatInfo['data_tracking']) ? (string) $exerciseStatInfo['data_tracking'] : '';
+
+        if ($newTracking === $oldTracking) {
+            return;
+        }
+
+        $table = Database::get_main_table(TABLE_STATISTIC_TRACK_E_EXERCISES);
+        $sql = "UPDATE $table
+            SET data_tracking = '".Database::escape_string($newTracking)."'
+            WHERE exe_id = ".(int) $exeId;
+        Database::query($sql);
+
+        $exerciseStatInfo['data_tracking'] = $newTracking;
+    }
 }

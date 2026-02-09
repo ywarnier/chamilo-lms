@@ -19415,9 +19415,6 @@ msgstr "Eski veritabanını kaldır"
 msgid "Remove old tables"
 msgstr "Eski tabloları kaldır"
 
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "Portal %s tarafından kullanılan toplam alan %s MB limitidir"
-
 msgid "Event message management"
 msgstr "Olay mesajı yönetimi"
 
@@ -31074,8 +31071,8 @@ msgstr "Yorum ekle"
 msgid "Write your comment here..."
 msgstr "Yorumunuzu buraya yazın..."
 
-msgid "%d selected"
-msgstr "%d seçildi"
+msgid "%s selected"
+msgstr "%s seçildi"
 
 msgid "Search by title or path..."
 msgstr "Başlık veya yol ile ara..."
@@ -31083,8 +31080,8 @@ msgstr "Başlık veya yol ile ara..."
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "Yedeklemeleri yönetin, geri yükleyin, kopyalayın, geri dönüşüm ve kurs verilerini silin."
 
-msgid "%d comment(s)"
-msgstr "%d yorum"
+msgid "%s comment(s)"
+msgstr "%s yorum"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "Üçüncü taraf güncellenirken hata. Verileri kontrol edin."
@@ -31439,4 +31436,1138 @@ msgstr "Veritabanı adında yalnızca harfler, rakamlar ve alt çizgi (_) izinli
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "Kullanıcılara bu platformu kullanmak için verilen genel şartlar ve koşullar nelerdir?"
+
+msgid "ex. {examplePassword}"
+msgstr "ör. {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "Chamilo'ya hoş geldiniz!"
+
+msgid "Welcome to this platform"
+msgstr "Bu platforma hoş geldiniz"
+
+msgid "For more details visit %s"
+msgstr "Daha fazla detay için %s adresini ziyaret edin"
+
+msgid "Manager"
+msgstr "Yönetici"
+
+msgid "Mark as"
+msgstr "İşaretle olarak"
+
+msgid "Reply to all"
+msgstr "Herkese yanıtla"
+
+msgid "SCIM external ID"
+msgstr "SCIM harici ID"
+
+msgid "OAuth2 ID"
+msgstr "OAuth2 ID"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "Lütfen şartlar ve koşulların en son sürümünü kabul edin."
+
+msgid "Required value for operation without path"
+msgstr "Yol olmadan işlem için gerekli değer"
+
+msgid "Available space (%s)"
+msgstr "Kullanılabilir alan (%s)"
+
+msgid "Index this description for the global search"
+msgstr "Bu açıklamayı genel aramada indeksle"
+
+msgid "Unknown course"
+msgstr "Bilinmeyen ders"
+
+msgid "Certificate not found."
+msgstr "Sertifika bulunamadı."
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "Güvenlik jetonu süresi doldu. Lütfen sayfayı yeniden yükleyin ve tekrar deneyin."
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "Yalnızca platform yöneticileri ders görünürlüğünü değiştirebilir."
+
+msgid "Unexpected error while subscribing the user"
+msgstr "Kullanıcı abonelik sırasında beklenmeyen hata"
+
+msgid "Search in resource logs"
+msgstr "Kaynak günlüklerinde ara"
+
+msgid "Include this learning path in the global search results"
+msgstr "Bu öğrenme yolunu genel arama sonuçlarına dahil et"
+
+msgid "The course code already exists"
+msgstr "Ders kodu zaten mevcut"
+
+msgid "Latest news"
+msgstr "Son haberler"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "Chamilo'dan en son haberleri alın, güvenlik açıkları ve etkinlikler dahil, doğrudan yönetim panelinizde. Bu haberler, yönetim sayfasını her yüklediğinizde Chamilo haber sunucusunda kontrol edilir ve yalnızca yöneticilere görünür."
+
+msgid "Chamilo support block"
+msgstr "Chamilo destek bloğu"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "Profesyonel destek için resmi hizmet sağlayıcılarla kolay iletişim kurmak ve pro ipuçları alın, doğrudan Chamilo yapımcılarından. Bu blok yönetim sayfanızda görünür, yalnızca yöneticilere görünür ve yönetim sayfasını her yüklediğinizde yenilenir."
+
+msgid "Hide option to send announcements to HR users"
+msgstr "HR kullanıcılarına duyuru gönderme seçeneğini gizle"
+
+msgid "Allow session admins to download private certificates"
+msgstr "Oturum yöneticilerinin özel sertifikaları indirmesine izin ver"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "Etkinleştirilirse, oturum yöneticileri sertifikalar kamuya açık yayınlanmamış olsa bile indirebilir."
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "Boş değilse, ders oluşturma işlemi kullanıcı profilindeki bazı alanları arar ve bunları ders için otomatik doldurur. Örneğin, dijital pazarlama konusunda uzman bir öğretmen, oluşturduğu her derse otomatik olarak « dijital pazarlama » bayrağı koyabilir."
+
+msgid "Main menu entries"
+msgstr "Ana menü öğeleri"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "Ana menüde görünmesini istediğiniz öğeleri işaretleyin"
+
+msgid "Main menu entries per role"
+msgstr "Rol başına ana menü öğeleri"
+
+msgid "Define header tabs visibility per role."
+msgstr "Rol başına başlık sekmeleri görünürlüğünü tanımlayın."
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "Bir sayfada daha az veya daha fazla satır göstermek için tablo çevresindeki gezinme seçeneklerini ayarlayın. örn. [50, 100, 200, 500]."
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "Chamilo'daki video oynatıcı için etkinleştirebileceğiniz ekstra özellikler dizisi. Seçenekler arasında 'speed' bulunur, bu video oynatma hızını değiştirmenize olanak tanır."
+
+msgid "Mail: character set"
+msgstr "Posta: karakter kümesi"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "Bu e-postaları gönderirken kullanılacak karakter kümesini tanımlamanız gerekiyorsa. Emin değilseniz boş bırakın."
+
+msgid "Mail: Debug"
+msgstr "Posta: Hata ayıklama"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "E-posta gönderme hata ayıklama günlüklerini etkinleştirmek isteyip istemediğinizi seçin. Bunlar posta hizmetine bağlanırken neler olduğunu daha fazla bilgi verir, ancak zarif değildir ve sayfa tasarımını bozabilir. Kullanıcı etkinliği olmadığında yalnızca kullanın."
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "Posta: LD+JSON kullanımından kaçının"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "Bazı e-posta istemcileri açıklayıcı LD+JSON formatını anlamaz ve bunu son kullanıcıya gevşek bir JSON dizesi olarak gösterir. Eğer durumunuz buysa, bu başlığı devre dışı bırakmak için aşağıdaki değişkeni 'false' olarak ayarlayabilirsiniz."
+
+msgid "Mail: DKIM headers"
+msgstr "Posta: DKIM başlıkları"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "DKIM yapılandırma ayarlarınızın JSON dizisini girin (örneğe bakın)."
+
+msgid "Mail: XOAuth2 options"
+msgstr "Posta: XOAuth2 seçenekleri"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "XOAuth2 tabanlı bir e-posta servisi kullanıyorsanız, özel yapılandırmanızı kaydetmek için bu JSON ayarını kullanın (örneğe bakın) ve posta servisi ayarında XOAuth2'yi seçin."
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "Ortam türünü tanımlar: \"prod\" (normal üretim), \"validation\" (üretim gibi ancak istatistik raporlama olmadan), veya \"test\" (geliştirici araçlarıyla hata ayıklama modu, örneğin çevrilmemiş dize göstergeleri)."
+
+msgid "Global limit of users per course"
+msgstr "Ders başına genel kullanıcı limiti"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "Platformdaki herhangi bir tek ders için abone olabilecek kullanıcıların (öğretmenler dahil) global maksimum sayısını tanımlar. Limiti devre dışı bırakmak için bu değeri 0 olarak ayarlayın. Bu, açık portallarda derslerin aşırı yüklenmesini önlemeye yardımcı olur."
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "Hangi rollerin açıkça görüntüleneceğini ve hangilerinin gizleneceğini tanımlamak için bir dizi kullanmak üzere etkinleştirin."
+
+msgid "Show base course posts in session course"
+msgstr "Oturum dersinde temel ders gönderilerini göster"
+
+msgid "Limit identical email usage"
+msgstr "Aynı e-posta kullanımını sınırla"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "Aynı e-posta adresini paylaşabilecek hesapların maksimum sayısı. Bu sınırı devre dışı bırakmak için 0 olarak ayarlayın."
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "Oturum yöneticilerinin tüm URL'lerdeki tüm kullanıcıları görmesine izin ver"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "Etkinleştirilirse, oturum yöneticileri mevcut URL'lerinden bağımsız olarak tüm erişim URL'lerindeki kullanıcıları arayabilir ve listeleyebilir."
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "Kullanıcıların kendi saat dilimlerini seçme olasılığını etkinleştirin. Yapılandırıldıktan sonra, kullanıcılar ödev teslim tarihlerini ve diğer zaman referanslarını kendi saat dilimlerinde görebilecek, bu da teslim zamanında hataları azaltacaktır."
+
+msgid "Redirect after login (per profile)"
+msgstr "Giriş sonrası yönlendirme (profili başına)"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "Giriş sonrası profili başına yönlendirme tanımlayın, {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"} gibi bir JSON nesnesi kullanarak"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "Şartlar ve Koşullar sayfasında yasal kabul kutusunu gizle"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "True olarak ayarlanırsa, Şartlar ve Koşullar sayfa akışındaki \"Okudum ve kabul ediyorum\" kutusunu kaldırır."
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "LDAP sunucusu için ana bilgisayar ve portu tanımlayan dizi."
+
+msgid "Enable 2FA"
+msgstr "2FA'yı etkinleştir"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "Şifre güncelleme sayfasında TOTP doğrulayıcı uygulaması kullanarak 2FA'yı etkinleştirmek için alanlar ekleyin. Küresel olarak devre dışı bırakıldığında, kullanıcılar 2FA alanlarını görmez ve daha önce etkinleştirmiş olsalar bile girişte 2FA için istenirler."
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "Chamilo'nun bazı özellikleri sunucudan dışarıya bağlanacaktır. Örneğin, bir bağlantı oluştururken veya öğrenme yolunda gömülü bir sayfa gösterirken harici bir içeriğin var olduğunu doğrulamak için. Chamilo sunucunuz ağından çıkmak için bir proxy kullanıyorsa, bunu yapılandırmak için yer burasıdır."
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "Kurs geçerlilik süresi dolduğunda otomatik yeniden kayıt olmayı etkinleştirin veya devre dışı bırakın. İlgili cron işi de etkinleştirilmelidir."
+
+msgid "Show remaining days in My Sessions"
+msgstr "Oturumlarımda kalan günleri göster"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "Etkinleştirilirse, \"Oturumlarım\" sayfasındaki oturum tarihleri kalan gün sayısı ile değiştirilecektir."
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "Menüde \"Bekleyen anketler\" göster"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "Kullanıcıların bekleyen anketlerine erişmelerini sağlayan bir menü öğesi görüntüleyin."
+
+msgid "Disclose AI assistance"
+msgstr "YZ desteğini ifşa et"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "Herhangi bir YZ sistemi tarafından üretilen veya ortak üretilen herhangi bir içerik veya geri bildirimde kullanıcıya içeriğin bir YZ sistemi yardımıyla oluşturulduğunu gösteren bir etiket gösterin. Hangi YZ sisteminin hangi durumda kullanıldığına dair detaylar denetim için veritabanında saklanır, ancak son kullanıcı tarafından doğrudan erişilebilir değildir."
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "Kurs kataloğu için JSON yapılandırması: bağlantı ayarları, filtreler, sıralama seçenekleri ve daha fazlası."
+
+msgid "Session Catalog Settings"
+msgstr "Oturum Kataloğu Ayarları"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "Oturum kataloğu için JSON yapılandırması: filtreler ve görüntüleme seçenekleri."
+
+msgid "Show Course Descriptions"
+msgstr "Kurs Açıklamalarını Göster"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "Katalog listesinde kurs açıklamalarını görüntüleyin."
+
+msgid "Published Courses Only"
+msgstr "Yalnızca Yayınlanmış Kurslar"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "Kataloğu yalnızca yayınlanmış olarak işaretlenmiş kurslarla sınırlayın."
+
+msgid "Display Catalog on Homepage"
+msgstr "Ana Sayfada Kataloğu Görüntüle"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "Platform ana sayfasında kurs kataloğu bloğunu gösterin."
+
+msgid "Hide Public Link"
+msgstr "Genel Bağlantıyı Gizle"
+
+msgid "Remove the public URL link from course cards."
+msgstr "Kurs kartlarından genel URL bağlantısını kaldırın."
+
+msgid "Only Selected Courses"
+msgstr "Yalnızca Seçilen Kurslar"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "Katalogda yalnızca manuel olarak seçilen kursları gösterin."
+
+msgid "Allow Student Browsing"
+msgstr "Öğrenci Tarama İznine İzin Ver"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "Öğrencilerin kurs kataloğunu taramasına ve filtrelemesine izin verin."
+
+msgid "Hide Private Courses"
+msgstr "Özel Kursları Gizle"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "Özel kursları katalog görünümünden hariç tutun."
+
+msgid "Show Courses & Sessions"
+msgstr "Kursları ve Oturumları Göster"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "Katalog sonuçlarında hem kursları hem de oturumları dahil edin."
+
+msgid "Auto Session Subscription"
+msgstr "Otomatik Oturum Aboneliği"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "Kullanıcılar için oturumlara otomatik abonelik etkinleştirin."
+
+msgid "Subscription in Session View"
+msgstr "Oturum Görünümünde Abonelik"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "Kullanıcıların oturum sayfalarından doğrudan kurslara abone olmasına izin verin."
+
+msgid "Enable redirection plugin"
+msgstr "Yönlendirme eklentisini etkinleştir"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "Kullanıcının ilk giriş yaptığında hesap son kullanma tarihini ayarlamak için 'günler' ve 'aylar'ı tanımlayan dizi."
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "Rol => sayı dizisi; role göre hesap son kullanma tarihinden önceki gün sayısını temsil eder."
+
+msgid "Extra user field used to search and name sessions"
+msgstr "Oturumları aramak ve adlandırmak için kullanılan ekstra kullanıcı alanı"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "Kullanıcıları aramak ve /admin-dashboard/register'den öğrenci kaydederken oturum adını tanımlamak için kullanılan ekstra kullanıcı alanı anahtarı (ör. \"company\") tanımlayan ayar."
+
+msgid "Glossary terms generator"
+msgstr "Terim üreticisi"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "Öğretmenlerin kurslarında AI tarafından üretilen terimler istemesine izin verin. Bu, kurs başlığına ve kurs açıklama aracındaki genel açıklamaya dayalı 20 terim üretir. Birden fazla kullanılırsa, o sözlükteki mevcut terimleri hariç tutar (içeriğin yapılandırılmış AI hizmetleriyle paylaşılabileceğinden emin olun)."
+
+msgid "Video generator"
+msgstr "Video üreticisi"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "İsteksiz veya içerikle AI kullanarak video üretir (bu birçok jeton tüketebilir)."
+
+msgid "Course analyser"
+msgstr "Kurs analizörü"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "Bir veya birden fazla kursun tüm kaynaklarını analiz eder ve AI modelini bu kurs(lar) hakkında herhangi bir soruya yanıt verecek şekilde önceden eğitir (içeriğin yapılandırılmış AI hizmetleriyle paylaşılabileceğinden emin olun)."
+
+msgid "Test/development"
+msgstr "Test/geliştirme"
+
+msgid "Crons"
+msgstr "Cron'lar"
+
+msgid "Editor"
+msgstr "Düzenleyici"
+
+msgid "Gradebook"
+msgstr "Not defteri"
+
+msgid "Internationalization"
+msgstr "Uluslararasılaştırma"
+
+msgid "User profiles"
+msgstr "Kullanıcı profilleri"
+
+msgid "Support tickets"
+msgstr "Destek biletleri"
+
+msgid "Webservices"
+msgstr "Web servisleri"
+
+msgid "Catalogue"
+msgstr "Katalog"
+
+msgid "Workflows"
+msgstr "İş akışları"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "Ayar alt URL'lerde düzenlenebilir"
+
+msgid "Show JSON Template"
+msgstr "JSON Şablonunu Göster"
+
+msgid "JSON Template"
+msgstr "JSON Şablonu"
+
+msgid "Installing Xapian bindings"
+msgstr "Xapian bağlarını yükleme"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "Aşağıdaki kod parçası, Ubuntu 25.04'te PHP 8.3 ile Xapian PHP bağlarının örnek kurulumunu gösterir. Yolları ve sürümleri kendi ortamınıza uyarlayın."
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "Gerçekten kullandığınız PHP sürümünün (örneğin 8.3) yalnızca bir tane olduğundan emin olun ve farklı uzantı dizinleriyle birden fazla sürümü karıştırmaktan kaçının."
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "Uzantı hem CLI hem de web sunucusu için doğru yüklendiğinde, yukarıdaki arama tanıları Xapian modülünün yüklendiğini bildirmelidir."
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "Geçici yüklemeleri ve önbelleği temizle"
+
+msgid "Directory"
+msgstr "Dizin"
+
+msgid "Only delete files older than (minutes)"
+msgstr "Yalnızca şu yaştan eski dosyaları sil (dakika)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "Tüm dosyaları silmek için 0 ayarlayın. Hala yüklenmekte olan dosyaları kaldırmamak için pozitif bir değer kullanın (ör., 60)."
+
+msgid "Preview only (do not delete)"
+msgstr "Yalnızca önizleme (silme)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "Uyarı: TÜM geçici dosyaları silmek üzeresiniz. Bu işlem geri alınamaz."
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "Bu işlem tüm geçici dosyaları silecektir. Devam etmek istiyor musunuz?"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "Bu işlem %minutes% dakikadan eski dosyaları silecektir. Devam etmek istiyor musunuz?"
+
+msgid "The value must match exactly: %s"
+msgstr "Değer tam olarak eşleşmelidir: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "Tekrar bitiş tarihi, başlangıç tarihinden sonra olmalıdır."
+
+msgid "Index document content?"
+msgstr "Belge içeriğini indeksle?"
+
+msgid "Upload SVG logo to platform header"
+msgstr "Platform başlığına SVG logo yükle"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "Platform başlığına PNG logo yükle (%s)"
+
+msgid "Write something to %s"
+msgstr "%s'ya bir şeyler yaz"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "Tercih edilen: SVG. PNG önerilen genişlik: %spx."
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "E-postalar için PNG logo yükle (~%spx genişlik)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "Başlık PNG'si ≤ %spx olmalıdır."
+
+msgid "Require specific file format"
+msgstr "Belirli dosya formatı gerektir"
+
+msgid "Select allowed file formats"
+msgstr "İzin verilen dosya formatlarını seç"
+
+msgid "Custom extensions (separated by space)"
+msgstr "Özel uzantılar (boşlukla ayrılmış)"
+
+msgid "Other extensions"
+msgstr "Diğer uzantılar"
+
+msgid "My invitations"
+msgstr "Davetlerim"
+
+msgid "Delete access"
+msgstr "Erişimi sil"
+
+msgid "Certificate tags"
+msgstr "Sertifika etiketleri"
+
+msgid "Copy all"
+msgstr "Tümünü kopyala"
+
+msgid "Click to insert"
+msgstr "Ekleme için tıklayın"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "Tercih edilen: SVG. PNG maks. boyut: %spx."
+
+msgid "View badge"
+msgstr "Rozeti görüntüle"
+
+msgid "%d min"
+msgstr "%d dk"
+
+msgid "Duration in minutes"
+msgstr "Dakika cinsinden süre"
+
+msgid "Go back to standard view"
+msgstr "Standart görünüme dön"
+
+msgid "Search for student..."
+msgstr "Öğrenci ara..."
+
+msgid "This date is locked or read-only."
+msgstr "Bu tarih kilitli veya salt okunur."
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "Yoklama yüklenemedi. Lütfen daha sonra tekrar deneyin."
+
+msgid "Nothing to save"
+msgstr "Kaydedilecek bir şey yok"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "Kaydedilmemiş değişiklikler var. Yine de ayrılmak istiyor musunuz?"
+
+msgid "Storage usage unavailable"
+msgstr "Depolama kullanımı kullanılamıyor"
+
+msgid "Search for members..."
+msgstr "Üye ara..."
+
+msgid "Current members"
+msgstr "Mevcut üyeler"
+
+msgid "Add members"
+msgstr "Üye ekle"
+
+msgid "Search for users in course/session..."
+msgstr "Ders/oturumdaki kullanıcıları ara..."
+
+msgid "No users available."
+msgstr "Kullanıcı yok."
+
+msgid "Browse and publish new posts"
+msgstr "Yeni gönderileri tarayın ve yayınlayın"
+
+msgid "Create and assign tasks"
+msgstr "Görev oluşturun ve atayın"
+
+msgid "Filtered by %s"
+msgstr "%s ile filtrelendi"
+
+msgid "Select a score"
+msgstr "Bir puan seçin"
+
+msgid "Edit comment"
+msgstr "Yorumu düzenle"
+
+msgid "Failed to update the post."
+msgstr "Gönderi güncellenemedi."
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "Bu gönderiyi sil? Bu işlem geri alınamaz."
+
+msgid "Failed to delete the post."
+msgstr "Gönderi silinemedi."
+
+msgid "Failed to update the comment."
+msgstr "Yorum güncellenemedi."
+
+msgid "Delete this comment?"
+msgstr "Bu yorumu sil?"
+
+msgid "Failed to delete the comment."
+msgstr "Yorum silinemedi."
+
+msgid "Search for projects..."
+msgstr "Projeleri ara..."
+
+msgid "Only visible"
+msgstr "Sadece görünür"
+
+msgid "Rename project"
+msgstr "Projeyi yeniden adlandır"
+
+msgid "New title"
+msgstr "Yeni başlık"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "Projeleri yönetmek için yönetici veya öğretmen olmalısınız."
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "Bu projeyi sil? Bu işlem geri alınamaz."
+
+msgid "Task list"
+msgstr "Görev listesi"
+
+msgid "Change status"
+msgstr "Durumu değiştir"
+
+msgid "Waiting for validation"
+msgstr "Onay bekleniyor"
+
+msgid "Delete this task?"
+msgstr "Bu görevi silmek istiyor musunuz?"
+
+msgid "Failed to delete the task."
+msgstr "Görev silinemedi."
+
+msgid "Failed to update status."
+msgstr "Durum güncellenemedi."
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "Bu üçüncü tarafı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+
+msgid "Please fix the errors before saving."
+msgstr "Kaydetmeden önce hataları düzeltin."
+
+msgid "Error creating third party. Please verify the data."
+msgstr "Üçüncü taraf oluşturma hatası. Verileri kontrol edin."
+
+msgid "Error deleting third party."
+msgstr "Üçüncü taraf silme hatası."
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "İsteğe bağlı başlık ve e-posta logolarını yükleyin. SVG tercih edilir; PNG yedek olarak kullanılır."
+
+msgid "Data exchange updated successfully."
+msgstr "Veri alışverişi başarıyla güncellendi."
+
+msgid "Error deleting data exchange."
+msgstr "Veri alışverişi silme hatası."
+
+msgid "Failed to recycle course."
+msgstr "Ders geri dönüştürülemedi."
+
+msgid "Select source course"
+msgstr "Kaynak dersi seçin"
+
+msgid "Course to copy from"
+msgstr "Kopyalanacak ders"
+
+msgid "Search by code or title..."
+msgstr "Kodu veya başlığı arayın..."
+
+msgid "No courses match your search."
+msgstr "Aramanızla eşleşen ders yok."
+
+msgid "Copy options"
+msgstr "Kopyalama seçenekleri"
+
+msgid "Include users (enrollments)"
+msgstr "Kullanıcıları dahil et (kayıtlar)"
+
+msgid "Reset dates"
+msgstr "Tarihleri sıfırla"
+
+msgid "When a file with the same name exists"
+msgstr "Aynı isimde dosya varsa"
+
+msgid "Ready to copy"
+msgstr "Kopyalamaya hazır"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "Seçilen dersteki içeriği bu derse kopyalayacağız. Seçenekleri değiştirmek için geri dönebilirsiniz."
+
+msgid "Start copying"
+msgstr "Kopyalamayı başlat"
+
+msgid "Select resources to copy"
+msgstr "Kopyalanacak kaynakları seçin"
+
+msgid "Copy selected"
+msgstr "Seçilenleri kopyala"
+
+msgid "Copy completed."
+msgstr "Kopyalama tamamlandı."
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "Tehlike bölgesi: Ders silme kalıcıdır."
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "Onaylamak için ders kodunu yazın. Tüm veriler kalıcı olarak silinecek."
+
+msgid "The code must match '%s' exactly."
+msgstr "Kod '%s' ile tam olarak eşleşmelidir."
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "Yalnızca bu derste kullanılan belgeleri de silin (varsa)."
+
+msgid "Delete course"
+msgstr "Dersi sil"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "Bu işlem geri alınamaz. Devam etmek istiyor musunuz?"
+
+msgid "Course deleted successfully."
+msgstr "Ders başarıyla silindi."
+
+msgid "Failed to delete course."
+msgstr "Ders silinemedi."
+
+msgid "Create .mbz"
+msgstr ".mbz oluştur"
+
+msgid "Backup scope"
+msgstr "Yedekleme kapsamı"
+
+msgid "Full course"
+msgstr "Tam ders"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "Seçilen öğeler, dışa aktarılan dosyaya dahil edilecek tek öğeler olacaktır."
+
+msgid "Moodle export"
+msgstr "Moodle dışa aktarma"
+
+msgid "Moodle version"
+msgstr "Moodle sürümü"
+
+msgid "Admin ID"
+msgstr "Yönetici Kimliği"
+
+msgid "Internal integer user id"
+msgstr "İç kullanıcı tamsayı kimliği"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle, XML'de saklanan iç kullanıcı kimliği gerektirir. Şüpheniz varsa 1 kullanın."
+
+msgid "Username to appear as owner of imported items"
+msgstr "İçe aktarılan öğelerin sahibi olarak görünecek kullanıcı adı"
+
+msgid "Email to use in the archive metadata"
+msgstr "Arşiv meta verilerinde kullanılacak e-posta"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr ".mbz dosyası oluşturulacak. Tamamlandığında indirebilirsiniz."
+
+msgid "Select resources to include"
+msgstr "Dahil edilecek kaynakları seçin"
+
+msgid "Export completed"
+msgstr "Dışa aktarma tamamlandı"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "Moodle yedekiniz oluşturuldu. Kurs yedekleri listesinde bulabilirsiniz."
+
+msgid "Please complete all required fields."
+msgstr "Lütfen tüm zorunlu alanları doldurun."
+
+msgid "Failed to create Moodle backup."
+msgstr "Moodle yedeği oluşturulamadı."
+
+msgid "More actions"
+msgstr "Daha fazla eylem"
+
+msgid "Write something"
+msgstr "Bir şey yazın"
+
+msgid "Friends of %s"
+msgstr "%s'ın arkadaşları"
+
+msgid "Error loading learning paths."
+msgstr "Öğrenme yolları yüklenirken hata oluştu."
+
+msgid "You don't have any learning path."
+msgstr "Hiç öğrenme yolunuz yok."
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "Kurs içeriğinizi düzenlemeye başlamak ilk öğrenme yolunuzu oluşturun."
+
+msgid "Could not save the new category order."
+msgstr "Yeni kategori sırası kaydedilemedi."
+
+msgid "Could not save the new order."
+msgstr "Yeni sıra kaydedilemedi."
+
+msgid "Assignment"
+msgstr "Görev"
+
+msgid "Allowed file formats: %s"
+msgstr "İzin verilen dosya formatları: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "Dosya tipi izin verilmiyor. İzin verilen uzantılar: %s"
+
+msgid "Folder name"
+msgstr "Klasör adı"
+
+msgid "Rename folder"
+msgstr "Klasörü yeniden adlandır"
+
+msgid "New name"
+msgstr "Yeni ad"
+
+msgid "Choose an action"
+msgstr "Bir eylem seçin"
+
+msgid "New version"
+msgstr "Yeni sürüm"
+
+msgid "Change title to selected filename"
+msgstr "Başlığı seçili dosya adıyla değiştir"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "Dosyayı değiştirebilir, başka bir klasöre taşıyabilir veya her ikisini yapabilirsiniz."
+
+msgid "Move %s"
+msgstr "%s'ı taşı"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "Kök klasörden öğeleri bırakmamak için yalnızca kök olmayan klasörler gösterilir."
+
+msgid "No feedback yet."
+msgstr "Henüz geri bildirim yok."
+
+msgid "Upload first, organize later"
+msgstr "Önce yükleyin, sonra düzenleyin"
+
+msgid "Drag & drop or browse to add files"
+msgstr "Dosya eklemek için sürükle bırak veya tarayın"
+
+msgid "Social wall..."
+msgstr "Sosyal duvar..."
+
+msgid "Wall of %s"
+msgstr "%s'ın Duvarı"
+
+msgid "Version currently loaded"
+msgstr "Şu anda yüklenen sürüm"
+
+msgid "Completion"
+msgstr "Tamamlanma"
+
+msgid "Quick navigation"
+msgstr "Hızlı gezinme"
+
+msgid "Filled"
+msgstr "Dolu"
+
+msgid "Terms sections"
+msgstr "Terim bölümleri"
+
+msgid "Open a section to edit its content."
+msgstr "İçeriğini düzenlemek için bir bölüm açın."
+
+msgid "Open this section to load the editor."
+msgstr "Editörü yüklemek için bu bölümü açın."
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "Tehlike bölgesi: bir erişim URL'sini silmek kalıcıdır."
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "Onaylamak için tam URL'yi yazın. URL ve ilişkileri kalıcı olarak silinecek."
+
+msgid "Unable to load the badge's image."
+msgstr "Rozetin görüntüsü yüklenemedi."
+
+msgid "Invalid role selection"
+msgstr "Geçersiz rol seçimi"
+
+msgid "Select relation type first to enable user management."
+msgstr "Kullanıcı yönetimini etkinleştirmek için önce ilişki türünü seçin."
+
+msgid "This question has no course context. Preview is not available."
+msgstr "Bu sorunun kurs bağlamı yok. Önizleme kullanılamıyor."
+
+msgid "Unknown test"
+msgstr "Bilinmeyen test"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "Kurs bağlamı olmadan silme izin verilmez."
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "Silme başarısız: kurs bağlamı eksik veya geçerli soru kimliği yok.Bu soru bir teste ait. Test içinden düzenleyin veya sadece yetim soruları filtreleyin."
+
+msgid "Delete failed: question not found."
+msgstr "Silme başarısız: soru bulunamadı."
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "Silme başarısız: bu soru hala diğer kaynaklar tarafından referans alınıyor."
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "Bu soru bir teste ait. Test içinden düzenleyin veya sadece yetim soruları filtreleyin."
+
+msgid "Access the group tools and resources"
+msgstr "Gruplara ve kaynaklara erişin"
+
+msgid "%s members"
+msgstr "%s üye"
+
+msgid "View certificate (HTML)"
+msgstr "Sertifikayı görüntüle (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "Bu not defterine bir beceri bağlayın"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "Her not defteri için sertifikalar ve beceriler arasındaki bağlantıyı yönetin"
+
+msgid "Please select a specific badge issue to download"
+msgstr "İndirmek için belirli bir rozet verme işlemini seçin"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM etkin değil."
+
+msgid "Invalid token."
+msgstr "Geçersiz belirteç."
+
+msgid "Schema not supported."
+msgstr "Şema desteklenmiyor."
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "PATCH işlemi için geçersiz şemalar."
+
+msgid "Missing required \"Operations\" array."
+msgstr "Gerekli \"Operations\" dizisi eksik."
+
+msgid "The '%s' operation is not supported."
+msgstr "'%s' işlemi desteklenmiyor."
+
+msgid "Drupal user ID"
+msgstr "Drupal kullanıcı kimliği"
+
+msgid "There are no terms that match the search: %s"
+msgstr "Aramayla eşleşen terim yok: %s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "Ayar genel olarak kilitli (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "Etkinleştirilirse, 1:1 özel sohbet mesajları kurs sohbet geçmişi belgelerinde yansıtılır. Gizlilik için devre dışı bırakılması önerilir."
+
+msgid "Save private conversations in documents"
+msgstr "Özel konuşmaları belgelerde kaydet"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "AB Yapay Zeka Yasası – Şeffaflık ve risk uyarısı"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "AB Yapay Zeka Yasası (Düzenleme (AB) 2024/1689) kapsamında, eğitimde kullanılan yapay zeka sistemleri genellikle “yüksek riskli” olarak sınıflandırılır. Bu yazılım <strong>bir yapay zeka sistemi değildir</strong>, ancak yapılandırmanıza bağlı olarak isteğe bağlı iç veya dış yapay zeka sistemlerini entegre edebilir—kullanıcı görev performansını artırmak için. Bu sistemler, kullanıcılar yalnızca istemlerinde bu verileri dahil ederse kişisel verilere <em>yalnızca o durumda</em> erişebilir. Tasarım gereği, bu yazılım kullanıcının aktif girdisi olmadan kişisel verileri yapay zeka sistemleriyle paylaşmaz. Varsayılan olarak tüm yapay zeka özellikleri devre dışıdır."
+
+msgid "Admin responsibility & disclosures"
+msgstr "Yönetici sorumluluğu ve bildirimler"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "Bu yapılandırma sayfası her yapay zeka özelliğini ve amacını detaylandırır. Dağıtıcı olarak bunları dikkatle incelemeli ve etkinleştirdiğiniz seçenekleri yansıtmak için GDPR uyumlu veri gizliliği politikalarınızı güncellemelisiniz. Çoğu yapay zeka özelliği doğrudan kişisel verileri dış sistemlerle paylaşmasa da, yapay zekaya gönderilen kullanıcı istemleri istemeden kişisel bilgi içerebilir. Dağıtıcı olarak <strong>siz sorumlusunuz</strong> kullanıcıları bu risk hakkında bilgilendirmek için. Şeffaflık için, gelecek sürümler belirli içerik veya geri bildirimlerin yapay zeka yardımıyla üretildiğini belirten zararsız son kullanıcı etiketleri gösterebilir."
+
+msgid "Positioning"
+msgstr "Konumlandırma"
+
+msgid "Quiz"
+msgstr "Test"
+
+msgid "Customcertificate"
+msgstr "Özel sertifika"
+
+msgid "Update profile"
+msgstr "Profili güncelle"
+
+msgid "Enable learning path generator"
+msgstr ""
+
+msgid "Enable exercise generator"
+msgstr ""
+
+msgid "Enable open answers grader"
+msgstr ""
+
+msgid "Enable tutor chatbot"
+msgstr ""
+
+msgid "Enable task grader"
+msgstr ""
+
+msgid "Enable content analyser"
+msgstr ""
+
+msgid "Enable image generator"
+msgstr ""
+
+msgid "Enable glossary terms generator"
+msgstr ""
+
+msgid "Enable video generator"
+msgstr ""
+
+msgid "Enable course analyser"
+msgstr ""
+
+msgid "The operation '%s' is not supported."
+msgstr ""
+
+msgid "AI feedback on %s in course %s"
+msgstr ""
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr ""
+
+msgid "AI Tutor"
+msgstr ""
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr ""
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr ""
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr ""
+
+msgid "You are here"
+msgstr ""
+
+msgid "Click an event type to filter results."
+msgstr ""
+
+msgid "Require unique presence"
+msgstr ""
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr ""
+
+msgid "AI feedback"
+msgstr ""
+
+msgid "Prompt"
+msgstr ""
+
+msgid "Tip"
+msgstr ""
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr ""
+
+msgid "Result (you can apply it to the comment)"
+msgstr ""
+
+msgid "Apply to comment"
+msgstr ""
+
+msgid "Apply score"
+msgstr ""
+
+msgid "AI grade"
+msgstr ""
+
+msgid "AI tutor is disabled during tests"
+msgstr ""
+
+msgid "Generate glossary terms"
+msgstr ""
+
+msgid "Generate media"
+msgstr ""
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr ""
+
+msgid "AI helpers are disabled at platform level."
+msgstr ""
+
+msgid "AI media generation is disabled in course settings."
+msgstr ""
+
+msgid "No AI media providers available."
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Select a provider"
+msgstr ""
+
+msgid "Example: generated_media"
+msgstr ""
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr ""
+
+msgid "Describe what you want to generate..."
+msgstr ""
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr ""
+
+msgid "Generating..."
+msgstr ""
+
+msgid "Save to Documents"
+msgstr ""
+
+msgid "Document IRI"
+msgstr ""
+
+msgid "Go to folder"
+msgstr ""
+
+msgid "Provider used"
+msgstr ""
+
+msgid "This video result cannot be saved yet"
+msgstr ""
+
+msgid "Video polling was stopped because the provider changed."
+msgstr ""
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr ""
+
+msgid "Failed to check video status."
+msgstr ""
+
+msgid "Video generated successfully. You can now save it."
+msgstr ""
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr ""
+
+msgid "Video generation failed."
+msgstr ""
+
+msgid "Waiting for the video to be ready..."
+msgstr ""
+
+msgid "Please complete all fields."
+msgstr ""
+
+msgid "Image generation is not enabled for this course."
+msgstr ""
+
+msgid "Video generation is not enabled for this course."
+msgstr ""
+
+msgid "Generation failed."
+msgstr ""
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr ""
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr ""
+
+msgid "Video generation started. Waiting for the result..."
+msgstr ""
+
+msgid "AI returned an empty response."
+msgstr ""
+
+msgid "Nothing to save yet."
+msgstr ""
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr ""
+
+msgid "Saving failed."
+msgstr ""
+
+msgid "Get AI feedback"
+msgstr ""
+
+msgid "Copy answer to clipboard"
+msgstr ""
+
+msgid "Save answer to my inbox"
+msgstr ""
+
+msgid "The document is already in this folder"
+msgstr ""
+
+msgid "Copied"
+msgstr ""
+
+msgid "You do not have permission to generate glossary terms."
+msgstr ""
+
+msgid "Video generation is in progress"
+msgstr ""
+
+msgid "Job"
+msgstr ""
+
+msgid "Modified prompt"
+msgstr ""
+
+msgid "Saved in Documents"
+msgstr ""
 

@@ -425,12 +425,14 @@ class CatForm extends FormValidator
             $this->addButtonCreate(get_lang('Add category'));
         } else {
             $this->addElement('hidden', 'editcat', (int) $_GET['editcat']);
-            $this->addButtonUpdate(get_lang('Edit this category'));
+            $this->addButtonUpdate(get_lang('Save'));
         }
 
-        $setting = api_get_setting('tool_visible_by_default_at_creation');
+        $tools = api_get_setting('course.active_tools_on_create', true);
+        $setting = array_fill_keys($tools, 'true');
+
         $visibility_default = 1;
-        if (isset($setting['gradebook']) && 'false' === $setting['gradebook']) {
+        if (!isset($setting['gradebook'])) {
             $visibility_default = 0;
         }
 

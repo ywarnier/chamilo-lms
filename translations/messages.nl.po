@@ -16853,7 +16853,7 @@ msgid "Fill with demo content"
 msgstr "Opvullen met demo-inhoud"
 
 msgid "Single Sign On"
-msgstr "Single Sign On"
+msgstr "Enkele aanmelding"
 
 msgid "Enabling Single Sign On allows you to connect this platform as a slave of an authentication master, for example a Drupal website with the Drupal-Chamilo plugin or any other similar master setup."
 msgstr "Single Sign On inschakelen maakt het mogelijk om aan te melden op dit platform door middel van een authenticatie-server. Dit kan bijvoorbeeld een Drupal website zijn, door middel van de Drupal-Chamilo plugin, of een gelijkaardige extensie."
@@ -19128,7 +19128,7 @@ msgid "%b %d, %Y at %I:%M %p"
 msgstr "%b %d, %Y om %I:%M %p"
 
 msgid "%I:%M %p, %b %d %Y"
-msgstr "%I:%M %p, %b %d %Y"
+msgstr "%I:%M %p, %e %b %Y"
 
 msgid "Login to vote"
 msgstr "Meld aan om te stemmen"
@@ -19658,9 +19658,6 @@ msgstr "Verwijder oude database"
 
 msgid "Remove old tables"
 msgstr "Verwijder oude tabellen"
-
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "Totale ruimte gebruikt door portaal %s limiet is %s MB"
 
 msgid "Event message management"
 msgstr "Beheer van evenementberichten"
@@ -33154,8 +33151,8 @@ msgstr "Opmerking toevoegen"
 msgid "Write your comment here..."
 msgstr "Schrijf je opmerking hier..."
 
-msgid "%d selected"
-msgstr "%d geselecteerd"
+msgid "%s selected"
+msgstr "%s geselecteerd"
 
 msgid "Search by title or path..."
 msgstr "Zoek op titel of pad..."
@@ -33163,8 +33160,8 @@ msgstr "Zoek op titel of pad..."
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "Beheer back-ups, herstel, kopieer, recycleer en verwijder cursusgegevens."
 
-msgid "%d comment(s)"
-msgstr "%d opmerking(en)"
+msgid "%s comment(s)"
+msgstr "%s opmerking(en)"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "Fout bij bijwerken van derde partij. Controleer de gegevens."
@@ -33519,4 +33516,1138 @@ msgstr "Alleen letters, cijfers en onderstrepingsteken (_) zijn toegestaan in de
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "Welke algemene voorwaarden worden aan gebruikers gegeven om dit platform te gebruiken?"
+
+msgid "ex. {examplePassword}"
+msgstr "bijv. {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "Welkom bij Chamilo!"
+
+msgid "Welcome to this platform"
+msgstr "Welkom op dit platform"
+
+msgid "For more details visit %s"
+msgstr "Voor meer details bezoek %s"
+
+msgid "Manager"
+msgstr "Beheerder"
+
+msgid "Mark as"
+msgstr ""
+
+msgid "Reply to all"
+msgstr ""
+
+msgid "SCIM external ID"
+msgstr ""
+
+msgid "OAuth2 ID"
+msgstr ""
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr ""
+
+msgid "Required value for operation without path"
+msgstr ""
+
+msgid "Available space (%s)"
+msgstr ""
+
+msgid "Index this description for the global search"
+msgstr ""
+
+msgid "Unknown course"
+msgstr ""
+
+msgid "Certificate not found."
+msgstr ""
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr ""
+
+msgid "Only platform administrators can change the course visibility."
+msgstr ""
+
+msgid "Unexpected error while subscribing the user"
+msgstr ""
+
+msgid "Search in resource logs"
+msgstr ""
+
+msgid "Include this learning path in the global search results"
+msgstr ""
+
+msgid "The course code already exists"
+msgstr "De cursuscode bestaat al"
+
+msgid "Latest news"
+msgstr "Laatste nieuws"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "Ontvang het laatste nieuws van Chamilo, inclusief beveiligingskwetsbaarheden en evenementen, direct in uw administratiepaneel. Deze nieuwsberichten worden elke keer dat u de administratiepagina laadt gecontroleerd op de Chamilo nieuwsserver en zijn alleen zichtbaar voor beheerders."
+
+msgid "Chamilo support block"
+msgstr "Chamilo ondersteuning blok"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "Ontvang pro-tips en een eenvoudige manier om officiële serviceproviders voor professionele ondersteuning te contacteren, direct van de makers van Chamilo. Dit blok verschijnt op uw administratiepagina, is alleen zichtbaar voor beheerders en wordt vernieuwd elke keer dat u de administratiepagina laadt."
+
+msgid "Hide option to send announcements to HR users"
+msgstr "Verberg optie om aankondigingen naar HR-gebruikers te versturen"
+
+msgid "Allow session admins to download private certificates"
+msgstr "Sta sessiebeheerders toe om privé-certificaten te downloaden"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "Indien ingeschakeld, kunnen sessiebeheerders certificaten downloaden zelfs als ze niet openbaar gepubliceerd zijn."
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "Indien niet leeg, zal het cursusaanmaakproces zoeken naar bepaalde velden in het gebruikersprofiel en deze automatisch invullen voor de cursus. Bijvoorbeeld, een docent gespecialiseerd in digitale marketing kan automatisch een « digitale marketing » vlag instellen op elke cursus die (hij/zij) aanmaakt."
+
+msgid "Main menu entries"
+msgstr "Hoofdmenu-items"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "Vink de items aan die u in het hoofdmenu wilt zien verschijnen"
+
+msgid "Main menu entries per role"
+msgstr "Hoofdmenu-items per rol"
+
+msgid "Define header tabs visibility per role."
+msgstr "Definieer zichtbaarheid van kop-tabs per rol."
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "Stel de opties in die u wilt tonen in de navigatie rond een tabel om minder of meer rijen op één pagina te tonen. bv. [50, 100, 200, 500]."
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "Array van extra functies die u kunt inschakelen voor de videospeler in Chamilo. Opties omvatten 'speed', waarmee u de afspeelsnelheid van een video kunt wijzigen."
+
+msgid "Mail: character set"
+msgstr "E-mail: karakterset"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "Indien u de te gebruiken charset moet definiëren bij het versturen van e-mails. Laat leeg als u het niet zeker weet."
+
+msgid "Mail: Debug"
+msgstr "E-mail: Debug"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "Selecteer of u de e-mailverzending debug-logs wilt inschakelen. Deze geven meer informatie over wat er gebeurt bij het verbinden met de mailservice, maar zijn niet elegant en kunnen de paginadesign verstoren. Gebruik alleen als er geen gebruikersactiviteit is."
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "E-mail: Vermijd gebruik van LD+JSON"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "Sommige e-mailclients begrijpen het beschrijvende LD+JSON-formaat niet en tonen het als een los JSON-string aan de eindgebruiker. Als dit uw geval is, kunt u de variabele hieronder op 'false' zetten om deze header uit te schakelen."
+
+msgid "Mail: DKIM headers"
+msgstr "E-mail: DKIM-headers"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "Voer een JSON-array in van uw DKIM-configuratie-instellingen (zie voorbeeld)."
+
+msgid "Mail: XOAuth2 options"
+msgstr "E-mail: XOAuth2-opties"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "Als u een XOAuth2-gebaseerde e-maildienst gebruikt, gebruik deze JSON-instelling om uw specifieke configuratie op te slaan (zie voorbeeld) en selecteer XOAuth2 in de mailservice-instelling."
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "Definieert het omgevingstype: \"prod\" (normale productie), \"validation\" (zoals productie maar zonder statistiekenrapportage), of \"test\" (debug-modus met ontwikkelaarstools zoals niet-vertaalde string-indicatoren)."
+
+msgid "Global limit of users per course"
+msgstr "Globale limiet van gebruikers per cursus"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "Definieert een globale maximumaantal gebruikers (docenten inbegrepen) dat mag worden ingeschreven op een enkele cursus in het platform. Stel deze waarde in op 0 om de limiet uit te schakelen. Dit helpt overladen cursussen te voorkomen in open portals."
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "Schakel in om een array te gebruiken om te definiëren welke rollen duidelijk moeten worden weergegeven en welke verborgen moeten zijn."
+
+msgid "Show base course posts in session course"
+msgstr "Toon basiscursusberichten in sessiecursus"
+
+msgid "Limit identical email usage"
+msgstr "Beperk gebruik van identieke e-mailadressen"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "Maximum aantal accounts dat hetzelfde e-mailadres mag delen. Stel in op 0 om deze limiet uit te schakelen."
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "Sta sessiebeheerders toe alle gebruikers op alle URL's te zien"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "Indien ingeschakeld, kunnen sessiebeheerders gebruikers zoeken en weergeven van alle toegang-URL's, ongeacht hun huidige URL."
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "Schakel de mogelijkheid in voor gebruikers om hun eigen tijdzone te selecteren. Nadat het is geconfigureerd, kunnen gebruikers opdrachtdeadlines en andere tijdreferenties in hun eigen tijdzone zien, wat fouten bij indiening vermindert."
+
+msgid "Redirect after login (per profile)"
+msgstr "Doorsturen na inloggen (per profiel)"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "Definieer doorsturing per profiel na inloggen met een JSON-object zoals {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "Verberg juridische acceptatiecheckbox op Algemene voorwaarden-pagina"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "Indien ingesteld op true, verwijdert het de \"Ik heb gelezen en accepteer\"-checkbox in de flow van de Algemene voorwaarden-pagina."
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "Array die host en poort definieert voor de LDAP-server."
+
+msgid "Enable 2FA"
+msgstr "Schakel 2FA in"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "Voeg velden toe op de pagina voor wachtwoordupdate om 2FA in te schakelen met een TOTP-authenticator-app. Wanneer globaal uitgeschakeld, zien gebruikers geen 2FA-velden en worden ze niet gevraagd om 2FA bij inloggen, zelfs als ze het eerder hadden ingeschakeld."
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "Sommige functies van Chamilo verbinden vanaf de server met externe bronnen. Bijvoorbeeld om te controleren of externe inhoud bestaat bij het maken van een link of het tonen van een ingebedde pagina in het leerpad. Als uw Chamilo-server een proxy gebruikt om het netwerk te verlaten, configureer dit hier."
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "Schakel automatische herinschrijving in of uit wanneer de cursusgeldigheid verloopt. De gerelateerde cron-taak moet ook worden geactiveerd."
+
+msgid "Show remaining days in My Sessions"
+msgstr "Toon resterende dagen in Mijn Sessies"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "Indien ingeschakeld, worden de sessiedata op de \"Mijn Sessies\"-pagina vervangen door het aantal resterende dagen."
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "Toon \"Afwachtende enquêtes\" in menu"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "Toon een menu-item waarmee gebruikers toegang krijgen tot hun afwachtende enquêtes."
+
+msgid "Disclose AI assistance"
+msgstr "Openbaarmaking AI-hulp"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "Toon een tag op alle inhoud of feedback die is gegenereerd of mede-gegenereerd door een AI-systeem, om aan de gebruiker te bewijzen dat de inhoud is gemaakt met hulp van een AI-systeem. Details over welk AI-systeem in welk geval is gebruikt, worden in de database bewaard voor audit, maar zijn niet direct toegankelijk voor de eindgebruiker."
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "JSON-configuratie voor cursuscatalogus: linkinstellingen, filters, sorteeropties en meer."
+
+msgid "Session Catalog Settings"
+msgstr "Sessiecatalogusinstellingen"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "JSON-configuratie voor sessiecatalogus: filters en weergave-opties."
+
+msgid "Show Course Descriptions"
+msgstr "Toon cursusbeschrijvingen"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "Toon cursusbeschrijvingen in de cataloguslijst."
+
+msgid "Published Courses Only"
+msgstr "Alleen gepubliceerde cursussen"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "Beperk de catalogus tot alleen cursussen die als gepubliceerd zijn gemarkeerd."
+
+msgid "Display Catalog on Homepage"
+msgstr "Toon catalogus op startpagina"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "Toon het cursuscatalogusblok op de platformstartpagina."
+
+msgid "Hide Public Link"
+msgstr "Verberg openbare link"
+
+msgid "Remove the public URL link from course cards."
+msgstr "Verwijder de openbare URL-link van cursuskaarten."
+
+msgid "Only Selected Courses"
+msgstr "Alleen geselecteerde cursussen"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "Toon alleen handmatig geselecteerde cursussen in de catalogus."
+
+msgid "Allow Student Browsing"
+msgstr "Sta studentbladeren toe"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "Sta studenten toe de cursuscatalogus te doorzoeken en filteren."
+
+msgid "Hide Private Courses"
+msgstr "Verberg privé-cursussen"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "Sluit privé-cursussen uit van de catalogusweergave."
+
+msgid "Show Courses & Sessions"
+msgstr "Toon cursussen & sessies"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "Neem zowel cursussen als sessies op in catalogusresultaten."
+
+msgid "Auto Session Subscription"
+msgstr "Automatische sessie-inschrijving"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "Schakel automatische inschrijving voor sessies in voor gebruikers."
+
+msgid "Subscription in Session View"
+msgstr "Inschrijving in sessie-overzicht"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "Sta gebruikers toe zich direct vanaf hun sessiepagina in te schrijven voor cursussen."
+
+msgid "Enable redirection plugin"
+msgstr "Schakel doorstuurplugin in"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "Array die de 'dagen' en 'maanden' definieert om de vervaldatum van het account in te stellen bij eerste inloggen."
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "Een array van rol => aantal die het aantal dagen voor accountverloop aangeeft, afhankelijk van de rol."
+
+msgid "Extra user field used to search and name sessions"
+msgstr "Extra gebruikersveld gebruikt om sessies te zoeken en te benoemen"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "Deze instelling definieert de sleutel van het extra gebruikersveld (bijv. \"company\") die wordt gebruikt om gebruikers te zoeken en de naam van de sessie te definiëren bij het inschrijven van studenten vanaf /admin-dashboard/register."
+
+msgid "Glossary terms generator"
+msgstr "Woordenlijsttermen-generator"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "Sta docenten toe AI-gegenereerde woordenlijsttermen aan te vragen in hun cursus. Dit genereert 20 termen op basis van de cursustitel en de algemene beschrijving in het cursusbeschrijvingstool. Bij herhaald gebruik worden reeds aanwezige termen uitgesloten (zorg ervoor dat inhoud kan worden gedeeld met de geconfigureerde AI-diensten)."
+
+msgid "Video generator"
+msgstr "Videogenerator"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "Genereert video's op basis van prompts of inhoud met behulp van AI (dit kan veel tokens verbruiken)."
+
+msgid "Course analyser"
+msgstr "Cursusanalysator"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "Analyseert alle bronnen in één of meerdere cursussen en pre-traint het AI-model om vragen over deze cursus(sen) te beantwoorden (zorg ervoor dat de inhoud kan worden gedeeld met de geconfigureerde AI-services)."
+
+msgid "Test/development"
+msgstr "Test/ontwikkeling"
+
+msgid "Crons"
+msgstr "Crons"
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "Gradebook"
+msgstr "Cijferboek"
+
+msgid "Internationalization"
+msgstr "Internationalisatie"
+
+msgid "User profiles"
+msgstr "Gebruikersprofielen"
+
+msgid "Support tickets"
+msgstr "Supporttickets"
+
+msgid "Webservices"
+msgstr "Webservices"
+
+msgid "Catalogue"
+msgstr "Catalogus"
+
+msgid "Workflows"
+msgstr "Workflows"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "Instelling is bewerkbaar op sub-URL's"
+
+msgid "Show JSON Template"
+msgstr "Toon JSON-sjabloon"
+
+msgid "JSON Template"
+msgstr "JSON-sjabloon"
+
+msgid "Installing Xapian bindings"
+msgstr "Installeren van Xapian-bindings"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "Het volgende codefragment toont een voorbeeldinstallatie van de Xapian PHP-bindings op Ubuntu 25.04 met PHP 8.3. Pas paden en versies aan aan uw eigen omgeving."
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "Zorg ervoor dat u alleen de PHP-versie heeft die u echt gebruikt (bijvoorbeeld 8.3) en vermijd het mengen van verschillende versies met verschillende extensiemappen."
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "Zodra de extensie correct is geladen voor zowel CLI als de webserver, zou de zoekdiagnose hierboven moeten melden dat de Xapian-module is geïnstalleerd."
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "Schoon tijdelijke uploads en cache op"
+
+msgid "Directory"
+msgstr "Map"
+
+msgid "Only delete files older than (minutes)"
+msgstr "Alleen bestanden ouder dan verwijderen (minuten)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "Stel 0 in om alle bestanden te verwijderen. Gebruik een positieve waarde (bijv. 60) om te voorkomen dat nog geüploade bestanden worden verwijderd."
+
+msgid "Preview only (do not delete)"
+msgstr "Alleen voorbeeld (niet verwijderen)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "Waarschuwing: u staat op het punt ALLE tijdelijke bestanden te verwijderen. Deze actie kan niet ongedaan worden gemaakt."
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "Dit verwijdert alle tijdelijke bestanden. Doorgaan?"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "Dit verwijdert bestanden ouder dan %minutes% minuten. Doorgaan?"
+
+msgid "The value must match exactly: %s"
+msgstr "De waarde moet exact overeenkomen: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "Herhaal einddatum moet na startdatum zijn."
+
+msgid "Index document content?"
+msgstr "Documentinhoud indexeren?"
+
+msgid "Upload SVG logo to platform header"
+msgstr "SVG-logo uploaden naar platformkop"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "PNG-logo uploaden naar platformkop (%s)"
+
+msgid "Write something to %s"
+msgstr "Schrijf iets naar %s"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "Voorkeur: SVG. Aanbevolen PNG-breedte: %spx."
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "PNG-logo voor e-mails uploaden (~%spx breedte)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "Kop PNG moet ≤ %spx zijn."
+
+msgid "Require specific file format"
+msgstr "Specifiek bestandsformaat vereisen"
+
+msgid "Select allowed file formats"
+msgstr "Toegestane bestandsformaten selecteren"
+
+msgid "Custom extensions (separated by space)"
+msgstr "Aangepaste extensies (gescheiden door spatie)"
+
+msgid "Other extensions"
+msgstr "Andere extensies"
+
+msgid "My invitations"
+msgstr "Mijn uitnodigingen"
+
+msgid "Delete access"
+msgstr "Toegang verwijderen"
+
+msgid "Certificate tags"
+msgstr "Certificaat-tags"
+
+msgid "Copy all"
+msgstr "Alles kopiëren"
+
+msgid "Click to insert"
+msgstr "Klik om in te voegen"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "Voorkeur: SVG. PNG max. grootte: %spx."
+
+msgid "View badge"
+msgstr "Badge bekijken"
+
+msgid "%d min"
+msgstr "%d min"
+
+msgid "Duration in minutes"
+msgstr "Duur in minuten"
+
+msgid "Go back to standard view"
+msgstr "Terug naar standaardweergave"
+
+msgid "Search for student..."
+msgstr "Zoeken naar student..."
+
+msgid "This date is locked or read-only."
+msgstr "Deze datum is vergrendeld of alleen-lezen."
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "Kon aanwezigheidsregistratie niet laden. Probeer later opnieuw."
+
+msgid "Nothing to save"
+msgstr "Niets om op te slaan"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "U hebt niet-opgeslagen wijzigingen. Toch verlaten?"
+
+msgid "Storage usage unavailable"
+msgstr "Opslaggebruik niet beschikbaar"
+
+msgid "Search for members..."
+msgstr "Zoeken naar leden..."
+
+msgid "Current members"
+msgstr "Huidige leden"
+
+msgid "Add members"
+msgstr "Leden toevoegen"
+
+msgid "Search for users in course/session..."
+msgstr "Zoeken naar gebruikers in cursus/sessie..."
+
+msgid "No users available."
+msgstr "Geen gebruikers beschikbaar."
+
+msgid "Browse and publish new posts"
+msgstr "Nieuwe berichten bekijken en publiceren"
+
+msgid "Create and assign tasks"
+msgstr "Taken aanmaken en toewijzen"
+
+msgid "Filtered by %s"
+msgstr "Gefilterd op %s"
+
+msgid "Select a score"
+msgstr "Score selecteren"
+
+msgid "Edit comment"
+msgstr "Opmerking bewerken"
+
+msgid "Failed to update the post."
+msgstr "Kon het bericht niet bijwerken."
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "Dit bericht verwijderen? Deze actie kan niet ongedaan worden gemaakt."
+
+msgid "Failed to delete the post."
+msgstr "Kon het bericht niet verwijderen."
+
+msgid "Failed to update the comment."
+msgstr "Kon de opmerking niet bijwerken."
+
+msgid "Delete this comment?"
+msgstr "Deze opmerking verwijderen?"
+
+msgid "Failed to delete the comment."
+msgstr "Kon de opmerking niet verwijderen."
+
+msgid "Search for projects..."
+msgstr "Zoeken naar projecten..."
+
+msgid "Only visible"
+msgstr "Alleen zichtbaar"
+
+msgid "Rename project"
+msgstr "Project hernoemen"
+
+msgid "New title"
+msgstr "Nieuwe titel"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "U moet beheerder of docent zijn om projecten te beheren."
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "Dit project verwijderen? Deze actie kan niet ongedaan worden gemaakt."
+
+msgid "Task list"
+msgstr "Takenlijst"
+
+msgid "Change status"
+msgstr "Status wijzigen"
+
+msgid "Waiting for validation"
+msgstr "Wacht op validatie"
+
+msgid "Delete this task?"
+msgstr "Deze taak verwijderen?"
+
+msgid "Failed to delete the task."
+msgstr "Kon de taak niet verwijderen."
+
+msgid "Failed to update status."
+msgstr "Kon de status niet bijwerken."
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "Weet u zeker dat u deze derde partij wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt."
+
+msgid "Please fix the errors before saving."
+msgstr "Oplossen van fouten voordat u opslaat."
+
+msgid "Error creating third party. Please verify the data."
+msgstr "Fout bij aanmaken derde partij. Controleer de gegevens."
+
+msgid "Error deleting third party."
+msgstr "Fout bij verwijderen derde partij."
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "Optionele header- en e-maillogo's uploaden. SVG is voorkeur; PNG als reservemogelijkheid."
+
+msgid "Data exchange updated successfully."
+msgstr "Gegevensuitwisseling succesvol bijgewerkt."
+
+msgid "Error deleting data exchange."
+msgstr "Fout bij verwijderen gegevensuitwisseling."
+
+msgid "Failed to recycle course."
+msgstr "Kon cursus niet recyclen."
+
+msgid "Select source course"
+msgstr "Broncursus selecteren"
+
+msgid "Course to copy from"
+msgstr "Cursus om van te kopiëren"
+
+msgid "Search by code or title..."
+msgstr "Zoeken op code of titel..."
+
+msgid "No courses match your search."
+msgstr "Geen cursussen die overeenkomen met uw zoekopdracht."
+
+msgid "Copy options"
+msgstr "Kopieeropties"
+
+msgid "Include users (enrollments)"
+msgstr "Gebruikers opnemen (inschrijvingen)"
+
+msgid "Reset dates"
+msgstr "Datums resetten"
+
+msgid "When a file with the same name exists"
+msgstr "Wanneer een bestand met dezelfde naam bestaat"
+
+msgid "Ready to copy"
+msgstr "Klaar om te kopiëren"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "We zullen inhoud kopiëren van de geselecteerde cursus naar deze cursus. U kunt teruggaan om opties te wijzigen."
+
+msgid "Start copying"
+msgstr "Kopiëren starten"
+
+msgid "Select resources to copy"
+msgstr "Te kopiëren bronnen selecteren"
+
+msgid "Copy selected"
+msgstr "Geselecteerde kopiëren"
+
+msgid "Copy completed."
+msgstr "Kopie voltooid."
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "Gevarenzone: het verwijderen van een cursus is permanent."
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "Typ de cursuscode ter bevestiging. Alle gegevens worden permanent verwijderd."
+
+msgid "The code must match '%s' exactly."
+msgstr "De code moet exact overeenkomen met '%s'."
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "Verwijder ook documenten die alleen in deze cursus worden gebruikt (indien aanwezig)."
+
+msgid "Delete course"
+msgstr "Cursus verwijderen"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "Deze actie kan niet ongedaan worden gemaakt. Doorgaan?"
+
+msgid "Course deleted successfully."
+msgstr "Cursus succesvol verwijderd."
+
+msgid "Failed to delete course."
+msgstr "Fout bij verwijderen van cursus."
+
+msgid "Create .mbz"
+msgstr ".mbz maken"
+
+msgid "Backup scope"
+msgstr "Back-up bereik"
+
+msgid "Full course"
+msgstr "Volledige cursus"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "Geselecteerde items zijn de enige die worden opgenomen in het geëxporteerde bestand."
+
+msgid "Moodle export"
+msgstr "Moodle-export"
+
+msgid "Moodle version"
+msgstr "Moodle-versie"
+
+msgid "Admin ID"
+msgstr "Admin-ID"
+
+msgid "Internal integer user id"
+msgstr "Interne numerieke gebruiker-ID"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle vereist een interne gebruiker-ID opgeslagen in XML. Bij twijfel, gebruik 1."
+
+msgid "Username to appear as owner of imported items"
+msgstr "Gebruikersnaam die verschijnt als eigenaar van geïmporteerde items"
+
+msgid "Email to use in the archive metadata"
+msgstr "E-mailadres voor gebruik in de archiefmetadata"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr "Er wordt een .mbz-bestand gegenereerd. U kunt het downloaden zodra het klaar is."
+
+msgid "Select resources to include"
+msgstr "Te includeren bronnen selecteren"
+
+msgid "Export completed"
+msgstr "Export voltooid"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "Uw Moodle-back-up is aangemaakt. U vindt deze in de lijst met cursusback-ups."
+
+msgid "Please complete all required fields."
+msgstr "Vul alle vereiste velden in."
+
+msgid "Failed to create Moodle backup."
+msgstr "Fout bij aanmaken Moodle-back-up."
+
+msgid "More actions"
+msgstr "Meer acties"
+
+msgid "Write something"
+msgstr "Schrijf iets"
+
+msgid "Friends of %s"
+msgstr "Vrienden van %s"
+
+msgid "Error loading learning paths."
+msgstr "Fout bij het laden van leerpaden."
+
+msgid "You don't have any learning path."
+msgstr "Je hebt geen leerpad."
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "Maak je eerste leerpad om cursusinhoud te organiseren."
+
+msgid "Could not save the new category order."
+msgstr "Nieuwe categorievolgorde kon niet worden opgeslagen."
+
+msgid "Could not save the new order."
+msgstr "Nieuwe volgorde kon niet worden opgeslagen."
+
+msgid "Assignment"
+msgstr "Opdracht"
+
+msgid "Allowed file formats: %s"
+msgstr "Toegestane bestandsformaten: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "Bestandstype niet toegestaan. Toegestane extensies: %s"
+
+msgid "Folder name"
+msgstr "Mapnaam"
+
+msgid "Rename folder"
+msgstr "Map hernoemen"
+
+msgid "New name"
+msgstr "Nieuwe naam"
+
+msgid "Choose an action"
+msgstr "Kies een actie"
+
+msgid "New version"
+msgstr "Nieuwe versie"
+
+msgid "Change title to selected filename"
+msgstr "Titel wijzigen naar geselecteerde bestandsnaam"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "Je kunt het bestand vervangen, het naar een andere map verplaatsen, of beide."
+
+msgid "Move %s"
+msgstr "Verplaats %s"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "Alleen niet-wortel mappen worden getoond om te voorkomen dat items in de wortel blijven."
+
+msgid "No feedback yet."
+msgstr "Nog geen feedback."
+
+msgid "Upload first, organize later"
+msgstr "Eerst uploaden, later organiseren"
+
+msgid "Drag & drop or browse to add files"
+msgstr "Sleep en laat los of blader om bestanden toe te voegen"
+
+msgid "Social wall..."
+msgstr "Sociale muur..."
+
+msgid "Wall of %s"
+msgstr "Muur van %s"
+
+msgid "Version currently loaded"
+msgstr "Momenteel geladen versie"
+
+msgid "Completion"
+msgstr "Voltooiing"
+
+msgid "Quick navigation"
+msgstr "Snelle navigatie"
+
+msgid "Filled"
+msgstr "Ingevuld"
+
+msgid "Terms sections"
+msgstr "Termsecties"
+
+msgid "Open a section to edit its content."
+msgstr "Open een sectie om de inhoud te bewerken."
+
+msgid "Open this section to load the editor."
+msgstr "Open deze sectie om de editor te laden."
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "Gevarenzone: het verwijderen van een toegang-URL is permanent."
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "Typ de volledige URL om te bevestigen. De URL en de relaties worden permanent verwijderd."
+
+msgid "Unable to load the badge's image."
+msgstr "Kan afbeelding van badge niet laden."
+
+msgid "Invalid role selection"
+msgstr "Ongeldige rolselectie"
+
+msgid "Select relation type first to enable user management."
+msgstr "Selecteer eerst een relatietype om gebruikersbeheer in te schakelen."
+
+msgid "This question has no course context. Preview is not available."
+msgstr "Deze vraag heeft geen cursuscontext. Voorvertoning is niet beschikbaar."
+
+msgid "Unknown test"
+msgstr "Onbekende test"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "Verwijderen is niet toegestaan zonder cursuscontext."
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "Verwijderen mislukt: ontbrekende cursuscontext of ongeldige vraag-ID. Deze vraag behoort tot een test. Bewerk deze vanuit de test of filter alleen op weesvragen."
+
+msgid "Delete failed: question not found."
+msgstr "Verwijderen mislukt: vraag niet gevonden."
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "Verwijderen mislukt: deze vraag wordt nog steeds gebruikt door andere bronnen."
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "Deze vraag behoort tot een test. Bewerk deze vanuit de test of filter alleen op weesvragen."
+
+msgid "Access the group tools and resources"
+msgstr "Toegang tot groepstools en -resources"
+
+msgid "%s members"
+msgstr "%s leden"
+
+msgid "View certificate (HTML)"
+msgstr "Certificaat bekijken (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "Koppel een vaardigheid aan dit rapportboek"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "Beheer de koppeling tussen certificaten en vaardigheden voor elk rapportboek"
+
+msgid "Please select a specific badge issue to download"
+msgstr "Selecteer een specifieke badge-uitgifte om te downloaden"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM is niet ingeschakeld."
+
+msgid "Invalid token."
+msgstr "Ongeldig token."
+
+msgid "Schema not supported."
+msgstr "Schema niet ondersteund."
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "Ongeldige schema's voor PATCH-operatie."
+
+msgid "Missing required \"Operations\" array."
+msgstr "Ontbrekende vereiste \"Operations\"-array."
+
+msgid "The '%s' operation is not supported."
+msgstr "De '%s'-operatie wordt niet ondersteund."
+
+msgid "Drupal user ID"
+msgstr "Drupal-gebruikers-ID"
+
+msgid "There are no terms that match the search: %s"
+msgstr "Er zijn geen termen die overeenkomen met de zoekopdracht: %s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "Instelling is globaal vergrendeld (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "Als ingeschakeld, worden 1:1 privéchatberichten gespiegeld in de cursus chatgeschiedenisdocumenten. Aanbevolen uitgeschakeld te houden voor privacy."
+
+msgid "Save private conversations in documents"
+msgstr "Privé gesprekken opslaan in documenten"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "EU AI Act – Transparantie- en risicomededeling"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "Volgens de EU Artificial Intelligence Act (Verordening (EU) 2024/1689) worden AI-systemen die in het onderwijs worden gebruikt over het algemeen geclassificeerd als “hoogrisico”. Deze software zelf is <strong>geen</strong> AI-systeem, maar kan optionele interne of externe AI-systemen integreren — afhankelijk van uw configuratie — om de prestaties van gebruikers taken te verbeteren. Deze systemen kunnen toegang krijgen tot persoonlijke gegevens <em>alleen als</em> gebruikers dergelijke gegevens in hun prompts opnemen. Vanuit ontwerp deelt deze software geen persoonlijke gegevens met AI-systemen zonder actieve invoer van de gebruiker. Standaard zijn alle AI-functies uitgeschakeld."
+
+msgid "Admin responsibility & disclosures"
+msgstr "Beheerdersverantwoordelijkheid & openbaarmakingen"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "Deze configuratiepagina beschrijft elke AI-functie en het doel ervan. Als deployer moet u deze zorgvuldig beoordelen en uw GDPR-conforme gegevensprivacybeleid bijwerken om de door u ingeschakelde opties te weerspiegelen. Hoewel de meeste AI-functies geen persoonlijke gegevens direct delen met externe systemen, kunnen gebruikersprompts naar AI onbedoeld persoonlijke informatie bevatten. Als deployer bent <strong>u verantwoordelijk</strong> voor het informeren van gebruikers over dit risico. Voor transparantie kunnen toekomstige releases niet-intrusieve eindgebruikertags tonen die aangeven dat bepaalde inhoud of feedback is gegenereerd met behulp van AI."
+
+msgid "Positioning"
+msgstr "Positionering"
+
+msgid "Quiz"
+msgstr "Quiz"
+
+msgid "Customcertificate"
+msgstr "Aangepastcertificaat"
+
+msgid "Update profile"
+msgstr "Profiel bijwerken"
+
+msgid "Enable learning path generator"
+msgstr "Leerpaden-generator inschakelen"
+
+msgid "Enable exercise generator"
+msgstr "Oefeningengenerator inschakelen"
+
+msgid "Enable open answers grader"
+msgstr "Beoordelaar open antwoorden inschakelen"
+
+msgid "Enable tutor chatbot"
+msgstr "Tutor-chatbot inschakelen"
+
+msgid "Enable task grader"
+msgstr "Taakbeoordelaar inschakelen"
+
+msgid "Enable content analyser"
+msgstr "Inhoudsanalysator inschakelen"
+
+msgid "Enable image generator"
+msgstr "Afbeeldingsgenerator inschakelen"
+
+msgid "Enable glossary terms generator"
+msgstr "Glossariumtermen-generator inschakelen"
+
+msgid "Enable video generator"
+msgstr "Videogenerator inschakelen"
+
+msgid "Enable course analyser"
+msgstr "Cursusanalysator inschakelen"
+
+msgid "The operation '%s' is not supported."
+msgstr "De bewerking '%s' wordt niet ondersteund."
+
+msgid "AI feedback on %s in course %s"
+msgstr "KI-feedback over %s in cursus %s"
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr "Wissen mislukt: cursuscontext ontbreekt of ongeldige vraag-ID."
+
+msgid "AI Tutor"
+msgstr "KI-tutor"
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr "De APCu-extensie moet geïnstalleerd en ingeschakeld zijn om door het platform gebruikt te worden."
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr "Het toestaan van OPCache-geheugengebruik van minstens %sMB RAM wordt aanbevolen."
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr "De OPcache-module moet geïnstalleerd en ingeschakeld zijn om door het platform gebruikt te worden."
+
+msgid "You are here"
+msgstr "U bevindt zich hier"
+
+msgid "Click an event type to filter results."
+msgstr "Klik op een gebeurtenistype om resultaten te filteren."
+
+msgid "Require unique presence"
+msgstr "Unieke aanwezigheid vereisen"
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr "Indien ingeschakeld, geeft het rapportboek een leerling 100% als hij/zij minstens één keer aanwezig is."
+
+msgid "AI feedback"
+msgstr "KI-feedback"
+
+msgid "Prompt"
+msgstr "Prompt"
+
+msgid "Tip"
+msgstr "Tip"
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr "U kunt de prompt bewerken voordat u feedback vraagt."
+
+msgid "Result (you can apply it to the comment)"
+msgstr "Resultaat (u kunt het toepassen op de opmerking)"
+
+msgid "Apply to comment"
+msgstr "Toepassen op opmerking"
+
+msgid "Apply score"
+msgstr "Score toepassen"
+
+msgid "AI grade"
+msgstr "KI-beoordeling"
+
+msgid "AI tutor is disabled during tests"
+msgstr "KI-tutor is uitgeschakeld tijdens tests"
+
+msgid "Generate glossary terms"
+msgstr "Glossariumtermen genereren"
+
+msgid "Generate media"
+msgstr "Media genereren"
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr "U hebt geen toestemming om KI-media te genereren in deze cursus."
+
+msgid "AI helpers are disabled at platform level."
+msgstr "KI-hulpmiddelen zijn uitgeschakeld op platformniveau."
+
+msgid "AI media generation is disabled in course settings."
+msgstr "KI-mediageneratie is uitgeschakeld in de cursusinstellingen."
+
+msgid "No AI media providers available."
+msgstr "Geen KI-mediaproviders beschikbaar."
+
+msgid "Provider"
+msgstr "Provider"
+
+msgid "Select a provider"
+msgstr "Selecteer een provider"
+
+msgid "Example: generated_media"
+msgstr "Voorbeeld: generated_media"
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr "De naam wordt niet toegevoegd aan de prompt; hij wordt alleen gebruikt om het bestand op te slaan."
+
+msgid "Describe what you want to generate..."
+msgstr "Beschrijf wat u wilt genereren..."
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr "Tip: klik op een voorinstelling om snel de grootte in te stellen."
+
+msgid "Generating..."
+msgstr "Bezig met genereren..."
+
+msgid "Save to Documents"
+msgstr "Opslaan in Documenten"
+
+msgid "Document IRI"
+msgstr "Document IRI"
+
+msgid "Go to folder"
+msgstr "Naar map gaan"
+
+msgid "Provider used"
+msgstr "Gebruikte provider"
+
+msgid "This video result cannot be saved yet"
+msgstr "Dit vide結果 kan nog niet worden opgeslagen"
+
+msgid "Video polling was stopped because the provider changed."
+msgstr "Videopoll is gestopt omdat de provider is gewijzigd."
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr "Videogeneratie duurt te lang. Probeer het later opnieuw."
+
+msgid "Failed to check video status."
+msgstr "Kon videostatus niet controleren."
+
+msgid "Video generated successfully. You can now save it."
+msgstr "Video succesvol gegenereerd. U kunt deze nu opslaan."
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr "Videogeneratie voltooid, maar er is geen afspeelbare inhoud geretourneerd."
+
+msgid "Video generation failed."
+msgstr "Videogeneratie mislukt."
+
+msgid "Waiting for the video to be ready..."
+msgstr "Wachten tot de video klaar is..."
+
+msgid "Please complete all fields."
+msgstr "Vul alle velden in."
+
+msgid "Image generation is not enabled for this course."
+msgstr "Beeldgeneratie is niet ingeschakeld voor deze cursus."
+
+msgid "Video generation is not enabled for this course."
+msgstr "Videogeneratie is niet ingeschakeld voor deze cursus."
+
+msgid "Generation failed."
+msgstr "Generatie mislukt."
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr "Succesvol gegenereerd. Bekijk de voorbeeldweergave en sla op wanneer klaar."
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr "Succesvol gegenereerd. Opslaan is uitgeschakeld omdat de provider een URL heeft geretourneerd."
+
+msgid "Video generation started. Waiting for the result..."
+msgstr "Videogeneratie gestart. Wachten op het resultaat..."
+
+msgid "AI returned an empty response."
+msgstr "AI heeft een leeg antwoord geretourneerd."
+
+msgid "Nothing to save yet."
+msgstr "Nog niets om op te slaan."
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr "Deze provider heeft geen base64-inhoud geretourneerd. Probeer een andere provider."
+
+msgid "Saving failed."
+msgstr "Opslaan mislukt."
+
+msgid "Get AI feedback"
+msgstr "AI-feedback ophalen"
+
+msgid "Copy answer to clipboard"
+msgstr "Antwoord kopiëren naar klembord"
+
+msgid "Save answer to my inbox"
+msgstr "Antwoord opslaan in mijn inbox"
+
+msgid "The document is already in this folder"
+msgstr "Het document bevindt zich al in deze map"
+
+msgid "Copied"
+msgstr "Gekopieerd"
+
+msgid "You do not have permission to generate glossary terms."
+msgstr "U hebt geen toestemming om begrippen voor de begrippenlijst te genereren."
+
+msgid "Video generation is in progress"
+msgstr "Videogeneratie is bezig"
+
+msgid "Job"
+msgstr "Taak"
+
+msgid "Modified prompt"
+msgstr "Aangepaste prompt"
+
+msgid "Saved in Documents"
+msgstr "Opgeslagen in Documenten"
 

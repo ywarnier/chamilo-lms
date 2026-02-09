@@ -3,24 +3,35 @@ declare(strict_types=1);
 
 /* For licensing terms, see /license.txt */
 
-// This script completes translations for Chamilo LMS using the Grok API.
+// This script completes translations for Chamilo LMS using the Grok (or other AI) API.
 // Run from tests/scripts/lang/ with access to ../../../translations/
 // Requires curl and JSON extensions.
 // Set the $apiKey variable with your Grok API key.
 // Usage: php grok_translate.php [lang1] [lang2] ...
 // If no languages provided, processes all messages.*.po except messages.en.po
 
-exit;
-$apiKey = '{some-api-key-here}';
+if (PHP_SAPI != 'cli') {
+    die('This script can only be executed from the command line');
+}
+
+$translationSourceLanguageCode = 'en_US';
+$translationAPIEndpoint = 'https://api.x.ai/v1/chat/completions';
+
+$configFile = __DIR__ . '/config.php';
+if (!is_file(__DIR__ . '/config.php')) {
+    exit('No config.php file found in this directory. Please copy config.php.dist to config.php and fill in your API key.');
+}
+require_once __DIR__ . '/config.php';
+$apiKey = $translationAPIKey ?? '';
 
 /**
  * Chamilo Gettext auto-translator using Grok (grok-4-1-fast-non-reasoning)
  *
  * Usage:
- *   php translate.php [--test] [fr es de]
+ *   php translate.php [--test] [fr_FR es de]
  *
  * - messages.en.po is used as the source of truth for terms and ordering.
- * - For each requested language (e.g. "fr"), messages.fr.po will be updated. If no language requested, all except English are processed.
+ * - For each requested language (e.g. "fr_FR"), messages.fr_FR.po will be updated. If no language requested, all except English are processed.
  * - The translation is done by calling the Grok API, which returns a JSON response with the translated terms.
  * - The translation is applied to the target .po file, replacing existing terms.
  * - The translation is logged to a file for review.
@@ -36,11 +47,11 @@ $apiKey = '{some-api-key-here}';
  */
 
 // ===================== CONFIGURATION =====================
-// Grok chat-completions-like endpoint URL
-$apiUrl = 'https://api.x.ai/v1/chat/completions';
+// AI chat-completions-like endpoint URL
+$apiUrl = $translationAPIEndpoint;
 
 // Base (source) language and file
-$sourceLanguageCode = 'en';
+$sourceLanguageCode = $translationSourceLanguageCode;
 $translationsDir = __DIR__ . "/../../../translations/";
 $basePoFile = $translationsDir . "messages.{$sourceLanguageCode}.po";
 
@@ -71,68 +82,68 @@ function getLanguageName(string $code): string {
         'ar'    => 'Arabic',
         'ast_ES'=> 'Asturian (Spain)',
         'bg'    => 'Bulgarian',
-        'bn'    => 'Bengali (Bangladesh)',
-        'bo'    => 'Tibetan (China)',
-        'bs'    => 'Bosnian (Bosnia and Herzegovina)',
+        'bn_BD' => 'Bengali (Bangladesh)',
+        'bo_CN' => 'Tibetan (China)',
+        'bs_BA' => 'Bosnian (Bosnia and Herzegovina)',
         'ca_ES' => 'Catalan (Spain)',
-        'cs'    => 'Czech (Czech Republic)',
+        'cs_CZ' => 'Czech (Czech Republic)',
         'da'    => 'Danish',
         'de'    => 'German',
         'el'    => 'Greek',
-        'en'    => 'English',
+        'en_US' => 'English',
         'eo'    => 'Esperanto',
         'es'    => 'Spanish',
-        'es_MX'    => 'Spanish (Mexico)',
+        'es_MX' => 'Spanish (Mexico)',
         'eu_ES' => 'Basque (Spain)',
-        'fa'    => 'Persian (Iran)',
         'fa_AF' => 'Persian (Afghanistan)',
-        'fi'    => 'Finnish',
-        'fo'    => 'Faroese',
-        'fr'    => 'French',
-        'fur_IT'=> 'Friulian (Italy)',
+        'fa_IR' => 'Persian (Iran)',
+        'fi_FI' => 'Finnish',
+        'fo_FO' => 'Faroese',
+        'fr_FR' => 'French',
+        'fur'   => 'Friulian (Italy)',
         'ga'    => 'Irish',
-        'gl_ES' => 'Galician (Spain)',
-        'he'    => 'Hebrew',
+        'gl'    => 'Galician (Spain)',
+        'he_IL' => 'Hebrew',
         'hi'    => 'Hindi',
-        'hr'    => 'Croatian',
-        'hu'    => 'Hungarian',
+        'hr_HR' => 'Croatian',
+        'hu_HU' => 'Hungarian',
         'hy'    => 'Armenian',
-        'id'    => 'Indonesian',
+        'id_ID' => 'Indonesian',
         'it'    => 'Italian',
         'ja'    => 'Japanese',
-        'ka'    => 'Georgian',
-        'ko'    => 'Korean',
-        'lt'    => 'Lithuanian',
-        'lv'    => 'Latvian',
-        'mk'    => 'Macedonian',
-        'ms'    => 'Malay (Malaysia)',
+        'ka_GE' => 'Georgian',
+        'ko_KR' => 'Korean',
+        'lt_LT' => 'Lithuanian',
+        'lv_LV' => 'Latvian',
+        'mk_MK' => 'Macedonian',
+        'ms_MY' => 'Malay (Malaysia)',
         'my_MM' => 'Burmese (Myanmar)',
         'ne'    => 'Nepali (Nepal)',
         'nl'    => 'Dutch',
-        'nn'    => 'Norwegian Nynorsk',
-        'oc_FR' => 'Occitan (France)',
-        'pl'    => 'Polish',
+        'nn_NO' => 'Norwegian Nynorsk',
+        'oc'    => 'Occitan (France)',
+        'pl_PL' => 'Polish',
         'ps'    => 'Pashto (Afghanistan)',
-        'pt'    => 'Portuguese',
         'pt_BR' => 'Brazilian Portuguese',
+        'pt_PT' => 'Portuguese',
         'qu_PE' => 'Quechua (Peru)',
-        'ro'    => 'Romanian',
-        'ru'    => 'Russian',
-        'sk'    => 'Slovak',
-        'sl'    => 'Slovenian',
-        'so'    => 'Somali (Somalia)',
+        'ro_RO' => 'Romanian',
+        'ru_RU' => 'Russian',
+        'sk_SK' => 'Slovak',
+        'sl_SI' => 'Slovenian',
+        'so_SO' => 'Somali (Somalia)',
         'sq'    => 'Albanian',
-        'sr'    => 'Serbian',
-        'sv'    => 'Swedish',
-        'sw'    => 'Swahili',
+        'sr_RS' => 'Serbian',
+        'sv_SE' => 'Swedish',
+        'sw_KE' => 'Swahili',
         'ta'    => 'Tamil (India)',
         'th'    => 'Thai',
-        'tl'    => 'Tagalog (Philippines)',
+        'tl_PH' => 'Tagalog (Philippines)',
         'tr'    => 'Turkish',
-        'uk'    => 'Ukrainian',
-        'vi'    => 'Vietnamese',
-        'xh'    => 'Xhosa',
-        'yo'    => 'Yoruba (Nigeria)',
+        'uk_UA' => 'Ukrainian',
+        'vi_VN' => 'Vietnamese',
+        'xh_ZA' => 'Xhosa',
+        'yo_NG' => 'Yoruba (Nigeria)',
         'zh_CN' => 'Simplified Chinese',
         'zh_TW' => 'Traditional Chinese',
     ];
@@ -416,7 +427,7 @@ function parseTargetPoFile(string $filePath): array {
  *   -> considered mostly English, needs translation
  */
 function needsTranslationUpdate(string $msgid, string $msgstr, string $targetLang): bool {
-    if ($targetLang === 'en') {
+    if ($targetLang === 'en_US') {
         return false;
     }
 
@@ -718,7 +729,7 @@ if (empty($argvCopy)) {
 
         // Skip English and any template (.pot disguised as .po)
         // Tibetan (bo) is skipped because error-prone. Might be "unskipped" in the future. Execute manually (add 'po' parameter to command) to update.
-        if ($code === 'en' || $code === 'bo' || $code === 'pot') {
+        if ($code === 'en_US' || $code === 'bo_CN' || $code === 'pot') {
             continue;
         }
 

@@ -159,9 +159,8 @@ class LinkAddEditForm extends FormValidator
             }
             $defaults['weight_mask'] = $values['weight'];
             $defaults['select_gradebook'] = $link->get_category_id();
-            if (!is_null($link->entity)) {
-                $defaults['min_score'] = $link->entity->getMinScore();
-            }
+            $defaults['min_score'] = $link->get_min_score();
+
         }
         // ELEMENT: max
         if ($link->needs_max()) {
@@ -228,9 +227,10 @@ class LinkAddEditForm extends FormValidator
         }
 
         if (self::TYPE_ADD == $form_type) {
-            $setting = api_get_setting('tool_visible_by_default_at_creation');
+            $tools = api_get_setting('course.active_tools_on_create', true);
+
             $visibility_default = 1;
-            if (isset($setting['gradebook']) && 'false' == $setting['gradebook']) {
+            if (!in_array('gradebook', $tools, true)) {
                 $visibility_default = 0;
             }
             $defaults['visible'] = $visibility_default;

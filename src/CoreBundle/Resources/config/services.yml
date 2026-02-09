@@ -38,7 +38,7 @@ services:
         tags:
             - {name: form.type}
 
-    Chamilo\CoreBundle\Component\Editor\CkEditor\CkEditor:
+    Chamilo\CoreBundle\Component\Editor\Tiny\TinyEditor:
         arguments: ['@translator', '@router']
 
     Chamilo\CoreBundle\Component\VichUploader\AssetDirectoryNamer:
@@ -172,3 +172,13 @@ services:
     Chamilo\CoreBundle\Search\Xapian\XapianSearchService:
       arguments:
         $indexPathResolver: '@Chamilo\CoreBundle\Search\Xapian\SearchIndexPathResolver'
+
+    Chamilo\CoreBundle\Command\DoctrineMigrationsMigrateCommandDecorator:
+      decorates: doctrine_migrations.migrate_command
+      arguments:
+        $inner: '@Chamilo\CoreBundle\Command\DoctrineMigrationsMigrateCommandDecorator.inner'
+      tags: [ 'console.command' ]
+
+    Chamilo\CoreBundle\AiProvider\AiChatCompletionClientInterface:
+      class: Chamilo\CoreBundle\AiProvider\DefaultAiChatCompletionClient
+      public: true

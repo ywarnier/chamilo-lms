@@ -8,6 +8,7 @@ namespace Chamilo\CoreBundle\Twig\Extension;
 
 use Chamilo\CoreBundle\Entity\ResourceIllustrationInterface;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
 use Chamilo\CoreBundle\Helpers\NameConventionHelper;
 use Chamilo\CoreBundle\Helpers\ThemeHelper;
 use Chamilo\CoreBundle\Repository\Node\IllustrationRepository;
@@ -34,7 +35,8 @@ class ChamiloExtension extends AbstractExtension
         SettingsHelper $helper,
         RouterInterface $router,
         NameConventionHelper $nameConventionHelper,
-        private readonly ThemeHelper $themeHelper
+        private readonly ThemeHelper $themeHelper,
+        private readonly IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {
         $this->illustrationRepository = $illustrationRepository;
         $this->helper = $helper;
@@ -47,15 +49,15 @@ class ChamiloExtension extends AbstractExtension
         return [
             new TwigFilter('var_dump', 'var_dump'),
             new TwigFilter('icon', 'Display::get_icon_path'),
-            new TwigFilter('mdi_icon', 'Display::getMdiIconSimple'),
-            new TwigFilter('mdi_icon_t', 'Display::getMdiIconTranslate'),
+            new TwigFilter('mdi_icon', 'Display::getMdiIconSimple', ['is_safe' => ['html']]),
+            new TwigFilter('mdi_icon_t', 'Display::getMdiIconTranslate', ['is_safe' => ['html']]),
             new TwigFilter('get_lang', 'get_lang'),
             new TwigFilter('get_plugin_lang', 'get_plugin_lang'),
             new TwigFilter('api_get_local_time', 'api_get_local_time'),
             new TwigFilter('api_convert_and_format_date', 'api_convert_and_format_date'),
             new TwigFilter('format_date', 'api_format_date'),
             new TwigFilter('format_file_size', 'format_file_size'),
-            new TwigFilter('date_to_time_ago', 'Display::dateToStringAgoAndLongDate'),
+            new TwigFilter('date_to_time_ago', 'Display::dateToStringAgoAndLongDate', ['is_safe' => ['html']]),
             new TwigFilter('api_get_configuration_value', 'api_get_configuration_value'),
             new TwigFilter('remove_xss', 'Security::remove_XSS'),
             new TwigFilter('user_complete_name', 'UserManager::formatUserFullName'),
@@ -74,8 +76,14 @@ class ChamiloExtension extends AbstractExtension
             new TwigFunction('password_checker_js', [$this, 'getPasswordCheckerJs'], ['is_safe' => ['html']]),
             new TwigFunction('theme_asset', $this->getThemeAssetUrl(...)),
             new TwigFunction('theme_asset_link_tag', $this->getThemeAssetLinkTag(...), ['is_safe' => ['html']]),
+            new TwigFunction(
+                'theme_asset_script_tag',
+                $this->themeHelper->getThemeAssetScriptTag(...),
+                ['is_safe' => ['html']]
+            ),
             new TwigFunction('theme_asset_base64', $this->getThemeAssetBase64Encoded(...)),
             new TwigFunction('theme_logo', $this->getThemeLogoUrl(...)),
+            new TwigFunction('is_allowed_to_edit', $this->isAllowedToEditHelper->check(...)),
         ];
     }
 
@@ -105,7 +113,13 @@ class ChamiloExtension extends AbstractExtension
 
     public function getSettingsParameter($name)
     {
-        return $this->helper->getSettingsParameter($name);
+        $value = $this->helper->getSettingsParameter($name);
+        // We only want to inject valid HTML snippets here.
+        if ('tracking.header_extra_content' === $name || 'tracking.footer_extra_content' === $name) {
+            return $this->resolveTrackingExtraContentValue($name, $value);
+        }
+
+        return $value;
     }
 
     /**
@@ -272,5 +286,51 @@ class ChamiloExtension extends AbstractExtension
     public function getThemeAssetBase64Encoded(string $path): string
     {
         return $this->themeHelper->getAssetBase64Encoded($path);
+    }
+
+    /**
+     * Normalize legacy tracking extra content values.
+     *
+     * Expected value: an HTML snippet (e.g. <script>...</script>, <meta ...>, etc.)
+     *
+     * Problem on migrated portals:
+     * - Legacy migration can store a filesystem path (e.g. "app/home/header_extra_content.txt")
+     * - Rendering that value produces a visible "flash" of the path before navigation completes.
+     *
+     * Rule:
+     * - Only allow HTML snippets (must contain "<").
+     * - If the value looks like a file path / file reference, return empty string.
+     * - If the value is plain text (no "<"), return empty string (do not inject as |raw).
+     */
+    private function resolveTrackingExtraContentValue(string $settingName, mixed $value): string
+    {
+        if (!\in_array($settingName, ['tracking.header_extra_content', 'tracking.footer_extra_content'], true)) {
+            return \is_string($value) ? $value : '';
+        }
+
+        if (!\is_string($value)) {
+            return '';
+        }
+
+        $value = trim($value);
+        if ('' === $value) {
+            return '';
+        }
+
+        // Only allow HTML snippets. Anything else should not be injected with |raw.
+        if (!str_contains($value, '<')) {
+            return '';
+        }
+
+        // Reject obvious file paths or filename references to avoid injecting legacy migrated values.
+        // Examples: "app/home/header_extra_content.txt", "/var/www/...", "C:\path\file.txt"
+        $looksLikePath = str_contains($value, '/') || str_contains($value, '\\');
+        $looksLikeFile = (bool) preg_match('/\.[a-z0-9]{1,8}\b/i', $value);
+
+        if ($looksLikePath && $looksLikeFile) {
+            return '';
+        }
+
+        return $value;
     }
 }

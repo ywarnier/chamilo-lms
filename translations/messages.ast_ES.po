@@ -19415,9 +19415,6 @@ msgstr "Eliminar base de datos antigua"
 msgid "Remove old tables"
 msgstr "Eliminar tables antiguas"
 
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "Espaciu total usáu pol portal %s llimitáu a %s MB"
-
 msgid "Event message management"
 msgstr "Xestión de mensaxes d'eventos"
 
@@ -31074,8 +31071,8 @@ msgstr "Amestar comentariu"
 msgid "Write your comment here..."
 msgstr "Escribi el comentariu equí..."
 
-msgid "%d selected"
-msgstr "%d seleicionaos"
+msgid "%s selected"
+msgstr "%s seleicionaos"
 
 msgid "Search by title or path..."
 msgstr "Guetar por títulu o camín..."
@@ -31083,8 +31080,8 @@ msgstr "Guetar por títulu o camín..."
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "Xestionar copes de seguridá, restaurar, copiar, reciclar y desaniciar datos del cursu."
 
-msgid "%d comment(s)"
-msgstr "%d comentariu(s)"
+msgid "%s comment(s)"
+msgstr "%s comentariu(s)"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "Error actualizando el terceiru. Verifica los datos."
@@ -31439,4 +31436,1138 @@ msgstr "Namái güiones baixos (_), díxitos y lletres tán permitíos nel nome 
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "¿Qué términos y condicions xenerales se dan a los usuarios pa usar esta plataforma?"
+
+msgid "ex. {examplePassword}"
+msgstr "p. es. {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "¡Bienveníu a Chamilo!"
+
+msgid "Welcome to this platform"
+msgstr "Bienveníu a esta plataforma"
+
+msgid "For more details visit %s"
+msgstr "Pa más detalles visita %s"
+
+msgid "Manager"
+msgstr "Xestor"
+
+msgid "Mark as"
+msgstr "Marcar como"
+
+msgid "Reply to all"
+msgstr "Respuesta a toos"
+
+msgid "SCIM external ID"
+msgstr "ID esternu SCIM"
+
+msgid "OAuth2 ID"
+msgstr "ID OAuth2"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "Acepta la última versión de les condicions de ús."
+
+msgid "Required value for operation without path"
+msgstr "Valor requeríu pa l'operación ensin ruta"
+
+msgid "Available space (%s)"
+msgstr "Espaciu disponible (%s)"
+
+msgid "Index this description for the global search"
+msgstr "Indexar esta descripción pa la gueta global"
+
+msgid "Unknown course"
+msgstr "Curs desconocíu"
+
+msgid "Certificate not found."
+msgstr "Certificáu non atopáu."
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "Token de seguridá caducáu. Recarga la páxina y volvi pruebar."
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "Namái los alministradores de la plataforma pueden camudar la visibilidá del cursu."
+
+msgid "Unexpected error while subscribing the user"
+msgstr "Error inesperáu mientres la subscripción de l'usuariu"
+
+msgid "Search in resource logs"
+msgstr "Guetar nos rexistros de recursu"
+
+msgid "Include this learning path in the global search results"
+msgstr "Incluyir esta ruta d'aprendizaxe nos resultaos de gueta global"
+
+msgid "The course code already exists"
+msgstr "El códigu del cursu ya esiste"
+
+msgid "Latest news"
+msgstr "Últimes nueves"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "Recibe les últimes nueves de Chamilo, incluyíes vulnerabilidaes de seguridá y eventos, direutamente nel teu panel d'alministración. Estes conteníos comprobaranse nel sirvidor de nueves de Chamilo cada vegada que cargues la páxina d'alministración y namái serán visibles pa alministradores."
+
+msgid "Chamilo support block"
+msgstr "Bloque de sofitu Chamilo"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "Recibe conseños profesionales y una forma fácil de ponerse en contautu con proveedores de serviciu oficiales pa sofitu profesional, direutamente de los creadores de Chamilo. Esti bloque apaecer na páxina d'alministración, ye namái visible pa alministradores y actualízase cada vegada que cargues la páxina d'alministración."
+
+msgid "Hide option to send announcements to HR users"
+msgstr "Ocultar opción pa enviar anuncies a usuarios HR"
+
+msgid "Allow session admins to download private certificates"
+msgstr "Permitir a alministradores de sesión descargar certificaus privaus"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "Si s'activa, los alministradores de sesión pueden descargar certificaus encamiados que nun seán públicamente publicaos."
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "Si nun ta balero, el procesu de creación del cursu buscará dellos campos nel perfil d'usuariu y rellenalos automáticamente pal cursu. Por exemplu, un profesor especializáu en mercáu dixital podría establir automáticamente una marca « mercáu dixital » en cadu cursu que cree."
+
+msgid "Main menu entries"
+msgstr "Entríes del menú principal"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "Marca les entríes que quies que apaézgan nel menú principal"
+
+msgid "Main menu entries per role"
+msgstr "Entríes del menú principal por rol"
+
+msgid "Define header tabs visibility per role."
+msgstr "Define la visibilidá de les llingüetes del encabezáu por rol."
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "Configura les opcions que quies que apaézgan na navegación alredor d'una tabla pa amosar menos o más toes nunha páxina. p.ex. [50, 100, 200, 500]."
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "Array de carauterístiques estra que pues activar pal reproductor de vídeo en Chamilo. Les opcions inclúin 'speed', que te permite camudar la velocidá de reproducción d'un vídeo."
+
+msgid "Mail: character set"
+msgstr "Corréu: conxuntu de carauteres"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "Si necesitas definir el conxuntu de carauteres a usar al enviar eses correos. Dexalo balero si nun ye'l casu."
+
+msgid "Mail: Debug"
+msgstr "Corréu: Depuración"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "Escoye si quies activar los rexistros de depuración d'enviar correos. Estos daránte más información sobre lo que pasa al coneutase al serviciu de corréu, pero nun son elegantes y puen romper el diseñu de la páxina. Úsalos namái cuando nun haya actividá d'usuariu."
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "Correxu: Evitar usar LD+JSON"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "Dellos clientes de corréu nun entienden el formatu descriptivu LD+JSON, amosándolo como una cadena JSON solta pa l'usuariu final. Si ye'l to casu, quies poner la variable d'abaxo en 'false' pa desactivar esta cabecera."
+
+msgid "Mail: DKIM headers"
+msgstr "Correxu: Cabeceres DKIM"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "Introduce un array JSON coles tos axustes de configuración DKIM (ver exemplu)."
+
+msgid "Mail: XOAuth2 options"
+msgstr "Correxu: Opciones XOAuth2"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "Si uses un serviciu de corréu basáu en XOAuth2, usa esta axuste en JSON pa guardar la to configuración específica (ver exemplu) y seleiciona XOAuth2 nel axuste del serviciu de corréu."
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "Define'l tipu d'entornu: \"prod\" (producción normal), \"validation\" (comu producción pero ensin informar estadístiques), o \"test\" (mode depuración con ferramientes pa desarrolladores como indicadors de cadenes nun traducíes)."
+
+msgid "Global limit of users per course"
+msgstr "Límite global d'usuarios por cursu"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "Define un númberu máximu global d'usuarios (incluyíos profesores) permitíos subscribise a cualesquier cursu individual na plataforma. Pon este valor a 0 pa desactivar el llímite. Esto ayuda a evitar que los cursos s'al sobrecarguen en portales abiertos."
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "Activa pa usar un array pa definir qué roles han amosase claramenti y cuáles anescondese."
+
+msgid "Show base course posts in session course"
+msgstr "Amosar mensaxes base del cursu na sesión del cursu"
+
+msgid "Limit identical email usage"
+msgstr "Llendar l'usu de correu idénticu"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "Númberu máximu de comptes permitíos pa compartir la mesma direición de corréu-e. Establéizase en 0 pa desactivar esti llímite."
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "Permite a los alministradores de sesión ver toos los usuarios en toles URLs"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "Si ta activáu, los alministradores de sesión puen buscar y amosar usuarios de toles URLs d'accesu, independentemente de la URL actual."
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "Activa la posibilidá pa que los usuarios escuyan la so zona horaria. Una vez configurada, los usuarios verán les feches llimite de les xestes y otres referencies temporales na so zona horaria, lo que reducirá errores na hora d'entrega."
+
+msgid "Redirect after login (per profile)"
+msgstr "Redireición dempués del aniciu de sesión (por perfil)"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "Define redireición por perfil dempués del aniciu de sesión usando un oxetu JSON como {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "Anubrir casilla d'aceutación llegal na páxina de Términos y Condiciones"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "Si s'establece en true, elimina la casilla \"He lleíu y aceuto\" nel fluxu de la páxina de Términos y Condiciones."
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "Array que define l'agosiu y puertu pal sirvidor LDAP."
+
+msgid "Enable 2FA"
+msgstr "Activar 2FA"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "Amestar campos na páxina d'actualización de contraseña pa activar 2FA usando una app autenticadora TOTP. Cuando ta desactiváu globalmente, los usuarios nun verán campos 2FA y nun se les pidirá 2FA al aniciar sesión, anque l'ubieran activáu enantes."
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "Delles carauterístiques de Chamilo van coneutase al exterior dende'l sirvidor. Por exemplu, pa asegurar que un conteníu esternu esiste al crear un enllace o amosar una páxina incrustada nel camín d'apreendizaxe. Si'l sirvidor Chamilo usa un proxy pa salir da la rede, esti ye'l llugar pa configuralo."
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "Activar o desactivar reinscripción automática cuando caduca la validez del cursu. Ademáis hai que activar la tarefa programada relacionada."
+
+msgid "Show remaining days in My Sessions"
+msgstr "Amosar díes restanten en Mis Sesiones"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "Si ta activáu, les feches de sesión na páxina \"Mis Sesiones\" sustituiranse pol númberu de díes restanten."
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "Amosar \"Encuestes pendentes\" nel menú"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "Amosar un elementu del menú que permite a los usuarios accedé a les sos encuestes pendentes."
+
+msgid "Disclose AI assistance"
+msgstr "Revelar asistencia d'IA"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "Amosar una etiqueta en calquier conteníu o retroalimentación xenerada o coxenerada por cualquier sistema d'IA, evidenciando al usuariu que'l conteníu foi creáu con ayuda d'algún sistema d'IA. Los detalles sobre qué sistema d'IA s'usuó en cada casu guardense na base de datos pa auditoría, pero nun son accesibles direutamente pol usuariu final."
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "Configuración JSON pal catálogu de cursos: axustes d'enllaces, filtros, axustes d'ordenación, etc."
+
+msgid "Session Catalog Settings"
+msgstr "Axustes del Catálogu de Sesiones"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "Configuración JSON pal catálogu de sesiones: filtros y axustes d'amosamientu."
+
+msgid "Show Course Descriptions"
+msgstr "Amosar Descripciones de Cursos"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "Amosar descripciones de cursos na llista del catálogu."
+
+msgid "Published Courses Only"
+msgstr "Únicamente Cursos Publicaos"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "Llendar el catálogu a cursos marcaos como publicaos."
+
+msgid "Display Catalog on Homepage"
+msgstr "Amosar Catálogu na Páxina Principal"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "Amosar el bloqué del catálogu de cursos na páxina principal de la plataforma."
+
+msgid "Hide Public Link"
+msgstr "Anubrir Enllace Públicu"
+
+msgid "Remove the public URL link from course cards."
+msgstr "Eliminar l'enllace URL públicu de les tarxetes de cursu."
+
+msgid "Only Selected Courses"
+msgstr "Únicamente Cursos Seleccionaos"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "Amosar únicamente cursos seleccionaos manualmente nel catálogu."
+
+msgid "Allow Student Browsing"
+msgstr "Permitir Navegación d'Estudiantes"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "Permite a los estudiantes navegar y filtrar el catálogu de cursos."
+
+msgid "Hide Private Courses"
+msgstr "Anubrir cursos priváos"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "Escluyir cursos priváos de la visualización del catálogu."
+
+msgid "Show Courses & Sessions"
+msgstr "Amosar cursos y sesiones"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "Incluyir cursos y sesiones nos resultaos del catálogu."
+
+msgid "Auto Session Subscription"
+msgstr "Subscripción automática a sesiones"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "Activar la subscripción automática a sesiones pa usuarios."
+
+msgid "Subscription in Session View"
+msgstr "Subscripción na vista de sesión"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "Permite a los usuarios subscribise a cursos direutamente dende la páxina de sesión."
+
+msgid "Enable redirection plugin"
+msgstr "Activar plugin de redireición"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "Array que define los 'díes' y 'meses' pa establir la fecha d'espiración de la cuenta cuando l'usuariu s'conecte per primera vegada."
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "Un array de rol => númberu que representa el númberu de díes que tiene una cuenta enantes d'espirar, dependiendo del rol."
+
+msgid "Extra user field used to search and name sessions"
+msgstr "Campa extra d'usuariu usa pa buscar y nombrar sesiones"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "Esta axuste define la clave del campu extra d'usuariu (p.ex., \"company\") que se usará pa buscar usuarios y pa definir el nome de la sesión al rexistrar estudiantes dende /admin-dashboard/register."
+
+msgid "Glossary terms generator"
+msgstr "Xenerador de términos del glosariu"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "Permite a los profesores pidir términos del glosariu xeneraos por IA nel curriḷlu. Esto xenerará 20 términos basáos nel títulu del cursu y la descripción xeneral na herramienta de descripción del cursu. Si s'usa más d'una vegada, escluyirá términos yá presentes nesi glosariu (asegúrate de que el conteníu pueda compartise colos serviciu d'IA configuraos)."
+
+msgid "Video generator"
+msgstr "Xenerador de vídeos"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "Xenera vídeos basáos en indicaciones o conteníu usando IA (esto pue consumir dellos tokens)."
+
+msgid "Course analyser"
+msgstr "Analizador de cursos"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "Analiza tolos recursos nun o dellos cursos y pre-entrena l modelu d'IA pa contestar cualquier pregunta sobre esti o esti cursos (asegúrate de que el conteníu pueda compartise colos serviciu d'IA configuraos)."
+
+msgid "Test/development"
+msgstr "Prueba/desendolcamentu"
+
+msgid "Crons"
+msgstr "Crons"
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "Gradebook"
+msgstr "Llibreta de notes"
+
+msgid "Internationalization"
+msgstr "Internacionalización"
+
+msgid "User profiles"
+msgstr "Perfiles d'usuariu"
+
+msgid "Support tickets"
+msgstr "Tiquets de soporte"
+
+msgid "Webservices"
+msgstr "Servicios web"
+
+msgid "Catalogue"
+msgstr "Catálogu"
+
+msgid "Workflows"
+msgstr "Fluxos de trabayu"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "Axuste editable en sub-URLs"
+
+msgid "Show JSON Template"
+msgstr "Amosar plantía JSON"
+
+msgid "JSON Template"
+msgstr "Plantía JSON"
+
+msgid "Installing Xapian bindings"
+msgstr "Instalando bindings de Xapian"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "El siguiente fragmentu amosa un exemplu d'instalación de los bindings de PHP de Xapian en Ubuntu 25.04 con PHP 8.3. Adapta les routes y versiones al to entornu."
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "Asegúrate de tener namái la versión de PHP que realmente uses (por exemplu 8.3) y evita mezclar delles versiones con direutories d'esixencias diferentes."
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "Una vegada que la esixensión tea cargada correutamente tantu pa CLI como pal sirvidor web, los diagnósticos de gueta de cimientu deuen informar que'l moudu Xapian ta instaláu."
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "Nuber subíes temporales y caché"
+
+msgid "Directory"
+msgstr "Direutoriu"
+
+msgid "Only delete files older than (minutes)"
+msgstr "Desaniciar namái archivos más vieyos que (minutos)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "Estayar 0 pa desaniciar tolos archivos. Usar un valor positivu (ex., 60) pa evitar desaniciar archivos que tán subiéndose."
+
+msgid "Preview only (do not delete)"
+msgstr "Previsualizar namái (nun desaniciar)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "Avisu: vas desaniciar TOSOS los archivos temporales. Esta axón nun ye desfacible."
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "Esto desaniciará tolos archivos temporales. ¿Continuar?"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "Esto desaniciará archivos más vieyos que %minutes% minutos. ¿Continuar?"
+
+msgid "The value must match exactly: %s"
+msgstr "El valor debe coincidir exactamente: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "La fecha de fin de repetición debe ser posterior a la fecha de inicio."
+
+msgid "Index document content?"
+msgstr "¿Indexar conteníu del documentu?"
+
+msgid "Upload SVG logo to platform header"
+msgstr "Xubir logo SVG na cabecera de la plataforma"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "Xubir logo PNG na cabecera de la plataforma (%s)"
+
+msgid "Write something to %s"
+msgstr "Escribi algo a %s"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "Preferíu: SVG. Llargura PNG recomendada: %spx."
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "Xubir logo PNG pa correos (~%spx de llargura)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "El PNG de cabecera debe tener ≤ %spx."
+
+msgid "Require specific file format"
+msgstr "Esixite formatu d'archivu específicu"
+
+msgid "Select allowed file formats"
+msgstr "Escoyer formatos d'archivu permitíos"
+
+msgid "Custom extensions (separated by space)"
+msgstr "Estensiones personalices (separaes por espaciu)"
+
+msgid "Other extensions"
+msgstr "Otras estensiones"
+
+msgid "My invitations"
+msgstr "Les mios invitaciones"
+
+msgid "Delete access"
+msgstr "Desaniciar accesu"
+
+msgid "Certificate tags"
+msgstr "Etiquetes del certificáu"
+
+msgid "Copy all"
+msgstr "Copiar tolo"
+
+msgid "Click to insert"
+msgstr "Enclicar pa inserir"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "Preferíu: SVG. Tamiñu máx. PNG: %spx."
+
+msgid "View badge"
+msgstr "Ver distintivu"
+
+msgid "%d min"
+msgstr "%d min"
+
+msgid "Duration in minutes"
+msgstr "Duración en minutos"
+
+msgid "Go back to standard view"
+msgstr "Volver a la vista estándar"
+
+msgid "Search for student..."
+msgstr "Guetar alumnos..."
+
+msgid "This date is locked or read-only."
+msgstr "Esta fecha ta bloquiada o namái de lectura."
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "Siguió cargar l'assistolia. Pruèbalo más tarde."
+
+msgid "Nothing to save"
+msgstr "Nun hai nada que guardar"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "Ties cambéosensin guardar. ¿Quieres siguir?"
+
+msgid "Storage usage unavailable"
+msgstr "Usu d'alminu non disponible"
+
+msgid "Search for members..."
+msgstr "Guetar miembros..."
+
+msgid "Current members"
+msgstr "Miembru actuals"
+
+msgid "Add members"
+msgstr "Amestar miembros"
+
+msgid "Search for users in course/session..."
+msgstr "Guetar usuarios nel cursu/sesión..."
+
+msgid "No users available."
+msgstr "Nun hai usuarios disponibles."
+
+msgid "Browse and publish new posts"
+msgstr "Guetar y publicar Nuevos posts"
+
+msgid "Create and assign tasks"
+msgstr "Crear y asignar xestes"
+
+msgid "Filtered by %s"
+msgstr "Filtráu por %s"
+
+msgid "Select a score"
+msgstr "Escoyer una nota"
+
+msgid "Edit comment"
+msgstr "Editar comentariu"
+
+msgid "Failed to update the post."
+msgstr "Siguió actualizase'l post."
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "¿Desaniciar esti post? Esta axón nun ye desfaable."
+
+msgid "Failed to delete the post."
+msgstr "Siguió desaniciar el post."
+
+msgid "Failed to update the comment."
+msgstr "Siguió actualizase'l comentariu."
+
+msgid "Delete this comment?"
+msgstr "¿Desaniciar esti comentariu?"
+
+msgid "Failed to delete the comment."
+msgstr "Siguió desaniciar el comentariu."
+
+msgid "Search for projects..."
+msgstr "Guetar proiectu..."
+
+msgid "Only visible"
+msgstr "Namái visible"
+
+msgid "Rename project"
+msgstr "Renomar proyectu"
+
+msgid "New title"
+msgstr "Nuevu títulu"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "Has de ser alministrador o profesor pa xestionar proyectu."
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "¿Desaniciar esti proyectu? Esta axón nun ye desfaable."
+
+msgid "Task list"
+msgstr "Llista de xestes"
+
+msgid "Change status"
+msgstr "Camudar estau"
+
+msgid "Waiting for validation"
+msgstr "Esperando validación"
+
+msgid "Delete this task?"
+msgstr "¿Desaniciar esta xebra?"
+
+msgid "Failed to delete the task."
+msgstr "Falló al desaniciar la xebra."
+
+msgid "Failed to update status."
+msgstr "Falló al actualizar l'estau."
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "¿Tas seguru de que quies desaniciar esti terceru? Esta axón nun ye desfacible."
+
+msgid "Please fix the errors before saving."
+msgstr "Corrixi los errores enantes de guardar."
+
+msgid "Error creating third party. Please verify the data."
+msgstr "Error creando terceru. Verifica los datos."
+
+msgid "Error deleting third party."
+msgstr "Error desaniciando terceru."
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "Xubir logos opcionales pa cabecera y corréu. Prefierse SVG; PNG úsase como alternativa."
+
+msgid "Data exchange updated successfully."
+msgstr "Cambeu d'intercambeu de datos actualizáu correutamente."
+
+msgid "Error deleting data exchange."
+msgstr "Error desaniciando intercambeu de datos."
+
+msgid "Failed to recycle course."
+msgstr "Falló al reciclar el cursu."
+
+msgid "Select source course"
+msgstr "Seleicionar cursu d'orixe"
+
+msgid "Course to copy from"
+msgstr "Cursu d'on copiar"
+
+msgid "Search by code or title..."
+msgstr "Guetar por códigu o títulu..."
+
+msgid "No courses match your search."
+msgstr "Nun hai cursu que concue con la gueta."
+
+msgid "Copy options"
+msgstr "Opciones de copia"
+
+msgid "Include users (enrollments)"
+msgstr "Incluyir usuarios (matriculamientos)"
+
+msgid "Reset dates"
+msgstr "Restear feches"
+
+msgid "When a file with the same name exists"
+msgstr "Cuando esiste un ficher col mesmu nome"
+
+msgid "Ready to copy"
+msgstr "Prestu pa copiar"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "Copiaremos el conteníu del cursu seleicionáu neste cursu. Puees volver pa camudar opciones."
+
+msgid "Start copying"
+msgstr "Entamar copia"
+
+msgid "Select resources to copy"
+msgstr "Seleicionar recursos pa copiar"
+
+msgid "Copy selected"
+msgstr "Copiar seleicionaos"
+
+msgid "Copy completed."
+msgstr "Copia rematada."
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "Zona perigosu: desaniciar un cursu ye permanente."
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "Escribi el códigu del cursu pa confirmar. Tolos datos van ser desaniciaos permanentemente."
+
+msgid "The code must match '%s' exactly."
+msgstr "El códigu tiene de concidir exactamente con '%s'."
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "Tamién desaniciar documentos que namái s'usen neste cursu (si esisten)."
+
+msgid "Delete course"
+msgstr "Desaniciar cursu"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "Esta axón nun ye desfacible. ¿Continuar?"
+
+msgid "Course deleted successfully."
+msgstr "Cursu desaniciáu correutamente."
+
+msgid "Failed to delete course."
+msgstr "Falló al desaniciar el cursu."
+
+msgid "Create .mbz"
+msgstr "Crear .mbz"
+
+msgid "Backup scope"
+msgstr "Ámbitu de copia de seguridá"
+
+msgid "Full course"
+msgstr "Cursu completu"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "Los elementos seleicionaos serán los únicos incluyíos nel ficher esportáu."
+
+msgid "Moodle export"
+msgstr "Esportación Moodle"
+
+msgid "Moodle version"
+msgstr "Versión de Moodle"
+
+msgid "Admin ID"
+msgstr "ID d'administrador"
+
+msgid "Internal integer user id"
+msgstr "ID enteru internu d'usuariu"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle requiere un ID internu d'usuariu guardáu en XML. Si tienes dubidas, usa 1."
+
+msgid "Username to appear as owner of imported items"
+msgstr "Nome d'usuariu que apaecerá como propietariu de los elementos importados"
+
+msgid "Email to use in the archive metadata"
+msgstr "Corréu pa usar nos metadatos del archivu"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr "Xenerarase un ficher .mbz. Poderás descargalu una vez rematáu."
+
+msgid "Select resources to include"
+msgstr "Seleicionar recursos pa incluir"
+
+msgid "Export completed"
+msgstr "Esportación rematada"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "La copia de seguridá de Moodle creóse. Puedes atopalu na llista de copies de seguridá del cursu."
+
+msgid "Please complete all required fields."
+msgstr "Complete toos los campos obligatorios."
+
+msgid "Failed to create Moodle backup."
+msgstr "Falló la creación de la copia de seguridá de Moodle."
+
+msgid "More actions"
+msgstr "Más axones"
+
+msgid "Write something"
+msgstr "Escribi algo"
+
+msgid "Friends of %s"
+msgstr "Amigos de %s"
+
+msgid "Error loading learning paths."
+msgstr "Error cargando les rutas d'aprendizaxe."
+
+msgid "You don't have any learning path."
+msgstr "Nun tienes nenguna ruta d'aprendizaxe."
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "Crea la primera ruta d'aprendizaxe pa entamar a organizar el conteníu del cursu."
+
+msgid "Could not save the new category order."
+msgstr "Nun ye posible guardar el nuevu orde de les categories."
+
+msgid "Could not save the new order."
+msgstr "Nun ye posible guardar el nuevu orde."
+
+msgid "Assignment"
+msgstr "Trabayu"
+
+msgid "Allowed file formats: %s"
+msgstr "Formatos de ficheru permitíos: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "Tipu de ficheru non permitíu. Estensiones permitíes: %s"
+
+msgid "Folder name"
+msgstr "Nome de la carpeta"
+
+msgid "Rename folder"
+msgstr "Renomar carpeta"
+
+msgid "New name"
+msgstr "Nuevu nome"
+
+msgid "Choose an action"
+msgstr "Escoye una axón"
+
+msgid "New version"
+msgstr "Nuev versión"
+
+msgid "Change title to selected filename"
+msgstr "Camudar títulu al nome del ficheru seleicionáu"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "Pues camudar el ficheru, movelu a otru directoriu o les dos coses."
+
+msgid "Move %s"
+msgstr "Mover %s"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "Sólo s'amenen les carpetes non-raíz pa evitar dexar elementos na raíz."
+
+msgid "No feedback yet."
+msgstr "Encami nengún comentariu."
+
+msgid "Upload first, organize later"
+msgstr "Subir primero, organizar dempués"
+
+msgid "Drag & drop or browse to add files"
+msgstr "Arraxar y soltar o navegar pa amestar ficheros"
+
+msgid "Social wall..."
+msgstr "Mur social..."
+
+msgid "Wall of %s"
+msgstr "Mur de %s"
+
+msgid "Version currently loaded"
+msgstr "Versión cargada actualmente"
+
+msgid "Completion"
+msgstr "Completáu"
+
+msgid "Quick navigation"
+msgstr "Navegación rápida"
+
+msgid "Filled"
+msgstr "Rellenáu"
+
+msgid "Terms sections"
+msgstr "Seiciones de términos"
+
+msgid "Open a section to edit its content."
+msgstr "Abrir una seición pa editar el so conteníu."
+
+msgid "Open this section to load the editor."
+msgstr "Abrir esta seición pa cargar l'editor."
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "Zona perigosu: eliminar una URL d'accesu ye permanente."
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "Escribi la URL completa pa confirmar. La URL y les sues relacions van ser eliminados permanentemente."
+
+msgid "Unable to load the badge's image."
+msgstr "Nun ye posible cargar la imaxe de la distintiva."
+
+msgid "Invalid role selection"
+msgstr "Seleición de rol inválida"
+
+msgid "Select relation type first to enable user management."
+msgstr "Escueye primero el tipu de relación pa activar la xestión d'usuarios."
+
+msgid "This question has no course context. Preview is not available."
+msgstr "Esta pregunta nun tien conteniu de cursu. La previsualización nun ye disponible."
+
+msgid "Unknown test"
+msgstr "Proba desconocida"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "L'eliminación nun ye permitida ensin conteniu de cursu."
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "Falló l'eliminación: falta conteniu de cursu oEsta pregunta pertenez a una proba. Edítala dende la proba o filtra namái les preguntes orfanes.id de pregunta válidu."
+
+msgid "Delete failed: question not found."
+msgstr "Falló l'eliminación: pregunta non atopada."
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "Falló l'eliminación: esta pregunta sigo referenciada por otros recursos."
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "Esta pregunta pertenez a una proba. Edítala dende la proba o filtra namái les preguntes orfanes."
+
+msgid "Access the group tools and resources"
+msgstr "Acceder a les ferramientes y recursos del grupu"
+
+msgid "%s members"
+msgstr "%s miembros"
+
+msgid "View certificate (HTML)"
+msgstr "Ver certificáu (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "Enllazar una competencia a esta libreta de calificaciones"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "Xestionar l'enllace ente certificaus y competencias pa cada libreta de calificaciones"
+
+msgid "Please select a specific badge issue to download"
+msgstr "Escueye una emisión específica de distintiva pa descargar"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM nun ta activáu."
+
+msgid "Invalid token."
+msgstr "Token inválidu."
+
+msgid "Schema not supported."
+msgstr "Esquema non soportáu."
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "Esquemes inválidos pa l'operación PATCH."
+
+msgid "Missing required \"Operations\" array."
+msgstr "Falta l'array obligatoriu \"Operations\"."
+
+msgid "The '%s' operation is not supported."
+msgstr "L'operación '%s' nun ye soportada."
+
+msgid "Drupal user ID"
+msgstr "ID d'usuariu de Drupal"
+
+msgid "There are no terms that match the search: %s"
+msgstr "Nun hai términos que concasen col cambéu: %s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "La axuste ta bloqueada globalmente (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "Si ta activada, los mensaxes de chat privau 1:1 anoveranse nos documentos d'historial de chat del cursu. Recomendase dexar desactivada pa la privacidá."
+
+msgid "Save private conversations in documents"
+msgstr "Guardar converses privades en documentos"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "Rexlamentu d'IA de la UE – Aviso de transparencia y riesgu"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "Bajo'l Rexlamentu d'Intelixencia Artificial de la UE (Rexlamentu (UE) 2024/1689), los sistemes d'IA usaos na educación clasifícase xeneralmente como «d'altu riesgu». Esti software <strong>nun</strong> ye un sistema d'IA, pero pue integrar sistemes d'IA internos o esternos opcionales—según la to configuración—pa meyorar el rindimientu de les tares de l'usuariu. Esti sistemes podrían acceder a datos personals <em>únicamente si</em> los usuarios inclúin esti datos nos sos prompts. Por deseñu, esti software nun comparte datos personals con sistemes d'IA ensin la entrada activa de l'usuariu. Por omisión, toles carauterístiques d'IA tán desactiváes."
+
+msgid "Admin responsibility & disclosures"
+msgstr "Responsabilidad de l'administrador y divulgaciones"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "Esta páxina de configuración detalla cada carauterística d'IA y el so propósitu. Como desplegador, debes revisalu con delligencia y actualizar les tos políticas de privacidá de datos conformes col RGPD pa reflectir les opciones que actives. Anque la mayoría de les carauterístiques d'IA nun comparten datos personals direutamente con sistemes esternos, los prompts d'usuariu enteñaos a IA pueden incluir inadvertidamente información personal. Como desplegador, <strong>ti es responsable</strong> d'informar a los usuarios d'esti riesgu. Pa la transparencia, les versiones futuras puen amosar etiquetes non intrusives pa l'usuariu final indicandose que certu conteníu o retroalimentación xenerose con ayuda d'IA."
+
+msgid "Positioning"
+msgstr "Posicionamientu"
+
+msgid "Quiz"
+msgstr "Cursu de preguntes"
+
+msgid "Customcertificate"
+msgstr "Customcertificate"
+
+msgid "Update profile"
+msgstr "Actualizar perfil"
+
+msgid "Enable learning path generator"
+msgstr "Activar xenerador de camín de aprendizaxe"
+
+msgid "Enable exercise generator"
+msgstr "Activar xenerador d'exercicios"
+
+msgid "Enable open answers grader"
+msgstr "Activar corrector de respuestes abiertes"
+
+msgid "Enable tutor chatbot"
+msgstr "Activar chatbot de tutor"
+
+msgid "Enable task grader"
+msgstr "Activar corrector de tares"
+
+msgid "Enable content analyser"
+msgstr "Activar analizador de conteníu"
+
+msgid "Enable image generator"
+msgstr "Activar xenerador d'imaxes"
+
+msgid "Enable glossary terms generator"
+msgstr "Activar xenerador de términos del glosariu"
+
+msgid "Enable video generator"
+msgstr "Activar xenerador de vídeo"
+
+msgid "Enable course analyser"
+msgstr "Activar analizador de cursu"
+
+msgid "The operation '%s' is not supported."
+msgstr "L'operación '%s' nun ye compatible."
+
+msgid "AI feedback on %s in course %s"
+msgstr "Comentariu d'IA sobre %s nel cursu %s"
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr "Falló al desaniciar: falda el contestu del cursu o ID de pregunta inválidu."
+
+msgid "AI Tutor"
+msgstr "Tutor IA"
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr "La estensión APCu tiene de tar instalada y activada pa que la plataforma la pueda usar."
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr "Recoméndase permitir que OPCache memory_consumption llegue al menos a %sMB de RAM."
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr "El módulu OPcache tiene de tar instaláu y activáu pa que la plataforma lo pueda usar."
+
+msgid "You are here"
+msgstr "Tas equí"
+
+msgid "Click an event type to filter results."
+msgstr "Ye quita un tipu d'eventu pa filtrar resultaos."
+
+msgid "Require unique presence"
+msgstr "Esixil presencia única"
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr "Si s'activa,'l llibru de notes dará al aprendiz un 100% si ta presenten al menos una vegada."
+
+msgid "AI feedback"
+msgstr "Comentariu IA"
+
+msgid "Prompt"
+msgstr "Prompt"
+
+msgid "Tip"
+msgstr "Conseyu"
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr "Pues editar el prompt enantes de pidir comentariu."
+
+msgid "Result (you can apply it to the comment)"
+msgstr "Resultáu (pues aplicalu al comentariu)"
+
+msgid "Apply to comment"
+msgstr "Aplicar al comentariu"
+
+msgid "Apply score"
+msgstr "Aplicar nota"
+
+msgid "AI grade"
+msgstr "Nota IA"
+
+msgid "AI tutor is disabled during tests"
+msgstr "El tutor IA ta desactiváu durante les proves"
+
+msgid "Generate glossary terms"
+msgstr "Xenerar términos del glosariu"
+
+msgid "Generate media"
+msgstr "Xenerar multimedia"
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr "Nun tienes permisos pa xenerar multimedia IA neste cursu."
+
+msgid "AI helpers are disabled at platform level."
+msgstr "Los ayudadores d'IA tán desactivados nel nivel de la plataforma."
+
+msgid "AI media generation is disabled in course settings."
+msgstr "La generación de medios IA ta desactivada nes axustes del cursu."
+
+msgid "No AI media providers available."
+msgstr "Nun hai proveedores de medios IA disponibles."
+
+msgid "Provider"
+msgstr "Proveedor"
+
+msgid "Select a provider"
+msgstr "Seleicionar un provedor"
+
+msgid "Example: generated_media"
+msgstr "Exemplu: generated_media"
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr "El nome nun s'añade al prompt; úsamese namái pa guardar el ficheru."
+
+msgid "Describe what you want to generate..."
+msgstr "Describe lo que quies xenerar..."
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr "Conseyu: calca una preconfiguración pa axustar rápidamentu'l tamañu."
+
+msgid "Generating..."
+msgstr "Xenerando..."
+
+msgid "Save to Documents"
+msgstr "Guardar en Documentos"
+
+msgid "Document IRI"
+msgstr "IRI del documentu"
+
+msgid "Go to folder"
+msgstr "Dir a la carpeta"
+
+msgid "Provider used"
+msgstr "Proveedor usáu"
+
+msgid "This video result cannot be saved yet"
+msgstr "Esti resultáu de vídeo nun se puede guardar encamu."
+
+msgid "Video polling was stopped because the provider changed."
+msgstr "La sondaxe del vídeo paróse porque camudó el provedor."
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr "La xeneración del vídeo ye demasiau larda. Por favor, inténtalo más tarde."
+
+msgid "Failed to check video status."
+msgstr "Falló la comprobación del estáu del vídeo."
+
+msgid "Video generated successfully. You can now save it."
+msgstr "Vídeo xeneráu con èxitu. Dalmáis puedes guardalu."
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr "La xeneración del vídeo completose, pero nun se devolvió conteníu reproducible."
+
+msgid "Video generation failed."
+msgstr "Falló la xeneración del vídeo."
+
+msgid "Waiting for the video to be ready..."
+msgstr "Aguardando a que'l vídeo esté preperáu..."
+
+msgid "Please complete all fields."
+msgstr "Compreta tolos campos."
+
+msgid "Image generation is not enabled for this course."
+msgstr "La xeneración d'imaxes nun ta activada pa esti cursu."
+
+msgid "Video generation is not enabled for this course."
+msgstr "La xeneración de videu nun ta activada pa esti cursu."
+
+msgid "Generation failed."
+msgstr "Falló la xeneración."
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr "Xeneráu con èxitu. Revisa la previsualización y guarda cuando tea preperáu."
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr "Xeneráu con èxitu. El guardáu ta desactiváu porque el provedor devolvió una URL."
+
+msgid "Video generation started. Waiting for the result..."
+msgstr "La xeneración del vídeo aniciose. Aguardando'l resultáu..."
+
+msgid "AI returned an empty response."
+msgstr "La IA devolvió una respuuesta balera."
+
+msgid "Nothing to save yet."
+msgstr "Nun hai nada que guardar encamu."
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr "Esti provedor nun devolvió conteníu base64. Prueba con otru provedor."
+
+msgid "Saving failed."
+msgstr "Falló el guardáu."
+
+msgid "Get AI feedback"
+msgstr "Recuperar comentarios d'IA"
+
+msgid "Copy answer to clipboard"
+msgstr "Copiar la respuesta al portapapeles"
+
+msgid "Save answer to my inbox"
+msgstr "Guardar la respuesta nel meu buster"
+
+msgid "The document is already in this folder"
+msgstr "El documentu yá ta nesta carpeta"
+
+msgid "Copied"
+msgstr "Copiáu"
+
+msgid "You do not have permission to generate glossary terms."
+msgstr "Nun tienes permisos pa xenerar términos del glosariu."
+
+msgid "Video generation is in progress"
+msgstr "La xeneración de videu ta en cursu"
+
+msgid "Job"
+msgstr "Tarea"
+
+msgid "Modified prompt"
+msgstr "Emblozu modificáu"
+
+msgid "Saved in Documents"
+msgstr "Guardáu en Documentos"
 

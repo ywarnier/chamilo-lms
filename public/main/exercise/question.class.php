@@ -3,6 +3,7 @@
 /* For licensing terms, see /license.txt */
 
 use Chamilo\CoreBundle\Framework\Container;
+use Chamilo\CoreBundle\Search\Xapian\XapianIndexService;
 use Chamilo\CourseBundle\Entity\CQuizAnswer;
 use Chamilo\CourseBundle\Entity\CQuizQuestion;
 use Chamilo\CourseBundle\Entity\CQuizQuestionOption;
@@ -634,6 +635,7 @@ abstract class Question
                 ->setFeedback($this->feedback)
                 ->setParentMediaId($this->parent_id)
                 ->setParent($courseEntity)
+                ->setCreator(api_get_user_entity())
                 ->addCourseLink($courseEntity, api_get_session_entity(), api_get_group_entity());
 
             $em->persist($question);
@@ -696,6 +698,10 @@ abstract class Question
         $addQs = false,
         $rmQs = false
     ) {
+        // Chamilo 2 uses Symfony-based indexing. Legacy indexer (course_code) is not compatible.
+        if (class_exists(XapianIndexService::class)) {
+            return;
+        }
         // update search engine and its values table if enabled
         if (!empty($exerciseId) && 'true' == api_get_setting('search_enabled') &&
             extension_loaded('xapian')
@@ -1120,7 +1126,7 @@ abstract class Question
             // Duplicates the picture of the hotspot
             // @todo implement copy of hotspot question
             if (HOT_SPOT == $this->type) {
-                throw new Exception('implement copy of hotspot question');
+                @error_log('[Question::duplicate] Hotspot picture copy not implemented yet. Skipping to avoid fatal error.');
             }
         }
 

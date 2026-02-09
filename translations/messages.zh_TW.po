@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":是:有版權,, 否:無版權"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:資料夾,, application/msword:MsWord,, application/octet-stream:八位元組串流,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:資料夾,, application/msword:MsWord,, application/octet-stream:八位元組流,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":練習:練習,, 類比:類比,, 問卷:問卷,, 圖表:圖表,, 圖:圖,, 圖:圖,, 索引:索引,, 幻燈:幻燈,, 表:表,, 描述文本:描述文本,, 考試:考試,, 實驗:實驗,, 問題聲明:問題聲明,, 自我評價:自我評價,, 演講:演講"
@@ -19415,9 +19415,6 @@ msgstr "移除舊資料庫"
 msgid "Remove old tables"
 msgstr "移除舊資料表"
 
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "入口網站 %s 使用的總空間限制為 %s MB"
-
 msgid "Event message management"
 msgstr "事件訊息管理"
 
@@ -27375,7 +27372,7 @@ msgid "Obtained the following skills"
 msgstr "獲得以下技能"
 
 msgid "Chamilo LMS"
-msgstr "Chamilo LMS"
+msgstr "Chamilo 學習管理系統"
 
 msgid "No course sessions for this user"
 msgstr "此使用者無課程工作坊"
@@ -31074,8 +31071,8 @@ msgstr "新增留言"
 msgid "Write your comment here..."
 msgstr "在此撰寫您的留言..."
 
-msgid "%d selected"
-msgstr "%d 已選取"
+msgid "%s selected"
+msgstr "%s 已選取"
 
 msgid "Search by title or path..."
 msgstr "依標題或路徑搜尋..."
@@ -31083,8 +31080,8 @@ msgstr "依標題或路徑搜尋..."
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "管理備份、還原、複製、回收桶及刪除課程資料。"
 
-msgid "%d comment(s)"
-msgstr "%d 則留言"
+msgid "%s comment(s)"
+msgstr "%s 則留言"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "更新第三方服務發生錯誤。請驗證資料。"
@@ -31439,4 +31436,1138 @@ msgstr "資料庫名稱僅允許字母、數字和底線 (_)。無效字元將�
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "提供給使用者使用此平台的通用條款和條件是什麼？"
+
+msgid "ex. {examplePassword}"
+msgstr "例如 {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "歡迎來到 Chamilo！"
+
+msgid "Welcome to this platform"
+msgstr "歡迎來到此平台"
+
+msgid "For more details visit %s"
+msgstr "欲瞭解更多詳情，請造訪 %s"
+
+msgid "Manager"
+msgstr "管理員"
+
+msgid "Mark as"
+msgstr "標記為"
+
+msgid "Reply to all"
+msgstr "回覆所有人"
+
+msgid "SCIM external ID"
+msgstr "SCIM 外部 ID"
+
+msgid "OAuth2 ID"
+msgstr "OAuth2 ID"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "請接受最新版本的條款與條件。"
+
+msgid "Required value for operation without path"
+msgstr "無路徑操作所需的必要值"
+
+msgid "Available space (%s)"
+msgstr "可用空間 (%s)"
+
+msgid "Index this description for the global search"
+msgstr "將此描述索引至全域搜尋"
+
+msgid "Unknown course"
+msgstr "未知課程"
+
+msgid "Certificate not found."
+msgstr "找不到憑證。"
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "安全性權杖已過期。請重新載入頁面並再試一次。"
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "只有平台管理員可以變更課程可見度。"
+
+msgid "Unexpected error while subscribing the user"
+msgstr "訂閱使用者時發生未預期的錯誤"
+
+msgid "Search in resource logs"
+msgstr "在資源記錄中搜尋"
+
+msgid "Include this learning path in the global search results"
+msgstr "將此學習路徑包含在全域搜尋結果中"
+
+msgid "The course code already exists"
+msgstr "課程代碼已存在"
+
+msgid "Latest news"
+msgstr "最新消息"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "從 Chamilo 取得最新消息，包括安全性漏洞和活動，直接在您的管理面板內。這些消息將在您載入管理頁面時檢查 Chamilo 新聞伺服器，且僅對管理員可見。"
+
+msgid "Chamilo support block"
+msgstr "Chamilo 支援區塊"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "取得專業提示以及輕鬆聯繫官方服務提供者的方式，以取得專業支援，直接來自 Chamilo 的製作團隊。此區塊會出現在您的管理頁面，僅管理員可見，並在您載入管理頁面時重新整理。"
+
+msgid "Hide option to send announcements to HR users"
+msgstr "隱藏發送公告給 HR 使用者的選項"
+
+msgid "Allow session admins to download private certificates"
+msgstr "允許課程管理員下載私人憑證"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "若啟用，課程管理員即使憑證未公開發布仍可下載憑證。"
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "若不為空，課程建立程序將在使用者設定檔中尋找某些欄位並自動填入課程。例如，專攻數位行銷的老師可以自動在每個課程上設定「數位行銷」旗標。"
+
+msgid "Main menu entries"
+msgstr "主要選單項目"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "勾選您希望出現在主要選單的項目"
+
+msgid "Main menu entries per role"
+msgstr "依角色設定主要選單項目"
+
+msgid "Define header tabs visibility per role."
+msgstr "依角色定義標頭索引標籤可見度。"
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "設定您希望出現在表格周圍導覽的選項，以顯示每頁較少或較多列。例如 [50, 100, 200, 500]。"
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "Chamilo 影片播放器可啟用的額外功能陣列。選項包括「speed」，可變更影片播放速度。"
+
+msgid "Mail: character set"
+msgstr "郵件：字元集"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "如需定義寄送電子郵件時使用的字元集，請設定此項。不確定時請留空。"
+
+msgid "Mail: Debug"
+msgstr "郵件：除錯"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "選擇是否啟用電子郵件寄送除錯記錄。此記錄提供連接郵件服務時的詳細資訊，但不優雅且可能破壞頁面設計。僅在無使用者活動時使用。"
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "郵件：避免使用 LD+JSON"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "某些電子郵件客戶端無法理解描述性 LD+JSON 格式，會將其顯示為鬆散的 JSON 字串。若發生此情況，可將下列變數設為「false」以停用此標頭。"
+
+msgid "Mail: DKIM headers"
+msgstr "郵件：DKIM 標頭"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "輸入您的 DKIM 設定 JSON 陣列（參見範例）。"
+
+msgid "Mail: XOAuth2 options"
+msgstr "郵件：XOAuth2 選項"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "若使用 XOAuth2 電子郵件服務，請使用此 JSON 設定儲存特定組態（參見範例），並在郵件服務設定中選擇 XOAuth2。"
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "定義環境類型：\"prod\"（一般生產環境）、\"validation\"（類似生產環境但不回報統計資料），或 \"test\"（除錯模式，包含開發人員工具如未翻譯字串指示器）。"
+
+msgid "Global limit of users per course"
+msgstr "每門課程使用者總數上限"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "定義平台中單一課程（包含教師）允許註冊的最大使用者數上限。設為 0 以停用限制。此設定有助避免開放入口網站的課程過載。"
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "啟用以使用陣列定義哪些角色應清楚顯示及哪些應隱藏。"
+
+msgid "Show base course posts in session course"
+msgstr "在工作坊課程中顯示基礎課程貼文"
+
+msgid "Limit identical email usage"
+msgstr "限制相同電子郵件使用"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "允許共用相同電子郵件地址的最大帳戶數。設為 0 以停用此限制。"
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "允許工作坊管理員查看所有 URL 的所有使用者"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "若啟用，工作坊管理員可搜尋並列出所有存取 URL 的使用者，無關其目前 URL。"
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "啟用使用者選擇自身時區的可能性。一旦設定，使用者即可在其自身時區查看作業截止日期及其他時間參考，減少提交時的錯誤。"
+
+msgid "Redirect after login (per profile)"
+msgstr "登入後重新導向（依角色）"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "使用 JSON 物件定義登入後依角色的重新導向，例如 {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "在條款與條件頁面隱藏法律接受核取方塊"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "若設為 true，將移除條款與條件頁面流程中的「我已閱讀並接受」核取方塊。"
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "定義 LDAP 伺服器的主機與連接埠陣列。"
+
+msgid "Enable 2FA"
+msgstr "啟用 2FA"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "在密碼更新頁面新增欄位，以使用 TOTP 驗證應用程式啟用 2FA。全球停用時，使用者不會看到 2FA 欄位，且登入時不會被要求 2FA，即使先前已啟用。"
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "Chamilo 的某些功能將從伺服器連接到外部。例如，於建立連結或在學習路徑中顯示嵌入頁面時確認外部內容是否存在。若您的 Chamilo 伺服器使用代理伺服器離開其網路，此處即可設定。"
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "啟用或停用課程有效期屆滿時的自動重新註冊。相關 cron 工作也必須啟用。"
+
+msgid "Show remaining days in My Sessions"
+msgstr "在我的工作坊顯示剩餘天數"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "若啟用，「我的工作坊」頁面的工作坊日期將被取代為剩餘天數。"
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "在選單顯示「待完成問卷」"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "顯示選單項目，讓使用者存取其待完成問卷。"
+
+msgid "Disclose AI assistance"
+msgstr "揭露 AI 協助"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "在任何由 AI 系統生成或共同生成的內容或回饋上顯示標籤，向使用者證明內容是由某 AI 系統協助建置。關於使用哪個 AI 系統的細節保存在資料庫中以供稽核，但最終使用者無法直接存取。"
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "課程目錄的 JSON 設定：連結設定、篩選器、排序選項等。"
+
+msgid "Session Catalog Settings"
+msgstr "工作坊目錄設定"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "工作坊目錄的 JSON 設定：篩選器與顯示選項。"
+
+msgid "Show Course Descriptions"
+msgstr "顯示課程描述"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "在目錄清單中顯示課程描述。"
+
+msgid "Published Courses Only"
+msgstr "僅已發佈課程"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "將目錄限制為僅標記為已發佈的課程。"
+
+msgid "Display Catalog on Homepage"
+msgstr "在首頁顯示目錄"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "在平台首頁顯示課程目錄區塊。"
+
+msgid "Hide Public Link"
+msgstr "隱藏公開連結"
+
+msgid "Remove the public URL link from course cards."
+msgstr "從課程卡片中移除公開 URL 連結。"
+
+msgid "Only Selected Courses"
+msgstr "僅選取的課程"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "在目錄中僅顯示手動選取的課程。"
+
+msgid "Allow Student Browsing"
+msgstr "允許學生瀏覽"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "允許學生瀏覽並篩選課程目錄。"
+
+msgid "Hide Private Courses"
+msgstr "隱藏私人課程"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "從目錄顯示中排除私人課程。"
+
+msgid "Show Courses & Sessions"
+msgstr "顯示課程與班級"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "在目錄結果中包含課程與班級。"
+
+msgid "Auto Session Subscription"
+msgstr "自動班級訂閱"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "啟用使用者對班級的自動訂閱。"
+
+msgid "Subscription in Session View"
+msgstr "班級檢視中的訂閱"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "允許使用者從班級頁面直接訂閱課程。"
+
+msgid "Enable redirection plugin"
+msgstr "啟用重新導向外掛"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "定義使用者首次登入時設定帳戶到期日的「天數」與「月份」的陣列。"
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "表示依角色帳戶到期前天數的角色 => 數字陣列。"
+
+msgid "Extra user field used to search and name sessions"
+msgstr "用於搜尋與命名班級的額外使用者欄位"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "此設定定義額外使用者欄位金鑰（例如「company」），用於搜尋使用者，並在 /admin-dashboard/register 註冊學生時定義班級名稱。"
+
+msgid "Glossary terms generator"
+msgstr "詞彙生成器"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "允許教師在課程中要求 AI 生成詞彙詞條。此功能將根據課程標題與課程描述工具中的一般描述生成 20 個詞條。若多次使用，將排除該詞彙中已存在的詞條（確保內容可與設定的 AI 服務分享）。"
+
+msgid "Video generator"
+msgstr "影片生成器"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "使用 AI 根據提示或內容生成影片（這可能消耗大量權杖）。"
+
+msgid "Course analyser"
+msgstr "課程分析器"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "分析一或多個課程中的所有資源，並預訓練 AI 模型以回答關於此或這些課程的任何問題（確保內容可與設定的 AI 服務分享）。"
+
+msgid "Test/development"
+msgstr "測試／開發"
+
+msgid "Crons"
+msgstr "排程任務"
+
+msgid "Editor"
+msgstr "編輯器"
+
+msgid "Gradebook"
+msgstr "成績簿"
+
+msgid "Internationalization"
+msgstr "國際化"
+
+msgid "User profiles"
+msgstr "使用者個人資料"
+
+msgid "Support tickets"
+msgstr "支援票券"
+
+msgid "Webservices"
+msgstr "網路服務"
+
+msgid "Catalogue"
+msgstr "目錄"
+
+msgid "Workflows"
+msgstr "工作流程"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "子 URL 可編輯設定"
+
+msgid "Show JSON Template"
+msgstr "顯示 JSON 範本"
+
+msgid "JSON Template"
+msgstr "JSON 範本"
+
+msgid "Installing Xapian bindings"
+msgstr "安裝 Xapian 綁定"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "以下片段顯示在 Ubuntu 25.04 上搭配 PHP 8.3 安裝 Xapian PHP 綁定的範例。請依您的環境調整路徑與版本。"
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "確保僅安裝您實際使用的 PHP 版本（例如 8.3），避免混合多個版本的不同擴充目錄。"
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "一旦 CLI 與網頁伺服器均正確載入擴充，上方的搜尋診斷應報告 Xapian 模組已安裝。"
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "清理暫存上傳檔案與快取"
+
+msgid "Directory"
+msgstr "目錄"
+
+msgid "Only delete files older than (minutes)"
+msgstr "僅刪除早於 (分鐘) 的檔案"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "設為 0 以刪除所有檔案。使用正值 (例如 60) 以避免刪除仍在上傳的檔案。"
+
+msgid "Preview only (do not delete)"
+msgstr "僅預覽 (不刪除)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "警告：您即將刪除所有暫存檔案。此動作無法復原。"
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "這將刪除所有暫存檔案。繼續？"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "這將刪除早於 %minutes% 分鐘的檔案。繼續？"
+
+msgid "The value must match exactly: %s"
+msgstr "值必須完全符合：%s"
+
+msgid "Repeat end date must be after start date."
+msgstr "重複結束日期必須在開始日期之後。"
+
+msgid "Index document content?"
+msgstr "索引文件內容？"
+
+msgid "Upload SVG logo to platform header"
+msgstr "上傳 SVG 標誌至平台標頭"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "上傳 PNG 標誌至平台標頭 (%s)"
+
+msgid "Write something to %s"
+msgstr "寫點東西給 %s"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "優先：SVG。PNG 建議寬度：%spx。"
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "上傳 PNG 標誌用於電子郵件 (~%spx 寬度)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "標頭 PNG 必須 ≤ %spx。"
+
+msgid "Require specific file format"
+msgstr "要求特定檔案格式"
+
+msgid "Select allowed file formats"
+msgstr "選擇允許的檔案格式"
+
+msgid "Custom extensions (separated by space)"
+msgstr "自訂副檔名 (以空格分隔)"
+
+msgid "Other extensions"
+msgstr "其他副檔名"
+
+msgid "My invitations"
+msgstr "我的邀請"
+
+msgid "Delete access"
+msgstr "刪除存取權"
+
+msgid "Certificate tags"
+msgstr "證書標籤"
+
+msgid "Copy all"
+msgstr "全部複製"
+
+msgid "Click to insert"
+msgstr "點擊插入"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "優先：SVG。PNG 最大尺寸：%spx。"
+
+msgid "View badge"
+msgstr "檢視徽章"
+
+msgid "%d min"
+msgstr "%d 分鐘"
+
+msgid "Duration in minutes"
+msgstr "持續時間（分鐘）"
+
+msgid "Go back to standard view"
+msgstr "返回標準檢視"
+
+msgid "Search for student..."
+msgstr "搜尋學生..."
+
+msgid "This date is locked or read-only."
+msgstr "此日期已鎖定或唯讀。"
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "無法載入出席資料。請稍後再試。"
+
+msgid "Nothing to save"
+msgstr "無需儲存的內容"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "您有未儲存的變更。仍要離開嗎？"
+
+msgid "Storage usage unavailable"
+msgstr "儲存空間使用量無法取得"
+
+msgid "Search for members..."
+msgstr "搜尋成員..."
+
+msgid "Current members"
+msgstr "目前成員"
+
+msgid "Add members"
+msgstr "新增成員"
+
+msgid "Search for users in course/session..."
+msgstr "搜尋課程/工作坊中的使用者..."
+
+msgid "No users available."
+msgstr "無可用使用者。"
+
+msgid "Browse and publish new posts"
+msgstr "瀏覽並發佈新貼文"
+
+msgid "Create and assign tasks"
+msgstr "建立並指派任務"
+
+msgid "Filtered by %s"
+msgstr "依 %s 篩選"
+
+msgid "Select a score"
+msgstr "選擇分數"
+
+msgid "Edit comment"
+msgstr "編輯評論"
+
+msgid "Failed to update the post."
+msgstr "無法更新貼文。"
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "刪除此貼文？此動作無法復原。"
+
+msgid "Failed to delete the post."
+msgstr "無法刪除貼文。"
+
+msgid "Failed to update the comment."
+msgstr "無法更新評論。"
+
+msgid "Delete this comment?"
+msgstr "刪除此評論？"
+
+msgid "Failed to delete the comment."
+msgstr "無法刪除評論。"
+
+msgid "Search for projects..."
+msgstr "搜尋專案..."
+
+msgid "Only visible"
+msgstr "僅可見"
+
+msgid "Rename project"
+msgstr "重新命名專案"
+
+msgid "New title"
+msgstr "新標題"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "您必須是管理員或教師才能管理專案。"
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "刪除此專案？此動作無法復原。"
+
+msgid "Task list"
+msgstr "任務清單"
+
+msgid "Change status"
+msgstr "變更狀態"
+
+msgid "Waiting for validation"
+msgstr "等待驗證"
+
+msgid "Delete this task?"
+msgstr "刪除此任務？"
+
+msgid "Failed to delete the task."
+msgstr "刪除任務失敗。"
+
+msgid "Failed to update status."
+msgstr "更新狀態失敗。"
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "確定要刪除此第三方嗎？此動作無法復原。"
+
+msgid "Please fix the errors before saving."
+msgstr "請修正錯誤後再儲存。"
+
+msgid "Error creating third party. Please verify the data."
+msgstr "建立第三方失敗。請驗證資料。"
+
+msgid "Error deleting third party."
+msgstr "刪除第三方失敗。"
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "上傳選用的標頭和電子郵件標誌。建議使用 SVG；PNG 作為備用。"
+
+msgid "Data exchange updated successfully."
+msgstr "資料交換更新成功。"
+
+msgid "Error deleting data exchange."
+msgstr "刪除資料交換失敗。"
+
+msgid "Failed to recycle course."
+msgstr "回收課程失敗。"
+
+msgid "Select source course"
+msgstr "選擇來源課程"
+
+msgid "Course to copy from"
+msgstr "複製來源課程"
+
+msgid "Search by code or title..."
+msgstr "依代碼或標題搜尋..."
+
+msgid "No courses match your search."
+msgstr "沒有符合搜尋的課程。"
+
+msgid "Copy options"
+msgstr "複製選項"
+
+msgid "Include users (enrollments)"
+msgstr "包含使用者（註冊）"
+
+msgid "Reset dates"
+msgstr "重設日期"
+
+msgid "When a file with the same name exists"
+msgstr "當同名檔案存在時"
+
+msgid "Ready to copy"
+msgstr "準備複製"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "我們將從選定的課程複製內容到此課程。您可以返回變更選項。"
+
+msgid "Start copying"
+msgstr "開始複製"
+
+msgid "Select resources to copy"
+msgstr "選擇要複製的資源"
+
+msgid "Copy selected"
+msgstr "複製選定項目"
+
+msgid "Copy completed."
+msgstr "複製完成。"
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "危險區域：刪除課程是永久性的。"
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "輸入課程代碼以確認。所有資料將永久移除。"
+
+msgid "The code must match '%s' exactly."
+msgstr "代碼必須完全符合「%s」。"
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "同時刪除僅在此課程使用的文件（如果有）。"
+
+msgid "Delete course"
+msgstr "刪除課程"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "此動作無法復原。繼續？"
+
+msgid "Course deleted successfully."
+msgstr "課程刪除成功。"
+
+msgid "Failed to delete course."
+msgstr "刪除課程失敗。"
+
+msgid "Create .mbz"
+msgstr "建立 .mbz"
+
+msgid "Backup scope"
+msgstr "備份範圍"
+
+msgid "Full course"
+msgstr "完整課程"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "選定項目將是匯出檔案中唯一包含的項目。"
+
+msgid "Moodle export"
+msgstr "Moodle 匯出"
+
+msgid "Moodle version"
+msgstr "Moodle 版本"
+
+msgid "Admin ID"
+msgstr "管理員 ID"
+
+msgid "Internal integer user id"
+msgstr "內部整數使用者 ID"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle 需要在 XML 中儲存內部使用者 ID。如有疑問，請使用 1。"
+
+msgid "Username to appear as owner of imported items"
+msgstr "匯入項目擁有人顯示的用戶名"
+
+msgid "Email to use in the archive metadata"
+msgstr "用於存檔元數據的電子郵件"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr "將產生 .mbz 檔案。完成後即可下載。"
+
+msgid "Select resources to include"
+msgstr "選擇要包含的資源"
+
+msgid "Export completed"
+msgstr "匯出完成"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "您的 Moodle 備份已建立。可在課程備份清單中找到。"
+
+msgid "Please complete all required fields."
+msgstr "請填寫所有必填欄位。"
+
+msgid "Failed to create Moodle backup."
+msgstr "無法建立 Moodle 備份。"
+
+msgid "More actions"
+msgstr "更多動作"
+
+msgid "Write something"
+msgstr "寫點什麼"
+
+msgid "Friends of %s"
+msgstr "%s 的朋友"
+
+msgid "Error loading learning paths."
+msgstr "載入學習路徑時發生錯誤。"
+
+msgid "You don't have any learning path."
+msgstr "您沒有任何學習路徑。"
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "建立您的第一個學習路徑來開始組織課程內容。"
+
+msgid "Could not save the new category order."
+msgstr "無法儲存新的類別順序。"
+
+msgid "Could not save the new order."
+msgstr "無法儲存新的順序。"
+
+msgid "Assignment"
+msgstr "作業"
+
+msgid "Allowed file formats: %s"
+msgstr "允許的檔案格式：%s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "不允許的檔案類型。允許的副檔名：%s"
+
+msgid "Folder name"
+msgstr "資料夾名稱"
+
+msgid "Rename folder"
+msgstr "重新命名資料夾"
+
+msgid "New name"
+msgstr "新名稱"
+
+msgid "Choose an action"
+msgstr "選擇動作"
+
+msgid "New version"
+msgstr "新版本"
+
+msgid "Change title to selected filename"
+msgstr "將標題變更為選取的檔案名稱"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "您可以取代檔案、將其移至另一個資料夾，或兩者皆可。"
+
+msgid "Move %s"
+msgstr "移動 %s"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "僅顯示非根資料夾，以避免項目留在根目錄。"
+
+msgid "No feedback yet."
+msgstr "尚未有回饋。"
+
+msgid "Upload first, organize later"
+msgstr "先上傳，後組織"
+
+msgid "Drag & drop or browse to add files"
+msgstr "拖曳或瀏覽新增檔案"
+
+msgid "Social wall..."
+msgstr "社交牆…"
+
+msgid "Wall of %s"
+msgstr "%s 的牆"
+
+msgid "Version currently loaded"
+msgstr "目前載入的版本"
+
+msgid "Completion"
+msgstr "完成度"
+
+msgid "Quick navigation"
+msgstr "快速導航"
+
+msgid "Filled"
+msgstr "已填滿"
+
+msgid "Terms sections"
+msgstr "條款區段"
+
+msgid "Open a section to edit its content."
+msgstr "開啟區段以編輯其內容。"
+
+msgid "Open this section to load the editor."
+msgstr "開啟此區段以載入編輯器。"
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "危險區域：刪除存取 URL 是永久性的。"
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "輸入完整 URL 以確認。URL 及其關聯將被永久移除。"
+
+msgid "Unable to load the badge's image."
+msgstr "無法載入徽章圖像。"
+
+msgid "Invalid role selection"
+msgstr "無效的角色選擇"
+
+msgid "Select relation type first to enable user management."
+msgstr "先選擇關聯類型以啟用使用者管理。"
+
+msgid "This question has no course context. Preview is not available."
+msgstr "此題目無課程上下文。無法預覽。"
+
+msgid "Unknown test"
+msgstr "未知測驗"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "無課程上下文不允許刪除。"
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "刪除失敗：缺少課程上下文或此題目屬於測驗。請從測驗內編輯，或僅篩選孤立題目。有效的題目 ID。"
+
+msgid "Delete failed: question not found."
+msgstr "刪除失敗：找不到題目。"
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "刪除失敗：此題目仍被其他資源引用。"
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "此題目屬於測驗。請從測驗內編輯，或僅篩選孤立題目。"
+
+msgid "Access the group tools and resources"
+msgstr "存取群組工具與資源"
+
+msgid "%s members"
+msgstr "%s 位成員"
+
+msgid "View certificate (HTML)"
+msgstr "檢視證書 (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "將技能連結至此成績簿"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "管理每個成績簿的證書與技能連結"
+
+msgid "Please select a specific badge issue to download"
+msgstr "請選擇特定徽章發放以下載"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM 未啟用。"
+
+msgid "Invalid token."
+msgstr "無效的權杖。"
+
+msgid "Schema not supported."
+msgstr "不支援的結構描述。"
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "PATCH 操作無效的結構描述。"
+
+msgid "Missing required \"Operations\" array."
+msgstr "缺少必要的「Operations」陣列。"
+
+msgid "The '%s' operation is not supported."
+msgstr "不支援「%s」操作。"
+
+msgid "Drupal user ID"
+msgstr "Drupal 使用者 ID"
+
+msgid "There are no terms that match the search: %s"
+msgstr "沒有符合搜尋的詞彙：%s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "設定已全域鎖定 (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "若啟用，一對一私人聊天訊息將會鏡像至課程聊天記錄文件中。為隱私建議保持停用。"
+
+msgid "Save private conversations in documents"
+msgstr "將私人對話儲存至文件中"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "歐盟 AI 法案 – 透明度與風險通知"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "根據歐盟人工智慧法案 (Regulation (EU) 2024/1689)，用於教育的人工智慧系統通常被分類為「高風險」。此軟體本身<strong>並非</strong>人工智慧系統，但可依您的設定整合選用的內部或外部人工智慧系統，以提升使用者任務效能。這些系統僅在使用者於提示中包含此類資料時，才能存取個人資料。本軟體設計上不會在未經使用者主動輸入的情況下，將個人資料分享給人工智慧系統。預設情況下，所有人工智慧功能均為停用狀態。"
+
+msgid "Admin responsibility & disclosures"
+msgstr "管理員責任與揭露事項"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "此設定頁面詳述每個 AI 功能及其目的。身為部署者，您應仔細檢視並更新符合 GDPR 的資料隱私政策，以反映您啟用的選項。雖然大多數 AI 功能不會直接將個人資料分享給外部系統，但發送至 AI 的使用者提示可能無意中包含個人資訊。身為部署者，<strong>您有責任</strong>告知使用者此風險。為達透明度，未來版本可能會顯示非侵入性的終端使用者標記，標示特定內容或回饋是由 AI 輔助產生。"
+
+msgid "Positioning"
+msgstr "定位"
+
+msgid "Quiz"
+msgstr "測驗"
+
+msgid "Customcertificate"
+msgstr "自訂證書"
+
+msgid "Update profile"
+msgstr "更新個人檔案"
+
+msgid "Enable learning path generator"
+msgstr ""
+
+msgid "Enable exercise generator"
+msgstr ""
+
+msgid "Enable open answers grader"
+msgstr ""
+
+msgid "Enable tutor chatbot"
+msgstr ""
+
+msgid "Enable task grader"
+msgstr ""
+
+msgid "Enable content analyser"
+msgstr ""
+
+msgid "Enable image generator"
+msgstr ""
+
+msgid "Enable glossary terms generator"
+msgstr ""
+
+msgid "Enable video generator"
+msgstr ""
+
+msgid "Enable course analyser"
+msgstr ""
+
+msgid "The operation '%s' is not supported."
+msgstr ""
+
+msgid "AI feedback on %s in course %s"
+msgstr ""
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr ""
+
+msgid "AI Tutor"
+msgstr ""
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr ""
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr ""
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr ""
+
+msgid "You are here"
+msgstr ""
+
+msgid "Click an event type to filter results."
+msgstr ""
+
+msgid "Require unique presence"
+msgstr ""
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr ""
+
+msgid "AI feedback"
+msgstr ""
+
+msgid "Prompt"
+msgstr ""
+
+msgid "Tip"
+msgstr ""
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr ""
+
+msgid "Result (you can apply it to the comment)"
+msgstr ""
+
+msgid "Apply to comment"
+msgstr ""
+
+msgid "Apply score"
+msgstr ""
+
+msgid "AI grade"
+msgstr ""
+
+msgid "AI tutor is disabled during tests"
+msgstr ""
+
+msgid "Generate glossary terms"
+msgstr ""
+
+msgid "Generate media"
+msgstr ""
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr ""
+
+msgid "AI helpers are disabled at platform level."
+msgstr ""
+
+msgid "AI media generation is disabled in course settings."
+msgstr ""
+
+msgid "No AI media providers available."
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Select a provider"
+msgstr ""
+
+msgid "Example: generated_media"
+msgstr ""
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr ""
+
+msgid "Describe what you want to generate..."
+msgstr ""
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr ""
+
+msgid "Generating..."
+msgstr ""
+
+msgid "Save to Documents"
+msgstr ""
+
+msgid "Document IRI"
+msgstr ""
+
+msgid "Go to folder"
+msgstr ""
+
+msgid "Provider used"
+msgstr ""
+
+msgid "This video result cannot be saved yet"
+msgstr ""
+
+msgid "Video polling was stopped because the provider changed."
+msgstr ""
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr ""
+
+msgid "Failed to check video status."
+msgstr ""
+
+msgid "Video generated successfully. You can now save it."
+msgstr ""
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr ""
+
+msgid "Video generation failed."
+msgstr ""
+
+msgid "Waiting for the video to be ready..."
+msgstr ""
+
+msgid "Please complete all fields."
+msgstr ""
+
+msgid "Image generation is not enabled for this course."
+msgstr ""
+
+msgid "Video generation is not enabled for this course."
+msgstr ""
+
+msgid "Generation failed."
+msgstr ""
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr ""
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr ""
+
+msgid "Video generation started. Waiting for the result..."
+msgstr ""
+
+msgid "AI returned an empty response."
+msgstr ""
+
+msgid "Nothing to save yet."
+msgstr ""
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr ""
+
+msgid "Saving failed."
+msgstr ""
+
+msgid "Get AI feedback"
+msgstr ""
+
+msgid "Copy answer to clipboard"
+msgstr ""
+
+msgid "Save answer to my inbox"
+msgstr ""
+
+msgid "The document is already in this folder"
+msgstr ""
+
+msgid "Copied"
+msgstr ""
+
+msgid "You do not have permission to generate glossary terms."
+msgstr ""
+
+msgid "Video generation is in progress"
+msgstr ""
+
+msgid "Job"
+msgstr ""
+
+msgid "Modified prompt"
+msgstr ""
+
+msgid "Saved in Documents"
+msgstr ""
 

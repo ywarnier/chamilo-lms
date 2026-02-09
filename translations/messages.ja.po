@@ -19479,9 +19479,6 @@ msgstr "古いデータベースを削除"
 msgid "Remove old tables"
 msgstr "古いテーブルを削除"
 
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "ポータル %s の使用総容量は %s MB の制限です"
-
 msgid "Event message management"
 msgstr "イベントメッセージ管理"
 
@@ -31138,8 +31135,8 @@ msgstr "コメントを追加"
 msgid "Write your comment here..."
 msgstr "ここにコメントを入力..."
 
-msgid "%d selected"
-msgstr "%d 項目選択済み"
+msgid "%s selected"
+msgstr "%s 項目選択済み"
 
 msgid "Search by title or path..."
 msgstr "タイトルまたはパスで検索..."
@@ -31147,8 +31144,8 @@ msgstr "タイトルまたはパスで検索..."
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "バックアップの管理、復元、コピー、ごみ箱、コースデータの削除。"
 
-msgid "%d comment(s)"
-msgstr "%d 件のコメント"
+msgid "%s comment(s)"
+msgstr "%s 件のコメント"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "サードパーティの更新エラー。データを確認してください。"
@@ -31503,4 +31500,1138 @@ msgstr "データベース名には文字、数字、アンダースコア (_) �
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "このプラットフォームを使用するユーザーに提供される一般的な利用規約は何ですか？"
+
+msgid "ex. {examplePassword}"
+msgstr "例: {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "Chamilo へようこそ！"
+
+msgid "Welcome to this platform"
+msgstr "このプラットフォームへようこそ"
+
+msgid "For more details visit %s"
+msgstr "詳細は %s をご覧ください"
+
+msgid "Manager"
+msgstr "管理者"
+
+msgid "Mark as"
+msgstr "マークとして"
+
+msgid "Reply to all"
+msgstr "すべてに返信"
+
+msgid "SCIM external ID"
+msgstr "SCIM 外部 ID"
+
+msgid "OAuth2 ID"
+msgstr "OAuth2 ID"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "最新の利用規約に同意してください。"
+
+msgid "Required value for operation without path"
+msgstr "パスなしでの操作に必要な値"
+
+msgid "Available space (%s)"
+msgstr "使用可能容量 (%s)"
+
+msgid "Index this description for the global search"
+msgstr "この説明をグローバル検索にインデックスする"
+
+msgid "Unknown course"
+msgstr "不明なコース"
+
+msgid "Certificate not found."
+msgstr "証明書が見つかりません。"
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "セキュリティトークンが期限切れです。ページを再読み込みして再度お試しください。"
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "コースの表示設定はプラットフォーム管理者だけが変更できます。"
+
+msgid "Unexpected error while subscribing the user"
+msgstr "ユーザーの登録中に予期しないエラーが発生しました"
+
+msgid "Search in resource logs"
+msgstr "リソースログで検索"
+
+msgid "Include this learning path in the global search results"
+msgstr "この学習パスをグローバル検索結果に含める"
+
+msgid "The course code already exists"
+msgstr "コースコードが既に存在します"
+
+msgid "Latest news"
+msgstr "最新ニュース"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "Chamiloから最新ニュース（セキュリティ脆弱性やイベントを含む）を取得し、管理パネル内に直接表示します。これらのニュースは管理ページを読み込むたびにChamiloニュースサーバーでチェックされ、管理者のみが見ることができます。"
+
+msgid "Chamilo support block"
+msgstr "Chamiloサポートブロック"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "プロのヒントと公式サービスプロバイダーへの簡単な連絡方法を取得し、Chamiloの開発者から直接提供します。このブロックは管理ページに表示され、管理者のみが見ることができ、管理ページを読み込むたびに更新されます。"
+
+msgid "Hide option to send announcements to HR users"
+msgstr "HRユーザーにアナウンスメントを送信するオプションを非表示にする"
+
+msgid "Allow session admins to download private certificates"
+msgstr "セッション管理者が非公開証明書をダウンロードできるようにする"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "有効にすると、セッション管理者は公開されていない証明書もダウンロードできます。"
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "空でない場合、コース作成プロセスはユーザープロファイルのフィールドを検索し、コースに自動入力します。例えば、デジタルマーケティング専門の教師は作成する各コースに「デジタルマーケティング」フラグを自動設定できます。"
+
+msgid "Main menu entries"
+msgstr "メインメニュー項目"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "メインメニューに表示したい項目を選択してください"
+
+msgid "Main menu entries per role"
+msgstr "ロールごとのメインメニュー項目"
+
+msgid "Define header tabs visibility per role."
+msgstr "ロールごとにヘッダータブの表示を設定します。"
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "テーブル周りのナビゲーションに表示するオプションを設定し、1ページあたりの行数を少なくまたは多く表示します。例えば [50, 100, 200, 500]。"
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "Chamiloのビデオプレーヤーで有効にできる追加機能の配列です。オプションには「speed」（ビデオの再生速度を変更可能）が含まれます。"
+
+msgid "Mail: character set"
+msgstr "メール: 文字セット"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "メール送信時に使用する文字セットを定義する必要がある場合に設定します。不明な場合は空のままにしてください。"
+
+msgid "Mail: Debug"
+msgstr "メール: デバッグ"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "メール送信デバッグログを有効にするかどうかを選択します。これによりメールサービスへの接続時の詳細情報が得られますが、ページデザインを崩す可能性があります。ユーザー活動がない場合のみ使用してください。"
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "メール: LD+JSON の使用を避ける"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "一部のメールクライアントは記述的な LD+JSON 形式を理解せず、最終ユーザーに緩い JSON 文字列として表示します。この場合、下記の変数を「false」に設定してこのヘッダーを無効にしてください。"
+
+msgid "Mail: DKIM headers"
+msgstr "メール: DKIM ヘッダー"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "DKIM 設定の JSON 配列を入力してください（例を参照）。"
+
+msgid "Mail: XOAuth2 options"
+msgstr "メール: XOAuth2 オプション"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "XOAuth2 ベースのメールサービスを使用する場合、この JSON 設定で特定の構成を保存し（例を参照）、メールサービス設定で XOAuth2 を選択してください。"
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "環境タイプを定義します: \"prod\"（通常の運用）、\"validation\"（統計レポートなしの運用に類似）、または \"test\"（未翻訳文字列インジケーターなどの開発者ツール付きデバッグモード）。"
+
+msgid "Global limit of users per course"
+msgstr "コースあたりのユーザーのグローバル上限"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "プラットフォーム内の任意の単一コースに登録可能なユーザー（教師を含む）の最大数を定義します。制限を無効にするには 0 に設定してください。オープンなポータルでコースの過負荷を防ぎます。"
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "表示する役割と非表示にする役割を配列で定義するために有効にします。"
+
+msgid "Show base course posts in session course"
+msgstr "セッションコースで基本コースの投稿を表示"
+
+msgid "Limit identical email usage"
+msgstr "同一メールアドレスの使用を制限"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "同じメールアドレスを共有できるアカウントの最大数。0に設定するとこの制限を無効にします。"
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "セッション管理者による全URLの全ユーザーの閲覧を許可"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "有効にすると、セッション管理者は現在のURLに関係なく、全アクセスURLのユーザーを検索・一覧表示できます。"
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "ユーザーが自分のタイムゾーンを選択できるようにする。設定後、ユーザーは自分のタイムゾーンで課題の締切日やその他の時間参照を表示でき、提出時のエラーを減らせます。"
+
+msgid "Redirect after login (per profile)"
+msgstr "ログイン後のリダイレクト（プロファイルごと）"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "JSONオブジェクトでログイン後のプロファイルごとのリダイレクトを定義: {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "利用規約ページの同意チェックボックスを非表示"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "trueに設定すると、利用規約ページのフローの\"読んで同意します\"チェックボックスを削除します。"
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "LDAPサーバーのホストとポートを定義する配列。"
+
+msgid "Enable 2FA"
+msgstr "2FAを有効化"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "パスワード更新ページにTOTP認証アプリを使った2FA有効化フィールドを追加。グローバルに無効の場合、ユーザーは2FAフィールドを表示せず、以前有効化していてもログイン時に求められません。"
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "Chamiloのいくつかの機能がサーバーから外部に接続します。例えば、リンク作成時やラーニングパスで埋め込みページ表示時に外部コンテンツの存在を確認します。Chamiloサーバーがプロキシを使用する場合、ここで設定します。"
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "コース有効期限切れ時に自動再登録を有効/無効。関連するcronジョブも有効化する必要があります。"
+
+msgid "Show remaining days in My Sessions"
+msgstr "マイセッションに残り日数を表示"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "有効にすると、\"マイセッション\"ページのセッション日付が残り日数に置き換わります。"
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "メニューに\"保留中のアンケート\"を表示"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "ユーザーが保留中のアンケートにアクセスできるメニュー項目を表示します。"
+
+msgid "Disclose AI assistance"
+msgstr "AI支援の開示"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "AIシステムで生成または共同生成されたコンテンツやフィードバックにタグを表示し、ユーザーにAI支援で作成されたことを示します。使用したAIシステムの詳細はデータベースに監査用に保存されますが、ユーザーは直接アクセスできません。"
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "コースカタログのJSON設定: リンク設定、フィルタ、並べ替えオプションなど。"
+
+msgid "Session Catalog Settings"
+msgstr "セッションカタログ設定"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "セッションカタログのJSON設定: フィルタと表示オプション。"
+
+msgid "Show Course Descriptions"
+msgstr "コース説明を表示"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "カタログ一覧内でコース説明を表示します。"
+
+msgid "Published Courses Only"
+msgstr "公開済みコースのみ"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "カタログを公開済みとしてマークされたコースのみに制限します。"
+
+msgid "Display Catalog on Homepage"
+msgstr "ホームページにカタログを表示"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "プラットフォームのホームページにコースカタログブロックを表示します。"
+
+msgid "Hide Public Link"
+msgstr "公開リンクを非表示"
+
+msgid "Remove the public URL link from course cards."
+msgstr "コースカードから公開URLリンクを削除します。"
+
+msgid "Only Selected Courses"
+msgstr "選択したコースのみ"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "カタログに手動で選択したコースのみを表示します。"
+
+msgid "Allow Student Browsing"
+msgstr "学生の閲覧を許可"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "学生がコースカタログを閲覧およびフィルタリングすることを許可します。"
+
+msgid "Hide Private Courses"
+msgstr "プライベートコースを非表示"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "カタログ表示からプライベートコースを除外します。"
+
+msgid "Show Courses & Sessions"
+msgstr "コースとセッションを表示"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "カタログ結果にコースとセッションの両方を含めます。"
+
+msgid "Auto Session Subscription"
+msgstr "セッション自動登録"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "ユーザーのセッションへの自動登録を有効にします。"
+
+msgid "Subscription in Session View"
+msgstr "セッションビューでの登録"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "ユーザーがセッションページから直接コースに登録できるようにします。"
+
+msgid "Enable redirection plugin"
+msgstr "リダイレクトプラグインを有効にする"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "ユーザーが初めてログインしたときにアカウント有効期限を設定するための「days」と「months」を定義する配列です。"
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "役割に応じてアカウントの有効期限までの日数を表す role => number の配列です。"
+
+msgid "Extra user field used to search and name sessions"
+msgstr "セッションの検索と名前に使用される追加ユーザー項目"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "ユーザー検索および /admin-dashboard/register から学生を登録する際のセッション名定義に使用される追加ユーザー項目キー（例：\"company\"）を定義します。"
+
+msgid "Glossary terms generator"
+msgstr "用語集用語生成器"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "教師がコースでAI生成の用語集用語をリクエストできるようにします。コースタイトルとコース説明ツールの一般説明に基づいて20個の用語を生成します。複数回使用した場合、その用語集に既にある用語を除外します（設定されたAIサービスとコンテンツを共有できることを確認してください）。"
+
+msgid "Video generator"
+msgstr "ビデオ生成器"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "プロンプトやコンテンツに基づいてAIを使用してビデオを生成します（多くのトークンを消費する可能性があります）。"
+
+msgid "Course analyser"
+msgstr "コースアナライザー"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "1つまたは複数のコースのすべてのリソースを分析し、この/これらのコースに関するあらゆる質問に答えるためにAIモデルを事前訓練します（設定されたAIサービスとコンテンツを共有できることを確認してください）。"
+
+msgid "Test/development"
+msgstr "テスト/開発"
+
+msgid "Crons"
+msgstr "クロン"
+
+msgid "Editor"
+msgstr "エディター"
+
+msgid "Gradebook"
+msgstr "成績簿"
+
+msgid "Internationalization"
+msgstr "国際化"
+
+msgid "User profiles"
+msgstr "ユーザープロフィール"
+
+msgid "Support tickets"
+msgstr "サポートチケット"
+
+msgid "Webservices"
+msgstr "ウェブサービス"
+
+msgid "Catalogue"
+msgstr "カタログ"
+
+msgid "Workflows"
+msgstr "ワークフロー"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "サブURLで編集可能"
+
+msgid "Show JSON Template"
+msgstr "JSONテンプレートを表示"
+
+msgid "JSON Template"
+msgstr "JSONテンプレート"
+
+msgid "Installing Xapian bindings"
+msgstr "Xapianバインディングのインストール"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "以下のスニペットは、Ubuntu 25.04とPHP 8.3でのXapian PHPバインディングのインストール例を示しています。パスとバージョンをご自身の環境に合わせて調整してください。"
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "実際に使用するPHPバージョン（例：8.3）のみをインストールし、異なる拡張ディレクトリを持つ複数のバージョンを混在させないようにしてください。"
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "CLIとウェブサーバーの両方で拡張が正しくロードされたら、上記の検索診断でXapianモジュールがインストールされていると報告されるはずです。"
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "一時アップロードとキャッシュのクリーンアップ"
+
+msgid "Directory"
+msgstr "ディレクトリ"
+
+msgid "Only delete files older than (minutes)"
+msgstr "それ以上の古いファイルのみ削除 (分)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "0に設定するとすべてのファイルを削除します。アップロード中のファイルを削除しないよう、陽数値 (例: 60) を使用してください。"
+
+msgid "Preview only (do not delete)"
+msgstr "プレビューのみ (削除しない)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "警告: すべての一時ファイルを削除しようとしています。この操作は元に戻せません。"
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "すべての一時ファイルを削除します。続行しますか？"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "%minutes% 分より古いファイルを削除します。続行しますか？"
+
+msgid "The value must match exactly: %s"
+msgstr "値は完全に一致する必要があります: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "繰り返し終了日は開始日より後でなければなりません。"
+
+msgid "Index document content?"
+msgstr "ドキュメントの内容をインデックス化しますか？"
+
+msgid "Upload SVG logo to platform header"
+msgstr "プラットフォームヘッダーにSVGロゴをアップロード"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "プラットフォームヘッダーにPNGロゴをアップロード (%s)"
+
+msgid "Write something to %s"
+msgstr "%s に何かを書く"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "推奨: SVG。PNG推奨幅: %spx。"
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "メール用PNGロゴをアップロード (~%spx 幅)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "ヘッダーPNGは %spx 以下でなければなりません。"
+
+msgid "Require specific file format"
+msgstr "特定のファイル形式を要求"
+
+msgid "Select allowed file formats"
+msgstr "許可されたファイル形式を選択"
+
+msgid "Custom extensions (separated by space)"
+msgstr "カスタム拡張子 (スペースで区切る)"
+
+msgid "Other extensions"
+msgstr "その他の拡張子"
+
+msgid "My invitations"
+msgstr "私の招待"
+
+msgid "Delete access"
+msgstr "アクセスを削除"
+
+msgid "Certificate tags"
+msgstr "証明書タグ"
+
+msgid "Copy all"
+msgstr "すべてコピー"
+
+msgid "Click to insert"
+msgstr "クリックして挿入"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "推奨: SVG。PNG 最大サイズ: %spx。"
+
+msgid "View badge"
+msgstr "バッジを表示"
+
+msgid "%d min"
+msgstr "%d分"
+
+msgid "Duration in minutes"
+msgstr "分単位の期間"
+
+msgid "Go back to standard view"
+msgstr "標準ビューに戻る"
+
+msgid "Search for student..."
+msgstr "学生を検索..."
+
+msgid "This date is locked or read-only."
+msgstr "この日付はロックされているか読み取り専用です。"
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "出欠を読み込めませんでした。後でもう一度お試しください。"
+
+msgid "Nothing to save"
+msgstr "保存する内容がありません"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "保存されていない変更があります。それでも離れますか？"
+
+msgid "Storage usage unavailable"
+msgstr "ストレージ使用量が利用できません"
+
+msgid "Search for members..."
+msgstr "メンバーを検索..."
+
+msgid "Current members"
+msgstr "現在のメンバー"
+
+msgid "Add members"
+msgstr "メンバーを追加"
+
+msgid "Search for users in course/session..."
+msgstr "コース/セッションのユーザーを検索..."
+
+msgid "No users available."
+msgstr "利用可能なユーザーがありません。"
+
+msgid "Browse and publish new posts"
+msgstr "新しい投稿を閲覧して公開"
+
+msgid "Create and assign tasks"
+msgstr "タスクを作成して割り当て"
+
+msgid "Filtered by %s"
+msgstr "%s でフィルタリング"
+
+msgid "Select a score"
+msgstr "スコアを選択"
+
+msgid "Edit comment"
+msgstr "コメントを編集"
+
+msgid "Failed to update the post."
+msgstr "投稿の更新に失敗しました。"
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "この投稿を削除しますか？この操作は元に戻せません。"
+
+msgid "Failed to delete the post."
+msgstr "投稿の削除に失敗しました。"
+
+msgid "Failed to update the comment."
+msgstr "コメントの更新に失敗しました。"
+
+msgid "Delete this comment?"
+msgstr "このコメントを削除しますか？"
+
+msgid "Failed to delete the comment."
+msgstr "コメントの削除に失敗しました。"
+
+msgid "Search for projects..."
+msgstr "プロジェクトを検索..."
+
+msgid "Only visible"
+msgstr "表示のみ"
+
+msgid "Rename project"
+msgstr "プロジェクトの名前を変更"
+
+msgid "New title"
+msgstr "新しいタイトル"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "プロジェクトを管理するには管理者または教師である必要があります。"
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "このプロジェクトを削除しますか？この操作は元に戻せません。"
+
+msgid "Task list"
+msgstr "タスクリスト"
+
+msgid "Change status"
+msgstr "ステータスを変更"
+
+msgid "Waiting for validation"
+msgstr "検証待ち"
+
+msgid "Delete this task?"
+msgstr "このタスクを削除しますか？"
+
+msgid "Failed to delete the task."
+msgstr "タスクの削除に失敗しました。"
+
+msgid "Failed to update status."
+msgstr "ステータスの更新に失敗しました。"
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "このサードパーティを削除してもよろしいですか？この操作は元に戻せません。"
+
+msgid "Please fix the errors before saving."
+msgstr "保存前にエラーを修正してください。"
+
+msgid "Error creating third party. Please verify the data."
+msgstr "サードパーティの作成エラーです。データを確認してください。"
+
+msgid "Error deleting third party."
+msgstr "サードパーティの削除エラーです。"
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "オプションのヘッダーとメールロゴをアップロードしてください。SVGが推奨されます。PNGがフォールバックとして使用されます。"
+
+msgid "Data exchange updated successfully."
+msgstr "データ交換が正常に更新されました。"
+
+msgid "Error deleting data exchange."
+msgstr "データ交換の削除エラーです。"
+
+msgid "Failed to recycle course."
+msgstr "コースのリサイクルに失敗しました。"
+
+msgid "Select source course"
+msgstr "ソースコースを選択"
+
+msgid "Course to copy from"
+msgstr "コピー元のコース"
+
+msgid "Search by code or title..."
+msgstr "コードまたはタイトルで検索..."
+
+msgid "No courses match your search."
+msgstr "検索に一致するコースはありません。"
+
+msgid "Copy options"
+msgstr "コピーオプション"
+
+msgid "Include users (enrollments)"
+msgstr "ユーザー（登録）を追加"
+
+msgid "Reset dates"
+msgstr "日付をリセット"
+
+msgid "When a file with the same name exists"
+msgstr "同じ名前のファイルが存在する場合"
+
+msgid "Ready to copy"
+msgstr "コピー準備完了"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "選択したコースからこのコースへコンテンツをコピーします。オプションを変更するには戻ることができます。"
+
+msgid "Start copying"
+msgstr "コピーを開始"
+
+msgid "Select resources to copy"
+msgstr "コピーするリソースを選択"
+
+msgid "Copy selected"
+msgstr "選択したものをコピー"
+
+msgid "Copy completed."
+msgstr "コピーが完了しました。"
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "危険領域：コースの削除は永久的です。"
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "確認のためコースコードを入力してください。すべてのデータが永久に削除されます。"
+
+msgid "The code must match '%s' exactly."
+msgstr "コードは「%s」と完全に一致する必要があります。"
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "このコースのみで使用されているドキュメントも削除する（存在する場合）。"
+
+msgid "Delete course"
+msgstr "コースを削除"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "この操作は元に戻せません。続行しますか？"
+
+msgid "Course deleted successfully."
+msgstr "コースが正常に削除されました。"
+
+msgid "Failed to delete course."
+msgstr "コースの削除に失敗しました。"
+
+msgid "Create .mbz"
+msgstr ".mbz を作成"
+
+msgid "Backup scope"
+msgstr "バックアップ範囲"
+
+msgid "Full course"
+msgstr "全コース"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "選択した項目のみがエクスポートファイルに含まれます。"
+
+msgid "Moodle export"
+msgstr "Moodle エクスポート"
+
+msgid "Moodle version"
+msgstr "Moodle バージョン"
+
+msgid "Admin ID"
+msgstr "管理者 ID"
+
+msgid "Internal integer user id"
+msgstr "内部整数ユーザー ID"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle は XML に保存された内部ユーザー ID を必要とします。分からない場合は 1 を使用してください。"
+
+msgid "Username to appear as owner of imported items"
+msgstr "インポート項目の所有者として表示されるユーザー名"
+
+msgid "Email to use in the archive metadata"
+msgstr "アーカイブメタデータで使用するメールアドレス"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr ".mbzファイルが生成されます。完了したらダウンロードできます。"
+
+msgid "Select resources to include"
+msgstr "含めるリソースを選択"
+
+msgid "Export completed"
+msgstr "エクスポートが完了しました"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "Moodleバックアップが作成されました。コースバックアップリストで確認できます。"
+
+msgid "Please complete all required fields."
+msgstr "すべての必須フィールドを記入してください。"
+
+msgid "Failed to create Moodle backup."
+msgstr "Moodleバックアップの作成に失敗しました。"
+
+msgid "More actions"
+msgstr "その他のアクション"
+
+msgid "Write something"
+msgstr "何か入力してください"
+
+msgid "Friends of %s"
+msgstr "%s の友達"
+
+msgid "Error loading learning paths."
+msgstr "学習パスを読み込めませんでした。"
+
+msgid "You don't have any learning path."
+msgstr "学習パスがありません。"
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "最初の学習パスを作成してコースコンテンツの整理を開始してください。"
+
+msgid "Could not save the new category order."
+msgstr "新しいカテゴリの順序を保存できませんでした。"
+
+msgid "Could not save the new order."
+msgstr "新しい順序を保存できませんでした。"
+
+msgid "Assignment"
+msgstr "課題"
+
+msgid "Allowed file formats: %s"
+msgstr "許可されたファイル形式: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "ファイル形式が許可されていません。許可された拡張子: %s"
+
+msgid "Folder name"
+msgstr "フォルダ名"
+
+msgid "Rename folder"
+msgstr "フォルダの名前を変更"
+
+msgid "New name"
+msgstr "新しい名前"
+
+msgid "Choose an action"
+msgstr "操作を選択"
+
+msgid "New version"
+msgstr "新しいバージョン"
+
+msgid "Change title to selected filename"
+msgstr "選択したファイル名にタイトルを変更"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "ファイルを置き換えたり、他のフォルダに移動したり、両方行うことができます。"
+
+msgid "Move %s"
+msgstr "%s を移動"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "ルートフォルダにアイテムを残さないように、非ルートフォルダのみを表示しています。"
+
+msgid "No feedback yet."
+msgstr "まだフィードバックはありません。"
+
+msgid "Upload first, organize later"
+msgstr "まずアップロード、後で整理"
+
+msgid "Drag & drop or browse to add files"
+msgstr "ドラッグ＆ドロップまたは閲覧してファイルを追加"
+
+msgid "Social wall..."
+msgstr "ソーシャルウォール..."
+
+msgid "Wall of %s"
+msgstr "%s のウォール"
+
+msgid "Version currently loaded"
+msgstr "現在読み込まれているバージョン"
+
+msgid "Completion"
+msgstr "完了"
+
+msgid "Quick navigation"
+msgstr "クイックナビゲーション"
+
+msgid "Filled"
+msgstr "入力済み"
+
+msgid "Terms sections"
+msgstr "利用規約セクション"
+
+msgid "Open a section to edit its content."
+msgstr "セクションを開いてコンテンツを編集します。"
+
+msgid "Open this section to load the editor."
+msgstr "このセクションを開いてエディタを読み込みます。"
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "危険領域: アクセスURLの削除は永久的です。"
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "確認のため完全なURLを入力してください。URLとその関連は永久に削除されます。"
+
+msgid "Unable to load the badge's image."
+msgstr "バッジの画像を読み込めませんでした。"
+
+msgid "Invalid role selection"
+msgstr "無効なロール選択"
+
+msgid "Select relation type first to enable user management."
+msgstr "ユーザー管理を有効にするには、最初に関係タイプを選択してください。"
+
+msgid "This question has no course context. Preview is not available."
+msgstr "この質問にはコースコンテキストがありません。プレビューは利用できません。"
+
+msgid "Unknown test"
+msgstr "不明なテスト"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "コースコンテキストなしでは削除できません。"
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "削除に失敗しました: コースコンテキストの欠如またはこの質問はテストに属しています。テスト内から編集するか、孤立質問のみをフィルタリングしてください。有効な質問IDの欠如。"
+
+msgid "Delete failed: question not found."
+msgstr "削除に失敗しました: 質問が見つかりません。"
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "削除に失敗しました: この質問は他のリソースによって参照されています。"
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "この質問はテストに属しています。テスト内から編集するか、孤立質問のみをフィルタリングしてください。"
+
+msgid "Access the group tools and resources"
+msgstr "グループツールとリソースにアクセス"
+
+msgid "%s members"
+msgstr "%s 人のメンバー"
+
+msgid "View certificate (HTML)"
+msgstr "証明書を表示 (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "このグレードブックにスキルをリンク"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "各グレードブックの証明書とスキルのリンクを管理"
+
+msgid "Please select a specific badge issue to download"
+msgstr "ダウンロードする特定のバッジ発行を選択してください"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM が有効になっていません。"
+
+msgid "Invalid token."
+msgstr "無効なトークン。"
+
+msgid "Schema not supported."
+msgstr "スキーマがサポートされていません。"
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "PATCH 操作に無効なスキーマです。"
+
+msgid "Missing required \"Operations\" array."
+msgstr "必須の \"Operations\" 配列が欠落しています。"
+
+msgid "The '%s' operation is not supported."
+msgstr "'%s' 操作はサポートされていません。"
+
+msgid "Drupal user ID"
+msgstr "Drupal ユーザー ID"
+
+msgid "There are no terms that match the search: %s"
+msgstr "検索「%s」に一致する用語はありません"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "設定はグローバルにロックされています (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "有効にすると、1:1のプライベートチャットメッセージがコースのチャット履歴ドキュメントにミラーリングされます。プライバシーのため、無効のままにすることを推奨します。"
+
+msgid "Save private conversations in documents"
+msgstr "プライベート会話をドキュメントに保存"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "EU AI法 – 透明性とリスク通知"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "EU人工知能法（規則（EU）2024/1689）では、教育で使用されるAIシステムは一般的に「高リスク」と分類されます。このソフトウェア自体は<strong>AIシステムではありません</strong>が、設定によってはオプションの内部または外部AIシステムを統合してユーザータスクのパフォーマンスを向上させることができます。これらのシステムは、ユーザーがプロンプトにそのようなデータを<em>含めた場合に限り</em>個人データにアクセスします。設計上、このソフトウェアはユーザーの積極的な入力なしにAIシステムと個人データを共有しません。デフォルトでは、すべてのAI機能が無効です。"
+
+msgid "Admin responsibility & disclosures"
+msgstr "管理者責任と開示事項"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "この設定ページでは、各AI機能とその目的を詳述しています。展開者として、これらを慎重に確認し、有効にするオプションを反映してGDPR準拠のデータプライバシーポリシーを更新する必要があります。ほとんどのAI機能は外部システムと個人データを直接共有しませんが、AIに送信されるユーザープロンプトには偶発的に個人情報が含まれる可能性があります。展開者として、<strong>このリスクについてユーザーに通知する責任があります</strong>。透明性のため、今後のリリースでは、AIの支援で生成されたコンテンツやフィードバックを示す非侵入的なエンドユーザータグが表示される可能性があります。"
+
+msgid "Positioning"
+msgstr "位置"
+
+msgid "Quiz"
+msgstr "クイズ"
+
+msgid "Customcertificate"
+msgstr "カスタム証明書"
+
+msgid "Update profile"
+msgstr "プロフィールを更新"
+
+msgid "Enable learning path generator"
+msgstr "学習パスジェネレーターを有効化"
+
+msgid "Enable exercise generator"
+msgstr "演習ジェネレーターを有効化"
+
+msgid "Enable open answers grader"
+msgstr "自由回答採点器を有効化"
+
+msgid "Enable tutor chatbot"
+msgstr "チューター・チャットボットを有効化"
+
+msgid "Enable task grader"
+msgstr "タスク採点器を有効化"
+
+msgid "Enable content analyser"
+msgstr "コンテンツアナライザーを有効化"
+
+msgid "Enable image generator"
+msgstr "画像ジェネレーターを有効化"
+
+msgid "Enable glossary terms generator"
+msgstr "用語集用語ジェネレーターを有効化"
+
+msgid "Enable video generator"
+msgstr "ビデオジェネレーターを有効化"
+
+msgid "Enable course analyser"
+msgstr "コースアナライザーを有効化"
+
+msgid "The operation '%s' is not supported."
+msgstr "操作 '%s' はサポートされていません。"
+
+msgid "AI feedback on %s in course %s"
+msgstr "コース %s の %s に対する AI フィードバック"
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr "削除に失敗: コースコンテキストの欠如または無効な質問 ID。"
+
+msgid "AI Tutor"
+msgstr "AI チューター"
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr "APCu 拡張機能は、プラットフォームが使用するためにインストールおよび有効化されている必要があります。"
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr "OPCache memory_consumption を少なくとも %sMB の RAM に設定することを推奨します。"
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr "OPcache モジュールは、プラットフォームが使用するためにインストールおよび有効化されている必要があります。"
+
+msgid "You are here"
+msgstr "現在位置"
+
+msgid "Click an event type to filter results."
+msgstr "イベントタイプをクリックして結果をフィルタリングしてください。"
+
+msgid "Require unique presence"
+msgstr "一意の出席を要求"
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr "有効にすると、出席が少なくとも1回あれば学習者に100%を与えます。"
+
+msgid "AI feedback"
+msgstr "AI フィードバック"
+
+msgid "Prompt"
+msgstr "プロンプト"
+
+msgid "Tip"
+msgstr "ヒント"
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr "フィードバックを求める前にプロンプトを編集できます。"
+
+msgid "Result (you can apply it to the comment)"
+msgstr "結果（コメントに適用可能）"
+
+msgid "Apply to comment"
+msgstr "コメントに適用"
+
+msgid "Apply score"
+msgstr "スコアを適用"
+
+msgid "AI grade"
+msgstr "AI 採点"
+
+msgid "AI tutor is disabled during tests"
+msgstr "テスト中はAIチューターが無効です"
+
+msgid "Generate glossary terms"
+msgstr "用語集項目を生成"
+
+msgid "Generate media"
+msgstr "メディアを生成"
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr "このコースでAIメディアを生成する権限がありません。"
+
+msgid "AI helpers are disabled at platform level."
+msgstr "プラットフォームレベルでAIヘルパーが無効です。"
+
+msgid "AI media generation is disabled in course settings."
+msgstr "コース設定でAIメディア生成が無効です。"
+
+msgid "No AI media providers available."
+msgstr "利用可能なAIメディアプロバイダーがありません。"
+
+msgid "Provider"
+msgstr "プロバイダー"
+
+msgid "Select a provider"
+msgstr "プロバイダーを選択"
+
+msgid "Example: generated_media"
+msgstr "例: generated_media"
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr "名前はプロンプトに追加されません。ファイル保存にのみ使用されます。"
+
+msgid "Describe what you want to generate..."
+msgstr "生成したいものを記述..."
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr "ヒント: プリセットをクリックしてサイズを素早く設定"
+
+msgid "Generating..."
+msgstr "生成中..."
+
+msgid "Save to Documents"
+msgstr "ドキュメントに保存"
+
+msgid "Document IRI"
+msgstr "ドキュメントIRI"
+
+msgid "Go to folder"
+msgstr "フォルダに移動"
+
+msgid "Provider used"
+msgstr "使用プロバイダー"
+
+msgid "This video result cannot be saved yet"
+msgstr "このビデオ結果はまだ保存できません"
+
+msgid "Video polling was stopped because the provider changed."
+msgstr "プロバイダーが変更されたため、ビデオポーリングが停止されました。"
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr "ビデオ生成に時間がかかっています。後でもう一度お試しください。"
+
+msgid "Failed to check video status."
+msgstr "ビデオの状態を確認できませんでした。"
+
+msgid "Video generated successfully. You can now save it."
+msgstr "ビデオが正常に生成されました。今すぐ保存できます。"
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr "ビデオ生成は完了しましたが、再生可能なコンテンツが返されませんでした。"
+
+msgid "Video generation failed."
+msgstr "ビデオ生成に失敗しました。"
+
+msgid "Waiting for the video to be ready..."
+msgstr "ビデオの準備を待っています..."
+
+msgid "Please complete all fields."
+msgstr "すべてのフィールドを入力してください。"
+
+msgid "Image generation is not enabled for this course."
+msgstr "このコースで画像生成は有効になっていません。"
+
+msgid "Video generation is not enabled for this course."
+msgstr "このコースでビデオ生成は有効になっていません。"
+
+msgid "Generation failed."
+msgstr "生成に失敗しました。"
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr "正常に生成されました。プレビューを確認し、準備ができたら保存してください。"
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr "正常に生成されました。プロバイダーがURLを返したため保存は無効です。"
+
+msgid "Video generation started. Waiting for the result..."
+msgstr "ビデオ生成を開始しました。結果を待っています..."
+
+msgid "AI returned an empty response."
+msgstr "AIが空の応答を返しました。"
+
+msgid "Nothing to save yet."
+msgstr "まだ保存するものがありません。"
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr "このプロバイダーはbase64コンテンツを返しませんでした。別のプロバイダーをお試しください。"
+
+msgid "Saving failed."
+msgstr "保存に失敗しました。"
+
+msgid "Get AI feedback"
+msgstr "AIフィードバックを取得"
+
+msgid "Copy answer to clipboard"
+msgstr "回答をクリップボードにコピー"
+
+msgid "Save answer to my inbox"
+msgstr "回答をマイインボックスに保存"
+
+msgid "The document is already in this folder"
+msgstr "ドキュメントはこのフォルダに既に存在します"
+
+msgid "Copied"
+msgstr "コピーしました"
+
+msgid "You do not have permission to generate glossary terms."
+msgstr "用語集項目を生成する権限がありません。"
+
+msgid "Video generation is in progress"
+msgstr "ビデオ生成中"
+
+msgid "Job"
+msgstr "ジョブ"
+
+msgid "Modified prompt"
+msgstr "修正されたプロンプト"
+
+msgid "Saved in Documents"
+msgstr "ドキュメントに保存済み"
 

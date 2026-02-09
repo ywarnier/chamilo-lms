@@ -6,14 +6,6 @@ use Chamilo\CoreBundle\Enums\ToolIcon;
 use Chamilo\CoreBundle\Framework\Container;
 use Chamilo\CourseBundle\Entity\CGroup;
 
-/**
- * This script displays an area where teachers can edit the group properties and member list.
- *
- * @author various contributors
- * @author Roan Embrechts (VUB), partial code cleanup, initial virtual course support
- *
- * @todo course admin functionality to create groups based on who is in which course (or class).
- */
 require_once __DIR__.'/../inc/global.inc.php';
 $this_section = SECTION_COURSES;
 $current_course_tool = TOOL_GROUP;
@@ -33,8 +25,8 @@ if (null === $groupEntity) {
 $nameTools = get_lang('Edit this group');
 $interbreadcrumb[] = ['url' => 'group.php?'.api_get_cidreq(), 'name' => get_lang('Groups')];
 $interbreadcrumb[] = ['url' => 'group_space.php?'.api_get_cidreq(), 'name' => $groupEntity->getTitle()];
-$groupMember = GroupManager::isTutorOfGroup(api_get_user_id(), $groupEntity);
 
+$groupMember = GroupManager::isTutorOfGroup(api_get_user_id(), $groupEntity);
 if (!$groupMember && !api_is_allowed_to_edit(false, true)) {
     api_not_allowed(true);
 }
@@ -43,46 +35,72 @@ if (!$groupMember && !api_is_allowed_to_edit(false, true)) {
 $form = new FormValidator('group_edit', 'post', api_get_self().'?'.api_get_cidreq());
 $form->addElement('hidden', 'action');
 
-$form->addHtml('<div class="row">');
-$form->addElement('html', '<div class="col-md-12">');
-$form->addElement('header', $nameTools);
-$form->addHtml('</div>');
-$form->addHtml('</div>');
+if (method_exists($form, 'updateAttributes')) {
+    $form->updateAttributes(['class' => 'space-y-8']);
+}
 
-$form->addHtml('<div class="row">');
-$form->addElement('html', '<div class="col-md-6">');
+// Top container + title + group title + tabs
+$form->addHtml('<div class="mx-auto wd-full px-4 sm:px-6 lg:px-8">');
+$form->addHtml('<div class="mb-6">');
+$form->addHtml('<h1 class="text-2xl font-semibold text-gray-900">'.Security::remove_XSS($nameTools).'</h1>');
+$form->addHtml('<p class="mt-1 text-sm text-gray-600">'.Security::remove_XSS($groupEntity->getTitle()).'</p>');
+$form->addHtml('</div>');
+$form->addHtml(GroupManager::renderGroupTabs('settings'));
+
+/**
+ * Section: Basic group information
+ */
+$form->addHtml('<div class="rounded-lg border border-gray-50 bg-white p-6 shadow-sm">');
+$form->addHtml('<div class="grid grid-cols-1 gap-6 md:grid-cols-2">');
 
 // Group name
-$form->addElement('text', 'name', get_lang('Group name'));
+$form->addHtml('<div>');
+$form->addElement('text', 'name', get_lang('Group name'), [
+    'autocomplete' => 'off',
+]);
+$form->addHtml('</div>');
 
+// Category
 if ('true' === api_get_setting('allow_group_categories')) {
     $groupCategories = GroupManager::get_categories();
     $categoryList = [];
     foreach ($groupCategories as $category) {
         $categoryList[$category['iid']] = $category['title'];
     }
+
+    $form->addHtml('<div>');
     $form->addSelect('category_id', get_lang('Category'), $categoryList);
+    $form->addHtml('</div>');
 } else {
     $form->addHidden('category_id', 0);
+    $form->addHtml('<div></div>');
 }
-$form->addElement('html', '</div>');
 
-$form->addElement('html', '<div class="col-md-6">');
+// Description (full width)
+$form->addHtml('<div class="md:col-span-2">');
 $form->addElement('textarea', 'description', get_lang('Description'));
 $form->addHtml('</div>');
+
+$form->addHtml('</div>');
 $form->addHtml('</div>');
 
-$form->addHtml('<div class="row">');
-$form->addElement('html', '<div class="col-md-6">');
+/**
+ * Section: Limit + Registration
+ */
+$form->addHtml('<div class="rounded-lg border border-gray-50 bg-white p-6 shadow-sm">');
+$form->addHtml('<div class="grid grid-cols-1 gap-6 md:grid-cols-2">');
 
-// Members per group
-$group = [
+// Limit
+$form->addHtml('<div>');
+$form->addHtml('<h2 class="text-sm font-semibold text-gray-900 mb-3">'.get_lang('Limit').'</h2>');
+
+$limitGroup = [
     $form->createElement(
         'radio',
         'max_member_no_limit',
-        get_lang('Limit'),
+        null,
         get_lang('No limitation'),
-        GroupManager::MEMBER_PER_GROUP_NO_LIMIT
+        GroupManager::MEMBER_PER_GROUP_NO_LIMIT,
     ),
     $form->createElement(
         'radio',
@@ -92,27 +110,39 @@ $group = [
         1,
         ['id' => 'max_member_selected']
     ),
-    $form->createElement('text', 'max_member', null, ['class' => 'span1', 'id' => 'max_member']),
-    $form->createElement('static', null, null, ' '.get_lang('seats (optional)')),
+    $form->createElement('text', 'max_member', null, [
+        'id' => 'max_member',
+        'inputmode' => 'numeric',
+        'autocomplete' => 'off',
+    ]),
+    $form->createElement('static', null, null, ' <span class="text-sm text-gray-600">'.get_lang('seats (optional)').'</span>'),
 ];
-$form->addGroup($group, 'max_member_group', get_lang('Limit'), null, false);
+
+$form->addGroup($limitGroup, 'max_member_group', null, '<br>', false);
 $form->addRule(
     'max_member_group',
     get_lang('Please enter a valid number for the maximum number of members.'),
     'callback',
     'check_max_number_of_members'
 );
-$form->addElement('html', '</div>');
 
-$form->addElement('html', '<div class="col-md-6">');
+$form->addHtml('</div>');
 
-// Self registration
-$group = [
+// Registration
+$form->addHtml('<div>');
+$form->addHtml(
+    '<h2 class="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900">'.
+    Display::getMdiIcon(ToolIcon::MEMBER, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Registration')).
+    '<span>'.get_lang('Registration').'</span>'.
+    '</h2>'
+);
+
+$registrationGroup = [
     $form->createElement(
         'checkbox',
         'self_registration_allowed',
-        get_lang('Registration'),
-        get_lang('Learners are allowed to self-register in groups')
+        null,
+        get_lang('Learners are allowed to self-register in groups'),
     ),
     $form->createElement(
         'checkbox',
@@ -121,212 +151,170 @@ $group = [
         get_lang('Learners are allowed to unregister themselves from groups'),
     ),
 ];
-$form->addGroup(
-    $group,
-    '',
-    Display::getMdiIcon(ToolIcon::MEMBER, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Registration')).
-    '<span>'.get_lang('Registration').'</span>',
-    null,
-    false
-);
 
-$form->addElement('html', '</div>');
+$form->addGroup($registrationGroup, '', null, '<br>', false);
+
 $form->addHtml('</div>');
 
-$form->addElement('html', '<div class="col-md-12">');
-$form->addElement('header', get_lang('Default settings for new groups'));
-$form->addElement('html', '</div>');
+$form->addHtml('</div>');
+$form->addHtml('</div>');
 
-$form->addElement('html', '<div class="col-md-6">');
-// Documents settings
-$group = [
-    $form->createElement('radio', 'doc_state', get_lang('Documents'), get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
+/**
+ * Section: Default settings for new groups
+ */
+$form->addHtml('<div class="rounded-lg border border-gray-50 bg-white p-6 shadow-sm">');
+$form->addHtml('<h2 class="text-base font-semibold text-gray-900 mb-6">'.get_lang('Default settings for new groups').'</h2>');
+$form->addHtml('<div class="grid grid-cols-1 gap-6 md:grid-cols-2">');
+
+// Documents tool visibility
+$form->addHtml('<div class="rounded-lg border border-gray-50 bg-gray-20 p-4">');
+$form->addHtml(
+    '<div class="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900">'.
+    Display::getMdiIcon(ToolIcon::DOCUMENT, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Documents')).
+    '<span>'.get_lang('Documents').'</span>'.
+    '</div>'
+);
+
+$docGroup = [
+    $form->createElement('radio', 'doc_state', null, get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
     $form->createElement('radio', 'doc_state', null, get_lang('Public access (access authorized to any member of the course)'), GroupManager::TOOL_PUBLIC),
     $form->createElement('radio', 'doc_state', null, get_lang('Private access (access authorized to group members only)'), GroupManager::TOOL_PRIVATE),
 ];
-$form->addGroup(
-    $group,
-    '',
-    Display::getMdiIcon(ToolIcon::DOCUMENT, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Documents')).'<span>'.get_lang('Documents').'</span>',
-    null,
-    false
-);
+$form->addGroup($docGroup, '', null, '<br>', false);
+$form->addHtml('</div>');
 
+// Document access (optional feature)
 $allowDocumentGroupAccess = ('true' === api_get_setting('document.group_document_access'));
 if ($allowDocumentGroupAccess) {
-    $form->addElement('html', '</div>');
-    $form->addElement('html', '<div class="col-md-6">');
-    $group = [
-        $form->createElement(
-            'radio',
-            'document_access',
-            null,
-            get_lang('Share mode'),
-            GroupManager::DOCUMENT_MODE_SHARE
-        ),
-        $form->createElement(
-            'radio',
-            'document_access',
-            get_lang('Documents'),
-            get_lang('Collaboration mode'),
-            GroupManager::DOCUMENT_MODE_COLLABORATION
-        ),
-        $form->createElement(
-            'radio',
-            'document_access',
-            null,
-            get_lang('Read only mode'),
-            GroupManager::DOCUMENT_MODE_READ_ONLY
-        ),
-    ];
-    $form->addGroup(
-        $group,
-        '',
-        Display::getMdiIcon(ToolIcon::DOCUMENT, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Document access')
-        ).'<span>'.get_lang('Document access').'</span>',
-        null,
-        false
+    $form->addHtml('<div class="rounded-lg border border-gray-50 bg-gray-20 p-4">');
+    $form->addHtml(
+        '<div class="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900">'.
+        Display::getMdiIcon(ToolIcon::DOCUMENT, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Document access')).
+        '<span>'.get_lang('Document access').'</span>'.
+        '</div>'
     );
-    $form->addElement('html', '</div>');
 
-    $form->addElement('html', '<div class="col-md-12">');
-    $form->addElement('header', '');
-    $form->addElement('html', '</div>');
-
-    $form->addElement('html', '<div class="col-md-6">');
+    $docAccessGroup = [
+        $form->createElement('radio', 'document_access', null, get_lang('Share mode'), GroupManager::DOCUMENT_MODE_SHARE),
+        $form->createElement('radio', 'document_access', null, get_lang('Collaboration mode'), GroupManager::DOCUMENT_MODE_COLLABORATION),
+        $form->createElement('radio', 'document_access', null, get_lang('Read only mode'), GroupManager::DOCUMENT_MODE_READ_ONLY),
+    ];
+    $form->addGroup($docAccessGroup, '', null, '<br>', false);
+    $form->addHtml('</div>');
 }
 
-// Work settings
-$group = [
-    $form->createElement(
-        'radio',
-        'work_state',
-        get_lang('Assignments'),
-        get_lang('Not available'),
-        GroupManager::TOOL_NOT_AVAILABLE
-    ),
+// Assignments tool visibility
+$form->addHtml('<div class="rounded-lg border border-gray-50 bg-gray-20 p-4">');
+$form->addHtml(
+    '<div class="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900">'.
+    Display::getMdiIcon(ToolIcon::ASSIGNMENT, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Assignments')).
+    '<span>'.get_lang('Assignments').'</span>'.
+    '</div>'
+);
+
+$workGroup = [
+    $form->createElement('radio', 'work_state', null, get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
     $form->createElement('radio', 'work_state', null, get_lang('Public access (access authorized to any member of the course)'), GroupManager::TOOL_PUBLIC),
     $form->createElement('radio', 'work_state', null, get_lang('Private access (access authorized to group members only)'), GroupManager::TOOL_PRIVATE),
 ];
-$form->addElement('html', '</div>');
+$form->addGroup($workGroup, '', null, '<br>', false);
+$form->addHtml('</div>');
 
-$form->addElement('html', '<div class="col-md-12">');
-$form->addElement('html', '</div>');
-
-$form->addElement('html', '<div class="col-md-6">');
-
-$form->addGroup(
-    $group,
-    '',
-    Display::getMdiIcon(ToolIcon::ASSIGNMENT, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Assignments')).'<span>'.get_lang('Assignments').'</span>',
-    null,
-    false
+// Agenda tool visibility
+$form->addHtml('<div class="rounded-lg border border-gray-50 bg-gray-20 p-4">');
+$form->addHtml(
+    '<div class="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900">'.
+    Display::getMdiIcon(ToolIcon::AGENDA, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Agenda')).
+    '<span>'.get_lang('Agenda').'</span>'.
+    '</div>'
 );
 
-// Calendar settings
-$group = [
-    $form->createElement('radio', 'calendar_state', get_lang('Agenda'), get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
+$agendaGroup = [
+    $form->createElement('radio', 'calendar_state', null, get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
     $form->createElement('radio', 'calendar_state', null, get_lang('Public access (access authorized to any member of the course)'), GroupManager::TOOL_PUBLIC),
     $form->createElement('radio', 'calendar_state', null, get_lang('Private access (access authorized to group members only)'), GroupManager::TOOL_PRIVATE),
 ];
+$form->addGroup($agendaGroup, '', null, '<br>', false);
+$form->addHtml('</div>');
 
-$form->addElement('html', '</div>');
-
-$form->addElement('html', '<div class="col-md-6">');
-$form->addGroup(
-    $group,
-    '',
-    Display::getMdiIcon(ToolIcon::AGENDA, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Agenda')).'<span>'.get_lang('Agenda').'</span>',
-    null,
-    false
+// Announcements tool visibility
+$form->addHtml('<div class="rounded-lg border border-gray-50 bg-gray-20 p-4">');
+$form->addHtml(
+    '<div class="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900">'.
+    Display::getMdiIcon(ToolIcon::ANNOUNCEMENT, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Announcements')).
+    '<span>'.get_lang('Announcements').'</span>'.
+    '</div>'
 );
 
-$form->addElement('html', '</div>');
-
-$form->addElement('html', '<div class="col-md-12">');
-$form->addElement('header', '');
-$form->addElement('html', '</div>');
-
-$form->addElement('html', '<div class="col-md-6">');
-
-// Announcements settings
-$group = [
-    $form->createElement('radio', 'announcements_state', get_lang('Announcements'), get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
+$announcementsGroup = [
+    $form->createElement('radio', 'announcements_state', null, get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
     $form->createElement('radio', 'announcements_state', null, get_lang('Public access (access authorized to any member of the course)'), GroupManager::TOOL_PUBLIC),
     $form->createElement('radio', 'announcements_state', null, get_lang('Private access (access authorized to group members only)'), GroupManager::TOOL_PRIVATE),
     $form->createElement('radio', 'announcements_state', null, get_lang('Private between users'), GroupManager::TOOL_PRIVATE_BETWEEN_USERS),
 ];
+$form->addGroup($announcementsGroup, '', null, '<br>', false);
+$form->addHtml('</div>');
 
-$form->addGroup(
-    $group,
-    '',
-    Display::getMdiIcon(ToolIcon::ANNOUNCEMENT, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Announcements')).'<span>'.get_lang('Announcements').'</span>',
-    null,
-    false
+// Forum tool visibility
+$form->addHtml('<div class="rounded-lg border border-gray-50 bg-gray-20 p-4">');
+$form->addHtml(
+    '<div class="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900">'.
+    Display::getMdiIcon(ToolIcon::FORUM, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Group Forum')).
+    '<span>'.get_lang('Group Forum').'</span>'.
+    '</div>'
 );
 
-$form->addElement('html', '</div>');
-
-$form->addElement('html', '<div class="col-md-6">');
-
-// Forum settings
-$group = [
-    $form->createElement('radio', 'forum_state', get_lang('Group Forum'), get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
+$forumGroup = [
+    $form->createElement('radio', 'forum_state', null, get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
     $form->createElement('radio', 'forum_state', null, get_lang('Public access (access authorized to any member of the course)'), GroupManager::TOOL_PUBLIC),
     $form->createElement('radio', 'forum_state', null, get_lang('Private access (access authorized to group members only)'), GroupManager::TOOL_PRIVATE),
 ];
-$form->addGroup(
-    $group,
-    '',
-    Display::getMdiIcon(ToolIcon::FORUM, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Group Forum')).'<span>'.get_lang('Group Forum').'</span>',
-    null,
-    false
+$form->addGroup($forumGroup, '', null, '<br>', false);
+$form->addHtml('</div>');
+
+// Wiki tool visibility
+$form->addHtml('<div class="rounded-lg border border-gray-50 bg-gray-20 p-4">');
+$form->addHtml(
+    '<div class="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900">'.
+    Display::getMdiIcon(ToolIcon::WIKI, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Wiki')).
+    '<span>'.get_lang('Wiki').'</span>'.
+    '</div>'
 );
 
-$form->addElement('html', '</div>');
-
-$form->addElement('html', '<div class="col-md-12">');
-$form->addElement('header', '');
-$form->addElement('html', '</div>');
-
-$form->addElement('html', '<div class="col-md-6">');
-
-// Wiki settings
-$group = [
-    $form->createElement('radio', 'wiki_state', get_lang('Wiki'), get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
+$wikiGroup = [
+    $form->createElement('radio', 'wiki_state', null, get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
     $form->createElement('radio', 'wiki_state', null, get_lang('Public access (access authorized to any member of the course)'), GroupManager::TOOL_PUBLIC),
     $form->createElement('radio', 'wiki_state', null, get_lang('Private access (access authorized to group members only)'), GroupManager::TOOL_PRIVATE),
 ];
-$form->addGroup(
-    $group,
-    '',
-    Display::getMdiIcon(ToolIcon::WIKI, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Wiki')).'<span>'.get_lang('Wiki').'</span>',
-    '',
-    false
+$form->addGroup($wikiGroup, '', null, '<br>', false);
+$form->addHtml('</div>');
+
+// Chat tool visibility
+$form->addHtml('<div class="rounded-lg border border-gray-50 bg-gray-20 p-4">');
+$form->addHtml(
+    '<div class="mb-3 flex items-center gap-2 text-sm font-semibold text-gray-900">'.
+    Display::getMdiIcon(ToolIcon::CHAT, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Chat')).
+    '<span>'.get_lang('Chat').'</span>'.
+    '</div>'
 );
 
-$form->addElement('html', '</div>');
-$form->addElement('html', '<div class="col-md-6">');
-
-// Chat settings
-$group = [
-    $form->createElement('radio', 'chat_state', get_lang('Chat'), get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
+$chatGroup = [
+    $form->createElement('radio', 'chat_state', null, get_lang('Not available'), GroupManager::TOOL_NOT_AVAILABLE),
     $form->createElement('radio', 'chat_state', null, get_lang('Public access (access authorized to any member of the course)'), GroupManager::TOOL_PUBLIC),
     $form->createElement('radio', 'chat_state', null, get_lang('Private access (access authorized to group members only)'), GroupManager::TOOL_PRIVATE),
 ];
-$form->addGroup(
-    $group,
-    '',
-    Display::getMdiIcon(ToolIcon::CHAT, 'ch-tool-icon', null, ICON_SIZE_SMALL, get_lang('Chat')).'<span>'.get_lang('Chat').'</span>',
-    null,
-    false
-);
+$form->addGroup($chatGroup, '', null, '<br>', false);
+$form->addHtml('</div>');
 
-$form->addElement('html', '</div>');
-$form->addElement('html', '<div class="col-md-12">');
-// Submit button
+$form->addHtml('</div>');
+
+// Submit
+$form->addHtml('<div class="mt-8 flex justify-end">');
 $form->addButtonSave(get_lang('Save settings'));
-$form->addElement('html', '</div>');
+$form->addHtml('</div>');
+
+$form->addHtml('</div>');
+$form->addHtml('</div>'); // container
 
 if ($form->validate()) {
     $values = $form->exportValues();
@@ -390,15 +378,23 @@ if (GroupManager::MEMBER_PER_GROUP_NO_LIMIT == $defaults['maximum_number_of_stud
     $defaults['max_member'] = $defaults['maximum_number_of_students'];
 }
 
+$searchAlertHtml = '';
 if (!empty($_GET['keyword']) && !empty($_GET['submit'])) {
     $keyword_name = Security::remove_XSS($_GET['keyword']);
-    echo '<br/>'.get_lang('Search results for:').' <span style="font-style: italic ;"> '.$keyword_name.' </span><br>';
+    $searchAlertHtml = '<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mt-4">'.
+        '<div class="rounded-md border border-blue-200 bg-blue-50 p-4 text-sm text-blue-800">'.
+        get_lang('Search results for:').' <span class="font-medium italic">'.$keyword_name.'</span>'.
+        '</div>'.
+        '</div>';
 }
 
 Display::display_header($nameTools, 'Group');
 
+if (!empty($searchAlertHtml)) {
+    echo $searchAlertHtml;
+}
+
 $form->setDefaults($defaults);
-echo GroupManager::getSettingBar('settings');
 $form->display();
 
-Display :: display_footer();
+Display::display_footer();

@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "ด้วยความเคารพ"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "สูตรตัวอย่าง: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "ตัวอย่างสูตร: sqrt( [x] / [ย] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "ช่วงตัวแปร"
@@ -17745,7 +17745,7 @@ msgid "A course category with the same name already exists."
 msgstr "หมวดหมู่คอร์สชื่อเดียวกันมีอยู่แล้ว"
 
 msgid "OpenID redirect"
-msgstr "OpenID redirect"
+msgstr "การเปลี่ยนเส้นทาง OpenID"
 
 msgid "Blogs"
 msgstr "บล็อก"
@@ -19414,9 +19414,6 @@ msgstr "ลบฐานข้อมูลเก่า"
 
 msgid "Remove old tables"
 msgstr "ลบตารางเก่า"
-
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "พื้นที่ทั้งหมดที่ใช้โดยพอร์ทัล %s จำกัดที่ %s MB"
 
 msgid "Event message management"
 msgstr "การจัดการข้อความเหตุการณ์"
@@ -21825,7 +21822,7 @@ msgid "Assignment work time"
 msgstr "เวลาทำงานมอบหมาย"
 
 msgid "Document ID"
-msgstr "Document ID"
+msgstr "รหัสเอกสาร"
 
 msgid "Social data"
 msgstr "ข้อมูลสังคม"
@@ -26862,7 +26859,7 @@ msgid "HTTP Strict Transport Security is an excellent feature to support on your
 msgstr "HTTP Strict Transport Security เป็นคุณสมบัติที่ยอดเยี่ยมสำหรับเว็บไซต์ของคุณและเสริมการใช้งาน TLS โดยบังคับให้ User Agent ใช้ HTTPS ค่าที่แนะนำ: 'strict-transport-security: max-age=63072000; includeSubDomains' ดู https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security สามารถเพิ่ม 'preload' ได้ แต่มีผลต่อโดเมนหลัก (TLD) ดังนั้นควรพิจารณาให้รอบคอบ ดู https://hstspreload.org/ ทิ้งว่างเพื่อปิดใช้งาน"
 
 msgid "Content Security Policy"
-msgstr "Content Security Policy"
+msgstr "นโยบายความปลอดภัยเนื้อหา"
 
 msgid "Content Security Policy is an effective measure to protect your site from XSS attacks. By whitelisting sources of approved content, you can prevent the browser from loading malicious assets. This setting is particularly complicated to set with WYSIWYG editors, but if you add all domains that you want to authorize for iframes inclusion in the child-src statement, this example should work for you. You can prevent JavaScript from executing from external sources (including inside SVG images) by using a strict list in the 'script-src' argument. Leave blank to disable. Example setting: default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; child-src 'self' *.youtube.com yt.be *.vimeo.com *.slideshare.com;"
 msgstr "Content Security Policy เป็นมาตรการที่มีประสิทธิภาพในการป้องกันเว็บไซต์จาก XSS โดยการกำหนดแหล่งที่มาของเนื้อหาที่อนุญาต สามารถป้องกันเบราว์เซอร์จากการโหลดเนื้อหาที่เป็นอันตราย การตั้งค่านี้ซับซ้อนเมื่อใช้ WYSIWYG editor แต่หากเพิ่มโดเมนที่ต้องการอนุญาตสำหรับ iframe ใน child-src ตัวอย่างนี้จะใช้งานได้ สามารถป้องกัน JavaScript จากแหล่งภายนอก (รวม SVG) โดยใช้รายการเข้มงวดใน 'script-src' ทิ้งว่างเพื่อปิดใช้งาน ตัวอย่าง: default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; child-src 'self' *.youtube.com yt.be *.vimeo.com *.slideshare.com;"
@@ -26904,7 +26901,7 @@ msgid "X-Content-Type-Options stops a browser from trying to MIME-sniff the cont
 msgstr "X-Content-Type-Options หยุดเบราว์เซอร์จากการ MIME-sniff content type และบังคับใช้ declared content-type ค่าเดียวที่ถูกต้องคือ 'nosniff'"
 
 msgid "Security Referrer Policy"
-msgstr "Security Referrer Policy"
+msgstr "นโยบายการอ้างอิงความปลอดภัย"
 
 msgid "Referrer Policy is a new header that allows a site to control how much information the browser includes with navigation away from a document and should be set by all sites."
 msgstr "Referrer Policy เป็น header ใหม่ที่ควบคุมข้อมูลที่เบราว์เซอร์ส่งเมื่อออกจากเอกสาร ควรตั้งค่าทุกเว็บไซต์"
@@ -26916,7 +26913,7 @@ msgid "Immediately block users who have been disabled by the admin through users
 msgstr "บล็อกผู้ใช้ที่ถูกปิดใช้งานโดยผู้ดูแลทันที มิเช่นนั้นผู้ใช้จะคงสิทธิ์เดิมจนกว่าจะล็อกเอาท์"
 
 msgid "Session cookie samesite"
-msgstr "Session cookie samesite"
+msgstr "คุกกี้เซสชัน samesite"
 
 msgid "Enable samesite:None parameter for session cookie. More info: https://www.chromium.org/updates/same-site and https://developers.google.com/search/blog/2020/01/get-ready-for-new-samesitenone-secure"
 msgstr "เปิดใช้งาน samesite:None สำหรับ session cookie ดูข้อมูลเพิ่มเติม: https://www.chromium.org/updates/same-site และ https://developers.google.com/search/blog/2020/01/get-ready-for-new-samesitenone-secure"
@@ -30520,13 +30517,13 @@ msgid "ex. root"
 msgstr "เช่น root"
 
 msgid "CREATE TABLE works"
-msgstr "CREATE TABLE works"
+msgstr "CREATE TABLE ผลงาน"
 
 msgid "ALTER TABLE works"
-msgstr "ALTER TABLE works"
+msgstr "ALTER TABLE ผลงาน"
 
 msgid "DROP COLUMN works"
-msgstr "DROP COLUMN works"
+msgstr "DROP COLUMN ผลงาน"
 
 msgid "Theme selected as current"
 msgstr "เลือกธีมเป็นธีมปัจจุบัน"
@@ -31074,8 +31071,8 @@ msgstr "เพิ่มความคิดเห็น"
 msgid "Write your comment here..."
 msgstr "พิมพ์ความคิดเห็นของคุณที่นี่..."
 
-msgid "%d selected"
-msgstr "%d รายการที่เลือก"
+msgid "%s selected"
+msgstr "%s รายการที่เลือก"
 
 msgid "Search by title or path..."
 msgstr "ค้นหาตามชื่อหรือเส้นทาง..."
@@ -31083,8 +31080,8 @@ msgstr "ค้นหาตามชื่อหรือเส้นทาง...
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "จัดการสำรองข้อมูล, คืนค่า, คัดลอก, รีไซเคิล และลบข้อมูลคอร์ส"
 
-msgid "%d comment(s)"
-msgstr "%d ความคิดเห็น"
+msgid "%s comment(s)"
+msgstr "%s ความคิดเห็น"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "เกิดข้อผิดพลาดในการอัปเดตบุคคลที่สาม กรุณาตรวจสอบข้อมูล"
@@ -31439,4 +31436,1138 @@ msgstr "ชื่อฐานข้อมูลอนุญาตให้ใช
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "เงื่อนไขทั่วไปใดที่ให้ผู้ใช้เพื่อใช้งานแพลตฟอร์มนี้?"
+
+msgid "ex. {examplePassword}"
+msgstr "เช่น {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "ยินดีต้อนรับสู่ Chamilo!"
+
+msgid "Welcome to this platform"
+msgstr "ยินดีต้อนรับสู่แพลตฟอร์มนี้"
+
+msgid "For more details visit %s"
+msgstr "สำหรับรายละเอียดเพิ่มเติมโปรดเยี่ยมชม %s"
+
+msgid "Manager"
+msgstr "ผู้จัดการ"
+
+msgid "Mark as"
+msgstr "ทำเครื่องหมายเป็น"
+
+msgid "Reply to all"
+msgstr "ตอบกลับทั้งหมด"
+
+msgid "SCIM external ID"
+msgstr "SCIM external ID"
+
+msgid "OAuth2 ID"
+msgstr "OAuth2 ID"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "กรุณายอมรับเวอร์ชันล่าสุดของข้อกำหนดและเงื่อนไข"
+
+msgid "Required value for operation without path"
+msgstr "ค่าที่จำเป็นสำหรับการดำเนินการโดยไม่มีเส้นทาง"
+
+msgid "Available space (%s)"
+msgstr "พื้นที่ว่างที่มี (%s)"
+
+msgid "Index this description for the global search"
+msgstr "รวมคำอธิบายนี้ในดัชนีสำหรับการค้นหาทั่วโลก"
+
+msgid "Unknown course"
+msgstr "คอร์สที่ไม่รู้จัก"
+
+msgid "Certificate not found."
+msgstr "ไม่พบใบรับรอง"
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "โทเค็นความปลอดภัยหมดอายุ กรุณาโหลดหน้าใหม่และลองอีกครั้ง"
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "เฉพาะผู้ดูแลระบบแพลตฟอร์มเท่านั้นที่สามารถเปลี่ยนการมองเห็นของคอร์สได้"
+
+msgid "Unexpected error while subscribing the user"
+msgstr "เกิดข้อผิดพลาดไม่คาดคิดขณะสมัครสมาชิกผู้ใช้"
+
+msgid "Search in resource logs"
+msgstr "ค้นหาในบันทึกทรัพยากร"
+
+msgid "Include this learning path in the global search results"
+msgstr "รวมเส้นทางการเรียนรู้นี้ในผลการค้นหาทั่วโลก"
+
+msgid "The course code already exists"
+msgstr "รหัสคอร์สมีอยู่แล้ว"
+
+msgid "Latest news"
+msgstr "ข่าวล่าสุด"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "รับข่าวสารล่าสุดจาก Chamilo รวมถึงช่องโหว่ด้านความปลอดภัยและเหตุการณ์ โดยตรงในแผงผู้ดูแลระบบของคุณ ข่าวเหล่านี้จะถูกตรวจสอบจากเซิร์ฟเวอร์ข่าว Chamilo ทุกครั้งที่คุณโหลดหน้าแอดมินและมองเห็นได้เฉพาะผู้ดูแลระบบเท่านั้น"
+
+msgid "Chamilo support block"
+msgstr "บล็อกสนับสนุน Chamilo"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "รับเคล็ดลับโปรและวิธีง่ายๆ ในการติดต่อผู้ให้บริการอย่างเป็นทางการสำหรับการสนับสนุนระดับมืออาชีพ โดยตรงจากผู้สร้าง Chamilo บล็อกนี้จะปรากฏในหน้าแอดมินของคุณ มองเห็นได้เฉพาะผู้ดูแลระบบ และจะรีเฟรชทุกครั้งที่คุณโหลดหน้าแอดมิน"
+
+msgid "Hide option to send announcements to HR users"
+msgstr "ซ่อนตัวเลือกในการส่งประกาศไปยังผู้ใช้ HR"
+
+msgid "Allow session admins to download private certificates"
+msgstr "อนุญาตให้ผู้ดูแลเซสชันดาวน์โหลดใบรับรองส่วนตัว"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "หากเปิดใช้งาน ผู้ดูแลเซสชันสามารถดาวน์โหลดใบรับรองได้แม้ว่าจะไม่ได้เผยแพร่สู่สาธารณะ"
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "หากไม่ว่างเปล่า กระบวนการสร้างหลักสูตรจะค้นหาช่องข้อมูลบางส่วนในโปรไฟล์ผู้ใช้และกรอกข้อมูลอัตโนมัติสำหรับหลักสูตร ตัวอย่างเช่น ครูผู้เชี่ยวชาญด้านการตลาดดิจิทัลสามารถตั้งค่าธง «การตลาดดิจิทัล» อัตโนมัติในแต่ละหลักสูตรที่สร้าง"
+
+msgid "Main menu entries"
+msgstr "รายการเมนูหลัก"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "เลือกเรกคอร์ดที่ต้องการให้ปรากฏในเมนูหลัก"
+
+msgid "Main menu entries per role"
+msgstr "รายการเมนูหลักตามบทบาท"
+
+msgid "Define header tabs visibility per role."
+msgstr "กำหนดการมองเห็นแท็บส่วนหัวตามบทบาท"
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "ตั้งค่าตัวเลือกที่ต้องการให้ปรากฏในการนำทางรอบตารางเพื่อแสดงแถวน้อยลงหรือมากขึ้นต่อหน้า เช่น [50, 100, 200, 500]"
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "อาร์เรย์ของฟีเจอร์พิเศษที่สามารถเปิดใช้งานสำหรับตัวเล่นวิดีโอใน Chamilo ตัวเลือก ได้แก่ 'speed' ซึ่งช่วยให้คุณเปลี่ยนความเร็วการเล่นวิดีโอ"
+
+msgid "Mail: character set"
+msgstr "อีเมล: ชุดอักขระ"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "ในกรณีที่ต้องกำหนดชุดอักขระสำหรับส่งอีเมลเหล่านั้น ทิ้งว่างไว้หากไม่แน่ใจ"
+
+msgid "Mail: Debug"
+msgstr "อีเมล: Debug"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "เลือกว่าต้องการเปิดใช้งานบันทึกการดีบักการส่งอีเมลหรือไม่ สิ่งเหล่านี้จะให้ข้อมูลเพิ่มเติมเกี่ยวกับสิ่งที่เกิดขึ้นเมื่อเชื่อมต่อกับบริการอีเมล แต่ไม่สวยงามและอาจทำให้การออกแบบหน้าทำลาย ใช้เฉพาะเมื่อไม่มีกิจกรรมผู้ใช้"
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "อีเมล: หลีกเลี่ยงการใช้ LD+JSON"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "ไคลเอนต์อีเมลบางตัวไม่เข้าใจรูปแบบ LD+JSON ที่อธิบาย แสดงเป็นสตริง JSON หลวมๆ ให้ผู้ใช้ปลายทาง หากเป็นกรณีของคุณ อาจตั้งค่าตัวแปรด้านล่างเป็น 'false' เพื่อปิดส่วนหัวนี้"
+
+msgid "Mail: DKIM headers"
+msgstr "อีเมล: ส่วนหัว DKIM"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "ป้อนอาร์เรย์ JSON ของการตั้งค่า DKIM ของคุณ (ดูตัวอย่าง)"
+
+msgid "Mail: XOAuth2 options"
+msgstr "อีเมล: ตัวเลือก XOAuth2"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "หากใช้บริการอีเมลที่ใช้ XOAuth2 ใช้การตั้งค่านี้ใน JSON เพื่อบันทึกการกำหนดค่าพิเศษของคุณ (ดูตัวอย่าง) และเลือก XOAuth2 ในการตั้งค่าบริการอีเมล"
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "กำหนดประเภทสภาพแวดล้อม: \"prod\" (การผลิตปกติ), \"validation\" (เหมือนการผลิตแต่ไม่รายงานสถิติ), หรือ \"test\" (โหมดดีบักพร้อมเครื่องมือนักพัฒนา เช่น ตัวบ่งชี้สตริงที่ยังไม่แปล)"
+
+msgid "Global limit of users per course"
+msgstr "ขีดจำกัดผู้ใช้ทั้งหมดต่อหลักสูตร"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "กำหนดจำนวนสูงสุดผู้ใช้ทั้งหมด (รวมครู) ที่อนุญาตให้สมัครในหลักสูตรเดียวในแพลตฟอร์ม ตั้งค่านี้เป็น 0 เพื่อปิดขีดจำกัด ช่วยหลีกเลี่ยงหลักสูตรที่โหลดเกินในพอร์ทัลเปิด"
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "เปิดใช้งานเพื่อใช้อาร์เรย์กำหนดบทบาทที่ควรแสดงชัดเจนและบทบาทที่ควรซ่อน"
+
+msgid "Show base course posts in session course"
+msgstr "แสดงโพสต์หลักสูตรฐานในหลักสูตรเซสชัน"
+
+msgid "Limit identical email usage"
+msgstr "จำกัดการใช้อีเมลซ้ำ"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "จำนวนบัญชีสูงสุดที่อนุญาตให้ใช้ที่อยู่อีเมลเดียวกัน ตั้งค่าเป็น 0 เพื่อปิดการจำกัดนี้"
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "อนุญาตให้ผู้ดูแลเซสชันเห็นผู้ใช้ทั้งหมดในทุก URL"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "หากเปิดใช้งาน ผู้ดูแลเซสชันสามารถค้นหาและแสดงรายการผู้ใช้จากทุก URL เข้าถึง โดยไม่คำนึงถึง URL ปัจจุบัน"
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "เปิดใช้งานให้ผู้ใช้เลือกเขตเวลาของตนเอง เมื่อกำหนดค่าแล้ว ผู้ใช้จะสามารถดูกำหนดเวลาการส่งงานและการอ้างอิงเวลาอื่นๆ ในเขตเวลาของตน ซึ่งจะลดข้อผิดพลาดในเวลาการส่ง"
+
+msgid "Redirect after login (per profile)"
+msgstr "Redirect หลังเข้าสู่ระบบ (ต่อโปรไฟล์)"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "กำหนดการเปลี่ยนเส้นทางต่อโปรไฟล์หลังเข้าสู่ระบบโดยใช้ JSON object เช่น {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "ซ่อนช่องทำเครื่องหมายยอมรับทางกฎหมายในหน้าข้อกำหนดและเงื่อนไข"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "หากตั้งค่าเป็น true จะลบช่องทำเครื่องหมาย \"ฉันได้อ่านและยอมรับ\" ในขั้นตอนหน้าข้อกำหนดและเงื่อนไข"
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "Array ที่กำหนดโฮสต์และพอร์ตสำหรับเซิร์ฟเวอร์ LDAP"
+
+msgid "Enable 2FA"
+msgstr "เปิดใช้งาน 2FA"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "เพิ่มฟิลด์ในหน้าอัปเดตパスワードเพื่อเปิดใช้งาน 2FA โดยใช้แอปยืนยัน TOTP เมื่อปิดใช้งานทั่วโลก ผู้ใช้จะไม่เห็นฟิลด์ 2FA และจะไม่ถูกถามให้ยืนยัน 2FA เมื่อเข้าสู่ระบบ แม้จะเปิดใช้งานก่อนหน้านี้"
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "คุณสมบัติบางอย่างของ Chamilo จะเชื่อมต่อภายนอกจากเซิร์ฟเวอร์ เช่น เพื่อยืนยันว่าคอนเทนต์ภายนอกมีอยู่เมื่อสร้างลิงก์หรือแสดงเพจฝังในเส้นทางการเรียน หากเซิร์ฟเวอร์ Chamilo ของคุณใช้ proxy เพื่อออกจากเครือข่าย นี่คือสถานที่สำหรับกำหนดค่า"
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "เปิดหรือปิดการลงทะเบียนใหม่โดยอัตโนมัติเมื่อความถูกต้องของคอร์สหมดอายุ ต้องเปิดใช้งาน cron job ที่เกี่ยวข้องด้วย"
+
+msgid "Show remaining days in My Sessions"
+msgstr "แสดงจำนวนวันคงเหลือในเซสชันของฉัน"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "หากเปิดใช้งาน วันที่เซสชันในหน้าทำ \"เซสชันของฉัน\" จะถูกแทนที่ด้วยจำนวนวันคงเหลือ"
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "แสดง \"แบบสำรวจที่รอดำเนินการ\" ในเมนู"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "แสดงรายการเมนูที่ให้ผู้ใช้เข้าถึงแบบสำรวจที่รอดำเนินการของตน"
+
+msgid "Disclose AI assistance"
+msgstr "เปิดเผยการช่วยเหลือ AI"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "แสดงแท็กบนคอนเทนต์หรือข้อเสนอแนะใดๆ ที่สร้างหรือร่วมสร้างโดยระบบ AI ใดๆ เพื่อแจ้งผู้ใช้ว่าคอนเทนต์ถูกสร้างด้วยความช่วยเหลือจากระบบ AI บางระบบ รายละเอียดเกี่ยวกับระบบ AI ที่ใช้ในแต่ละกรณีเก็บไว้ในฐานข้อมูลสำหรับการตรวจสอบ แต่ผู้ใช้ปลายทางไม่สามารถเข้าถึงได้โดยตรง"
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "การกำหนดค่า JSON สำหรับแคตตาล็อกคอร์ส: การตั้งค่าลิงก์ ตัวกรอง ตัวเลือกการเรียงลำดับ และอื่นๆ"
+
+msgid "Session Catalog Settings"
+msgstr "การตั้งค่าแคตตาล็อกเซสชัน"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "การกำหนดค่าคอนฟิก JSON สำหรับแคตตาล็อกเซสชัน: ตัวกรองและตัวเลือกการแสดงผล"
+
+msgid "Show Course Descriptions"
+msgstr "แสดงคำอธิบายหลักสูตร"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "แสดงคำอธิบายหลักสูตรในรายการแคตตาล็อก"
+
+msgid "Published Courses Only"
+msgstr "เฉพาะหลักสูตรที่เผยแพร่"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "จำกัดแคตตาล็อกเฉพาะหลักสูตรที่標記ว่าเผยแพร่แล้ว"
+
+msgid "Display Catalog on Homepage"
+msgstr "แสดงแคตตาล็อกบนหน้าหลัก"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "แสดงบล็อกแคตตาล็อกหลักสูตรบนหน้าหลักของแพลตฟอร์ม"
+
+msgid "Hide Public Link"
+msgstr "ซ่อนลิงก์สาธารณะ"
+
+msgid "Remove the public URL link from course cards."
+msgstr "ลบลิงก์ URL สาธารณะออกจากการ์ดหลักสูตร"
+
+msgid "Only Selected Courses"
+msgstr "เฉพาะหลักสูตรที่เลือก"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "แสดงเฉพาะหลักสูตรที่เลือกด้วยตนเองในแคตตาล็อก"
+
+msgid "Allow Student Browsing"
+msgstr "อนุญาตให้นักเรียนเรียกดู"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "อนุญาตให้นักเรียนเรียกดูและกรองแคตตาล็อกหลักสูตร"
+
+msgid "Hide Private Courses"
+msgstr "ซ่อนหลักสูตรส่วนตัว"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "ไม่รวมหลักสูตรส่วนตัวจากการแสดงผลแคตตาล็อก"
+
+msgid "Show Courses & Sessions"
+msgstr "แสดงหลักสูตรและเซสชัน"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "รวมทั้งหลักสูตรและเซสชันในผลลัพธ์แคตตาล็อก"
+
+msgid "Auto Session Subscription"
+msgstr "การสมัครสมาชิกเซสชันอัตโนมัติ"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "เปิดใช้งานการสมัครสมาชิกเซสชันอัตโนมัติสำหรับผู้ใช้"
+
+msgid "Subscription in Session View"
+msgstr "การสมัครสมาชิกในมุมมองเซสชัน"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "อนุญาตให้ผู้ใช้สมัครสมาชิกหลักสูตรโดยตรงจากหน้าหลักสูตรของเซสชัน"
+
+msgid "Enable redirection plugin"
+msgstr "เปิดใช้งานปลั๊กอินการเปลี่ยนเส้นทาง"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "อาร์เรย์ที่กำหนด 'days' และ 'months' เพื่อตั้งค่าวันที่หมดอายุบัญชีเมื่อผู้ใช้ล็อกอินครั้งแรก"
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "อาร์เรย์ของ role => number ซึ่งแสดงจำนวนวันก่อนหมดอายุของบัญชี ขึ้นอยู่กับบทบาท"
+
+msgid "Extra user field used to search and name sessions"
+msgstr "ฟิลด์ผู้ใช้เพิ่มเติมที่ใช้ค้นหาและตั้งชื่อเซสชัน"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "การตั้งค่านี้กำหนดคีย์ฟิลด์ผู้ใช้เพิ่มเติม (เช่น \"company\") ที่จะใช้ค้นหาผู้ใช้และกำหนดชื่อเซสชันเมื่อลงทะเบียนนักเรียนจาก /admin-dashboard/register"
+
+msgid "Glossary terms generator"
+msgstr "เครื่องสร้างคำศัพท์คำอธิบาย"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "อนุญาตให้ครูขอคำศัพท์คำอธิบายที่สร้างโดย AI ในหลักสูตรของตน จะสร้าง 20 คำศัพท์จากชื่อหลักสูตรและคำอธิบายทั่วไปในเครื่องมือคำอธิบายหลักสูตร หากใช้มากกว่า 1 ครั้ง จะไม่รวมคำศัพท์ที่มีอยู่แล้วในพจนานุกรมนั้น (ตรวจสอบให้แน่ใจว่าสามารถแชร์เนื้อหากับบริการ AI ที่กำหนดได้)"
+
+msgid "Video generator"
+msgstr "เครื่องสร้างวิดีโอ"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "สร้างวิดีโอจากพรอมต์หรือเนื้อหาโดยใช้ AI (อาจใช้โทเค็นจำนวนมาก)"
+
+msgid "Course analyser"
+msgstr "ตัววิเคราะห์หลักสูตร"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "วิเคราะห์ทรัพยากรทั้งหมดในหลักสูตรหนึ่งหรือหลายหลักสูตรและฝึกโมเดล AI ล่วงหน้าเพื่อตอบคำถามเกี่ยวกับหลักสูตรเหล่านี้ (ตรวจสอบให้แน่ใจว่าสามารถแชร์เนื้อหากับบริการ AI ที่กำหนดได้)"
+
+msgid "Test/development"
+msgstr "ทดสอบ/พัฒนา"
+
+msgid "Crons"
+msgstr "Crons"
+
+msgid "Editor"
+msgstr "ตัวแก้ไข"
+
+msgid "Gradebook"
+msgstr "สมุดเกรด"
+
+msgid "Internationalization"
+msgstr "นานาชาติ"
+
+msgid "User profiles"
+msgstr "โปรไฟล์ผู้ใช้"
+
+msgid "Support tickets"
+msgstr "ตั๋วสนับสนุน"
+
+msgid "Webservices"
+msgstr "Webservices"
+
+msgid "Catalogue"
+msgstr "แคตตาล็อก"
+
+msgid "Workflows"
+msgstr "เวิร์กโฟลว์"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "การตั้งค่าสามารถแก้ไขได้ใน sub-URLs"
+
+msgid "Show JSON Template"
+msgstr "แสดงเทมเพลต JSON"
+
+msgid "JSON Template"
+msgstr "เทมเพลต JSON"
+
+msgid "Installing Xapian bindings"
+msgstr "การติดตั้ง Xapian bindings"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "โค้ดตัวอย่างต่อไปนี้แสดงการติดตั้ง Xapian PHP bindings บน Ubuntu 25.04 ด้วย PHP 8.3 ปรับเส้นทางและเวอร์ชันให้เหมาะกับสภาพแวดล้อมของคุณ"
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "ตรวจสอบให้แน่ใจว่ามีเวอร์ชัน PHP ที่ใช้จริงเท่านั้น (เช่น 8.3) และหลีกเลี่ยงการผสมหลายเวอร์ชันที่มีไดเรกทอรีส่วนขยายต่างกัน"
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "เมื่อส่วนขยายโหลดถูกต้องทั้ง CLI และเว็บเซิร์ฟเวอร์ การวินิจฉัยการค้นหาข้างต้นควรรายงานว่าโมดูล Xapian ติดตั้งแล้ว"
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "ล้างไฟล์อัปโหลดชั่วคราวและแคช"
+
+msgid "Directory"
+msgstr "ไดเรกทอรี"
+
+msgid "Only delete files older than (minutes)"
+msgstr "ลบเฉพาะไฟล์ที่เก่ากว่า (นาที)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "ตั้งค่า 0 เพื่อลบไฟล์ทั้งหมด ใช้ค่าบวก (เช่น 60) เพื่อหลีกเลี่ยงการลบไฟล์ที่กำลังอัปโหลดอยู่"
+
+msgid "Preview only (do not delete)"
+msgstr "ดูตัวอย่างเท่านั้น (ไม่ลบ)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "คำเตือน: คุณกำลังจะลบไฟล์ชั่วคราวทั้งหมด การดำเนินการนี้ไม่สามารถย้อนกลับได้"
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "สิ่งนี้จะลบไฟล์ชั่วคราวทั้งหมด ดำเนินการต่อ?"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "สิ่งนี้จะลบไฟล์ที่เก่ากว่า %minutes% นาที ดำเนินการต่อ?"
+
+msgid "The value must match exactly: %s"
+msgstr "ค่าต้องตรงกันเป๊ะ: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "วันที่สิ้นสุดซ้ำต้องหลังวันที่เริ่มต้น"
+
+msgid "Index document content?"
+msgstr "จัดทำดัชนีเนื้อหาเอกสาร?"
+
+msgid "Upload SVG logo to platform header"
+msgstr "อัปโหลดโลโก้ SVG ไปยังส่วนหัวแพลตฟอร์ม"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "อัปโหลดโลโก้ PNG ไปยังส่วนหัวแพลตฟอร์ม (%s)"
+
+msgid "Write something to %s"
+msgstr "เขียนบางอย่างถึง %s"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "แนะนำ: SVG. PNG ความกว้างแนะนำ: %spx."
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "อัปโหลดโลโก้ PNG สำหรับอีเมล (~%spx ความกว้าง)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "PNG ส่วนหัวต้อง ≤ %spx."
+
+msgid "Require specific file format"
+msgstr "กำหนดรูปแบบไฟล์เฉพาะ"
+
+msgid "Select allowed file formats"
+msgstr "เลือก รูปแบบไฟล์ที่อนุญาต"
+
+msgid "Custom extensions (separated by space)"
+msgstr "นามสกุลที่กำหนดเอง (คั่นด้วยช่องว่าง)"
+
+msgid "Other extensions"
+msgstr "นามสกุลอื่นๆ"
+
+msgid "My invitations"
+msgstr "คำเชิญของฉัน"
+
+msgid "Delete access"
+msgstr "ลบการเข้าถึง"
+
+msgid "Certificate tags"
+msgstr "ป้ายกำกับใบรับรอง"
+
+msgid "Copy all"
+msgstr "คัดลอกทั้งหมด"
+
+msgid "Click to insert"
+msgstr "คลิกเพื่อแทรกลงไป"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "แนะนำ: SVG. PNG สูงสุด: %spx."
+
+msgid "View badge"
+msgstr "ดูเครื่องหมาย"
+
+msgid "%d min"
+msgstr "%d นาที"
+
+msgid "Duration in minutes"
+msgstr "ระยะเวลา (นาที)"
+
+msgid "Go back to standard view"
+msgstr "กลับไปยังมุมมองมาตรฐาน"
+
+msgid "Search for student..."
+msgstr "ค้นหานักเรียน..."
+
+msgid "This date is locked or read-only."
+msgstr "วันที่นี้ถูกล็อกหรืออ่านอย่างเดียว"
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "โหลดการเข้าเรียนไม่สำเร็จ กรุณาลองใหม่ภายหลัง"
+
+msgid "Nothing to save"
+msgstr "ไม่มีอะไรบันทึก"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก จะออกอยู่ดีหรือไม่?"
+
+msgid "Storage usage unavailable"
+msgstr "ไม่สามารถใช้ข้อมูลการใช้งานที่เก็บได้"
+
+msgid "Search for members..."
+msgstr "ค้นหาสมาชิก..."
+
+msgid "Current members"
+msgstr "สมาชิกปัจจุบัน"
+
+msgid "Add members"
+msgstr "เพิ่มสมาชิก"
+
+msgid "Search for users in course/session..."
+msgstr "ค้นหาผู้ใช้ในคอร์ส/เซสชัน..."
+
+msgid "No users available."
+msgstr "ไม่มีผู้ใช้"
+
+msgid "Browse and publish new posts"
+msgstr "เรียกดูและเผยแพร่โพสต์ใหม่"
+
+msgid "Create and assign tasks"
+msgstr "สร้างและมอบหมายงาน"
+
+msgid "Filtered by %s"
+msgstr "กรองโดย %s"
+
+msgid "Select a score"
+msgstr "เลือกคะแนน"
+
+msgid "Edit comment"
+msgstr "แก้ไขความคิดเห็น"
+
+msgid "Failed to update the post."
+msgstr "อัปเดตโพสต์ไม่สำเร็จ"
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "ลบโพสต์นี้? การกระทำนี้ไม่สามารถย้อนกลับได้"
+
+msgid "Failed to delete the post."
+msgstr "ลบโพสต์ไม่สำเร็จ"
+
+msgid "Failed to update the comment."
+msgstr "อัปเดตความคิดเห็นไม่สำเร็จ"
+
+msgid "Delete this comment?"
+msgstr "ลบความคิดเห็นนี้?"
+
+msgid "Failed to delete the comment."
+msgstr "ลบความคิดเห็นไม่สำเร็จ"
+
+msgid "Search for projects..."
+msgstr "ค้นหาโครงการ..."
+
+msgid "Only visible"
+msgstr "แสดงอย่างเดียว"
+
+msgid "Rename project"
+msgstr "เปลี่ยนชื่อโครงการ"
+
+msgid "New title"
+msgstr "ชื่อใหม่"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "คุณต้องเป็นผู้ดูแลระบบหรือครูเพื่อจัดการโครงการ"
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "ลบโครงการนี้หรือไม่? การดำเนินการนี้ไม่สามารถยกเลิกได้"
+
+msgid "Task list"
+msgstr "รายการงาน"
+
+msgid "Change status"
+msgstr "เปลี่ยนสถานะ"
+
+msgid "Waiting for validation"
+msgstr "รอการตรวจสอบ"
+
+msgid "Delete this task?"
+msgstr "ลบงานนี้หรือไม่?"
+
+msgid "Failed to delete the task."
+msgstr "ลบงานล้มเหลว"
+
+msgid "Failed to update status."
+msgstr "อัปเดตสถานะล้มเหลว"
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลภายนอกนี้? การดำเนินการนี้ไม่สามารถยกเลิกได้"
+
+msgid "Please fix the errors before saving."
+msgstr "กรุณาแก้ไขข้อผิดพลาดก่อนบันทึก"
+
+msgid "Error creating third party. Please verify the data."
+msgstr "เกิดข้อผิดพลาดในการสร้างบุคคลภายนอก กรุณาตรวจสอบข้อมูล"
+
+msgid "Error deleting third party."
+msgstr "เกิดข้อผิดพลาดในการลบบุคคลภายนอก"
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "อัปโหลดโลโก้ส่วนหัวและอีเมลที่เป็นตัวเลือก SVG เป็นตัวเลือกที่แนะนำ PNG ใช้เป็นตัวสำรอง"
+
+msgid "Data exchange updated successfully."
+msgstr "อัปเดตการแลกเปลี่ยนข้อมูลสำเร็จแล้ว"
+
+msgid "Error deleting data exchange."
+msgstr "เกิดข้อผิดพลาดในการลบการแลกเปลี่ยนข้อมูล"
+
+msgid "Failed to recycle course."
+msgstr "รีไซเคิลหลักสูตรล้มเหลว"
+
+msgid "Select source course"
+msgstr "เลือกหลักสูตรต้นทาง"
+
+msgid "Course to copy from"
+msgstr "หลักสูตรที่จะคัดลอกจาก"
+
+msgid "Search by code or title..."
+msgstr "ค้นหาตามรหัสหรือชื่อ..."
+
+msgid "No courses match your search."
+msgstr "ไม่มีหลักสูตรที่ตรงกับการค้นหาของคุณ"
+
+msgid "Copy options"
+msgstr "ตัวเลือกการคัดลอก"
+
+msgid "Include users (enrollments)"
+msgstr "รวมผู้ใช้ (การลงทะเบียน)"
+
+msgid "Reset dates"
+msgstr "รีเซ็ตวันที่"
+
+msgid "When a file with the same name exists"
+msgstr "เมื่อมีไฟล์ชื่อเดียวกันอยู่แล้ว"
+
+msgid "Ready to copy"
+msgstr "พร้อมคัดลอก"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "เราจะคัดลอกเนื้อหาจากหลักสูตรที่เลือกไปยังหลักสูตรนี้ คุณสามารถย้อนกลับเพื่อเปลี่ยนตัวเลือกได้"
+
+msgid "Start copying"
+msgstr "เริ่มคัดลอก"
+
+msgid "Select resources to copy"
+msgstr "เลือกทรัพยากรที่จะคัดลอก"
+
+msgid "Copy selected"
+msgstr "คัดลอกที่เลือก"
+
+msgid "Copy completed."
+msgstr "คัดลอกเสร็จสมบูรณ์"
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "เขตอันตราย: การลบหลักสูตรเป็นการถาวร"
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "พิมพ์รหัสหลักสูตรเพื่อยืนยัน ข้อมูลทั้งหมดจะถูกลบอย่างถาวร"
+
+msgid "The code must match '%s' exactly."
+msgstr "รหัสต้องตรงกับ '%s' อย่างสมบูรณ์"
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "ลบเอกสารที่ใช้เฉพาะในหลักสูตรนี้ด้วย (ถ้ามี)"
+
+msgid "Delete course"
+msgstr "ลบหลักสูตร"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "การดำเนินการนี้ไม่สามารถยกเลิกได้ ดำเนินการต่อหรือไม่?"
+
+msgid "Course deleted successfully."
+msgstr "ลบหลักสูตรสำเร็จแล้ว"
+
+msgid "Failed to delete course."
+msgstr "ลบหลักสูตรล้มเหลว"
+
+msgid "Create .mbz"
+msgstr "สร้าง .mbz"
+
+msgid "Backup scope"
+msgstr "ขอบเขตสำรองข้อมูล"
+
+msgid "Full course"
+msgstr "หลักสูตรเต็ม"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "รายการที่เลือกจะเป็นรายการเดียวที่รวมอยู่ในไฟล์ที่ส่งออก"
+
+msgid "Moodle export"
+msgstr "ส่งออก Moodle"
+
+msgid "Moodle version"
+msgstr "เวอร์ชัน Moodle"
+
+msgid "Admin ID"
+msgstr "รหัสผู้ดูแลระบบ"
+
+msgid "Internal integer user id"
+msgstr "รหัสผู้ใช้ตัวเลขภายใน"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle ต้องการรหัสผู้ใช้ภายในที่เก็บใน XML หากไม่แน่ใจให้ใช้ 1"
+
+msgid "Username to appear as owner of imported items"
+msgstr "ชื่อผู้ใช้ที่จะปรากฏเป็นเจ้าของรายการที่นำเข้า"
+
+msgid "Email to use in the archive metadata"
+msgstr "อีเมลที่ใช้ในข้อมูลเมตาของไฟล์เก็บถาวร"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr "ไฟล์ .mbz จะถูกสร้างขึ้น คุณจะสามารถดาวน์โหลดได้เมื่อเสร็จสิ้น"
+
+msgid "Select resources to include"
+msgstr "เลือกทรัพยากรที่จะรวม"
+
+msgid "Export completed"
+msgstr "การส่งออกเสร็จสมบูรณ์"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "ไฟล์สำรองข้อมูล Moodle ของคุณถูกสร้างแล้ว คุณสามารถค้นหาได้ในรายการสำรองข้อมูลคอร์ส"
+
+msgid "Please complete all required fields."
+msgstr "กรุณากรอกข้อมูลในช่องที่จำเป็นทั้งหมด"
+
+msgid "Failed to create Moodle backup."
+msgstr "ไม่สามารถสร้างไฟล์สำรองข้อมูล Moodle ได้"
+
+msgid "More actions"
+msgstr "การดำเนินการเพิ่มเติม"
+
+msgid "Write something"
+msgstr "พิมพ์บางอย่าง"
+
+msgid "Friends of %s"
+msgstr "เพื่อนของ %s"
+
+msgid "Error loading learning paths."
+msgstr "เกิดข้อผิดพลาดในการโหลดเส้นทางการเรียนรู้"
+
+msgid "You don't have any learning path."
+msgstr "คุณไม่มีเส้นทางการเรียนรู้ใด ๆ"
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "สร้างเส้นทางการเรียนรู้ตัวแรกของคุณเพื่อเริ่มจัดระเบียบเนื้อหาคอร์ส"
+
+msgid "Could not save the new category order."
+msgstr "ไม่สามารถบันทึกลำดับหมวดหมู่ใหม่ได้"
+
+msgid "Could not save the new order."
+msgstr "ไม่สามารถบันทึกลำดับใหม่ได้"
+
+msgid "Assignment"
+msgstr "งาน"
+
+msgid "Allowed file formats: %s"
+msgstr "รูปแบบไฟล์ที่อนุญาต: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "ประเภทไฟล์ไม่ได้รับอนุญาต ส่วนขยายที่อนุญาต: %s"
+
+msgid "Folder name"
+msgstr "ชื่อโฟลเดอร์"
+
+msgid "Rename folder"
+msgstr "เปลี่ยนชื่อโฟลเดอร์"
+
+msgid "New name"
+msgstr "ชื่อใหม่"
+
+msgid "Choose an action"
+msgstr "เลือกการกระทำ"
+
+msgid "New version"
+msgstr "เวอร์ชันใหม่"
+
+msgid "Change title to selected filename"
+msgstr "เปลี่ยนชื่อเรื่องเป็นชื่อไฟล์ที่เลือก"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "คุณสามารถแทนที่ไฟล์ ย้ายไปยังโฟลเดอร์อื่น หรือทั้งสองอย่างได้"
+
+msgid "Move %s"
+msgstr "ย้าย %s"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "แสดงเฉพาะโฟลเดอร์ที่ไม่ใช่รูทเพื่อหลีกเลี่ยงการทิ้งรายการไว้ในรูท"
+
+msgid "No feedback yet."
+msgstr "ยังไม่มีข้อเสนอแนะ"
+
+msgid "Upload first, organize later"
+msgstr "อัปโหลดก่อน จัดระเบียบทีหลัง"
+
+msgid "Drag & drop or browse to add files"
+msgstr "ลากและวางหรือเรียกดูเพื่อเพิ่มไฟล์"
+
+msgid "Social wall..."
+msgstr "กำแพงสังคม..."
+
+msgid "Wall of %s"
+msgstr "กำแพงของ %s"
+
+msgid "Version currently loaded"
+msgstr "เวอร์ชันที่กำลังโหลดอยู่"
+
+msgid "Completion"
+msgstr "การเสร็จสิ้น"
+
+msgid "Quick navigation"
+msgstr "การนำทางด่วน"
+
+msgid "Filled"
+msgstr "เต็ม"
+
+msgid "Terms sections"
+msgstr "ส่วนเงื่อนไข"
+
+msgid "Open a section to edit its content."
+msgstr "เปิดส่วนเพื่อแก้ไขเนื้อหา"
+
+msgid "Open this section to load the editor."
+msgstr "เปิดส่วนนี้เพื่อโหลดตัวแก้ไข"
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "เขตอันตราย: การลบ URL เข้าถึงจะถาวร"
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "พิมพ์ URL เต็มเพื่อยืนยัน URL และความสัมพันธ์จะถูกลบอย่างถาวร"
+
+msgid "Unable to load the badge's image."
+msgstr "ไม่สามารถโหลดภาพของเหรียญตราได้"
+
+msgid "Invalid role selection"
+msgstr "การเลือกบทบาทไม่ถูกต้อง"
+
+msgid "Select relation type first to enable user management."
+msgstr "เลือกประเภทความสัมพันธ์ก่อนเพื่อเปิดใช้งานการจัดการผู้ใช้"
+
+msgid "This question has no course context. Preview is not available."
+msgstr "คำถามนี้ไม่มีบริบทของวิชา ไม่สามารถดูตัวอย่างได้"
+
+msgid "Unknown test"
+msgstr "การทดสอบที่ไม่รู้จัก"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "ไม่สามารถลบได้หากไม่มีบริบทของวิชา"
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "ลบไม่สำเร็จ: ขาดบริบทของวิชาหรือในคำถามนี้เป็นของการทดสอบ แก้ไขจากภายในการทดสอบหรือกรองเฉพาะคำถามกำพร้าเท่านั้น ID คำถามที่ถูกต้อง"
+
+msgid "Delete failed: question not found."
+msgstr "ลบไม่สำเร็จ: ไม่พบคำถาม"
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "ลบไม่สำเร็จ: คำถามนี้ยังถูกอ้างอิงโดยทรัพยากรอื่น"
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "คำถามนี้เป็นของการทดสอบ แก้ไขจากภายในการทดสอบหรือกรองเฉพาะคำถามกำพร้าเท่านั้น"
+
+msgid "Access the group tools and resources"
+msgstr "เข้าถึงเครื่องมือและทรัพยากรของกลุ่ม"
+
+msgid "%s members"
+msgstr "%s สมาชิก"
+
+msgid "View certificate (HTML)"
+msgstr "ดูใบรับรอง (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "เชื่อมโยงทักษะกับสมุดเกรดนี้"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "จัดการการเชื่อมโยงระหว่างใบรับรองและทักษะสำหรับแต่ละสมุดเกรด"
+
+msgid "Please select a specific badge issue to download"
+msgstr "กรุณาเลือกการออกเหรียญตราที่เฉพาะเจาะจงเพื่อดาวน์โหลด"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM ไม่ได้เปิดใช้งาน"
+
+msgid "Invalid token."
+msgstr "โทเค็นไม่ถูกต้อง"
+
+msgid "Schema not supported."
+msgstr "ไม่รองรับโครงสร้างข้อมูล"
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "โครงสร้างข้อมูลไม่ถูกต้องสำหรับการดำเนินการ PATCH"
+
+msgid "Missing required \"Operations\" array."
+msgstr "ขาดอาร์เรย์ \"Operations\" ที่จำเป็น"
+
+msgid "The '%s' operation is not supported."
+msgstr "การดำเนินการ '%s' ไม่รองรับ"
+
+msgid "Drupal user ID"
+msgstr "Drupal user ID"
+
+msgid "There are no terms that match the search: %s"
+msgstr "ไม่มีคำศัพท์ที่ตรงกับการค้นหา: %s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "การตั้งค่านี้ถูกล็อกทั่วโลก (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "หากเปิดใช้งาน ข้อความแชทส่วนตัว 1:1 จะถูกคัดลอกไปยังเอกสารประวัติแชทของคอร์ส แนะนำให้ปิดไว้เพื่อความเป็นส่วนตัว"
+
+msgid "Save private conversations in documents"
+msgstr "บันทึกการสนทนาส่วนตัวในเอกสาร"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "EU AI Act – การแจ้งเตือนความโปร่งใสและความเสี่ยง"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "ตามกฎหมายปัญญาประดิษฐ์ของสหภาพยุโรป (กฎระเบียบ (EU) 2024/1689) ระบบ AI ที่ใช้ในการศึกษาได้รับการจำแนกเป็น \"ความเสี่ยงสูง\" โดยทั่วไป ซอฟต์แวร์นี้ <strong>ไม่ใช่</strong> ระบบ AI แต่สามารถรวมระบบ AI ภายในหรือภายนอกที่เป็นตัวเลือกได้—ขึ้นอยู่กับการกำหนดค่าของคุณ—เพื่อปรับปรุงประสิทธิภาพงานของผู้ใช้ ระบบเหล่านี้อาจเข้าถึงข้อมูลส่วนบุคคล <em>เฉพาะเมื่อ</em> ผู้ใช้รวมข้อมูลดังกล่าวในพรอมต์ของพวกเขา โดยการออกแบบ ซอฟต์แวร์นี้ไม่แบ่งปันข้อมูลส่วนบุคคลกับระบบ AI โดยปราศจากการป้อนข้อมูลที่ใช้งานอยู่ของผู้ใช้ โดยค่าเริ่มต้น คุณสมบัติ AI ทั้งหมดจะถูกปิดใช้งาน"
+
+msgid "Admin responsibility & disclosures"
+msgstr "ความรับผิดชอบของผู้ดูแลระบบและการเปิดเผยข้อมูล"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "หน้าตั้งค่านี้แสดงรายละเอียดคุณสมบัติ AI แต่ละตัวและวัตถุประสงค์ ในฐานะผู้ติดตั้ง คุณควรตรวจสอบอย่างละเอียดและอัปเดตนโยบายความเป็นส่วนตัวข้อมูลที่สอดคล้องกับ GDPR เพื่อสะท้อนตัวเลือกที่คุณเปิดใช้งาน แม้ว่าคุณสมบัติ AI ส่วนใหญ่จะไม่แบ่งปันข้อมูลส่วนบุคคลโดยตรงกับระบบภายนอก พรอมต์ของผู้ที่ส่งไปยัง AI อาจรวมข้อมูลส่วนบุคคลโดยไม่ได้ตั้งใจ ในฐานะผู้ติดตั้ง <strong>คุณมีหน้าที่รับผิดชอบ</strong> ในการแจ้งผู้ใช้เกี่ยวกับความเสี่ยงนี้ เพื่อความโปร่งใส รุ่นในอนาคตอาจแสดงป้ายผู้ใช้ปลายทางที่ไม่รบกวนเพื่อระบุว่าคอนเทนต์หรือข้อเสนอแนะบางอย่างถูกสร้างด้วยความช่วยเหลือจาก AI"
+
+msgid "Positioning"
+msgstr "ตำแหน่ง"
+
+msgid "Quiz"
+msgstr "ควิซ"
+
+msgid "Customcertificate"
+msgstr "ใบรับรองแบบกำหนดเอง"
+
+msgid "Update profile"
+msgstr "อัปเดตโปรไฟล์"
+
+msgid "Enable learning path generator"
+msgstr ""
+
+msgid "Enable exercise generator"
+msgstr ""
+
+msgid "Enable open answers grader"
+msgstr ""
+
+msgid "Enable tutor chatbot"
+msgstr ""
+
+msgid "Enable task grader"
+msgstr ""
+
+msgid "Enable content analyser"
+msgstr ""
+
+msgid "Enable image generator"
+msgstr ""
+
+msgid "Enable glossary terms generator"
+msgstr ""
+
+msgid "Enable video generator"
+msgstr ""
+
+msgid "Enable course analyser"
+msgstr ""
+
+msgid "The operation '%s' is not supported."
+msgstr ""
+
+msgid "AI feedback on %s in course %s"
+msgstr ""
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr ""
+
+msgid "AI Tutor"
+msgstr ""
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr ""
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr ""
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr ""
+
+msgid "You are here"
+msgstr ""
+
+msgid "Click an event type to filter results."
+msgstr ""
+
+msgid "Require unique presence"
+msgstr ""
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr ""
+
+msgid "AI feedback"
+msgstr ""
+
+msgid "Prompt"
+msgstr ""
+
+msgid "Tip"
+msgstr ""
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr ""
+
+msgid "Result (you can apply it to the comment)"
+msgstr ""
+
+msgid "Apply to comment"
+msgstr ""
+
+msgid "Apply score"
+msgstr ""
+
+msgid "AI grade"
+msgstr ""
+
+msgid "AI tutor is disabled during tests"
+msgstr ""
+
+msgid "Generate glossary terms"
+msgstr ""
+
+msgid "Generate media"
+msgstr ""
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr ""
+
+msgid "AI helpers are disabled at platform level."
+msgstr ""
+
+msgid "AI media generation is disabled in course settings."
+msgstr ""
+
+msgid "No AI media providers available."
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Select a provider"
+msgstr ""
+
+msgid "Example: generated_media"
+msgstr ""
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr ""
+
+msgid "Describe what you want to generate..."
+msgstr ""
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr ""
+
+msgid "Generating..."
+msgstr ""
+
+msgid "Save to Documents"
+msgstr ""
+
+msgid "Document IRI"
+msgstr ""
+
+msgid "Go to folder"
+msgstr ""
+
+msgid "Provider used"
+msgstr ""
+
+msgid "This video result cannot be saved yet"
+msgstr ""
+
+msgid "Video polling was stopped because the provider changed."
+msgstr ""
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr ""
+
+msgid "Failed to check video status."
+msgstr ""
+
+msgid "Video generated successfully. You can now save it."
+msgstr ""
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr ""
+
+msgid "Video generation failed."
+msgstr ""
+
+msgid "Waiting for the video to be ready..."
+msgstr ""
+
+msgid "Please complete all fields."
+msgstr ""
+
+msgid "Image generation is not enabled for this course."
+msgstr ""
+
+msgid "Video generation is not enabled for this course."
+msgstr ""
+
+msgid "Generation failed."
+msgstr ""
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr ""
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr ""
+
+msgid "Video generation started. Waiting for the result..."
+msgstr ""
+
+msgid "AI returned an empty response."
+msgstr ""
+
+msgid "Nothing to save yet."
+msgstr ""
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr ""
+
+msgid "Saving failed."
+msgstr ""
+
+msgid "Get AI feedback"
+msgstr ""
+
+msgid "Copy answer to clipboard"
+msgstr ""
+
+msgid "Save answer to my inbox"
+msgstr ""
+
+msgid "The document is already in this folder"
+msgstr ""
+
+msgid "Copied"
+msgstr ""
+
+msgid "You do not have permission to generate glossary terms."
+msgstr ""
+
+msgid "Video generation is in progress"
+msgstr ""
+
+msgid "Job"
+msgstr ""
+
+msgid "Modified prompt"
+msgstr ""
+
+msgid "Saved in Documents"
+msgstr ""
 

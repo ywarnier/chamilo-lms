@@ -18,6 +18,7 @@ $page = isset($_REQUEST['page']) ? (int) $_REQUEST['page'] : 1;
 $limit = isset($_REQUEST['rows']) ? (int) $_REQUEST['rows'] : 20;
 $cid = isset($_REQUEST['cid']) ? (int) $_REQUEST['cid'] : null;
 $sid = isset($_REQUEST['sid']) ? (int) $_REQUEST['sid'] : null;
+$gid = isset($_REQUEST['gid']) ? (int) $_REQUEST['gid'] : null;
 
 // Makes max row persistence after refreshing the grid
 $savedRows = Session::read('max_rows_'.$action);
@@ -47,41 +48,51 @@ if (!in_array($sord, ['asc', 'desc'])) {
     $sord = 'desc';
 }
 
-// Actions allowed to other roles.
-if (!in_array(
-        $action,
-        [
-            'get_exercise_results',
-            'get_exercise_pending_results',
-            'get_exercise_results_report',
-            'get_work_student_list_overview',
-            'get_work_teacher',
-            'get_work_student',
-            'get_all_work_student',
-            'get_work_user_list',
-            'get_work_user_list_others',
-            'get_work_user_list_all',
-            'get_work_pending_list',
-            'get_user_skill_ranking',
-            'get_usergroups',
-            'get_usergroups_teacher',
-            'get_user_course_report_resumed',
-            'get_user_course_report',
-            'get_sessions_tracking',
-            'get_sessions',
-            'get_course_announcements',
-            'course_log_events',
-            'get_learning_path_calendars',
-            'get_usergroups_users',
-            'get_calendar_users',
-            'get_exercise_categories',
-        ]
-    ) && !isset($_REQUEST['from_course_session'])) {
+$courseActions = [
+    'get_exercise_results',
+    'get_exercise_pending_results',
+    'get_exercise_results_report',
+    'get_work_student_list_overview',
+    'get_work_teacher',
+    'get_work_student',
+    'get_all_work_student',
+    'get_work_user_list',
+    'get_work_user_list_others',
+    'get_work_user_list_all',
+    'get_work_pending_list',
+    'get_course_announcements',
+    'course_log_events',
+    'get_learning_path_calendars',
+    'get_usergroups_users',
+    'get_calendar_users',
+    'get_exercise_categories',
+    'get_usergroups_teacher',
+    'get_group_reporting',
+];
+
+$adminActions = [
+    'get_user_skill_ranking',
+    'get_usergroups',
+    'get_user_course_report_resumed',
+    'get_user_course_report',
+    'get_sessions_tracking',
+    'get_sessions',
+];
+
+if (in_array($action, $courseActions, true)) {
+    // Must be in a course context.
+    api_protect_course_script();
+
+    // In course context, require edit rights (teacher/coach/course admin).
+    // Some actions later check api_is_teacher() explicitly; keep this generic guard.
+    if (!api_is_allowed_to_edit(null, true)) {
+        api_not_allowed(true);
+    }
+} elseif (in_array($action, $adminActions, true)) {
     api_protect_admin_script(true);
-} elseif (isset($_REQUEST['from_course_session']) &&
-    1 == $_REQUEST['from_course_session']
-) {
-    api_protect_teacher_script(true);
+} else {
+    // Unknown / not whitelisted actions => block by default.
+    api_protect_admin_script(true);
 }
 
 $toRemove = ['extra_access_start_date', 'extra_access_end_date'];
@@ -301,11 +312,17 @@ switch ($action) {
     case 'get_exercise_categories':
         $courseId = isset($_REQUEST['c_id']) ? $_REQUEST['c_id'] : 0;
         $repo = Container::getQuizCategoryRepository();
-        $qb = $repo->getResourcesByCourse(api_get_course_entity($courseId));
+        $courseEntity = api_get_course_entity($courseId);
+        // Close the session as we don't need it any further
+        session_write_close();
+
+        $qb = $repo->getResourcesByCourse($courseEntity);
         $count = $qb->select('COUNT(resource)')->getQuery()->getSingleScalarResult();
 
         break;
     case 'get_calendar_users':
+        // Close the session as we don't need it any further
+        session_write_close();
         $calendarPlugin = LearningCalendarPlugin::create();
         $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
         $count = $calendarPlugin->getUsersPerCalendarCount($id);
@@ -329,6 +346,8 @@ switch ($action) {
         if (!api_is_allowed_to_edit()) {
             exit;
         }
+        // Close the session as we don't need it any further
+        session_write_close();
         $count = Statistics::getNumberOfActivities($courseId, $sessionId);
         break;
     case 'get_programmed_announcements':
@@ -546,14 +565,21 @@ switch ($action) {
         break;
     case 'get_course_exercise_medias':
         $course_id = api_get_course_int_id();
+        // Close the session as we don't need it any further
+        session_write_close();
         $count = Question::get_count_course_medias($course_id);
         break;
     case 'get_user_skill_ranking':
+        // Close the session as we don't need it any further
+        session_write_close();
         $skill = new SkillModel();
         $count = $skill->getUserListSkillRankingCount();
         break;
     case 'get_course_announcements':
-        $count = AnnouncementManager::getNumberAnnouncements($cid, $sid);
+        $courseId = !empty($cid) ? $cid : api_get_course_int_id();
+        $sessionId = !empty($sid) ? $sid : api_get_session_id();
+        $groupId = !empty($gid) ? $gid : api_get_group_id();
+        $count = AnnouncementManager::getNumberAnnouncements($courseId, $sessionId, $groupId);
         break;
     case 'get_work_teacher':
         $countResult = getWorkListTeacher(0, $limit, null, null, $whereCondition, true);
@@ -893,6 +919,8 @@ switch ($action) {
         $count = count($records);
         break;
     case 'get_session_access_overview':
+        // Close the session as we don't need it any further
+        session_write_close();
         //@TODO replace this for a more efficient function (not retrieving the whole data)
         $records = SessionManager::get_user_data_access_tracking_overview(
             $_GET['session_id'],
@@ -929,42 +957,60 @@ switch ($action) {
         $count = count($users);
         break;
     case 'get_extra_fields':
+        // Close the session as we don't need it any further
+        session_write_close();
         $type = $_REQUEST['type'];
         $obj = new ExtraField($type);
         $count = $obj->get_count();
         break;
     case 'get_extra_field_options':
+        // Close the session as we don't need it any further
+        session_write_close();
         $type = $_REQUEST['type'];
         $field_id = $_REQUEST['field_id'];
         $obj = new ExtraFieldOption($type);
         $count = $obj->get_count_by_field_id($field_id);
         break;
     case 'get_gradebooks':
+        // Close the session as we don't need it any further
+        session_write_close();
         $obj = new Gradebook();
         $count = $obj->get_count();
         break;
     case 'get_careers':
+        // Close the session as we don't need it any further
+        session_write_close();
         $obj = new Career();
         $count = $obj->get_count();
         break;
     case 'get_promotions':
+        // Close the session as we don't need it any further
+        session_write_close();
         $obj = new Promotion();
         $count = $obj->get_count();
         break;
     case 'get_mail_template':
+        // Close the session as we don't need it any further
+        session_write_close();
         $obj = new MailTemplateManager();
         $count = $obj->get_count();
         break;
     case 'get_grade_models':
+        // Close the session as we don't need it any further
+        session_write_close();
         $obj = new GradeModel();
         $count = $obj->get_count();
         break;
     case 'get_usergroups':
+        // Close the session as we don't need it any further
+        session_write_close();
         $obj = new UserGroupModel();
         $obj->protectScript();
         $count = $obj->get_count($whereCondition);
         break;
     case 'get_usergroups_teacher':
+        // Close the session as we don't need it any further
+        session_write_close();
         $obj = new UserGroupModel();
         $obj->protectScript(null, false, true);
         $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : 'registered';
@@ -973,6 +1019,8 @@ switch ($action) {
 
         $course_id = api_get_course_int_id();
         $sessionId = api_get_session_id();
+        // Close the session as we don't need it any further
+        session_write_close();
         $options = [];
         $options['course_id'] = $course_id;
         $options['session_id'] = $sessionId;
@@ -1369,16 +1417,14 @@ switch ($action) {
             'actions',
         ];
 
+        $courseId = !empty($cid) ? $cid : api_get_course_int_id();
+        $sessionId = !empty($sid) ? $sid : api_get_session_id();
+        $groupId = !empty($gid) ? $gid : api_get_group_id();
+
         $titleToSearch = $_REQUEST['title_to_search'] ?? '';
         $userIdToSearch = $_REQUEST['user_id_to_search'] ?? 0;
 
-        $result = AnnouncementManager::getAnnouncements(
-            null,
-            null,
-            $cid,
-            $sid
-        );
-
+        $result = AnnouncementManager::getAnnouncements(null, null, $courseId, $sessionId, $groupId);
         break;
     case 'get_work_teacher':
         $columns = [
@@ -2283,7 +2329,7 @@ switch ($action) {
             if (!empty($skills)) {
                 $item['skills'] = '';
                 foreach ($skills as $skill) {
-                    $item['skills'] .= Display::span($skill['title'], ['class' => 'label_tag skill']);
+                    $item['skills'] .= Display::span($skill['name'], ['class' => 'label_tag skill']);
                 }
             }
             $new_result[] = $item;

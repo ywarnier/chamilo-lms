@@ -35,8 +35,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+#[IsGranted('ROLE_USER')]
 #[Route('/attendance')]
 class AttendanceController extends AbstractController
 {
@@ -158,6 +160,7 @@ class AttendanceController extends AbstractController
                 'description' => $attendance->getDescription(),
                 'attendanceWeight' => $attendance->getAttendanceWeight(),
                 'attendanceQualifyTitle' => $attendance->getAttendanceQualifyTitle(),
+                'requireUnique' => $attendance->isRequireUnique(),
                 'resourceLinkListFromEntity' => $attendance->getResourceLinkListFromEntity(),
                 'doneCalendars' => $doneCount,
             ];

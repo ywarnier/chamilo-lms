@@ -35,6 +35,7 @@ use Chamilo\CoreBundle\Entity\GradebookCategory;
 use Chamilo\CoreBundle\Entity\Listener\ResourceListener;
 use Chamilo\CoreBundle\Entity\ResourceInterface;
 use Chamilo\CoreBundle\Entity\ResourceNode;
+use Chamilo\CoreBundle\Entity\ResourceRestrictToGroupContextInterface;
 use Chamilo\CoreBundle\Entity\ResourceShowCourseResourcesInSessionInterface;
 use Chamilo\CoreBundle\Filter\CidFilter;
 use Chamilo\CoreBundle\Filter\SidFilter;
@@ -221,7 +222,7 @@ use Symfony\Component\Validator\Constraints as Assert;
             security: "is_granted('ROLE_USER')",
             read: false,
             name: 'api_documents_usage'
-        )
+        ),
     ],
     normalizationContext: [
         'groups' => ['document:read', 'resource_node:read'],
@@ -249,7 +250,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 )]
 #[ApiFilter(filterClass: CidFilter::class)]
 #[ApiFilter(filterClass: SidFilter::class)]
-class CDocument extends AbstractResource implements ResourceInterface, ResourceShowCourseResourcesInSessionInterface, Stringable
+class CDocument extends AbstractResource implements ResourceInterface, ResourceShowCourseResourcesInSessionInterface, ResourceRestrictToGroupContextInterface, Stringable
 {
     #[ApiProperty(identifier: true)]
     #[Groups(['document:read'])]

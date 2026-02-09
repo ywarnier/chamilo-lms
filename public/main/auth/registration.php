@@ -435,22 +435,64 @@ if ('true' === api_get_setting('session.allow_redirect_to_session_after_inscript
     }
 }
 
-// Direct Link Subscription feature #5299
-$course_code_redirect = isset($_REQUEST['c']) && !empty($_REQUEST['c']) ? $_REQUEST['c'] : null;
-$exercise_redirect = isset($_REQUEST['e']) && !empty($_REQUEST['e']) ? $_REQUEST['e'] : null;
+/**
+ * Build the redirect URL for a "direct registration" link.
+ * - Default: course home.
+ * - If an exercise ID is provided: redirect to the exercise tool inside the course.
+ */
+$buildDirectLinkRedirectUrl = static function (int $courseId, int $exerciseId = 0): string {
+    // Course home
+    $courseHomeUrl = api_get_path(WEB_PATH) . 'course/' . $courseId . '/home?sid=0';
 
-if (!empty($course_code_redirect)) {
+    if ($exerciseId <= 0) {
+        return $courseHomeUrl;
+    }
+
+    $courseInfo = api_get_course_info_by_id($courseId);
+    $courseCode = $courseInfo['code'] ?? $courseInfo['course_code'] ?? $courseInfo['directory'] ?? '';
+
+    if (empty($courseCode)) {
+        return $courseHomeUrl;
+    }
+
+    // Go to the exercise entrypoint
+    $query = http_build_query([
+        'cid' => $courseId,
+        'sid' => 0,
+        'gid' => 0,
+        'exerciseId' => $exerciseId,
+    ]);
+
+    return api_get_path(WEB_CODE_PATH) . 'exercise/overview.php?' . $query;
+};
+
+$courseIdRedirect = isset($_REQUEST['c']) && !empty($_REQUEST['c']) ? (int) $_REQUEST['c'] : null;
+$exercise_redirect = isset($_REQUEST['e']) && !empty($_REQUEST['e']) ? (int) $_REQUEST['e'] : 0;
+
+if (!empty($courseIdRedirect)) {
+    $courseInfo = api_get_course_info_by_id($courseIdRedirect);
+    $visibility = (int) ($courseInfo['visibility'] ?? -1);
+
+    $isOpenCourse = in_array(
+        $visibility,
+        [COURSE_VISIBILITY_OPEN_PLATFORM, COURSE_VISIBILITY_OPEN_WORLD],
+        true
+    );
+
     if (!api_is_anonymous()) {
-        $course_info = api_get_course_info($course_code_redirect);
-        $subscribed = CourseManager::autoSubscribeToCourse($course_code_redirect);
-        if ($subscribed) {
-            header('Location: ' . api_get_path(WEB_PATH) . 'course/'.$course_info['real_id'].'/home?sid=0');
-        } else {
-            header('Location: ' . api_get_path(WEB_PATH) . 'course/'.$course_info['real_id'].'/about');
+        if ($isOpenCourse) {
+            if ($exercise_redirect > 0) {
+                CourseManager::autoSubscribeToCourse($courseIdRedirect);
+            }
+
+            header('Location: ' . $buildDirectLinkRedirectUrl($courseIdRedirect, $exercise_redirect));
+            exit;
         }
+
+        header('Location: ' . api_get_path(WEB_PATH) . 'course/' . $courseIdRedirect . '/about');
         exit;
     }
-    Session::write('course_redirect', $course_code_redirect);
+    Session::write('course_redirect', $courseIdRedirect);
     Session::write('exercise_redirect', $exercise_redirect);
 }
 
@@ -925,16 +967,56 @@ EOD;
     $form->addElement('hidden', 'extra_tcc_hash_key');
 
     // EXTRA FIELDS
-    if (array_key_exists('extra_fields', $allowedFields) || in_array('extra_fields', $allowedFields, true)) {
+    $settingRequiredFields = api_get_setting('registration.required_extra_fields_in_inscription', true);
+    $requiredExtraFieldVars = $normalizeSettingList($settingRequiredFields);
+
+    // Load extra fields if:
+    // - extra fields are enabled in allow_fields_inscription OR
+    // - there are required extra fields configured OR
+    // - conditions extra fields exist (profile.show_conditions_to_user)
+    $shouldLoadExtraFields = (
+        array_key_exists('extra_fields', $allowedFields) ||
+        in_array('extra_fields', $allowedFields, true) ||
+        !empty($requiredExtraFieldVars) ||
+        (!empty($extraConditions) && is_array($extraConditions))
+    );
+
+    if ($shouldLoadExtraFields) {
         $extraField = new ExtraField('user');
 
         // Extra fields that must NEVER be shown on the registration form.
-        // These are internal notification preferences; they belong to the profile settings.
         $registrationExtraFieldBlacklist = [
             'mail_notify_invitation',
             'mail_notify_message',
             'mail_notify_group_message',
         ];
+
+        // Helper: determine if an extra field is user-visible and user-editable.
+        $isFieldUserEditable = static function (array $info): bool {
+            $visibleToSelf = (int) ($info['visible_to_self'] ?? 0);
+            $changeable = (int) ($info['changeable'] ?? 0);
+
+            return $visibleToSelf === 1 && $changeable === 1;
+        };
+
+        // Forced fields (conditions) must be displayed even if not editable.
+        $forcedVars = [];
+        if (!empty($extraConditions) && is_array($extraConditions)) {
+            foreach ($extraConditions as $condition) {
+                if (!empty($condition['variable'])) {
+                    $forcedVars[] = (string) $condition['variable'];
+                }
+            }
+        }
+
+        $isBlacklisted = static function (string $var) use ($registrationExtraFieldBlacklist): bool {
+            return $var === '' || in_array($var, $registrationExtraFieldBlacklist, true);
+        };
+
+        $fieldExists = static function ($extraField, string $var): ?array {
+            $info = $extraField->get_handler_field_info_by_field_variable($var);
+            return false === $info ? null : $info;
+        };
 
         // Build the whitelist of extra fields allowed on registration.
         $extraFieldList = [];
@@ -942,46 +1024,57 @@ EOD;
             $extraFieldList = $allowedFields['extra_fields'];
         }
 
-        // Ensure condition fields (profile.show_conditions_to_user) are still displayed even if the whitelist is empty.
-        if (!empty($extraConditions) && is_array($extraConditions)) {
-            foreach ($extraConditions as $condition) {
-                if (!empty($condition['variable'])) {
-                    $extraFieldList[] = (string) $condition['variable'];
-                }
-            }
-        }
+        // Always include required extra fields and forced condition fields.
+        $extraFieldList = array_merge($extraFieldList, $requiredExtraFieldVars, $forcedVars);
 
-        // Apply blacklist + normalize list.
-        $extraFieldList = array_values(array_unique(array_filter($extraFieldList, static function ($v) use ($registrationExtraFieldBlacklist) {
-            $v = (string) $v;
+        // Normalize + filter.
+        $extraFieldList = array_values(array_unique(array_map(static function ($v) {
+            return trim((string) $v);
+        }, $extraFieldList)));
 
-            // Remove technical keys and blacklisted fields.
-            if ($v === '' || in_array($v, $registrationExtraFieldBlacklist, true)) {
+        $extraFieldList = array_values(array_filter($extraFieldList, static function ($var) use (
+            $extraField,
+            $isBlacklisted,
+            $fieldExists,
+            $isFieldUserEditable,
+            $requiredExtraFieldVars,
+            $forcedVars
+        ) {
+            if ($isBlacklisted($var)) {
                 return false;
             }
 
-            return true;
-        })));
+            $info = $fieldExists($extraField, $var);
+            if (null === $info) {
+                return false;
+            }
 
-        // Required extra fields (if configured) - also apply blacklist to avoid making hidden fields "required".
-        $settingRequiredFields = api_get_setting('registration.required_extra_fields_in_inscription', true);
-        $requiredFields = 'false' !== $settingRequiredFields ? $settingRequiredFields : [];
+            // Required/forced fields must be shown (otherwise registration can become impossible).
+            $isRequired = in_array($var, $requiredExtraFieldVars, true);
+            $isForced = in_array($var, $forcedVars, true);
 
-        if (!empty($requiredFields) && isset($requiredFields['options']) && is_array($requiredFields['options'])) {
-            $requiredFields = $requiredFields['options'];
-        }
+            if ($isRequired || $isForced) {
+                return true;
+            }
 
-        if (is_array($requiredFields) && !empty($requiredFields)) {
-            $requiredFields = array_values(array_filter($requiredFields, static function ($v) use ($registrationExtraFieldBlacklist) {
-                $v = (string) $v;
-                return $v !== '' && !in_array($v, $registrationExtraFieldBlacklist, true);
-            }));
-        } else {
-            $requiredFields = [];
-        }
+            // Optional fields: show only if user can see + modify them.
+            return $isFieldUserEditable($info);
+        }));
 
-        // Only load extra fields if we have at least one allowed field to show.
-        // This prevents showing internal fields like mail_notify_* when no whitelist is configured.
+        // Required list must match what we actually display.
+        $requiredFields = array_values(array_filter($requiredExtraFieldVars, static function ($var) use (
+            $extraField,
+            $isBlacklisted,
+            $fieldExists
+        ) {
+            $var = trim((string) $var);
+            if ($isBlacklisted($var)) {
+                return false;
+            }
+
+            return null !== $fieldExists($extraField, $var);
+        }));
+
         if (!empty($extraFieldList)) {
             $extraField->addElements(
                 $form,
@@ -1001,6 +1094,7 @@ EOD;
                 $requiredFields,
                 true
             );
+
             $extraFieldsLoaded = true;
         }
     }
@@ -1076,7 +1170,7 @@ if ('approval' === api_get_setting('allow_registration')) {
 
 // if openid was not found
 if (!empty($_GET['openid_msg']) && 'idnotfound' == $_GET['openid_msg']) {
-    $content .= Display::return_message(get_lang('This OpenID could not be found in our database. Please register for a new account. If you already an account with us, please edit your profile inside your account to add this OpenID'));
+    $content .= Display::return_message(get_lang('This OpenID could not be found in our database. Please register for a new account. If you have already an account with us, please edit your profile inside your account to add this OpenID'));
 }
 
 if ($extraConditions) {
@@ -1105,7 +1199,14 @@ if ($blockButton) {
     );
 } else {
     $allow = ('true' === api_get_setting('registration.allow_double_validation_in_registration'));
+
     ChamiloHelper::addLegalTermsFields($form, $userAlreadyRegisteredShowTerms);
+
+    /**
+     * Double validation must be controlled ONLY by:
+     * registration.allow_double_validation_in_registration
+     * It must not depend on Terms & Conditions activation.
+     */
     if ($allow && !$termActivated) {
         $htmlHeadXtra[] = '<script>
             $(document).ready(function() {
@@ -1130,7 +1231,7 @@ if ($blockButton) {
     $showTerms = true;
 }
 
-$course_code_redirect = Session::read('course_redirect');
+$courseIdRedirect = Session::read('course_redirect');
 $sessionToRedirect = Session::read('session_redirect');
 
 if ($extraConditions && $extraFieldsLoaded) {
@@ -1308,8 +1409,8 @@ if ($form->validate()) {
         }
 
         // Saving user to course if it was set.
-        if (!empty($course_code_redirect)) {
-            $course_info = api_get_course_info($course_code_redirect);
+        if (!empty($courseIdRedirect)) {
+            $course_info = api_get_course_info_by_id($courseIdRedirect);
             if (!empty($course_info)) {
                 if (in_array(
                     $course_info['visibility'],
@@ -1321,13 +1422,13 @@ if ($form->validate()) {
                 ) {
                     CourseManager::subscribeUser(
                         $userId,
-                        $course_info['real_id']
+                        $courseIdRedirect
                     );
                 }
             }
         }
 
-        /* If the account has to be approved then we set the account to inactive,
+        /* If the account has to be approved, then we set the account to inactive,
         sent a mail to the platform admin and exit the page.*/
         if ('approval' === api_get_setting('allow_registration')) {
             // 1. Send mail to all platform admin
@@ -1370,7 +1471,6 @@ if ($form->validate()) {
         }
     }
 
-
     /* SESSION REGISTERING */
     /* @todo move this in a function */
     $user['firstName'] = stripslashes($values['firstname']);
@@ -1378,6 +1478,7 @@ if ($form->validate()) {
     $user['mail'] = $values['email'];
     $user['language'] = $values['language'];
     $user['user_id'] = $userId;
+    $user['id'] = $userId;
     Session::write('_user', $user);
 
     $is_allowedCreateCourse = isset($values['status']) && 1 == $values['status'];
@@ -1408,6 +1509,7 @@ if ($form->validate()) {
         'mail' => $values['email'],
         'language' => $values['language'],
         'user_id' => $userId,
+        'id' => $userId,
     ];
 
     $sessionHandler->set('_user', $userData);
@@ -1416,6 +1518,39 @@ if ($form->validate()) {
 
     // Stats
     Container::getTrackELoginRepository()->createLoginRecord($userEntity, new DateTime(), $request->getClientIp());
+
+    /**
+     * Direct link redirect (course + optional exercise).
+     */
+    $directCourseId = (int) Session::read('course_redirect');
+    $directExerciseId = (int) Session::read('exercise_redirect');
+
+    if ($directCourseId > 0) {
+        Session::erase('course_redirect');
+        Session::erase('exercise_redirect');
+
+        $courseInfo = api_get_course_info_by_id($directCourseId);
+        $visibility = (int) ($courseInfo['visibility'] ?? -1);
+
+        $isOpenCourse = in_array(
+            $visibility,
+            [COURSE_VISIBILITY_OPEN_PLATFORM, COURSE_VISIBILITY_OPEN_WORLD],
+            true
+        );
+
+        if ($isOpenCourse) {
+            // Only for exercises: helps tracking, but must not gate redirect.
+            if ($directExerciseId > 0) {
+                CourseManager::autoSubscribeToCourse($directCourseId);
+            }
+
+            header('Location: ' . $buildDirectLinkRedirectUrl($directCourseId, $directExerciseId));
+            exit;
+        }
+
+        header('Location: ' . api_get_path(WEB_PATH) . 'course/' . $directCourseId . '/about');
+        exit;
+    }
 
     // last user login date is now
     $user_last_login_datetime = 0; // used as a unix timestamp it will correspond to : 1 1 1970
@@ -1566,8 +1701,8 @@ if ($form->validate()) {
     } else {
         if (!api_is_anonymous()) {
             // Saving user to course if it was set.
-            if (!empty($course_code_redirect)) {
-                $course_info = api_get_course_info($course_code_redirect);
+            if (!empty($courseIdRedirect)) {
+                $course_info = api_get_course_info_by_id($courseIdRedirect);
                 if (!empty($course_info)) {
                     if (in_array(
                         $course_info['visibility'],
@@ -1579,7 +1714,7 @@ if ($form->validate()) {
                     ) {
                         CourseManager::subscribeUser(
                             api_get_user_id(),
-                            $course_info['real_id']
+                            $courseIdRedirect
                         );
                     }
                 }

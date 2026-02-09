@@ -19103,7 +19103,7 @@ msgid "Users added"
 msgstr "Erabiltzaileak gehitu dira"
 
 msgid "Plugin area"
-msgstr "Plugin area"
+msgstr "Plugin eremua"
 
 msgid "No configuration settings found for this plugin"
 msgstr "Ez da konfigurazioko ezarpenik aurkitu plugin honetarako"
@@ -19419,9 +19419,6 @@ msgstr "Kendu datu base zaharra"
 
 msgid "Remove old tables"
 msgstr "Kendu taula zaharrak"
-
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "%s atariak erabiltzen duen memoriaren muga, guztira, %s MB-koa da"
 
 msgid "Event message management"
 msgstr "Gertaeren gaineko mezuen kudeaketa"
@@ -28431,7 +28428,7 @@ msgid "In person"
 msgstr "Pertsonalki"
 
 msgid "Blended learning"
-msgstr "Blended learning"
+msgstr "Ikaskuntza mistoa"
 
 msgid "Centralised"
 msgstr "Zentralizatua"
@@ -31079,8 +31076,8 @@ msgstr "Gehitu iruzkina"
 msgid "Write your comment here..."
 msgstr "Idatz ezazu zure iruzkina hemen..."
 
-msgid "%d selected"
-msgstr "%d hautatuta"
+msgid "%s selected"
+msgstr "%s hautatuta"
 
 msgid "Search by title or path..."
 msgstr "Bilatu izenburu edo bidearen arabera..."
@@ -31088,8 +31085,8 @@ msgstr "Bilatu izenburu edo bidearen arabera..."
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "Kudeatu babesketak, leheneratu, kopiatu, birziklatu eta ezabatu ikastaroaren datuak."
 
-msgid "%d comment(s)"
-msgstr "%d iruzkin"
+msgid "%s comment(s)"
+msgstr "%s iruzkin"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "Errorea hirugarren aldeko eguneratzean. Egiaztatu datuak mesedez."
@@ -31444,4 +31441,1138 @@ msgstr "Letra, digitu eta azpimarril (_) bakarrik onartzen dira datu-basearen iz
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "Zeintzuk dira erabiltzaileei plataforma hau erabiltzeko ematen zaizkien baldintza orokorrak?"
+
+msgid "ex. {examplePassword}"
+msgstr "ad. {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "Ongi etorri Chamilorat!"
+
+msgid "Welcome to this platform"
+msgstr "Ongi etorri plataforma honetara"
+
+msgid "For more details visit %s"
+msgstr "Xehetasun gehiagok %s bisitatu"
+
+msgid "Manager"
+msgstr "Kudeatzailea"
+
+msgid "Mark as"
+msgstr "Markatu honela"
+
+msgid "Reply to all"
+msgstr "Erantzun guztiei"
+
+msgid "SCIM external ID"
+msgstr "SCIM ID kanpokoa"
+
+msgid "OAuth2 ID"
+msgstr "OAuth2 ID"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "Onartu baldintza eta条款en azken bertsioa mesedez."
+
+msgid "Required value for operation without path"
+msgstr "Bide gabeko eragiketarako beharrezko balioa"
+
+msgid "Available space (%s)"
+msgstr "Eskuragarri dagoen lekua (%s)"
+
+msgid "Index this description for the global search"
+msgstr "Indizearen deskribapen hau bilaketa globalean"
+
+msgid "Unknown course"
+msgstr "Ikastaro ezezaguna"
+
+msgid "Certificate not found."
+msgstr "Ziurtagiria ez da aurkitu."
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "Segurtasun tokena irauli da. Kargatu orria berriro eta saiatu berriro."
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "Plataforma administratzaileek soilik alda dezakete ikastaroaren ikusgarritasuna."
+
+msgid "Unexpected error while subscribing the user"
+msgstr "Erabiltzailea harpidetzean espero gabeko errorea"
+
+msgid "Search in resource logs"
+msgstr "Bilatu baliabideen eguneratzeetan"
+
+msgid "Include this learning path in the global search results"
+msgstr "Sartu ikasketa-bidea bilaketa globalaren emaitzetan"
+
+msgid "The course code already exists"
+msgstr "Ikastaro kodea dagoeneko existitzen da"
+
+msgid "Latest news"
+msgstr "Azken berriak"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "Jaso Chamilo-ren azken berriak, segurtasun ahulguneak eta gertaerak barne, zuzenean zure administrazio-panelean. Berri hauek Chamilo berrien zerbitzarian egiaztatuko dira administrazio-orria kargatzen duzun bakoitzean eta administratzaileentzako bakarrik izango dira ikusgarriak."
+
+msgid "Chamilo support block"
+msgstr "Chamilo laguntza blokea"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "Jaso pro aholkuak eta zerbitzu hornitzaile ofizialekin harremanetan jartzeko erraza, Chamilo sortzaileengandik zuzenean. Bloke hau administrazio-orrian agertzen da, administratzaileentzako bakarrik ikusgarria da eta administrazio-orria kargatzen duzun bakoitzean berritu egiten da."
+
+msgid "Hide option to send announcements to HR users"
+msgstr "Ezkutatu iragarkiak HR erabiltzaileei bidaltzeko aukera"
+
+msgid "Allow session admins to download private certificates"
+msgstr "Baimendu saio administratzaileei ziurtagiri pribatuak deskargatzea"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "Gaitasuna badu, saio-administratzaileek jaso ditzakete ziurtagiriak argi eta garbi argitaratu gabe ere."
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "Hutsik ez badago, ikastaroaren sorrerako prozesuak erabiltzailearen profilikatuko eremu batzuk bilatuko ditu eta automatikoki betetuko ditu ikastaroarentzat. Adibidez, marketing digital espezializatutako irakasleak automatikoki « marketing digital » bandera ezar dezake sortzen duen bakoitzean."
+
+msgid "Main menu entries"
+msgstr "Menu nagusiko sarrerak"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "Menu nagusian agertu nahi duzun sarrera aukeratu"
+
+msgid "Main menu entries per role"
+msgstr "Menu nagusiko sarrerak rol bakoitzeko"
+
+msgid "Define header tabs visibility per role."
+msgstr "Definitu goiburuko fitxetako ikusgaitasuna rol bakoitzeko."
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "Ezarri aukerak taularen inguruko nabigazioan agertzeko, orri bakoitzean gutxiago edo gehiago lerro erakusteko. ad. [50, 100, 200, 500]."
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "Chamilo bideo-jotzailearentzat gaitu daitezkeen ezaugarri gehigarrien sorta. Aukerak barne hartzen ditu 'speed', bideo baten erreproduzketaren abiadura aldatzeko."
+
+msgid "Mail: character set"
+msgstr "Posta: karaktere-multzo"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "Posta horiek bidaltzean erabiltzeko karaktere-multzoa definitu behar baduzu. Hutsik utzi ziur ez badago."
+
+msgid "Mail: Debug"
+msgstr "Posta: Arazkera"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "Aukeratu posta bidaltze arazkera-logak gaitu nahi dituzun. Hauek posta-zerbitzura konektatzean zer gertatzen den informazio gehiago emango dizute, baina ez dira dotoreak eta orriaren diseinua apur dezakete. Erabili soilik erabiltzaileen jardera ez dagoenean."
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "Posta: Saihestu LD+JSON erabiltzea"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "Posta-klientek batzuek ez dute deskribapen LD+JSON formatua ulertzen, amaierako erabiltzaileari JSON kate soltea bezala erakutsiz. Zure kasua bada, beheko aldagailua 'false'ra ezarri dezakezu goiburuko hau desgaituz."
+
+msgid "Mail: DKIM headers"
+msgstr "Posta: DKIM goiburuak"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "Sartu zure DKIM konfigurazio-ezarpenen JSON sorta (ikusi adibidea)."
+
+msgid "Mail: XOAuth2 options"
+msgstr "Posta: XOAuth2 aukerak"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "XOAuth2 oinarritutako posta-zerbitzurik erabiltzen baduzu, erabili ezarpen hau JSONan zure konfigurazio espezifikoa gordetzeko (ikusi adibidea) eta aukeratu XOAuth2 posta-zerbitzuaren ezarpenetan."
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "Definitu ingurune mota: \"prod\" (produkzio normala), \"validation\" (produkzio antzekoa baina estatistika txostirik gabe), edo \"test\" (arazkera modua garatzaileen tresnekin, hala nola itzuli gabe dagoen kate-adierazleak)."
+
+msgid "Global limit of users per course"
+msgstr "Erabiltzaileen mugara ikastaro globalea"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "Definitu plataforma osoan ikastaro bakoitzera harpidetu daitekeen erabiltzaileen (irakasleak barne) gehienezko zenbaki globala. Ezarri balio hau 0ra mugara desgaituz. Honek portale irekietan ikastaroak gainkargatzea saihesten du."
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "Gaitu rolak argi erakutsi behar diren eta ezkutatzekoak diren definitzeko sorta erabiltzeko."
+
+msgid "Show base course posts in session course"
+msgstr "Erakutsi ikastaro oinarrizko mezuak saio-ikastaroan"
+
+msgid "Limit identical email usage"
+msgstr "Mugatu posta bera erabiltzea"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "Baimendutako kontu kopuru maximoa, posta elektroniko bera partekatzeko. 0 ezarri mugara ezgaitzeko."
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "Saio-administratzaileei URL guztietako erabiltzaile guztiak ikustea baimentzea"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "Gaituz gero, saio-administratzaileek URL aktibatutik independenteki, URL guztietako erabiltzaileak bilatu eta zerrendatu ditzakete."
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "Erabiltzaileek beren ordu-zona hautatzeko aukera gaitu. Konfiguratuta, erabiltzaileek beren ordu-zonan ikus ditzakete lanen epeak eta beste denbora-erreferentziak, bidaltzean erroreak murrizteko."
+
+msgid "Redirect after login (per profile)"
+msgstr "Birbideratze saio-hasieraketa ostean (perfila)"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "Saio-hasieraketa osteko birbideratzea profil bakoitzeko definitu, JSON objektu bati erabiliz: {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "Lege-onarpenaren koadrotxoa ezkutatu Baldintza Orokorrak orrian"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "Ezer ezarri gero, \"Irakurri eta onartzen dut\" koadrotxoa kentzen du Baldintza Orokorrak orriaren fluxuan."
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "LDAP zerbitzarirako ostalaria eta ataka definitzen duen array-a."
+
+msgid "Enable 2FA"
+msgstr "2FA gaitu"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "Pasahitzen eguneratze orrian 2FA gaitzeko eremuak gehitu TOTP autentifikazio aplikazio bat erabiliz. Desgaituta dagoenean, erabiltzaileek ez dute 2FA eremurik ikusiko eta ez dira 2FA eskatuko saio-hasieraketan, aurretik gaituta egon arren."
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "Chamilo-ren ezaugarri batzuek zerbitzaritik kanpora konektatuko dira. Adibidez, esteka sortzean edo ikasketa-bidean orri txertatua erakustean edukia existitzen dela egiaztatzeko. Zure Chamilo zerbitzariak proxy bat erabiltzen badu saretik irtetzeko, hemen konfigura daiteke."
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "Kurtsoaren balioaldia amaitu artean inskripzio automatikoa gaitu edo ezgaitu. Cron lana ere gaituta egon behar da."
+
+msgid "Show remaining days in My Sessions"
+msgstr "Egun geratzen direnak erakutsi Nire Saioetan"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "Gaituz gero, \"Nire Saioak\" orrian saio-datak egun geratzen diren kopuruaz ordeztuko dira."
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "\"Zain dauden inkestak\" erakutsi menuan"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "Menu elementu bat erakutsi erabiltzaileei zain dauden inkestak atzitzea ahalbidetzeko."
+
+msgid "Disclose AI assistance"
+msgstr "AI laguntza argitaratu"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "AI sistema batek sortutako edo elkarrekin sortutako eduki edo iritzi guztietan etiketa bat erakutsi, erabiltzaileari edukiak AI sistema batekin eraikitako froga gisa. Zein AI sistema erabili den xehetasunak datu-basean gordetzen dira ikuskaritzarako, baina ez dira zuzenean erabiltzaileari eskuragarri."
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "Kurtso katalogorako JSON konfigurazioa: lotura ezarpenak, iragazkiak, ordenatze aukerak eta gehiago."
+
+msgid "Session Catalog Settings"
+msgstr "Saio Katalogoko Ezarpenak"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "Saio katalogorako JSON konfigurazioa: iragazkiak eta bistaratze aukerak."
+
+msgid "Show Course Descriptions"
+msgstr "Erakutsi Ikastaro Deskribapenak"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "Erakutsi ikastaro deskribapenak katalogo zerrendan."
+
+msgid "Published Courses Only"
+msgstr "Argitaratutako Ikastaroak Soilik"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "Mugatu katalogoa argitaratutzat markatutako ikastaroetara soilik."
+
+msgid "Display Catalog on Homepage"
+msgstr "Erakutsi Katalogoa Hasiera Orrian"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "Erakutsi ikastaro katalogo blokea plataforma hasiera orrian."
+
+msgid "Hide Public Link"
+msgstr "Ezkutatu Esteka Publikoa"
+
+msgid "Remove the public URL link from course cards."
+msgstr "Kendu URL esteka publikoa ikastaro txartelretatik."
+
+msgid "Only Selected Courses"
+msgstr "Hautatutako Ikastaroak Soilik"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "Erakutsi eskuz hautatutako ikastaroak soilik katalogoan."
+
+msgid "Allow Student Browsing"
+msgstr "Baimendu Ikasleen Nabigazioa"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "Baimendu ikasleek ikastaro katalogoa nabigatzea eta iragaztea."
+
+msgid "Hide Private Courses"
+msgstr "Ezkutatu Ikastaro Pribatuak"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "Baztertu ikastaro pribatuak katalogo erakuspenetik."
+
+msgid "Show Courses & Sessions"
+msgstr "Erakutsi Ikastaroak eta Saioak"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "Sartu ikastaroak eta saioak katalogo emaitzetan."
+
+msgid "Auto Session Subscription"
+msgstr "Saio Harpidetza Automatikoa"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "Gaitu saioetarako harpidetza automatikoa erabiltzaileentzat."
+
+msgid "Subscription in Session View"
+msgstr "Harpidetza Saio Ikuspegian"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "Baimendu erabiltzaileek ikastaroetan harpidetzera saio orritik zuzenean."
+
+msgid "Enable redirection plugin"
+msgstr "Gaitu birbideratze plugina"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "'egunak' eta 'hilabeteak' definitzen dituen arraya, kontu iraungitze data ezartzeko lehenengo saioan."
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "rola => zenbakia arraya, kontuaren iraungitze egun kopurua adierazten duena, rolari arabera."
+
+msgid "Extra user field used to search and name sessions"
+msgstr "Erabiltzaile eremu extra saioak bilatzeko eta izendatzeko erabiltzen da"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "Ezarpen honek erabiltzaile eremu extra gakoa definitzen du (adib. \"enpresa\") erabiltzaileak bilatzeko eta /admin-dashboard/register-tik ikasleak izena ematean saio izena definitzeko."
+
+msgid "Glossary terms generator"
+msgstr "Glosario terminoen sortzailea"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "Baimendu irakasleek AI-rekin sortutako glosario terminoak eskatzea ikastaroan. Honek 20 termino sortuko ditu ikastaro izenburu eta deskribapen orokorraren oinarrian. Erabili bada gehiago, baztertuko ditu jadanik glosarioan dauden terminoak (ziurtatu edukia konfiguratutako AI zerbitzuekin partekatzeko aukera dagoela)."
+
+msgid "Video generator"
+msgstr "Bideo sortzailea"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "AI erabiliz prompt edo edukien oinarrian bideoak sortzen ditu (hau token asko kontsumi dezake)."
+
+msgid "Course analyser"
+msgstr "Ikastaro analitzailea"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "Analizatzen ditu ikastaro baten edo anizkoitzaren baliabide guztiak eta AI modeloa aurrez entrenatzen du ikastaro hauetan edo haueetan edozein galderari erantzuteko (ziurtatu edukia konfiguratutako AI zerbitzuekin partekatzeko aukera dagoela)."
+
+msgid "Test/development"
+msgstr "Proba/garapena"
+
+msgid "Crons"
+msgstr "Cronak"
+
+msgid "Editor"
+msgstr "Editorea"
+
+msgid "Gradebook"
+msgstr "Kalifikazio liburua"
+
+msgid "Internationalization"
+msgstr "Nazioartekotzea"
+
+msgid "User profiles"
+msgstr "Erabiltzaile profileak"
+
+msgid "Support tickets"
+msgstr "Laguntza txartelak"
+
+msgid "Webservices"
+msgstr "Webserviceak"
+
+msgid "Catalogue"
+msgstr "Katalogoa"
+
+msgid "Workflows"
+msgstr "Lan fluxuak"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "Ezarpena editagarria azpi-URLetan"
+
+msgid "Show JSON Template"
+msgstr "Erakutsi JSON Txantiloia"
+
+msgid "JSON Template"
+msgstr "JSON Txantiloia"
+
+msgid "Installing Xapian bindings"
+msgstr "Xapian loturak instalatzea"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "Hurrengo zatiak Xapian PHP loturen instalazio adibidea erakusten du Ubuntu 25.04-n PHP 8.3-rekin. Egokitu bideak eta bertsioak zure ingurunura."
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "Ziurtatu PHP bertsio bakarra duzula erabiltzen duzuna (adib. 8.3) eta saihestu hainbat bertsio nahastea hedapen direktorio desberdinekin."
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "Hedapena ondo kargatuta dagoenean CLI eta web zerbitzarirako, goiko bilaketa diagnostikoek Xapian modula instalatuta dagoela adierazi beharko dute."
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "Garbitu aldi baterako igoerak eta cache-a"
+
+msgid "Directory"
+msgstr "Direktorioa"
+
+msgid "Only delete files older than (minutes)"
+msgstr "Ez ezazu ezabatu %minutes% minutu baino zaharragoak diren fitxategiak bakarrik"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "Ezarri 0 fitxategi guztiak ezabatzeko. Balio positiboa erabili (adib. 60) igoeran dauden fitxategiak ez kentzeko."
+
+msgid "Preview only (do not delete)"
+msgstr "Aurrebista soilik (ez ezabatu)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "Abisua: aldi baterako fitxategi guztiak ezabatzen ari zara. Ekintza hau ezin da desegin."
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "Aldi baterako fitxategi guztiak ezabatuko dira. Jarraitu?"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "%minutes% minutu baino zaharragoak diren fitxategiak ezabatuko dira. Jarraitu?"
+
+msgid "The value must match exactly: %s"
+msgstr "Balioak zehazki hau izan behar du: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "Errepikapen amaierako data hasierako dataren ondoren egon behar da."
+
+msgid "Index document content?"
+msgstr "Indizatuko duzu dokumentuaren edukia?"
+
+msgid "Upload SVG logo to platform header"
+msgstr "Kargatu SVG logoa plataforma goiburura"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "Kargatu PNG logoa plataforma goiburura (%s)"
+
+msgid "Write something to %s"
+msgstr "Idatzi zerbait %s(r)en"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "Gomendatua: SVG. PNG gomendatutako zabalera: %spx."
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "Kargatu PNG logoa e-postetarako (~%spx zabalera)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "Goiburuaren PNG-a ≤ %spx izan behar du."
+
+msgid "Require specific file format"
+msgstr "Eskatu fitxategi formatu zehatza"
+
+msgid "Select allowed file formats"
+msgstr "Hautatu onartutako fitxategi formatuak"
+
+msgid "Custom extensions (separated by space)"
+msgstr "Luzapen pertsonalizatuak (espazioz bereizita)"
+
+msgid "Other extensions"
+msgstr "Beste luzapenak"
+
+msgid "My invitations"
+msgstr "Nire gonbidapenak"
+
+msgid "Delete access"
+msgstr "Ezabatu sarbidea"
+
+msgid "Certificate tags"
+msgstr "Ziurtagiri etiketak"
+
+msgid "Copy all"
+msgstr "Kopiatu guztia"
+
+msgid "Click to insert"
+msgstr "Klik egin txertatzeko"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "Lehena: SVG. PNG gehienezko tamaina: %spx."
+
+msgid "View badge"
+msgstr "Ikusi domina"
+
+msgid "%d min"
+msgstr "%d min"
+
+msgid "Duration in minutes"
+msgstr "Iraupena minututan"
+
+msgid "Go back to standard view"
+msgstr "Itzuli ikuspegi estandarrera"
+
+msgid "Search for student..."
+msgstr "Bilatu ikaslea..."
+
+msgid "This date is locked or read-only."
+msgstr "Data hau blokeatuta dago edo irakurtzeko soilik."
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "Ezin izan da asistencia kargatu. Saiatu berriro geroago."
+
+msgid "Nothing to save"
+msgstr "Ez dago gordetzeko ezer"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "Aldaketak gorde gabe dituzu. Irten hala ere?"
+
+msgid "Storage usage unavailable"
+msgstr "Biltegi erabilera ez dago eskuragarri"
+
+msgid "Search for members..."
+msgstr "Bilatu kideak..."
+
+msgid "Current members"
+msgstr "Kide unekoak"
+
+msgid "Add members"
+msgstr "Gehitu kideak"
+
+msgid "Search for users in course/session..."
+msgstr "Bilatu erabiltzaileak ikastaroan/saioan..."
+
+msgid "No users available."
+msgstr "Ez dago erabiltzailerik eskuragarri."
+
+msgid "Browse and publish new posts"
+msgstr "Arakatu eta argitaratu mezu berriak"
+
+msgid "Create and assign tasks"
+msgstr "Sortu eta esleitu lanak"
+
+msgid "Filtered by %s"
+msgstr "Irudikatua %s(e)kin"
+
+msgid "Select a score"
+msgstr "Hautatu puntuazioa"
+
+msgid "Edit comment"
+msgstr "Editatu iruzkina"
+
+msgid "Failed to update the post."
+msgstr "Ezin izan da mezua eguneratu."
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "Ezabatu mezu hau? Ekintza hau ezin da desegin."
+
+msgid "Failed to delete the post."
+msgstr "Mezua ezabatzeak huts egin du."
+
+msgid "Failed to update the comment."
+msgstr "Iruzkina eguneratzeak huts egin du."
+
+msgid "Delete this comment?"
+msgstr "Ezabatu iruzkin hau?"
+
+msgid "Failed to delete the comment."
+msgstr "Iruzkina ezabatzeak huts egin du."
+
+msgid "Search for projects..."
+msgstr "Bilatu proiektuak..."
+
+msgid "Only visible"
+msgstr "Ikusgai soilik"
+
+msgid "Rename project"
+msgstr "Berrizendatu proiektua"
+
+msgid "New title"
+msgstr "Izenburu berria"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "Administratzailea edo irakaslea izan behar duzu proiektuak kudeatzeko."
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "Ezabatu proiektu hau? Ekintza hau ezin da desegin."
+
+msgid "Task list"
+msgstr "Zereginen zerrenda"
+
+msgid "Change status"
+msgstr "Aldatu egoera"
+
+msgid "Waiting for validation"
+msgstr "Balioztapenaren zain"
+
+msgid "Delete this task?"
+msgstr "Ezabatu zeregin hau?"
+
+msgid "Failed to delete the task."
+msgstr "Zeregina ezabatzeak huts egin du."
+
+msgid "Failed to update status."
+msgstr "Egoera eguneratzeak huts egin du."
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "Ziur zaude hirugarren hau ezabatu nahi duzula? Ekintza hau ezin da desegin."
+
+msgid "Please fix the errors before saving."
+msgstr "Zehaztu erroreak gorde aurretik."
+
+msgid "Error creating third party. Please verify the data."
+msgstr "Errorea hirugarrena sortzerakoan. Egiaztatu datuak."
+
+msgid "Error deleting third party."
+msgstr "Errorea hirugarrena ezabatzerakoan."
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "Kargatu aukerako goiburua eta posta elektronikoaren logoak. SVG gomendatzen da; PNG erabiltzen da ordezkoa gisa."
+
+msgid "Data exchange updated successfully."
+msgstr "Datuen trukaketa ongi eguneratu da."
+
+msgid "Error deleting data exchange."
+msgstr "Errorea datuen trukaketa ezabatzerakoan."
+
+msgid "Failed to recycle course."
+msgstr "Kurtsoa berrabiarazteak huts egin du."
+
+msgid "Select source course"
+msgstr "Hautatu jatorrizko kurtsoa"
+
+msgid "Course to copy from"
+msgstr "Kopiatzeko kurtsoa"
+
+msgid "Search by code or title..."
+msgstr "Bilatu kodez edo izenburuz..."
+
+msgid "No courses match your search."
+msgstr "Ez dago zure bilaketarekin bat datozen kurtsoak."
+
+msgid "Copy options"
+msgstr "Kopia-aukerak"
+
+msgid "Include users (enrollments)"
+msgstr "Sartu erabiltzaileak (matrikulak)"
+
+msgid "Reset dates"
+msgstr "Berrezarri datak"
+
+msgid "When a file with the same name exists"
+msgstr "Fitxategi bera izenarekin existitzen denean"
+
+msgid "Ready to copy"
+msgstr "Kopiatzeko prest"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "Hautatutako kurtsoaren edukia kopiatuko dugu kurtso honetara. Itzuli zaitezke aukerak aldatzeko."
+
+msgid "Start copying"
+msgstr "Hasi kopiatzen"
+
+msgid "Select resources to copy"
+msgstr "Hautatu kopiatzeko baliabideak"
+
+msgid "Copy selected"
+msgstr "Kopiatu hautatua"
+
+msgid "Copy completed."
+msgstr "Kopia osatua."
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "Arrisku-zona: kurtsoa ezabatzea betirakoa da."
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "Idatzi kurtsoaren kodea baieztatzeko. Datozen guztiak betirako ezabatuak izango dira."
+
+msgid "The code must match '%s' exactly."
+msgstr "Kodeak '%s'rekin bat egin behar du zehazki."
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "Ezabatu kurtso honetan soilik erabilitako dokumentuak ere (badaude)."
+
+msgid "Delete course"
+msgstr "Ezabatu kurtsoa"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "Ekintza hau ezin da desegin. Jarraitu?"
+
+msgid "Course deleted successfully."
+msgstr "Kurtsoa ongi ezabatu da."
+
+msgid "Failed to delete course."
+msgstr "Kurtsoa ezabatzeak huts egin du."
+
+msgid "Create .mbz"
+msgstr "Sortu .mbz"
+
+msgid "Backup scope"
+msgstr "Babeskoparen hedadura"
+
+msgid "Full course"
+msgstr "Kurtso osoa"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "Hautatutako elementuak soilik izango dira esportatutako fitxategian barneratuak."
+
+msgid "Moodle export"
+msgstr "Moodle esportazioa"
+
+msgid "Moodle version"
+msgstr "Moodle bertsioa"
+
+msgid "Admin ID"
+msgstr "Admin ID"
+
+msgid "Internal integer user id"
+msgstr "Barneko erabiltzaile ID osoa"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle-k XML-n gordetako barneko erabiltzaile ID bat behar du. Zalantzan bazaude, 1 erabili."
+
+msgid "Username to appear as owner of imported items"
+msgstr "Inportatutako elementuen jabe gisa agertuko den erabiltzaile-izena"
+
+msgid "Email to use in the archive metadata"
+msgstr "Artxiboaren metadatetarako erabiltzeko e-posta"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr ".mbz fitxategi bat sortuko da. Deskargatu ahal izango duzu amaitutakoan."
+
+msgid "Select resources to include"
+msgstr "Barne hartzeko baliabideak aukeratu"
+
+msgid "Export completed"
+msgstr "Esportazioa osatua"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "Zure Moodle babeskopia sortu da. Ikastaroen babeskopien zerrendan aurki dezakezu."
+
+msgid "Please complete all required fields."
+msgstr "Bete beharrezko eremu guztiak."
+
+msgid "Failed to create Moodle backup."
+msgstr "Hutsegitea Moodle babeskopia sortzean."
+
+msgid "More actions"
+msgstr "Ekintza gehiago"
+
+msgid "Write something"
+msgstr "Idatzi zerbait"
+
+msgid "Friends of %s"
+msgstr "%s-ren lagunak"
+
+msgid "Error loading learning paths."
+msgstr "Errorea ikaste-bideak kargatzerakoan."
+
+msgid "You don't have any learning path."
+msgstr "Ez duzu ikaste-biderik."
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "Sortu zure lehen ikaste-bidea ikastaroaren edukiak antolatzen hasi nahi baduzu."
+
+msgid "Could not save the new category order."
+msgstr "Ezin izan da kategoria berrien ordena gorde."
+
+msgid "Could not save the new order."
+msgstr "Ezin izan da ordena berria gorde."
+
+msgid "Assignment"
+msgstr "Lanarekin"
+
+msgid "Allowed file formats: %s"
+msgstr "Onartutako fitxategi-formatuak: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "Fitxategi-mota ez dago onartua. Hedapen onartuak: %s"
+
+msgid "Folder name"
+msgstr "Karpetaren izena"
+
+msgid "Rename folder"
+msgstr "Berridatzi karpeta"
+
+msgid "New name"
+msgstr "Izen berria"
+
+msgid "Choose an action"
+msgstr "Hautatu ekintza bat"
+
+msgid "New version"
+msgstr "Bertsio berria"
+
+msgid "Change title to selected filename"
+msgstr "Aldatu izenburua hautatutako fitxategi-izenarekin"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "Ordezka dezakezu fitxategia, mugitu beste karpetara edo biak."
+
+msgid "Move %s"
+msgstr "Mugitu %s"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "Erakarri ez diren karpetak soilik erakusten dira elementuak sustaraino uzteko."
+
+msgid "No feedback yet."
+msgstr "Ez dago feedbackik oraindik."
+
+msgid "Upload first, organize later"
+msgstr "Kargatu lehenik, antolatu gero"
+
+msgid "Drag & drop or browse to add files"
+msgstr "Arrastatu eta askatu edo arakatu fitxategiak gehitzeko"
+
+msgid "Social wall..."
+msgstr "Hormaren horma..."
+
+msgid "Wall of %s"
+msgstr "%s-ren horma"
+
+msgid "Version currently loaded"
+msgstr "Kargatutako bertsioa"
+
+msgid "Completion"
+msgstr "Osaketa"
+
+msgid "Quick navigation"
+msgstr "Nabigazio azkarra"
+
+msgid "Filled"
+msgstr "Betea"
+
+msgid "Terms sections"
+msgstr "Baldintza atalak"
+
+msgid "Open a section to edit its content."
+msgstr "Ireki atal bat haren edukia editatzeko."
+
+msgid "Open this section to load the editor."
+msgstr "Ireki atal hau editorea kargatzeko."
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "Arrisku-zona: sarbide URL-a ezabatzea betirakoa da."
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "Idatzi URL osoa baieztatzeko. URL-a eta haren erlazioak betirako ezabatuak izango dira."
+
+msgid "Unable to load the badge's image."
+msgstr "Ezin da badgeren irudia kargatu."
+
+msgid "Invalid role selection"
+msgstr "Rolaren hautaketa baliogabea"
+
+msgid "Select relation type first to enable user management."
+msgstr "Hautatu lehenik erlazio-mota erabiltzaileen kudeaketa gaitzeko."
+
+msgid "This question has no course context. Preview is not available."
+msgstr "Galdera honek ez du ikastaro-kontexturik. Aurrebista ez dago eskuragarri."
+
+msgid "Unknown test"
+msgstr "Proba ezezaguna"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "Ezabatzea ez dago onartua ikastaro-kontexturik gabe."
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "Ezabaketa huts egin du: falta da ikastaro-kontextua edo galdera hau proba bati dagokio. Editatu proba barrutik edo filtratu bakarrik umezurtz galderentzat.baliogarria galdera ID-a."
+
+msgid "Delete failed: question not found."
+msgstr "Ezabaketa huts egin du: galderarik ez da aurkitu."
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "Ezabaketa huts egin du: galdera honek beste baliabide batzuetan aipamenak ditu oraindik."
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "Galdera honek proba bati dagokio. Editatu proba barrutik edo filtratu umezurtz galderentzat soilik."
+
+msgid "Access the group tools and resources"
+msgstr "Accedeu talde tresnei eta baliabideei"
+
+msgid "%s members"
+msgstr "%s kide"
+
+msgid "View certificate (HTML)"
+msgstr "Ikusi ziurtagiria (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "Esteka gaitasun bat kalifikazio-liburu honi"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "Kudeatu ziurtagiri eta gaitasunen arteko lotura kalifikazio-liburu bakoitzerako"
+
+msgid "Please select a specific badge issue to download"
+msgstr "Mesedez hautatu badgeren emisio zehatz bat deskargatzeko"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM gaituta ez dago."
+
+msgid "Invalid token."
+msgstr "Token baliogabea."
+
+msgid "Schema not supported."
+msgstr "Schema ez da onartzen."
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "PATCH eragiketarako schema baliogabeak."
+
+msgid "Missing required \"Operations\" array."
+msgstr "Beharrezko \"Operations\" matrize falta."
+
+msgid "The '%s' operation is not supported."
+msgstr "'%s' eragiketa ez da onartzen."
+
+msgid "Drupal user ID"
+msgstr "Drupal erabiltzaile ID"
+
+msgid "There are no terms that match the search: %s"
+msgstr "Ez dago bilaketarekin bat datozen terminorik: %s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "Ezarpena globaleki blokeatuta dago (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "Gaituta badago, 1:1 txat pribatuaren mezuak ikastaroaren txataren historia dokumentuetan islatuko dira. Pribatutasunerako desgaituta mantentzea gomendatzen da."
+
+msgid "Save private conversations in documents"
+msgstr "Gorde elkarrizketa pribatuak dokumentuetan"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "EU AI Act – Gardentasun eta arrisku abisua"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "EU Artificial Intelligence Act (Erregelamendua (EU) 2024/1689) arabera, hezkuntzan erabilitako AI sistemak oro har “arrisku handiko” gisa sailkatzen dira. Software honezk ez da <strong>ez</strong> AI sistema, baina zure konfigurazioaren arabera, barneko edo kanpoko AI sistemak aukeran integratzea ahalbidetzen du erabiltzaileen zereginei errendimendua hobetzeko. Sistemek horrelako datuak erabiltzaileen promptuetatik soilik sar dezakete. Diseinuagatik, software honek ez ditu datu pertsonalak AI sistemekin partekatzen erabiltzailearen sarrera aktiborik gabe. Lehenetsitako moduan, AI ezaugarri guztiak desgaituta daude."
+
+msgid "Admin responsibility & disclosures"
+msgstr "Administratzailearen erantzukizuna eta argibideak"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "Orrialde honek AI ezaugarri bakoitza eta bere xedoa xehatzen ditu. Inplementatzaile gisa, hauek arreta handiz berrikusi behar dituzu eta GDPRren arabera datuak babesteko zure politiken eguneratzea gaitzen dituzun aukerak islatzeko. Gehienbat AI ezaugarriek ez dute datu pertsonalik partekatzen kanpoko sistemekin zuzenean, baina AIra bidalitako erabiltzaileen promptuak datu pertsonalak barne ditzake. Inplementatzaile gisa, <strong>zuri dagokio</strong> erabiltzaileei arrisku hau jakinaraztea. Gardentasunerako, etorkizuneko bertsioek eduki edo feedback jakin batzuk AIaren laguntzarekin sortu direla adierazten duten erabiltzaile-erroten etiketa ez-intrusiboak erakutsi ditzakete."
+
+msgid "Positioning"
+msgstr "Kokapena"
+
+msgid "Quiz"
+msgstr "Galdera-testa"
+
+msgid "Customcertificate"
+msgstr "Customcertificate"
+
+msgid "Update profile"
+msgstr "Eguneratu profila"
+
+msgid "Enable learning path generator"
+msgstr "Gaitu ikaskide bide sortzailea"
+
+msgid "Enable exercise generator"
+msgstr "Gaitu ariketa sortzailea"
+
+msgid "Enable open answers grader"
+msgstr "Gaitu erantzun irekien kalifikatzailea"
+
+msgid "Enable tutor chatbot"
+msgstr "Gaitu tutore chatbot-a"
+
+msgid "Enable task grader"
+msgstr "Gaitu zeregineko kalifikatzailea"
+
+msgid "Enable content analyser"
+msgstr "Gaitu eduki analizatzailea"
+
+msgid "Enable image generator"
+msgstr "Gaitu irudi sortzailea"
+
+msgid "Enable glossary terms generator"
+msgstr "Gaitu glosario terminoen sortzailea"
+
+msgid "Enable video generator"
+msgstr "Gaitu bideo sortzailea"
+
+msgid "Enable course analyser"
+msgstr "Gaitu ikastaro analizatzailea"
+
+msgid "The operation '%s' is not supported."
+msgstr "'%s' eragiketa ez dago onartuta."
+
+msgid "AI feedback on %s in course %s"
+msgstr "AI feedback %s-ri ikastaroan %s"
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr "Ezabatu huts egin du: falta da ikastaroaren testuingurua edo galdera id baliogabea."
+
+msgid "AI Tutor"
+msgstr "AI Tutorea"
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr "APCu hedapenak plataforma erabili dezan instalatuta eta gaituta egon behar du."
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr "OPCache memory_consumption %sMB RAM-ra iristeari utztea gomendatzen da gutxienez."
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr "OPcache modulua plataforma erabili dezan instalatuta eta gaituta egon behar du."
+
+msgid "You are here"
+msgstr "Hemen zaude"
+
+msgid "Click an event type to filter results."
+msgstr "Egin klik gertaera mota bati emaitzak iragazteko."
+
+msgid "Require unique presence"
+msgstr "Eskatu presentzia bakarra"
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr "Gaituta badago, kalifikazio-liburuak ikasleari %100 emango dio behinik behin presente badago."
+
+msgid "AI feedback"
+msgstr "AI feedback"
+
+msgid "Prompt"
+msgstr "Prompt"
+
+msgid "Tip"
+msgstr "Aholku"
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr "Feedback eskaiteko aurretik editatu dezakezu prompt-a."
+
+msgid "Result (you can apply it to the comment)"
+msgstr "Emaitza (komentarioan aplika dezakezu)"
+
+msgid "Apply to comment"
+msgstr "Aplikatu komentarioan"
+
+msgid "Apply score"
+msgstr "Aplikatu puntuazioa"
+
+msgid "AI grade"
+msgstr "AI kalifikazioa"
+
+msgid "AI tutor is disabled during tests"
+msgstr "AI tutorea desgaituta dago proba zehar"
+
+msgid "Generate glossary terms"
+msgstr "Sortu glosarioaren terminoak"
+
+msgid "Generate media"
+msgstr "Sortu multimedia"
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr "Ez duzu baimenik AI multimedia sortzeko ikastarion."
+
+msgid "AI helpers are disabled at platform level."
+msgstr "AI laguntzaileak plataforma mailan desgaituta daude."
+
+msgid "AI media generation is disabled in course settings."
+msgstr "AI multimedia sortzea desgaituta dago ikastaroaren ezarpenetan."
+
+msgid "No AI media providers available."
+msgstr "Ez dago AI multimedia hornitzailerik eskuragarri."
+
+msgid "Provider"
+msgstr "Hornitzailea"
+
+msgid "Select a provider"
+msgstr "Hautatu hornitzailea"
+
+msgid "Example: generated_media"
+msgstr "Adibidea: generated_media"
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr "Izena ez da prompt-era gehitzen; fitxategia gordetzeko soilik erabiltzen da."
+
+msgid "Describe what you want to generate..."
+msgstr "Deskribatu sortu nahi duzuna..."
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr "Aholku: klik egin aurrezarpen batean tamaina azkar ezartzeko."
+
+msgid "Generating..."
+msgstr "Sortzen..."
+
+msgid "Save to Documents"
+msgstr "Gorde Dokumentuetan"
+
+msgid "Document IRI"
+msgstr "Dokumentu IRI"
+
+msgid "Go to folder"
+msgstr "Joan karpetara"
+
+msgid "Provider used"
+msgstr "Erabilitako hornitzailea"
+
+msgid "This video result cannot be saved yet"
+msgstr "Bideo emaitza hau ezin da oraindik gorde"
+
+msgid "Video polling was stopped because the provider changed."
+msgstr "Bideo inkesta gelditu egin da hornitzailea aldatu delako."
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr "Bideo sortzea denbora gehiegi darama. Mesedez, saiatu berriro geroago."
+
+msgid "Failed to check video status."
+msgstr "Hutsegitea bideoaren egoera egiaztatzean."
+
+msgid "Video generated successfully. You can now save it."
+msgstr "Bideoa ongi sortu da. Orain gorde dezakezu."
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr "Bideo sortzea osatu da, baina ez da eduki erreproduzigaririk itzuli."
+
+msgid "Video generation failed."
+msgstr "Bideo sortzea huts egin du."
+
+msgid "Waiting for the video to be ready..."
+msgstr "Itxaron bideoa prest egotea..."
+
+msgid "Please complete all fields."
+msgstr "Bete ezazu eremu guztiak."
+
+msgid "Image generation is not enabled for this course."
+msgstr "Irudi sortzea ez dago gaituta ikastaro honetarako."
+
+msgid "Video generation is not enabled for this course."
+msgstr "Bideo sortzea ez dago gaituta ikastaro honetarako."
+
+msgid "Generation failed."
+msgstr "Sortzea huts egin du."
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr "Ongi sortu da. Berrikusi aurizkia eta gorde prest egon arte."
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr "Ongi sortu da. Gordetzea desgaituta dago hornitzaileak URL bat itzuli duelako."
+
+msgid "Video generation started. Waiting for the result..."
+msgstr "Bideo sortzea hasita. Itxaron emaitza..."
+
+msgid "AI returned an empty response."
+msgstr "AI-k erantzun huts bat itzuli du."
+
+msgid "Nothing to save yet."
+msgstr "Ez dago gordetzekorik oraindik."
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr "Hornitzaile honek ez du base64 edukirik itzuli. Saia zaitez beste hornitzaile batekin."
+
+msgid "Saving failed."
+msgstr "Gordetzea huts egin du."
+
+msgid "Get AI feedback"
+msgstr "Lortu AI feedback-a"
+
+msgid "Copy answer to clipboard"
+msgstr "Kopiatu erantzuna arbelean"
+
+msgid "Save answer to my inbox"
+msgstr "Gorde erantzuna nire sarera"
+
+msgid "The document is already in this folder"
+msgstr "Dokumentua dagoeneko karpeta honetan dago"
+
+msgid "Copied"
+msgstr "Kopiatua"
+
+msgid "You do not have permission to generate glossary terms."
+msgstr "Ez duzu glossaryko terminoak sortzeko baimenik."
+
+msgid "Video generation is in progress"
+msgstr "Bideoaren sorta sortzen ari da"
+
+msgid "Job"
+msgstr "Lan"
+
+msgid "Modified prompt"
+msgstr "Aldatutako prompt-a"
+
+msgid "Saved in Documents"
+msgstr "Gordeta Dokumentuetan"
 

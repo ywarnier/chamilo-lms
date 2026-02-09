@@ -19415,9 +19415,6 @@ msgstr "Eliminar base de datos antigua"
 msgid "Remove old tables"
 msgstr "Eliminar tablas antiguas"
 
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "Espacio total usado por el portal %s límite es %s MB"
-
 msgid "Event message management"
 msgstr "Gestión de mensajes de eventos"
 
@@ -31074,8 +31071,8 @@ msgstr "Agregar comentario"
 msgid "Write your comment here..."
 msgstr "Escribe tu comentario aquí..."
 
-msgid "%d selected"
-msgstr "%d seleccionado"
+msgid "%s selected"
+msgstr "%s seleccionado"
 
 msgid "Search by title or path..."
 msgstr "Buscar por título o ruta..."
@@ -31083,8 +31080,8 @@ msgstr "Buscar por título o ruta..."
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "Administrar respaldos, restaurar, copiar, reciclaje y eliminar datos del curso."
 
-msgid "%d comment(s)"
-msgstr "%d comentario(s)"
+msgid "%s comment(s)"
+msgstr "%s comentario(s)"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "Error al actualizar tercero. Verifica los datos."
@@ -31439,4 +31436,1138 @@ msgstr "Solo se permiten letras, dígitos y guión bajo (_) en el nombre de la b
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "¿Qué términos y condiciones generales se dan a los usuarios para usar esta plataforma?"
+
+msgid "ex. {examplePassword}"
+msgstr "ej. {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "¡Bienvenido a Chamilo!"
+
+msgid "Welcome to this platform"
+msgstr "Bienvenido a esta plataforma"
+
+msgid "For more details visit %s"
+msgstr "Para más detalles visita %s"
+
+msgid "Manager"
+msgstr "Administrador"
+
+msgid "Mark as"
+msgstr "Marcar como"
+
+msgid "Reply to all"
+msgstr "Responder a todos"
+
+msgid "SCIM external ID"
+msgstr "ID externo SCIM"
+
+msgid "OAuth2 ID"
+msgstr "ID OAuth2"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "Por favor acepta la versión más reciente de los términos y condiciones."
+
+msgid "Required value for operation without path"
+msgstr "Valor requerido para la operación sin ruta"
+
+msgid "Available space (%s)"
+msgstr "Espacio disponible (%s)"
+
+msgid "Index this description for the global search"
+msgstr "Indexar esta descripción para la búsqueda global"
+
+msgid "Unknown course"
+msgstr "Curso desconocido"
+
+msgid "Certificate not found."
+msgstr "Certificado no encontrado."
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "Token de seguridad expirado. Por favor recarga la página e inténtalo de nuevo."
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "Solo los administradores de la plataforma pueden cambiar la visibilidad del curso."
+
+msgid "Unexpected error while subscribing the user"
+msgstr "Error inesperado al inscribir al usuario"
+
+msgid "Search in resource logs"
+msgstr "Buscar en los registros de recursos"
+
+msgid "Include this learning path in the global search results"
+msgstr "Incluir esta ruta de aprendizaje en los resultados de búsqueda global"
+
+msgid "The course code already exists"
+msgstr "El código del curso ya existe"
+
+msgid "Latest news"
+msgstr "Últimas noticias"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "Obtén las últimas noticias de Chamilo, incluyendo vulnerabilidades de seguridad y eventos, directamente en tu panel de administración. Estas noticias se verificarán en el servidor de noticias de Chamilo cada vez que cargues la página de administración y solo serán visibles para administradores."
+
+msgid "Chamilo support block"
+msgstr "Bloque de soporte de Chamilo"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "Obtén consejos profesionales y una forma fácil de contactar proveedores de servicios oficiales para soporte profesional, directamente de los creadores de Chamilo. Este bloque aparece en tu página de administración, solo es visible para administradores y se actualiza cada vez que cargas la página de administración."
+
+msgid "Hide option to send announcements to HR users"
+msgstr "Ocultar opción para enviar anuncios a usuarios de RH"
+
+msgid "Allow session admins to download private certificates"
+msgstr "Permitir a administradores de sesiones descargar certificados privados"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "Si está habilitado, los administradores de sesiones pueden descargar certificados incluso si no están publicados públicamente."
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "Si no está vacío, el proceso de creación de curso buscará algunos campos en el perfil del usuario y los autocompletará para el curso. Por ejemplo, un profesor especializado en marketing digital podría establecer automáticamente una bandera «marketing digital» en cada curso que cree."
+
+msgid "Main menu entries"
+msgstr "Entradas del menú principal"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "Selecciona las entradas que quieres que aparezcan en el menú principal"
+
+msgid "Main menu entries per role"
+msgstr "Entradas del menú principal por rol"
+
+msgid "Define header tabs visibility per role."
+msgstr "Define la visibilidad de las pestañas del encabezado por rol."
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "Establece las opciones que quieres que aparezcan en la navegación alrededor de una tabla para mostrar menos o más filas en una página. p.ej. [50, 100, 200, 500]."
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "Arreglo de funciones extra que puedes habilitar para el reproductor de video en Chamilo. Las opciones incluyen 'speed', que te permite cambiar la velocidad de reproducción de un video."
+
+msgid "Mail: character set"
+msgstr "Correo: conjunto de caracteres"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "En caso de que necesites definir el conjunto de caracteres a usar al enviar esos correos. Déjalo vacío si no estás seguro."
+
+msgid "Mail: Debug"
+msgstr "Correo: Depuración"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "Selecciona si quieres habilitar los registros de depuración del envío de correos. Estos te darán más información sobre lo que está sucediendo al conectarte al servicio de correo, pero no son elegantes y podrían romper el diseño de la página. Úsalos solo cuando no haya actividad de usuarios."
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "Correo: Evitar usar LD+JSON"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "Algunos clientes de correo no entienden el formato descriptivo LD+JSON, mostrándolo como una cadena JSON suelta al usuario final. Si este es tu caso, podrías configurar la variable de abajo en 'false' para desactivar este encabezado."
+
+msgid "Mail: DKIM headers"
+msgstr "Correo: Encabezados DKIM"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "Ingresa un arreglo JSON de tus configuraciones de DKIM (ver ejemplo)."
+
+msgid "Mail: XOAuth2 options"
+msgstr "Correo: Opciones XOAuth2"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "Si usas un servicio de correo basado en XOAuth2, usa esta configuración en JSON para guardar tu configuración específica (ver ejemplo) y selecciona XOAuth2 en la configuración del servicio de correo."
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "Define el tipo de entorno: \"prod\" (producción normal), \"validation\" (como producción pero sin reportar estadísticas), o \"test\" (modo de depuración con herramientas para desarrolladores como indicadores de cadenas no traducidas)."
+
+msgid "Global limit of users per course"
+msgstr "Límite global de usuarios por curso"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "Define un número máximo global de usuarios (incluidos profesores) permitidos para inscribirse en un curso individual en la plataforma. Configura este valor en 0 para desactivar el límite. Esto ayuda a evitar que los cursos se sobrecarguen en portales abiertos."
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "Activar para usar un arreglo que defina qué roles deben mostrarse claramente y cuáles deben ocultarse."
+
+msgid "Show base course posts in session course"
+msgstr "Mostrar publicaciones base del curso en el curso de sesión"
+
+msgid "Limit identical email usage"
+msgstr "Limitar uso idéntico de correos electrónicos"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "Número máximo de cuentas permitidas para compartir la misma dirección de correo electrónico. Establezca en 0 para desactivar este límite."
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "Permitir a los administradores de sesión ver todos los usuarios en todas las URLs"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "Si está habilitado, los administradores de sesión pueden buscar y listar usuarios de todas las URLs de acceso, independientemente de su URL actual."
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "Habilitar la posibilidad para que los usuarios seleccionen su propia zona horaria. Una vez configurado, los usuarios podrán ver las fechas límite de tareas y otras referencias de tiempo en su propia zona horaria, lo que reducirá errores en el momento de la entrega."
+
+msgid "Redirect after login (per profile)"
+msgstr "Redirigir después del inicio de sesión (por perfil)"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "Definir redirección por perfil después del inicio de sesión usando un objeto JSON como {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "Ocultar casilla de aceptación legal en la página de Términos y Condiciones"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "Si se establece en true, elimina la casilla \"He leído y acepto\" en el flujo de la página de Términos y Condiciones."
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "Arreglo que define el host y puerto para el servidor LDAP."
+
+msgid "Enable 2FA"
+msgstr "Habilitar 2FA"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "Agregar campos en la página de actualización de contraseña para habilitar 2FA usando una app autenticadora TOTP. Cuando está deshabilitado globalmente, los usuarios no verán campos de 2FA y no se les pedirá 2FA al iniciar sesión, incluso si lo habían habilitado previamente."
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "Algunas funciones de Chamilo se conectarán al exterior desde el servidor. Por ejemplo, para asegurarse de que un contenido externo existe al crear un enlace o mostrar una página incrustada en la ruta de aprendizaje. Si su servidor Chamilo usa un proxy para salir de su red, este sería el lugar para configurarlo."
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "Habilitar o deshabilitar la reinscripción automática cuando expire la validez del curso. También debe activarse el trabajo cron relacionado."
+
+msgid "Show remaining days in My Sessions"
+msgstr "Mostrar días restantes en Mis Sesiones"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "Si está habilitado, las fechas de sesión en la página \"Mis Sesiones\" se reemplazarán por el número de días restantes."
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "Mostrar \"Encuestas pendientes\" en el menú"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "Mostrar un elemento de menú que permite a los usuarios acceder a sus encuestas pendientes."
+
+msgid "Disclose AI assistance"
+msgstr "Revelar asistencia de IA"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "Mostrar una etiqueta en cualquier contenido o retroalimentación que haya sido generada o co-generada por cualquier sistema de IA, evidenciando al usuario que el contenido fue construido con la ayuda de algún sistema de IA. Los detalles sobre qué sistema de IA se usó en cada caso se guardan en la base de datos para auditoría, pero no son directamente accesibles por el usuario final."
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "Configuración JSON para catálogo de cursos: configuraciones de enlaces, filtros, opciones de ordenamiento y más."
+
+msgid "Session Catalog Settings"
+msgstr "Configuraciones del Catálogo de Sesiones"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "Configuración JSON para catálogo de sesiones: filtros y opciones de visualización."
+
+msgid "Show Course Descriptions"
+msgstr "Mostrar Descripciones de Cursos"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "Mostrar descripciones de cursos dentro del listado del catálogo."
+
+msgid "Published Courses Only"
+msgstr "Solo Cursos Publicados"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "Limitar el catálogo solo a cursos marcados como publicados."
+
+msgid "Display Catalog on Homepage"
+msgstr "Mostrar Catálogo en la Página Principal"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "Mostrar el bloque del catálogo de cursos en la página principal de la plataforma."
+
+msgid "Hide Public Link"
+msgstr "Ocultar Enlace Público"
+
+msgid "Remove the public URL link from course cards."
+msgstr "Eliminar el enlace URL público de las tarjetas de cursos."
+
+msgid "Only Selected Courses"
+msgstr "Solo Cursos Seleccionados"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "Mostrar solo cursos seleccionados manualmente en el catálogo."
+
+msgid "Allow Student Browsing"
+msgstr "Permitir Exploración de Estudiantes"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "Permitir a los estudiantes explorar y filtrar el catálogo de cursos."
+
+msgid "Hide Private Courses"
+msgstr "Ocultar cursos privados"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "Excluir cursos privados de la visualización del catálogo."
+
+msgid "Show Courses & Sessions"
+msgstr "Mostrar cursos y sesiones"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "Incluir tanto cursos como sesiones en los resultados del catálogo."
+
+msgid "Auto Session Subscription"
+msgstr "Inscripción automática a sesiones"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "Habilitar la inscripción automática a sesiones para los usuarios."
+
+msgid "Subscription in Session View"
+msgstr "Inscripción en vista de sesión"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "Permitir a los usuarios inscribirse a cursos directamente desde la página de su sesión."
+
+msgid "Enable redirection plugin"
+msgstr "Habilitar plugin de redirección"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "Arreglo que define los 'días' y 'meses' para establecer la fecha de expiración de la cuenta cuando el usuario inicia sesión por primera vez."
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "Un arreglo de rol => número que representa el número de días que tiene una cuenta antes de expirar, dependiendo del rol."
+
+msgid "Extra user field used to search and name sessions"
+msgstr "Campo extra de usuario usado para buscar y nombrar sesiones"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "Esta configuración define la clave del campo extra de usuario (p. ej., \"company\") que se usará para buscar usuarios y definir el nombre de la sesión al registrar estudiantes desde /admin-dashboard/register."
+
+msgid "Glossary terms generator"
+msgstr "Generador de términos de glosario"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "Permitir a los profesores solicitar términos de glosario generados por IA en su curso. Esto generará 20 términos basados en el título del curso y la descripción general en la herramienta de descripción del curso. Si se usa más de una vez, excluirá términos ya presentes en ese glosario (asegúrese de que el contenido pueda compartirse con los servicios de IA configurados)."
+
+msgid "Video generator"
+msgstr "Generador de videos"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "Genera videos basados en indicaciones o contenido usando IA (esto podría consumir muchos tokens)."
+
+msgid "Course analyser"
+msgstr "Analizador de cursos"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "Analiza todos los recursos en uno o varios cursos y pre-entrena el modelo de IA para responder cualquier pregunta sobre este o estos cursos (asegúrese de que el contenido pueda compartirse con los servicios de IA configurados)."
+
+msgid "Test/development"
+msgstr "Pruebas/desarrollo"
+
+msgid "Crons"
+msgstr "Crons"
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "Gradebook"
+msgstr "Libro de calificaciones"
+
+msgid "Internationalization"
+msgstr "Internacionalización"
+
+msgid "User profiles"
+msgstr "Perfiles de usuario"
+
+msgid "Support tickets"
+msgstr "Tickets de soporte"
+
+msgid "Webservices"
+msgstr "Servicios web"
+
+msgid "Catalogue"
+msgstr "Catálogo"
+
+msgid "Workflows"
+msgstr "Flujos de trabajo"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "La configuración es editable en sub-URLs"
+
+msgid "Show JSON Template"
+msgstr "Mostrar plantilla JSON"
+
+msgid "JSON Template"
+msgstr "Plantilla JSON"
+
+msgid "Installing Xapian bindings"
+msgstr "Instalando enlaces de Xapian"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "El siguiente fragmento muestra un ejemplo de instalación de los enlaces PHP de Xapian en Ubuntu 25.04 con PHP 8.3. Adapte las rutas y versiones a su propio entorno."
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "Asegúrese de tener solo la versión de PHP que realmente usa (por ejemplo, 8.3) y evite mezclar varias versiones con diferentes directorios de extensiones."
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "Una vez que la extensión esté correctamente cargada tanto para CLI como para el servidor web, los diagnósticos de búsqueda anteriores deberían reportar que el módulo Xapian está instalado."
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "Limpiar cargas temporales y caché"
+
+msgid "Directory"
+msgstr "Directorio"
+
+msgid "Only delete files older than (minutes)"
+msgstr "Solo eliminar archivos más antiguos que (minutos)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "Establecer 0 para eliminar todos los archivos. Usa un valor positivo (ej., 60) para evitar eliminar archivos que aún se están cargando."
+
+msgid "Preview only (do not delete)"
+msgstr "Solo vista previa (no eliminar)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "Advertencia: estás a punto de eliminar TODOS los archivos temporales. Esta acción no se puede deshacer."
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "Esto eliminará todos los archivos temporales. ¿Continuar?"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "Esto eliminará archivos más antiguos que %minutes% minutos. ¿Continuar?"
+
+msgid "The value must match exactly: %s"
+msgstr "El valor debe coincidir exactamente: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "La fecha de fin repetida debe ser posterior a la fecha de inicio."
+
+msgid "Index document content?"
+msgstr "¿Indexar contenido del documento?"
+
+msgid "Upload SVG logo to platform header"
+msgstr "Subir logo SVG al encabezado de la plataforma"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "Subir logo PNG al encabezado de la plataforma (%s)"
+
+msgid "Write something to %s"
+msgstr "Escribe algo a %s"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "Preferido: SVG. Ancho recomendado PNG: %spx."
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "Subir logo PNG para correos (~%spx de ancho)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "PNG de encabezado debe ser ≤ %spx."
+
+msgid "Require specific file format"
+msgstr "Requerir formato de archivo específico"
+
+msgid "Select allowed file formats"
+msgstr "Seleccionar formatos de archivo permitidos"
+
+msgid "Custom extensions (separated by space)"
+msgstr "Extensiones personalizadas (separadas por espacio)"
+
+msgid "Other extensions"
+msgstr "Otras extensiones"
+
+msgid "My invitations"
+msgstr "Mis invitaciones"
+
+msgid "Delete access"
+msgstr "Eliminar acceso"
+
+msgid "Certificate tags"
+msgstr "Etiquetas de certificado"
+
+msgid "Copy all"
+msgstr "Copiar todo"
+
+msgid "Click to insert"
+msgstr "Haz clic para insertar"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "Preferido: SVG. Tamaño máximo PNG: %spx."
+
+msgid "View badge"
+msgstr "Ver insignia"
+
+msgid "%d min"
+msgstr "%d min"
+
+msgid "Duration in minutes"
+msgstr "Duración en minutos"
+
+msgid "Go back to standard view"
+msgstr "Regresar a vista estándar"
+
+msgid "Search for student..."
+msgstr "Buscar estudiante..."
+
+msgid "This date is locked or read-only."
+msgstr "Esta fecha está bloqueada o es de solo lectura."
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "No se pudo cargar la asistencia. Intenta más tarde."
+
+msgid "Nothing to save"
+msgstr "No hay nada que guardar"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "¿Tienes cambios sin guardar. Salir de todos modos?"
+
+msgid "Storage usage unavailable"
+msgstr "Uso de almacenamiento no disponible"
+
+msgid "Search for members..."
+msgstr "Buscar miembros..."
+
+msgid "Current members"
+msgstr "Miembros actuales"
+
+msgid "Add members"
+msgstr "Agregar miembros"
+
+msgid "Search for users in course/session..."
+msgstr "Buscar usuarios en curso/sesión..."
+
+msgid "No users available."
+msgstr "No hay usuarios disponibles."
+
+msgid "Browse and publish new posts"
+msgstr "Explorar y publicar nuevas entradas"
+
+msgid "Create and assign tasks"
+msgstr "Crear y asignar tareas"
+
+msgid "Filtered by %s"
+msgstr "Filtrado por %s"
+
+msgid "Select a score"
+msgstr "Seleccionar puntuación"
+
+msgid "Edit comment"
+msgstr "Editar comentario"
+
+msgid "Failed to update the post."
+msgstr "No se pudo actualizar la entrada."
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "¿Eliminar esta entrada? Esta acción no se puede deshacer."
+
+msgid "Failed to delete the post."
+msgstr "No se pudo eliminar la entrada."
+
+msgid "Failed to update the comment."
+msgstr "No se pudo actualizar el comentario."
+
+msgid "Delete this comment?"
+msgstr "¿Eliminar este comentario?"
+
+msgid "Failed to delete the comment."
+msgstr "No se pudo eliminar el comentario."
+
+msgid "Search for projects..."
+msgstr "Buscar proyectos..."
+
+msgid "Only visible"
+msgstr "Solo visible"
+
+msgid "Rename project"
+msgstr "Renombrar proyecto"
+
+msgid "New title"
+msgstr "Nuevo título"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "Debes ser administrador o profesor para gestionar proyectos."
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "¿Eliminar este proyecto? Esta acción no se puede deshacer."
+
+msgid "Task list"
+msgstr "Lista de tareas"
+
+msgid "Change status"
+msgstr "Cambiar estado"
+
+msgid "Waiting for validation"
+msgstr "Esperando validación"
+
+msgid "Delete this task?"
+msgstr "¿Eliminar esta tarea?"
+
+msgid "Failed to delete the task."
+msgstr "Error al eliminar la tarea."
+
+msgid "Failed to update status."
+msgstr "Error al actualizar el estado."
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "¿Estás seguro de que quieres eliminar este tercero? Esta acción no se puede deshacer."
+
+msgid "Please fix the errors before saving."
+msgstr "Corrige los errores antes de guardar."
+
+msgid "Error creating third party. Please verify the data."
+msgstr "Error al crear el tercero. Verifica los datos."
+
+msgid "Error deleting third party."
+msgstr "Error al eliminar el tercero."
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "Sube logos opcionales de encabezado y correo electrónico. Se prefiere SVG; PNG se usa como alternativa."
+
+msgid "Data exchange updated successfully."
+msgstr "Intercambio de datos actualizado exitosamente."
+
+msgid "Error deleting data exchange."
+msgstr "Error al eliminar el intercambio de datos."
+
+msgid "Failed to recycle course."
+msgstr "Error al reciclar el curso."
+
+msgid "Select source course"
+msgstr "Seleccionar curso origen"
+
+msgid "Course to copy from"
+msgstr "Curso del que copiar"
+
+msgid "Search by code or title..."
+msgstr "Buscar por código o título..."
+
+msgid "No courses match your search."
+msgstr "No hay cursos que coincidan con tu búsqueda."
+
+msgid "Copy options"
+msgstr "Opciones de copia"
+
+msgid "Include users (enrollments)"
+msgstr "Incluir usuarios (matrículas)"
+
+msgid "Reset dates"
+msgstr "Restablecer fechas"
+
+msgid "When a file with the same name exists"
+msgstr "Cuando existe un archivo con el mismo nombre"
+
+msgid "Ready to copy"
+msgstr "Listo para copiar"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "Copiaremos contenido del curso seleccionado a este curso. Puedes regresar para cambiar opciones."
+
+msgid "Start copying"
+msgstr "Iniciar copia"
+
+msgid "Select resources to copy"
+msgstr "Seleccionar recursos a copiar"
+
+msgid "Copy selected"
+msgstr "Copiar seleccionados"
+
+msgid "Copy completed."
+msgstr "Copia completada."
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "Zona de peligro: eliminar un curso es permanente."
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "Escribe el código del curso para confirmar. Todos los datos se eliminarán permanentemente."
+
+msgid "The code must match '%s' exactly."
+msgstr "El código debe coincidir exactamente con '%s'."
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "También eliminar documentos que solo se usen en este curso (si los hay)."
+
+msgid "Delete course"
+msgstr "Eliminar curso"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "Esta acción no se puede deshacer. ¿Continuar?"
+
+msgid "Course deleted successfully."
+msgstr "Curso eliminado exitosamente."
+
+msgid "Failed to delete course."
+msgstr "Error al eliminar el curso."
+
+msgid "Create .mbz"
+msgstr "Crear .mbz"
+
+msgid "Backup scope"
+msgstr "Alcance de la copia de seguridad"
+
+msgid "Full course"
+msgstr "Curso completo"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "Los elementos seleccionados serán los únicos incluidos en el archivo exportado."
+
+msgid "Moodle export"
+msgstr "Exportar a Moodle"
+
+msgid "Moodle version"
+msgstr "Versión de Moodle"
+
+msgid "Admin ID"
+msgstr "ID de administrador"
+
+msgid "Internal integer user id"
+msgstr "ID de usuario entero interno"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle requiere un ID de usuario interno almacenado en XML. Si tienes dudas, usa 1."
+
+msgid "Username to appear as owner of imported items"
+msgstr "Nombre de usuario que aparecerá como propietario de los elementos importados"
+
+msgid "Email to use in the archive metadata"
+msgstr "Correo electrónico a usar en los metadatos del archivo"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr "Se generará un archivo .mbz. Podrás descargarlo una vez finalizado."
+
+msgid "Select resources to include"
+msgstr "Seleccionar recursos a incluir"
+
+msgid "Export completed"
+msgstr "Exportación completada"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "Tu copia de seguridad de Moodle ha sido creada. La puedes encontrar en la lista de copias de seguridad del curso."
+
+msgid "Please complete all required fields."
+msgstr "Por favor completa todos los campos requeridos."
+
+msgid "Failed to create Moodle backup."
+msgstr "Error al crear la copia de seguridad de Moodle."
+
+msgid "More actions"
+msgstr "Más acciones"
+
+msgid "Write something"
+msgstr "Escribe algo"
+
+msgid "Friends of %s"
+msgstr "Amigos de %s"
+
+msgid "Error loading learning paths."
+msgstr "Error al cargar las rutas de aprendizaje."
+
+msgid "You don't have any learning path."
+msgstr "No tienes ninguna ruta de aprendizaje."
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "Crea tu primera ruta de aprendizaje para comenzar a organizar el contenido del curso."
+
+msgid "Could not save the new category order."
+msgstr "No se pudo guardar el nuevo orden de categorías."
+
+msgid "Could not save the new order."
+msgstr "No se pudo guardar el nuevo orden."
+
+msgid "Assignment"
+msgstr "Tarea"
+
+msgid "Allowed file formats: %s"
+msgstr "Formatos de archivo permitidos: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "Tipo de archivo no permitido. Extensiones permitidas: %s"
+
+msgid "Folder name"
+msgstr "Nombre de la carpeta"
+
+msgid "Rename folder"
+msgstr "Renombrar carpeta"
+
+msgid "New name"
+msgstr "Nuevo nombre"
+
+msgid "Choose an action"
+msgstr "Elige una acción"
+
+msgid "New version"
+msgstr "Nueva versión"
+
+msgid "Change title to selected filename"
+msgstr "Cambiar título al nombre de archivo seleccionado"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "Puedes reemplazar el archivo, moverlo a otra carpeta o ambos."
+
+msgid "Move %s"
+msgstr "Mover %s"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "Solo se muestran carpetas no raíz para evitar dejar elementos en la raíz."
+
+msgid "No feedback yet."
+msgstr "Aún no hay retroalimentación."
+
+msgid "Upload first, organize later"
+msgstr "Sube primero, organiza después"
+
+msgid "Drag & drop or browse to add files"
+msgstr "Arrastra y suelta o explora para agregar archivos"
+
+msgid "Social wall..."
+msgstr "Muro social..."
+
+msgid "Wall of %s"
+msgstr "Muro de %s"
+
+msgid "Version currently loaded"
+msgstr "Versión cargada actualmente"
+
+msgid "Completion"
+msgstr "Completado"
+
+msgid "Quick navigation"
+msgstr "Navegación rápida"
+
+msgid "Filled"
+msgstr "Lleno"
+
+msgid "Terms sections"
+msgstr "Secciones de términos"
+
+msgid "Open a section to edit its content."
+msgstr "Abre una sección para editar su contenido."
+
+msgid "Open this section to load the editor."
+msgstr "Abre esta sección para cargar el editor."
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "Zona de peligro: eliminar una URL de acceso es permanente."
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "Escribe la URL completa para confirmar. La URL y sus relaciones se eliminarán permanentemente."
+
+msgid "Unable to load the badge's image."
+msgstr "No se pudo cargar la imagen de la insignia."
+
+msgid "Invalid role selection"
+msgstr "Selección de rol inválida"
+
+msgid "Select relation type first to enable user management."
+msgstr "Selecciona primero el tipo de relación para habilitar la gestión de usuarios."
+
+msgid "This question has no course context. Preview is not available."
+msgstr "Esta pregunta no tiene contexto de curso. La vista previa no está disponible."
+
+msgid "Unknown test"
+msgstr "Prueba desconocida"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "La eliminación no está permitida sin un contexto de curso."
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "Error al eliminar: falta el contexto del curso o id de pregunta válido."
+
+msgid "Delete failed: question not found."
+msgstr "Error al eliminar: pregunta no encontrada."
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "Error al eliminar: esta pregunta aún es referenciada por otros recursos."
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "Esta pregunta pertenece a una prueba. Edítala desde dentro de la prueba o filtra solo preguntas huérfanas."
+
+msgid "Access the group tools and resources"
+msgstr "Accede a las herramientas y recursos del grupo"
+
+msgid "%s members"
+msgstr "%s miembros"
+
+msgid "View certificate (HTML)"
+msgstr "Ver certificado (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "Vincular una habilidad a este libro de calificaciones"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "Gestionar el vínculo entre certificados y habilidades para cada libro de calificaciones"
+
+msgid "Please select a specific badge issue to download"
+msgstr "Por favor selecciona una emisión de insignia específica para descargar"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM no está habilitado."
+
+msgid "Invalid token."
+msgstr "Token inválido."
+
+msgid "Schema not supported."
+msgstr "Esquema no compatible."
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "Esquemas inválidos para la operación PATCH."
+
+msgid "Missing required \"Operations\" array."
+msgstr "Falta el arreglo requerido \"Operations\"."
+
+msgid "The '%s' operation is not supported."
+msgstr "La operación '%s' no está soportada."
+
+msgid "Drupal user ID"
+msgstr "ID de usuario Drupal"
+
+msgid "There are no terms that match the search: %s"
+msgstr "No hay términos que coincidan con la búsqueda: %s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "La configuración está bloqueada globalmente (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "Si está habilitado, los mensajes de chat privado 1:1 se reflejarán en los documentos del historial de chat del curso. Se recomienda mantenerlo deshabilitado por privacidad."
+
+msgid "Save private conversations in documents"
+msgstr "Guardar conversaciones privadas en documentos"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "Ley de IA de la UE – Aviso de transparencia y riesgo"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "Bajo el Reglamento de Inteligencia Artificial de la UE (Reglamento (UE) 2024/1689), los sistemas de IA utilizados en educación se clasifican generalmente como “de alto riesgo”. Este software en sí <strong>no</strong> es un sistema de IA, pero puede integrar sistemas de IA internos u externos opcionales —dependiendo de su configuración— para mejorar el rendimiento de las tareas del usuario. Estos sistemas solo podrían acceder a datos personales <em>si</em> los usuarios incluyen dichos datos en sus indicaciones. Por diseño, este software no comparte datos personales con sistemas de IA sin la entrada activa del usuario. Por defecto, todas las funciones de IA están deshabilitadas."
+
+msgid "Admin responsibility & disclosures"
+msgstr "Responsabilidad del administrador y divulgaciones"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "Esta página de configuración detalla cada función de IA y su propósito. Como implementador, debe revisarlas cuidadosamente y actualizar sus políticas de privacidad de datos conformes con el RGPD para reflejar las opciones que habilite. Aunque la mayoría de las funciones de IA no comparten directamente datos personales con sistemas externos, las indicaciones de los usuarios enviadas a la IA pueden incluir inadvertidamente información personal. Como implementador, <strong>usted es responsable</strong> de informar a los usuarios sobre este riesgo. Por transparencia, futuras versiones pueden mostrar etiquetas no intrusivas para el usuario final que indiquen que cierto contenido o retroalimentación fue generado con la ayuda de IA."
+
+msgid "Positioning"
+msgstr "Posicionamiento"
+
+msgid "Quiz"
+msgstr "Examen"
+
+msgid "Customcertificate"
+msgstr "Customcertificate"
+
+msgid "Update profile"
+msgstr "Actualizar perfil"
+
+msgid "Enable learning path generator"
+msgstr "Habilitar generador de itinerarios de aprendizaje"
+
+msgid "Enable exercise generator"
+msgstr "Habilitar generador de ejercicios"
+
+msgid "Enable open answers grader"
+msgstr "Habilitar calificador de respuestas abiertas"
+
+msgid "Enable tutor chatbot"
+msgstr "Habilitar chatbot de tutor"
+
+msgid "Enable task grader"
+msgstr "Habilitar calificador de tareas"
+
+msgid "Enable content analyser"
+msgstr "Habilitar analizador de contenido"
+
+msgid "Enable image generator"
+msgstr "Habilitar generador de imágenes"
+
+msgid "Enable glossary terms generator"
+msgstr "Habilitar generador de términos de glosario"
+
+msgid "Enable video generator"
+msgstr "Habilitar generador de videos"
+
+msgid "Enable course analyser"
+msgstr "Habilitar analizador de curso"
+
+msgid "The operation '%s' is not supported."
+msgstr "La operación '%s' no está soportada."
+
+msgid "AI feedback on %s in course %s"
+msgstr "Retroalimentación IA en %s en el curso %s"
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr "Eliminación fallida: falta contexto del curso o id de pregunta inválido."
+
+msgid "AI Tutor"
+msgstr "Tutor IA"
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr "La extensión APCu necesita estar instalada y habilitada para que la plataforma la use."
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr "Se recomienda permitir que OPCache memory_consumption alcance al menos %sMB de RAM."
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr "El módulo OPcache necesita estar instalado y habilitado para que la plataforma lo use."
+
+msgid "You are here"
+msgstr "Estás aquí"
+
+msgid "Click an event type to filter results."
+msgstr "Haz clic en un tipo de evento para filtrar resultados."
+
+msgid "Require unique presence"
+msgstr "Requerir presencia única"
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr "Si está habilitado, el libro de calificaciones dará al aprendiz 100% cuando esté presente al menos una vez."
+
+msgid "AI feedback"
+msgstr "Retroalimentación IA"
+
+msgid "Prompt"
+msgstr "Instrucción"
+
+msgid "Tip"
+msgstr "Consejo"
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr "Puedes editar la instrucción antes de solicitar retroalimentación."
+
+msgid "Result (you can apply it to the comment)"
+msgstr "Resultado (puedes aplicarlo al comentario)"
+
+msgid "Apply to comment"
+msgstr "Aplicar al comentario"
+
+msgid "Apply score"
+msgstr "Aplicar calificación"
+
+msgid "AI grade"
+msgstr "Calificación IA"
+
+msgid "AI tutor is disabled during tests"
+msgstr "El tutor IA está deshabilitado durante las pruebas"
+
+msgid "Generate glossary terms"
+msgstr "Generar términos de glosario"
+
+msgid "Generate media"
+msgstr "Generar multimedia"
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr "No tienes permiso para generar multimedia IA en este curso."
+
+msgid "AI helpers are disabled at platform level."
+msgstr "Los ayudantes de IA están deshabilitados a nivel de plataforma."
+
+msgid "AI media generation is disabled in course settings."
+msgstr "La generación de medios de IA está deshabilitada en la configuración del curso."
+
+msgid "No AI media providers available."
+msgstr "No hay proveedores de medios de IA disponibles."
+
+msgid "Provider"
+msgstr "Proveedor"
+
+msgid "Select a provider"
+msgstr "Seleccionar un proveedor"
+
+msgid "Example: generated_media"
+msgstr "Ejemplo: generated_media"
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr "El nombre no se agrega al prompt; solo se usa para guardar el archivo."
+
+msgid "Describe what you want to generate..."
+msgstr "Describe lo que quieres generar..."
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr "Consejo: haz clic en un preajuste para establecer rápidamente el tamaño."
+
+msgid "Generating..."
+msgstr "Generando..."
+
+msgid "Save to Documents"
+msgstr "Guardar en Documentos"
+
+msgid "Document IRI"
+msgstr "IRI del documento"
+
+msgid "Go to folder"
+msgstr "Ir a la carpeta"
+
+msgid "Provider used"
+msgstr "Proveedor utilizado"
+
+msgid "This video result cannot be saved yet"
+msgstr "Este resultado de video aún no se puede guardar"
+
+msgid "Video polling was stopped because the provider changed."
+msgstr "La consulta de video se detuvo porque cambió el proveedor."
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr "La generación de video está tomando demasiado tiempo. Intenta de nuevo más tarde."
+
+msgid "Failed to check video status."
+msgstr "Error al verificar el estado del video."
+
+msgid "Video generated successfully. You can now save it."
+msgstr "Video generado exitosamente. Ahora puedes guardarlo."
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr "Generación de video completada, pero no se devolvió contenido reproducible."
+
+msgid "Video generation failed."
+msgstr "Falló la generación de video."
+
+msgid "Waiting for the video to be ready..."
+msgstr "Esperando a que el video esté listo..."
+
+msgid "Please complete all fields."
+msgstr "Completa todos los campos."
+
+msgid "Image generation is not enabled for this course."
+msgstr "La generación de imágenes no está habilitada para este curso."
+
+msgid "Video generation is not enabled for this course."
+msgstr "La generación de videos no está habilitada para este curso."
+
+msgid "Generation failed."
+msgstr "Falló la generación."
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr "Generado exitosamente. Revisa la vista previa y guarda cuando estés listo."
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr "Generado exitosamente. Guardar está deshabilitado porque el proveedor devolvió una URL."
+
+msgid "Video generation started. Waiting for the result..."
+msgstr "Generación de video iniciada. Esperando el resultado..."
+
+msgid "AI returned an empty response."
+msgstr "La IA devolvió una respuesta vacía."
+
+msgid "Nothing to save yet."
+msgstr "Aún no hay nada que guardar."
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr "Este proveedor no devolvió contenido base64. Prueba con otro proveedor."
+
+msgid "Saving failed."
+msgstr "Falló el guardado."
+
+msgid "Get AI feedback"
+msgstr "Obtener retroalimentación de IA"
+
+msgid "Copy answer to clipboard"
+msgstr "Copiar respuesta al portapapeles"
+
+msgid "Save answer to my inbox"
+msgstr "Guardar respuesta en mi bandeja de entrada"
+
+msgid "The document is already in this folder"
+msgstr "El documento ya está en esta carpeta"
+
+msgid "Copied"
+msgstr "Copiado"
+
+msgid "You do not have permission to generate glossary terms."
+msgstr "No tienes permiso para generar términos del glosario."
+
+msgid "Video generation is in progress"
+msgstr "Generación de video en progreso"
+
+msgid "Job"
+msgstr "Tarea"
+
+msgid "Modified prompt"
+msgstr "Prompt modificado"
+
+msgid "Saved in Documents"
+msgstr "Guardado en Documentos"
 

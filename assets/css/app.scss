@@ -23,7 +23,7 @@
 
 @layer components {
   .card {
-    @apply rounded bg-white drop-shadow-lg w-full;
+    @apply rounded bg-white shadow-lg w-full;
   }
 
   // Buttons with icons.
@@ -294,6 +294,10 @@
 
 .mdi {
   @apply font-normal text-base leading-none;
+
+  &::before {
+    vertical-align: bottom;
+  }
 }
 
 .field > small.p-error {
@@ -644,9 +648,6 @@ form .field {
   td {
     padding: 12px;
   }
-  input[type="checkbox"] {
-    transform: scale(1.2);
-  }
   .save-button {
     background-color: #4CAF50;
     color: white;
@@ -658,10 +659,6 @@ form .field {
   }
   .save-button:hover {
     background-color: #45a049;
-  }
-  input[type="checkbox"] {
-    transform: scale(1);
-    margin: 0 auto;
   }
 }
 
@@ -971,19 +968,6 @@ img.course-tool__icon {
   .form-horizontal .control-label{ text-align:left; }
   textarea.form-control{ min-height:140px; }
 }
-.app-breadcrumb { font-size: 0.8125rem; }
-.app-breadcrumb .p-breadcrumb,
-.app-breadcrumb .p-breadcrumb-list li > a,
-.app-breadcrumb .p-breadcrumb-list li > span,
-.app-breadcrumb .p-breadcrumb .p-menuitem-text {
-  font-size: inherit !important;
-  line-height: 1.25rem;
-}
-.app-breadcrumb .p-breadcrumb-list li > a,
-.app-breadcrumb .p-breadcrumb-list li:last-child > span {
-  font-weight: 600;
-}
-.app-breadcrumb .p-breadcrumb-separator { padding-inline: .25rem; }
 
 // Glossary auto-highlighted term
 .glossary-term {
@@ -1013,6 +997,23 @@ img.course-tool__icon {
   }
 }
 
+@layer components {
+  .form-group:focus-within,
+  .field:focus-within,
+  fieldset:focus-within {
+    box-shadow: none !important;
+    outline: 0 !important;
+  }
+  .select2-container--default .select2-selection:focus,
+  .select2-container--default.select2-container--focus .select2-selection {
+    outline: 0 !important;
+    border-color: #1d4ed8 !important;
+    box-shadow: 0 0 0 2px rgba(29, 78, 216, .35) !important;
+    border-radius: .5rem !important;
+  }
+}
+
 @import "~@fancyapps/fancybox/dist/jquery.fancybox.css";
 @import "~timepicker/jquery.timepicker.min.css";
 @import "~qtip2/dist/jquery.qtip.min.css";
+@import "primeicons/primeicons.css";

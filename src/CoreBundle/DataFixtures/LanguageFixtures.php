@@ -99,7 +99,7 @@ class LanguageFixtures extends Fixture
             [
                 'original_name' => 'Português do Brasil',
                 'english_name' => 'brazilian',
-                'isocode' => 'pt_PT',
+                'isocode' => 'pt_BR',
                 'available' => 1,
                 'format' => 'title first_name last_name',
                 'sort_by' => 'first_name',
@@ -458,6 +458,14 @@ class LanguageFixtures extends Fixture
                 'isocode' => 'es',
                 'available' => 1,
 
+                'format' => 'title last_name first_name',
+                'sort_by' => 'last_name',
+            ],
+            [
+                'original_name' => 'Español (México)',
+                'english_name' => 'spanish (mexico)',
+                'isocode' => 'es_MX',
+                'available' => 1,
                 'format' => 'title last_name first_name',
                 'sort_by' => 'last_name',
             ],

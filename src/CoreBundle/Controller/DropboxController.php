@@ -24,6 +24,7 @@ use Symfony\Component\HttpFoundation\{BinaryFileResponse,
     StreamedResponse};
 use Symfony\Component\Mime\MimeTypes;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Throwable;
 use ZipArchive;
@@ -32,6 +33,7 @@ use const DATE_ATOM;
 use const PATHINFO_EXTENSION;
 use const PATHINFO_FILENAME;
 
+#[IsGranted('ROLE_USER')]
 #[Route('/dropbox')]
 class DropboxController extends AbstractController
 {
@@ -473,9 +475,15 @@ class DropboxController extends AbstractController
             fclose($stream);
         });
 
+        $downloadName = str_replace(["\r", "\n", "\0"], '', $downloadName);
+        $downloadName = trim($downloadName);
+
+        $fallbackName = $this->buildAsciiFilenameFallback($downloadName);
+
         $disposition = $response->headers->makeDisposition(
             ResponseHeaderBag::DISPOSITION_ATTACHMENT,
-            $downloadName
+            $downloadName,
+            $fallbackName
         );
 
         $response->headers->set('Content-Type', $mime);
@@ -742,5 +750,38 @@ class DropboxController extends AbstractController
         $name = trim(($row['firstname'] ?? '').' '.($row['lastname'] ?? '')) ?: ('User #'.$userId);
 
         return $this->userNameCache[$userId] = $name;
+    }
+
+    private function buildAsciiFilenameFallback(string $filename): string
+    {
+        // Prevent header injection / invalid control chars
+        $filename = str_replace(["\r", "\n", "\0"], '', $filename);
+        $filename = trim($filename);
+
+        $ext = (string) pathinfo($filename, PATHINFO_EXTENSION);
+        $base = (string) pathinfo($filename, PATHINFO_FILENAME);
+
+        // Slugify base name (should become ASCII with the default Symfony slugger)
+        $baseAscii = (string) $this->slugger->slug($base, '_');
+        $baseAscii = strtolower($baseAscii);
+
+        // Force strict ASCII-only fallback
+        $baseAscii = preg_replace('/[^A-Za-z0-9._-]+/', '_', $baseAscii) ?? '';
+        $baseAscii = preg_replace('/_+/', '_', $baseAscii) ?? '';
+        $baseAscii = trim($baseAscii, '._-');
+
+        if ('' === $baseAscii) {
+            $baseAscii = 'download';
+        }
+
+        if ('' !== $ext) {
+            $ext = strtolower($ext);
+            $ext = preg_replace('/[^A-Za-z0-9]+/', '', $ext) ?? '';
+            if ('' !== $ext) {
+                return $baseAscii.'.'.$ext;
+            }
+        }
+
+        return $baseAscii;
     }
 }

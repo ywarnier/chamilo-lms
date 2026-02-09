@@ -212,22 +212,52 @@ abstract class ResourceRepository extends ServiceEntityRepository
         return $this->addFile($resource, $file, '', $flush);
     }
 
-    public function addFileFromFileRequest(ResourceInterface $resource, string $fileKey, bool $flush = true): ?ResourceFile
+    public function addFileFromFileRequest($resource, string $fileKey, bool $flush = true, ?int $index = null)
     {
-        $request = $this->getRequest();
-        if ($request->files->has($fileKey)) {
-            $file = $request->files->get($fileKey);
-            if (null !== $file) {
-                $resourceFile = $this->addFile($resource, $file);
-                if ($flush) {
-                    $this->getEntityManager()->flush();
-                }
+        // Pick current request safely
+        $request = $this->requestStack->getCurrentRequest();
+        if (null === $request) {
+            return null;
+        }
 
-                return $resourceFile;
+        if (!$request->files->has($fileKey)) {
+            return null;
+        }
+
+        $value = $request->files->get($fileKey);
+        $uploadedFile = null;
+
+        if ($value instanceof UploadedFile) {
+            // Single upload
+            $uploadedFile = $value;
+        } elseif (\is_array($value)) {
+            // Multiple upload: select by index if provided
+            if (null !== $index && isset($value[$index]) && $value[$index] instanceof UploadedFile) {
+                $uploadedFile = $value[$index];
+            } else {
+                // Fallback: first valid file
+                foreach ($value as $candidate) {
+                    if ($candidate instanceof UploadedFile) {
+                        $uploadedFile = $candidate;
+
+                        break;
+                    }
+                }
             }
         }
 
-        return null;
+        if (!$uploadedFile instanceof UploadedFile) {
+            return null;
+        }
+
+        // Attach the file to the resource
+        $resourceFile = $this->addFile($resource, $uploadedFile);
+
+        if ($flush) {
+            $this->_em->flush();
+        }
+
+        return $resourceFile;
     }
 
     public function addFile(ResourceInterface $resource, UploadedFile $file, string $description = '', bool $flush = false): ?ResourceFile
@@ -323,7 +353,13 @@ abstract class ResourceRepository extends ServiceEntityRepository
     public function addSessionAndBaseContentQueryBuilder(Session $session, QueryBuilder $qb): QueryBuilder
     {
         return $qb
-            ->andWhere('links.session = :session OR links.session IS NULL')
+            ->andWhere(
+                $qb->expr()->orX(
+                    $qb->expr()->eq('links.session', ':session'),
+                    $qb->expr()->isNull('links.session'),
+                    $qb->expr()->eq('links.session', 0)
+                )
+            )
             ->setParameter('session', $session)
         ;
     }
@@ -340,16 +376,20 @@ abstract class ResourceRepository extends ServiceEntityRepository
         ?Course $course = null,
         ?Session $session = null,
         ?CGroup $group = null,
-        ?QueryBuilder $qb = null
+        ?QueryBuilder $qb = null,
+        ?bool $withBaseContentOverride = null
     ): QueryBuilder {
         $reflectionClass = $this->getClassMetadata()->getReflectionClass();
 
-        // Check if this resource type requires to load the base course resources when using a session
-        $loadBaseSessionContent = \in_array(
+        // Default behavior based on interface (current logic).
+        $defaultWithBaseContent = \in_array(
             ResourceShowCourseResourcesInSessionInterface::class,
             $reflectionClass->getInterfaceNames(),
             true
         );
+
+        // Effective behavior can be overridden per call.
+        $withBaseContent = $withBaseContentOverride ?? $defaultWithBaseContent;
 
         if ($course) {
             $this->addCourseQueryBuilder($course, $qb);
@@ -357,8 +397,8 @@ abstract class ResourceRepository extends ServiceEntityRepository
 
         if (null === $session) {
             $this->addSessionNullQueryBuilder($qb);
-        } elseif ($loadBaseSessionContent) {
-            // Load course base content.
+        } elseif ($withBaseContent) {
+            // Load course base content + session content.
             $this->addSessionAndBaseContentQueryBuilder($session, $qb);
         } else {
             // Load only session resources.
@@ -417,11 +457,20 @@ abstract class ResourceRepository extends ServiceEntityRepository
         ?CGroup $group = null,
         ?ResourceNode $parentNode = null,
         bool $displayOnlyPublished = true,
-        bool $displayOrder = false
+        bool $displayOrder = false,
+        ?bool $withBaseContentOverride = null
     ): QueryBuilder {
         $qb = $this->getResources($parentNode);
+
         $this->addVisibilityQueryBuilder($qb, true, $displayOnlyPublished);
-        $this->addCourseSessionGroupQueryBuilder($course, $session, $group, $qb);
+
+        $this->addCourseSessionGroupQueryBuilder(
+            $course,
+            $session,
+            $group,
+            $qb,
+            $withBaseContentOverride
+        );
 
         if ($displayOrder) {
             $qb->orderBy('links.displayOrder', 'ASC');
@@ -434,11 +483,20 @@ abstract class ResourceRepository extends ServiceEntityRepository
         ?Session $session = null,
         ?ResourceNode $parentNode = null,
         bool $displayOnlyPublished = true,
-        bool $displayOrder = false
+        bool $displayOrder = false,
+        ?bool $withBaseContentOverride = null
     ): QueryBuilder {
         $qb = $this->getResources($parentNode);
+
         $this->addVisibilityQueryBuilder($qb, true, $displayOnlyPublished);
-        $this->addCourseSessionGroupQueryBuilder(null, $session, null, $qb);
+
+        $this->addCourseSessionGroupQueryBuilder(
+            null,
+            $session,
+            null,
+            $qb,
+            $withBaseContentOverride
+        );
 
         if ($displayOrder) {
             $qb->orderBy('links.displayOrder', 'ASC');
@@ -574,12 +632,32 @@ abstract class ResourceRepository extends ServiceEntityRepository
 
     public function getResourceFileContent(AbstractResource $resource): string
     {
-        try {
-            $resourceNode = $resource->getResourceNode();
+        $resourceNode = $resource->getResourceNode();
 
+        if (null === $resourceNode) {
+            throw new FileNotFoundException($resource->getResourceName());
+        }
+
+        try {
             return $this->resourceNodeRepository->getResourceNodeFileContent($resourceNode);
         } catch (Throwable $throwable) {
-            throw new FileNotFoundException($resource->getResourceName());
+            // Fallback: editable text content (for resources stored without a physical file)
+            if (method_exists($resourceNode, 'hasEditableTextContent')
+                && $resourceNode->hasEditableTextContent()
+                && method_exists($resourceNode, 'getEditableTextContent')
+            ) {
+                $editable = (string) $resourceNode->getEditableTextContent();
+                if ('' !== trim($editable)) {
+                    return $editable;
+                }
+            }
+
+            // If there is no file, returning an empty string avoids fatal errors for non-file resources.
+            if (method_exists($resourceNode, 'hasResourceFile') && !$resourceNode->hasResourceFile()) {
+                return '';
+            }
+
+            throw new FileNotFoundException($resource->getResourceName(), 0, $throwable);
         }
     }
 
@@ -851,6 +929,7 @@ abstract class ResourceRepository extends ServiceEntityRepository
                     && $linkItem->getSession() === $link->getSession()
                     && $linkItem->getCourse() === $link->getCourse()
                     && $linkItem->getUserGroup() === $link->getUserGroup()
+                    && $linkItem->getGroup() === $link->getGroup()
                 ) {
                     $linkItem->setVisibility($link->getVisibility());
                     $em->persist($linkItem);
@@ -1000,6 +1079,49 @@ abstract class ResourceRepository extends ServiceEntityRepository
 
         $this->addTitleQueryBuilder($title, $qb);
 
+        $qb->setMaxResults(1);
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
+    protected function addOriginalNameQueryBuilder(?string $originalName, ?QueryBuilder $qb = null): QueryBuilder
+    {
+        $qb = $this->getOrCreateQueryBuilder($qb);
+        if (null === $originalName || '' === trim($originalName)) {
+            return $qb;
+        }
+
+        $qb
+            ->andWhere('file.originalName = :originalName')
+            ->setParameter('originalName', $originalName)
+        ;
+
+        return $qb;
+    }
+
+    public function findResourceByOriginalNameInCourse(
+        string $originalName,
+        Course $course,
+        ?Session $session = null,
+        ?CGroup $group = null
+    ): ?ResourceInterface {
+        $qb = $this->getResourcesByCourseIgnoreVisibility($course, $session, $group);
+
+        $this->addOriginalNameQueryBuilder($originalName, $qb);
+        $qb->setMaxResults(1);
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
+    public function findResourceByTitleInCourseIgnoreVisibility(
+        string $title,
+        Course $course,
+        ?Session $session = null,
+        ?CGroup $group = null
+    ): ?ResourceInterface {
+        $qb = $this->getResourcesByCourseIgnoreVisibility($course, $session, $group);
+
+        $this->addTitleQueryBuilder($title, $qb);
         $qb->setMaxResults(1);
 
         return $qb->getQuery()->getOneOrNullResult();

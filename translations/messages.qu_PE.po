@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "Allin kuyaywan"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Rurasqa willakuy: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Rurasqa rakiy: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Sutikuna umu"
@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":ari:copyright nisqawan,, mana:mana copyright nisqawan"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Phuru,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:ejercicio,,      simulation:simulación,,      questionnaire:cuestionario,,      diagram:diagrama,,      figure:figura,,      graph:gráfico,,      index:índice,,      slide:diapositiva,,      table:tabla,,      narrative text:texto narrativo,,      exam:examen,,      experiment:experiencia,,      problem statement:problema,,      self assessment:autoevaluación,,      lecture:presentación"
@@ -6744,7 +6744,7 @@ msgid "View this user"
 msgstr "Ver usuario"
 
 msgid "RSS feed"
-msgstr "RSS feed"
+msgstr "RSS willakuy"
 
 msgid "No friends in your contact list"
 msgstr "Manam warmikuna kay kontakt listaqpi"
@@ -14652,7 +14652,7 @@ msgid "Enable button bars extended when the WYSIWYG editor is maximized"
 msgstr "WYSIWYG editor maximizakuspaq boton barras k'anchay rurachiy"
 
 msgid "HTML Editor"
-msgstr "HTML Editor"
+msgstr "HTML Yapasapuy"
 
 msgid "Go directly to the course after login"
 msgstr "Qhawayku loginman qatiy yachayninjopi"
@@ -15129,7 +15129,7 @@ msgid "The blocks have been updated"
 msgstr "Killakuna qhispichirqan"
 
 msgid "Dashboard plugins"
-msgstr "Dashboard plugins"
+msgstr "Ruwanakuna yapasapuykuna"
 
 msgid "This plugin has been deleted from the dashboard plugin directory"
 msgstr "Kay pluginta dashboard plugin killamanta q'echirqan"
@@ -15924,16 +15924,16 @@ msgid "Dear user,"
 msgstr "Kuyay runa,"
 
 msgid "Session fields"
-msgstr ""
+msgstr "Huñunakuna killaqkuna"
 
 msgid "Copy"
-msgstr ""
+msgstr "Kutichiy"
 
 msgid "Date on which the session is closed to coaches. The additional delay will allow them to export all relevant tracking information"
-msgstr ""
+msgstr "Huñunakuna qhawayninakunata chinkachispaq. Yapasqa ñawpaqtiykunaq willakuykunata apachiyta atikuyku"
 
 msgid "Date on which the session is made available to coaches, so they can prepare it before the students get connected"
-msgstr ""
+msgstr "Huñunakuna yachachisqakunata qhawayninkupaq, yachachisqakuna ñawpaqta qhawayninkuwan"
 
 msgid "Date on which the session is closed"
 msgstr "Sutinchakuy pacha, llimphisqan sessionpaq"
@@ -16086,109 +16086,109 @@ msgid "Profile search"
 msgstr "Propiyuy maskhay"
 
 msgid "If your course is public or open, you can use the direct link below to send an invitation to new users, so after registration, they will be sent directly to the course. Also, you can add the e=1 parameter to the URL, replacing \"1\" by an exercise ID to send them directly to a specific exam. The exercise ID can be discovered in the URL when clicking on an exercise to open it.<br/>%s"
-msgstr ""
+msgstr "Yachaywasiykikuna huk pachakamaq utaq kichay, qatiq URLwan yapa runakunata kachakuspaq, kachaspaq yachaywasiyta qhawayninkuman. Humpaq, e=1 sutita URLwan yapaspaq, \"1\"ta ruray IDwanmaskawan, rurayta qatiq. Ruray ID yachaywasiyta kichaspaykitan URLwan rikunki.<br/>%s"
 
 msgid "Direct link"
-msgstr ""
+msgstr "Qatiq URL"
 
 msgid "<p>Go ahead and browse our course catalog %s to register to any course you like. Once registered, you will see the course appear right %s, instead of this message.</p>"
-msgstr ""
+msgstr "<p>Yachaywasiykuna qhaway %s kachakuspaq. Kachaspaq, yachaywasiyta %s rikunki, kay willakuykunawan.</p>"
 
 msgid "<p>Hello <strong>%s</strong> and welcome,</p>"
-msgstr ""
+msgstr "<p>Imaynalla <strong>%s</strong>, sumaqkama,</p>"
 
 msgid "Unsubscribe users already added"
-msgstr ""
+msgstr "Yapakunakunata qichuy"
 
 msgid "Import users"
-msgstr ""
+msgstr "Runakunata apachiy"
 
 msgid "INFORMATION VISIBLE TO THE TEACHER ONLY:\nThis folder contains documents which are created by the Learning Path tool. Inside this folder you can edit the HTML file which are generated by importing content from the Learning Path, as the ones imported by Chamilo Rapid, for example. We recommend hiding this folder to your students."
-msgstr ""
+msgstr "YACHACHIQKUNAPAQQARQAN WILLAPUWAN:\nKay phuru yachakuy yapasapuywan rurasqa willakuykunata hap'ipun. Kay phuru HTML willakuykunata yapasapuyta atikuy, yachakuykutam apachispaq, Chamilo Rapidwan apachisqa sapa. Estudianteswan qamñata pukaq kachkan."
 
 msgid "Just a moment, please. You will be redirected in %s seconds..."
-msgstr ""
+msgstr "Sapaq pisi, %s pachakwata qhawachkan..."
 
 msgid "To protect your site, make the whole %s directory read-only (chmod -R 0555 on Linux) and delete the %s directory."
-msgstr ""
+msgstr "Sitiykita amachaspaq, %s phuruta qhawaynita qhaway (chmod -R 0555 Linuxwan) %s phuruta qichuy."
 
 msgid "Number of public courses"
-msgstr ""
+msgstr "Pachakamaq yachaywasikuna número"
 
 msgid "Number of open courses"
-msgstr ""
+msgstr "Kichay yachaywasikuna número"
 
 msgid "Number of private courses"
-msgstr ""
+msgstr "Huk yachaywasikuna número"
 
 msgid "Number of closed courses"
-msgstr ""
+msgstr "Puka yachaywasikuna número"
 
 msgid "Total number of courses"
-msgstr ""
+msgstr "Yachaywasikuna número total"
 
 msgid "Number of active users"
-msgstr ""
+msgstr "Qhaway runakuna número"
 
 msgid "Certificates count"
-msgstr ""
+msgstr "Yapasqakuna número"
 
 msgid "Avg hours/student"
-msgstr ""
+msgstr "Prom. horaq / yachakuq"
 
 msgid "Subscribed users count"
-msgstr ""
+msgstr "Kachakunakuna número"
 
 msgid "Hours of accumulated training"
-msgstr ""
+msgstr "Yapakunakuna horaq"
 
 msgid "Approved"
-msgstr ""
+msgstr "Aprobado"
 
 msgid "Edit questions"
-msgstr ""
+msgstr "Pusqusqakunata yapasapuy"
 
 msgid "Man hours"
-msgstr ""
+msgstr "Runa horaq"
 
 msgid "Notes obtained"
-msgstr ""
+msgstr "Yapasqa notaq"
 
 msgid "Click on the [Learner view] button to see your learning path"
-msgstr ""
+msgstr "[Yachakuq qhawana] butonpi kikin yachakuy ruramanki"
 
 msgid "This value can't be changed."
-msgstr ""
+msgstr "Kay valor nillakunman."
 
 msgid "This value is used in the course URL"
-msgstr ""
+msgstr "Kay valor yachaywasi URLpi llamkan"
 
 msgid "Total available users"
-msgstr ""
+msgstr "Runakuna total"
 
 msgid "user"
-msgstr ""
+msgstr "runa"
 
 msgid "Generate certificates"
-msgstr ""
+msgstr "Yapasqakuna ruray"
 
 msgid "Export all certificates to PDF"
-msgstr ""
+msgstr "Yapasqakuna PDFman apachiy"
 
 msgid "Delete all certificates"
-msgstr ""
+msgstr "Yapasqakuna qichuy"
 
 msgid "There are users using this language. Do you want to disable this language and set all this users with the default portal language?"
-msgstr ""
+msgstr "Kay rimaypi runakuna kachkan. ¿Kay rimayta qamñataq qamñataq willakuywan qamñakunata qamñataq?"
 
 msgid "Click to show graphics"
-msgstr ""
+msgstr "Grafikukunata rikunaykipaq kikin"
 
 msgid "Quarterly report"
-msgstr ""
+msgstr "Pachak killapi willakuy"
 
 msgid "%d %B %Y"
-msgstr ""
+msgstr "%d %B %Y"
 
 msgid "%A"
 msgstr "%A"
@@ -17946,7 +17946,7 @@ msgid "LaTeX code"
 msgstr "LaTeX rimay"
 
 msgid "LaTeX formula"
-msgstr "LaTeX formula"
+msgstr "Fórmula LaTeX"
 
 msgid "Are you sure you want to lock the attendance?"
 msgstr "Manam allinchu qispichiy assistenciyta?"
@@ -19414,9 +19414,6 @@ msgstr "Ñawpaq yachaykuyta qichuy"
 
 msgid "Remove old tables"
 msgstr "Ñawpaq tablakunata qichuy"
-
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "Portal %s nisqap %s MB kimsakuy hallpʼapiq"
 
 msgid "Event message management"
 msgstr "Willakuy willakuy kamachisqa"
@@ -22905,61 +22902,61 @@ msgid "Who can consult the personal data? For what purpose?"
 msgstr "¿Piwakuna personal willakuyta qhawachikun? ¿Imaraykuta?"
 
 msgid "How and for what can we use the personal data?"
-msgstr ""
+msgstr "¿Imayna y imaykitaq runakunaq willakuykunata qhawachisqankuna?"
 
 msgid "With whom can we share them? In what opportunities? Through what processes (safe or not)?"
-msgstr ""
+msgstr "¿Piq sisitakunawan qhatarichisqankuna? ¿Imayna pachaqkunapi? ¿Imayna prusisukunawan (lluqsisqa mana allinchakchu)?"
 
 msgid "Do we have another system with which Chamilo interacts? What is the interconnection process? What are the data pieces exchanged and in what way?"
-msgstr ""
+msgstr "¿Huk sisitemi kanchu Chamilo hinawan yachakusqan? ¿Ima prusisukunmi? ¿Imayna willakuykunata cambianku y imayna?"
 
 msgid "What are the limits that we will always respect when using personal data? How far can we go?"
-msgstr ""
+msgstr "¿Imayna kanchaykunata allinmi runakunaq willakuykunata qhawachispa? ¿Hayk'aqmi?"
 
 msgid "After how long do we erase the data? (event, last use, contract validity, etc.) What are the elimination processes?"
-msgstr ""
+msgstr "¿Hayk'aqmi willakuykunata chinkachisqankuna? (hukpi, ñawpaq qhawachisqa, contrato validez, etc.) ¿Imayna chinkachisqa prusisukunakuna?"
 
 msgid "What happens if the data is destroyed as a result of a technical failure? (unauthorized deletion or loss of material, for example)"
-msgstr ""
+msgstr "¿Imayna kasqan willakuykunata qhawayku mana allinchakunataq yachaywan? (mana ruwarisqa chinkachisqa utqi material rakinakuna, hukkunataq)"
 
 msgid "For what purpose do we process personal data? Do we use it to filter the access users have to certain parts of our application? (negative or positive discrimination)"
-msgstr ""
+msgstr "¿Imaraykutaq runakunaq willakuykunata llamkan? ¿Qhawachinchu yachachisqakunata yachachinankupaq? (manam allinchakchu utqi allinchakchu)"
 
 msgid "By name"
-msgstr ""
+msgstr "Sutiwan"
 
 msgid "Ask for a revision"
-msgstr ""
+msgstr "Kamachiyta mañakuy"
 
 msgid "This feature has been disabled because the libraries it depends on are no longer unmaintained."
-msgstr ""
+msgstr "Kay llank'ayqa mana llank'achkan, kaymanta yachakusqan librokunaqa mana amparakunachu."
 
 msgid "By geolocalization"
-msgstr ""
+msgstr "Geolocalizaciónwan"
 
 msgid "Give revision"
-msgstr ""
+msgstr "Kamachiyta qispichiy"
 
 msgid "Post reported"
-msgstr ""
+msgstr "Yachachisqa willakuy"
 
 msgid "User %s has reported the message %s in the forum %s"
-msgstr ""
+msgstr "Yachakuq %sqa %s willakuyta qispichirqa %s foromanpi"
 
 msgid "My communities"
-msgstr ""
+msgstr "Ñoqap yachachisqakuna"
 
 msgid "See all communities"
-msgstr ""
+msgstr "Tukuy yachachisqakunata qhaway"
 
 msgid "Hide forum notifications"
-msgstr ""
+msgstr "Foro willakuy notisakunata pakay"
 
 msgid "Forum Category fields"
-msgstr ""
+msgstr "Foro iyar willakuykuna"
 
 msgid "Forum post fields"
-msgstr ""
+msgstr "Foro willakuy willakuykuna"
 
 msgid "Show only global score (not question score) and show only the correct answers, do not show incorrect answers at all"
 msgstr "Qhapaq puyñu yachayniyutawan (mana suyana puyñu yachayniyutawan) qhawarina, allin suyakunatayachin qhawarina, mana mana allinchu suyakunata qhawarinachu"
@@ -26481,7 +26478,7 @@ msgid "Filter messages between a teacher and a learner between the session start
 msgstr "Amawt' yachakuq rimayninkuna session qallariy y tukuy p'unchaykunapim filtray"
 
 msgid "UNO converter binaries"
-msgstr "UNO converter binaries"
+msgstr "UNO kamachiyta binarios"
 
 msgid "Give the system path to the UNO converter library to enable some extra exporting features."
 msgstr "Sistema ñanqa UNO converter library qispinapaq yarpay extra exporting features kamachispaq."
@@ -26493,7 +26490,7 @@ msgid "When using Chamilo for a specific purpose (like one massive online exam),
 msgstr "Chamiloq rumi imata uspaykipaq (huk massive online examllataq), distraction reduciy yantaq side menu qhallayta munanki."
 
 msgid "PDF export resolution"
-msgstr "PDF export resolution"
+msgstr "PDF raphi kamachiy"
 
 msgid "This represents the resolution of generated PDF files (in dot per inch, or dpi). The default is 96. Increasing it will give you better resolution PDF files but will also increase the weight and generation time of the files."
 msgstr "Kayqa generachisqa PDF willakuykuna resolutionninta rikuchin (dot per inch, dpi). Kamachisqallaq 96. Yarpasqaqa better resolution PDF willakuykuna qispinchu, hamut'ayuq peso y generacion tiemponita yarpasqa."
@@ -26535,49 +26532,49 @@ msgid "When importing users (batch processes), automatically generate a random s
 msgstr "Runa importaspayki (batch processes), usernamepaq random string automatically generay. Mana kasqanman, username firstname y lastname nisqakuna, o e-mail prefixmanta generasqa."
 
 msgid "Timepicker increment"
-msgstr "Timepicker increment"
+msgstr "Pachaq kamachiy ñawinchay"
 
 msgid "Minimal time increment (in minutes) when selecting a date and time with the timepicker widget. For example, it might not be useful to have less than 5 or 15 minutes increments when talking about assignment submission, availability of a test, start time of a session, etc."
 msgstr "Timepicker widgetwan p'unchay y hora qhawaytaq minimal time increment (phutapi). Qhepalla, assignment submission, test availability, session qallariy tiemponapi 5 o 15 phutakuna increment mana munakun."
 
 msgid "Proxy settings"
-msgstr "Proxy settings"
+msgstr "Proxy kamachiykuna"
 
 msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it.<br><pre> [ 'stream_context_create' => [ 'http' => [ 'proxy' => 'tcp://example.com:8080', 'request_fulluri' => true ] ], 'curl_setopt_array' => [ 'CURLOPT_PROXY' => 'http://example.com', 'CURLOPT_PROXYPORT' => '8080' ] ] </pre>"
 msgstr "Chamilo featuresqa servermanta paqarimanta conectan. Qhepalla link kamachispaq o learning pathpi embedded p'anqa rikuchispaq external content kanchusqanta yachachiy. Chamilo serverq proxy usqanman, kaypi proxyta qhaway.<br><pre> [ 'stream_context_create' => [ 'http' => [ 'proxy' => 'tcp://example.com:8080', 'request_fulluri' => true ] ], 'curl_setopt_array' => [ 'CURLOPT_PROXY' => 'http://example.com', 'CURLOPT_PROXYPORT' => '8080' ] ] </pre>"
 
 msgid "Video features"
-msgstr "Video features"
+msgstr "Willakuy vidiyo llank'aykuna"
 
 msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video.<br><pre> ['features' => ['speed']] </pre>"
 msgstr "Chamilo video playerpaq extra features array kamachiy. Optionsqa 'speed' nisqan, video playback speed cambianapaq.<br><pre> ['features' => ['speed']] </pre>"
 
 msgid "Default offered pagination numbers in tables"
-msgstr ""
+msgstr "Tablaqanpi ñawinchakunapaq ñawpaq willakuykuna"
 
 msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500].<br><pre> ['options' => [50, 100, 200, 500]] </pre>"
-msgstr ""
+msgstr "Tabla watapi ñawinchakunata kamachiy imakunata munaspayki qawachinapaq. hukkunataq [50, 100, 200, 500].<br><pre> ['options' => [50, 100, 200, 500]] </pre>"
 
 msgid "Webservices return user field"
-msgstr ""
+msgstr "Webservices yachakuq willakuy qispin"
 
 msgid "Ask REST webservices (v2.php) to return another identifier for fields related to user ID. This is useful if the external system doesn't really deal with user IDs as they are in Chamilo, as it helps the external system match the user data return with some external data that is know to Chamilo. For example, if you use an external authentication system, you can return the extra field used to match the user with the external authentication system rather than user.id."
-msgstr ""
+msgstr "REST webservices (v2.php)ta kamachiy yachakuq ID willakuykunaq huk identificador qispichiy. Kayqa allinchakmi mana Chamilo hina yachakuq IDkunawan yachakunachu, kayqa yachakuq willakuykunata yachachisqawan yachakunata qhatarichinapaq. Rikch'aq, mana allinchakunaq yachakuy sisitemita qhaspalla, yachakuqta qhatarichiy extra willakuy qispichiy mana yachakuq.id hinalla."
 
 msgid "Hide disabled settings in sub-URLs"
-msgstr ""
+msgstr "Mana llank'achka kamachiykuna sub-URLpi pakay"
 
 msgid "Set to yes to hide settings completely in a sub-URL if the setting is disabled in the main URL (where the access_url_changeable field = 0)"
-msgstr ""
+msgstr "Ari niyspalla kamachiyqa mana llank'achka main URLpi (access_url_changeable = 0) mana qawachinchu sub-URLpi."
 
 msgid "Max login attempts before lockdown"
-msgstr ""
+msgstr "Qhaway lockdown munay ñawinchakuna"
 
 msgid "Number of failed login attempts to tolerate before the user account is locked and has to be unlocked by an admin."
-msgstr ""
+msgstr "Mana rurasqa qhawachisqa ñawinchakuna yachakuq iñiqta qullqachiy adminwan qullqachisqa."
 
 msgid "Force password renewal at first login"
-msgstr ""
+msgstr "Ñawpaq qhawachisqapi qhawachisqa willakuy qhaway"
 
 msgid "This is one simple measure to increase the security of your portal by asking users to immediately change their password, so the one that was transfered by e-mail is no longer valid and they then will use one that they came up with and that they are the only person to know."
 msgstr "Kay qhapa pukaq yachayniyukuywan portalniq seguridatata allichanapaq, ruraqkunata pascaskanki chakramanta sutinmanta askachakunata mañakunapaq, imataq e-chaskipi yachachasqankunamanta mana allinchakunapas, chaymantaqa qhapaq sutinta kamarun, paykunaqllam yachakun."
@@ -29314,7 +29311,7 @@ msgid "Subscriptions vs unsubscriptions, by day"
 msgstr "Qispikuy vs mana qispikuy, p'unchaypaq"
 
 msgid "Quarterly report"
-msgstr ""
+msgstr "Pachak killapi willakuy"
 
 msgid "Course/Session subscriptions, by day"
 msgstr "Killakuna/Sesion qispikuykunapas, p'unchaypaq"
@@ -30052,7 +30049,7 @@ msgid "Save diagnostic changes"
 msgstr "Diagnostic cambioskunata qhipalla"
 
 msgid "Domain %s"
-msgstr "Domain %s"
+msgstr "Dominiyo %s"
 
 msgid "Topic %s"
 msgstr "Runa %s"
@@ -30205,25 +30202,25 @@ msgid "You have been enrolled in the course"
 msgstr "Yachaywasiman inscrito kanki"
 
 msgid "Hello %s, you have been enrolled in the course %s."
-msgstr ""
+msgstr "Allillay %s, %s kursopi qatamusqankiraq."
 
 msgid "Acquisition"
-msgstr ""
+msgstr "Kamachiy"
 
 msgid "Session display dates"
-msgstr ""
+msgstr "Runakuna rurakuna paqchin"
 
 msgid "Session access dates"
-msgstr ""
+msgstr "Runakuna yachachisqa paqchin"
 
 msgid "Hello %s, you have been enrolled in the course %s for the session %s."
-msgstr ""
+msgstr "Allillay %s, %s yachaypi %s runakunamanta qallariwayki."
 
 msgid "You have been enrolled in the course %s for the session %s"
-msgstr ""
+msgstr "%s yachaypi %s runakunamanta qallariwayki"
 
 msgid "Semicolon (;) delimiter detected. This version of Chamilo requires comma (,) as the CSV separator. Please export your file again as CSV (comma-separated)."
-msgstr ""
+msgstr "Semicolon (;) hallallasqakuna. Kë Chamilo versiyön coma (,) CSV rurakunata mañakun. Favur yachachinikuq fileta CSV (coma-separated) munakunata qallariy."
 
 msgid "Replication"
 msgstr "Replikasyon"
@@ -31074,8 +31071,8 @@ msgstr "Willakuyta yapay"
 msgid "Write your comment here..."
 msgstr "Kayman willakuyta qelqay..."
 
-msgid "%d selected"
-msgstr "%d chinakusqa"
+msgid "%s selected"
+msgstr "%s chinakusqa"
 
 msgid "Search by title or path..."
 msgstr "Suti o ñanpi maskhay..."
@@ -31083,8 +31080,8 @@ msgstr "Suti o ñanpi maskhay..."
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "Qelqakuna, kamarichiy, k'ipi, musuqyachiy, q'echay yachakuynata kamachiy."
 
-msgid "%d comment(s)"
-msgstr "%d willakuykuna"
+msgid "%s comment(s)"
+msgstr "%s willakuykuna"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "Pantasqay musuqyachiy maki. Yachakuyta ruruy."
@@ -31439,4 +31436,1138 @@ msgstr "Sutisapaq hallp'a, ñawpaq sunqun, utaq ch'usa (_ )mi kachkanman. Mana a
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "¿Imayna ruray willakuykuna yachakuqkuna platformata qhawayta atinman?"
+
+msgid "ex. {examplePassword}"
+msgstr "jt. {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "¡Chamilo hunt'a kankichik!"
+
+msgid "Welcome to this platform"
+msgstr "Kay platformamanta kankichik"
+
+msgid "For more details visit %s"
+msgstr "Yäqin yachachisqatam ñawinchay %s"
+
+msgid "Manager"
+msgstr "Kamachiq"
+
+msgid "Mark as"
+msgstr "Rimarichiy"
+
+msgid "Reply to all"
+msgstr "Tukuyta rimanakuy"
+
+msgid "SCIM external ID"
+msgstr "SCIM maqollanqan ID"
+
+msgid "OAuth2 ID"
+msgstr "OAuth2 ID"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "Ñawpaq willakuykunata qhananchay."
+
+msgid "Required value for operation without path"
+msgstr "Willakuyninayuq ñawpaq willakuykunata mana pukaq"
+
+msgid "Available space (%s)"
+msgstr "Kutichisqa kuti (%s)"
+
+msgid "Index this description for the global search"
+msgstr "Kay qillqasqanta tukuy rimanakuypi qillqachiy"
+
+msgid "Unknown course"
+msgstr "Mana riqsirqan kursu"
+
+msgid "Certificate not found."
+msgstr "Yachay willakuyqa mana tukuq."
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "Imakuna willakuyqa kutiq. Paqta musuqyachiy hamuy."
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "Plataforma kamachisqakunamllataq kursu qhawinachinakuyta hwanachinkuna."
+
+msgid "Unexpected error while subscribing the user"
+msgstr "Runata qatunchasqanpi mana suyusqan kasqan"
+
+msgid "Search in resource logs"
+msgstr "Willakuy yachachikuy qillqakunapi rimanakuy"
+
+msgid "Include this learning path in the global search results"
+msgstr "Kay yachay ñanmanta tukuy rimanakuy yachachikuykunaman qillqachiy"
+
+msgid "The course code already exists"
+msgstr "Kursu kutiqa kituq"
+
+msgid "Latest news"
+msgstr "Musuq willakuykuna"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "Chamilo servermanta musuq willakuykuna, imakuna imakuna willakuykuna huchallaq willakuykuna, kamachinaq willakuykuna, kamachisqa panelmantaq. Kay willakuykuna kamachisqa paqta kutiq Chamilo willakuy serverpi qhawachinakunku kamachisqakunamantataq."
+
+msgid "Chamilo support block"
+msgstr "Chamilo yuyay block"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "Chamilo ruwachakunaq pro tips hinaspa qhapaq yuyay willakuykunaq qhapaq yuyay willakuykunaq kamachisqa panelmantaq. Kay block kamachisqa paqtamantaq, kamachisqakunamantataq, kamachisqa paqta kutiq."
+
+msgid "Hide option to send announcements to HR users"
+msgstr "HR runakunaman willakuy yachanata pakachiy"
+
+msgid "Allow session admins to download private certificates"
+msgstr "Sesion kamachisqakuna maqollanqan yachay willakuykuna qatunchiy"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "Kamachisqaqa, sesion kamachisqakuna yachay willakuykuna qatunchinkuna mana tukuykamaq."
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "Mana kikinmantaqa, kursu kamachiyqa runa qillqasqanpi willakuykunata qhawachinakuyqa kursupaq willakuykuna kusqakuy."
+
+msgid "Main menu entries"
+msgstr "Qhapaq menu willakuykuna"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "Qhapaq menupi rishqakuyniykit qhawachinakuy"
+
+msgid "Main menu entries per role"
+msgstr "Qhapaq menu willakuykuna runakunaq rollpaq"
+
+msgid "Define header tabs visibility per role."
+msgstr "Yachachisqa rurakunaq header tabs rikch'ayninta qillqasqa yarpakunapaq."
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "Ñawpaq p'akichisqakunata saqillay, mesaq watukunaq p'akichisqata kamayta manta rikunaykipaq utaq aswan. Samay: [50, 100, 200, 500]."
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "Chamiloq videota rikukunapaq yapasqa rurakunaq k'anchaq. Rurakuna \"speed\"ta hamuq, videota t'inkiyta hurrachiyta saqillanki."
+
+msgid "Mail: character set"
+msgstr "Rimal: ñawpaq simikuna"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "Rimalkuna ruraypi simikunata saqillakuykispapuni. Manam yachankichuqa, kawakuy."
+
+msgid "Mail: Debug"
+msgstr "Rimal: Ñawpaq qhaway"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "Rimal ruraypi ñawpaq qhawachisqa qillqakunata kamachiyta munaspayki. Rimal ruraqwan q'illqasqakunamanta aswan yachayniyuq, ichaqa manam sumaqchu yachachisqa rurakunapi p'akichisqa. Rurakunapaq maqanakunamanta maqanakunachu."
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "Rimal: LD+JSONta kaniy"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "Rimal rurakunaq qillqakuna LD+JSON qillqasqa formatninta manam yachanchu, JSON qillqasqa sapaq runakunaman rikuchin. Kaykunaqllapi, kay variableta \"false\"man qillqay LD+JSON header q'echk'achiy."
+
+msgid "Mail: DKIM headers"
+msgstr "Rimal: DKIM headerkuna"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "DKIM q'illqasqakunapaq JSON k'anchaq qillqay (misaqta qhawariy)."
+
+msgid "Mail: XOAuth2 options"
+msgstr "Rimal: XOAuth2 rurakuna"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "XOAuth2 ruraq rimal ruraqta kachkankiqa, kay JSONta saqillay q'illqasqakunapaq (misaqta qhawariy) rimal ruraqta XOAuth2man saqillay."
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "Suyukunaq rikch'ayninta qillqachin: \"prod\" (ñawpaq ruraq), \"validation\" (ñawpaq ruraqqa, ichaqa estadistikanata manam ruranchu), utawa \"test\" (ñawpaq qhaway ñawpaq simikuna rikch'akunaq kamachiq)."
+
+msgid "Global limit of users per course"
+msgstr "Yachachisqa rurakunapaq runakunaq ñawpaq k'anchay"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "Platformap yachachisqa rurakunapaq ñawpaq runakunaq k'anchay (yachachiqkunaq hamuq) qillqachin. Kay valorta 0man qillqay k'anchayta q'echk'achiy. Kaykunaq ñawpaq suyukunaq yachachisqa rurakunata k'anchakunata yachachinchik."
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "K'anchay yarpakunata qhaway rikch'ay yachachisqa rurakunata qillqachiy."
+
+msgid "Show base course posts in session course"
+msgstr "Suyukuna yachachisqa rurakunapi ñawpaq yachachisqa rurakunaq willakuykuna rikuchiy"
+
+msgid "Limit identical email usage"
+msgstr "Rimal rurakunaq tupankunata k'anchay"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "Ima yuraq runakunaq email nisqapakama allin. 0 kaqman qillayqa manam kanchu."
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "Session adminsqa tukuy URLmanta runakunata rikunayku"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "Kikin munayniykama, session adminsqa tukuy access URLkunamanta runakunata maskhaytawan qillqayta atinanku, manam kunaq URLmantaqa."
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "Runakunaq pacha zonaqta munaspaykunata qallariy. Kamarispa, runakunaq wasi pacha zonasnqmanta qatiykuna, kasqataq qatiykuna rikunku, hinamanta willakuytaq kasqakunamanta pantasqakuna pisqakunamanta."
+
+msgid "Redirect after login (per profile)"
+msgstr "Riwanakuytaq qatiy (profile by profile)"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "JSON nisqawan riwanakuyta qatiy profile by profile {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "Legal accept checkboxta pakasiy Terms and Conditions p'anqapi"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "Manam kanchuqa, \"Ñawinchisqaniwan munani\" checkboxta Terms and Conditions p'anqapi qispilla."
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "Array nisqawan hostwan puerto LDAP serverpaq."
+
+msgid "Enable 2FA"
+msgstr "2FA qallariy"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "Contraseña willakuy p'anqapi camposnita 2FA qallariy TOTP authenticator appwan. Tukuykama manam qallarqanqa, runakuna manam 2FA camposnitaq rikunkunachu, manam riwanakuytaq 2FA qispillakunachu, kamarispaq 2FA qallarqanku."
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "Chamiloq featuresqa servermanta llanqapi hinaq. Rurasqakunamanta linkta kamachispaq utaq learning pathpi embedded p'anqata rikuispaq. Mana proxyqa, Chamilo serverqa redmanta lluqsiyqa, kaypi kamarikuy."
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "Kursotaq kuti chispaq cron jobqa qallarisqa kasqa."
+
+msgid "Show remaining days in My Sessions"
+msgstr "My Sessionspi kuti p'unchaykuna rikuy"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "Qallarisqaqa, \"My Sessions\" p'anqapi session p'unchaykuna kuti p'unchaykunawanmaskhan."
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "Menuqpi \"Pending surveys\" rikuy"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "Menu itemta rikuy runakunaq pending surveysninta maskhan."
+
+msgid "Disclose AI assistance"
+msgstr "AI yanapayta qawachiy"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "AI systemwan ruraq utaq co-ruraq contentwan feedbackwan tagta rikuy, runapaq yachanakuy AI systemwan ruraq. AI system imatawan imapi kamarisqa databasepi, auditpaq, manam final userpaqqa."
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "JSON configuration course catalogpaq: link settings, filters, sort options, imataq."
+
+msgid "Session Catalog Settings"
+msgstr "Session Catalog Settings"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "JSON configuration session catalogpaq: filterswan display options."
+
+msgid "Show Course Descriptions"
+msgstr "Course Descriptions rikuy"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "Course descriptions rikuy catalog listingpi."
+
+msgid "Published Courses Only"
+msgstr "Yachachisqakunaq llapan"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "Catalogta published courseswanma kamarichiy."
+
+msgid "Display Catalog on Homepage"
+msgstr "Katalugu ruraq päninpi rikuchiy"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "Yachay wasipi kursu katalugu bloketa rikuchiy."
+
+msgid "Hide Public Link"
+msgstr "Pukyukunata qulluy"
+
+msgid "Remove the public URL link from course cards."
+msgstr "Kursu kartakunamanta pukyu URL suyuta qichuy."
+
+msgid "Only Selected Courses"
+msgstr "Ñawpaqichisqa kursokunamanta qhatik"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "Katalogupi qhatikunapaq yachaytaq ñawpaqichisqa kursokunataq rikuchiy."
+
+msgid "Allow Student Browsing"
+msgstr "Yachasqakunata phawachiy"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "Yachasqakunata kursu kataloguta phawayta hapiyta kutichiy."
+
+msgid "Hide Private Courses"
+msgstr "Suyukuy kursokunata qulluy"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "Katalogu rikuchisqamanta suyukuy kursokunata qispichiy."
+
+msgid "Show Courses & Sessions"
+msgstr "Kursokuna & Suyukuykunata rikuchiy"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "Katalogu risulkunaman kursokunaq suyukuykunataq ykupamanchay."
+
+msgid "Auto Session Subscription"
+msgstr "Suyukuyta qhatichisqa qillqay"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "Rakinakunaman suyukuykunata qhatichisqa qillqayta masachinay."
+
+msgid "Subscription in Session View"
+msgstr "Suyukuy rikch'aynipi qillqay"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "Rakinakunata suyukuy päninmanta kursokunaman qillqayta kutichiy."
+
+msgid "Enable redirection plugin"
+msgstr "Redirección plugin masachinay"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "Rakinakuna ñawpaq rurayninpi suyuku kutichisqa pachaq 'p'anchakunaq' phallchakunaq array."
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "Kutichisqa pachaq suyukuq rakinamanta ñawpaq kutichisqa pachaq roll => número array."
+
+msgid "Extra user field used to search and name sessions"
+msgstr "Suyukuykunata maskhayta sutichaytaq yusupak phuruq"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "Kay kutichisqa yusupak phuruq llawquta (sutipaq \"kamipañakuy\") /admin-dashboard/register-manta yachasqakunata qillqaypi rakinakunata maskhayta suyukuy sutita qillqaytaq ñawpaq qillqay."
+
+msgid "Glossary terms generator"
+msgstr "Simi qillqakunaq generaduri"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "Yachaytaqkunata kursopi AI-generadokuna simi qillqakunata mañachinay. Kay 20 qillqakunata kursu sutimanta kursu sutipakunamantaq generachiy. Ñawpaqqa rurakunapaq, glossarypi kashpan qillqakunata qispichiy (kutichisqa AI serviçiokunawan contenido compartiyta allinchay)."
+
+msgid "Video generator"
+msgstr "Willakuy generaduri"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "AIwan promtukunaq utaq contenido nisqamanta willakuykunata generachiy (kay tokenkunaqa achkha kanchay)."
+
+msgid "Course analyser"
+msgstr "Kursu analizaduri"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "Huk kutikamaq kursopi willakuykunata analizachiy, AI modelta pre-entrenachiy kaymantaq kursokunamanta rurakunapaq mañakunapaq (kutichisqa AI serviçiokunawan contenido compartiyta allinchay)."
+
+msgid "Test/development"
+msgstr "Prueba/desarrollu"
+
+msgid "Crons"
+msgstr "Cronkuna"
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "Gradebook"
+msgstr "Notakuna"
+
+msgid "Internationalization"
+msgstr "Internasionalisatsiyun"
+
+msgid "User profiles"
+msgstr "Rakinakuna perfilkuna"
+
+msgid "Support tickets"
+msgstr "Yachay tiketkuna"
+
+msgid "Webservices"
+msgstr "Web serviçiokuna"
+
+msgid "Catalogue"
+msgstr "Katalugu"
+
+msgid "Workflows"
+msgstr "Willakuykuna"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "Sub-URLkunapi editachinakuy"
+
+msgid "Show JSON Template"
+msgstr "JSON plantillata rikuchiy"
+
+msgid "JSON Template"
+msgstr "JSON plantilla"
+
+msgid "Installing Xapian bindings"
+msgstr "Xapian bindings instalachiy"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "Kay fragmentu Xapian PHP bindings instalacion nisqata rikuchiy Ubuntu 25.04pi PHP 8.3wan. Ñawpaqkamayuq pachaq versyonkunaq ñawpaqkamayuqkamayuqta adaptachiy."
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "Manam kay PHP versyunkaqchu allin kashpaq (sutipaq 8.3) extension direkturyukunaq phinakunata qispichiy."
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "Extension CLIwan web serverwanqam correctly cargadokunapaq, search diagnostics Xapian módulo instaladokunata willan."
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "Ñawpaq k'anchay uploadkuna y cacheta q'echuy"
+
+msgid "Directory"
+msgstr "Phuqllay"
+
+msgid "Only delete files older than (minutes)"
+msgstr "Huk pachakwasiqnin kaymanta ñawpaq willakuykunaq q'echuy (p'unchay)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "0 mañakuy llapan willakuykunaq q'echuyta. Imaq hallp'alla valor (sapaq, 60) willakuykunaq upload rurasqakunata mana q'echuyta."
+
+msgid "Preview only (do not delete)"
+msgstr "Ñawpaq ñawinchay q'echuy mana ruraychu"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "Kuyay: Kawkunaq ñawpaq willakuykunaq llapan q'echunki. Kay ruwayqa mana t'ikrayta atinchu."
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "Kay ñawpaq willakuykunaq llapan q'echunki. Ruray?"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "Kay %minutes% p'unchaymanta ñawpaq willakuykunaq q'echunki. Ruray?"
+
+msgid "The value must match exactly: %s"
+msgstr "Kikin qatiq kayman: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "Paway qhipa pacha qallariy pachamanta qhipa kasqa."
+
+msgid "Index document content?"
+msgstr "Willakuy yachaynin index?"
+
+msgid "Upload SVG logo to platform header"
+msgstr "SVG logo platform headerman watukuq"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "PNG logo platform headerman watukuq (%s)"
+
+msgid "Write something to %s"
+msgstr "%s-man imatapis willakuy"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "Munay: SVG. PNG paqarichisqa: %spx."
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "PNG logo e-mailspaq watukuq (~%spx paqari)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "Header PNG %spx-manta aswan huk'uy."
+
+msgid "Require specific file format"
+msgstr "Yachay willakuynin formatota mañakuy"
+
+msgid "Select allowed file formats"
+msgstr "Willakuynin formatokunata mañakuy"
+
+msgid "Custom extensions (separated by space)"
+msgstr "Sapaq extensionkuna (chakrasitaq kimsak)"
+
+msgid "Other extensions"
+msgstr "Huk extensionkuna"
+
+msgid "My invitations"
+msgstr "Ñoqap invitationskunapaq"
+
+msgid "Delete access"
+msgstr "Accesota huch'akuy"
+
+msgid "Certificate tags"
+msgstr "Yachaytapisqakuna etiketakuna"
+
+msgid "Copy all"
+msgstr "Tukuyta q'illay"
+
+msgid "Click to insert"
+msgstr "Klikiy insertar"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "Munaykuna: SVG. PNG huchalla kama: %spx."
+
+msgid "View badge"
+msgstr "Wakin insignia qhawachin"
+
+msgid "%d min"
+msgstr "%d phut"
+
+msgid "Duration in minutes"
+msgstr "Pacha phutkunapi"
+
+msgid "Go back to standard view"
+msgstr "Rurasqaruq qhawachinman kutichiy"
+
+msgid "Search for student..."
+msgstr "Yachasqaqta maskhay..."
+
+msgid "This date is locked or read-only."
+msgstr "Kay pacha k'anchakunata hap'in ku oqhay."
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "Asistencia carganaykuq. Ñawpaqman t'inkiy."
+
+msgid "Nothing to save"
+msgstr "Kamakunata imapas manañan"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "Kamakunachu willakuykuna kanki. Rillakuyta qhawachinmi?"
+
+msgid "Storage usage unavailable"
+msgstr "Kamakuy imakuna manañan"
+
+msgid "Search for members..."
+msgstr "Membrokunata maskhay..."
+
+msgid "Current members"
+msgstr "Kunan membrokuna"
+
+msgid "Add members"
+msgstr "Membrokunata yapay"
+
+msgid "Search for users in course/session..."
+msgstr "Kursopi / sesionpi runakunata maskhay..."
+
+msgid "No users available."
+msgstr "Manan runakuna manam."
+
+msgid "Browse and publish new posts"
+msgstr "Willakuykunata qhawachinaypi nisqakunata yapachinay"
+
+msgid "Create and assign tasks"
+msgstr "Rurakunata kamachiy"
+
+msgid "Filtered by %s"
+msgstr "%s nisqawan sarp'iy"
+
+msgid "Select a score"
+msgstr "P'akisqata akllay"
+
+msgid "Edit comment"
+msgstr "Willakuytan llamk'ay"
+
+msgid "Failed to update the post."
+msgstr "Willakuyta llamk'ananaykuq."
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "Kay willakuyta hapiynaq? Kay ruway manan t'inkinakunqachu."
+
+msgid "Failed to delete the post."
+msgstr "Willakuyta hap'inanaykuq."
+
+msgid "Failed to update the comment."
+msgstr "Yachachisqanta qhawayta mana atinchu."
+
+msgid "Delete this comment?"
+msgstr "¿Kay yachachisqanta kikinay?"
+
+msgid "Failed to delete the comment."
+msgstr "Yachachisqanta kikinay mana atinchu."
+
+msgid "Search for projects..."
+msgstr "Proyektonkunata maskhay..."
+
+msgid "Only visible"
+msgstr "Ñawpaq qhawasqa qhapaq"
+
+msgid "Rename project"
+msgstr "Proyekto sutinta kambiyay"
+
+msgid "New title"
+msgstr "Yachay suti maski"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "Proyektonkunata kamachiyta munaspayki ukhu kamachiq utaw yachachiq kay."
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "¿Kay proyektoni kikinay? Kay ruway mana tukuytan kikinakunata."
+
+msgid "Task list"
+msgstr "Rurakuna ruray"
+
+msgid "Change status"
+msgstr "Istallatinta kambiyay"
+
+msgid "Waiting for validation"
+msgstr "Qatikuytan kutichispa"
+
+msgid "Delete this task?"
+msgstr "¿Kay rurani kikinay?"
+
+msgid "Failed to delete the task."
+msgstr "Rurani kikinay mana atinchu."
+
+msgid "Failed to update status."
+msgstr "Istallati qhawayta mana atinchu."
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "¿Kay qharqhaqni kikinayta munaspayki? Kay ruway mana tukuytan kikinakunata."
+
+msgid "Please fix the errors before saving."
+msgstr "Kikinaykuna imaykuna qhawayta huchallaq kanki."
+
+msgid "Error creating third party. Please verify the data."
+msgstr "Qharqhaqni yaratay huchallaq. Willakuykunata qhaway."
+
+msgid "Error deleting third party."
+msgstr "Qharqhaqni kikinay huchallaq."
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "Qhapaq rumi logo nisqa hakuq logo imaykunata churay. SVG munakun; PNG qhapaq kasqan."
+
+msgid "Data exchange updated successfully."
+msgstr "Willakuy interchange qhawayta atinchu."
+
+msgid "Error deleting data exchange."
+msgstr "Willakuy interchange kikinay huchallaq."
+
+msgid "Failed to recycle course."
+msgstr "Yachay wasini qhawayta mana atinchu."
+
+msgid "Select source course"
+msgstr "Kamachiq yachay wasi riqsiy"
+
+msgid "Course to copy from"
+msgstr "Kikinakuy yachay wasi"
+
+msgid "Search by code or title..."
+msgstr "Kutiq rima utaw sutita maskhay..."
+
+msgid "No courses match your search."
+msgstr "Manam yachay wasikuna maskhaykiwan uyariyku."
+
+msgid "Copy options"
+msgstr "Kikinakuy kallpa"
+
+msgid "Include users (enrollments)"
+msgstr "Runakunata qhapaq (qatikuynin)"
+
+msgid "Reset dates"
+msgstr "Pacha kamarikuy"
+
+msgid "When a file with the same name exists"
+msgstr "Sutinchaw sutikuna kashpa"
+
+msgid "Ready to copy"
+msgstr "Kikinakuyta qhapaq"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "Riqsikuy yachay wasimanta kay yachay wasi ukhupi willakuykunata kikinakunki. Qhipa kallpata kambiyta saqespayki."
+
+msgid "Start copying"
+msgstr "Kikinakuyta qallariy"
+
+msgid "Select resources to copy"
+msgstr "Kikinakuy willakuykunata riqsiy"
+
+msgid "Copy selected"
+msgstr "Riqsikuykuna kikinay"
+
+msgid "Copy completed."
+msgstr "Kikinakuy tukuy."
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "Pichay zona: yachay wasi kikinay permanent kasqa."
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "Yachay wasi kutiq rima willakuy qhapaq. Tukuy willakuy permanent kikinakun."
+
+msgid "The code must match '%s' exactly."
+msgstr "Kutiq rima '%s'wan exact uyariy."
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "Kay yachay wasipi qhapaq kasqan willakuykunata kikinay (kanchispa)."
+
+msgid "Delete course"
+msgstr "Yachay wasi kikinay"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "Kay ruway mana tukuytan kikinakunata. Rispay?"
+
+msgid "Course deleted successfully."
+msgstr "Yachay wasi kikinay atinchu."
+
+msgid "Failed to delete course."
+msgstr "Yachay wasi kikinay mana atinchu."
+
+msgid "Create .mbz"
+msgstr ".mbz yaratay"
+
+msgid "Backup scope"
+msgstr "Backup llimk'i"
+
+msgid "Full course"
+msgstr "Yachay wasi tukuy"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "Riqsikuy imaykuna export willakuypi qhapaq kasqan."
+
+msgid "Moodle export"
+msgstr "Moodle export"
+
+msgid "Moodle version"
+msgstr "Versión Moodle"
+
+msgid "Admin ID"
+msgstr "ID Kamachisqa"
+
+msgid "Internal integer user id"
+msgstr "Kamachisqa yuraqchakuq ID"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle XMLpiq XMLpiq yuraqchakuq ID nisqata mañachin. Mana allinchaypi, 1llata jampi."
+
+msgid "Username to appear as owner of imported items"
+msgstr "Yapayuq rurakunaq sutin sutichay"
+
+msgid "Email to use in the archive metadata"
+msgstr "Yapayuq metadataq email"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr ".mbz kutxapunqan. Kutichisqa kaptin, yapayuq."
+
+msgid "Select resources to include"
+msgstr "Yatichisqa willakuykunata akllay"
+
+msgid "Export completed"
+msgstr "Yapay kutichisqa"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "Moodle yapayuq kutichisqa. Kuru yapaykunataq listapi rikunki."
+
+msgid "Please complete all required fields."
+msgstr "Llapan waqaychakuna tukuyta jallttay."
+
+msgid "Failed to create Moodle backup."
+msgstr "Moodle yapayuq mañakunqanchu."
+
+msgid "More actions"
+msgstr "Huk ruwakuna"
+
+msgid "Write something"
+msgstr "Kamachiq imata"
+
+msgid "Friends of %s"
+msgstr "%s runakuna"
+
+msgid "Error loading learning paths."
+msgstr "Manam atinachu yachay ñan kunakuna carganapaq."
+
+msgid "You don't have any learning path."
+msgstr "Manam kaypi yachay ñan kanchu."
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "Yachay ñan suyuta kamachiy imayna organizakunaypaq kursu kaqkunata."
+
+msgid "Could not save the new category order."
+msgstr "Manam atinachu yarpakunaypaq musuq katigoriarawit."
+
+msgid "Could not save the new order."
+msgstr "Manam atinachu musuq ordenat yarpakunaypaq."
+
+msgid "Assignment"
+msgstr "Kamachiynin"
+
+msgid "Allowed file formats: %s"
+msgstr "Kutichisqa willay formato: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "Willay formato manam kutichisqachu. Kutichisqa kutikuna: %s"
+
+msgid "Folder name"
+msgstr "Phuru sutin"
+
+msgid "Rename folder"
+msgstr "Phuru sutinta hukichiy"
+
+msgid "New name"
+msgstr "Musuq sutin"
+
+msgid "Choose an action"
+msgstr "Kamachiyniynita mañay"
+
+msgid "New version"
+msgstr "Musuq rupay"
+
+msgid "Change title to selected filename"
+msgstr "Sutinni mañakunamanta willaypa sutinman wischuy"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "Willayta pantachiy, huk phuruman wichqay ukhu mana."
+
+msgid "Move %s"
+msgstr "%s wichqay"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "Phuru rakikunamantaqa mana rikhurikunachu, rakita qispichikunaypaq."
+
+msgid "No feedback yet."
+msgstr "Manam willakuy kanchu."
+
+msgid "Upload first, organize later"
+msgstr "Qhawayta kamachiy, ñawpaq organizakuy"
+
+msgid "Drag & drop or browse to add files"
+msgstr "Arrastray & soltay ukhu mañakuy willakunata yawaray"
+
+msgid "Social wall..."
+msgstr "Rakin wall..."
+
+msgid "Wall of %s"
+msgstr "%s wall"
+
+msgid "Version currently loaded"
+msgstr "Kutipayninchikpi versiyun"
+
+msgid "Completion"
+msgstr "Kutipachiy"
+
+msgid "Quick navigation"
+msgstr "Sumpaq navegasyon"
+
+msgid "Filled"
+msgstr "Llamk'achik"
+
+msgid "Terms sections"
+msgstr "Pachakuna kamachina"
+
+msgid "Open a section to edit its content."
+msgstr "Kamachinanta hamp'ikuyta churaykupaq pachata hamp'ay."
+
+msgid "Open this section to load the editor."
+msgstr "Editorninta k'anchaykupaq kay pachat hamp'ay."
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "P'iqanakuy zona: acces URLta q'echay permanente nisqa."
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "Confirmakunaykupaq URLta manaq URLman qillqay. URLqa willakunaqwanqawan permanente q'echakun."
+
+msgid "Unable to load the badge's image."
+msgstr "Insignia rasminta k'anchayta atinchu."
+
+msgid "Invalid role selection"
+msgstr "Manaq saqillasqan rol"
+
+msgid "Select relation type first to enable user management."
+msgstr "Runakuna kamachinkupaq relasiyun tiputa saqillay."
+
+msgid "This question has no course context. Preview is not available."
+msgstr "Kay paqarina kursu suyukunamanchu. Ñawpaq qhawarina mana kanchu."
+
+msgid "Unknown test"
+msgstr "Mana yachasqan pruibakuna"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "Kursu suyukunamanchu q'echayta mana saqichun."
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "Q'echay mana cullunchisqa: kursu suyuku mana kanchu utaq kay paqarina pruibakunaman kaykamaq. Paqarina pruibakunaqman qhawinakuy utaq ñawpaq qhawinakuykunata qhawinakuy."
+
+msgid "Delete failed: question not found."
+msgstr "Q'echay mana cullunchisqa: paqarina mana tukuq."
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "Q'echay mana cullunchisqa: kay paqarina willakunaqwanqawanqawan q'illqasqa."
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "Kay paqarina pruibakunamanqan. Pruybakunamanta hamp'inikuychis utaq ñawpaq qhawinakuykunata qhawinakuy."
+
+msgid "Access the group tools and resources"
+msgstr "Harp'unakuna rurakunaqwan willakunaqman riy"
+
+msgid "%s members"
+msgstr "%s runakuna"
+
+msgid "View certificate (HTML)"
+msgstr "Yachaywillakuyta qhawiy (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "Kay notakunaman yachayniyta hamp'ay"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "Notakunaq yachaywillakuykunawan yachaykunataq kamachiy"
+
+msgid "Please select a specific badge issue to download"
+msgstr "Yachquy insiginiyta descargakunaykupaq saqillay"
+
+msgid "SCIM is not enabled."
+msgstr "SCIMqa mana kanchu."
+
+msgid "Invalid token."
+msgstr "Manaq saqillasqa token."
+
+msgid "Schema not supported."
+msgstr "Mana rurakunqa schema."
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "PATCH rurakunaykupaq manaq schema."
+
+msgid "Missing required \"Operations\" array."
+msgstr "Kutichisqa \"Operations\" arregloqa mana kanchu."
+
+msgid "The '%s' operation is not supported."
+msgstr "'%s' rurakuna mana rurakun."
+
+msgid "Drupal user ID"
+msgstr "Drupal runa ID"
+
+msgid "There are no terms that match the search: %s"
+msgstr "Manam kay imayna rimanakuna kay qhawarina %swan khuyrakunapaschu"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "Kutichisqa kawsaymanta qhapaq (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "Yachachisqa kaptin, 1:1 qespisqa chat willakuykuna kursopi chat willakuy historia qillqakunapi qispichisqa kan. Kespisqatam qhapaq kaymanta yachachisqa."
+
+msgid "Save private conversations in documents"
+msgstr "Qespisqa willakuykuna qillqakunapi wañuchi"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "EU AI Act – Transparency & risk notice"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "EU Artificial Intelligence Act (Regulation (EU) 2024/1689) suyupi, yachaypi llank'ay AI sistemakuna \"high-risk\" nisqa kasqakunata yachachisqa. Kay programa <strong>mana</strong> AI sistema, ichaqa, kay configurationmanta qhawarinakunata yachachisqa kaptin, optional ichuq yakiw AI sistemakuna qispichisqa kaptin, llank'anaq wasinpi yachachisqa. Kay sistemakuna runakunaq personal data <em>llainamanta</em> runakunaq promptsninpi qillqakunata qispichisqa kaptin. Kay programa designmanta, mana runakunaq active input illamanta AI sistemakunaman personal data qispichisqa. Tukuchiwan, tukuy AI features qhapaq."
+
+msgid "Admin responsibility & disclosures"
+msgstr "Kamachiq responsibility & disclosures"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "Kay configuration p'aginapi, tuytukunaq AI feature yachachisqa. Kamachiq hina, tukuykuna qhaway yachachisqa, GDPR-compliant data privacy policiesni tukuchiy GDPR-compliant data privacy policiesni tukuchiy. Wakin AI features mana directly personal data qispichisqa external sistemakunaman, ichaqa runakunaq prompts AIman qispichisqa personal information includisqa kaptin. Kamachiq hina, <strong>qankuna responsibility</strong> runakunata kay riskmanta yachachispa. Transparency ukupi, future releases non-intrusive end-user tags willakusqa kaptin, sure content uk feedback AI yachachisqa kaptin."
+
+msgid "Positioning"
+msgstr "Phisuy"
+
+msgid "Quiz"
+msgstr "Yachachisqa"
+
+msgid "Customcertificate"
+msgstr "Customcertificate"
+
+msgid "Update profile"
+msgstr "Profile tukuchiy"
+
+msgid "Enable learning path generator"
+msgstr "Learning path generator qhapaq"
+
+msgid "Enable exercise generator"
+msgstr "Exercise generator qhapaq"
+
+msgid "Enable open answers grader"
+msgstr "Open answers grader qhapaq"
+
+msgid "Enable tutor chatbot"
+msgstr "Tutor chatbot qhapaq"
+
+msgid "Enable task grader"
+msgstr "Task grader qhapaq"
+
+msgid "Enable content analyser"
+msgstr "Content analyser qhapaq"
+
+msgid "Enable image generator"
+msgstr "Image generator qhapaq"
+
+msgid "Enable glossary terms generator"
+msgstr "Glossary terms generator qhapaq"
+
+msgid "Enable video generator"
+msgstr "Video generator qhapaq"
+
+msgid "Enable course analyser"
+msgstr "Course analyser qhapaq"
+
+msgid "The operation '%s' is not supported."
+msgstr "'%s' llamk'ay qhapaqchu."
+
+msgid "AI feedback on %s in course %s"
+msgstr "%s kursopi AI feedback"
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr "Wañuchi: kursu context mana karu uk p'akisqa p'akichisqa id."
+
+msgid "AI Tutor"
+msgstr "Yachay Wasi Yachachisqa"
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr "APCu k'anchayniyuqqa platformakunaq usuq yachachinanpaqqa k'anchayniyuqmi karqan karqan."
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr "OPCache RAM %sMB nisqapiq yallinakuyta qhapaq yachachisqa."
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr "OPcache k'anchayniyuqqa platformakunaq usuq yachachinanpaqqa k'anchayniyuqmi karqan karqan."
+
+msgid "You are here"
+msgstr "Kallpachanki"
+
+msgid "Click an event type to filter results."
+msgstr "Rakinniywan phinchakuy rimayninkunata sarp'ay."
+
+msgid "Require unique presence"
+msgstr "Huk rakiyuq presensya qhapaq"
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr "Qhapaq karqanqa, notakuna 100% qhapaq presensya huk kutipunichispa."
+
+msgid "AI feedback"
+msgstr "Yachachisqa willakuy"
+
+msgid "Prompt"
+msgstr "Willakuy"
+
+msgid "Tip"
+msgstr "Yapay"
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr "Willakuyta willakusqaykita qhapaq qillqay."
+
+msgid "Result (you can apply it to the comment)"
+msgstr "Rima (willakuywan qhapaq)"
+
+msgid "Apply to comment"
+msgstr "Willakuywan qhapaq"
+
+msgid "Apply score"
+msgstr "P'akispa qhapaq"
+
+msgid "AI grade"
+msgstr "Yachachisqa p'aki"
+
+msgid "AI tutor is disabled during tests"
+msgstr "Yachay Wasi Yachachisqa pruibakunapi mana qhapaqchu"
+
+msgid "Generate glossary terms"
+msgstr "Rimayniykunata qhapaq"
+
+msgid "Generate media"
+msgstr "Willakuykunata qhapaq"
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr "Kay kursopi Yachachisqa willakuykunata qhapaq qhapaqchu."
+
+msgid "AI helpers are disabled at platform level."
+msgstr "Yachachisqa yanapakuna platforma suyupi mana qhapaqchu."
+
+msgid "AI media generation is disabled in course settings."
+msgstr "Kursopi willakuy qhapaq mana qhapaqchu."
+
+msgid "No AI media providers available."
+msgstr "Mana Yachachisqa willakuy qhapaqkunata."
+
+msgid "Provider"
+msgstr "Qhapaq"
+
+msgid "Select a provider"
+msgstr "Huk qhapaqta suyay"
+
+msgid "Example: generated_media"
+msgstr "Ruruy: qhapaq_willakuy"
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr "Sutiqa willakuywan mana qhapaqchu; sutinta qhawarinaqmi."
+
+msgid "Describe what you want to generate..."
+msgstr "Kayta willakuy qhapaq..."
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr "Yapay: phinchakuy sukanaq huch'allaqta."
+
+msgid "Generating..."
+msgstr "Qhapaq..."
+
+msgid "Save to Documents"
+msgstr "Yachaypi qhawarina"
+
+msgid "Document IRI"
+msgstr "Yachay IRI"
+
+msgid "Go to folder"
+msgstr "Phinchakuy haku"
+
+msgid "Provider used"
+msgstr "Qhapaq"
+
+msgid "This video result cannot be saved yet"
+msgstr "Kay willakuy rimaqa qhawarinaqchu"
+
+msgid "Video polling was stopped because the provider changed."
+msgstr "Willakuy willakuy qhapaq qhapaq qhapaqkunata."
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr "Willakuy qhapaqqa huk pachapi musuqmanta suyay."
+
+msgid "Failed to check video status."
+msgstr "Willakuy hallp'ata mana rurunki."
+
+msgid "Video generated successfully. You can now save it."
+msgstr "Willakuy qhapaq. Kunchay."
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr "Willakuy qhapaq, mana rimaq rimaqchu."
+
+msgid "Video generation failed."
+msgstr "Willakuy qhapaq mana rurunkun."
+
+msgid "Waiting for the video to be ready..."
+msgstr "Willakuy qhapaq..."
+
+msgid "Please complete all fields."
+msgstr "Huk kutipuni kamachiykunata."
+
+msgid "Image generation is not enabled for this course."
+msgstr "Kursopi willakuy qhapaq mana qhapaqchu."
+
+msgid "Video generation is not enabled for this course."
+msgstr "Kursopi willakuy qhapaq mana qhapaqchu."
+
+msgid "Generation failed."
+msgstr "Qhapaq mana rurunkun."
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr "Qhapaq. Qhawarinaq qhawarillakuyta."
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr "Qhapaq. Qhapaq URL nisqawan mana qhapaqchu."
+
+msgid "Video generation started. Waiting for the result..."
+msgstr "Willakuy qhapaq. Riman qhapaq..."
+
+msgid "AI returned an empty response."
+msgstr "Yachachisqa willakuy mana willakuy."
+
+msgid "Nothing to save yet."
+msgstr "Mana imatapis rakiyta atinchu."
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr "Kay provisor base64 contenido mana kutichusqan. Otrun provisor uyariy."
+
+msgid "Saving failed."
+msgstr "Rakiyta atikuy qunqalla."
+
+msgid "Get AI feedback"
+msgstr "AI willakuyta chaskiy"
+
+msgid "Copy answer to clipboard"
+msgstr "Respuesta clipboardman copiy"
+
+msgid "Save answer to my inbox"
+msgstr "Respuesta ñoqap inboxman rakiy"
+
+msgid "The document is already in this folder"
+msgstr "Pukyun kay phupichmanmi kashpan."
+
+msgid "Copied"
+msgstr "Copiyta"
+
+msgid "You do not have permission to generate glossary terms."
+msgstr "Mana querisqayki glosario terminukuna kamachiyta."
+
+msgid "Video generation is in progress"
+msgstr "Video kamachiy ruruy"
+
+msgid "Job"
+msgstr "Kamachiq"
+
+msgid "Modified prompt"
+msgstr "Kutichisqa prompt"
+
+msgid "Saved in Documents"
+msgstr "Yachaykunaqpi rakisqa"
 

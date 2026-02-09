@@ -32,35 +32,71 @@ in_array(
     $url = $reportName = $reportType = $reportOptions = '';
     switch ($report) {
         case 'recentlogins':
-            $url = api_get_path(
-                    WEB_CODE_PATH
-                ).'inc/ajax/statistics.ajax.php?a=recent_logins&session_duration='.$sessionDuration;
+            $url = api_get_path(WEB_CODE_PATH).'inc/ajax/statistics.ajax.php?a=recent_logins&session_duration='.$sessionDuration;
             $reportName = '';
             $reportType = 'line';
             $reportOptions = '';
-            $htmlHeadXtra[] = Statistics::getJSChartTemplate($url, $reportType, $reportOptions);
+
+            $htmlHeadXtra[] = '<style>
+        #recentlogins_chart_wrap{width:100%; height:320px; margin-bottom:20px;}
+        #recentlogins_chart_wrap canvas{width:100% !important; height:100% !important;}
+        #session_time select[name="session_duration"]{width:90px !important; max-width:90px;}
+    </style>';
+
+            // Responsive chart (full width)
+            $htmlHeadXtra[] = Statistics::getJSChartTemplate($url, $reportType, $reportOptions, 'canvas', true);
             break;
         case 'tools':
             $url = api_get_path(WEB_CODE_PATH).'inc/ajax/statistics.ajax.php?a=tools_usage';
             $reportName = 'Tools access';
             $reportType = 'pie';
+            $htmlHeadXtra[] = '<style>
+                #tools_chart_wrap{
+                    max-width: 980px;
+                    margin: 0 auto 20px auto;
+                    height: 420px;
+                    position: relative;
+                }
+                #tools_chart_wrap canvas{
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+                @media (max-width: 768px){
+                    #tools_chart_wrap{ height: 320px; }
+                }
+            </style>';
+
             $reportOptions = '
-                legend: {
-                    position: "left"
-                },
-                title: {
-                    text: "'.get_lang($reportName).'",
-                    display: true
-                },
+                legend: { position: "left" },
+                title: { text: "'.get_lang($reportName).'", display: true },
                 cutoutPercentage: 25
-                ';
-            $htmlHeadXtra[] = Statistics::getJSChartTemplate($url, $reportType, $reportOptions);
+            ';
+            $htmlHeadXtra[] = Statistics::getJSChartTemplate(
+                $url,
+                $reportType,
+                $reportOptions,
+                'canvas',
+                false,
+                '',
+                '',
+                ['circular_scale' => 0.55]
+            );
             break;
         case 'courses':
             $url = api_get_path(WEB_CODE_PATH).'inc/ajax/statistics.ajax.php?a=courses';
             $reportName = 'Courses count';
             $reportType = 'pie';
-            $reportOptions = '
+
+            // Bigger + responsive wrapper for the courses chart
+            $htmlHeadXtra[] = '<style>
+                #courses_chart_wrap{width:100%; height:520px; max-height:70vh; margin-bottom:20px; position:relative;}
+                #courses_chart_wrap canvas{width:100% !important; height:100% !important;}
+                @media (max-width: 992px){
+                    #courses_chart_wrap{height:420px;}
+                }
+            </style>';
+
+                    $reportOptions = '
                 legend: {
                     position: "left"
                 },
@@ -69,24 +105,46 @@ in_array(
                     display: true
                 },
                 cutoutPercentage: 25
-                ';
-            $htmlHeadXtra[] = Statistics::getJSChartTemplate($url, $reportType, $reportOptions);
+            ';
+
+            $htmlHeadXtra[] = Statistics::getJSChartTemplate($url, $reportType, $reportOptions, 'canvas', true);
             break;
         case 'coursebylanguage':
             $url = api_get_path(WEB_CODE_PATH).'inc/ajax/statistics.ajax.php?a=courses_by_language';
             $reportName = 'Courses count by language';
             $reportType = 'pie';
+            $htmlHeadXtra[] = '<style>
+                #coursebylanguage_chart_wrap{
+                    max-width: 1100px;
+                    margin: 0 auto 20px auto;
+                    height: 520px;
+                    position: relative;
+                }
+                #coursebylanguage_chart_wrap canvas{
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+                @media (max-width: 992px){
+                    #coursebylanguage_chart_wrap{ height: 420px; }
+                }
+                @media (max-width: 768px){
+                    #coursebylanguage_chart_wrap{ height: 320px; }
+                }
+            </style>';
             $reportOptions = '
+                responsive: true,
+                maintainAspectRatio: false,
                 legend: {
-                    position: "left"
+                    position: "top"
                 },
                 title: {
                     text: "'.get_lang($reportName).'",
                     display: true
                 },
                 cutoutPercentage: 25
-                ';
-            $htmlHeadXtra[] = Statistics::getJSChartTemplate($url, $reportType, $reportOptions);
+            ';
+
+            $htmlHeadXtra[] = Statistics::getJSChartTemplate($url, $reportType, $reportOptions, 'canvas', true);
             break;
         case 'users':
             $invisible = isset($_GET['count_invisible_courses']) ? intval($_GET['count_invisible_courses']) : null;
@@ -207,6 +265,72 @@ in_array(
 
             $form->addHidden('report', 'session_by_date');
             $form->addButtonSearch(get_lang('Search'));
+            $htmlHeadXtra[] = '<style>
+                .sbd-filters{
+                    max-width: 760px;
+                    margin: 0 0 16px 0;
+                }
+
+                .sbd-cards{
+                    display: grid;
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                    gap: 16px;
+                    margin: 14px 0 18px 0;
+                }
+                @media (max-width: 992px){
+                    .sbd-cards{ grid-template-columns: 1fr; }
+                }
+
+                .sbd-card{
+                    background: #fff;
+                    border: 1px solid rgba(0,0,0,.08);
+                    border-radius: 12px;
+                    padding: 12px;
+                    box-shadow: 0 1px 2px rgba(0,0,0,.03);
+                }
+
+                .sbd-card h4{
+                    margin: 0 0 10px 0;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-align: center;
+                }
+
+                .sbd-chart-wrap{
+                    width: 100%;
+                    height: 320px;
+                    position: relative;
+                }
+                @media (max-width: 768px){
+                    .sbd-chart-wrap{ height: 260px; }
+                }
+
+                .sbd-chart-wrap canvas{
+                    width: 100% !important;
+                    height: 100% !important;
+                    display: block;
+                }
+
+                .sbd-table-responsive{
+                    width: 100%;
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+
+                .sbd-table-responsive table{
+                    min-width: 780px;
+                }
+
+                .sbd-mini-table table{
+                    width: 100% !important;
+                    margin: 0 !important;
+                }
+                .sbd-mini-table td, .sbd-mini-table th{
+                    padding: 6px 8px !important;
+                    vertical-align: top;
+                    white-space: normal !important;
+                }
+            </style>';
 
             $validated = $form->validate() || isset($_REQUEST['range']);
             if ($validated) {
@@ -230,7 +354,7 @@ in_array(
                     $dateEnd = Security::remove_XSS($_REQUEST['range_end']);
                 }
 
-                $statusId = (int) $_REQUEST['status_id'];
+                $statusId = (int) ($_REQUEST['status_id'] ?? 0);
 
                 $conditions = "&date_start=$dateStart&date_end=$dateEnd&status=$statusId";
 
@@ -297,7 +421,7 @@ in_array(
                         callbacks: {
                             label: function(tooltipItem, data) {
                                 var dataset = data.datasets[tooltipItem.datasetIndex];
-                                var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                                var total = dataset.data.reduce(function(previousValue, currentValue) {
                                     return previousValue + currentValue;
                                 });
 
@@ -419,15 +543,57 @@ switch ($report) {
                 ]
             ];
 
+            $chartOptions = '
+                title: { text: "'.get_lang('Subscriptions vs unsubscriptions, by day').'", display: true },
+                legend: { position: "top" },
+                tooltips: { mode: "index", intersect: false },
+                hover: { mode: "index", intersect: false },
+                scales: {
+                    xAxes: [{
+                        ticks: { autoSkip: true, maxTicksLimit: 10, maxRotation: 45, minRotation: 0 },
+                        gridLines: { display: false }
+                    }],
+                    yAxes: [{
+                        ticks: { beginAtZero: true, precision: 0 }
+                    }],
+
+                    x: {
+                        ticks: { autoSkip: true, maxTicksLimit: 10, maxRotation: 45, minRotation: 0 },
+                        grid: { display: false }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { precision: 0 }
+                    }
+                }
+            ';
+
             $htmlHeadXtra[] = Statistics::getJSChartTemplateWithData(
                 $chartData,
                 'bar',
-                'title: { text: "'.get_lang('Subscriptions vs unsubscriptions, by day').'", display: true }',
+                $chartOptions,
                 'subscriptions_chart',
                 true
             );
 
-            $content .= '<canvas id="subscriptions_chart"></canvas>';
+            $htmlHeadXtra[] = '<style>
+                #subscriptions_chart_wrap{
+                    width: 100%;
+                    height: 360px;
+                    max-height: 60vh;
+                    margin: 12px 0 20px;
+                    position: relative;
+                }
+                #subscriptions_chart_wrap canvas{
+                    width: 100% !important;
+                    height: 100% !important;
+                    display: block;
+                }
+                @media (max-width: 768px){
+                    #subscriptions_chart_wrap{ height: 280px; }
+                }
+            </style>';
+            $content .= '<div id="subscriptions_chart_wrap"><canvas id="subscriptions_chart"></canvas></div>';
             $table = new HTML_Table(['class' => 'table table-hover table-striped table-bordered data_table']);
 
             $table->setHeaderContents(0, 0, get_lang('Date'));
@@ -467,7 +633,6 @@ switch ($report) {
             $start = Database::escape_string($dateStart);
             $end = Database::escape_string($dateEnd);
 
-            // User count
             $tableSession = Database::get_main_table(TABLE_MAIN_SESSION);
             $tableSessionRelUser = Database::get_main_table(TABLE_MAIN_SESSION_USER);
             $sql = "SELECT * FROM $tableSession
@@ -487,7 +652,7 @@ switch ($report) {
             }
 
             $content .= Display::page_subheader2(get_lang('Global statistics'));
-            // Coach.
+
             $sql = "SELECT COUNT(DISTINCT(sru.user_id)) count
                     FROM $tableSession s
                     INNER JOIN $tableSessionRelUser sru
@@ -502,15 +667,13 @@ switch ($report) {
             $row = Database::fetch_array($result);
             $uniqueCoaches = $row['count'];
 
-            // Categories
             $sql = "SELECT count(id) count, session_category_id FROM $tableSession
                     WHERE
                         (display_start_date BETWEEN '$start' AND '$end' OR
                         display_end_date BETWEEN '$start' AND '$end')
-                        $statusCondition;
+                        $statusCondition
                     GROUP BY session_category_id
                     ";
-
             $result = Database::query($sql);
             $sessionPerCategories = [];
             while ($row = Database::fetch_array($result)) {
@@ -543,7 +706,7 @@ switch ($report) {
                 }
             }
 
-            $table = new HTML_Table(['class' => 'table table-responsive']);
+            $table = new HTML_Table(['class' => 'table table-hover table-striped table-bordered']);
             $row = 0;
             $table->setCellContents($row, 0, get_lang('Weeks'));
             $table->setCellContents($row, 1, $numberOfWeeks);
@@ -565,15 +728,15 @@ switch ($report) {
             $table->setCellContents($row, 1, $averageCoach);
             $row++;
 
-            $content .= $table->toHtml();
-
-            $content .= '<div class="grid grid-cols-3 gap-4">';
-            $content .= '<div><h4 class="text-center" id="canvas1_title"></h4><div id="canvas1_table"></div></div>';
-            $content .= '<div><h4 class="text-center" id="canvas2_title"></h4><div id="canvas2_table"></div></div>';
-            $content .= '<div><h4 class="text-center" id="canvas3_title"></h4><div id="canvas3_table"></div></div>';
+            $content .= '<div class="sbd-table-responsive">'.$table->toHtml().'</div>';
+            $content .= '<div class="sbd-cards">';
+            $content .= '  <div class="sbd-card sbd-mini-table"><h4 id="canvas1_title"></h4><div id="canvas1_table"></div></div>';
+            $content .= '  <div class="sbd-card sbd-mini-table"><h4 id="canvas2_title"></h4><div id="canvas2_table"></div></div>';
+            $content .= '  <div class="sbd-card sbd-mini-table"><h4 id="canvas3_title"></h4><div id="canvas3_table"></div></div>';
             $content .= '</div>';
 
-            $tableCourse = new HTML_Table(['class' => 'table table-responsive']);
+            // Courses table
+            $tableCourse = new HTML_Table(['class' => 'table table-hover table-striped table-bordered']);
             $headers = [
                 get_lang('Course'),
                 get_lang('Sessions count'),
@@ -591,26 +754,26 @@ switch ($report) {
                 arsort($courseSessions);
                 foreach ($courseSessions as $courseId => $count) {
                     $courseInfo = api_get_course_info_by_id($courseId);
-                    $tableCourse->setCellContents($row, 0, $courseInfo['name']);
-                    $tableCourse->setCellContents($row, 1, $count);
+                    $courseName = htmlspecialchars((string) ($courseInfo['name'] ?? ''), ENT_QUOTES, 'UTF-8');
+                    $tableCourse->setCellContents($row, 0, $courseName);
+                    $tableCourse->setCellContents($row, 1, (int) $count);
                     $row++;
                 }
             }
 
-            $content .= $tableCourse->toHtml();
-
-            $content .= '<div class="grid grid-cols-3 gap-4">';
-            $content .= '<div><canvas id="canvas1" class="mb-5"></canvas></div>';
-            $content .= '<div><canvas id="canvas2" class="mb-5"></canvas></div>';
-            $content .= '<div><canvas id="canvas3" class="mb-5"></canvas></div>';
+            $content .= '<div class="sbd-table-responsive">'.$tableCourse->toHtml().'</div>';
+            $content .= '<div class="sbd-cards">';
+            $content .= '  <div class="sbd-card"><div class="sbd-chart-wrap"><canvas id="canvas1"></canvas></div></div>';
+            $content .= '  <div class="sbd-card"><div class="sbd-chart-wrap"><canvas id="canvas2"></canvas></div></div>';
+            $content .= '  <div class="sbd-card"><div class="sbd-chart-wrap"><canvas id="canvas3"></canvas></div></div>';
             $content .= '</div>';
 
-            $content .= '<div class="grid grid-cols-1">';
-            $content .= '<div><canvas id="canvas4" class="mb-5"></canvas></div>';
+            $content .= '<div class="sbd-card">';
+            $content .= '  <div class="sbd-chart-wrap" style="height:420px;"><canvas id="canvas4"></canvas></div>';
             $content .= '</div>';
         }
 
-        $table = new HTML_Table(['class' => 'table table-responsive']);
+        $table = new HTML_Table(['class' => 'table table-hover table-striped table-bordered data_table']);
         $headers = [
             get_lang('Name'),
             get_lang('Start date'),
@@ -628,28 +791,26 @@ switch ($report) {
         $row++;
 
         foreach ($sessions as $session) {
-            $courseList = SessionManager::getCoursesInSession($session['id']);
-            $table->setCellContents($row, 0, $session['title']);
+            $table->setCellContents($row, 0, htmlspecialchars((string) ($session['title'] ?? ''), ENT_QUOTES, 'UTF-8'));
             $table->setCellContents($row, 1, api_get_local_time($session['display_start_date']));
             $table->setCellContents($row, 2, api_get_local_time($session['display_end_date']));
 
-            // Get first language.
             $language = '';
             $courses = SessionManager::getCoursesInSession($session['id']);
             if (!empty($courses)) {
                 $courseId = $courses[0];
                 $courseInfo = api_get_course_info_by_id($courseId);
-                $language = $courseInfo['language'];
-                $language = get_lang(ucfirst(str_replace(2, '', $language)));
+                $language = (string) ($courseInfo['language'] ?? '');
+                $language = get_lang(ucfirst(str_replace('2', '', $language)));
             }
-            $table->setCellContents($row, 3, $language);
+            $table->setCellContents($row, 3, htmlspecialchars((string) $language, ENT_QUOTES, 'UTF-8'));
             $table->setCellContents($row, 4, SessionManager::getStatusLabel($session['status']));
             $studentsCount = SessionManager::get_users_by_session($session['id'], 0, true);
-            $table->setCellContents($row, 5, $studentsCount);
+            $table->setCellContents($row, 5, (int) $studentsCount);
             $row++;
         }
 
-        $content .= $table->toHtml();
+        $content .= '<div class="sbd-table-responsive">'.$table->toHtml().'</div>';
 
         if (isset($_REQUEST['action']) && 'export' === $_REQUEST['action']) {
             $data = $table->toArray();
@@ -672,7 +833,7 @@ switch ($report) {
             );
         }
 
-        $content = $form->returnForm().$content.$link;
+        $content = '<div class="sbd-filters">'.$form->returnForm().'</div>'.$content.$link;
 
         break;
     case 'user_session':
@@ -692,9 +853,12 @@ switch ($report) {
             $start = $values['range_start'];
             $end = $values['range_end'];
         }
+
         $content .= $form->returnForm();
+        $content .= '<div class="clearfix"></div>';
 
         $url = api_get_path(WEB_AJAX_PATH).'statistics.ajax.php?a=get_user_session&start='.$start.'&end='.$end;
+
         $columns = [
             'URL',
             get_lang('Session'),
@@ -703,43 +867,69 @@ switch ($report) {
         ];
 
         $columnModel = [
-            [
-                'name' => 'url',
-                'index' => 'url',
-                'width' => '120',
-                'align' => 'left',
-            ],
-            [
-                'name' => 'session',
-                'index' => 'session',
-                'width' => '180',
-                'align' => 'left',
-                'sortable' => 'false',
-            ],
-            [
-                'name' => 'course',
-                'index' => 'course',
-                'width' => '100',
-                'align' => 'left',
-                'sortable' => 'false',
-            ],
-            [
-                'name' => 'count',
-                'index' => 'count',
-                'width' => '50',
-                'align' => 'left',
-                'sortable' => 'false',
-            ],
+            ['name' => 'url',     'index' => 'url',     'width' => 160, 'align' => 'left'],
+            ['name' => 'session', 'index' => 'session', 'width' => 300, 'align' => 'left', 'sortable' => 'false'],
+            ['name' => 'course',  'index' => 'course',  'width' => 300, 'align' => 'left', 'sortable' => 'false'],
+            ['name' => 'count',   'index' => 'count',   'width' => 140, 'align' => 'left', 'sortable' => 'false'],
         ];
-        $extraParams['autowidth'] = 'true'; //use the width of the parent
-        $extraParams['height'] = 'auto'; //use the width of the parent
+
+        $extraParams = [];
+        $extraParams['autowidth'] = true;
+        $extraParams['height'] = 'auto';
+        $extraParams['shrinkToFit'] = true;
+        $extraParams['forceFit'] = false;
+        $extraParams['gridview'] = true;
+
         $actionLinks = '';
+
+        $gridId = 'user_session_grid';
+        $wrapperId = $gridId.'_wrapper';
+
+        $content .= '
+            <style>
+              #'.$wrapperId.'{
+                width: 100%;
+                max-width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                box-sizing: border-box;
+              }
+              #'.$wrapperId.' #gbox_'.$gridId.',
+              #'.$wrapperId.' #gview_'.$gridId.',
+              #'.$wrapperId.' .ui-jqgrid,
+              #'.$wrapperId.' .ui-jqgrid-view,
+              #'.$wrapperId.' .ui-jqgrid-hdiv,
+              #'.$wrapperId.' .ui-jqgrid-bdiv{
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box;
+              }
+              #'.$wrapperId.' table.ui-jqgrid-btable,
+              #'.$wrapperId.' table.ui-jqgrid-htable{
+                width: 100% !important;
+                table-layout: fixed;
+              }
+              #'.$wrapperId.' .ui-jqgrid .jqgrow td{
+                white-space: normal !important;
+                overflow-wrap: anywhere;
+                word-break: break-word;
+                height: auto;
+              }
+              #'.$wrapperId.' .ui-jqgrid-htable th div{
+                white-space: normal !important;
+                height: auto;
+              }
+            </style>
+            <div id="'.$wrapperId.'">
+              '.Display::grid_html($gridId).'
+            </div>
+            ';
 
         $content .= '
         <script>
             $(function() {
                 '.Display::grid_js(
-                'user_session_grid',
+                $gridId,
                 $url,
                 $columns,
                 $columnModel,
@@ -747,9 +937,63 @@ switch ($report) {
                 [],
                 $actionLinks,
                 true
-            ).';
+            ).'
 
-                jQuery("#user_session_grid").jqGrid("navGrid","#user_session_grid_pager",{
+                var $grid = jQuery("#'.$gridId.'");
+                var $wrap = jQuery("#'.$wrapperId.'");
+
+                function getTargetWidth() {
+                    // Prefer the wrapper width, fallback to the closest content container.
+                    var w = $wrap.width();
+
+                    if (!w || w < 50) {
+                        w = $wrap.parent().width();
+                    }
+
+                    var $content = $wrap.closest("#content, #main_content, .page-content, .container, body");
+                    if ($content.length) {
+                        w = Math.max(w, $content.width());
+                    }
+
+                    // Avoid going beyond viewport (small margin).
+                    var vw = jQuery(window).width();
+                    if (vw && vw > 0) {
+                        w = Math.min(w, vw - 30);
+                    }
+
+                    return w;
+                }
+
+                function resizeGrid() {
+                  if (!$grid.length) return;
+
+                  var w = $wrap[0].clientWidth || $wrap.width();
+                  var vw = window.innerWidth || jQuery(window).width();
+
+                  w = Math.min(w, vw - 24);
+
+                  if (w > 0) {
+                    $grid.jqGrid("setGridWidth", w, true);
+                  }
+                }
+
+                // Initial + delayed resizes (layout can change after render)
+                resizeGrid();
+                setTimeout(resizeGrid, 50);
+                setTimeout(resizeGrid, 250);
+
+                // Resize on window events
+                jQuery(window).on("resize", function () {
+                    window.requestAnimationFrame(resizeGrid);
+                });
+
+                // Also resize after full page load (CSS/fonts can alter widths)
+                jQuery(window).on("load", function () {
+                    resizeGrid();
+                    setTimeout(resizeGrid, 50);
+                });
+
+                $grid.jqGrid("navGrid", "#'.$gridId.'_pager", {
                     view:false,
                     edit:false,
                     add:false,
@@ -758,32 +1002,35 @@ switch ($report) {
                     excel:true
                 });
 
-                jQuery("#user_session_grid").jqGrid("navButtonAdd","#user_session_grid_pager", {
+                $grid.jqGrid("navButtonAdd", "#'.$gridId.'_pager", {
                     caption:"",
                     onClickButton : function () {
-                        jQuery("#user_session_grid").jqGrid("excelExport",{"url":"'.$url.'&export_format=xls"});
+                        $grid.jqGrid("excelExport", {"url":"'.$url.'&export_format=xls"});
                     }
                 });
             });
-        </script>';
-
-        $content .= Display::grid_html('user_session_grid');
+        </script>
+    ';
 
         break;
     case 'courses':
         $courseCategoryRepo = Container::getCourseCategoryRepository();
         $categories = $courseCategoryRepo->findAll();
-        $content .= '<canvas class="col-md-12" id="canvas" height="300px" style="margin-bottom: 20px"></canvas>';
-        // total amount of courses
+
+        // Use a wrapper div to control the final chart size
+        $content .= '<div id="courses_chart_wrap"><canvas id="canvas"></canvas></div>';
+
+        // Total amount of courses per category (table below the chart)
+        $courses = [];
         foreach ($categories as $category) {
             /* @var Chamilo\CoreBundle\Entity\CourseCategory $category */
             $courses[$category->getTitle()] = $category->getCourses()->count();
         }
-        // courses for each course category
-        $content .= Statistics::printStats(get_lang('Courses'), $courses);
+
+        $content .= Statistics::printStats(get_lang('Courses'), $courses, false);
         break;
     case 'tools':
-        $content .= '<canvas class="col-md-12" id="canvas" height="300px" style="margin-bottom: 20px"></canvas>';
+        $content .= '<div id="tools_chart_wrap"><canvas id="canvas"></canvas></div>';
         $content .= Statistics::printToolStats();
         break;
     case 'tool_usage':
@@ -847,9 +1094,9 @@ switch ($report) {
         }
         break;
     case 'coursebylanguage':
-        $content .= '<canvas class="col-md-12" id="canvas" height="300px" style="margin-bottom: 20px"></canvas>';
+        $content .= '<div id="coursebylanguage_chart_wrap"><canvas id="canvas"></canvas></div>';
         $result = Statistics::printCourseByLanguageStats();
-        $content .= Statistics::printStats(get_lang('Number of courses by language'), $result, true);
+        $content .= Statistics::printStats(get_lang('Number of courses by language'), $result, false);
         break;
     case 'courselastvisit':
         $content .= Statistics::printCourseLastVisit();
@@ -1456,135 +1703,100 @@ switch ($report) {
 
         break;
     case 'users_online':
-        $table = Database::get_main_table(TABLE_STATISTIC_TRACK_E_ATTEMPT);
+        $attemptTable = Database::get_main_table(TABLE_STATISTIC_TRACK_E_ATTEMPT);
         $intervals = [3, 5, 30, 120];
-        $counts = [];
+
+        // Build counts for "users online" (general activity) and "users active in a test" (attempts table).
+        $onlineCounts = [];
+        $testCounts = [];
+
         foreach ($intervals as $minutes) {
-            $sql = "SELECT count(distinct(user_id))
-                FROM $table WHERE
-                DATE_ADD(tms, INTERVAL '$minutes' MINUTE) > UTC_TIMESTAMP()";
+            $minutes = (int) $minutes;
+
+            // "Users online" (existing helper).
+            $onlineCounts[$minutes] = (int) getOnlineUsersCount($minutes);
+
+            // "Users active in a test" (attempts in the last X minutes).
+            $sql = "SELECT COUNT(DISTINCT(user_id)) AS c
+                FROM $attemptTable
+                WHERE DATE_ADD(tms, INTERVAL $minutes MINUTE) > UTC_TIMESTAMP()";
+
             $query = Database::query($sql);
-            $counts[$minutes] = 0;
-            if (Database::num_rows($query) > 0) {
-                $row = Database::fetch_array($query);
-                $counts[$minutes] = $row[0];
+            $testCounts[$minutes] = 0;
+
+            if (false !== $query && Database::num_rows($query) > 0) {
+                $row = Database::fetch_array($query, 'ASSOC');
+                $testCounts[$minutes] = (int) ($row['c'] ?? 0);
             }
         }
-        $content = '<div class="pull-left">'.get_lang('Users online').'</div>
-        <div class="pull-right">'.api_get_local_time().'</div>
-        <hr />
-        <div class="tracking-course-summary">
-            <div class="row">
-                <div class="col-lg-3 col-sm-3">
-                    <div class="panel panel-default tracking tracking-exercise">
-                        <div class="panel-body">
-                            <span class="tracking-icon">
-                                <i class="fa fa-thermometer-4" aria-hidden="true"></i>
-                            </span>
-                            <div class="tracking-info">
-                                <div class="tracking-text">'.get_lang('Users online').' (3\')</div>
-                                <div class="tracking-number">'.getOnlineUsersCount(3).'</div>
-                            </div>
-                        </div>
+
+        $now = api_get_local_time();
+
+        $renderCard = static function (string $label, int $value, string $iconClass): string {
+            $labelEsc = htmlspecialchars($label, ENT_QUOTES, 'UTF-8');
+            $valueEsc = (int) $value;
+
+            return '
+            <div class="rounded-xl border border-gray-20 bg-white p-4 shadow-sm">
+                <div class="flex items-center gap-3">
+                    <div class="shrink-0 w-10 h-10 rounded-lg bg-gray-10 flex items-center justify-center">
+                        <i class="'.$iconClass.'" aria-hidden="true"></i>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-3">
-                    <div class="panel panel-default tracking tracking-certificate">
-                        <div class="panel-body">
-                            <span class="tracking-icon">
-                                <i class="fa fa-thermometer-3" aria-hidden="true"></i>
-                            </span>
-                            <div class="tracking-info">
-                                <div class="tracking-text">'.get_lang('Users online').' (5\')</div>
-                                <div class="tracking-number">'.getOnlineUsersCount(5).'</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-3">
-                    <div class="panel panel-default tracking tracking-lessons">
-                        <div class="panel-body">
-                            <span class="tracking-icon">
-                                <i class="fa fa-thermometer-2" aria-hidden="true"></i>
-                            </span>
-                            <div class="tracking-info">
-                                <div class="tracking-text">'.get_lang('Users online').' (30\')</div>
-                                <div class="tracking-number">'.getOnlineUsersCount(30).'</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-3">
-                    <div class="panel panel-default tracking tracking-student">
-                        <div class="panel-body">
-                            <span class="tracking-icon">
-                                <i class="fa fa-thermometer-1" aria-hidden="true"></i>
-                            </span>
-                            <div class="tracking-info">
-                                <div class="tracking-text">'.get_lang('Users online').' (120\')</div>
-                                <div class="tracking-number">'.getOnlineUsersCount(120).'</div>
-                            </div>
-                        </div>
+                    <div class="min-w-0">
+                        <div class="text-sm text-gray-60">'.$labelEsc.'</div>
+                        <div class="text-2xl font-semibold text-gray-90">'.$valueEsc.'</div>
                     </div>
                 </div>
             </div>
-        <div class="pull-left">'.get_lang('Users active in a test').'</div>
-        <hr />
-        <div class="row">
-            <div class="col-lg-3 col-sm-3">
-                <div class="panel panel-default tracking tracking-exercise">
-                    <div class="panel-body">
-                        <span class="tracking-icon">
-                            <i class="fa fa-thermometer-4" aria-hidden="true"></i>
-                        </span>
-                        <div class="tracking-info">
-                            <div class="tracking-text">(3\')</div>
-                            <div class="tracking-number">'.$counts[3].'</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-3">
-                <div class="panel panel-default tracking tracking-certificate">
-                    <div class="panel-body">
-                        <span class="tracking-icon">
-                            <i class="fa fa-thermometer-3" aria-hidden="true"></i>
-                        </span>
-                        <div class="tracking-info">
-                            <div class="tracking-text">(5\')</div>
-                            <div class="tracking-number">'.$counts[5].'</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-3">
-                <div class="panel panel-default tracking tracking-lessons">
-                    <div class="panel-body">
-                        <span class="tracking-icon">
-                            <i class="fa fa-thermometer-2" aria-hidden="true"></i>
-                        </span>
-                        <div class="tracking-info">
-                            <div class="tracking-text">(30\')</div>
-                            <div class="tracking-number">'.$counts[30].'</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <div class="col-lg-3 col-sm-3">
-                <div class="panel panel-default tracking tracking-student">
-                    <div class="panel-body">
-                        <span class="tracking-icon">
-                            <i class="fa fa-thermometer-1" aria-hidden="true"></i>
-                        </span>
-                        <div class="tracking-info">
-                            <div class="tracking-text">(120\')</div>
-                            <div class="tracking-number">'.$counts[120].'</div>
-                        </div>
-                    </div>
-                </div>
+        ';
+        };
+
+        $cardsOnline = '';
+        $cardsTest = '';
+
+        // Use distinct icons per interval (optional, but looks nicer).
+        $icons = [
+            3   => 'fa fa-bolt',
+            5   => 'fa fa-thermometer-4',
+            30  => 'fa fa-thermometer-2',
+            120 => 'fa fa-clock-o',
+        ];
+
+        foreach ($intervals as $minutes) {
+            $minutes = (int) $minutes;
+            $suffix = ' ('.$minutes.'&prime;)';
+
+            $cardsOnline .= $renderCard(
+                get_lang('Users online').$suffix,
+                $onlineCounts[$minutes] ?? 0,
+                $icons[$minutes] ?? 'fa fa-user'
+            );
+
+            $cardsTest .= $renderCard(
+                get_lang('Users active in a test').$suffix,
+                $testCounts[$minutes] ?? 0,
+                $icons[$minutes] ?? 'fa fa-pencil'
+            );
+        }
+
+        $content = '
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-semibold text-gray-90">'.get_lang('Users online').'</h2>
+                <div class="text-sm text-gray-60">'.htmlspecialchars((string) $now, ENT_QUOTES, "UTF-8").'</div>
             </div>
 
-        </div>';
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                '.$cardsOnline.'
+            </div>
+
+            <h3 class="text-lg font-semibold text-gray-90 mb-4">'.get_lang('Users active in a test').'</h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                '.$cardsTest.'
+            </div>
+        </div>
+    ';
         break;
     case 'new_user_registrations':
         $form = new FormValidator('new_user_registrations', 'get', api_get_self());
@@ -1738,7 +1950,8 @@ switch ($report) {
             [
                 get_lang('Trainers') => Statistics::countUsers(COURSEMANAGER, null, $countInvisible),
                 get_lang('Learners') => Statistics::countUsers(STUDENT, null, $countInvisible),
-            ]
+            ],
+            false
         );
         $courseCategoryRepo = Container::getCourseCategoryRepository();
         $categories = $courseCategoryRepo->findAll();
@@ -1751,26 +1964,38 @@ switch ($report) {
             $students[$name] = Statistics::countUsers(STUDENT, $code, $countInvisible);
         }
         // docents for each course category
-        $content .= Statistics::printStats(get_lang('Trainers'), $teachers);
+        $content .= Statistics::printStats(get_lang('Trainers'), $teachers, false);
         // students for each course category
-        $content .= Statistics::printStats(get_lang('Learners'), $students);
+        $content .= Statistics::printStats(get_lang('Learners'), $students, false);
         break;
     case 'recentlogins':
-        $content .= '<h2>'.sprintf(get_lang('Last %s days'), '15').'</h2>';
+        $content .= '<h2 style="margin-bottom:18px;">'.sprintf(get_lang('Last %s days'), '15').'</h2>';
+
         $form = new FormValidator(
             'session_time',
             'get',
             api_get_self().'?report=recentlogins&session_duration='.$sessionDuration
         );
+
         $sessionTimeList = ['', 5 => 5, 15 => 15, 30 => 30, 60 => 60];
-        $form->addSelect('session_duration', [get_lang('Session min duration'), get_lang('Minutes')], $sessionTimeList);
+
+        $form->addSelect(
+            'session_duration',
+            [get_lang('Session min duration'), get_lang('Minutes')],
+            $sessionTimeList,
+            ['style' => 'width:90px; max-width:90px; display:inline-block;']
+        );
+
         $form->addButtonSend(get_lang('Filter'));
         $form->addHidden('report', 'recentlogins');
+
         $content .= $form->returnForm();
 
-        $content .= '<canvas class="col-md-12" id="canvas" height="200px" style="margin-bottom: 20px"></canvas>';
-        $content .= Statistics::printRecentLoginStats(false, $sessionDuration?:0);
-        $content .= Statistics::printRecentLoginStats(true, $sessionDuration?:0);
+        // Full width responsive chart
+        $content .= '<div id="recentlogins_chart_wrap"><canvas id="canvas"></canvas></div>';
+
+        $content .= Statistics::printRecentLoginStats(false, $sessionDuration ?: 0);
+        $content .= Statistics::printRecentLoginStats(true, $sessionDuration ?: 0);
         break;
     case 'logins':
         $content .= Statistics::printLoginStats($_GET['type']);
@@ -1789,179 +2014,215 @@ switch ($report) {
         break;
     case 'messagesent':
         $messages_sent = Statistics::getMessages('sent');
-        $content .= Statistics::printStats(get_lang('Number of messages sent'), $messages_sent);
+        $content .= Statistics::printStats(get_lang('Number of messages sent'), $messages_sent, false);
         break;
     case 'messagereceived':
         $messages_received = Statistics::getMessages('received');
-        $content .= Statistics::printStats(get_lang('Number of messages received'), $messages_received);
+        $content .= Statistics::printStats(get_lang('Number of messages received'), $messages_received, false);
         break;
     case 'friends':
         // total amount of friends
         $friends = Statistics::getFriends();
-        $content .= Statistics::printStats(get_lang('Contacts count'), $friends);
+        $content .= Statistics::printStats(get_lang('Contacts count'), $friends, false);
         break;
     case 'logins_by_date':
         $content .= Statistics::printLoginsByDate();
         break;
     case 'quarterly_report':
         global $htmlHeadXtra;
-        $ajaxPath = api_get_path(WEB_AJAX_PATH);
+
+        $ajaxEndpoint = api_get_path(WEB_AJAX_PATH).'statistics.ajax.php';
         $waitIcon = Display::getMdiIcon('clock-time-four', 'ch-tool-icon-disabled', null, ICON_SIZE_SMALL, false);
-        $htmlHeadXtra[] .= '<script>
-                function loadReportQuarterlyUsers () {
-                    $("#tracking-report-quarterly-users")
-                        .html(\'<p>'.$waitIcon.'</p>\')
-                        .load("'.$ajaxPath.'statistics.ajax.php?a=report_quarterly_users'.'");
-            }</script>';
-        $htmlHeadXtra[] .= '<script>
-                function loadReportQuarterlyCourses () {
-                    $("#tracking-report-quarterly-courses")
-                        .html(\'<p>'.$waitIcon.'</p>\')
-                        .load("'.$ajaxPath.'statistics.ajax.php?a=report_quarterly_courses'.'");
-            }</script>';
-        $htmlHeadXtra[] .= '<script>
-                function loadReportQuarterlyHoursOfTraining () {
-                    $("#tracking-report-quarterly-hours-of-training")
-                        .html(\'<p>'.$waitIcon.'</p>\')
-                        .load("'.$ajaxPath.'statistics.ajax.php?a=report_quarterly_hours_of_training'.'");
-            }</script>';
-        $htmlHeadXtra[] .= '<script>
-                function loadReportQuarterlyCertificatesGenerated () {
-                    $("#tracking-report-quarterly-number-of-certificates-generated")
-                        .html(\'<p>'.$waitIcon.'</p>\')
-                        .load("'.$ajaxPath.'statistics.ajax.php?a=report_quarterly_number_of_certificates_generated'.'");
-            }</script>';
-        $htmlHeadXtra[] .= '<script>
-                function loadReportQuarterlySessionsByDuration () {
-                    $("#tracking-report-quarterly-sessions-by-duration")
-                        .html(\'<p>'.$waitIcon.'</p>\')
-                        .load("'.$ajaxPath.'statistics.ajax.php?a=report_quarterly_sessions_by_duration'.'");
-            }</script>';
-        $htmlHeadXtra[] .= '<script>
-                function loadReportQuarterlyCoursesAndSessions () {
-                    $("#tracking-report-quarterly-courses-and-sessions")
-                        .html(\'<p>'.$waitIcon.'</p>\')
-                        .load("'.$ajaxPath.'statistics.ajax.php?a=report_quarterly_courses_and_sessions'.'");
-            }</script>';
-        if (api_get_current_access_url_id() === 1) {
-            $htmlHeadXtra[] .= '<script>
-                function loadReportQuarterlyTotalDiskUsage () {
-                    $("#tracking-report-quarterly-total-disk-usage")
-                        .html(\'<p>'.$waitIcon.'</p>\')
-                        .load("'.$ajaxPath.'statistics.ajax.php?a=report_quarterly_total_disk_usage'.'");
-            }</script>';
-        }
-        $content .= Display::tag('H4', get_lang('Number of users registered and connected'), ['style' => 'margin-bottom: 25px;']);
-        $content .= Display::url(
-            get_lang('Show'),
-            'javascript://',
-            ['onclick' => 'loadReportQuarterlyUsers();', 'class' => 'btn btn-default']
-        );
-        $content .= Display::div('', ['id' => 'tracking-report-quarterly-users', 'style' => 'margin: 30px;']);
-        $content .= Display::tag('H4', get_lang('Number of existing and available courses'), ['style' => 'margin-bottom: 25px;']);
-        $content .= Display::url(
-            get_lang('Show'),
-            'javascript://',
-            ['onclick' => 'loadReportQuarterlyCourses();', 'class' => 'btn btn-default']
-        );
-        $content .= Display::div('', ['id' => 'tracking-report-quarterly-courses', 'style' => 'margin: 30px;']);
-        $content .= Display::tag('H4', get_lang('Hours of training'), ['style' => 'margin-bottom: 25px;']);
-        $content .= Display::url(
-            get_lang('Show'),
-            'javascript://',
-            ['onclick' => 'loadReportQuarterlyHoursOfTraining();', 'class' => 'btn btn-default']
-        );
-        $content .= Display::div(
-            '',
+
+        // Build the report cards in one place (easy to extend/maintain).
+        $cards = [
             [
-                'id' => 'tracking-report-quarterly-hours-of-training',
-                'style' => 'margin: 30px;',
-            ]
-        );
-        $content .= Display::tag(
-            'H4',
-            get_lang('Number of certificates generated'),
-            ['style' => 'margin-bottom: 25px;']
-        );
-        $content .= Display::url(
-            get_lang('Show'),
-            'javascript://',
-            ['onclick' => 'loadReportQuarterlyCertificatesGenerated();', 'class' => 'btn btn-default']
-        );
-        $content .= Display::div(
-            '',
-            ['id' => 'tracking-report-quarterly-number-of-certificates-generated', 'style' => 'margin: 30px;']
-        );
-        $content .= Display::tag(
-            'H4',
-            get_lang('Number of sessions per duration'),
-            ['style' => 'margin-bottom: 25px;']
-        );
-        $content .= Display::url(
-            get_lang('Show'),
-            'javascript://',
-            ['onclick' => 'loadReportQuarterlySessionsByDuration();', 'class' => 'btn btn-default']
-        );
-        $content .= Display::div(
-            '',
-            ['id' => 'tracking-report-quarterly-sessions-by-duration', 'style' => 'margin: 30px;']
-        );
-        $content .= Display::tag(
-            'H4',
-            get_lang('Number of courses, sessions and subscribed users'),
-            ['style' => 'margin-bottom: 25px;']
-        );
-        $content .= Display::url(
-            get_lang('Show'),
-            'javascript://',
-            ['onclick' => 'loadReportQuarterlyCoursesAndSessions();', 'class' => 'btn btn-default']
-        );
-        $content .= Display::div(
-            '',
+                'title' => get_lang('Number of users registered and connected'),
+                'action' => 'report_quarterly_users',
+                'target' => 'tracking-report-quarterly-users',
+                'enabled' => true,
+            ],
             [
-                'id' => 'tracking-report-quarterly-courses-and-sessions',
-                'style' => 'margin: 30px;',
-            ]
-        );
-        if (api_get_current_access_url_id() === 1) {
-            $content .= Display::tag(
-                'H4',
-                get_lang('Total disk usage'),
-                ['style' => 'margin-bottom: 25px;']
-            );
-            $content .= Display::url(
-                get_lang('Show'),
-                'javascript://',
-                ['onclick' => 'loadReportQuarterlyTotalDiskUsage();', 'class' => 'btn btn-default']
-            );
-            $content .= Display::div(
-                '',
-                [
-                    'id' => 'tracking-report-quarterly-total-disk-usage',
-                    'style' => 'margin: 30px;',
-                ]
-            );
+                'title' => get_lang('Number of existing and available courses'),
+                'action' => 'report_quarterly_courses',
+                'target' => 'tracking-report-quarterly-courses',
+                'enabled' => true,
+            ],
+            [
+                'title' => get_lang('Hours of training'),
+                'action' => 'report_quarterly_hours_of_training',
+                'target' => 'tracking-report-quarterly-hours-of-training',
+                'enabled' => true,
+            ],
+            [
+                'title' => get_lang('Number of certificates generated'),
+                'action' => 'report_quarterly_number_of_certificates_generated',
+                'target' => 'tracking-report-quarterly-number-of-certificates-generated',
+                'enabled' => true,
+            ],
+            [
+                'title' => get_lang('Number of sessions per duration'),
+                'action' => 'report_quarterly_sessions_by_duration',
+                'target' => 'tracking-report-quarterly-sessions-by-duration',
+                'enabled' => true,
+            ],
+            [
+                'title' => get_lang('Number of courses, sessions and subscribed users'),
+                'action' => 'report_quarterly_courses_and_sessions',
+                'target' => 'tracking-report-quarterly-courses-and-sessions',
+                'enabled' => true,
+            ],
+            [
+                'title' => get_lang('Total disk usage'),
+                'action' => 'report_quarterly_total_disk_usage',
+                'target' => 'tracking-report-quarterly-total-disk-usage',
+                'enabled' => (api_get_current_access_url_id() === 1),
+            ],
+        ];
+
+        $ajaxEndpointJs = json_encode($ajaxEndpoint, JSON_UNESCAPED_SLASHES);
+        $loadingHtml = '
+        <div class="flex items-center gap-2 text-sm text-gray-600 py-3">
+            '.$waitIcon.'
+            <span>Loading report…</span>
+        </div>
+    ';
+        $loadingHtmlJs = json_encode($loadingHtml, JSON_UNESCAPED_SLASHES);
+
+        $htmlHeadXtra[] = <<<JS
+        <script>
+        (function () {
+          "use strict";
+
+          var AJAX_ENDPOINT = {$ajaxEndpointJs};
+          var LOADING_HTML = {$loadingHtmlJs};
+
+          function showTarget(\$el) {
+            \$el.removeClass("hidden");
+          }
+
+          function hideTarget(\$el) {
+            \$el.addClass("hidden");
+          }
+
+          function toggleTarget(\$el) {
+            \$el.toggleClass("hidden");
+          }
+
+          function loadQuarterlyReport(action, targetId, force) {
+            var \$target = $("#" + targetId);
+            if (!\$target.length) {
+              return;
+            }
+
+            var isLoaded = \$target.data("loaded") === 1;
+            if (isLoaded && !force) {
+              toggleTarget(\$target);
+              return;
+            }
+
+            showTarget(\$target);
+            \$target.html(LOADING_HTML);
+
+            // Load HTML from Ajax endpoint.
+            \$target.load(AJAX_ENDPOINT + "?a=" + encodeURIComponent(action), function (response, status) {
+              if (status !== "success") {
+                \$target.html(
+                  '<div class="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">' +
+                  'Failed to load this report. Please try again.' +
+                  '</div>'
+                );
+                return;
+              }
+              \$target.data("loaded", 1);
+            });
+          }
+
+          $(function () {
+            $(document).on("click", ".js-quarterly-load", function (e) {
+              e.preventDefault();
+              var \$btn = $(this);
+              loadQuarterlyReport(\$btn.data("action"), \$btn.data("target"), false);
+            });
+
+            $(document).on("click", ".js-quarterly-reload", function (e) {
+              e.preventDefault();
+              var \$btn = $(this);
+              loadQuarterlyReport(\$btn.data("action"), \$btn.data("target"), true);
+            });
+
+            $(document).on("click", "#js-quarterly-load-all", function (e) {
+              e.preventDefault();
+              $(".js-quarterly-load").each(function () {
+                var \$btn = $(this);
+                loadQuarterlyReport(\$btn.data("action"), \$btn.data("target"), true);
+              });
+            });
+          });
+        })();
+        </script>
+        JS;
+        // Header
+        $content .= '
+    <div class="w-full">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900">'.get_lang('Quarterly report').'</h2>
+          <p class="text-sm text-gray-600">'.get_lang('Show').': '.get_lang('All').'</p>
+        </div>
+        <div class="shrink-0">
+          <a href="#" id="js-quarterly-load-all"
+             class="inline-flex items-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700">
+            '.get_lang('Show').': '.get_lang('All').'
+          </a>
+        </div>
+      </div>
+    ';
+        $content .= '<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">';
+
+        foreach ($cards as $card) {
+            if (empty($card['enabled'])) {
+                continue;
+            }
+
+            $title = $card['title'];
+            $action = $card['action'];
+            $target = $card['target'];
+            $content .= '
+        <div class="rounded-xl border border-gray-50 bg-white shadow-sm">
+          <div class="flex items-start justify-between gap-3 px-4 py-3 border-b border-gray-20">
+            <div class="min-w-0">
+              <h3 class="text-base font-semibold text-gray-900 leading-snug">'.$title.'</h3>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <a href="#"
+                 class="js-quarterly-load inline-flex items-center rounded-md border border-gray-50 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50"
+                 data-action="'.$action.'" data-target="'.$target.'">
+                '.get_lang('Show').'
+              </a>
+              <a href="#"
+                 class="js-quarterly-reload inline-flex items-center rounded-md border border-blue-200 bg-blue-50 px-2.5 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100"
+                 data-action="'.$action.'" data-target="'.$target.'">
+                '.get_lang('Refresh').'
+              </a>
+            </div>
+          </div>
+
+          <div class="px-4 pb-4">
+            <div id="'.$target.'" class="hidden mt-3" data-loaded="0"></div>
+          </div>
+        </div>
+        ';
         }
+        $content .= '</div></div>';
         break;
 }
 
 Display::display_header($tool_name);
 echo Display::page_header($tool_name);
-echo '<table><tr>';
-foreach ($tools as $section => $items) {
-    echo '<td style="vertical-align:top;">';
-    echo '<h3>'.$section.'</h3>';
-    echo '<ul>';
-    foreach ($items as $key => $value) {
-        echo '<li><a href="index.php?'.$key.'">'.$value.'</a></li>';
-    }
-    echo '</ul>';
-    echo '</td>';
-}
-echo '</tr></table>';
 
-//@todo: spaces between elements should be handled in the css, br should be removed if only there for presentation
-echo '<br/><br/>';
+echo Statistics::statistics_render_menu($tools);
 
 echo $content;
 

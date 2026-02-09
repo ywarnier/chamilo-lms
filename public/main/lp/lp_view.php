@@ -63,7 +63,7 @@ if (false === $visibility &&
 }
 
 $lp_item_id = $oLP->get_current_item_id();
-$lpCurrentItemId = isset($_GET['lp_item_id']) ? (int) $_GET['lp_item_id'] : $oLP->get_current_item_id();
+$lpCurrentItemId = $lp_item_id;
 $lpType = $lp->getLpType();
 
 if (!api_is_allowed_to_edit(null, true)) {
@@ -477,7 +477,9 @@ $template->assign('toc_list', $get_toc_list);
 $template->assign('teacher_toc_buttons', $get_teacher_buttons);
 $template->assign('iframe_src', $src);
 $template->assign('navigation_bar_bottom', $navigation_bar_bottom);
-$template->assign('show_left_column', !$lp->getHideTocFrame());
+$tocHidden = (bool) $lp->getHideTocFrame();
+$template->assign('toc_hidden', (int) $tocHidden);
+$template->assign('show_left_column', $tocHidden ? 0 : 1);
 
 $showMenu = 0;
 $settings = api_get_setting('lp.lp_view_settings', true);
@@ -559,7 +561,7 @@ $template->assign('data_list', $oLP->getListArrayToc());
 //var_dump($oLP->getListArrayToc($get_toc_list));
 
 $template->assign('lp_id', $lp->getIid());
-$template->assign('lp_current_item_id', isset($_GET['lp_item_id']) ? (int) $_GET['lp_item_id'] : $oLP->get_current_item_id());
+$template->assign('lp_current_item_id', $lpCurrentItemId);
 
 $menuLocation = 'left';
 if ('false' !== api_get_setting('lp.lp_menu_location')) {

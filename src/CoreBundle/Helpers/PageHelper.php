@@ -64,19 +64,19 @@ class PageHelper
         ;
         $this->pageCategoryRepository->update($indexCategory);
 
-        $indexCategory = (new PageCategory())
+        $faqCategory = (new PageCategory())
             ->setTitle('faq')
             ->setType('grid')
             ->setCreator($user)
         ;
-        $this->pageCategoryRepository->update($indexCategory);
+        $this->pageCategoryRepository->update($faqCategory);
 
-        $indexCategory = (new PageCategory())
+        $demoCategory = (new PageCategory())
             ->setTitle('demo')
             ->setType('grid')
             ->setCreator($user)
         ;
-        $this->pageCategoryRepository->update($indexCategory);
+        $this->pageCategoryRepository->update($demoCategory);
 
         $page = (new Page())
             ->setTitle('Welcome')
@@ -87,7 +87,6 @@ class PageHelper
             ->setEnabled(true)
             ->setUrl($url)
         ;
-
         $this->pageRepository->update($page);
 
         $indexPage = (new Page())
@@ -106,7 +105,6 @@ class PageHelper
             ->setType('grid')
             ->setCreator($user)
         ;
-
         $this->pageCategoryRepository->update($footerPublicCategory);
 
         $footerPrivateCategory = (new PageCategory())
@@ -114,11 +112,17 @@ class PageHelper
             ->setType('grid')
             ->setCreator($user)
         ;
-
         $this->pageCategoryRepository->update($footerPrivateCategory);
 
+        $menuLinksCategory = (new PageCategory())
+            ->setTitle('menu_links')
+            ->setType('grid')
+            ->setCreator($user)
+        ;
+        $this->pageCategoryRepository->update($menuLinksCategory);
+
         // Categories for extra content in admin blocks.
-        foreach (self::getCategoriesForAdminBlocks() as $nameBlock) {
+        foreach (PageCategory::ADMIN_BLOCKS_CATEGORIES as $nameBlock) {
             $usersAdminBlock = (new PageCategory())
                 ->setTitle($nameBlock)
                 ->setType('grid')
@@ -132,7 +136,6 @@ class PageHelper
             ->setType('grid')
             ->setCreator($user)
         ;
-
         $this->pageCategoryRepository->update($publicCategory);
 
         $introductionCategory = (new PageCategory())
@@ -143,21 +146,6 @@ class PageHelper
         $this->pageCategoryRepository->update($introductionCategory);
 
         return true;
-    }
-
-    public static function getCategoriesForAdminBlocks(): array
-    {
-        return [
-            'block-admin-users',
-            'block-admin-courses',
-            'block-admin-sessions',
-            'block-admin-gradebook',
-            'block-admin-skills',
-            'block-admin-privacy',
-            'block-admin-settings',
-            'block-admin-platform',
-            'block-admin-chamilo',
-        ];
     }
 
     /**

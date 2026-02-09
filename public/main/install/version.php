@@ -11,7 +11,7 @@
 
 return [
     'new_version' => '2.0.0',
-    'new_version_status' => 'beta',
+    'new_version_status' => 'RC',
     'new_version_last_id' => '1',
     'new_version_stable' => false,
     'new_version_major' => true,

@@ -10,8 +10,6 @@ use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Entity\Legal;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\Criteria;
-use Doctrine\ORM\NonUniqueResultException;
-use Doctrine\ORM\NoResultException;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
 
@@ -127,18 +125,17 @@ class LegalRepository extends ServiceEntityRepository
 
     public function getLastVersionByLanguage(int $languageId): ?int
     {
-        try {
-            $result = $this->createQueryBuilder('l')
-                ->select('MAX(l.version)')
-                ->andWhere('l.languageId = :languageId')
-                ->setParameter('languageId', $languageId)
-                ->getQuery()
-                ->getSingleScalarResult();
+        $result = $this->createQueryBuilder('l')
+            ->select('MAX(l.version) as maxVersion')
+            ->andWhere('l.languageId = :languageId')
+            ->setParameter('languageId', $languageId)
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
 
-            return null !== $result ? (int) $result : null;
-        } catch (NoResultException|NonUniqueResultException) {
-            return null;
-        }
+        $version = (int) $result;
+
+        return $version > 0 ? $version : null;
     }
 
     /**
@@ -153,7 +150,8 @@ class LegalRepository extends ServiceEntityRepository
             ->setParameter('version', $version)
             ->orderBy('l.type', 'ASC')
             ->getQuery()
-            ->getResult();
+            ->getResult()
+        ;
     }
 
     /**
@@ -170,7 +168,8 @@ class LegalRepository extends ServiceEntityRepository
             ->addOrderBy('l.date', 'DESC')
             ->setMaxResults(1)
             ->getQuery()
-            ->getOneOrNullResult();
+            ->getOneOrNullResult()
+        ;
     }
 
     public function findLastConditionByLanguage(int $languageId): ?Legal
@@ -182,7 +181,8 @@ class LegalRepository extends ServiceEntityRepository
             ->orderBy('l.version', 'DESC')
             ->setMaxResults(1)
             ->getQuery()
-            ->getOneOrNullResult();
+            ->getOneOrNullResult()
+        ;
     }
 
     /**
@@ -212,7 +212,8 @@ class LegalRepository extends ServiceEntityRepository
                 'languageId' => $languageId,
                 'versionId' => $versionId,
             ])
-            ->setMaxResults(1);
+            ->setMaxResults(1)
+        ;
 
         return $qb->getQuery()->getOneOrNullResult();
     }
@@ -222,7 +223,8 @@ class LegalRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('l');
         $qb->select('MAX(l.version) AS maxVersion')
             ->andWhere('l.languageId = :languageId')
-            ->setParameter('languageId', $languageId);
+            ->setParameter('languageId', $languageId)
+        ;
 
         $row = $qb->getQuery()->getOneOrNullResult();
 
@@ -243,6 +245,7 @@ class LegalRepository extends ServiceEntityRepository
             ])
             ->orderBy('l.type', 'ASC')
             ->getQuery()
-            ->getResult();
+            ->getResult()
+        ;
     }
 }

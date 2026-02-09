@@ -11,8 +11,10 @@ use ApiPlatform\State\ProviderInterface;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\ResourceNode;
+use Chamilo\CoreBundle\Entity\ResourceShowCourseResourcesInSessionInterface;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Repository\ResourceLinkRepository;
+use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CDocument;
 use Chamilo\CourseBundle\Entity\CGroup;
 use Doctrine\ORM\EntityManagerInterface;
@@ -26,6 +28,7 @@ final class DocumentCollectionStateProvider implements ProviderInterface
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
         private readonly RequestStack $requestStack,
+        private readonly SettingsManager $settingsManager,
     ) {}
 
     /**
@@ -48,51 +51,123 @@ final class DocumentCollectionStateProvider implements ProviderInterface
             ->addSelect('rn')
         ;
 
-        // Hide certificates system folder (and its children) from the document tool.
-        // Allow debugging by passing ?showSystemCertificates=1
-        $showSystemCertificates = (bool) $request->query->get('showSystemCertificates', false);
-        if (!$showSystemCertificates) {
-            $qb
-                ->andWhere('rn.path IS NULL OR rn.path NOT LIKE :certificatesPath')
-                ->setParameter('certificatesPath', '%/certificates-%')
-            ;
-        }
-
-        // Filetype filtering: filetype[]=file&filetype[]=folder&filetype[]=video OR filetype=folder
-        $filetypes = $request->query->all('filetype');
-
-        if (empty($filetypes)) {
-            $singleFiletype = $request->query->get('filetype');
-            if (null !== $singleFiletype && '' !== $singleFiletype) {
-                $filetypes = [$singleFiletype];
-            }
-        }
-
-        if (!empty($filetypes)) {
-            if (!\is_array($filetypes)) {
-                $filetypes = [$filetypes];
-            }
-
-            $qb
-                ->andWhere($qb->expr()->in('d.filetype', ':filetypes'))
-                ->setParameter('filetypes', $filetypes)
-            ;
-        }
-
-        // Context (course / session / group)
-        $cid = $request->query->getInt('cid', 0);
-        $sid = $request->query->getInt('sid', 0);
-        $gid = $request->query->getInt('gid', 0);
+        $query = $request->query->all();
+        $cid = (int) ($query['cid'] ?? 0);
+        $sid = (int) ($query['sid'] ?? 0);
+        $gid = (int) ($query['gid'] ?? 0);
 
         $hasContext = $cid > 0 || $sid > 0 || $gid > 0;
 
-        // loadNode=1 -> documents list wants children of a folder
-        $loadNode = (bool) $request->query->get('loadNode', false);
+        // By default, documents must be visible in session context including base course content,
+        // because CDocument implements ResourceShowCourseResourcesInSessionInterface.
+        $includeBaseContent = $sid > 0
+            && is_a(CDocument::class, ResourceShowCourseResourcesInSessionInterface::class, true);
 
-        // Current folder node (comes from Vue as resourceNode.parent=XX)
-        $parentNodeId = (int) $request->query->get('resourceNode.parent', 0);
-        if (0 === $parentNodeId) {
-            $parentNodeId = (int) $request->query->get('resourceNode_parent', 0);
+        // Allow API clients to override behavior (withBaseContent=0/1).
+        if (\array_key_exists('withBaseContent', $query)) {
+            $includeBaseContent = 1 === (int) $query['withBaseContent'];
+        }
+
+        // Gradebook mode (e.g. gradebook=1)
+        $isGradebook = !empty($query['gradebook']) && 1 === (int) $query['gradebook'];
+        $showUsersFolders = 'true' === (string) ($this->settingsManager->getSetting('document.show_users_folders', true) ?? '');
+        $showDefaultFolders = 'false' !== (string) ($this->settingsManager->getSetting('document.show_default_folders', true) ?? '');
+        $showChatFolder = 'true' === (string) ($this->settingsManager->getSetting('chat.show_chat_folder', true) ?? '');
+
+        $rawFiletype = $query['filetype'] ?? null;
+        $filetypes = [];
+
+        if (\is_array($rawFiletype)) {
+            $filetypes = $rawFiletype;
+        } elseif (null !== $rawFiletype && '' !== (string) $rawFiletype) {
+            $filetypes = [(string) $rawFiletype];
+        }
+
+        // Normalize & unique
+        $requestedFiletypes = array_values(array_unique(array_filter(array_map('strval', $filetypes))));
+
+        // Compatibility: treat "html" as a subtype of "file"
+        $effectiveFiletypes = $requestedFiletypes;
+        if (\in_array('file', $effectiveFiletypes, true) && !\in_array('html', $effectiveFiletypes, true)) {
+            $effectiveFiletypes[] = 'html';
+        }
+
+        // System folder subtypes
+        $systemFolderTypes = ['user_folder', 'user_folder_ses', 'media_folder', 'chat_folder', 'cert_folder'];
+
+        // If the client asks for "folder", include system folder subtypes as well.
+        // This keeps folder browsing working after migration (system folders have custom filetypes).
+        if (\in_array('folder', $effectiveFiletypes, true)) {
+            $effectiveFiletypes = array_values(array_unique(array_merge($effectiveFiletypes, $systemFolderTypes)));
+        }
+
+        if (!empty($effectiveFiletypes)) {
+            $qb
+                ->andWhere($qb->expr()->in('d.filetype', ':filetypes'))
+                ->setParameter('filetypes', $effectiveFiletypes)
+            ;
+        }
+
+        // NOTE: this is for "certificate" filetype lists, not the certificates folder filetype.
+        $wantsCertificateList = \in_array('certificate', $effectiveFiletypes, true);
+        $showSystemCertificates = !empty($query['showSystemCertificates']) && 1 === (int) $query['showSystemCertificates'];
+
+        if (!$showSystemCertificates && !($isGradebook && $wantsCertificateList)) {
+            $meta = $this->entityManager->getClassMetadata(ResourceNode::class);
+            if ($meta->hasField('path')) {
+                $qb
+                    ->andWhere('rn.path IS NULL OR rn.path NOT LIKE :certificatesPath')
+                    ->setParameter('certificatesPath', '%/certificates-%')
+                ;
+            }
+        }
+
+        // Hide system folders depending on settings.
+        $explicitSystemTypes = array_values(array_intersect($requestedFiletypes, $systemFolderTypes));
+        $hiddenSystemTypes = [];
+
+        // User folders
+        if (!$showUsersFolders) {
+            $hiddenSystemTypes[] = 'user_folder';
+            $hiddenSystemTypes[] = 'user_folder_ses';
+        } else {
+            // When enabled, never show session-scoped shared folders in base course context.
+            if ($sid <= 0) {
+                $hiddenSystemTypes[] = 'user_folder_ses';
+            }
+        }
+
+        // Default media folders
+        if (!$showDefaultFolders) {
+            $hiddenSystemTypes[] = 'media_folder';
+        }
+
+        // Chat history folder (controlled by chat.show_chat_folder)
+        if (!$showChatFolder) {
+            $hiddenSystemTypes[] = 'chat_folder';
+        }
+
+        // Certificates folder: hide unless explicitly requested.
+        if (!$showSystemCertificates && !($isGradebook && $wantsCertificateList)) {
+            $hiddenSystemTypes[] = 'cert_folder';
+        }
+
+        $hiddenSystemTypes = array_values(array_unique(array_diff($hiddenSystemTypes, $explicitSystemTypes)));
+
+        if (!empty($hiddenSystemTypes)) {
+            $qb
+                ->andWhere($qb->expr()->notIn('d.filetype', ':hiddenFiletypes'))
+                ->setParameter('hiddenFiletypes', $hiddenSystemTypes)
+            ;
+        }
+
+        $loadNode = !empty($query['loadNode']) && 1 === (int) $query['loadNode'];
+
+        $parentNodeId = 0;
+        if (isset($query['resourceNode.parent'])) {
+            $parentNodeId = (int) $query['resourceNode.parent'];
+        } elseif (isset($query['resourceNode_parent'])) {
+            $parentNodeId = (int) $query['resourceNode_parent'];
         }
 
         if ($hasContext) {
@@ -100,110 +175,153 @@ final class DocumentCollectionStateProvider implements ProviderInterface
             $qb->innerJoin('rn.resourceLinks', 'rl');
 
             if ($cid > 0) {
-                $qb
-                    ->andWhere('rl.course = :cid')
-                    ->setParameter('cid', $cid)
-                ;
+                $qb->andWhere('IDENTITY(rl.course) = :cid')->setParameter('cid', $cid);
             }
 
             if ($sid > 0) {
-                $qb
-                    ->andWhere('rl.session = :sid')
-                    ->setParameter('sid', $sid)
-                ;
+                if ($includeBaseContent) {
+                    // Include both session content and base course content.
+                    $qb
+                        ->andWhere(
+                            $qb->expr()->orX(
+                                'IDENTITY(rl.session) = :sid',
+                                'rl.session IS NULL',
+                                'IDENTITY(rl.session) = 0'
+                            )
+                        )
+                        ->setParameter('sid', $sid)
+                    ;
+                } else {
+                    $qb
+                        ->andWhere('IDENTITY(rl.session) = :sid')
+                        ->setParameter('sid', $sid)
+                    ;
+                }
+            } else {
+                $qb->andWhere(
+                    $qb->expr()->orX(
+                        'rl.session IS NULL',
+                        'IDENTITY(rl.session) = 0'
+                    )
+                );
             }
 
             if ($gid > 0) {
-                $qb
-                    ->andWhere('rl.group = :gid')
-                    ->setParameter('gid', $gid)
-                ;
+                $qb->andWhere('IDENTITY(rl.group) = :gid')->setParameter('gid', $gid);
+            } else {
+                $qb->andWhere('rl.group IS NULL');
             }
 
             if ($loadNode) {
-                // We are browsing "inside" a folder in this context
                 if ($parentNodeId > 0) {
-                    $resourceNode = $this->entityManager
-                        ->getRepository(ResourceNode::class)
-                        ->find($parentNodeId)
-                    ;
-
-                    if (null === $resourceNode) {
-                        // Folder node not found -> nothing to list
+                    $folderNode = $this->entityManager->getRepository(ResourceNode::class)->find($parentNodeId);
+                    if (null === $folderNode) {
+                        // Folder not found -> nothing to list
                         return [];
                     }
 
                     /** @var ResourceLinkRepository $linkRepo */
                     $linkRepo = $this->entityManager->getRepository(ResourceLink::class);
 
-                    $courseEntity = $cid > 0
-                        ? $this->entityManager->getRepository(Course::class)->find($cid)
-                        : null;
+                    $courseEntity = $cid > 0 ? $this->entityManager->getRepository(Course::class)->find($cid) : null;
+                    $sessionEntity = $sid > 0 ? $this->entityManager->getRepository(Session::class)->find($sid) : null;
+                    $groupEntity = $gid > 0 ? $this->entityManager->getRepository(CGroup::class)->find($gid) : null;
 
-                    $sessionEntity = $sid > 0
-                        ? $this->entityManager->getRepository(Session::class)->find($sid)
-                        : null;
+                    // Resolve possible folder links:
+                    // - session link (sid=current session)
+                    // - base link (sid=NULL), when base content is enabled in session view
+                    $parentLinkIds = [];
 
-                    $groupEntity = $gid > 0
-                        ? $this->entityManager->getRepository(CGroup::class)->find($gid)
-                        : null;
-
-                    // Find the link of this folder in the current context
-                    $parentLink = $linkRepo->findParentLinkForContext(
-                        $resourceNode,
+                    $sessionParentLink = $linkRepo->findParentLinkForContext(
+                        $folderNode,
                         $courseEntity,
                         $sessionEntity,
                         $groupEntity,
                         null,
                         null
                     );
+                    if (null !== $sessionParentLink) {
+                        $parentLinkIds[] = (int) $sessionParentLink->getId();
+                    }
 
-                    if (null === $parentLink) {
-                        // No link for this node in this context:
-                        // treat it as context root → children have rl.parent IS NULL
-                        $qb->andWhere('rl.parent IS NULL');
-                    } else {
-                        // Children inside this folder in this context
+                    if ($sid > 0 && $includeBaseContent && null !== $courseEntity) {
+                        $baseParentLink = $linkRepo->findParentLinkForContext(
+                            $folderNode,
+                            $courseEntity,
+                            null,
+                            $groupEntity,
+                            null,
+                            null
+                        );
+                        if (null !== $baseParentLink) {
+                            $parentLinkIds[] = (int) $baseParentLink->getId();
+                        }
+                    }
+
+                    $parentLinkIds = array_values(array_unique($parentLinkIds));
+
+                    if (!empty($parentLinkIds)) {
+                        // If contextual parent links exist, prioritize rl.parent.
+                        // The rn.parent fallback must only include items without contextual hierarchy (rl.parent IS NULL),
+                        // otherwise moved items might appear in old folders due to rn.parent not changing.
                         $qb
-                            ->andWhere('rl.parent = :parentLink')
-                            ->setParameter('parentLink', $parentLink)
+                            ->andWhere(
+                                $qb->expr()->orX(
+                                    'IDENTITY(rl.parent) IN (:parentLinkIds)',
+                                    $qb->expr()->andX(
+                                        'IDENTITY(rn.parent) = :parentNodeId',
+                                        'rl.parent IS NULL'
+                                    )
+                                )
+                            )
+                            ->setParameter('parentLinkIds', $parentLinkIds)
+                            ->setParameter('parentNodeId', $parentNodeId)
+                        ;
+                    } else {
+                        // No parent link resolved -> fallback to legacy tree
+                        $qb
+                            ->andWhere('IDENTITY(rn.parent) = :parentNodeId')
+                            ->setParameter('parentNodeId', $parentNodeId)
                         ;
                     }
                 } else {
-                    // No parentNodeId -> root of the context (course root)
+                    // Context root
                     $qb->andWhere('rl.parent IS NULL');
                 }
             }
 
-            // When the same document is linked multiple times in this context
             $qb->distinct();
         } else {
-            // No course / session / group context:
-            // keep legacy behavior using resource_node.parent (global docs, if any)
+            // No context: legacy behavior
             if ($parentNodeId > 0) {
                 $qb
-                    ->andWhere('rn.parent = :parentId')
+                    ->andWhere('IDENTITY(rn.parent) = :parentId')
                     ->setParameter('parentId', $parentNodeId)
                 ;
             }
         }
 
-        // Ordering & pagination
         $qb->orderBy('rn.title', 'ASC');
 
-        $page = (int) $request->query->get('page', 1);
-        $itemsPerPage = (int) $request->query->get('itemsPerPage', 20);
+        $page = isset($query['page']) ? (int) $query['page'] : 1;
+        $itemsPerPage = isset($query['itemsPerPage']) ? (int) $query['itemsPerPage'] : 20;
 
         if ($page < 1) {
             $page = 1;
         }
 
-        if ($itemsPerPage > 0) {
-            $qb
-                ->setFirstResult(($page - 1) * $itemsPerPage)
-                ->setMaxResults($itemsPerPage)
-            ;
+        // Prevent extreme values (frontend sometimes sends huge numbers)
+        if ($itemsPerPage <= 0) {
+            $itemsPerPage = 20;
         }
+        if ($itemsPerPage > 5000) {
+            $itemsPerPage = 5000;
+        }
+
+        $qb
+            ->setFirstResult(($page - 1) * $itemsPerPage)
+            ->setMaxResults($itemsPerPage)
+        ;
 
         return $qb->getQuery()->getResult();
     }

@@ -11,6 +11,9 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Persistence\ObjectManager;
 
+use const JSON_UNESCAPED_SLASHES;
+use const JSON_UNESCAPED_UNICODE;
+
 class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
 {
     /**
@@ -93,6 +96,14 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
             $setting->setTitle($settingData['title']);
             $setting->setComment($settingData['comment']);
 
+            // Only set default value when current value is empty (do not override admins)
+            if (\array_key_exists('selected_value', $settingData)) {
+                $currentValue = $setting->getSelectedValue();
+                if (null === $currentValue || '' === $currentValue) {
+                    $setting->setSelectedValue((string) $settingData['selected_value']);
+                }
+            }
+
             $manager->persist($setting);
         }
 
@@ -141,6 +152,17 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
 
     public static function getExistingSettings(): array
     {
+        // registration.redirect_after_login (default for new installations only)
+        $redirectAfterLoginDefault = json_encode([
+            'COURSEMANAGER' => 'courses',
+            'STUDENT' => 'courses',
+            'DRH' => '',
+            'SESSIONADMIN' => 'admin-dashboard',
+            'STUDENT_BOSS' => 'main/my_space/student.php',
+            'INVITEE' => 'courses',
+            'ADMIN' => 'admin',
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
         return [
             'profile' => [
                 [
@@ -229,6 +251,7 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'name' => 'user_session_display_mode',
                     'title' => 'My Sessions display mode',
                     'comment' => 'Choose how the "My Sessions" page is displayed: as a modern visual block (card) view or the classic list style.',
+                    'selected_value' => 'list',
                 ],
                 [
                     'name' => 'session_list_view_remaining_days',
@@ -569,6 +592,7 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'name' => 'redirect_after_login',
                     'title' => 'Redirect after login (per profile)',
                     'comment' => 'Define redirection per profile after login using a JSON object like {"STUDENT":"", "ADMIN":"admin-dashboard"}',
+                    'selected_value' => $redirectAfterLoginDefault,
                 ],
                 [
                     'name' => 'allow_lostpassword',
@@ -918,11 +942,6 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'comment' => 'This feature is enabled by default, but in case of server overload abuse it, or specific learning environments, might want to disable it for all courses.',
                 ],
                 [
-                    'name' => 'tool_visible_by_default_at_creation',
-                    'title' => 'Tool visible at course creation',
-                    'comment' => 'Select the tools that will be visible when creating the courses - not yet available',
-                ],
-                [
                     'name' => 'users_copy_files',
                     'title' => 'Allow users to copy files from a course in your personal file area',
                     'comment' => 'Allows users to copy files from a course in your personal file area, visible through the Social Network or through the HTML editor when they are out of a course',
@@ -1229,6 +1248,11 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'title' => 'Show the history folder of chat conversations',
                     'comment' => 'This will show to theacher the folder that contains all sessions that have been made in the chat, the teacher can make them visible or not learners and use them as a resource',
                 ],
+                [
+                    'name' => 'save_private_conversations_in_documents',
+                    'title' => 'Save private conversations in documents',
+                    'comment' => 'If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy.',
+                ],
             ],
             'skill' => [
                 [
@@ -1326,7 +1350,7 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'comment' => 'If an exercise is visible in the base course then it appears invisible in the session. If an exercise is invisible in the base course then it does not appear in the session.',
                 ],
                 [
-                    'name' => 'exercise_max_ckeditors_in_page',
+                    'name' => 'exercise_max_editors_in_page',
                     'title' => 'Max editors in exercise result screen',
                     'comment' => 'Because of the sheer number of questions that might appear in an exercise, the correction screen, allowing the teacher to add comments to each answer, might be very slow to load. Set this number to 5 to ask the platform to only show WYSIWYG editors up to a certain number of answers on the screen. This will speed up the correction page loading time considerably, but will remove WYSIWYG editors and leave only a plain text editor.',
                 ],
@@ -1569,7 +1593,7 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
             'catalog' => [
                 [
                     'name' => 'course_catalog_settings',
-                    'title' => 'Course Catalog Settings',
+                    'title' => 'Course catalogue settings',
                     'comment' => 'JSON configuration for course catalog: link settings, filters, sort options, and more.',
                 ],
                 [
@@ -2051,7 +2075,7 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
             ],
             'editor' => [
                 [
-                    'name' => 'ck_editor_block_image_copy_paste',
+                    'name' => 'editor_block_image_copy_paste',
                     'title' => 'Prevent copy-pasting images in WYSIWYG editor',
                     'comment' => 'Prevent the use of images copy-paste as base64 in the editor to avoid filling the database with images.',
                 ],
@@ -2071,7 +2095,7 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'comment' => 'Enable image upload as file when doing a copy in the content or a drag and drop.',
                 ],
                 [
-                    'name' => 'full_ckeditor_toolbar_set',
+                    'name' => 'full_editor_toolbar_set',
                     'title' => 'Full WYSIWYG editor toolbar',
                     'comment' => 'Show the full toolbar in all WYSIWYG editor boxes around the platform.',
                 ],
@@ -3619,6 +3643,21 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'name' => 'image_generator',
                     'title' => 'Image generator',
                     'comment' => 'Generates images based on prompts or content using AI.',
+                ],
+                [
+                    'name' => 'glossary_terms_generator',
+                    'title' => 'Glossary terms generator',
+                    'comment' => 'Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services).',
+                ],
+                [
+                    'name' => 'video_generator',
+                    'title' => 'Video generator',
+                    'comment' => 'Generates videos based on prompts or content using AI (this might consume many tokens).',
+                ],
+                [
+                    'name' => 'course_analyser',
+                    'title' => 'Course analyser',
+                    'comment' => 'Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services).',
                 ],
                 [
                     'name' => 'disclose_ai_assistance',

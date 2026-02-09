@@ -43,11 +43,11 @@ if (api_is_in_gradebook()) {
 }
 
 $interbreadcrumb[] = [
-    'url' => 'lp_controller.php?action=list',
+    'url' => 'lp_controller.php?action=list&'.api_get_cidreq(),
     'name' => get_lang('Learning paths'),
 ];
 $interbreadcrumb[] = [
-    'url' => api_get_self()."?action=add_item&lp_id=$learnpath_id",
+    'url' => api_get_self()."?action=add_item&lp_id=$learnpath_id&".api_get_cidreq(),
     'name' => $lp->getNameNoTags(),
 ];
 $interbreadcrumb[] = [
@@ -63,6 +63,13 @@ if (isset($is_success) && true == $is_success) {
     $right .= $lp->displayItemMenu($lpItem);
     $right .= $lp->displayItemPrerequisitesForm($lpItem);
 }
+$right = '
+  <div class="px-4 sm:px-6 lg:px-8 py-6">
+    <div class="max-w-5xl mx-auto space-y-6">
+      '.$right.'
+    </div>
+  </div>
+';
 
 $tpl = new Template(get_lang('Prerequisites'));
 $tpl->assign('actions', $lp->build_action_menu(true));

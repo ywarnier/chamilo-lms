@@ -84,7 +84,7 @@ class LanguageRepository extends ServiceEntityRepository
         return $list;
     }
 
-    private function getPlatformDefaultIso(): ?string
+    public function getPlatformDefaultIso(): ?string
     {
         $iso = trim($this->settingsManager->getSetting('language.platform_language', true));
         if ('' !== $iso) {
@@ -142,7 +142,7 @@ class LanguageRepository extends ServiceEntityRepository
 
         try {
             return $qb->getQuery()->getSingleResult();
-        } catch (NoResultException|NonUniqueResultException) {
+        } catch (NonUniqueResultException|NoResultException) {
             return null;
         }
     }

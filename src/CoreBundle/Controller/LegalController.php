@@ -9,14 +9,16 @@ namespace Chamilo\CoreBundle\Controller;
 use Chamilo\CoreBundle\Entity\Legal;
 use Chamilo\CoreBundle\Repository\LegalRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use ExtraField;
-use ExtraFieldValue;
-use LegalManager;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Throwable;
 
+use const JSON_UNESCAPED_UNICODE;
+
+#[IsGranted('ROLE_USER')]
 #[Route('/legal')]
 class LegalController
 {
@@ -36,17 +38,16 @@ class LegalController
         $changes = (string) ($data['changes'] ?? '');
         $sections = $data['sections'] ?? null;
 
-        if (!is_array($sections)) {
+        if (!\is_array($sections)) {
             return new JsonResponse(['message' => 'Missing sections payload'], Response::HTTP_BAD_REQUEST);
         }
 
         // Normalize & hash incoming payload (idempotency).
         $normalize = static function ($v): string {
-            $s = is_string($v) ? $v : '';
+            $s = \is_string($v) ? $v : '';
             $s = str_replace(["\r\n", "\r"], "\n", $s);
-            $s = trim($s);
 
-            return $s;
+            return trim($s);
         };
 
         $incoming = [];
@@ -113,7 +114,7 @@ class LegalController
                 $legal->setType($type);
                 $legal->setDate($timestamp);
                 $legal->setChanges($changes);
-                $legal->setContent($content === '' ? null : $content);
+                $legal->setContent('' === $content ? null : $content);
 
                 $entityManager->persist($legal);
             }
@@ -125,8 +126,9 @@ class LegalController
                 'message' => 'Terms saved successfully',
                 'version' => $newVersion,
             ], Response::HTTP_OK);
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $conn->rollBack();
+
             throw $e;
         }
     }
@@ -137,68 +139,7 @@ class LegalController
         return new JsonResponse([
             ['type' => 0, 'title' => 'Terms and Conditions', 'subtitle' => ''],
             ['type' => 1, 'title' => 'Personal data collection', 'subtitle' => 'Why do we collect this data?'],
-            // ...
             ['type' => 15, 'title' => 'Personal data profiling', 'subtitle' => 'For what purpose do we process personal data?'],
         ]);
-    }
-
-    /**
-     * Checks if the extra field values have changed.
-     *
-     * This function compares the new values for extra fields against the old ones to determine
-     * if there have been any changes. It is useful for triggering events or updates only when
-     * actual changes to data occur.
-     */
-    private function hasExtraFieldsChanged(ExtraFieldValue $extraFieldValue, int $legalId, array $newValues): bool
-    {
-        $oldValues = $extraFieldValue->getAllValuesByItem($legalId);
-        $oldValues = array_column($oldValues, 'value', 'variable');
-
-        foreach ($newValues as $key => $newValue) {
-            if (isset($oldValues[$key]) && $newValue != $oldValues[$key]) {
-                return true;
-            }
-            if (!isset($oldValues[$key])) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Updates the extra fields with new values for a specific item.
-     */
-    private function updateExtraFields(ExtraFieldValue $extraFieldValue, int $legalId, array $values): void
-    {
-        $values['item_id'] = $legalId;
-        $extraFieldValue->saveFieldValues($values);
-    }
-
-    /**
-     * Maps an integer representing a field type to its corresponding string value.
-     */
-    private function mapFieldType(int $type): string
-    {
-        switch ($type) {
-            case ExtraField::FIELD_TYPE_TEXT:
-                return 'text';
-
-            case ExtraField::FIELD_TYPE_TEXTAREA:
-                return 'editor';
-
-            case ExtraField::FIELD_TYPE_SELECT_MULTIPLE:
-            case ExtraField::FIELD_TYPE_DATE:
-            case ExtraField::FIELD_TYPE_DATETIME:
-            case ExtraField::FIELD_TYPE_DOUBLE_SELECT:
-            case ExtraField::FIELD_TYPE_RADIO:
-                // Manage as needed
-                break;
-
-            case ExtraField::FIELD_TYPE_SELECT:
-                return 'select';
-        }
-
-        return 'text';
     }
 }

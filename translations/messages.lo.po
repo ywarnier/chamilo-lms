@@ -2186,7 +2186,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":ແມ່ນ:ມີລິຂະສິດ,, ບໍ່:ບໍ່ມີລິຂະສິດ"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:ໂຟນເດີ,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":ບົດເຝິກຫັດ:ບົດເຝິກຫັດ,,      ຈຳລອງ:ຈຳລອງ,,      ແບບສອບຖາມ:ແບບສອບຖາມ,,      ແຜນວາດ:ແຜນວາດ,,      ຮູບ:ຮູບ,,      ກຣາຟ:ກຣາຟ,,      ດັດຊະນີ:ດັດຊະນີ,,      ສະໄລ້:ສະໄລ້,,      ຕາຕະລາງ:ຕາຕະລາງ,,      ຂໍ້ຄວາມບັນຍາຍ:ຂໍ້ຄວາມບັນຍາຍ,,      ສອບເສັງ:ສອບເສັງ,,      ທົດລອງ:ທົດລອງ,,      ບັນຫາ:ບັນຫາ,,      ປະເມີນຕົນເອງ:ປະເມີນຕົນເອງ,,      ບັນຍາຍ:ບັນຍາຍ"
@@ -7336,7 +7336,7 @@ msgid "View this user"
 msgstr "ເບິ່ງຜູ້ໃຊ້ນີ້"
 
 msgid "RSS feed"
-msgstr "RSS feed"
+msgstr "RSS ຊ່ອງທາງຂ່າວ"
 
 #, fuzzy
 msgid "No friends in your contact list"
@@ -21044,9 +21044,6 @@ msgstr "ລຶບຖານຂໍ້ມູນເກົ່າ"
 msgid "Remove old tables"
 msgstr "ລຶບຕາຕະລາງເກົ່າ"
 
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "ພື້ນທີ່ທັງໝົດທີ່ໃຊ້ໂດຍປະຕູ %s ມີຂີດຈຳກັດຢູ່ທີ່ %s ເມກະໄບຕ໌"
-
 #, fuzzy
 msgid "Event message management"
 msgstr "ການຈັດການຂໍ້ຄວາມເຫດການ"
@@ -26672,7 +26669,7 @@ msgid "*: Current quarter, incomplete data"
 msgstr "*: ໄຕມາດປັດຈຸບັນ, ຂໍ້ມູນບໍ່ສົມບູນ"
 
 msgid "Q%s %s"
-msgstr "Q%s %s"
+msgstr "ຄຳຖາມ%s %s"
 
 msgid "YoY"
 msgstr "YoY"
@@ -33411,8 +33408,8 @@ msgid "Write your comment here..."
 msgstr "ຂຽນຄວາມຄິດເຫັນຂອງທ່ານທີ່ນີ້..."
 
 #, fuzzy
-msgid "%d selected"
-msgstr "ເລືອກ %d ລາຍການ"
+msgid "%s selected"
+msgstr "ເລືອກ %s ລາຍການ"
 
 #, fuzzy
 msgid "Search by title or path..."
@@ -33422,8 +33419,8 @@ msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "ຈັດການການສຳຮອງຂໍ້ມູນ, ກູ້ຄືນ, ສຳເນົາ, ນຳກັບມາໃຊ້ໃໝ່ ແລະ ລຶບຂໍ້ມູນລາຍວິຊາ."
 
 #, fuzzy
-msgid "%d comment(s)"
-msgstr "%d ຄວາມຄິດເຫັນ"
+msgid "%s comment(s)"
+msgstr "%s ຄວາມຄິດເຫັນ"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "ຜິດພາດໃນການອັບເດດບຸກຄົນທີສາມ. ກະລຸນາກວດສອບຂໍ້ມູນ."
@@ -33787,4 +33784,1138 @@ msgstr "ຊື່ຖານຂໍ້ມູນຈະໃຊ້ໄດ້ພຽງຕ
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "ຂໍ້ກຳນົດແລະເງື່ອນໄຂທົ່ວໄປທີ່ໃຫ້ກັບຜູ້ໃຊ້ເພື່ອໃຊ້ແພລັດຟອມນີ້ແມ່ນຫຍັງ?"
+
+msgid "ex. {examplePassword}"
+msgstr "ຕົວຢ່າງ. {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "ຍິນດີຕ້ອນຮັບສູ່ Chamilo!"
+
+msgid "Welcome to this platform"
+msgstr "ຍິນດີຕ້ອນຮັບສູ່ແພລັດຟອມນີ້"
+
+msgid "For more details visit %s"
+msgstr "ເພື່ອລາຍລະອຽດເພີ່ມເຕີມ ໃຫ້ເຂົ້າຊົມ %s"
+
+msgid "Manager"
+msgstr "ຜູ້ຈັດການ"
+
+msgid "Mark as"
+msgstr "ມີແຕ້ມການ"
+
+msgid "Reply to all"
+msgstr "ຕອບກັບທັງໝົດ"
+
+msgid "SCIM external ID"
+msgstr "SCIM external ID"
+
+msgid "OAuth2 ID"
+msgstr "OAuth2 ID"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "ກະລຸນາຍອມຮັບເອກະສານຂໍ້ເລື່ອງແລະເງື່ອນໄຂລ่าสຸດ."
+
+msgid "Required value for operation without path"
+msgstr "ຄ່າທີ່ຕ້ອງການສຳລັບການເຮັດວຽກໂດຍບໍ່ມີເສັ້ນທາງ"
+
+msgid "Available space (%s)"
+msgstr "ຊ່ອງຫວ່າງທີ່ມີຢູ່ (%s)"
+
+msgid "Index this description for the global search"
+msgstr "ຈັດດັດເດັກນີ້ສຳລັບການຄົ້ນຫາທົ່ວໄປ"
+
+msgid "Unknown course"
+msgstr "ຄອສທີ່ບໍ່ຮູ້ຈັກ"
+
+msgid "Certificate not found."
+msgstr "ບໍ່ພົບປະກັນຍ້ານ."
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "ໂທເຄັນການປ້ອງກັນຄວາມປອດໄພສິ້ນສຸດ. ກະລຸນາໂຫຼດໜ້າອີກເທື່ອໜຶ່ງແລະລອງອີກເທື່ອ."
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "ພຽງແຕ່ຜູ້ຈັດການແພລັດຟອມເທົ່ານັ້ນທີ່ສາມາດປ່ຽນການເບິ່ງເຫັນຂອງຄອສ."
+
+msgid "Unexpected error while subscribing the user"
+msgstr "ຂໍ້ຜິດພາດທີ່ບໍ່ຄາດຄິດໃນຂະນະທີ່ລົງทะເຍີນຜູ້ໃຊ້"
+
+msgid "Search in resource logs"
+msgstr "ຄົ້ນຫາໃນໄລລອກຊັບພະຍາກອນ"
+
+msgid "Include this learning path in the global search results"
+msgstr "ລວມເຖດທາງການຮຽນຮູ້ນີ້ໃນການຄົ້ນຫາທົ່ວໄປ"
+
+msgid "The course code already exists"
+msgstr "ລະຫັດຄອສມີຢູ່ແລ້ວ"
+
+msgid "Latest news"
+msgstr "ຂ່າວສານລ້າສຸດ"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "ເອົາຂ່າວສານລ້າສຸດຈາກ Chamilo, ລວມທັງມີບັນຫາຄວາມປອດໄພແລະເຫດການ, ໂດຍກົງໃນແຜ່ນຄວບຄຸມການຈັດການຂອງເຈົ້າ. ຂ່າວນີ້ຈະຖືກກວດສອບຢູ່ເຊີເວີຂ່າວ Chamilo ທຸກຄັ້ງທີ່ເຈົ້າໂຫຼດໜ້າການຈັດການ ແລະ ເບິ່ງເຫັນແຕ່ຜູ້ຈັດການເທົ່ານັ້ນ."
+
+msgid "Chamilo support block"
+msgstr "ບລັອກສະໜັບສະໜຸນຂອງ Chamilo"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "ເອົາຄຳແນະນຳມືອາຊີບແລະວິທີງ່າຍໆເພື່ອຕິດຕໍ່ຜູ້ໃຫ້ບໍລິການທາງການສຳລັບການສະໜັບສະໜຸນການເຮັດວຽກມືອາຊີບ, ໂດຍກົງຈາກຜູ້ສ້າງ Chamilo. ບລັອກນີ້ປະກົດໃນໜ້າການຈັດການຂອງເຈົ້າ, ເບິ່ງເຫັນແຕ່ຜູ້ຈັດການເທົ່ານັ້ນ, ແລະ ອັບເດດທຸກຄັ້ງທີ່ເຈົ້າໂຫຼດໜ້າການຈັດການ."
+
+msgid "Hide option to send announcements to HR users"
+msgstr "ປິດການສົ່ງປະກາດໄປຫາຜູ້ໃຊ້ HR"
+
+msgid "Allow session admins to download private certificates"
+msgstr "ອະນຸຍາດໃຫ້ຜູ້ຈັດການຊັ້ນເຊັິງໂຫຼດປະກັນຍ້ານສ່ວນຕົວ"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "ຖ້າເປີດໃຊ້, ຜູ້ຈັດການຊັ້ນເຊັິງສາມາດໂຫຼດປະກັນຍ້ານໄດ້ເຖິງແມ່ນວ່າມັນບໍ່ໄດ້ປະກາສະເໜີສາທາລະນະ."
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "ຖ້າບໍ່ເປັນຫວ່າງ, ຂະບວນການສ້າງຄອສຈະຊອກຫາບາງຊ່ອງໃນໂປຣໄຟລ໌ຜູ້ໃຊ້ ແລະ ເຕີບຕົວອັດຕະໂນມັດສຳລັບຄອສ. ຕົວຢ່າງ, ຄູທີ່ຊ່ຽວຊານໃນການຕະຫຼາດດິຈິຕອລສາມາດຕັ້ງຄ່າສັນຍາລັກ « ການຕະຫຼາດດິຈິຕອລ » ອັດຕະໂນມັດໃນຄອສທີ່ສ້າງ."
+
+msgid "Main menu entries"
+msgstr "ຂໍ້ມູນເຂົ້າຫຼັກແມ່ນະມະນັດ"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "ເລືອກຂໍ້ມູນເຂົ້າທີ່ເຈົ້າຢາກໃຫ້ປະກົດໃນເນີມຫຼັກ"
+
+msgid "Main menu entries per role"
+msgstr "ຂໍ້ມູນເຂົ້າຫຼັກແມ່ນະມະນັດຕາມບົດບາດ"
+
+msgid "Define header tabs visibility per role."
+msgstr "ກຳນົດການເບິ່ງເຫັນຊັ້ນແຖວເຈື້ອນຕາມບົດບາດ."
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "ຕັ້ງຄ່າຕົວເລືອກທີ່ເຈົ້າຢາກໃຫ້ປະກົດໃນການທີ່ຈະໄປຮອດຕາຕະລາງເພື່ອສະແດງແຖວນັ້ນໜ້ອຍຫຼືຫຼາຍກວ່າໃນໜ້າໜຶ່ງ. ຕົວຢ່າງ [50, 100, 200, 500]."
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "ອາເຣທີ່ມີຄຸນສົມບັດເພີ່ມເຕີມທີ່ເຈົ້າສາມາດເປີດໃຊ້ສຳລັບເຄື່ອງເມີນວີດີໂອໃນ Chamilo. ຕົວເລືອກລວມທັງ 'speed', ທີ່ອະນຸຍາດໃຫ້ເຈົ້າเปลี่ยนຄວາມໄວການເກັບກຳວີດີໂອ."
+
+msgid "Mail: character set"
+msgstr "ອີເມວ: ຊຸດອັກສອນ"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "ຖ້າທ່ານຕ້ອງການກົหนด charset ທີ່ຈະໃຊ້ເມື່ອສົ່ງອີເມວເຫຼົ່ານີ້. ປ່ອຍໄວ້ເປົ່າ ຖ້າທ່ານບໍ່ແນ່ໃຈ."
+
+msgid "Mail: Debug"
+msgstr "ອີເມວ: Debug"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "ເລືອກວ່າທ່ານຕ້ອງການເປີດໃຊ້ log debug ການສົ່ງອີເມວ ຫຼືບໍ່. ເຫຼົ່ານີ້ຈະໃຫ້ຂໍ້ມູນເພີ່ມເຕີມກ່ຽວກັບສິ່ງທີ່ເກີດຂຶ້ນເມື່ອເຊື່ອມຕໍ່ກັບບໍລິການອີເມວ, ແຕ່ບໍ່ງາມ ແລະອາດທຳລາຍການອອກແບບໜ້າ. ໃຊ້ເທົ່ານັ້ນເມື່ອບໍ່ມີກິດຈະກຳຜູ້ໃຊ້."
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "ອີເມວ: ຫຼີກເວັ້ນການໃຊ້ LD+JSON"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "ບາງ client ອີເມວບໍ່ເຂົ້າໃຈຮູບແບບ LD+JSON ທີ່ອະທິບາຍ, ສະແດງເປັນ JSON string ທີ່ແລ່ນເປົ່າໃຫ້ຜູ້ໃຊ້ສຸດທ້າຍ. ຖ້າເປັນກໍລະນີຂອງທ່ານ, ທ່ານອາດຈະຕ້ອງການກົດຕັ້ງຕົວແປນດ້ານລຸ່ມນີ້ເປັນ 'false' ເພື່ອປິດ header ນີ້."
+
+msgid "Mail: DKIM headers"
+msgstr "ອີເມວ: DKIM headers"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "ໃສ່ JSON array ຂອງການຕັ້ງຄ່າ DKIM ຂອງທ່ານ (ເບິ່ງຕົວຢ່າງ)."
+
+msgid "Mail: XOAuth2 options"
+msgstr "ອີເມວ: XOAuth2 options"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "ຖ້າທ່ານໃຊ້ບໍລິການອີເມວທີ່ອີງໃສ່ XOAuth2, ໃຊ້ການຕັ້ງນີ້ໃນ JSON ເພື່ອບັນທຶກການຕັ້ງຄ່າເປັນພິເສດຂອງທ່ານ (ເບິ່ງຕົວຢ່າງ) ແລະເລືອກ XOAuth2 ໃນການຕັ້ງຄ່າບໍລິການອີເມວ."
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "ກົດລະຫັດປະເພດສິ່ງແວດລ້ອມ: \"prod\" (ການຜະລິດປົກກະຕິ), \"validation\" (ຄ້າຍກັບການຜະລິດແຕ່ບໍ່ລາຍງານສະຖິຕິ), ຫຼື \"test\" (ໂໝດ debug ດ້ວຍເຄື່ອງມືນັກພັດທະນາເຊັ່ນ ເຄື່ອງບຽງບໍ່ແປ)."
+
+msgid "Global limit of users per course"
+msgstr "ຂອບເຂດສູງສຸດຜູ້ໃຊ້ທັງໝົດຕໍ່ຄອສ"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "ກົດລະຫັດຈຳນວນເຢື້ອສູງສຸດຂອງຜູ້ໃຊ້ (ຮວມທັງອາຈານ) ທີ່ອະນຸຍາດໃຫ້ລົງทะບຽນໃນຄອສດຽວກັນໃນພລັດຟອມ. ກົດຄ່ານີ້ເປັນ 0 ເພື່ອປິດການຈຳກັດ. ນີ້ຊ່ວຍຫຼີກເວັ້ນຄອສທີ່ໂຫວດໃນປະຕູເປີດ."
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "ເປີດໃຊ້ເພື່ອໃຊ້ array ເພື່ອກົດລະຫັດບົດບາດໃດທີ່ຄວນแสดงຢ່າງຈະແຈ້ງ ແລະໃດທີ່ຄວນປົກພູດ."
+
+msgid "Show base course posts in session course"
+msgstr "ສະແດງບັນຫຼັກຄອສໃນຄອສຊັ້ນການຮຽນ"
+
+msgid "Limit identical email usage"
+msgstr "ຈຳກັດການໃຊ້ອີເມວທີ່ເທົ່າເທົ່າກັນ"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr ""
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr ""
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr ""
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr ""
+
+msgid "Redirect after login (per profile)"
+msgstr ""
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr ""
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr ""
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr ""
+
+msgid "Array defining host and port for the LDAP server."
+msgstr ""
+
+msgid "Enable 2FA"
+msgstr ""
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr ""
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr ""
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr ""
+
+msgid "Show remaining days in My Sessions"
+msgstr ""
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr ""
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr ""
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr ""
+
+msgid "Disclose AI assistance"
+msgstr ""
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr ""
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr ""
+
+msgid "Session Catalog Settings"
+msgstr ""
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr ""
+
+msgid "Show Course Descriptions"
+msgstr ""
+
+msgid "Display course descriptions within the catalog listing."
+msgstr ""
+
+msgid "Published Courses Only"
+msgstr ""
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr ""
+
+msgid "Display Catalog on Homepage"
+msgstr ""
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr ""
+
+msgid "Hide Public Link"
+msgstr ""
+
+msgid "Remove the public URL link from course cards."
+msgstr "ລົບລິ້ງ URL ສາທາລະນະອອກຈາກກາດຄອສ."
+
+msgid "Only Selected Courses"
+msgstr "ພຽງແຕ່ຄອສທີ່ເລືອກ"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "ສະແດງພຽງແຕ່ຄອສທີ່ເລືອກດ້ວຍມືໃນໜ້າການລາຍການຄອສ."
+
+msgid "Allow Student Browsing"
+msgstr "ອະນຸຍາດໃຫ້ນັກຮຽນຊອກຫາ"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "ອະນຸຍາດໃຫ້ນັກຮຽນຊອກຫາແລະກັ່ນຕອງໜ້າການລາຍການຄອສ."
+
+msgid "Hide Private Courses"
+msgstr "ປິດບັນຊີຄອສສ່ວນຕົວ"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "ຈໍາກັດຄອສສ່ວນຕົວອອກຈາກການສະແດງໜ້າການລາຍການ."
+
+msgid "Show Courses & Sessions"
+msgstr "ສະແດງຄອສ ແລະ ຊັ້ນການຮຽນ"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "ລວມທັງຄອສແລະຊັ້ນການຮຽນໃນການຈັດລຽງຜົນໜ້າການລາຍການ."
+
+msgid "Auto Session Subscription"
+msgstr "ການລົງທະບຽນຊັ້ນການຮຽນອັດຕະໂນມັດ"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "ເປີດໃຊ້ການລົງທະບຽນຊັ້ນການຮຽນອັດຕະໂນມັດສຳລັບຜູ້ໃຊ້."
+
+msgid "Subscription in Session View"
+msgstr "ການລົງທະບຽນໃນໜ້າຊັ້ນການຮຽນ"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "ອະນຸຍາດໃຫ້ຜູ້ໃຊ້ລົງທະບຽນຄອສໂດຍກົງຈາກໜ້າຊັ້ນການຮຽນຂອງເຂົາເຈົ້າ."
+
+msgid "Enable redirection plugin"
+msgstr "ເປີດໃຊ້ພລັກອິນເລື່ອງຈັດທິດ"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "ອາເຣທີທີ່ກຳນົດ 'ມື້' ແລະ 'ເດືອນ' ເພື່ອກຳນົດວັນທີສຳລັບບັນຊີຫມົດອາຍຸເມື່ອຜູ້ໃຊ້ເຂົ້າສູ່ລະບົບຄັ້ງທຳອິດ."
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "ອາເຣທີຂອງບົດບາດ => ເລກທີ່ສະແດງເຖິງຈຳນວນມື້ທີ່ບັນຊີມີກ່ອນຫມົດອາຍຸ, ຕາມບົດບາດ."
+
+msgid "Extra user field used to search and name sessions"
+msgstr "ສະໜາມຜູ້ໃຊ້ເພີ່ມເຕີມທີ່ໃຊ້ສຳລັບການຊອກຫາແລະຕັ້ງຊື່ຊັ້ນການຮຽນ"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "ການຕັ້ງນີ້ກຳນົດກະດູກສະໜາມຜູ້ໃຊ້ເພີ່ມເຕີມ (ຕົວຢ່າງ, \"company\") ທີ່ຈະໃຊ້ສຳລັບການຊອກຫາຜູ້ໃຊ້ແລະກຳນົດຊື່ຂອງຊັ້ນການຮຽນເມື່ອລົງທະບຽນນັກຮຽນຈາກ /admin-dashboard/register."
+
+msgid "Glossary terms generator"
+msgstr "ເຮັດສ້າງຄຳສັບຄຳຫມາຍ"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "ອະນຸຍາດໃຫ້ຄູສາວຮ້ອງຂໍຄຳສັບຄຳຫມາຍທີ່ສ້າງດ້ວຍ AI ໃນຄອສຂອງເຂົາເຈົ້າ. ນີ້ຈະສ້າງ 20 ຄຳສັບອີງຕາມຊື່ຄອສແລະຄຳອະທິບາຍທົ່ວໄປໃນເຄື່ອງມືອະທິບາຍຄອສ. ຖ້າໃຊ້ຫຼາຍກວ່າຄັ້ງດຽວ, ມັນຈະຈໍາກັດຄຳສັບທີ່ມີຢູ່ໃນກົດລະບິດນັ້ນ (ໃຫ້ແນ່ໃຈວ່າເນື້ອຫາສາມາດແບ່ງປັນຫຼືການບໍລິການ AI ທີ່ຕັ້ງค่าໄດ້)."
+
+msgid "Video generator"
+msgstr "ເຮັດສ້າງວິດີໂອ"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "ສ້າງວິດີໂອອີງຕາມການເຄື່ອນໄຫວຫຼືເນື້ອຫາໂດຍໃຊ້ AI (ນີ້ອາດຈະໃຊ້ແທກເຊັນເພົາແພ)."
+
+msgid "Course analyser"
+msgstr "ການວິເຄາະຄອສ"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "ວິເຄາະຊັບພະຍາກອນທັງຫມົດໃນຄອສດຽວຫຼືຫຼາຍຄອສແລະຝຶກ AI ລ່ວງໜ້າເພື່ອຕອບຄຳຖາມໃດໆກ່ຽວກັບຄອສນີ້ຫຼືຄອສເຫຼົ່ານີ້ (ໃຫ້ແນ່ໃຈວ່າເນື້ອຫາສາມາດແບ່ງປັນຫຼືການບໍລິການ AI ທີ່ຕັ້ງค่าໄດ້)."
+
+msgid "Test/development"
+msgstr "ທົດສອບ/ພັດທະນາ"
+
+msgid "Crons"
+msgstr "Crons"
+
+msgid "Editor"
+msgstr "ບັດເດີດ"
+
+msgid "Gradebook"
+msgstr "ສຳຮອງຄະແນນ"
+
+msgid "Internationalization"
+msgstr "ການລຳລະຊື່ສາກົນ"
+
+msgid "User profiles"
+msgstr "ໂປຣໄຟລ໌ຜູ້ໃຊ້"
+
+msgid "Support tickets"
+msgstr "ຕົກລົງສະໜັບສະໜຸນ"
+
+msgid "Webservices"
+msgstr "ເວັບເຊີບິດ"
+
+msgid "Catalogue"
+msgstr "ໜ້າການລາຍການ"
+
+msgid "Workflows"
+msgstr "ລະບົບການເຮັດວຽກ"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "ການຕັ້ງສາມາດແກ້ໄຂໃນ sub-URLs"
+
+msgid "Show JSON Template"
+msgstr "ສະແດງແມ່ພິມ JSON"
+
+msgid "JSON Template"
+msgstr "ແມ່ພິມ JSON"
+
+msgid "Installing Xapian bindings"
+msgstr "ການຕິດຕັ້ງການເຊື່ອມຕໍ່ Xapian"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "ຕອນຈຳລຸ່ມນີ້ສະແດງຕົວຢ່າງການຕິດຕັ້ງການເຊື່ອມຕໍ່ PHP Xapian ໃນ Ubuntu 25.04 ດ້ວຍ PHP 8.3. ດັດແປງທາງແລະລຸ້ນໃຫ້ເໝາະກັບສະພາບແວດລ້ອມຂອງເຈົ້າ."
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "ໃຫ້ແນ່ໃຈວ່າເຈົ້າມີພຽງແຕ່ລຸ້ນ PHP ທີ່ເຈົ້າໃຊ້ຈິງໆ (ຕົວຢ່າງ 8.3) ແລະຫຼີກເວັ້ນການປະສົມລຸ້ນຫຼາຍດ້ວຍໄດເລກທີ່ຕ່າງກັນ."
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "ເມື່ອເຄັດເຊັນໄດ້ໂຫຼດຖືກຕ້ອງສຳລັບທັງ CLI ແລະເວັບເຊີເວີ, ການກວດສອບການຊອກຫາຂ້າງເທິງຄວນລາຍງານວ່າໂມດູນ Xapian ໄດ້ຕິດຕັ້ງແລ້ວ."
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "ລ້າງຟາຍອັພໂຫດຊົ່ວຄາວ ແລະ ແຄຊ"
+
+msgid "Directory"
+msgstr "ໂຟນເດີ໌"
+
+msgid "Only delete files older than (minutes)"
+msgstr "ລ້າງພຽງຟາຍທີ່ເກົ່າກວ່າ (ນາທີ)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "ຕັ້ງ 0 ເພື່ອລ້າງທັງໝົດຟາຍ. ໃຊ້ຄ່າບວກ (ຕົວຢ່າງ, 60) ເພື່ອຫຼີກລ່ຽງການລຶບຟາຍທີ່ຍັງກຳລັງອັພໂຫດ."
+
+msgid "Preview only (do not delete)"
+msgstr "ເບິ່ງກ່ອນ (ບໍ່ລ້າງ)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "ຄຳເຕືອນ: ເຈົ້າກຳລັງຈະລ້າງທັງໝົດຟາຍຊົ່ວຄາວ. ການເຄື່ອນໄຫວນີ້ບໍ່ສາມາດຍົກເລີກໄດ້."
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "ນີ້ຈະລ້າງທັງໝົດຟາຍຊົ່ວຄາວ. ດຳເນີນການ?"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "ນີ້ຈະລ້າງຟາຍທີ່ເກົ່າກວ່າ %minutes% ນາທີ. ດຳເນີນການ?"
+
+msgid "The value must match exactly: %s"
+msgstr "ຄ່າຕ້ອງກົງກັນເປັນດິບ: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "ວັນທີສິ້ນສຸດທີ່ເກີດຂຶ້ນຕ້ອງຫຼັງຈາກວັນທີ່ເລີ່ມຕົ້ນ."
+
+msgid "Index document content?"
+msgstr "ດັດສານດັດສານບ່ອນຊື່?"
+
+msgid "Upload SVG logo to platform header"
+msgstr "ອັບໂຫລດ SVG ໂລໂກ້ໄປຫົວໜ້າແພລັດຟອມ"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "ອັບໂຫລດ PNG ໂລໂກ້ໄປຫົວໜ້າແພລັດຟອມ (%s)"
+
+msgid "Write something to %s"
+msgstr "ຂຽນບາງສິ່ງເພື່ອ %s"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "ຢ້ຽມຮັບ: SVG. PNG ກວ້າງທີ່ແນະນຳ: %spx."
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "ອັບໂຫລດ PNG ໂລໂກ້ສຳລັບອີເມວ (~%spx ກວ້າງ)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "Header PNG ຕ້ອງ ≤ %spx."
+
+msgid "Require specific file format"
+msgstr "ຕ້ອງການຮູບແບບໄຟລ໌ສະເພາະ"
+
+msgid "Select allowed file formats"
+msgstr "ເລືອກຮູບແບບໄຟລ໌ທີ່ຢ້ຽມຮັບ"
+
+msgid "Custom extensions (separated by space)"
+msgstr "ເສັ້ນຂະຫຍາຍພິເສດ (ແຍກດ້ວຍຊ່ອງຫວ່າງ)"
+
+msgid "Other extensions"
+msgstr "ເສັ້ນຂະຫຍາຍອື່ນໆ"
+
+msgid "My invitations"
+msgstr "ການເຊື້ອເຊີນຂອງຂ້ອຍ"
+
+msgid "Delete access"
+msgstr "ລຶບການເຂົ້າເຖິງ"
+
+msgid "Certificate tags"
+msgstr "ບັດແທັກໃບຢັ້ງຢືນ"
+
+msgid "Copy all"
+msgstr "ສຳເນົາທັງໝົດ"
+
+msgid "Click to insert"
+msgstr "ກົດເພື່ອໃສ່"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "ທີ່ຢູ່ຊົງ: SVG. PNG ຂະໜາດສູງສຸດ: %spx."
+
+msgid "View badge"
+msgstr "ເບິ່ງຕົວແທນຍ້ອງຍໍ"
+
+msgid "%d min"
+msgstr "%d ນາທີ"
+
+msgid "Duration in minutes"
+msgstr "ໄລຍະເວລາເປັນນາທີ"
+
+msgid "Go back to standard view"
+msgstr "ກັບໄປທີ່ມຸມສະແດງມາດຖຽບ"
+
+msgid "Search for student..."
+msgstr "ຄົ້ນຫນັກນັກສຶກສາ..."
+
+msgid "This date is locked or read-only."
+msgstr "ວັນທີນີ້ຖືກລັອກ ຫຼື ອ່ານເທົ່ານັ້ນ."
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "ບໍ່ສາມາດໂຫຼດການເຂົ້າຮ່ວມໄດ້. ກະລຸນາລອງອີກຄັ້ງຕໍ່ມາ."
+
+msgid "Nothing to save"
+msgstr "ບໍ່ມີຫຍັງຕ້ອງບັນທຶກ"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "ເຈົ້າມີການປ່ຽນແປງທີ່ຍັງບໍ່ໄດ້ບັນທຶກ. ອອກຢ່າງໃດ?"
+
+msgid "Storage usage unavailable"
+msgstr "ການໃຊ້ເຮື້ອບຸກຄ໌ບໍ່ມີຢູ່"
+
+msgid "Search for members..."
+msgstr "ຄົ້ນຫາສະມາຊິກ..."
+
+msgid "Current members"
+msgstr "ສະມາຊິກປະຈຸບັນ"
+
+msgid "Add members"
+msgstr "ເພີ່ມສະມາຊິກ"
+
+msgid "Search for users in course/session..."
+msgstr "ຄົ້ນຫາຜູ້ໃຊ້ໃນຊັ້ນໄລຍະ/ຊັ້ນ..."
+
+msgid "No users available."
+msgstr "ບໍ່ມີຜູ້ໃຊ້ມີຢູ່."
+
+msgid "Browse and publish new posts"
+msgstr "ເລື່ອງລວມແລະເຜີ່ຍນົດໂພສໃໝ່"
+
+msgid "Create and assign tasks"
+msgstr "ສ້າງແລະກຳນົດກິດຈະກຳ"
+
+msgid "Filtered by %s"
+msgstr "ກັດກຳດີ %s"
+
+msgid "Select a score"
+msgstr "ເລືອກຄະແນນ"
+
+msgid "Edit comment"
+msgstr "ແກ້ໄຂຄຳພັນ"
+
+msgid "Failed to update the post."
+msgstr "ບໍ່ສາມາດອັບເດດໂພສໄດ້."
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "ລຶບໂພສນີ້? ການເຮັດນີ້ບໍ່ສາມາດຍົກເລີກໄດ້."
+
+msgid "Failed to delete the post."
+msgstr "ບໍ່ສາມາດລຶບໂພສໄດ້."
+
+msgid "Failed to update the comment."
+msgstr "ບໍ່ສາມາດອັບເດດຄຳພັນໄດ້."
+
+msgid "Delete this comment?"
+msgstr "ລຶບຄຳພັນນີ້?"
+
+msgid "Failed to delete the comment."
+msgstr "ບໍ່ສາມາດລຶບຄຳພັນໄດ້."
+
+msgid "Search for projects..."
+msgstr "ຄົ້ນຫາໂຄງການ..."
+
+msgid "Only visible"
+msgstr "ເບິ່ງເຫັນເທົ່ານັ້ນ"
+
+msgid "Rename project"
+msgstr "ປ່ຽນຊື່ໂຄງການ"
+
+msgid "New title"
+msgstr "ຫົວຂໍ້ໃໝ່"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "ເຈົ້າຕ້ອງເປັນຜູ້ຈັດການຫຼືຄູສອນເພື່ອຈັດການໂຄງການ."
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "ລຶບໂຄງການນີ້? ການເຮັດນີ້ບໍ່ສາມາດຍົກເລີກໄດ້."
+
+msgid "Task list"
+msgstr "ລາຍການກິດຈະກຳ"
+
+msgid "Change status"
+msgstr "ປ່ຽນສະຖານະ"
+
+msgid "Waiting for validation"
+msgstr "ກຳລັງລໍຖ້າຢັ້ງຢືນ"
+
+msgid "Delete this task?"
+msgstr "ລຶບກິດຈະກຳນີ້?"
+
+msgid "Failed to delete the task."
+msgstr "ບໍ່ສາມາດລຶບກິດຈະກຳໄດ້."
+
+msgid "Failed to update status."
+msgstr "ບໍ່ສາມາດອັບເດດສະຖານະໄດ້."
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "ເຈົ້າຕ້ອງກັບລຶບພາກສ່ວນນີ້ບໍ? ການເຮັດນີ້ບໍ່ສາມາດຍົກເລີກໄດ້."
+
+msgid "Please fix the errors before saving."
+msgstr "ກະລຸນາແກ້ໄຂຂໍ້ຜິດພາດກ່ອນບັນທຶກ."
+
+msgid "Error creating third party. Please verify the data."
+msgstr "ຂໍ້ຜິດພາດໃນການສ້າງພາກສ່ວນ. ກະລຸນາກວດສອບຂໍ້ມູນ."
+
+msgid "Error deleting third party."
+msgstr "ຂໍ້ຜິດພາດໃນການລຶບພາກສ່ວນ."
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "ອັບໂຫຼດຫົວຕາຕະລາງແລະໂລໂກ້ອີເມວທີ່ເລືອກ. SVG ທີ່ຢູ່ຊົງ; PNG ໃຊ້ເປັນສຳຮອງ."
+
+msgid "Data exchange updated successfully."
+msgstr "ການແລກປ່ຽນຂໍ້ມູນອັບເດດສຳເລັດ."
+
+msgid "Error deleting data exchange."
+msgstr "ຂໍ້ຜິດພາດໃນການລຶບການແລກປ່ຽນຂໍ້ມູນ."
+
+msgid "Failed to recycle course."
+msgstr "ບໍ່ສາມາດລວບລວມຊັ້ນໄດ້."
+
+msgid "Select source course"
+msgstr "ເລືອກຊັ້ນເຄື່ອງມື"
+
+msgid "Course to copy from"
+msgstr "ຊັ້ນທີ່ຈະຄັດລອກມາ"
+
+msgid "Search by code or title..."
+msgstr "ຄົ້ນຫາຕາມໂຄດຫຼືຫົວຂໍ້..."
+
+msgid "No courses match your search."
+msgstr "ບໍ່ມີຄອສມື້ງກັບການຄົ້ນຫາຂອງເຈົ້າ."
+
+msgid "Copy options"
+msgstr "ຕົວເລືອກສຳເນົາ"
+
+msgid "Include users (enrollments)"
+msgstr "ລວມຜູ້ໃຊ້ (ການສະໝັກໃຫ້)"
+
+msgid "Reset dates"
+msgstr "ລັບວັນທີ"
+
+msgid "When a file with the same name exists"
+msgstr "ເມື່ອມີໄຟລ໌ທີ່ມີຊື່ດຽວກັນ"
+
+msgid "Ready to copy"
+msgstr "ພ້ອມສຳເນົາ"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "ພວກເຮົາຈະສຳເນົາດ້ານມີຈາກຄອສທີ່ເລືອກໄວ້ເຂົ້າໄປໃນຄອສນີ້. ເຈົ້າສາມາດກັບໄປປ່ຽນຕົວເລືອກໄດ້."
+
+msgid "Start copying"
+msgstr "ເລີ່ມສຳເນົາ"
+
+msgid "Select resources to copy"
+msgstr "ເລືອກຊັບພະຍາກອນສຳເນົາ"
+
+msgid "Copy selected"
+msgstr "ສຳເນົາທີ່ເລືອກ"
+
+msgid "Copy completed."
+msgstr "ການສຳເນົາເສີມສົມ."
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "ເຂດອັນຕະລາຍ: ການລຶບຄອສແມ່ນຖາວອິດ."
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "ພິມລະຫັດຄອສເພື່ອຢັ້ງຢືນ. ຂໍ້ມູນທັງໝົດຈະຖືກລຶບອັນເປັນຖາວອິດ."
+
+msgid "The code must match '%s' exactly."
+msgstr "ລະຫັດຕ້ອງກົງກັບ '%s' ຢ່າງແນ່ນອນ."
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "ລຶບເອກະສານທີ່ໃຊ້ເທົ່ານີ້ໃນຄອສນີ້ດ້ວຍ (ຖ້າມີ)."
+
+msgid "Delete course"
+msgstr "ລຶບຄອສ"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "ການເຮັດນີ້ບໍ່ສາມາດຍົກເລີກໄດ້. ດຳເນີນການຕໍ່?"
+
+msgid "Course deleted successfully."
+msgstr "ລຶບຄອສສຳເລັດ."
+
+msgid "Failed to delete course."
+msgstr "ລຶບຄອສບໍ່ສຳເລັດ."
+
+msgid "Create .mbz"
+msgstr "ສ້າງ .mbz"
+
+msgid "Backup scope"
+msgstr "ຂອບເຂດສຳຮັບການເຄື່ອງຮັກສາ"
+
+msgid "Full course"
+msgstr "ຄອສທັງໝົດ"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "ລາຍການທີ່ເລືອກຈະເປັນລາຍການເທົ່ານັ້ນທີ່ຖືກລວມໃນໄຟລ໌ທີ່ສົ່ງອອກ."
+
+msgid "Moodle export"
+msgstr "ສົ່ງອອກ Moodle"
+
+msgid "Moodle version"
+msgstr "ລຸ້ນ Moodle"
+
+msgid "Admin ID"
+msgstr "ລະຫັດຜູ້ບໍລິຫານ"
+
+msgid "Internal integer user id"
+msgstr "ລະຫັດຜູ້ໃຊ້ເລກທົ່ວໄປພາຍໃນ"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle ຕ້ອງການລະຫັດຜູ້ໃຊ້ພາຍໃນໃນ XML. ຖ້າບໍ່ແນ່ໃຈ, ໃຊ້ 1."
+
+msgid "Username to appear as owner of imported items"
+msgstr "ຊື່ຜູ້ໃຊ້ທີ່ຈະປະກົດເປັນເຈົ້າຂອງລາຍການທີ່ນຳເຂົ້າ"
+
+msgid "Email to use in the archive metadata"
+msgstr "ອີເມວທີ່ໃຊ້ໃນ metadata ຂອງໄອຕັກ"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr "ໄຟລ໌ .mbz ຈະຖືກສ້າງ. ເຈົ້າຈະດາວໂຫລດໄດ້ເມື່ອເສີມສົມ."
+
+msgid "Select resources to include"
+msgstr "ເລືອກຊັບພະຍາກອນທີ່ຈະລວມ"
+
+msgid "Export completed"
+msgstr "ສົ່ງອອກເສີມສົມ"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "ການເຄື່ອງຮັກສາ Moodle ຂອງເຈົ້າໄດ້ຖືກສ້າງ. ເຈົ້າສາມາດຊອກຫາມັນໃນລາຍການເຄື່ອງຮັກສາຄອສ."
+
+msgid "Please complete all required fields."
+msgstr "ກະລຸນາປ້ອນຟີວທີ່ຕ້ອງການທັງໝົດ."
+
+msgid "Failed to create Moodle backup."
+msgstr "ສ້າງການເຄື່ອງຮັກສາ Moodle ບໍ່ສຳເລັດ."
+
+msgid "More actions"
+msgstr "ການເຄື່ອງຫຼາຍກວ່າ"
+
+msgid "Write something"
+msgstr "ຂຽນບາງສິ່ງ"
+
+msgid "Friends of %s"
+msgstr "ເພື່ອນຂອງ %s"
+
+msgid "Error loading learning paths."
+msgstr "ຜິດພາດໃນການໂຫຼດເສັ້ນທາງການຮຽນ."
+
+msgid "You don't have any learning path."
+msgstr "ເຈົ້າບໍ່ມີເສັ້ນທາງການຮຽນໃດໆ."
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "ສ້າງເສັ້ນທາງການຮຽນເລີ່ມຕົ້ນຂອງເຈົ້າເພື່ອເລີ່ມຈັດລະບຽບເນື້ອໃນກະສຽງ."
+
+msgid "Could not save the new category order."
+msgstr "ບໍ່ສາມາດບັນທຶກລຳດັບປະເພດໃໝ່ໄດ້."
+
+msgid "Could not save the new order."
+msgstr "ບໍ່ສາມາດບັນທຶກລຳດັບໃໝ່ໄດ້."
+
+msgid "Assignment"
+msgstr "ການກຳນົດງານ"
+
+msgid "Allowed file formats: %s"
+msgstr "ຮູບແບບໄຟລ໌ທີ່ອະນຸຍາດ: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "ປະເພດໄຟລ໌ບໍ່ໄດ້ຮັບອະນຸຍາດ. ເສັ້ນຂະແໜງທີ່ອະນຸຍາດ: %s"
+
+msgid "Folder name"
+msgstr "ຊື່ໂຟນເດີ"
+
+msgid "Rename folder"
+msgstr "ປ່ຽນຊື່ໂຟນເດີ"
+
+msgid "New name"
+msgstr "ຊື່ໃໝ່"
+
+msgid "Choose an action"
+msgstr "ເລືອກການກະທຳ"
+
+msgid "New version"
+msgstr "ລຸ້ນໃໝ່"
+
+msgid "Change title to selected filename"
+msgstr "ປ່ຽນຫົວຂໍ້ເປັນຊື່ໄຟລ໌ທີ່ເລືອກ"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "ເຈົ້າສາມາດແທນທີ່ໄຟລ໌, ເຄື່ອນຍ້າຍໄປໂຟນເດີອື່ນ, ຫຼືທັງສອງ."
+
+msgid "Move %s"
+msgstr "ເຄື່ອນຍ້າຍ %s"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "ພຽງໂຟນເດທີ່ບໍ່ແມ່ນຮາກຖືກສະແດງເພື່ອຫຼີກເວັ້ນປ່ອຍລາວຢູ່ຮາກ."
+
+msgid "No feedback yet."
+msgstr "ຍັງບໍ່ມີຄຳແນະນຳ."
+
+msgid "Upload first, organize later"
+msgstr "ອັບໂຫຼດກ່ອນ, ຈັດການຫຼັງ"
+
+msgid "Drag & drop or browse to add files"
+msgstr "ລากແລະປ່ອຍ ຫຼື ເລືອກເພື່ອເພີ່ມໄຟລ໌"
+
+msgid "Social wall..."
+msgstr "ກຳແນວສັງຄົມ..."
+
+msgid "Wall of %s"
+msgstr "ກຳແນວຂອງ %s"
+
+msgid "Version currently loaded"
+msgstr "ລຸ້ນທີ່ໂຫຼດຢູ່ດຽວນີ້"
+
+msgid "Completion"
+msgstr "ການສຳເລັດ"
+
+msgid "Quick navigation"
+msgstr "ການທີ່ຈະເດີນທາງໄວ"
+
+msgid "Filled"
+msgstr "ເຕັມ"
+
+msgid "Terms sections"
+msgstr "ພາກສ່ວນຂໍ້ກຳນົດ"
+
+msgid "Open a section to edit its content."
+msgstr "ເປີດພາກສ່ວນເພື່ອແກ້ໄຂເນື້ອໃນ."
+
+msgid "Open this section to load the editor."
+msgstr "ເປີດພາກສ່ວນນີ້ເພື່ອໂຫຼດຜູ້ແກ້ໄຂ."
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "ເຂດອັນຕະລາຍ: ການລຶບ URL ເຂົ້າເຖິງແມ່ນຖາວອິດ."
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "ພິມ URL ເຕັມເພື່ອຢັ້ງຢຶນ. URL ແລະຄວາມສຳພັນຈະຖືກລຶບຖາວອິດ."
+
+msgid "Unable to load the badge's image."
+msgstr "ບໍ່ສາມາດໂຫຼດຮູບພາບສິນທະຄ່າໄດ້."
+
+msgid "Invalid role selection"
+msgstr "ການເລືອກບົດບາດບໍ່ຖືກຕ້ອງ"
+
+msgid "Select relation type first to enable user management."
+msgstr "ເລືອກປະເພດຄວາມສຳພັນກ່ອນເພື່ອເປີດໃຊ້ການຈັດການຜູ້ໃຊ້."
+
+msgid "This question has no course context. Preview is not available."
+msgstr "ຄຳຖາມນີ້ບໍ່ມີບໍລິບົດກະສຽງ. ການດູລ່ວງໜ້າບໍ່ມີ."
+
+msgid "Unknown test"
+msgstr "ການທົດສອບທີ່ບໍ່ຮູ້ຈັກ"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "ການລຶບບໍ່ໄດ້ຮັບອະນຸຍາດຖ້າບໍ່ມີບໍລິບົດກະສຽງ."
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "ລຶບລົ້ມເຫຼວ: ຂາດບໍລິບົດກະສຽງ ຫຼື ຄຳຖາມນີ້ເປັນຂອງການທົດສອບ. ແກ້ໄຂຈາກໃນການທົດສອບ ຫຼື ກັດຈອດພຽງຄຳຖາມທີ່ບໍ່ມີພໍ່ມາດ.id ຄຳຖາມທີ່ຖືກຕ້ອງ."
+
+msgid "Delete failed: question not found."
+msgstr "ລຶບລົ້ມເຫຼວ: ບໍ່ພົບຄຳຖາມ."
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "ລຶບລົ້ມເຫຼວ: ຄຳຖາມນີ້ຍັງຖືກອ້າງອີງໂດຍຊັບພະຍາກອນອື່ນໆ."
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "ຄຳຖາມນີ້ເປັນຂອງການທົດສອບ. ແກ້ໄຂຈາກໃນການທົດສອບ ຫຼື ກັດຈອດພຽງຄຳຖາມທີ່ບໍ່ມີພໍ່."
+
+msgid "Access the group tools and resources"
+msgstr "ເຂົ້າເຖິງເຄື່ອງມື ແລະ ຊັບພະຍາກອນຂອງກຸ່ມ"
+
+msgid "%s members"
+msgstr "%s ສະມາຊິກ"
+
+msgid "View certificate (HTML)"
+msgstr "ດູໃບຢັ້ງຢຶນ (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "ລິ້ງທັກສະກັບຕົວຈັດລັດນີ້"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "ຈັດການລິ້ງລະຫວ່າງໃບຢັ້ງຢຶນ ແລະ ທັກສະສຳລັບແຕ່ລະຕົວຈັດລັດ"
+
+msgid "Please select a specific badge issue to download"
+msgstr "ກະລຸນາເລືອກການອອກສິນທະຄ່າເປັນພິເສດເພື່ອດາວໂຫຼດ"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM ບໍ່ໄດ້ເປີດໃຊ້."
+
+msgid "Invalid token."
+msgstr "ເຕັກໂຕເຄີນບໍ່ຖືກຕ້ອງ."
+
+msgid "Schema not supported."
+msgstr "ຮູບແບບບໍ່ຮອງຮັບ."
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "ຮູບແບບບໍ່ຖືກຕ້ອງສຳລັບການດຳເນິນການ PATCH."
+
+msgid "Missing required \"Operations\" array."
+msgstr "ຂາດມີຕອບຈໍາເປັນ \"Operations\"."
+
+msgid "The '%s' operation is not supported."
+msgstr "ການດຳເນິນການ '%s' ບໍ່ໄດ້ຮັບການຮອງຮັບ."
+
+msgid "Drupal user ID"
+msgstr "ID ຜູ້ໃຊ້ Drupal"
+
+msgid "There are no terms that match the search: %s"
+msgstr "ບໍ່ມີຄຳສັ້ນທີ່ຕົງກັບການຄົ້ນຫາ: %s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr ""
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr ""
+
+msgid "Save private conversations in documents"
+msgstr ""
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr ""
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr ""
+
+msgid "Admin responsibility & disclosures"
+msgstr ""
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr ""
+
+msgid "Positioning"
+msgstr ""
+
+msgid "Quiz"
+msgstr ""
+
+msgid "Customcertificate"
+msgstr ""
+
+msgid "Update profile"
+msgstr ""
+
+msgid "Enable learning path generator"
+msgstr ""
+
+msgid "Enable exercise generator"
+msgstr ""
+
+msgid "Enable open answers grader"
+msgstr ""
+
+msgid "Enable tutor chatbot"
+msgstr ""
+
+msgid "Enable task grader"
+msgstr ""
+
+msgid "Enable content analyser"
+msgstr ""
+
+msgid "Enable image generator"
+msgstr ""
+
+msgid "Enable glossary terms generator"
+msgstr ""
+
+msgid "Enable video generator"
+msgstr ""
+
+msgid "Enable course analyser"
+msgstr ""
+
+msgid "The operation '%s' is not supported."
+msgstr ""
+
+msgid "AI feedback on %s in course %s"
+msgstr ""
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr ""
+
+msgid "AI Tutor"
+msgstr ""
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr ""
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr ""
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr ""
+
+msgid "You are here"
+msgstr ""
+
+msgid "Click an event type to filter results."
+msgstr ""
+
+msgid "Require unique presence"
+msgstr ""
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr ""
+
+msgid "AI feedback"
+msgstr ""
+
+msgid "Prompt"
+msgstr ""
+
+msgid "Tip"
+msgstr ""
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr ""
+
+msgid "Result (you can apply it to the comment)"
+msgstr ""
+
+msgid "Apply to comment"
+msgstr ""
+
+msgid "Apply score"
+msgstr ""
+
+msgid "AI grade"
+msgstr ""
+
+msgid "AI tutor is disabled during tests"
+msgstr ""
+
+msgid "Generate glossary terms"
+msgstr ""
+
+msgid "Generate media"
+msgstr ""
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr ""
+
+msgid "AI helpers are disabled at platform level."
+msgstr ""
+
+msgid "AI media generation is disabled in course settings."
+msgstr ""
+
+msgid "No AI media providers available."
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Select a provider"
+msgstr ""
+
+msgid "Example: generated_media"
+msgstr ""
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr "ຊື່ບໍ່ໄດ້ເພີ່ມເຂົ້າໃນ prompt; ມັນຖືກໃຊ້ເພື່ອບັນທຶກໄຟລ໌ເທົ່ານັ້ນ."
+
+msgid "Describe what you want to generate..."
+msgstr "ອະທິບາຍວ່າທ່ານຕ້ອງການສ້າງຫຍັງ..."
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr "ແນະນຳ: ກົດທີ່ຕັ້ງຄ່າລ່ວນເພື່ອກຳນົດຂະໜາດໄວ."
+
+msgid "Generating..."
+msgstr "ກຳລັງສ້າງ..."
+
+msgid "Save to Documents"
+msgstr "ບັນທຶກໄປທີ່ເອກະສານ"
+
+msgid "Document IRI"
+msgstr "IRI ເອກະສານ"
+
+msgid "Go to folder"
+msgstr "ໄປທີ່ໂຟນເດີ"
+
+msgid "Provider used"
+msgstr "ຜູ້ສະໜອບສະໜັບທີ່ໃຊ້"
+
+msgid "This video result cannot be saved yet"
+msgstr "ຜົນວິດີໂອນີ້ຍັງບໍ່ສາມາດບັນທຶກໄດ້"
+
+msgid "Video polling was stopped because the provider changed."
+msgstr "ການສຳຫຼວດວິດີໂອຖືກຢຸດເພາະຜູ້ສະໜອບສະໜັບປ່ຽນແລ້ວ."
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr "ການສ້າງວິດີໂອໃຊ້ເວລານານເກີນໄປ. ກະລຸນາລອງອີກຄັ້ງຕໍ່ມາ."
+
+msgid "Failed to check video status."
+msgstr "ລົ້ມເຫຼວໃນການກວດສອບສະຖານະວິດີໂອ."
+
+msgid "Video generated successfully. You can now save it."
+msgstr "ສ້າງວິດີໂອສຳເລັດ. ດຽວນີ້ທ່ານສາມາດບັນທຶກມັນໄດ້."
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr "ການສ້າງວິດີໂອສຳເລັດ, ແຕ່ບໍ່ມີເນື້ອຫາທີ່ສາມາດຫມືນໄດ້ທີ່ຖືກສົ່ງກັບ."
+
+msgid "Video generation failed."
+msgstr "ການສ້າງວິດີໂອລົ້ມເຫຼວ."
+
+msgid "Waiting for the video to be ready..."
+msgstr "ກຳລັງລໍຖ້າວິດີໂອໃຫ້ເຕີບໂຕ..."
+
+msgid "Please complete all fields."
+msgstr "ກະລຸນາປ້ອນຄວາມຄົບທົ່ວທັງຫມົດ."
+
+msgid "Image generation is not enabled for this course."
+msgstr "ການສ້າງຮູບພາບບໍ່ໄດ້ເປີດໃຊ້ສຳລັບຄອສນີ້."
+
+msgid "Video generation is not enabled for this course."
+msgstr "ການສ້າງວິດີໂອບໍ່ໄດ້ເປີດໃຊ້ສຳລັບຄອສນີ້."
+
+msgid "Generation failed."
+msgstr "ການສ້າງລົ້ມເຫຼວ."
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr "ສ້າງສຳເລັດ. ກວດເບິ່ງການໂຊວ์ລ່ວນແລະບັນທຶກເມື່ອເຕີບໂຕ."
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr "ສ້າງສຳເລັດ. ການບັນທຶກຖືກປິດເພາະຜູ້ສະໜອບສະໜັບສົ່ງກັບ URL."
+
+msgid "Video generation started. Waiting for the result..."
+msgstr "ເລີ່ມການສ້າງວິດີໂອ. ກຳລັງລໍຖ້າຜົນ..."
+
+msgid "AI returned an empty response."
+msgstr "AI ສົ່ງກັບຄຳຕອບຫວ່າງ."
+
+msgid "Nothing to save yet."
+msgstr "ຍັງບໍ່ມີຫຍັງຕ້ອງບັນທຶກ."
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr "ຜູ້ສະໜອບສະໜັບນີ້ບໍ່ໄດ້ສົ່ງກັບເນື້ອຫາ base64. ກະລຸນາລອງຜູ້ສະໜອບສະໜັບອື່ນ."
+
+msgid "Saving failed."
+msgstr "ການບັນທຶກລົ້ມເຫຼວ."
+
+msgid "Get AI feedback"
+msgstr "ເອົາຄຳແນະນຳ AI"
+
+msgid "Copy answer to clipboard"
+msgstr "ສຳເນົາຄຳຕອບໄປ clipboard"
+
+msgid "Save answer to my inbox"
+msgstr "ບັນທຶກຄຳຕອບໄປຫ້ອງຈຳຂ້ອຍ"
+
+msgid "The document is already in this folder"
+msgstr "ເອກະສານນີ້ຢູ່ໃນໂຟນເດີນີ້ແລ້ວ"
+
+msgid "Copied"
+msgstr "ສຳເນົາແລ້ວ"
+
+msgid "You do not have permission to generate glossary terms."
+msgstr "ທ່ານບໍ່ມີສິດໃນການສ້າງຄຳສະໜາມຄຳສັບ."
+
+msgid "Video generation is in progress"
+msgstr "ການສ້າງວິດີໂອກຳລັງດຳເນີນ"
+
+msgid "Job"
+msgstr "ວຽກງານ"
+
+msgid "Modified prompt"
+msgstr "prompt ທີ່ປ່ຽນແປງ"
+
+msgid "Saved in Documents"
+msgstr "ບັນທຶກໄວ້ໃນເອກະສານ"
 

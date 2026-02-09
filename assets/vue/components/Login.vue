@@ -51,16 +51,19 @@
         />
       </div>
 
-      <div class="field login-section__remember-me">
+      <div
+        v-if="isHttps"
+        class="field login-section__remember-me"
+      >
         <ToggleSwitch
           v-model="remember"
-          input-id="binary"
-          name="remember_me"
+          input-id="remember_me"
+          name="_remember_me"
           tabindex="4"
         />
         <label
           v-t="'Remember me'"
-          for="binary"
+          for="remember_me"
         />
       </div>
 
@@ -92,11 +95,15 @@
     </form>
 
     <LoginOAuth2Buttons />
+    <div class="mt-3">
+      <CategoryLinks category="menu_links" />
+    </div>
   </div>
 </template>
 
 <script setup>
 const isInIframe = window.self !== window.top
+const isHttps = window.location.protocol === "https:"
 if (isInIframe) {
   try {
     const parentUrl = window.top.location.href
@@ -121,6 +128,7 @@ import { useLogin } from "../composables/auth/login"
 import LoginOAuth2Buttons from "./login/LoginOAuth2Buttons.vue"
 import { usePlatformConfig } from "../store/platformConfig"
 import { useRouter } from "vue-router"
+import CategoryLinks from "./page/CategoryLinks.vue"
 
 const { t } = useI18n()
 const router = useRouter()
@@ -138,11 +146,11 @@ const remember = ref(false)
 redirectNotAuthenticated()
 
 async function onSubmitLoginForm() {
-  const response = await performLogin({
+  await performLogin({
     login: login.value,
     password: password.value,
     totp: requires2FA.value ? totp.value : null,
-    _remember_me: remember.value,
+    _remember_me: isHttps ? remember.value : false,
     isLoginLdap: ldapAuth.value,
   })
 }

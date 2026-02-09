@@ -11,9 +11,12 @@ use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\SettingsCurrent;
 use Chamilo\CoreBundle\Helpers\SettingsManagerHelper;
 use Chamilo\CoreBundle\Search\SearchEngineFieldSynchronizer;
+use Chamilo\CourseBundle\Entity\CCourseSetting;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use InvalidArgumentException;
+use ReflectionMethod;
+use ReflectionNamedType;
 use Sylius\Bundle\SettingsBundle\Manager\SettingsManagerInterface;
 use Sylius\Bundle\SettingsBundle\Model\Settings;
 use Sylius\Bundle\SettingsBundle\Model\SettingsInterface;
@@ -25,6 +28,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Validator\Exception\ValidatorException;
 
 use const ARRAY_FILTER_USE_KEY;
+use const PHP_URL_HOST;
 
 /**
  * Handles the platform settings.
@@ -56,6 +60,29 @@ class SettingsManager implements SettingsManagerInterface
     protected RequestStack $request;
 
     private ?AccessUrl $mainUrlCache = null;
+
+    /**
+     * Platform -> Course settings propagation map.
+     * Add more categories/variables here to scale to other features.
+     *
+     * IMPORTANT:
+     * - Values are stored as strings in legacy course settings ("true"/"false" is common).
+     */
+    private const COURSE_SETTINGS_PROPAGATION = [
+        'ai_helpers' => [
+            // Only propagate "feature flags" (not JSON providers, etc.)
+            'learning_path_generator',
+            'exercise_generator',
+            'open_answers_grader',
+            'tutor_chatbot',
+            'task_grader',
+            'content_analyser',
+            'image_generator',
+            'glossary_terms_generator',
+            'video_generator',
+            'course_analyser',
+        ],
+    ];
 
     public function __construct(
         ServiceRegistryInterface $schemaRegistry,
@@ -183,6 +210,7 @@ class SettingsManager implements SettingsManagerInterface
             }
 
             error_log("Attempted to access undefined setting '$variable' in category '$category'.");
+
             return null;
         }
 
@@ -392,6 +420,7 @@ class SettingsManager implements SettingsManagerInterface
 
         $this->manager->flush();
         $this->clearSessionSchemaCache();
+        $this->propagatePlatformSettingsToCoursesIfNeeded($simpleCategoryName, $parameters);
     }
 
     /**
@@ -479,6 +508,7 @@ class SettingsManager implements SettingsManagerInterface
 
         $this->manager->flush();
         $this->clearSessionSchemaCache();
+        $this->propagatePlatformSettingsToCoursesIfNeeded($simpleCategoryName, $parameters);
     }
 
     /**
@@ -509,7 +539,8 @@ class SettingsManager implements SettingsManagerInterface
 
         $qb = $this->repository->createQueryBuilder('s')
             ->where('s.variable LIKE :keyword OR s.title LIKE :keyword')
-            ->setParameter('keyword', "%{$keyword}%");
+            ->setParameter('keyword', "%{$keyword}%")
+        ;
 
         // MultiURL: when on a sub-URL, include both current + main URL rows.
         if (null !== $this->url && !$this->isMainUrlContext()) {
@@ -517,16 +548,19 @@ class SettingsManager implements SettingsManagerInterface
             if ($mainUrl) {
                 $qb
                     ->andWhere('s.url IN (:urls)')
-                    ->setParameter('urls', [$this->url, $mainUrl]);
+                    ->setParameter('urls', [$this->url, $mainUrl])
+                ;
             } else {
                 $qb
                     ->andWhere('s.url = :url')
-                    ->setParameter('url', $this->url);
+                    ->setParameter('url', $this->url)
+                ;
             }
         } elseif (null !== $this->url) {
             $qb
                 ->andWhere('s.url = :url')
-                ->setParameter('url', $this->url);
+                ->setParameter('url', $this->url)
+            ;
         }
 
         $parametersFromDb = $qb->getQuery()->getResult();
@@ -583,7 +617,8 @@ class SettingsManager implements SettingsManagerInterface
                         ->where('s.category = :cat')
                         ->andWhere('s.url IN (:urls)')
                         ->setParameter('cat', $namespace)
-                        ->setParameter('urls', [$this->url, $mainUrl]);
+                        ->setParameter('urls', [$this->url, $mainUrl])
+                    ;
 
                     $parametersFromDb = $qb->getQuery()->getResult();
                 } else {
@@ -601,20 +636,24 @@ class SettingsManager implements SettingsManagerInterface
                 ->where('s.variable LIKE :keyword')
                 ->andWhere('s.category = :cat')
                 ->setParameter('keyword', "%{$keyword}%")
-                ->setParameter('cat', $namespace);
+                ->setParameter('cat', $namespace)
+            ;
 
             if (null !== $this->url && !$this->isMainUrlContext()) {
                 $mainUrl = $this->getMainUrlEntity();
                 if ($mainUrl) {
                     $qb->andWhere('s.url IN (:urls)')
-                        ->setParameter('urls', [$this->url, $mainUrl]);
+                        ->setParameter('urls', [$this->url, $mainUrl])
+                    ;
                 } else {
                     $qb->andWhere('s.url = :url')
-                        ->setParameter('url', $this->url);
+                        ->setParameter('url', $this->url)
+                    ;
                 }
             } elseif (null !== $this->url) {
                 $qb->andWhere('s.url = :url')
-                    ->setParameter('url', $this->url);
+                    ->setParameter('url', $this->url)
+                ;
             }
 
             $parametersFromDb = $qb->getQuery()->getResult();
@@ -700,7 +739,7 @@ class SettingsManager implements SettingsManagerInterface
             return $parameters;
         }
 
-        // Sub-URL: merge main + current according to access_url_changeable on main.
+        // Sub-URL: merge main + current according to access_url_changeable/access_url_locked on main.
         $mainUrl = $this->getMainUrlEntity();
         if (null === $mainUrl) {
             // Fallback: restrict to current URL if main URL cannot be resolved.
@@ -722,10 +761,13 @@ class SettingsManager implements SettingsManagerInterface
 
         $mainValueByVar = [];
         $changeableByVar = [];
+        $lockedByVar = [];
 
         foreach ($mainRows as $row) {
-            $mainValueByVar[$row->getVariable()] = $row->getSelectedValue();
-            $changeableByVar[$row->getVariable()] = (int) $row->getAccessUrlChangeable();
+            $var = $row->getVariable();
+            $mainValueByVar[$var] = $row->getSelectedValue();
+            $changeableByVar[$var] = (int) $row->getAccessUrlChangeable();
+            $lockedByVar[$var] = (int) $row->getAccessUrlLocked();
         }
 
         // Start with main values
@@ -733,9 +775,14 @@ class SettingsManager implements SettingsManagerInterface
             $parameters[$var] = $val;
         }
 
-        // Override only for changeable variables
+        // Override only for changeable variables AND not locked on main
         foreach ($currentRows as $row) {
             $var = $row->getVariable();
+
+            $isLocked = isset($lockedByVar[$var]) && 1 === (int) $lockedByVar[$var];
+            if ($isLocked) {
+                continue;
+            }
 
             $isChangeable = !isset($changeableByVar[$var]) || 1 === (int) $changeableByVar[$var];
             if ($isChangeable) {
@@ -776,7 +823,7 @@ class SettingsManager implements SettingsManagerInterface
             return $parameters;
         }
 
-        // Sub-URL: merge main + current according to access_url_changeable on main.
+        // Sub-URL: merge main + current according to access_url_changeable/access_url_locked on main.
         $mainUrl = $this->getMainUrlEntity();
         if (null === $mainUrl) {
             $all = $this->repository->findBy(['url' => $this->url]);
@@ -796,6 +843,7 @@ class SettingsManager implements SettingsManagerInterface
         $currentRows = $this->repository->findBy(['url' => $this->url]);
 
         $changeableByVar = [];
+        $lockedByVar = [];
 
         // Start with main values
         foreach ($mainRows as $row) {
@@ -804,12 +852,18 @@ class SettingsManager implements SettingsManagerInterface
 
             $parameters[$cat][$var] = $row->getSelectedValue();
             $changeableByVar[$var] = (int) $row->getAccessUrlChangeable();
+            $lockedByVar[$var] = (int) $row->getAccessUrlLocked();
         }
 
-        // Override with current values only for changeable variables (or unknown variables).
+        // Override with current values only for changeable variables AND not locked on main.
         foreach ($currentRows as $row) {
             $cat = (string) $row->getCategory();
             $var = $row->getVariable();
+
+            $isLocked = isset($lockedByVar[$var]) && 1 === (int) $lockedByVar[$var];
+            if ($isLocked) {
+                continue;
+            }
 
             $isChangeable = !isset($changeableByVar[$var]) || 1 === (int) $changeableByVar[$var];
             if ($isChangeable) {
@@ -823,6 +877,9 @@ class SettingsManager implements SettingsManagerInterface
     /**
      * Check if a setting is changeable for the current URL, using the
      * access_url_changeable flag from the main URL (ID = 1).
+     *
+     * Note: if access_url_locked = 1 on main URL, it is considered NOT changeable
+     * for sub-URLs (and it should not even be listed in sub-URLs).
      */
     private function isSettingChangeableForCurrentUrl(string $category, string $variable): bool
     {
@@ -855,6 +912,11 @@ class SettingsManager implements SettingsManagerInterface
         if (null === $mainSetting) {
             // If there is no canonical row, do not block changes.
             return true;
+        }
+
+        // If the setting is globally locked on main URL, sub-URLs must not override it.
+        if (1 === (int) $mainSetting->getAccessUrlLocked()) {
+            return false;
         }
 
         // When access_url_changeable is false/0 on main URL,
@@ -1172,7 +1234,7 @@ class SettingsManager implements SettingsManagerInterface
             'course_images_in_courses_list' => 'Course',
             'student_publication_to_take_in_gradebook' => 'Gradebook',
             'certificate_filter_by_official_code' => 'Gradebook',
-            'exercise_max_ckeditors_in_page' => 'Tools',
+            'exercise_max_keditors_in_page' => 'Tools',
             'document_if_file_exists_option' => 'Tools',
             'add_gradebook_certificates_cron_task_enabled' => 'Gradebook',
             'openbadges_backpack' => 'Gradebook',
@@ -1264,7 +1326,7 @@ class SettingsManager implements SettingsManagerInterface
             'administrator_surname' => 'admin',
             'administrator_name' => 'admin',
             'administrator_phone' => 'admin',
-            'exercise_max_ckeditors_in_page' => 'exercise',
+            'exercise_max_keditors_in_page' => 'exercise',
             'allow_hr_skills_management' => 'skill',
             'accessibility_font_resize' => 'display',
             'account_valid_duration' => 'profile',
@@ -1452,6 +1514,7 @@ class SettingsManager implements SettingsManagerInterface
                 $found = $repo->findOneBy(['url' => $candidate]);
                 if ($found instanceof AccessUrl) {
                     $this->url = $found;
+
                     return;
                 }
             }
@@ -1469,6 +1532,7 @@ class SettingsManager implements SettingsManagerInterface
 
                 if (null !== $dbHost && strtolower($dbHost) === strtolower($host)) {
                     $this->url = $u;
+
                     return;
                 }
             }
@@ -1478,6 +1542,7 @@ class SettingsManager implements SettingsManagerInterface
         $main = $repo->find(1);
         if ($main instanceof AccessUrl) {
             $this->url = $main;
+
             return;
         }
 
@@ -1555,8 +1620,9 @@ class SettingsManager implements SettingsManagerInterface
      * Deduplicate a list of SettingsCurrent rows by variable, using effective MultiURL logic:
      * - If current URL is main or not set => return rows as-is.
      * - If on a sub-URL:
-     *   - If main says access_url_changeable = 0 => keep main row
-     *   - else => keep current row when available, fallback to main
+     *   - If main says access_url_locked = 1 => keep main row
+     *   - Else if main says access_url_changeable = 0 => keep main row
+     *   - Else => keep current row when available, fallback to main
      *
      * @param array<int, mixed> $rows
      *
@@ -1575,6 +1641,7 @@ class SettingsManager implements SettingsManagerInterface
 
         $byVar = [];
         $mainChangeable = [];
+        $mainLocked = [];
         $mainRowByVar = [];
         $currentRowByVar = [];
 
@@ -1589,6 +1656,7 @@ class SettingsManager implements SettingsManagerInterface
             if (1 === $rUrlId) {
                 $mainRowByVar[$var] = $r;
                 $mainChangeable[$var] = (int) $r->getAccessUrlChangeable();
+                $mainLocked[$var] = (int) $r->getAccessUrlLocked();
             } elseif (null !== $this->url && $rUrlId === $this->url->getId()) {
                 $currentRowByVar[$var] = $r;
             }
@@ -1597,14 +1665,25 @@ class SettingsManager implements SettingsManagerInterface
         $vars = array_unique(array_merge(array_keys($mainRowByVar), array_keys($currentRowByVar)));
 
         foreach ($vars as $var) {
-            $locked = isset($mainChangeable[$var]) && 0 === (int) $mainChangeable[$var];
-
-            if ($locked) {
+            $isLocked = isset($mainLocked[$var]) && 1 === (int) $mainLocked[$var];
+            if ($isLocked) {
                 if (isset($mainRowByVar[$var])) {
                     $byVar[$var] = $mainRowByVar[$var];
                 } elseif (isset($currentRowByVar[$var])) {
                     $byVar[$var] = $currentRowByVar[$var];
                 }
+
+                continue;
+            }
+
+            $isNotChangeable = isset($mainChangeable[$var]) && 0 === (int) $mainChangeable[$var];
+            if ($isNotChangeable) {
+                if (isset($mainRowByVar[$var])) {
+                    $byVar[$var] = $mainRowByVar[$var];
+                } elseif (isset($currentRowByVar[$var])) {
+                    $byVar[$var] = $currentRowByVar[$var];
+                }
+
                 continue;
             }
 
@@ -1638,7 +1717,7 @@ class SettingsManager implements SettingsManagerInterface
         $qb
             ->where('s.url = :url')
             ->andWhere('s.category IN (:cats)')
-            ->setParameter('url', $mainUrl)
+            ->setParameter('url', $mainUrl->getId())
             ->setParameter('cats', $categories)
         ;
 
@@ -1658,7 +1737,7 @@ class SettingsManager implements SettingsManagerInterface
      * Keep the row metadata consistent across URLs.
      * - Sync title/comment/type/scope/subkey/subkeytext/value_template_id from canonical row when available
      * - Never overwrite existing metadata if canonical is missing (prevents "title reset to variable")
-     * - Always set access_url_locked = 0 (requested behavior)
+     * - Sync access_url_changeable + access_url_locked from canonical row when available.
      */
     private function syncSettingMetadataFromCanonical(
         SettingsCurrent $setting,
@@ -1672,13 +1751,11 @@ class SettingsManager implements SettingsManagerInterface
         if (!$canonical instanceof SettingsCurrent) {
             if ($isNew) {
                 $setting->setTitle($fallbackVariable);
-                if (null === $setting->getAccessUrlChangeable()) {
-                    $setting->setAccessUrlChangeable(1);
-                }
-            }
 
-            // Always unlock (requested global behavior).
-            $setting->setAccessUrlLocked(0);
+                // Safe defaults for new rows.
+                $setting->setAccessUrlChangeable(1);
+                $setting->setAccessUrlLocked(0);
+            }
 
             return;
         }
@@ -1735,10 +1812,9 @@ class SettingsManager implements SettingsManagerInterface
             }
         }
 
+        // Sync MultiURL flags from canonical.
         $setting->setAccessUrlChangeable((int) $canonical->getAccessUrlChangeable());
-
-        // Always unlock (requested global behavior).
-        $setting->setAccessUrlLocked(0);
+        $setting->setAccessUrlLocked((int) $canonical->getAccessUrlLocked());
     }
 
     /**
@@ -1751,7 +1827,7 @@ class SettingsManager implements SettingsManagerInterface
             return;
         }
 
-        $ref = new \ReflectionMethod($target, $setter);
+        $ref = new ReflectionMethod($target, $setter);
         $param = $ref->getParameters()[0] ?? null;
 
         if (null === $param) {
@@ -1761,12 +1837,13 @@ class SettingsManager implements SettingsManagerInterface
         $type = $param->getType();
         $allowsNull = true;
 
-        if ($type instanceof \ReflectionNamedType) {
+        if ($type instanceof ReflectionNamedType) {
             $allowsNull = $type->allowsNull();
         }
 
         if (null === $value && !$allowsNull) {
             $target->{$setter}('');
+
             return;
         }
 
@@ -1784,5 +1861,132 @@ class SettingsManager implements SettingsManagerInterface
         ];
 
         return array_values(array_unique($variants));
+    }
+
+    /**
+     * Propagate selected platform settings to course settings (c_course_setting).
+     * This is designed to scale: add categories/variables to COURSE_SETTINGS_PROPAGATION.
+     *
+     * @param string $category   Simple category name (e.g. "ai_helpers")
+     * @param array  $parameters Persisted platform parameters (already stringified)
+     */
+    private function propagatePlatformSettingsToCoursesIfNeeded(string $category, array $parameters): void
+    {
+        if (!isset(self::COURSE_SETTINGS_PROPAGATION[$category])) {
+            return;
+        }
+
+        // Example gate for AI helpers: if the master switch is off, do nothing.
+        if ('ai_helpers' === $category && ('true' !== (string) ($parameters['enable_ai_helpers'] ?? 'false'))) {
+            return;
+        }
+
+        $vars = self::COURSE_SETTINGS_PROPAGATION[$category];
+
+        // Build list of course settings to enable based on platform values.
+        // Strategy: enable only those set to true at platform-level.
+        $varToValue = [];
+        foreach ($vars as $var) {
+            if ('true' === (string) ($parameters[$var] ?? 'false')) {
+                $varToValue[$var] = 'true';
+            }
+        }
+
+        if (empty($varToValue)) {
+            return;
+        }
+
+        // By default: only insert missing rows, do NOT overwrite existing course choices.
+        // If you want to force overwrite to true across all courses, set $force = true.
+        $force = false;
+
+        $this->upsertCourseSettingsForAllCourses($category, $varToValue, $force);
+    }
+
+    /**
+     * Upsert course settings for all courses in batches.
+     *
+     * @param array<string,string> $varToValue variable => value
+     */
+    private function upsertCourseSettingsForAllCourses(string $category, array $varToValue, bool $force = false): void
+    {
+        // Fetch all course IDs (batch-friendly)
+        $courseIdRows = $this->manager->createQueryBuilder()
+            ->select('c.id')
+            ->from(Course::class, 'c')
+            ->getQuery()
+            ->getScalarResult()
+        ;
+
+        $courseIds = array_map(
+            static fn (array $r): int => (int) ($r['id'] ?? 0),
+            $courseIdRows
+        );
+        $courseIds = array_values(array_filter($courseIds, static fn (int $id): bool => $id > 0));
+
+        if (empty($courseIds)) {
+            return;
+        }
+
+        $vars = array_keys($varToValue);
+        $batchSize = 300;
+
+        for ($offset = 0; $offset < \count($courseIds); $offset += $batchSize) {
+            $chunk = \array_slice($courseIds, $offset, $batchSize);
+
+            // Load existing settings for this chunk
+            $existing = $this->manager->createQueryBuilder()
+                ->select('cs')
+                ->from(CCourseSetting::class, 'cs')
+                ->where('cs.cId IN (:cids)')
+                ->andWhere('cs.variable IN (:vars)')
+                ->andWhere('cs.category = :cat')
+                ->setParameter('cids', $chunk)
+                ->setParameter('vars', $vars)
+                ->setParameter('cat', $category)
+                ->getQuery()
+                ->getResult()
+            ;
+
+            /** @var array<int, array<string, CCourseSetting>> $byCourse */
+            $byCourse = [];
+            foreach ($existing as $row) {
+                if (!$row instanceof CCourseSetting) {
+                    continue;
+                }
+                $cId = (int) $row->getCId();
+                $var = (string) $row->getVariable();
+                $byCourse[$cId][$var] = $row;
+            }
+
+            foreach ($chunk as $cId) {
+                foreach ($varToValue as $var => $value) {
+                    $row = $byCourse[$cId][$var] ?? null;
+
+                    if ($row instanceof CCourseSetting) {
+                        if ($force && (string) $row->getValue() !== $value) {
+                            $row->setValue($value);
+                            $this->manager->persist($row);
+                        }
+
+                        continue;
+                    }
+
+                    $new = new CCourseSetting();
+                    $new
+                        ->setCId($cId)
+                        ->setVariable($var)
+                        ->setTitle($var)
+                        ->setCategory($category)
+                        ->setValue($value)
+                    ;
+
+                    $this->manager->persist($new);
+                }
+            }
+
+            $this->manager->flush();
+            $this->manager->clear();
+        }
     }
 }

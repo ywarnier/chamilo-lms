@@ -30,7 +30,8 @@ use stdClass;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/catalogue')]
 class CatalogueController extends AbstractController
@@ -179,6 +180,7 @@ class CatalogueController extends AbstractController
 
             $buyCoursesPlugin = BuyCoursesPlugin::create();
             $buyData = $buyCoursesPlugin->getBuyCoursePluginPrice($session);
+            $isSubscribed = ($user instanceof User) ? $session->hasUserInSession($user, Session::STUDENT) : false;
 
             return [
                 'id' => $session->getId(),
@@ -192,7 +194,7 @@ class CatalogueController extends AbstractController
                 'endDate' => $session->getAccessEndDate()?->format('Y-m-d'),
                 'courses' => $courses,
                 'popularity' => $voteCount,
-                'isSubscribed' => $session->hasUserInSession($user, Session::STUDENT),
+                'isSubscribed' => $isSubscribed,
                 'priceHtml' => $buyData['html'] ?? '',
                 'buyButtonHtml' => $buyData['buy_button'] ?? '',
             ];
@@ -230,7 +232,7 @@ class CatalogueController extends AbstractController
         $allowed = array_map('strval', $settings['extra_fields_in_search_form'] ?? []);
 
         $ef = new ExtraField('course');
-        $raw = $ef->get_all();
+        $raw = $ef->get_all(['filter = ?' => 1, 'AND visible_to_self = ?' => 1], 'option_order');
 
         $mapped = array_map(function ($f) {
             $type = (int) $f['value_type'];
@@ -546,6 +548,7 @@ class CatalogueController extends AbstractController
         }
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/auto-subscribe-course/{courseId}', name: 'chamilo_core_catalogue_auto_subscribe_course', methods: ['POST'])]
     public function autoSubscribeCourse(int $courseId, SettingsManager $settings): JsonResponse
     {

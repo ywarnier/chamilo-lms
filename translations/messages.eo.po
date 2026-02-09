@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:kopirajto,, no:ne kopirajto"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Dosierujo,, application/msword:MsWord,, application/octet-stream:Okteto flugo,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Okta flugo,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:ekzerco,, simulation:simulado,, questionnaire:enketo,, diagram:diagramo,, figure:figuro,, graph:grafiko,, index:indekso,, slide:diapozitivo,, table:tabelo,, narrative text:rakonta teksto,, exam:ekzameno,, experiment:eksperimento,, problem statement:problemstarigo,, self assessment:memtesto,, lecture:prelego"
@@ -19415,9 +19415,6 @@ msgstr "Forigi malnovan datumbazon"
 msgid "Remove old tables"
 msgstr "Forigi malnovajn tabelojn"
 
-msgid "Total space used by portal %s limit is %s MB"
-msgstr "Totala spaco uzita de portalo %s limo estas %s MB"
-
 msgid "Event message management"
 msgstr "Administrado de mesaĝoj de eventoj"
 
@@ -31074,8 +31071,8 @@ msgstr "Aldoni komenon"
 msgid "Write your comment here..."
 msgstr "Skribu vian komenon ĉi tie..."
 
-msgid "%d selected"
-msgstr "%d elektitaj"
+msgid "%s selected"
+msgstr "%s elektitaj"
 
 msgid "Search by title or path..."
 msgstr "Serĉi laŭ titolo aŭ vojo..."
@@ -31083,8 +31080,8 @@ msgstr "Serĉi laŭ titolo aŭ vojo..."
 msgid "Manage backups, restore, copy, recycle and delete course data."
 msgstr "Mastri rezervecon, restarigon, kopion, recikladon kaj forigon de datumoj de kurso."
 
-msgid "%d comment(s)"
-msgstr "%d komentaro(j)"
+msgid "%s comment(s)"
+msgstr "%s komentaro(j)"
 
 msgid "Error updating third party. Please verify the data."
 msgstr "Eraro ĝisdatigante trian partion. Bonvolu kontroli la datumojn."
@@ -31439,4 +31436,1138 @@ msgstr "Nur literoj, ciferoj kaj substreko (_) estas permesitaj en la nomo de da
 
 msgid "What general terms and conditions are given to users to use this platform?"
 msgstr "Kiuj ĝeneralaj kondiĉoj estas donitaj al uzantoj por uzi ĉi tiun platformon?"
+
+msgid "ex. {examplePassword}"
+msgstr "ekz. {examplePassword}"
+
+msgid "Welcome to Chamilo!"
+msgstr "Bonvenon al Chamilo!"
+
+msgid "Welcome to this platform"
+msgstr "Bonvenon al ĉi tiu platformo"
+
+msgid "For more details visit %s"
+msgstr "Por pli da detaloj vizitu %s"
+
+msgid "Manager"
+msgstr "Mastristo"
+
+msgid "Mark as"
+msgstr "Marki kiel"
+
+msgid "Reply to all"
+msgstr "Rilabori al ĉiuj"
+
+msgid "SCIM external ID"
+msgstr "SCIM eksterna ID"
+
+msgid "OAuth2 ID"
+msgstr "OAuth2 ID"
+
+msgid "Please accept the latest version of the terms and conditions."
+msgstr "Bonvolu akcepti la plej novan version de la kondiĉoj."
+
+msgid "Required value for operation without path"
+msgstr "Postulata valoro por operacio sen vojo"
+
+msgid "Available space (%s)"
+msgstr "Havebla spaco (%s)"
+
+msgid "Index this description for the global search"
+msgstr "Indeksi ĉi tiun priskribon por la tutmonda serĉo"
+
+msgid "Unknown course"
+msgstr "Nekonata kurso"
+
+msgid "Certificate not found."
+msgstr "Atestilo ne trovita."
+
+msgid "Security token expired. Please reload the page and try again."
+msgstr "Sekureca ĵetono eksvalidiĝis. Bonvolu reŝargi la paĝon kaj reprovi."
+
+msgid "Only platform administrators can change the course visibility."
+msgstr "Nur platformaj administrantoj povas ŝanĝi la videblecon de la kurso."
+
+msgid "Unexpected error while subscribing the user"
+msgstr "Neatendita eraro dum aliĝado de la uzanto"
+
+msgid "Search in resource logs"
+msgstr "Serĉi en protokoloj de rimedoj"
+
+msgid "Include this learning path in the global search results"
+msgstr "Inkluzivi ĉi tiun lernvojon en la rezultojn de tutmonda serĉo"
+
+msgid "The course code already exists"
+msgstr "La kodo de la kurso jam ekzistas"
+
+msgid "Latest news"
+msgstr "Plej novaj novaĵoj"
+
+msgid "Get the latest news from Chamilo, including security vulnerabilities and events, directly inside your administration panel. These pieces of news will be checked on the Chamilo news server every time you load the administration page and are only visible to administrators."
+msgstr "Ricevu la plej novajn novaĵojn de Chamilo, inkluzive sekurajn vulneraĵojn kaj eventojn, rekte en via administra panelo. Ĉi tiuj novaĵoj estos kontrolitaj sur la novaĵ-servilo de Chamilo ĉiufoje kiam vi ŝargas la administran paĝon kaj estas videblaj nur al administrantoj."
+
+msgid "Chamilo support block"
+msgstr "Bloko de subteno por Chamilo"
+
+msgid "Get pro tips and an easy way to contact official service providers for professional support, directly from the makers of Chamilo. This block appears on your administration page, is only visible by administrators, and refreshes every time you load the administration page."
+msgstr "Ricevu profajn konsilojn kaj facilon kontakti oficialajn servofarantojn por profesia subteno, rekte de la kreantoj de Chamilo. Ĉi tiu bloko aperas en via administra paĝo, estas videbla nur al administrantoj kaj refreŝas ĉiufoje kiam vi ŝargas la administran paĝon."
+
+msgid "Hide option to send announcements to HR users"
+msgstr "Kaŝi opcion sendi anoncojn al HR-uzantoj"
+
+msgid "Allow session admins to download private certificates"
+msgstr "Permesi al administrantoj de sesio elŝuti privatajn atestilojn"
+
+msgid "If enabled, session administrators can download certificates even if they are not publicly published."
+msgstr "Se ĉe-switched, administrantoj de sesioj povas elŝuti atestilojn eĉ se ili ne estas publike publikigitaj."
+
+msgid "If not empty, the course creation process will look for some fields in the user profile and auto-fill them for the course. For example, a teacher specialized in digital marketing could automatically set a « digital marketing » flag on each course (s)he creates."
+msgstr "Se ne malplena, la procezo de kreado de kurso serĉos kelkajn kampojn en la uzula profilo kaj aŭtomate plenigos ilin por la kurso. Ekzemple, instruisto specialigita pri digitala merkatado povus aŭtomate agordi markon « digitala merkatado » por ĉiu kurso, kiun li/kŭ kreis."
+
+msgid "Main menu entries"
+msgstr "Eniroj de la ĉefa menuo"
+
+msgid "Check the entrie you want to see appear in the main menu"
+msgstr "Marku la enirojn, kiujn vi volas vidi aperi en la ĉefa menuo"
+
+msgid "Main menu entries per role"
+msgstr "Eniroj de la ĉefa menuo laŭ rolo"
+
+msgid "Define header tabs visibility per role."
+msgstr "Definu videblecon de la kapliniaj langetoj laŭ rolo."
+
+msgid "Set the options you want to appear in the navigation around a table to show less or more rows on one page. e.g. [50, 100, 200, 500]."
+msgstr "Agordu la opciojn, kiujn vi volas aperigi en la navigado ĉirkaŭ tabelo por montri malpli aŭ pli da vicoj en unu paĝo. ekz. [50, 100, 200, 500]."
+
+msgid "Array of extra features you can enable for the video player in Chamilo. Options include 'speed', which allows you to change the playback speed of a video."
+msgstr "Aro de kromaj trajtoj, kiujn vi povas aktivigi por la videoludilo en Chamilo. Opcioj inkluzivas 'speed', kiu permesas ŝanĝi la reprodukta rapideco de video."
+
+msgid "Mail: character set"
+msgstr "Poŝto: signaro"
+
+msgid "In case you need to define the charset to use when sending those e-mails. Leave empty if you're not sure."
+msgstr "Se vi bezonas defini la signaron uzotan por sendi tiujn retpoŝtojn. Lasu malplenan se vi ne certas."
+
+msgid "Mail: Debug"
+msgstr "Poŝto: Malkovrado"
+
+msgid "Select whether you want to enable the e-mail sending debug logs. These will give you more information on what is happening when connecting to the mail service, but are not elegant and might break page design. Only use when there is not user activity."
+msgstr "Elektu ĉu vi volas aktivigi la protokolojn de malkovrado por sendado de retpoŝtoj. Ili donos al vi pli da informoj pri kio okazas dum konektado al la poŝtservo, sed ili ne estas elegantaj kaj povas rompi la paĝodezajnon. Uzu nur kiam ne estas uzula agado."
+
+msgid "Mail: Avoid using LD+JSON"
+msgstr "Poŝto: Eviti uzadon de LD+JSON"
+
+msgid "Some e-mail clients do not understand the descriptive LD+JSON format, showing it as a loose JSON string to the final user. If this is your case, you might want to set the variable below to 'false' to disable this header."
+msgstr "Kelkaj retpoŝta klientoj ne komprenas la priskriban formaton LD+JSON, montras ĝin kiel senligan JSON-signaron al la finuzanto. Se tio estas via kazo, vi povus agordi la variablon sube al 'false' por malaktivigi tiun kaplinion."
+
+msgid "Mail: DKIM headers"
+msgstr "Poŝto: DKIM-kaplinioj"
+
+msgid "Enter a JSON array of your DKIM configuration settings (see example)."
+msgstr "Enigu JSON-aron de viaj agordoj por DKIM (vidu ekzemplon)."
+
+msgid "Mail: XOAuth2 options"
+msgstr "Poŝto: XOAuth2-opcioj"
+
+msgid "If you use some XOAuth2-based e-mail service, use this setting in JSON to save your specific configuration (see example) and select XOAuth2 in the mail service setting."
+msgstr "Se vi uzas XOAuth2-bazitan retpoŝtan servon, uzu tiun agordon en JSON por konservi vian specifan konfiguracion (vidu ekzemplon) kaj elektu XOAuth2 en la agordo de poŝtservo."
+
+msgid "Defines the environment type: \"prod\" (normal production), \"validation\" (like production but without reporting statistics), or \"test\" (debug mode with developer tools such as untranslated string indicators)."
+msgstr "Definas la mediotipon: \"prod\" (normala produktado), \"validation\" (kiel produktado sed sen raportado de statistikoj), aŭ \"test\" (malkovra reĝimo kun iloj por programistoj kiel indikiloj de ne tradukitaj signaroj)."
+
+msgid "Global limit of users per course"
+msgstr "Tutmonda limo de uzantoj po kurso"
+
+msgid "Defines a global maximum number of users (teachers included) allowed to be subscribed to any single course in the platform. Set this value to 0 to disable the limit. This helps avoid courses being overloaded in open portals."
+msgstr "Definas tutmondan maksimuman nombron da uzantoj (inkluzive instruistoj) permesataj aboni iun ajn unuopan kurson en la platformo. Agordu tiun valoron al 0 por malaktivigi la limon. Tio helpas eviti troŝarĝitajn kursojn en malfermaj portalo."
+
+msgid "Enable to use an array to define which roles should be clearly displayed and which should be hidden."
+msgstr "Aktivigu por uzi aron por defini, kiuj roloj devus esti klare montritaj kaj kiuj kaŝitaj."
+
+msgid "Show base course posts in session course"
+msgstr "Montru bazajn kurspostenojn en sesia kurso"
+
+msgid "Limit identical email usage"
+msgstr "Limigu uzadon de identaj retpoŝtadreso"
+
+msgid "Maximum number of accounts allowed to share the same e-mail address. Set to 0 to disable this limit."
+msgstr "Maksimuma nombro da kontoj permesataj por uzi la saman retpoŝtadreson. Starigu je 0 por malŝalti tiun limon."
+
+msgid "Allow session admins to see all users on all URLs"
+msgstr "Permesi al sesio-administroj vidi ĉiujn uzantojn en ĉiuj URL-oj"
+
+msgid "If enabled, session admins can search and list users from all access URLs, regardless of their current URL."
+msgstr "Se ĉeŝaltita, sesio-administroj povas serĉi kaj listo uzantojn el ĉiuj alira URL-oj, sendepende de ilia nuna URL."
+
+msgid "Enable the possibility for users to select their own timezone. Once configured, users will be able to see assignment deadlines and other time references in their own timezone, which will reduce errors at delivery time."
+msgstr "Ŝalti eblon por uzantoj elekti sian propran horzonon. Post agordo, uzantoj povos vidi limdatojn de taskoj kaj aliajn tempo-referencojn en sia propra horzono, kio reduktos erarojn dum liverado."
+
+msgid "Redirect after login (per profile)"
+msgstr "Redirigi post ensaluto (laŭ profilo)"
+
+msgid "Define redirection per profile after login using a JSON object like {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+msgstr "Defini redirekton laŭ profilo post ensaluto uzante JSON-objekton kiel {\"STUDENT\":\"\", \"ADMIN\":\"admin-dashboard\"}"
+
+msgid "Hide legal accept checkbox in Terms and Conditions page"
+msgstr "Kaŝi akcepta ĉekskaton en paĝo de Uzokondiĉoj"
+
+msgid "If set to true, removes the \"I have read and accept\" checkbox in the Terms and Conditions page flow."
+msgstr "Se metita je vero, forigas la \"Mi legis kaj akceptas\" ĉekskaton en la fluo de paĝo Uzokondiĉoj."
+
+msgid "Array defining host and port for the LDAP server."
+msgstr "Aro definanta gastigon kaj pordon por la LDAP-servilo."
+
+msgid "Enable 2FA"
+msgstr "Ŝalti 2FA"
+
+msgid "Add fields in the password update page to enable 2FA using a TOTP authenticator app. When disabled globally, users won't see 2FA fields and won't be prompted for 2FA at login, even if they had enabled it previously."
+msgstr "Aldoni kampojn en paĝo de paŝvorto ĝisdatigo por ŝalti 2FA uzante TOTP aŭtentikilo aplikaĵon. Kiam malŝaltita tutmonde, uzantoj ne vidos 2FA kampojn kaj ne estos petataj por 2FA dum ensaluto, eĉ se ili antaŭe ĉeŝaltis ĝin."
+
+msgid "Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it."
+msgstr "Kelkaj trajtoj de Chamilo konektos al ekstero de la servilo. Ekzemple por certigi ke ekstera enhavo ekzistas dum kreado de ligo aŭ montrado enkorpiga paĝo en lernvojo. Se via Chamilo-servilo uzas prokurilon por eliri sian reto, ĉi tie estas la loko por agordi ĝin."
+
+msgid "Enable or disable automatic reinscription when course validity expires. The related cron job must also be activated."
+msgstr "Ŝalti aŭ malŝalti aŭtomatan reenroligon kiam valideco de kurso finas. La rilata korn-jobo ankaŭ devas esti aktivigita."
+
+msgid "Show remaining days in My Sessions"
+msgstr "Montradi restintajn tagojn en Miaj Sesioj"
+
+msgid "If enabled, the session dates on the \"My Sessions\" page will be replaced by the number of remaining days."
+msgstr "Se ĉeŝaltita, la sesio-datoj en paĝo \"Miaj Sesioj\" estos anstataŭigitaj per nombro da restintaj tagoj."
+
+msgid "Show \"Pending surveys\" in menu"
+msgstr "Montradi \"Pendetaj enketoj\" en menuo"
+
+msgid "Display a menu item that lets users access their pending surveys."
+msgstr "Monta menu-punkton kiu permesas al uzantoj aliri siajn pendetajn enketojn."
+
+msgid "Disclose AI assistance"
+msgstr "Malkovri helpon de IA"
+
+msgid "Show a tag on any content or feedback that has been generated or co-generated by any AI system, evidencing to the user that the content was built with the help of some AI system. Details about which AI system was used in which case are kept inside the database for audit, but are not directly accessible by the final user."
+msgstr "Montradi etikedon sur iu ajn enhavo aŭ retpoŝto generita aŭ kun-generita de iu ajn IA-sistemo, pruvante al la uzanto ke la enhavo estis konstruita kun la helpo de ia IA-sistemo. Detaloj pri kiu IA-sistemo estis uzita en kiu kazo estas konservitaj en datumbazo por aŭditado, sed ne rekte alireblaj de la fina uzanto."
+
+msgid "JSON configuration for course catalog: link settings, filters, sort options, and more."
+msgstr "JSON-agordo por kurskataloguro: ligilaj agordoj, filtriloj, ordigo-opcioj kaj pli."
+
+msgid "Session Catalog Settings"
+msgstr "Agordoj de Sesio-Kataloguro"
+
+msgid "JSON configuration for session catalog: filters and display options."
+msgstr "JSON-agordo por sesio-kataloguro: filtriloj kaj vidigaj opcioj."
+
+msgid "Show Course Descriptions"
+msgstr "Montri Priskribojn de Kursoj"
+
+msgid "Display course descriptions within the catalog listing."
+msgstr "Afiŝi priskribojn de kursoj ene de la listo de katalogo."
+
+msgid "Published Courses Only"
+msgstr "Nur Publikigitaj Kursoj"
+
+msgid "Limit the catalog to only courses marked as published."
+msgstr "Limigi la katalogon al nur kursoj markitaj kiel publikigitaj."
+
+msgid "Display Catalog on Homepage"
+msgstr "Afiŝi Katalogon en Hejmpaĝo"
+
+msgid "Show the course catalog block on the platform homepage."
+msgstr "Montri la blokon de katalogo de kursoj en la hejmpaĝo de la platformo."
+
+msgid "Hide Public Link"
+msgstr "Kaŝi Publikan Ligilon"
+
+msgid "Remove the public URL link from course cards."
+msgstr "Forigi la publikan URL-ligilon el la kartoj de kursoj."
+
+msgid "Only Selected Courses"
+msgstr "Nur Selektitaj Kursoj"
+
+msgid "Show only manually selected courses in the catalog."
+msgstr "Montri nur mane selektitajn kursojn en la katalogo."
+
+msgid "Allow Student Browsing"
+msgstr "Permesi Studentan Foliumadon"
+
+msgid "Permit students to browse and filter the course catalog."
+msgstr "Permesi al studentoj foliumi kaj filtri la katalogon de kursoj."
+
+msgid "Hide Private Courses"
+msgstr "Kaŝi Privatajn Kursojn"
+
+msgid "Exclude private courses from the catalog display."
+msgstr "Ekskludi privatajn kursojn el la afiŝado de la katalogo."
+
+msgid "Show Courses & Sessions"
+msgstr "Montri Kursojn & Sesiojn"
+
+msgid "Include both courses and sessions in catalog results."
+msgstr "Inkluzivi kaj kursojn kaj sesiojn en rezultojn de katalogo."
+
+msgid "Auto Session Subscription"
+msgstr "Aŭtomata Abono al Sesio"
+
+msgid "Enable automatic subscription to sessions for users."
+msgstr "Aktivigi aŭtomatan abonon al sesioj por uzantoj."
+
+msgid "Subscription in Session View"
+msgstr "Abono en Vido de Sesio"
+
+msgid "Allow users to subscribe to courses directly from their session page."
+msgstr "Permesi al uzantoj aboni kursojn rekte el paĝo de sia sesio."
+
+msgid "Enable redirection plugin"
+msgstr "Aktivigi pluginon de alidirektado"
+
+msgid "Array defining the 'days' and 'months' to set the account expiration date when the user first logs in."
+msgstr "Aro difinanta la 'tagojn' kaj 'monatojn' por agordi daton de eksvalidiĝo de konto kiam la uzanto unuafoje ensalutas."
+
+msgid "An array of role => number which represents the number of days an account has before expiration, depending on the role."
+msgstr "Aro de rolo => nombro kiu reprezentas la nombron da tagoj antaŭ eksvalidiĝo de konto, depende de la rolo."
+
+msgid "Extra user field used to search and name sessions"
+msgstr "Ekstra kampo de uzanto uzata por serĉi kaj nomi sesiojn"
+
+msgid "This setting defines the extra user field key (e.g., \"company\") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register."
+msgstr "Ĉi tiu agordo difinas la ŝlosilon de ekstra kampo de uzanto (ekz., \"company\") kiu estos uzata por serĉi uzantojn kaj difini la nomon de la sesio kiam registritas studentojn el /admin-dashboard/register."
+
+msgid "Glossary terms generator"
+msgstr "Generilo de terminoj de glosaro"
+
+msgid "Allow teachers to ask for AI-generated glossary terms in their course. This will generate 20 terms based on the course title and the general description in the course description tool. If used more than once, it will exclude terms already present in that glossary (make sure content can be shared with the configured AI services)."
+msgstr "Permesi al instruistoj peti AI-generitajn terminojn de glosaro en sia kurso. Ĉi tio generos 20 terminojn bazitajn sur titolo de la kurso kaj ĝenerala priskribo en ilo de priskribo de kurso. Se uzita pli ol unu fojon, ĝi ekskluzivos terminojn jam ĉeestantajn en tiu glosaro (certe ke enhavo povas esti kunhavigita kun la agorditaj AI-servoj)."
+
+msgid "Video generator"
+msgstr "Generilo de vidbendoj"
+
+msgid "Generates videos based on prompts or content using AI (this might consume many tokens)."
+msgstr "Generas vidbendojn bazitajn sur promptoj aŭ enhavo uzante AI (ĉi tio povas konsumi multajn tokenojn)."
+
+msgid "Course analyser"
+msgstr "Analizilo de kurso"
+
+msgid "Analyses all resources in one or many courses and pre-trains the AI model to answer any question on this or these courses (make sure content can be shared with the configured AI services)."
+msgstr "Analizas ĉiujn risurcojn en unu aŭ multaj kursoj kaj antaŭtrejnas la modelon de AI por respondi al iu ajn demando pri ĉi tiu aŭ ĉi tiuj kursoj (certe ke enhavo povas esti kunhavigita kun la agorditaj AI-servoj)."
+
+msgid "Test/development"
+msgstr "Testo/evoluado"
+
+msgid "Crons"
+msgstr "Kronoj"
+
+msgid "Editor"
+msgstr "Redaktilo"
+
+msgid "Gradebook"
+msgstr "Notlibro de notoj"
+
+msgid "Internationalization"
+msgstr "Internaciigo"
+
+msgid "User profiles"
+msgstr "Profiloj de uzantoj"
+
+msgid "Support tickets"
+msgstr "Ticketoj de subteno"
+
+msgid "Webservices"
+msgstr "TTT-servoj"
+
+msgid "Catalogue"
+msgstr "Katalogo"
+
+msgid "Workflows"
+msgstr "Laborfluoj"
+
+msgid "Setting is editable on sub-URLs"
+msgstr "Agordo estas redaktebla en sub-URL-oj"
+
+msgid "Show JSON Template"
+msgstr "Montri Ŝablonon JSON"
+
+msgid "JSON Template"
+msgstr "Ŝablono JSON"
+
+msgid "Installing Xapian bindings"
+msgstr "Instalado de ligiloj Xapian"
+
+msgid "The following snippet shows an example installation of the Xapian PHP bindings on Ubuntu 25.04 with PHP 8.3. Adapt paths and versions to your own environment."
+msgstr "La sekva peceto montras ekzemplan instaladon de la ligiloj Xapian PHP en Ubuntu 25.04 kun PHP 8.3. Adapti vojojn kaj versiojn al via propra medio."
+
+msgid "Make sure you only have the PHP version you really use (for example 8.3) and avoid mixing several versions with different extension directories."
+msgstr "Certigi ke vi havas nur la version de PHP kiun vi vere uzas (ekzemple 8.3) kaj eviti miksi plurajn versiojn kun malsamaj dosierujoj de etendoj."
+
+msgid "Once the extension is correctly loaded for both CLI and the web server, the search diagnostics above should report that the Xapian module is installed."
+msgstr "Post kiam la etendo estas korekte ŝargita por kaj CLI kaj la TTT-servilo, la diagnostikoj de serĉado supre devus raporti ke la modulo Xapian estas instalita."
+
+msgid "Cleanup temporary uploads and cache"
+msgstr "Forigi provizoraj alŝutoj kaj kaŝmemo"
+
+msgid "Directory"
+msgstr "Dosierujon"
+
+msgid "Only delete files older than (minutes)"
+msgstr "Forigi nur dosierojn pli maljunaj ol (minutoj)"
+
+msgid "Set 0 to delete all files. Use a positive value (e.g., 60) to avoid removing files still being uploaded."
+msgstr "Starigu 0 por forigi ĉiujn dosierojn. Uzu pozitivan valoron (ekz., 60) por eviti forigi dosierojn kiuj ankoraŭ alŝutiĝas."
+
+msgid "Preview only (do not delete)"
+msgstr "Antaŭrigardo nur (ne forigi)"
+
+msgid "Warning: you are about to delete ALL temporary files. This action cannot be undone."
+msgstr "Averto: vi estas preta forigi ĈIUJN provizoraj dosierojn. Ĉi tiu ago ne povas esti malfarata."
+
+msgid "This will delete all temporary files. Continue?"
+msgstr "Ĉi tio forigos ĉiujn provizoraj dosierojn. Daŭrigi?"
+
+msgid "This will delete files older than %minutes% minutes. Continue?"
+msgstr "Ĉi tio forigos dosierojn pli maljunaj ol %minutes% minutoj. Daŭrigi?"
+
+msgid "The value must match exactly: %s"
+msgstr "La valoro devas esti precize: %s"
+
+msgid "Repeat end date must be after start date."
+msgstr "Ripeta fina dato devas esti post la komenca dato."
+
+msgid "Index document content?"
+msgstr "Indeksi enhavon de dokumentoj?"
+
+msgid "Upload SVG logo to platform header"
+msgstr "Alŝuti SVG logotipon al platforma kapo"
+
+msgid "Upload PNG logo to platform header (%s)"
+msgstr "Alŝuti PNG logotipon al platforma kapo (%s)"
+
+msgid "Write something to %s"
+msgstr "Skribu ion al %s"
+
+msgid "Preferred: SVG. PNG recommended width: %spx."
+msgstr "Preferata: SVG. PNG rekomendit larĝo: %spx."
+
+msgid "Upload PNG logo for e-mails (~%spx width)"
+msgstr "Alŝuti PNG logotipon por retpoŝtoj (~%spx larĝo)"
+
+msgid "Header PNG must be ≤ %spx."
+msgstr "Kapa PNG devas esti ≤ %spx."
+
+msgid "Require specific file format"
+msgstr "Postuli specifan dosieran formon"
+
+msgid "Select allowed file formats"
+msgstr "Elektu permisitajn dosierformojn"
+
+msgid "Custom extensions (separated by space)"
+msgstr "Propraj etendoj (disigitaj per spaco)"
+
+msgid "Other extensions"
+msgstr "Aliaj etendoj"
+
+msgid "My invitations"
+msgstr "Miaj invitajxo"
+
+msgid "Delete access"
+msgstr "Forigi aliron"
+
+msgid "Certificate tags"
+msgstr "Etikedoj de atestilo"
+
+msgid "Copy all"
+msgstr "Kopii ĉion"
+
+msgid "Click to insert"
+msgstr "Klaku por enmeti"
+
+msgid "Preferred: SVG. PNG max size: %spx."
+msgstr "Preferata: SVG. PNG maksimuma grandeco: %spx."
+
+msgid "View badge"
+msgstr "Vidi insignon"
+
+msgid "%d min"
+msgstr "%d min"
+
+msgid "Duration in minutes"
+msgstr "Daŭro en minutoj"
+
+msgid "Go back to standard view"
+msgstr "Reiri al norma vido"
+
+msgid "Search for student..."
+msgstr "Serĉi studenton..."
+
+msgid "This date is locked or read-only."
+msgstr "Ĉi tiu dato estas fermita aŭ nurlega."
+
+msgid "Failed to load attendance. Please try again later."
+msgstr "Malsukcesis ŝuti partoprenon. Bonvolu reprovi poste."
+
+msgid "Nothing to save"
+msgstr "Nenio por konservi"
+
+msgid "You have unsaved changes. Leave anyway?"
+msgstr "Vi havas nekonservitajn ŝanĝojn. Ĉu forlasi ĉiujn?"
+
+msgid "Storage usage unavailable"
+msgstr "Uzado de stokado nehavebla"
+
+msgid "Search for members..."
+msgstr "Serĉi membrojn..."
+
+msgid "Current members"
+msgstr "Nunaĵoj membroj"
+
+msgid "Add members"
+msgstr "Aldoni membrojn"
+
+msgid "Search for users in course/session..."
+msgstr "Serĉi uzantojn en kurso/sesio..."
+
+msgid "No users available."
+msgstr "Neniu uzanto disponebla."
+
+msgid "Browse and publish new posts"
+msgstr "Foliumi kaj publikigi novajn afiŝojn"
+
+msgid "Create and assign tasks"
+msgstr "Krei kaj atribui taskojn"
+
+msgid "Filtered by %s"
+msgstr "Filtrita de %s"
+
+msgid "Select a score"
+msgstr "Elekti poentaron"
+
+msgid "Edit comment"
+msgstr "Redakti komenton"
+
+msgid "Failed to update the post."
+msgstr "Malsukcesis ĝisdatigi la afiŝon."
+
+msgid "Delete this post? This action cannot be undone."
+msgstr "Forigi ĉi tiun afiŝon? Ĉi tiu ago ne povas esti malfakita."
+
+msgid "Failed to delete the post."
+msgstr "Malsukcesis forigi la afiŝon."
+
+msgid "Failed to update the comment."
+msgstr "Malsukcesis ĝisdatigi la komenton."
+
+msgid "Delete this comment?"
+msgstr "Forigi ĉi tiun komenon?"
+
+msgid "Failed to delete the comment."
+msgstr "Malsukcesis forigi la komenon."
+
+msgid "Search for projects..."
+msgstr "Serĉi projektojn..."
+
+msgid "Only visible"
+msgstr "Nur videbla"
+
+msgid "Rename project"
+msgstr "Renomi projekton"
+
+msgid "New title"
+msgstr "Nova titolo"
+
+msgid "You need to be a admin or teacher to manage projects."
+msgstr "Vi devas esti administranto aŭ instruisto por administri projektojn."
+
+msgid "Delete this project? This action cannot be undone."
+msgstr "Forigi ĉi tiun projekton? Ĉi tiu ago ne povas esti malfakita."
+
+msgid "Task list"
+msgstr "Listo de taskoj"
+
+msgid "Change status"
+msgstr "Ŝanĝi staton"
+
+msgid "Waiting for validation"
+msgstr "Atendante validigon"
+
+msgid "Delete this task?"
+msgstr "Forigi ĉi tiun taskon?"
+
+msgid "Failed to delete the task."
+msgstr "Malsukcesis forigi la taskon."
+
+msgid "Failed to update status."
+msgstr "Malsukcesis ĝisdatigi staton."
+
+msgid "Are you sure you want to delete this third party? This action cannot be undone."
+msgstr "Ĉu vi certas, ke vi volas forigi ĉi tiun trian partion? Ĉi tiu ago ne povas esti malfakita."
+
+msgid "Please fix the errors before saving."
+msgstr "Bonigu la erarojn antaŭ ol konservi."
+
+msgid "Error creating third party. Please verify the data."
+msgstr "Eraro kreante trian partion. Bonvolu kontroli la datumojn."
+
+msgid "Error deleting third party."
+msgstr "Eraro forigante trian partion."
+
+msgid "Upload optional header and email logos. SVG is preferred; PNG is used as fallback."
+msgstr "Alŝuti opcionajn kapbildojn kaj retpoŝt-logojn. SVG preferatas; PNG uzas kiel rezervelemento."
+
+msgid "Data exchange updated successfully."
+msgstr "Datointerŝanĝo ĝisdatigita sukcese."
+
+msgid "Error deleting data exchange."
+msgstr "Eraro forigante datointerŝanĝon."
+
+msgid "Failed to recycle course."
+msgstr "Malsukcesis rekuperi kurson."
+
+msgid "Select source course"
+msgstr "Elekti fontkurson"
+
+msgid "Course to copy from"
+msgstr "Kurso kopii el"
+
+msgid "Search by code or title..."
+msgstr "Serĉi laŭ kodo aŭ titolo..."
+
+msgid "No courses match your search."
+msgstr "Neniu kurso kongruas kun via serĉo."
+
+msgid "Copy options"
+msgstr "Kopio-opcioj"
+
+msgid "Include users (enrollments)"
+msgstr "Inkluzivi uzantojn (enskribiĝojn)"
+
+msgid "Reset dates"
+msgstr "Nuligi datojn"
+
+msgid "When a file with the same name exists"
+msgstr "Kiam dosiero kun sama nomo ekzistas"
+
+msgid "Ready to copy"
+msgstr "Preta kopii"
+
+msgid "We will copy content from the selected course into this course. You can go back to change options."
+msgstr "Ni kopios enhavon el la elektita kurso en ĉi tiun kurson. Vi povas iri reen por ŝanĝi opciojn."
+
+msgid "Start copying"
+msgstr "Komenci kopii"
+
+msgid "Select resources to copy"
+msgstr "Elekti rimedojn por kopii"
+
+msgid "Copy selected"
+msgstr "Kopii elektitajn"
+
+msgid "Copy completed."
+msgstr "Kopio finita."
+
+msgid "Danger zone: deleting a course is permanent."
+msgstr "Dangero-zono: forigi kurson estas definitiva."
+
+msgid "Type the course code to confirm. All data will be permanently removed."
+msgstr "Tajpu la kurson kodon por konfirmi. Ĉiaj datumoj estos definitive forigitaj."
+
+msgid "The code must match '%s' exactly."
+msgstr "La kodo devas kongrui '%s' precize."
+
+msgid "Also delete documents that are only used in this course (if any)."
+msgstr "Ankaŭ forigi dokumentojn kiuj uzas nur en ĉi tiu kurso (se ajn)."
+
+msgid "Delete course"
+msgstr "Forigi kurson"
+
+msgid "This action cannot be undone. Continue?"
+msgstr "Ĉi tiu ago ne povas esti malfakita. Daŭrigi?"
+
+msgid "Course deleted successfully."
+msgstr "Kurso forigita sukcese."
+
+msgid "Failed to delete course."
+msgstr "Malsukcesis forigi kurson."
+
+msgid "Create .mbz"
+msgstr "Krei .mbz"
+
+msgid "Backup scope"
+msgstr "Rezerva amplekso"
+
+msgid "Full course"
+msgstr "Plena kurso"
+
+msgid "Selected items will be the only ones included in the exported file."
+msgstr "Elektitaj elementoj estos la nuraj inkluzivitaj en la eksportita dosiero."
+
+msgid "Moodle export"
+msgstr "Moodle-eksporto"
+
+msgid "Moodle version"
+msgstr "Moodle-versio"
+
+msgid "Admin ID"
+msgstr "Admin ID"
+
+msgid "Internal integer user id"
+msgstr "Interna entjera uzanto ID"
+
+msgid "Moodle requires an internal user id stored in XML. If in doubt, use 1."
+msgstr "Moodle postulas internan uzanto ID konservitan en XML. Se dubas, uzu 1."
+
+msgid "Username to appear as owner of imported items"
+msgstr "Uzantanomo por aperi kiel posedanto de importitaj elementoj"
+
+msgid "Email to use in the archive metadata"
+msgstr "Retpoŝto uzenda en la metadatenoj de la arkivo"
+
+msgid "A .mbz file will be generated. You will be able to download it once finished."
+msgstr ".mbz-dosiero estos generita. Vi povos elŝuti ĝin post finita."
+
+msgid "Select resources to include"
+msgstr "Elektu rimedojn por inkluzivi"
+
+msgid "Export completed"
+msgstr "Eksporto finita"
+
+msgid "Your Moodle backup has been created. You can find it in the course backups list."
+msgstr "Via Moodle-kopiaĵo estas kreita. Vi trovas ĝin en la listo de kursaj kopiaĵoj."
+
+msgid "Please complete all required fields."
+msgstr "Bonvolu kompleti ĉiujn bezonatajn kampojn."
+
+msgid "Failed to create Moodle backup."
+msgstr "Fiŭlo krei Moodle-kopiaĵon."
+
+msgid "More actions"
+msgstr "Pli da agoj"
+
+msgid "Write something"
+msgstr "Skribu ion"
+
+msgid "Friends of %s"
+msgstr "Amikoj de %s"
+
+msgid "Error loading learning paths."
+msgstr "Eraro dumŝutante lernvojojn."
+
+msgid "You don't have any learning path."
+msgstr "Vi ne havas lernvojon."
+
+msgid "Create your first learning path to start organizing course content."
+msgstr "Kreu vian unuan lernvojon por komenci organizi kurson enhavon."
+
+msgid "Could not save the new category order."
+msgstr "Ne eblis konservi la novan ordon de kategorioj."
+
+msgid "Could not save the new order."
+msgstr "Ne eblis konservi la novan ordon."
+
+msgid "Assignment"
+msgstr "Tasko"
+
+msgid "Allowed file formats: %s"
+msgstr "Permesitaj dosierformatoj: %s"
+
+msgid "File type not allowed. Allowed extensions: %s"
+msgstr "Dosier tipo ne permesita. Permesitaj etendoj: %s"
+
+msgid "Folder name"
+msgstr "Nomo de dosierujoj"
+
+msgid "Rename folder"
+msgstr "Renomi dosierujon"
+
+msgid "New name"
+msgstr "Nova nomo"
+
+msgid "Choose an action"
+msgstr "Elektu agon"
+
+msgid "New version"
+msgstr "Nova versio"
+
+msgid "Change title to selected filename"
+msgstr "Ŝanĝi titolon al elektita dosiernomo"
+
+msgid "You can replace the file, move it to another folder, or both."
+msgstr "Vi povas anstataŭigi la dosieron, movi ĝin al alia dosierujo, aŭ ambaŭ."
+
+msgid "Move %s"
+msgstr "Movi %s"
+
+msgid "Only non-root folders are shown to avoid leaving items in root."
+msgstr "Nur ne-radikaj dosierujoj estas montrataj por eviti lasi elementojn en radiko."
+
+msgid "No feedback yet."
+msgstr "Neniu retpoŝtigo ankoraŭ."
+
+msgid "Upload first, organize later"
+msgstr "Alŝuti unue, organizi poste"
+
+msgid "Drag & drop or browse to add files"
+msgstr "Tiri & demeti aŭ foliumi por aldoni dosierojn"
+
+msgid "Social wall..."
+msgstr "Socia muro..."
+
+msgid "Wall of %s"
+msgstr "Muro de %s"
+
+msgid "Version currently loaded"
+msgstr "Versio aktualan ŝargita"
+
+msgid "Completion"
+msgstr "Finado"
+
+msgid "Quick navigation"
+msgstr "Rapida navigado"
+
+msgid "Filled"
+msgstr "Plena"
+
+msgid "Terms sections"
+msgstr "Sekcioj de terminoj"
+
+msgid "Open a section to edit its content."
+msgstr "Malfermi sekcion por redakti ĝian enhavon."
+
+msgid "Open this section to load the editor."
+msgstr "Malfermi ĉi tiun sekcion por ŝargi la redaktilon."
+
+msgid "Danger zone: deleting an access URL is permanent."
+msgstr "Dangera zono: forigi alira URL estas definitiva."
+
+msgid "Type the full URL to confirm. The URL and its relations will be permanently removed."
+msgstr "Tajpi la plenan URL por konfirmi. La URL kaj ĝiaj rilatoj estos definitive forigitaj."
+
+msgid "Unable to load the badge's image."
+msgstr "Ne eblas ŝargi la bildon de la insigno."
+
+msgid "Invalid role selection"
+msgstr "Nevalida selekto de rolo"
+
+msgid "Select relation type first to enable user management."
+msgstr "Selektu unue tipon de rilato por aktivigi administradon de uzantoj."
+
+msgid "This question has no course context. Preview is not available."
+msgstr "Ĉi tiu demando ne havas kontekston de kurso. Antaŭvido ne disponeblas."
+
+msgid "Unknown test"
+msgstr "Nekonata testo"
+
+msgid "Deletion is not allowed without a course context."
+msgstr "Forigo ne permesatas sen konteksto de kurso."
+
+msgid "Delete failed: missing course context or inThis question belongs to a test. Edit it from inside the test or filter for orphan questions only.valid question id."
+msgstr "Forigo malsukcesis: mankas konteksto de kurso aŭ valida ID de demando en Ĉi tiu demando apartenas al testo. Redaktu ĝin el la testo aŭ filtri nur orfojn demandos."
+
+msgid "Delete failed: question not found."
+msgstr "Forigo malsukcesis: demando ne trovita."
+
+msgid "Delete failed: this question is still referenced by other resources."
+msgstr "Forigo malsukcesis: ĉi tiu demando ankoraŭ estas referencita de aliaj rimedoj."
+
+msgid "This question belongs to a test. Edit it from inside the test or filter for orphan questions only."
+msgstr "Ĉi tiu demando apartenas al testo. Redaktu ĝin el la testo aŭ filtri nur orfojn demandos."
+
+msgid "Access the group tools and resources"
+msgstr "Aliri ilojn kaj rimedojn de la grupo"
+
+msgid "%s members"
+msgstr "%s membro(j)"
+
+msgid "View certificate (HTML)"
+msgstr "Vidi atestilon (HTML)"
+
+msgid "Link a skill to this gradebook"
+msgstr "Ligi kompetencon al ĉi tiu librego de notoj"
+
+msgid "Manage the link between certificates and skills for each gradebook"
+msgstr "Administri la ligon inter atestiloj kaj kompetencoj por ĉiu librego de notoj"
+
+msgid "Please select a specific badge issue to download"
+msgstr "Bonvolu selekti specifan eldonon de insigno por elŝuti"
+
+msgid "SCIM is not enabled."
+msgstr "SCIM ne estas aktivigita."
+
+msgid "Invalid token."
+msgstr "Nevalida ĵetono."
+
+msgid "Schema not supported."
+msgstr "Skemo ne subtenata."
+
+msgid "Invalid schemas for PATCH operation."
+msgstr "Nevalidaj skemoj por PATCH-operacio."
+
+msgid "Missing required \"Operations\" array."
+msgstr "Mankas deviga tabelo \"Operations\"."
+
+msgid "The '%s' operation is not supported."
+msgstr "La operacio '%s' ne estas subtenata."
+
+msgid "Drupal user ID"
+msgstr "Drupal uzanto ID"
+
+msgid "There are no terms that match the search: %s"
+msgstr "Ne estas terminoj kies serĉo kongruas: %s"
+
+msgid "Setting is globally locked (access_url_locked=1)"
+msgstr "Agordo estas tutmonde ŝlosita (access_url_locked=1)"
+
+msgid "If enabled, 1:1 private chat messages will be mirrored in the course chat history documents. Recommended to keep disabled for privacy."
+msgstr "Se aktivigita, 1:1 privataj babilmesaĝoj estos spegulitaj en la dokumentoj de la kurso babilhistorio. Rekomendata resti malaktivigita por privateco."
+
+msgid "Save private conversations in documents"
+msgstr "Konservi privatajn konversaciojn en dokumentoj"
+
+msgid "EU AI Act – Transparency & risk notice"
+msgstr "Eŭropa Leĝo pri AI – Transparento & riskavizo"
+
+msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
+msgstr "Laŭ la Eŭropa Leĝo pri Artefarita Inteligencio (Regularo (EU) 2024/1689), AI-sistemoj uzitaj en edukado ĝenerale klasifikas kiel „alt-riskaj”. Ĉi tiu programaro mem <strong>ne</strong> estas AI-sistemo, sed ĝi povas integri opcionajn internajn aŭ eksternajn AI-sistemojn—depende de via agordo—por plibonigi la rendimenton de uzantujoj. Ĉi tiuj sistemoj povus aliri personajn datumojn <em>nur se</em> uzantoj inkluzivas tiajn datumojn en siaj promptoj. Laŭ desegno, ĉi tiu programaro ne kunpartas personajn datumojn kun AI-sistemoj sen aktiva enigo de la uzanto. Laŭ defaŭlto, ĉiuj AI-funkcioj estas malaktivigitaj."
+
+msgid "Admin responsibility & disclosures"
+msgstr "Administra respondeco & malkovroj"
+
+msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
+msgstr "Ĉi tiu paĝo de agordoj detalas ĉiun AI-funkcion kaj ĝian celon. Kiel despleganto, vi devus zorgeme revizii ilin kaj ĝisdatigi viajn GDPR-kongruajn datumajn privatec-politikon por reflektigi la opciojn kiujn vi aktivigas. Kvankam plej multaj AI-funkcioj ne rekte kunpartas personajn datumojn kun eksternaj sistemoj, uzantaj promptoj senditaj al AI povas hazarde inkluzivi personajn informojn. Kiel despleganto, <strong>vi respondecas</strong> informi uzantojn pri ĉi tiu risko. Por transparento, estontaj eldonoj povas montri neinvazivajn etiketojn por finuzantoj indikantajn ke certaj enhavoj aŭ komentoj estis generitaj kun la helpo de AI."
+
+msgid "Positioning"
+msgstr "Pozicionado"
+
+msgid "Quiz"
+msgstr "Kviz"
+
+msgid "Customcertificate"
+msgstr "Customcertificate"
+
+msgid "Update profile"
+msgstr "Ĝisdatigi profilon"
+
+msgid "Enable learning path generator"
+msgstr "Ŝalti generilon de lernvojoj"
+
+msgid "Enable exercise generator"
+msgstr "Ŝalti generilon de ekzercoj"
+
+msgid "Enable open answers grader"
+msgstr "Ŝalti gradilon de malfermaj respondoj"
+
+msgid "Enable tutor chatbot"
+msgstr "Ŝalti ĉatboton de tutoro"
+
+msgid "Enable task grader"
+msgstr "Ŝalti gradilon de taskoj"
+
+msgid "Enable content analyser"
+msgstr "Ŝalti analizilon de enhavo"
+
+msgid "Enable image generator"
+msgstr "Ŝalti generilon de bildoj"
+
+msgid "Enable glossary terms generator"
+msgstr "Ŝalti generilon de glosartemoj"
+
+msgid "Enable video generator"
+msgstr "Ŝalti generilon de videoj"
+
+msgid "Enable course analyser"
+msgstr "Ŝalti analizilon de kursoj"
+
+msgid "The operation '%s' is not supported."
+msgstr "La operacio '%s' ne estas subtenata."
+
+msgid "AI feedback on %s in course %s"
+msgstr "AI-retroinformo pri %s en kurso %s"
+
+msgid "Delete failed: missing course context or invalid question id."
+msgstr "Forigi malsukcesis: mankas kursos kunteksto aŭ nevalida demando ID."
+
+msgid "AI Tutor"
+msgstr "AI Tutoro"
+
+msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
+msgstr "La etendo APCu devas esti instalita kaj ŝaltita por ke la platformo povu uzi ĝin."
+
+msgid "Allowing OPCache memory_consumption to reach %sMB of RAM at least is recommended."
+msgstr "Oni rekomendas permesi al OPCache memory_consumption atingi almenaŭ %sMB da RAM."
+
+msgid "The OPcache module needs to be both installed and enabled in order for the platform to use it."
+msgstr "La modulo OPcache devas esti instalita kaj ŝaltita por ke la platformo povu uzi ĝin."
+
+msgid "You are here"
+msgstr "Vi estas ĉi tie"
+
+msgid "Click an event type to filter results."
+msgstr "Klaku tipon de evento por filtri rezultojn."
+
+msgid "Require unique presence"
+msgstr "Postuli unikan ĉeeston"
+
+msgid "If enabled, the gradebook will give a learner 100% when present at least once."
+msgstr "Se aktivigita, la notlibro donos al lernanto 100% kiam ĉeestas almenaŭ unu fojon."
+
+msgid "AI feedback"
+msgstr "AI-retpoŝto"
+
+msgid "Prompt"
+msgstr "Prompt"
+
+msgid "Tip"
+msgstr "Konsilo"
+
+msgid "You can edit the prompt before asking for feedback."
+msgstr "Vi povas redakti la prompton antaŭ ol peti retpoŝton."
+
+msgid "Result (you can apply it to the comment)"
+msgstr "Rizulto (vi povas apliki ĝin al la komento)"
+
+msgid "Apply to comment"
+msgstr "Apliki al komento"
+
+msgid "Apply score"
+msgstr "Apliki noton"
+
+msgid "AI grade"
+msgstr "AI-noto"
+
+msgid "AI tutor is disabled during tests"
+msgstr "AI-tutoro estas malaktivigita dum testoj"
+
+msgid "Generate glossary terms"
+msgstr "Generi glosartemojn"
+
+msgid "Generate media"
+msgstr "Generi amaskomunikilon"
+
+msgid "You do not have permission to generate AI media in this course."
+msgstr "Vi ne havas permeson generi AI-amaskomunikilon en ĉi tiu kurso."
+
+msgid "AI helpers are disabled at platform level."
+msgstr "AI-helpiloj estas malaktivigitaj je platform-nivelo."
+
+msgid "AI media generation is disabled in course settings."
+msgstr "Generado de AI-amaskomunikilo estas malaktivigita en kursaj agordoj."
+
+msgid "No AI media providers available."
+msgstr "Neniu provizanto de AI-amaskomunikilo havebla."
+
+msgid "Provider"
+msgstr "Provizanto"
+
+msgid "Select a provider"
+msgstr "Elektu provizanton's"
+
+msgid "Example: generated_media"
+msgstr "Ekzemplo: generita_amaskomunikilo"
+
+msgid "The name is not added to the prompt; it is only used to save the file."
+msgstr "La nomo ne estas aldonita al la prompt; ĝi estas uzita nur por konservi la dosieron."
+
+msgid "Describe what you want to generate..."
+msgstr "Priskribu tion, kion vi volas generi..."
+
+msgid "Tip: click a preset to quickly set the size."
+msgstr "Konsilo: klaku antaŭfikson por rapide agordi la grandecon."
+
+msgid "Generating..."
+msgstr "Generante..."
+
+msgid "Save to Documents"
+msgstr "Konservi en Dokumento"
+
+msgid "Document IRI"
+msgstr "Dokumenta IRI"
+
+msgid "Go to folder"
+msgstr "Iri al dosierujoj"
+
+msgid "Provider used"
+msgstr "Uzita provizanto"
+
+msgid "This video result cannot be saved yet"
+msgstr "Ĉi tiu videorizulto ne povas esti konservita ankoraŭ"
+
+msgid "Video polling was stopped because the provider changed."
+msgstr "Vidbalaĝado estis haltigita ĉar la provizanto ŝanĝiĝis."
+
+msgid "Video generation is taking too long. Please try again later."
+msgstr "Gendado de video daŭras tro longe. Bonvolu reprovi poste."
+
+msgid "Failed to check video status."
+msgstr "Malsukcesis kontroli la staton de la video."
+
+msgid "Video generated successfully. You can now save it."
+msgstr "Video sukcese generita. Vi povas nun konservi ĝin."
+
+msgid "Video generation completed, but no playable content was returned."
+msgstr "Gendado de video finita, sed neniu ludebla enhavo estis redonita."
+
+msgid "Video generation failed."
+msgstr "Malsukcesis generi videon."
+
+msgid "Waiting for the video to be ready..."
+msgstr "Atendantas ke la video pretu..."
+
+msgid "Please complete all fields."
+msgstr "Bonvolu kompleti ĉiujn kampojn."
+
+msgid "Image generation is not enabled for this course."
+msgstr "Gendado de bildoj ne estas aktivigita por ĉi tiu kurso."
+
+msgid "Video generation is not enabled for this course."
+msgstr "Gendado de video ne estas aktivigita por ĉi tiu kurso."
+
+msgid "Generation failed."
+msgstr "Gendado malsukcesis."
+
+msgid "Generated successfully. Review the preview and save when ready."
+msgstr "Sukcese generita. Kontrolu la antaŭvidon kaj konservu kiam preta."
+
+msgid "Generated successfully. Saving is disabled because the provider returned a URL."
+msgstr "Sukcese generita. Konservado estas malaktivigita ĉar la provizanto redonis URL-on."
+
+msgid "Video generation started. Waiting for the result..."
+msgstr "Gendado de video komenciĝis. Atendantas la rezulton..."
+
+msgid "AI returned an empty response."
+msgstr "AI redonis malplenan respondon."
+
+msgid "Nothing to save yet."
+msgstr "Neniu afero konservebla ankoraŭ."
+
+msgid "This provider did not return base64 content. Please try another provider."
+msgstr "Ĉi tiu provizanto ne redonis base64-enhavon. Bonvolu provi alian provizanton's."
+
+msgid "Saving failed."
+msgstr "Malsukcesis konservi."
+
+msgid "Get AI feedback"
+msgstr "Ricevi AI-retpoŝton"
+
+msgid "Copy answer to clipboard"
+msgstr "Kopii respondon al poŝtaranĝilo"
+
+msgid "Save answer to my inbox"
+msgstr "Konservi respondon en mian poŝtreton"
+
+msgid "The document is already in this folder"
+msgstr "La dokumento jam estas en ĉi tiu dosierujoj"
+
+msgid "Copied"
+msgstr "Kopita"
+
+msgid "You do not have permission to generate glossary terms."
+msgstr "Vi ne havas permeson generi glosartikolojn."
+
+msgid "Video generation is in progress"
+msgstr "Generado de video progresas"
+
+msgid "Job"
+msgstr "Tasko"
+
+msgid "Modified prompt"
+msgstr "Modifita invitilo"
+
+msgid "Saved in Documents"
+msgstr "Konservita en Dokumento"
 

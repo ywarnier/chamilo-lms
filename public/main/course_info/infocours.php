@@ -61,6 +61,13 @@ $formOptionsArray = [];
 
 $enableAiHelpers = 'true' === api_get_setting('ai_helpers.enable_ai_helpers');
 
+$courseVisibilityAdminsOnlySetting = api_get_setting('workflows.course_visibility_change_only_admin');
+$courseVisibilityAdminsOnly = \in_array($courseVisibilityAdminsOnlySetting, ['true', '1'], true);
+
+// Teachers/course admins won't be able to change the visibility when this is enabled.
+// Platform admins can still change it (and also from admin courses list as mentioned in the issue).
+$canChangeCourseVisibility = !$courseVisibilityAdminsOnly || api_is_platform_admin();
+
 // Build the form
 $form = new FormValidator(
     'update_course',
@@ -173,7 +180,6 @@ $form->addElement(
     get_lang('Delete picture')
 );
 
-
 if ('true' === api_get_setting('pdf_export_watermark_by_course')) {
     $url = PDF::get_watermark($course_code);
     $form->addText('pdf_export_watermark_text', get_lang('PDF watermark text'), false, ['size' => '60']);
@@ -215,13 +221,16 @@ if ('true' === api_get_setting('allow_course_theme')) {
 $form->addElement('label', get_lang('Space available'), format_file_size(DocumentManager::get_course_quota()));
 
 $aiOptions = [
-    'learning_path_generator' => 'Enable Learning Path Generator',
-    'exercise_generator' => 'Enable Exercise Generator',
-    'open_answers_grader' => 'Enable Open Answers Grader',
-    'tutor_chatbot' => 'Enable Tutor Chatbot',
-    'task_grader' => 'Enable Task Grader',
-    'content_analyser' => 'Enable Content Analyser',
-    'image_generator' => 'Enable Image Generator',
+    'learning_path_generator' => 'Enable learning path generator',
+    'exercise_generator' => 'Enable exercise generator',
+    'open_answers_grader' => 'Enable open answers grader',
+    'tutor_chatbot' => 'Enable tutor chatbot',
+    'task_grader' => 'Enable task grader',
+    'content_analyser' => 'Enable content analyser',
+    'image_generator' => 'Enable image generator',
+    'glossary_terms_generator' => 'Enable glossary terms generator',
+    'video_generator' => 'Enable video generator',
+    'course_analyser' => 'Enable course analyser',
 ];
 
 // This global "Save settings" button belongs to the main course settings block
@@ -246,20 +255,22 @@ $form->addPanelOption(
     true
 );
 
-
 // --- End of legacy block, from here panels start as usual ---
 
-$url = api_get_path(WEB_CODE_PATH)."auth/inscription.php?c=$course_code&e=1";
-$url = Display::url($url, $url);
-$label = $form->addLabel(
-    get_lang('Direct link'),
-    sprintf(
-        get_lang(
-            'If your course is public or open, you can use the direct link below to send an invitation to new users, so after registration, they will be sent directly to the course. Also, you can add the e=1 parameter to the URL, replacing "1" by an exercise ID to send them directly to a specific exam. The exercise ID can be discovered in the URL when clicking on an exercise to open it.<br/>%s'
-        ),
-        $url
+$directUrl = api_get_path(WEB_CODE_PATH)."auth/registration.php?c=$courseId&e=1";
+$directUrlLink = Display::url($directUrl, $directUrl);
+
+$directLinkHtml = sprintf(
+    get_lang(
+        'If your course is public or open, you can use the direct link below to send an invitation to new users, so after registration, they will be sent directly to the course. Also, you can add the e=1 parameter to the URL, replacing "1" by an exercise ID to send them directly to a specific exam. The exercise ID can be discovered in the URL when clicking on an exercise to open it.<br/>%s'
     ),
-    true
+    $directUrlLink
+);
+$directLinkElement = $form->createElement(
+    'static',
+    'direct_link',
+    get_lang('Direct link'),
+    '<div class="course-settings-direct-link">'.$directLinkHtml.'</div>'
 );
 
 $groupAccess = [];
@@ -300,6 +311,24 @@ if (api_is_platform_admin()) {
         null,
         get_lang('Hidden - Completely hidden to all users except the administrators'),
         Course::HIDDEN
+    );
+}
+
+$courseVisibilityHelp = null;
+if (!$canChangeCourseVisibility) {
+    foreach ($groupAccess as $radio) {
+        if (\is_object($radio) && method_exists($radio, 'updateAttributes')) {
+            $radio->updateAttributes([
+                'disabled' => 'disabled',
+            ]);
+        }
+    }
+
+    $courseVisibilityHelp = $form->createElement(
+        'html',
+        '<div class="alert alert-info" role="alert">'
+        .get_lang('Only platform administrators can change the course visibility.')
+        .'</div>'
     );
 }
 
@@ -351,9 +380,9 @@ $textAreaLegal = $form->createElement('textarea', 'legal', get_lang('Legal agree
 $courseAccessAnchor = $form->createElement('html', '<div id="course-access-panel-anchor"></div>');
 
 $elements = [
-    '' => [$courseAccessAnchor],
+    '' => array_values(array_filter([$courseAccessAnchor, $courseVisibilityHelp])),
     get_lang('Course access') => $groupAccess,
-    $label,
+    $directLinkElement,
     get_lang('Subscription') => $group2,
     get_lang('Unsubscribe') => $group3,
     $text,
@@ -1038,6 +1067,59 @@ $html = [
     ),
 ];
 
+// ---------------------------------------------------------------------
+// Default values
+// When a course setting is not stored yet, api_get_course_setting() returns -1.
+// We still want radios/selects to have a clear default selected in the UI.
+// This does NOT write anything to the database; it only affects form defaults.
+// ---------------------------------------------------------------------
+$defaultCourseSettings = [
+    // Documents (only used if the corresponding platform setting enables these fields)
+    'documents_default_visibility' => 'visible',
+    'show_system_folders' => 1,
+
+    // E-mail notifications (default to disabled)
+    'email_alert_to_teacher_on_new_user_in_course' => 0,
+    'email_alert_student_on_manual_subscription' => 0,
+    'email_alert_students_on_new_homework' => 0,
+    'email_alert_manager_on_new_doc' => 0,
+    'email_alert_on_new_doc_dropbox' => 0,
+    'email_to_teachers_on_new_work_feedback' => 2, // Yes=1, No=2
+
+    // User rights (default to disabled)
+    'allow_user_edit_agenda' => 0,
+    'allow_user_edit_announcement' => 0,
+    'allow_user_image_forum' => 0,
+    'allow_user_view_user_list' => 0,
+
+    // Chat settings
+    'allow_open_chat_window' => 0,
+
+    // Learning path settings
+    'allow_learning_path_theme' => 0,
+    'lp_return_link' => 0, // Redirect to Course home
+    'exercise_invisible_in_session' => 0,
+
+    // Thematic
+    'display_info_advance_inside_homecourse' => 0,
+
+    // Certificates
+    'allow_public_certificates' => 0,
+
+    // Forum settings (Yes=1, No=2)
+    'hide_forum_notifications' => 2,
+    'subscribe_users_to_forum_notifications' => 2,
+
+    // Assignments / Student publications
+    'show_score' => 0,
+    'student_delete_own_publication' => 0,
+
+    // Auto-launch (UI helper radio)
+    'auto_launch_option' => 'disable_auto_launch',
+    'show_course_in_user_language' => 2,
+    'email_alert_manager_on_new_quiz' => [],
+];
+
 // Set default values
 $values = [];
 $values['title'] = $courseEntity->getTitle();
@@ -1055,8 +1137,23 @@ $values['show_score'] = $_course['show_score'] ?? 0;
 $courseSettings = CourseManager::getCourseSettingVariables();
 foreach ($courseSettings as $setting) {
     $result = api_get_course_setting($setting);
-    if ('-1' != $result) {
+
+    // Some settings can legitimately be arrays (e.g. multi-checkbox values).
+    // Casting arrays to string triggers "Array to string conversion".
+    if (\is_array($result)) {
         $values[$setting] = $result;
+        continue;
+    }
+
+    // Stored setting: use it (api_get_course_setting returns -1 when not stored yet).
+    if ($result !== null && '-1' !== (string) $result) {
+        $values[$setting] = $result;
+        continue;
+    }
+
+    // Not stored yet: fallback to UI defaults when available.
+    if (!array_key_exists($setting, $values) && array_key_exists($setting, $defaultCourseSettings)) {
+        $values[$setting] = $defaultCourseSettings[$setting];
     }
 }
 
@@ -1069,6 +1166,7 @@ if (!isset($values['email_alert_student_on_manual_subscription'])) {
     $values['email_alert_student_on_manual_subscription'] = 0;
 }
 
+// Auto-launch: compute the selected UI option from stored flags
 $documentAutoLaunch = api_get_course_setting('enable_document_auto_launch');
 $lpAutoLaunch = api_get_course_setting('enable_lp_auto_launch');
 $exerciseAutoLaunch = api_get_course_setting('enable_exercise_auto_launch');
@@ -1091,9 +1189,12 @@ if ($documentAutoLaunch == 1) {
 
 $values['auto_launch_option'] = $defaultAutoLaunchOption;
 
+// AI helpers: api_get_course_setting() can also return -1 for new courses.
+// We want radios to default to "No" ("false") to avoid an empty state.
 if ($enableAiHelpers) {
     foreach ($aiOptions as $key => $label) {
-        $values[$key] = api_get_course_setting($key);
+        $v = api_get_course_setting($key);
+        $values[$key] = ('-1' === (string) $v || $v === null || $v === '') ? 'false' : (string) $v;
     }
 }
 
@@ -1155,6 +1256,9 @@ $htmlHeadXtra[] = '
     .course-picture-preview .help-block {
         margin-bottom: 0.25rem;
     }
+    .field-checkbox, .field-radiobutton {
+      margin-top: 10px;
+    }
 </style>
 ';
 
@@ -1165,6 +1269,11 @@ if ($form->validate()) {
     $updateValues['visibility'] = isset($updateValues['visibility'])
         ? (int) $updateValues['visibility']
         : $courseEntity->getVisibility();
+
+    if ($courseVisibilityAdminsOnly && !api_is_platform_admin()) {
+        // Do not allow non-platform admins to change course visibility even if they tamper with the POST payload.
+        $updateValues['visibility'] = (int) $courseEntity->getVisibility();
+    }
 
     $updateValues['subscribe'] = isset($updateValues['subscribe'])
         ? (int) $updateValues['subscribe']

@@ -20,7 +20,6 @@ use Chamilo\CoreBundle\Entity\ResourceType;
 use Chamilo\CoreBundle\Entity\ResourceWithAccessUrlInterface;
 use Chamilo\CoreBundle\Entity\User;
 use Chamilo\CoreBundle\Repository\TrackEDefaultRepository;
-use Chamilo\CoreBundle\Search\Xapian\DocumentXapianIndexer;
 use Chamilo\CoreBundle\Tool\ToolChain;
 use Chamilo\CoreBundle\Traits\AccessUrlListenerTrait;
 use Chamilo\CourseBundle\Entity\CCalendarEvent;
@@ -38,7 +37,6 @@ use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Exception\UserNotFoundException;
-use Throwable;
 
 use const JSON_THROW_ON_ERROR;
 use const PATHINFO_EXTENSION;
@@ -52,8 +50,7 @@ class ResourceListener
         protected ToolChain $toolChain,
         protected RequestStack $request,
         protected Security $security,
-        protected TrackEDefaultRepository $trackEDefaultRepository,
-        protected DocumentXapianIndexer $documentXapianIndexer
+        protected TrackEDefaultRepository $trackEDefaultRepository
     ) {}
 
     /**
@@ -65,6 +62,17 @@ class ResourceListener
     {
         $em = $eventArgs->getObjectManager();
         $request = $this->request;
+
+        /**
+         * Current authenticated user (may be null in CLI/migrations).
+         * Always initialize to avoid "Undefined variable" warnings.
+         *
+         * @var User|null $currentUser
+         */
+        $currentUser = $this->security->getUser();
+        if (!$currentUser instanceof User) {
+            $currentUser = null;
+        }
 
         // 1. Set AccessUrl.
         if ($resource instanceof ResourceWithAccessUrlInterface) {
@@ -87,26 +95,44 @@ class ResourceListener
         }
 
         // 2. Set creator.
-        // Check if creator was set with $resource->setCreator()
+        // Priority order:
+        //   1) Resource node creator (if explicitly provided)
+        //   2) Resource creator (set via $resource->setCreator())
+        //   3) Current authenticated user (Security token)
+        // Then normalize to a managed reference to avoid duplicate INSERT on user.username.
         $creator = $resource->getResourceNodeCreator();
-
-        $currentUser = null;
-        if (null === $creator) {
-            // Get the creator from the current request.
-            /** @var User|null $currentUser */
-            $currentUser = $this->security->getUser();
-            if (null !== $currentUser) {
-                $creator = $currentUser;
-            }
-
-            // Check if user has a resource node.
-            if ($resource->hasResourceNode() && null !== $resource->getCreator()) {
-                $creator = $resource->getCreator();
-            }
+        if (!$creator instanceof User) {
+            $creator = null;
         }
 
         if (null === $creator) {
+            $explicitCreator = $resource->getCreator();
+            if ($explicitCreator instanceof User) {
+                $creator = $explicitCreator;
+            }
+        }
+
+        if (null === $creator && $currentUser instanceof User) {
+            $creator = $currentUser;
+        }
+
+        if (!$creator instanceof User) {
             throw new UserNotFoundException('User creator not found, use $resource->setCreator();');
+        }
+
+        // Ensure creator is managed by this EntityManager.
+        if (!$em->contains($creator)) {
+            $creatorId = $creator->getId();
+            if (null === $creatorId) {
+                throw new UserNotFoundException('Invalid creator user entity (missing ID).');
+            }
+
+            $creator = $em->getReference(User::class, (int) $creatorId);
+        }
+
+        // Ensure the resource itself has creator set (not only the ResourceNode).
+        if (null === $resource->getCreator()) {
+            $resource->setCreator($creator);
         }
 
         // 3. Set ResourceType.
@@ -197,11 +223,19 @@ class ResourceListener
         }
 
         if ($resource instanceof PersonalFile) {
+            // In CLI/migrations there is no authenticated user, so fallback to the parent node creator.
             if (null === $currentUser) {
-                $currentUser = $parentNode->getCreator();
+                $currentUser = $parentNode?->getCreator();
             }
+
+            if (!$currentUser instanceof User) {
+                throw new UserNotFoundException('PersonalFile validation requires a user context (creator or parent node creator).');
+            }
+
+            $currentUserNode = $currentUser->getResourceNode();
+
             $valid = $parentNode->getCreator()->getUsername() === $currentUser->getUsername()
-                     || $parentNode->getId() === $currentUser->getResourceNode()->getId();
+                || (null !== $currentUserNode && $parentNode->getId() === $currentUserNode->getId());
 
             if (!$valid) {
                 $msg = \sprintf('User %s cannot add a file to another user', $currentUser->getUsername());
@@ -288,25 +322,6 @@ class ResourceListener
                 $this->security->getUser()?->getId()
             );
         }
-
-        // Xapian indexing for documents
-        if ($resource instanceof CDocument) {
-            if (!$this->shouldIndexDocumentFromRequest()) {
-                error_log('[Xapian] postPersist: indexing disabled by indexDocumentContent flag');
-
-                return;
-            }
-
-            try {
-                $docId = $this->documentXapianIndexer->indexDocument($resource);
-            } catch (Throwable $e) {
-                error_log(
-                    '[Xapian] postPersist: indexing failed: '.
-                    $e->getMessage().
-                    ' in '.$e->getFile().':'.$e->getLine()
-                );
-            }
-        }
     }
 
     public function postUpdate(AbstractResource $resource, PostUpdateEventArgs $event): void
@@ -319,24 +334,6 @@ class ResourceListener
                 'edition',
                 $this->security->getUser()?->getId()
             );
-        }
-
-        if ($resource instanceof CDocument) {
-            if (!$this->shouldIndexDocumentFromRequest()) {
-                error_log('[Xapian] postUpdate: indexing disabled by indexDocumentContent flag');
-
-                return;
-            }
-
-            try {
-                $docId = $this->documentXapianIndexer->indexDocument($resource);
-            } catch (Throwable $e) {
-                error_log(
-                    '[Xapian] postUpdate: indexing failed: '.
-                    $e->getMessage().
-                    ' in '.$e->getFile().':'.$e->getLine()
-                );
-            }
         }
     }
 
@@ -381,9 +378,6 @@ class ResourceListener
         if (empty($extension)) {
             // $slug = $this->slugify->slugify($resourceName);
         }
-        /*$originalExtension = pathinfo($resourceName, PATHINFO_EXTENSION);
-        $originalBasename = \basename($resourceName, $originalExtension);
-        $slug = sprintf('%s.%s', $this->slugify->slugify($originalBasename), $originalExtension);*/
         $resource->getResourceNode()->setTitle($resourceName);
     }
 
@@ -439,73 +433,11 @@ class ResourceListener
         }
 
         $em = $args->getObjectManager();
-        $resourceNode = $resource->getResourceNode();
-
-        if ($resourceNode) {
-            try {
-                $this->documentXapianIndexer->deleteForResourceNodeId((int) $resourceNode->getId());
-            } catch (Throwable $e) {
-                error_log(
-                    '[Xapian] preRemove: deleteForResourceNodeId() failed: '.
-                    $e->getMessage().' in '.$e->getFile().':'.$e->getLine()
-                );
-            }
-        }
-
         $docID = $resource->getIid();
         $em->createQuery('DELETE FROM Chamilo\CourseBundle\Entity\CLpItem i WHERE i.path = :path AND i.itemType = :type')
             ->setParameter('path', $docID)
             ->setParameter('type', 'document')
             ->execute()
         ;
-    }
-
-    private function shouldIndexDocumentFromRequest(): bool
-    {
-        $currentRequest = $this->request->getCurrentRequest();
-
-        // No HTTP request (CLI, tests, etc.) => keep old behavior: index
-        if (null === $currentRequest) {
-            return true;
-        }
-
-        // Only care about document endpoints
-        $path = $currentRequest->getPathInfo();
-        if (!\is_string($path) || !str_contains($path, '/documents')) {
-            return true;
-        }
-
-        // indexDocumentContent will come from form-data or query
-        $raw = $currentRequest->get('indexDocumentContent');
-
-        // If the flag is not present, keep the legacy behavior (index)
-        if (null === $raw) {
-            return true;
-        }
-
-        if (\is_bool($raw)) {
-            return $raw;
-        }
-
-        if (is_numeric($raw)) {
-            return ((int) $raw) !== 0;
-        }
-
-        if (\is_string($raw)) {
-            $normalized = strtolower(trim($raw));
-            $falseValues = ['0', 'false', 'no', 'off', ''];
-            $trueValues = ['1', 'true', 'yes', 'on'];
-
-            if (\in_array($normalized, $falseValues, true)) {
-                return false;
-            }
-
-            if (\in_array($normalized, $trueValues, true)) {
-                return true;
-            }
-        }
-
-        // Fallback: cast to boolean
-        return (bool) $raw;
     }
 }

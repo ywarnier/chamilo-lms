@@ -30,6 +30,7 @@ use UserManager;
 
 use const ENT_HTML5;
 use const ENT_QUOTES;
+use const PATHINFO_EXTENSION;
 use const PHP_ROUND_HALF_UP;
 use const PHP_SAPI;
 use const PHP_URL_PATH;
@@ -384,10 +385,13 @@ class ChamiloHelper
      */
     public static function getServerMidnightTime(?string $utcTime = null): DateTime
     {
-        $localTime = api_get_local_time($utcTime);
-        $localTimeZone = api_get_timezone();
+        // UTC -> local time string (already converted using resolved timezone)
+        $localTime = DateTimeHelper::localTimeYmdHis($utcTime, null, 'UTC');
 
-        $localMidnight = new DateTime($localTime, new DateTimeZone($localTimeZone));
+        // Resolved timezone (platform/user)
+        $tz = DateTimeHelper::resolveTimezone();
+
+        $localMidnight = new DateTime($localTime, new DateTimeZone($tz));
         $localMidnight->modify('midnight');
 
         return $localMidnight;
@@ -499,7 +503,7 @@ class ChamiloHelper
 
         if (!$termPreview) {
             $defaultIso = (string) api_get_setting('language.platform_language');
-            if ($defaultIso === '' || $defaultIso === 'false') {
+            if ('' === $defaultIso || 'false' === $defaultIso) {
                 $defaultIso = (string) api_get_setting('platformLanguage');
             }
 
@@ -515,7 +519,7 @@ class ChamiloHelper
         }
 
         $version = (int) ($termPreview['version'] ?? 0);
-        $langId  = (int) ($termPreview['language_id'] ?? $languageId);
+        $langId = (int) ($termPreview['language_id'] ?? $languageId);
 
         // Track acceptance context
         $form->addElement('hidden', 'legal_accept_type', $version.':'.$langId);
@@ -531,35 +535,63 @@ class ChamiloHelper
                 'where' => [
                     'language_id = ? AND version = ?' => [$langId, $version],
                 ],
-                'order' => 'id ASC',
+                'order' => 'type ASC, id ASC',
             ]
         );
 
-        if (!is_array($rows) || empty($rows)) {
+        if (!\is_array($rows) || empty($rows)) {
             return;
         }
+
+        // GDPR section titles indexed by "type" (1..15).
+        $getSectionTitle = static function (int $type): string {
+            $map = [
+                1 => 'Personal data collection',
+                2 => 'Personal data recording',
+                3 => 'Personal data organization',
+                4 => 'Personal data structure',
+                5 => 'Personal data conservation',
+                6 => 'Personal data adaptation or modification',
+                7 => 'Personal data extraction',
+                8 => 'Personal data queries',
+                9 => 'Personal data use',
+                10 => 'Personal data communication and sharing',
+                11 => 'Personal data interconnection',
+                12 => 'Personal data limitation',
+                13 => 'Personal data deletion',
+                14 => 'Personal data destruction',
+                15 => 'Personal data profiling',
+            ];
+
+            return $map[$type] ?? '';
+        };
 
         $fullHtml = '';
 
         foreach ($rows as $row) {
             $content = trim((string) ($row['content'] ?? ''));
-            if ($content === '') {
+            if ('' === $content) {
                 continue;
             }
 
-            // Optional title support if available in the table/schema
-            $title = trim((string) ($row['title'] ?? ($row['name'] ?? '')));
-            if ($title !== '') {
-                $fullHtml .= '<div class="mt-4">';
-                $fullHtml .= '<h4 class="text-base font-semibold text-gray-90">'.htmlspecialchars($title, ENT_QUOTES | ENT_HTML5).'</h4>';
-                $fullHtml .= '<div class="mt-1 text-sm text-gray-90">'.$content.'</div>';
-                $fullHtml .= '</div>';
-            } else {
-                $fullHtml .= '<div class="mt-4 text-sm text-gray-90">'.$content.'</div>';
+            $type = (int) ($row['type'] ?? 0);
+            $dbTitle = trim((string) ($row['title'] ?? ($row['name'] ?? '')));
+            $title = '' !== $dbTitle ? $dbTitle : $getSectionTitle($type);
+
+            $fullHtml .= '<div class="mt-4">';
+
+            if ('' !== $title) {
+                $fullHtml .= '<h4 class="text-base font-semibold text-gray-90">'
+                    .htmlspecialchars($title, ENT_QUOTES | ENT_HTML5)
+                    .'</h4>';
             }
+
+            // Content may contain HTML (kept as-is by design).
+            $fullHtml .= '<div class="mt-2 text-sm text-gray-90">'.$content.'</div>';
+            $fullHtml .= '</div>';
         }
 
-        if (trim(strip_tags($fullHtml)) === '') {
+        if ('' === trim(strip_tags($fullHtml))) {
             // Nothing meaningful to show
             return;
         }
@@ -596,27 +628,37 @@ class ChamiloHelper
      */
     public static function saveUserTermsAcceptance(int $userId, string $legalAcceptType): void
     {
-        // Split and build the stored value**
+        // Split and build the stored value
         [$version, $languageId] = explode(':', $legalAcceptType);
         $timestamp = time();
         $toSave = (int) $version.':'.(int) $languageId.':'.$timestamp;
 
-        // Save in extra-field**
+        // Save in extra-field
         UserManager::update_extra_field_value($userId, 'legal_accept', $toSave);
 
-        // Log event
+        // Log event (UTC datetime for DB/log consistency)
         Event::addEvent(
             LOG_TERM_CONDITION_ACCEPTED,
             LOG_USER_OBJECT,
             api_get_user_info($userId),
-            api_get_utc_datetime()
+            DateTimeHelper::localTimeYmdHis($timestamp, 'UTC', 'UTC')
         );
 
         $bossList = UserManager::getStudentBossList($userId);
         if (!empty($bossList)) {
             $bossIds = array_column($bossList, 'boss_id');
             $current = api_get_user_info($userId);
-            $dateStr = api_get_local_time($timestamp);
+
+            // Localized datetime string (platform/user TZ)
+            $dateStr = DateTimeHelper::localTime(
+                $timestamp,
+                null,
+                'UTC',
+                false,
+                true,
+                false,
+                'Y-m-d H:i:s'
+            ) ?? '';
 
             foreach ($bossIds as $bossId) {
                 $subject = \sprintf(get_lang('User %s signed the agreement.'), $current['complete_name']);
@@ -907,7 +949,7 @@ class ChamiloHelper
             $rel = $toRel($fullUrl); // e.g. "document/img.png"
             // Do not auto-create HTML files here (they are handled by the main import loop).
             $ext = strtolower(pathinfo($rel, PATHINFO_EXTENSION));
-            if (in_array($ext, ['html', 'htm'], true)) {
+            if (\in_array($ext, ['html', 'htm'], true)) {
                 continue;
             }
             if (!str_starts_with($rel, 'document/')) {
@@ -921,7 +963,7 @@ class ChamiloHelper
             $byBase[$basename] = $byBase[$basename] ?? null;
 
             // Convert "document/..." (package rel) to destination rel "/..."
-            $dstRel = '/'.ltrim(substr($rel, strlen('document/')), '/'); // e.g. "/Videos/img.png"
+            $dstRel = '/'.ltrim(substr($rel, \strlen('document/')), '/'); // e.g. "/Videos/img.png"
             $depTitle = basename($dstRel);
             $depAbs = rtrim($srcRoot, '/').'/'.$rel;
 
