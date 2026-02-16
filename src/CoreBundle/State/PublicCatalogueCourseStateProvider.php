@@ -47,7 +47,7 @@ readonly class PublicCatalogueCourseStateProvider implements ProviderInterface
         $isAuthenticated = $user instanceof User;
 
         if (!$isAuthenticated
-            && 'false' !== $this->settingsManager->getSetting('catalog.course_catalog_published', true)
+            && 'true' !== $this->settingsManager->getSetting('catalog.course_catalog_published', true)
         ) {
             throw new AccessDeniedHttpException($this->translator->trans('Not allowed'));
         }

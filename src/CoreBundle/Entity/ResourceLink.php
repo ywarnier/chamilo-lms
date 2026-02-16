@@ -21,7 +21,9 @@ use LogicException;
 use Stringable;
 use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ApiResource]
+#[ApiResource(
+    security: "is_granted('ROLE_ADMIN')"
+)]
 #[ORM\Table(name: 'resource_link')]
 #[ORM\Index(
     columns: ['c_id', 'session_id', 'usergroup_id', 'group_id', 'user_id', 'resource_type_group'],
