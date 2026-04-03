@@ -41,6 +41,10 @@ class SessionCookieSameSiteSubscriber implements EventSubscriberInterface
             return;
         }
 
+        if (!$event->getRequest()->isSecure()) {
+            return;
+        }
+
         ini_set('session.cookie_samesite', 'None');
         ini_set('session.cookie_secure', '1');
     }
