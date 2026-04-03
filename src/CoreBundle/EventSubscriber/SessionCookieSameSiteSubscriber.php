@@ -6,7 +6,8 @@ declare(strict_types=1);
 
 namespace Chamilo\CoreBundle\EventSubscriber;
 
-use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\Entity\SettingsCurrent;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
@@ -18,11 +19,16 @@ use Symfony\Component\HttpKernel\KernelEvents;
  *
  * Must run before Symfony's session listener (priority 128) so that
  * ini_set takes effect before the session is started.
+ *
+ * SettingsManager is intentionally NOT used here: it calls Request::getSession()
+ * internally for caching, which throws SessionNotFoundException at this priority
+ * because the session has not been attached to the request yet.
+ * A direct DB query avoids that dependency.
  */
 class SessionCookieSameSiteSubscriber implements EventSubscriberInterface
 {
     public function __construct(
-        private readonly SettingsManager $settingsManager,
+        private readonly EntityManagerInterface $em,
         private readonly ParameterBagInterface $parameterBag,
     ) {}
 
@@ -37,11 +43,15 @@ class SessionCookieSameSiteSubscriber implements EventSubscriberInterface
             return;
         }
 
-        if ('true' !== $this->settingsManager->getSetting('security.security_session_cookie_samesite_none')) {
+        if (!$event->getRequest()->isSecure()) {
             return;
         }
 
-        if (!$event->getRequest()->isSecure()) {
+        $setting = $this->em->getRepository(SettingsCurrent::class)->findOneBy([
+            'variable' => 'security_session_cookie_samesite_none',
+        ]);
+
+        if (!$setting instanceof SettingsCurrent || 'true' !== $setting->getSelectedValue()) {
             return;
         }
 
