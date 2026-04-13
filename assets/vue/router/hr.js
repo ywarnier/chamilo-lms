@@ -15,7 +15,7 @@ export default {
     },
     {
       name: "HrPerformanceObjectives",
-      path: "performance-objectives",
+      path: "objectives",
       meta: {
         requiresAuth: true,
         requiresAdmin: true,
