@@ -37,6 +37,8 @@ class IndexController extends BaseController
     #[Route('/p/{slug}', name: 'public_page')]
     #[Route('/skill/wheel', name: 'skill_wheel')]
     #[Route('/skill/ranking', name: 'skill_ranking')]
+    #[Route('/hr', name: 'hr_entrypoint', options: ['expose' => true])]
+    #[Route('/hr/{vueRouting}', name: 'hr_vue_entrypoint', requirements: ['vueRouting' => '.+'])]
     #[Route('/access-url/auth-sources', methods: ['GET'])]
     public function index(): Response
     {
