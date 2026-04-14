@@ -594,7 +594,7 @@ function buildManualBreadcrumbIfNeeded() {
     return true
   }
 
-  const whitelist = ["admin"]
+  const whitelist = ["admin", "hr"]
   const overrides = {
     admin: "AdminIndex",
     gdpr: null,
@@ -604,6 +604,20 @@ function buildManualBreadcrumbIfNeeded() {
 
   if (!whitelist.includes(baseSegment)) {
     return false
+  }
+
+  // /hr/* — admin-scoped HR pages
+  const isHr = baseSegment === "hr"
+  if (isHr) {
+    calculatedList.value.push({
+      label: t("Administration"),
+      route: { name: "AdminIndex" },
+    })
+    const pageLabel = route.matched[route.matched.length - 1]?.meta?.breadcrumb
+    if (pageLabel) {
+      calculatedList.value.push({ label: t(pageLabel) })
+    }
+    return true
   }
 
   // /admin/settings/<namespace>
