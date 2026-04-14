@@ -4,13 +4,12 @@
     <section>
       <div class="flex items-center justify-between mb-4">
         <h2 class="text-lg font-semibold text-gray-700">{{ t("Activity categories") }}</h2>
-        <button
-          class="btn btn--success"
+        <BaseButton
+          :label="t('Add category')"
+          icon="plus"
+          type="success"
           @click="openCategoryForm()"
-        >
-          <span class="mdi mdi-plus-box" />
-          {{ t("Add category") }}
-        </button>
+        />
       </div>
 
       <BaseTable
@@ -56,13 +55,12 @@
     <section>
       <div class="flex items-center justify-between mb-4">
         <h2 class="text-lg font-semibold text-gray-700">{{ t("Activities") }}</h2>
-        <button
-          class="btn btn--success"
+        <BaseButton
+          :label="t('Add activity')"
+          icon="plus"
+          type="success"
           @click="openActivityForm()"
-        >
-          <span class="mdi mdi-plus-box" />
-          {{ t("Add activity") }}
-        </button>
+        />
       </div>
 
       <BaseTable
@@ -135,19 +133,17 @@
         </div>
       </div>
       <template #footer>
-        <button
-          class="btn btn--plain"
+        <BaseButton
+          :label="t('Cancel')"
+          type="plain"
           @click="categoryDialog = false"
-        >
-          {{ t("Cancel") }}
-        </button>
-        <button
-          class="btn btn--success"
+        />
+        <BaseButton
+          :label="t('Save')"
+          type="success"
           :disabled="!categoryForm.title"
           @click="saveCategory"
-        >
-          {{ t("Save") }}
-        </button>
+        />
       </template>
     </Dialog>
 
@@ -193,46 +189,17 @@
         </div>
       </div>
       <template #footer>
-        <button
-          class="btn btn--plain"
+        <BaseButton
+          :label="t('Cancel')"
+          type="plain"
           @click="activityDialog = false"
-        >
-          {{ t("Cancel") }}
-        </button>
-        <button
-          class="btn btn--success"
+        />
+        <BaseButton
+          :label="t('Save')"
+          type="success"
           :disabled="!activityForm.title"
           @click="saveActivity"
-        >
-          {{ t("Save") }}
-        </button>
-      </template>
-    </Dialog>
-
-    <!-- Delete confirmation dialog -->
-    <Dialog
-      v-model:visible="deleteDialog"
-      :header="t('Confirm')"
-      :modal="true"
-      :style="{ width: '400px' }"
-    >
-      <div class="flex items-center gap-3">
-        <span class="mdi mdi-alert-circle-outline text-red-500 text-3xl" />
-        <span>{{ t("Are you sure you want to delete this item?") }}</span>
-      </div>
-      <template #footer>
-        <button
-          class="btn btn--plain"
-          @click="deleteDialog = false"
-        >
-          {{ t("Cancel") }}
-        </button>
-        <button
-          class="btn btn--danger"
-          @click="performDelete"
-        >
-          {{ t("Delete") }}
-        </button>
+        />
       </template>
     </Dialog>
   </div>
@@ -246,9 +213,11 @@ import Dialog from "primevue/dialog"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import baseService from "../../services/baseService"
+import { useConfirmation } from "../../composables/useConfirmation"
 
 const { t } = useI18n()
 const toast = useToast()
+const { requireConfirmation } = useConfirmation()
 
 const categories = ref([])
 const categoriesLoading = ref(true)
@@ -257,11 +226,9 @@ const activitiesLoading = ref(true)
 
 const categoryDialog = ref(false)
 const activityDialog = ref(false)
-const deleteDialog = ref(false)
 
 const editingCategory = ref(null)
 const editingActivity = ref(null)
-const pendingDelete = ref(null)
 
 const categoryForm = ref({ title: "", description: "" })
 const activityForm = ref({ title: "", description: "", category: null })
@@ -343,28 +310,33 @@ async function saveActivity() {
 }
 
 function confirmDeleteCategory(item) {
-  pendingDelete.value = { type: "category", item }
-  deleteDialog.value = true
+  requireConfirmation({
+    message: t("Are you sure you want to delete this item?"),
+    accept: async () => {
+      try {
+        await baseService.delete(item["@id"])
+        toast.add({ severity: "success", detail: t("Deleted"), life: 3000 })
+        await loadCategories()
+      } catch (e) {
+        toast.add({ severity: "error", detail: e.message, life: 5000 })
+      }
+    },
+  })
 }
 
 function confirmDeleteActivity(item) {
-  pendingDelete.value = { type: "activity", item }
-  deleteDialog.value = true
-}
-
-async function performDelete() {
-  deleteDialog.value = false
-  try {
-    await baseService.delete(pendingDelete.value.item["@id"])
-    toast.add({ severity: "success", detail: t("Deleted"), life: 3000 })
-    if ("category" === pendingDelete.value.type) {
-      await loadCategories()
-    } else {
-      await loadActivities()
-    }
-  } catch (e) {
-    toast.add({ severity: "error", detail: e.message, life: 5000 })
-  }
+  requireConfirmation({
+    message: t("Are you sure you want to delete this item?"),
+    accept: async () => {
+      try {
+        await baseService.delete(item["@id"])
+        toast.add({ severity: "success", detail: t("Deleted"), life: 3000 })
+        await loadActivities()
+      } catch (e) {
+        toast.add({ severity: "error", detail: e.message, life: 5000 })
+      }
+    },
+  })
 }
 
 onMounted(async () => {
