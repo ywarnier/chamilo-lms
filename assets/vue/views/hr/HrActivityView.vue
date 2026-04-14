@@ -8,7 +8,7 @@
           class="btn btn--success"
           @click="openCategoryForm()"
         >
-          <span class="mdi mdi-plus-box ch-tool-icon" />
+          <span class="mdi mdi-plus-box" />
           {{ t("Add category") }}
         </button>
       </div>
@@ -18,25 +18,34 @@
         :is-loading="categoriesLoading"
       >
         <Column
-          field="name"
-          :header="t('Name')"
+          field="title"
+          :header="t('Title')"
           sortable
         />
+        <Column :header="t('Description')">
+          <template #body="{ data }">
+            {{ data.description || "—" }}
+          </template>
+        </Column>
         <Column :exportable="false">
           <template #body="{ data }">
             <div class="flex justify-end gap-2">
-              <button
-                class="btn btn--secondary btn--sm"
+              <BaseButton
+                :label="t('Edit')"
+                icon="pencil"
+                only-icon
+                size="small"
+                type="secondary-text"
                 @click="openCategoryForm(data)"
-              >
-                <span class="mdi mdi-pencil ch-tool-icon" />
-              </button>
-              <button
-                class="btn btn--danger btn--sm"
+              />
+              <BaseButton
+                :label="t('Delete')"
+                icon="delete"
+                only-icon
+                size="small"
+                type="danger-text"
                 @click="confirmDeleteCategory(data)"
-              >
-                <span class="mdi mdi-delete ch-tool-icon" />
-              </button>
+              />
             </div>
           </template>
         </Column>
@@ -51,7 +60,7 @@
           class="btn btn--success"
           @click="openActivityForm()"
         >
-          <span class="mdi mdi-plus-box ch-tool-icon" />
+          <span class="mdi mdi-plus-box" />
           {{ t("Add activity") }}
         </button>
       </div>
@@ -61,8 +70,8 @@
         :is-loading="activitiesLoading"
       >
         <Column
-          field="name"
-          :header="t('Name')"
+          field="title"
+          :header="t('Title')"
           sortable
         />
         <Column :header="t('Description')">
@@ -72,24 +81,28 @@
         </Column>
         <Column :header="t('Category')">
           <template #body="{ data }">
-            {{ data.category ? data.category.name : "—" }}
+            {{ data.category ? data.category.title : "—" }}
           </template>
         </Column>
         <Column :exportable="false">
           <template #body="{ data }">
             <div class="flex justify-end gap-2">
-              <button
-                class="btn btn--secondary btn--sm"
+              <BaseButton
+                :label="t('Edit')"
+                icon="pencil"
+                only-icon
+                size="small"
+                type="secondary-text"
                 @click="openActivityForm(data)"
-              >
-                <span class="mdi mdi-pencil ch-tool-icon" />
-              </button>
-              <button
-                class="btn btn--danger btn--sm"
+              />
+              <BaseButton
+                :label="t('Delete')"
+                icon="delete"
+                only-icon
+                size="small"
+                type="danger-text"
                 @click="confirmDeleteActivity(data)"
-              >
-                <span class="mdi mdi-delete ch-tool-icon" />
-              </button>
+              />
             </div>
           </template>
         </Column>
@@ -105,9 +118,17 @@
     >
       <div class="space-y-4 pt-2">
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Name") }}</label>
+          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Title") }}</label>
           <input
-            v-model="categoryForm.name"
+            v-model="categoryForm.title"
+            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
+            type="text"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Description") }}</label>
+          <input
+            v-model="categoryForm.description"
             class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
             type="text"
           />
@@ -122,7 +143,7 @@
         </button>
         <button
           class="btn btn--success"
-          :disabled="!categoryForm.name"
+          :disabled="!categoryForm.title"
           @click="saveCategory"
         >
           {{ t("Save") }}
@@ -139,9 +160,9 @@
     >
       <div class="space-y-4 pt-2">
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Name") }}</label>
+          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Title") }}</label>
           <input
-            v-model="activityForm.name"
+            v-model="activityForm.title"
             class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
             type="text"
           />
@@ -166,7 +187,7 @@
               :key="cat['@id']"
               :value="cat['@id']"
             >
-              {{ cat.name }}
+              {{ cat.title }}
             </option>
           </select>
         </div>
@@ -180,7 +201,7 @@
         </button>
         <button
           class="btn btn--success"
-          :disabled="!activityForm.name"
+          :disabled="!activityForm.title"
           @click="saveActivity"
         >
           {{ t("Save") }}
@@ -222,6 +243,7 @@ import { onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
 import { useToast } from "primevue/usetoast"
 import Dialog from "primevue/dialog"
+import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import baseService from "../../services/baseService"
 
@@ -241,8 +263,8 @@ const editingCategory = ref(null)
 const editingActivity = ref(null)
 const pendingDelete = ref(null)
 
-const categoryForm = ref({ name: "" })
-const activityForm = ref({ name: "", description: "", category: null })
+const categoryForm = ref({ title: "", description: "" })
+const activityForm = ref({ title: "", description: "", category: null })
 
 async function loadCategories() {
   categoriesLoading.value = true
@@ -270,14 +292,14 @@ async function loadActivities() {
 
 function openCategoryForm(item = null) {
   editingCategory.value = item
-  categoryForm.value = { name: item ? item.name : "" }
+  categoryForm.value = { title: item ? item.title : "", description: item ? (item.description ?? "") : "" }
   categoryDialog.value = true
 }
 
 function openActivityForm(item = null) {
   editingActivity.value = item
   activityForm.value = {
-    name: item ? item.name : "",
+    title: item ? item.title : "",
     description: item ? (item.description ?? "") : "",
     category: item && item.category ? item.category["@id"] : null,
   }
@@ -285,11 +307,12 @@ function openActivityForm(item = null) {
 }
 
 async function saveCategory() {
+  const payload = { title: categoryForm.value.title, description: categoryForm.value.description || null }
   try {
     if (editingCategory.value) {
-      await baseService.put(editingCategory.value["@id"], { name: categoryForm.value.name })
+      await baseService.put(editingCategory.value["@id"], payload)
     } else {
-      await baseService.post("/api/activity_categories", { name: categoryForm.value.name }, true)
+      await baseService.post("/api/activity_categories", payload, true)
     }
     categoryDialog.value = false
     toast.add({ severity: "success", detail: t("Saved"), life: 3000 })
@@ -301,7 +324,7 @@ async function saveCategory() {
 
 async function saveActivity() {
   const payload = {
-    name: activityForm.value.name,
+    title: activityForm.value.title,
     description: activityForm.value.description || null,
     category: activityForm.value.category,
   }

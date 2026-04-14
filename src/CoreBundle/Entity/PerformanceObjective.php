@@ -42,8 +42,8 @@ class PerformanceObjective
 
     #[Assert\NotBlank]
     #[Groups(['performance_objective:read', 'performance_objective:write'])]
-    #[ORM\Column(name: 'name', type: 'string', length: 255)]
-    protected string $name;
+    #[ORM\Column(name: 'title', type: 'string', length: 255)]
+    protected string $title;
 
     #[Groups(['performance_objective:read', 'performance_objective:write'])]
     #[ORM\Column(name: 'description', type: 'text', nullable: true)]
@@ -59,14 +59,14 @@ class PerformanceObjective
         return $this->id;
     }
 
-    public function getName(): string
+    public function getTitle(): string
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName(string $name): self
+    public function setTitle(string $title): self
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }

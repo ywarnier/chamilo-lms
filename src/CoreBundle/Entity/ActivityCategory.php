@@ -42,22 +42,38 @@ class ActivityCategory
 
     #[Assert\NotBlank]
     #[Groups(['activity_category:read', 'activity_category:write', 'activity:read'])]
-    #[ORM\Column(name: 'name', type: 'string', length: 255)]
-    protected string $name;
+    #[ORM\Column(name: 'title', type: 'string', length: 255)]
+    protected string $title;
+
+    #[Groups(['activity_category:read', 'activity_category:write'])]
+    #[ORM\Column(name: 'description', type: 'text', nullable: true)]
+    protected ?string $description = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): string
+    public function getTitle(): string
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName(string $name): self
+    public function setTitle(string $title): self
     {
-        $this->name = $name;
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
