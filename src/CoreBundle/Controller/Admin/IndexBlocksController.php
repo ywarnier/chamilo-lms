@@ -123,6 +123,14 @@ class IndexBlocksController extends BaseController
                 ];
             }
 
+            // Chamilo HR extension
+            $json['hr'] = [
+                'id' => 'block-admin-hr',
+                'editable' => false,
+                'items' => $this->getItemsHr(),
+                'extraContent' => $this->getExtraContent('block-admin-hr'),
+            ];
+
             if ('true' === $this->settingsManager->getSetting('gradebook.gradebook_dependency')) {
                 $json['gradebook'] = [
                     'id' => 'block-admin-gradebook',
@@ -1108,6 +1116,23 @@ class IndexBlocksController extends BaseController
                 'class' => 'item-room-availability',
                 'route' => ['name' => 'RoomAvailability'],
                 'label' => $this->translator->trans('Room availability finder'),
+            ],
+        ];
+    }
+
+    // Chamilo HR extension
+    private function getItemsHr(): array
+    {
+        return [
+            [
+                'class' => 'item-hr-activities',
+                'route' => ['name' => 'HrActivities'],
+                'label' => $this->translator->trans('Activities'),
+            ],
+            [
+                'class' => 'item-hr-performance-objectives',
+                'route' => ['name' => 'HrPerformanceObjectives'],
+                'label' => $this->translator->trans('Performance objectives'),
             ],
         ];
     }

@@ -19,6 +19,7 @@ import skillRoutes from "./skill"
 import accessUrlRoutes from "./accessurl"
 import branchRoutes from "./branch"
 import roomRoutes from "./room"
+import hrRoutes from "./hr"
 
 //import courseCategoryRoutes from './coursecategory';
 import documents from "./documents"
@@ -333,6 +334,7 @@ const router = createRouter({
     accessUrlRoutes,
     branchRoutes,
     roomRoutes,
+    hrRoutes,
   ],
 })
 
