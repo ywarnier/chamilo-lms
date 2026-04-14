@@ -103,6 +103,18 @@
     />
 
     <AdminBlock
+      v-if="blockHr"
+      :id="blockHr.id"
+      v-model:extra-content="blockHr.extraContent"
+      :description="t('Manage HR activities, objectives and organizational structure')"
+      :editable="blockHr.editable"
+      :items="blockHr.items"
+      :title="t('Human Resources')"
+      icon="account"
+      bg-image="images/bg-block-admin-users.png"
+    />
+
+    <AdminBlock
       v-if="blockSettings"
       :id="blockSettings.id"
       v-model:extra-content="blockSettings.extraContent"
@@ -330,6 +342,7 @@ const {
   blockPlugins,
   blockHealthCheck,
   blockRooms,
+  blockHr,
 } = useIndexBlocks()
 
 function checkVersionOnSubmit() {

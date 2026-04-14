@@ -83,6 +83,7 @@ export function useIndexBlocks() {
   const blockPlugins = ref(null)
   const blockHealthCheck = ref(null)
   const blockRooms = ref(null)
+  const blockHr = ref(null)
 
   async function loadBlocks() {
     const blocks = await adminService.findBlocks()
@@ -101,6 +102,7 @@ export function useIndexBlocks() {
     blockPlugins.value = blocks.plugins || null
     blockHealthCheck.value = blocks.health_check || null
     blockRooms.value = blocks.rooms || null
+    blockHr.value = blocks.hr || null
   }
 
   return {
@@ -125,5 +127,6 @@ export function useIndexBlocks() {
     blockPlugins,
     blockHealthCheck,
     blockRooms,
+    blockHr,
   }
 }
