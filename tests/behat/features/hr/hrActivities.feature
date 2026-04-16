@@ -22,7 +22,7 @@ Feature: HR Activities
     And I am on "/hr/activities"
     And I wait for the page to be loaded
     Then I should see "Work"
-    When I click the "section:first-of-type span.mdi-pencil" element
+    When I click the edit button in the row containing "Work"
     And I wait for the page to be loaded
     And I fill in "category_title" with "Work Updated"
     And I press "Save"
@@ -63,7 +63,7 @@ Feature: HR Activities
     And I am on "/hr/activities"
     And I wait for the page to be loaded
     Then I should see "Presentation"
-    When I click the "section:last-of-type span.mdi-pencil" element
+    When I click the edit button in the row containing "Presentation"
     And I wait for the page to be loaded
     And I fill in "activity_title" with "Presentation Updated"
     And I press "Save"
@@ -76,9 +76,9 @@ Feature: HR Activities
     And I am on "/hr/activities"
     And I wait for the page to be loaded
     Then I should see "Presentation Updated"
-    When I click the "section:last-of-type span.mdi-delete" element
+    When I click the delete button in the row containing "Presentation Updated"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "Presentation Updated"
     And I should not see an error
@@ -88,9 +88,9 @@ Feature: HR Activities
     And I am on "/hr/activities"
     And I wait for the page to be loaded
     Then I should see "Meeting"
-    When I click the "section:last-of-type span.mdi-delete" element
+    When I click the delete button in the row containing "Meeting"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "Meeting"
     And I should not see an error
@@ -100,9 +100,9 @@ Feature: HR Activities
     And I am on "/hr/activities"
     And I wait for the page to be loaded
     Then I should see "Work Updated"
-    When I click the "section:first-of-type span.mdi-delete" element
+    When I click the delete button in the row containing "Work Updated"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "Work Updated"
     And I should not see an error

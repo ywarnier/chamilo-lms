@@ -849,6 +849,54 @@ JS;
         return true;
     }
 
+    /**
+     * Click the edit (pencil) icon button in the DataTable row whose first text cell matches $label.
+     *
+     * @When /^I click the edit button in the row containing "([^"]*)"$/
+     */
+    public function iClickEditButtonInRowContaining(string $label): void
+    {
+        $xpath = sprintf(
+            '//tr[td[normalize-space(.)="%s"]]//span[contains(@class,"mdi-pencil")]',
+            $label
+        );
+        $element = $this->getSession()->getPage()->find('xpath', $xpath);
+        if (null === $element) {
+            throw new \Exception(sprintf('Could not find edit button in row containing "%s"', $label));
+        }
+        $element->click();
+    }
+
+    /**
+     * Click the delete (trash) icon button in the DataTable row whose first text cell matches $label.
+     *
+     * @When /^I click the delete button in the row containing "([^"]*)"$/
+     */
+    public function iClickDeleteButtonInRowContaining(string $label): void
+    {
+        $xpath = sprintf(
+            '//tr[td[normalize-space(.)="%s"]]//span[contains(@class,"mdi-delete")]',
+            $label
+        );
+        $element = $this->getSession()->getPage()->find('xpath', $xpath);
+        if (null === $element) {
+            throw new \Exception(sprintf('Could not find delete button in row containing "%s"', $label));
+        }
+        $element->click();
+    }
+
+    /**
+     * Confirm the currently open PrimeVue ConfirmDialog by clicking its accept button via JS.
+     * Avoids the coordinate-based click-interception issue caused by PrimeVue's overlay mask.
+     *
+     * @When /^I confirm the PrimeVue dialog$/
+     */
+    public function confirmPrimeVueDialog(): void
+    {
+        $this->getSession()->wait(3000, "document.querySelector('.p-confirmdialog-accept-button') !== null");
+        $this->getSession()->executeScript("document.querySelector('.p-confirmdialog-accept-button').click();");
+    }
+
     public function visit($page): void
     {
         parent::visit($page);

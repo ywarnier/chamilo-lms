@@ -22,7 +22,7 @@ Feature: HR Performance Objectives
     And I am on "/hr/objectives"
     And I wait for the page to be loaded
     Then I should see "Leadership"
-    When I click the "section:first-of-type span.mdi-pencil" element
+    When I click the edit button in the row containing "Leadership"
     And I wait for the page to be loaded
     And I fill in "category_title" with "Leadership Updated"
     And I press "Save"
@@ -63,7 +63,7 @@ Feature: HR Performance Objectives
     And I am on "/hr/objectives"
     And I wait for the page to be loaded
     Then I should see "Improve communication"
-    When I click the "section:last-of-type span.mdi-pencil" element
+    When I click the edit button in the row containing "Improve communication"
     And I wait for the page to be loaded
     And I fill in "objective_title" with "Improve communication skills"
     And I press "Save"
@@ -76,9 +76,9 @@ Feature: HR Performance Objectives
     And I am on "/hr/objectives"
     And I wait for the page to be loaded
     Then I should see "Improve communication skills"
-    When I click the "section:last-of-type span.mdi-delete" element
+    When I click the delete button in the row containing "Improve communication skills"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "Improve communication skills"
     And I should not see an error
@@ -88,9 +88,9 @@ Feature: HR Performance Objectives
     And I am on "/hr/objectives"
     And I wait for the page to be loaded
     Then I should see "Lead a project"
-    When I click the "section:last-of-type span.mdi-delete" element
+    When I click the delete button in the row containing "Lead a project"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "Lead a project"
     And I should not see an error
@@ -100,9 +100,9 @@ Feature: HR Performance Objectives
     And I am on "/hr/objectives"
     And I wait for the page to be loaded
     Then I should see "Leadership Updated"
-    When I click the "section:first-of-type span.mdi-delete" element
+    When I click the delete button in the row containing "Leadership Updated"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "Leadership Updated"
     And I should not see an error
