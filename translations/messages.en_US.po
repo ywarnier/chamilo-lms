@@ -33914,3 +33914,159 @@ msgstr "Add objective"
 msgid "Edit objective"
 msgstr "Edit objective"
 
+msgid "HR Dashboard"
+msgstr "HR Dashboard"
+
+msgid "Staff"
+msgstr "Staff"
+
+msgid "Organization"
+msgstr "Organization"
+
+msgid "Performance Management"
+msgstr "Performance Management"
+
+msgid "Recruitment"
+msgstr "Recruitment"
+
+msgid "Benefits"
+msgstr "Benefits"
+
+msgid "ROI and training"
+msgstr "ROI and training"
+
+msgid "Diversity and social responsibility"
+msgstr "Diversity and social responsibility"
+
+msgid "Professional functions"
+msgstr "Professional functions"
+
+msgid "Positions"
+msgstr "Positions"
+
+msgid "Units and positions list"
+msgstr "Units and positions list"
+
+msgid "Assign position to user"
+msgstr "Assign position to user"
+
+msgid "Organizational chart"
+msgstr "Organizational chart"
+
+msgid "Appraisal periods"
+msgstr "Appraisal periods"
+
+msgid "Appraisal templates"
+msgstr "Appraisal templates"
+
+msgid "Performance appraisals"
+msgstr "Performance appraisals"
+
+msgid "Recruitment stages"
+msgstr "Recruitment stages"
+
+msgid "Recruitment processes"
+msgstr "Recruitment processes"
+
+msgid "Job offers"
+msgstr "Job offers"
+
+msgid "Team skills goals"
+msgstr "Team skills goals"
+
+msgid "Benefit tags"
+msgstr "Benefit tags"
+
+msgid "Assign benefits"
+msgstr "Assign benefits"
+
+msgid "Assigned benefits"
+msgstr "Assigned benefits"
+
+msgid "ROI by course"
+msgstr "ROI by course"
+
+msgid "ROI by person"
+msgstr "ROI by person"
+
+msgid "ROI by organizational unit"
+msgstr "ROI by organizational unit"
+
+msgid "Training needs assessment"
+msgstr "Training needs assessment"
+
+msgid "Work climate surveys"
+msgstr "Work climate surveys"
+
+msgid "Diversity criteria"
+msgstr "Diversity criteria"
+
+msgid "Diversity guidelines"
+msgstr "Diversity guidelines"
+
+msgid "Social responsibility guidelines"
+msgstr "Social responsibility guidelines"
+
+msgid "Geographic zones"
+msgstr "Geographic zones"
+
+msgid "Add geographic zone"
+msgstr "Add geographic zone"
+
+msgid "Edit geographic zone"
+msgstr "Edit geographic zone"
+
+msgid "Geographic zone"
+msgstr "Geographic zone"
+
+msgid "Staff statuses"
+msgstr "Staff statuses"
+
+msgid "Add staff status"
+msgstr "Add staff status"
+
+msgid "Edit staff status"
+msgstr "Edit staff status"
+
+msgid "Staff status"
+msgstr "Staff status"
+
+msgid "Contract types"
+msgstr "Contract types"
+
+msgid "Add contract type"
+msgstr "Add contract type"
+
+msgid "Edit contract type"
+msgstr "Edit contract type"
+
+msgid "Contract type"
+msgstr "Contract type"
+
+msgid "Business units"
+msgstr "Business units"
+
+msgid "Add business unit"
+msgstr "Add business unit"
+
+msgid "Edit business unit"
+msgstr "Edit business unit"
+
+msgid "Business unit"
+msgstr "Business unit"
+
+msgid "Add branch"
+msgstr "Add branch"
+
+msgid "Edit branch"
+msgstr "Edit branch"
+
+msgid "Parent unit"
+msgstr "Parent unit"
+
+msgid "Primary branch"
+msgstr "Primary branch"
+
+msgid "Coordinates"
+msgstr "Coordinates"
+

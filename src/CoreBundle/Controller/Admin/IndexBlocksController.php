@@ -1125,6 +1125,11 @@ class IndexBlocksController extends BaseController
     {
         return [
             [
+                'class' => 'item-hr-dashboard',
+                'route' => ['name' => 'HrIndex'],
+                'label' => $this->translator->trans('HR Dashboard'),
+            ],
+            [
                 'class' => 'item-hr-activities',
                 'route' => ['name' => 'HrActivities'],
                 'label' => $this->translator->trans('Activities'),
@@ -1133,6 +1138,31 @@ class IndexBlocksController extends BaseController
                 'class' => 'item-hr-performance-objectives',
                 'route' => ['name' => 'HrPerformanceObjectives'],
                 'label' => $this->translator->trans('Performance objectives'),
+            ],
+            [
+                'class' => 'item-hr-branches',
+                'route' => ['name' => 'HrBranches'],
+                'label' => $this->translator->trans('Branches'),
+            ],
+            [
+                'class' => 'item-hr-geographic-zones',
+                'route' => ['name' => 'HrGeographicZones'],
+                'label' => $this->translator->trans('Geographic zones'),
+            ],
+            [
+                'class' => 'item-hr-staff-statuses',
+                'route' => ['name' => 'HrStaffStatuses'],
+                'label' => $this->translator->trans('Staff statuses'),
+            ],
+            [
+                'class' => 'item-hr-contract-types',
+                'route' => ['name' => 'HrContractTypes'],
+                'label' => $this->translator->trans('Contract types'),
+            ],
+            [
+                'class' => 'item-hr-business-units',
+                'route' => ['name' => 'HrBusinessUnits'],
+                'label' => $this->translator->trans('Business units'),
             ],
         ];
     }

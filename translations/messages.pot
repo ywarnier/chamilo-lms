@@ -33828,3 +33828,159 @@ msgstr ""
 msgid "Edit objective"
 msgstr ""
 
+msgid "HR Dashboard"
+msgstr ""
+
+msgid "Staff"
+msgstr ""
+
+msgid "Organization"
+msgstr ""
+
+msgid "Performance Management"
+msgstr ""
+
+msgid "Recruitment"
+msgstr ""
+
+msgid "Benefits"
+msgstr ""
+
+msgid "ROI and training"
+msgstr ""
+
+msgid "Diversity and social responsibility"
+msgstr ""
+
+msgid "Professional functions"
+msgstr ""
+
+msgid "Positions"
+msgstr ""
+
+msgid "Units and positions list"
+msgstr ""
+
+msgid "Assign position to user"
+msgstr ""
+
+msgid "Organizational chart"
+msgstr ""
+
+msgid "Appraisal periods"
+msgstr ""
+
+msgid "Appraisal templates"
+msgstr ""
+
+msgid "Performance appraisals"
+msgstr ""
+
+msgid "Recruitment stages"
+msgstr ""
+
+msgid "Recruitment processes"
+msgstr ""
+
+msgid "Job offers"
+msgstr ""
+
+msgid "Team skills goals"
+msgstr ""
+
+msgid "Benefit tags"
+msgstr ""
+
+msgid "Assign benefits"
+msgstr ""
+
+msgid "Assigned benefits"
+msgstr ""
+
+msgid "ROI by course"
+msgstr ""
+
+msgid "ROI by person"
+msgstr ""
+
+msgid "ROI by organizational unit"
+msgstr ""
+
+msgid "Training needs assessment"
+msgstr ""
+
+msgid "Work climate surveys"
+msgstr ""
+
+msgid "Diversity criteria"
+msgstr ""
+
+msgid "Diversity guidelines"
+msgstr ""
+
+msgid "Social responsibility guidelines"
+msgstr ""
+
+msgid "Geographic zones"
+msgstr ""
+
+msgid "Add geographic zone"
+msgstr ""
+
+msgid "Edit geographic zone"
+msgstr ""
+
+msgid "Geographic zone"
+msgstr ""
+
+msgid "Staff statuses"
+msgstr ""
+
+msgid "Add staff status"
+msgstr ""
+
+msgid "Edit staff status"
+msgstr ""
+
+msgid "Staff status"
+msgstr ""
+
+msgid "Contract types"
+msgstr ""
+
+msgid "Add contract type"
+msgstr ""
+
+msgid "Edit contract type"
+msgstr ""
+
+msgid "Contract type"
+msgstr ""
+
+msgid "Business units"
+msgstr ""
+
+msgid "Add business unit"
+msgstr ""
+
+msgid "Edit business unit"
+msgstr ""
+
+msgid "Business unit"
+msgstr ""
+
+msgid "Add branch"
+msgstr ""
+
+msgid "Edit branch"
+msgstr ""
+
+msgid "Parent unit"
+msgstr ""
+
+msgid "Primary branch"
+msgstr ""
+
+msgid "Coordinates"
+msgstr ""
+
