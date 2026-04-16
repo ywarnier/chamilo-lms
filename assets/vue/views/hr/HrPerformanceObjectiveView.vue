@@ -119,6 +119,7 @@
           <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Title") }}</label>
           <input
             v-model="categoryForm.title"
+            name="category_title"
             class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
             type="text"
           />
@@ -127,6 +128,7 @@
           <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Description") }}</label>
           <input
             v-model="categoryForm.description"
+            name="category_description"
             class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
             type="text"
           />
@@ -159,6 +161,7 @@
           <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Title") }}</label>
           <input
             v-model="objectiveForm.title"
+            name="objective_title"
             class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
             type="text"
           />
@@ -167,6 +170,7 @@
           <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Description") }}</label>
           <textarea
             v-model="objectiveForm.description"
+            name="objective_description"
             class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
             rows="3"
           />
@@ -175,6 +179,7 @@
           <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Category") }}</label>
           <select
             v-model="objectiveForm.category"
+            name="objective_category"
             class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
           >
             <option :value="null">{{ t("None") }}</option>
