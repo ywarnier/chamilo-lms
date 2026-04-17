@@ -106,3 +106,10 @@ Feature: HR Performance Objectives
     And I wait for the page to be loaded
     Then I should not see "Leadership Updated"
     And I should not see an error
+
+  Scenario: HR user cannot access the objectives admin page
+    Given I am an HR user
+    And I am on "/hr/objectives"
+    And I wait for the page to be loaded
+    Then I should not see "Add category"
+    And I should not see "Add objective"

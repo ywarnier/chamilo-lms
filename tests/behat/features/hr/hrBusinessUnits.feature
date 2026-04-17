@@ -58,7 +58,7 @@ Feature: HR Business Units
     And I am on "/hr/business-units"
     And I wait for the page to be loaded
     Then I should see "Engineering"
-    When I click the "table tbody tr:first-of-type i.mdi-pencil" element
+    When I click the edit button in the row containing "Engineering"
     And I wait for the page to be loaded
     And I fill in "unit_title" with "Engineering Division"
     And I fill in "unit_description" with "All engineering departments"
@@ -71,19 +71,19 @@ Feature: HR Business Units
     Given I am a platform administrator
     And I am on "/hr/business-units"
     And I wait for the page to be loaded
-    When I click the "table tbody tr:first-of-type i.mdi-delete" element
+    When I click the delete button in the row containing "Engineering Division"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
-    And I wait for the page to be loaded
-    And I should not see an error
-    When I click the "table tbody tr:first-of-type i.mdi-delete" element
-    And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     And I should not see an error
-    When I click the "table tbody tr:first-of-type i.mdi-delete" element
+    When I click the delete button in the row containing "Backend Team"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
+    And I wait for the page to be loaded
+    And I should not see an error
+    When I click the delete button in the row containing "Executive Board"
+    And I wait for the page to be loaded
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "Engineering Division"
     And I should not see "Backend Team"
@@ -91,9 +91,9 @@ Feature: HR Business Units
     And I should not see an error
     And I am on "/hr/branches"
     And I wait for the page to be loaded
-    When I click the "table tbody tr:first-of-type i.mdi-delete" element
+    When I click the delete button in the row containing "HQ Branch"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "HQ Branch"
     And I should not see an error
@@ -131,7 +131,7 @@ Feature: HR Business Units
     And I am on "/hr/business-units"
     And I wait for the page to be loaded
     Then I should see "HR Department"
-    When I click the "table tbody tr:first-of-type i.mdi-pencil" element
+    When I click the edit button in the row containing "HR Department"
     And I wait for the page to be loaded
     And I fill in "unit_title" with "Human Resources"
     And I press "Save"
@@ -143,14 +143,14 @@ Feature: HR Business Units
     Given I am an HR user
     And I am on "/hr/business-units"
     And I wait for the page to be loaded
-    When I click the "table tbody tr:first-of-type i.mdi-delete" element
+    When I click the delete button in the row containing "Human Resources"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     And I should not see an error
-    When I click the "table tbody tr:first-of-type i.mdi-delete" element
+    When I click the delete button in the row containing "Recruitment Team"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "Human Resources"
     And I should not see "Recruitment Team"
