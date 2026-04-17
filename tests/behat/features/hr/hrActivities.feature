@@ -106,3 +106,10 @@ Feature: HR Activities
     And I wait for the page to be loaded
     Then I should not see "Work Updated"
     And I should not see an error
+
+  Scenario: HR user cannot access the activities admin page
+    Given I am an HR user
+    And I am on "/hr/activities"
+    And I wait for the page to be loaded
+    Then I should not see "Add category"
+    And I should not see "Add activity"

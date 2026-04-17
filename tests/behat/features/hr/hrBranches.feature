@@ -45,7 +45,7 @@ Feature: HR Branches
     And I am on "/hr/branches"
     And I wait for the page to be loaded
     Then I should see "Main Office"
-    When I click the "table tbody tr:first-of-type i.mdi-pencil" element
+    When I click the edit button in the row containing "Main Office"
     And I wait for the page to be loaded
     And I fill in "branch_title" with "Main Office Updated"
     And I fill in "branch_address" with "456 Updated Avenue, Springfield"
@@ -58,23 +58,23 @@ Feature: HR Branches
     Given I am a platform administrator
     And I am on "/hr/branches"
     And I wait for the page to be loaded
-    When I click the "table tbody tr:first-of-type i.mdi-delete" element
+    When I click the delete button in the row containing "Main Office Updated"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     And I should not see an error
-    When I click the "table tbody tr:first-of-type i.mdi-delete" element
+    When I click the delete button in the row containing "South Office"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "Main Office Updated"
     And I should not see "South Office"
     And I should not see an error
     And I am on "/hr/geographic-zones"
     And I wait for the page to be loaded
-    When I click the "table tbody tr:first-of-type i.mdi-delete" element
+    When I click the delete button in the row containing "South Region"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "South Region"
     And I should not see an error
@@ -98,7 +98,7 @@ Feature: HR Branches
     And I am on "/hr/branches"
     And I wait for the page to be loaded
     Then I should see "HR Branch"
-    When I click the "table tbody tr:first-of-type i.mdi-pencil" element
+    When I click the edit button in the row containing "HR Branch"
     And I wait for the page to be loaded
     And I fill in "branch_title" with "HR Branch Updated"
     And I press "Save"
@@ -111,9 +111,9 @@ Feature: HR Branches
     And I am on "/hr/branches"
     And I wait for the page to be loaded
     Then I should see "HR Branch Updated"
-    When I click the "table tbody tr:first-of-type i.mdi-delete" element
+    When I click the delete button in the row containing "HR Branch Updated"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "HR Branch Updated"
     And I should not see an error

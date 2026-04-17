@@ -23,7 +23,7 @@ Feature: HR Geographic Zones
     And I am on "/hr/geographic-zones"
     And I wait for the page to be loaded
     Then I should see "North Region"
-    When I click the "table tbody tr:first-of-type i.mdi-pencil" element
+    When I click the edit button in the row containing "North Region"
     And I wait for the page to be loaded
     And I fill in "zone_title" with "North Region Updated"
     And I fill in "zone_description" with "Updated northern area description"
@@ -37,9 +37,9 @@ Feature: HR Geographic Zones
     And I am on "/hr/geographic-zones"
     And I wait for the page to be loaded
     Then I should see "North Region Updated"
-    When I click the "table tbody tr:first-of-type i.mdi-delete" element
+    When I click the delete button in the row containing "North Region Updated"
     And I wait for the page to be loaded
-    And I click the ".p-confirmdialog-accept-button button" element
+    And I confirm the PrimeVue dialog
     And I wait for the page to be loaded
     Then I should not see "North Region Updated"
     And I should not see an error
