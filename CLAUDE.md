@@ -8,6 +8,8 @@ Chamilo HR 2.0 — a talent management platform developed on top of the Chamilo 
 
 Chamilo HR 2.0 adds features to Chamilo 2.0 in the form of new interfaces and new entities that focus mainly on HR needs.
 
+As a rule of thumb, we want this project to be as "plug in" as possible to the main Chamilo project. As such, we want to reduce or avoid any change in files from the upstream Chamilo project, except when truly necessary to avoid massive technical detours. New settings should be part of a "HR" category, but can be added this way into the existing Settings fixture. All feature scripts in Vue should stay under an "hr/" subdirectory and a "/hr" path for web access. We should try not to modify existing entities of the base Chamilo. If necessary, suggest modifying the entities in the base Chamilo first, to avoid maintenance issues in the long run. Language variables can be mixed into the same file as these are only isolated strings and can easily be merged between projects.
+
 ## Common Commands
 
 ### Frontend
