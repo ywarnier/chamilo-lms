@@ -33885,3 +33885,189 @@ msgstr "ยินดีต้อนรับสู่ Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> หากนี่เป็นครั้งแรกที่คุณใช้ Chamilo โปรดตรวจสอบเมนูด้านข้างเพื่อค้นหาวิธีใช้คุณสมบัติต่างๆ หากคุณต้องการความช่วยเหลือ คุณจะพบว่า <a href=\"https://docs.chamilo.org\">เอกสารอย่างเป็นทางการของเรา</a> สามารถช่วยได้สำหรับเอกสารมาตรฐาน ในขณะที่ <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">ฟอรัมออนไลน์</a> สามารถช่วยแบ่งปันไอเดียและค้นหาคำตอบจากผู้ใช้ Chamilo คนอื่นๆ"
 
+msgid "Activities"
+msgstr "กิจกรรม"
+
+msgid "Activity categories"
+msgstr "หมวดหมู่กิจกรรม"
+
+msgid "Add activity"
+msgstr "เพิ่มกิจกรรม"
+
+msgid "Add category"
+msgstr "เพิ่มหมวดหมู่"
+
+msgid "Edit activity"
+msgstr "แก้ไขกิจกรรม"
+
+msgid "Edit category"
+msgstr "แก้ไขหมวดหมู่"
+
+msgid "Performance objectives"
+msgstr "วัตถุประสงค์ผลงาน"
+
+msgid "Objective categories"
+msgstr "หมวดหมู่วัตถุประสงค์"
+
+msgid "Add objective"
+msgstr "เพิ่มวัตถุประสงค์"
+
+msgid "Edit objective"
+msgstr "แก้ไขวัตถุประสงค์"
+
+msgid "Geographic zones"
+msgstr "เขตภูมิศาสตร์"
+
+msgid "Add geographic zone"
+msgstr "เพิ่มเขตภูมิศาสตร์"
+
+msgid "Edit geographic zone"
+msgstr "แก้ไขเขตภูมิศาสตร์"
+
+msgid "Geographic zone"
+msgstr "เขตภูมิศาสตร์"
+
+msgid "Staff statuses"
+msgstr "สถานะบุคลากร"
+
+msgid "Add staff status"
+msgstr "เพิ่มสถานะบุคลากร"
+
+msgid "Edit staff status"
+msgstr "แก้ไขสถานะบุคลากร"
+
+msgid "Staff status"
+msgstr "สถานะบุคลากร"
+
+msgid "Contract types"
+msgstr "ประเภทสัญญา"
+
+msgid "Add contract type"
+msgstr "เพิ่มประเภทสัญญา"
+
+msgid "Edit contract type"
+msgstr "แก้ไขประเภทสัญญา"
+
+msgid "Contract type"
+msgstr "ประเภทสัญญา"
+
+msgid "Business units"
+msgstr "หน่วยธุรกิจ"
+
+msgid "Add business unit"
+msgstr "เพิ่มหน่วยธุรกิจ"
+
+msgid "Edit business unit"
+msgstr "แก้ไขหน่วยธุรกิจ"
+
+msgid "Business unit"
+msgstr "หน่วยธุรกิจ"
+
+msgid "Add branch"
+msgstr "เพิ่มสาขา"
+
+msgid "Edit branch"
+msgstr "แก้ไขสาขา"
+
+msgid "Parent unit"
+msgstr "หน่วยแม่"
+
+msgid "Primary branch"
+msgstr "สาขาหลัก"
+
+msgid "Coordinates"
+msgstr "พิกัด"
+
+msgid "HR Dashboard"
+msgstr "แดชบอร์ด HR"
+
+msgid "Staff"
+msgstr "พนักงาน"
+
+msgid "Organization"
+msgstr "องค์กร"
+
+msgid "Performance Management"
+msgstr "การจัดการประสิทธิภาพ"
+
+msgid "Recruitment"
+msgstr "การรับสมัคร"
+
+msgid "Benefits"
+msgstr "สวัสดิการ"
+
+msgid "ROI and training"
+msgstr "ROI และการฝึกอบรม"
+
+msgid "Diversity and social responsibility"
+msgstr "ความหลากหลายและความรับผิดชอบทางสังคม"
+
+msgid "Professional functions"
+msgstr "หน้าที่วิชาชีพ"
+
+msgid "Positions"
+msgstr "ตำแหน่ง"
+
+msgid "Units and positions list"
+msgstr "รายการหน่วยและตำแหน่ง"
+
+msgid "Assign position to user"
+msgstr "กำหนดตำแหน่งให้ผู้ใช้"
+
+msgid "Organizational chart"
+msgstr "โครงสร้างองค์กร"
+
+msgid "Appraisal periods"
+msgstr "ระยะเวลาประเมิน"
+
+msgid "Appraisal templates"
+msgstr "เทมเพลตการประเมิน"
+
+msgid "Performance appraisals"
+msgstr "การประเมินประสิทธิภาพ"
+
+msgid "Recruitment stages"
+msgstr "ขั้นตอนการรับสมัคร"
+
+msgid "Recruitment processes"
+msgstr "กระบวนการรับสมัคร"
+
+msgid "Job offers"
+msgstr "ประกาศรับสมัครงาน"
+
+msgid "Team skills goals"
+msgstr "เป้าหมายทักษะทีม"
+
+msgid "Benefit tags"
+msgstr "ป้ายสวัสดิการ"
+
+msgid "Assign benefits"
+msgstr "กำหนดสวัสดิการ"
+
+msgid "Assigned benefits"
+msgstr "สวัสดิการที่กำหนด"
+
+msgid "ROI by course"
+msgstr "ROI ตามหลักสูตร"
+
+msgid "ROI by person"
+msgstr "ROI ตามบุคคล"
+
+msgid "ROI by organizational unit"
+msgstr "ROI ตามหน่วยองค์กร"
+
+msgid "Training needs assessment"
+msgstr "การประเมินความต้องการการฝึกอบรม"
+
+msgid "Work climate surveys"
+msgstr "แบบสำรวจสภาพการทำงาน"
+
+msgid "Diversity criteria"
+msgstr "เกณฑ์ความหลากหลาย"
+
+msgid "Diversity guidelines"
+msgstr "แนวทางปฏิบัติความหลากหลาย"
+
+msgid "Social responsibility guidelines"
+msgstr "แนวทางปฏิบัติความรับผิดชอบทางสังคม"
+

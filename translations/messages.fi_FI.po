@@ -33885,3 +33885,189 @@ msgstr "Tervetuloa Chamilo-opintojärjestelmään"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Jos tämä on ensimmäinen kerta, kun käytät Chamiloa, tarkista sivupaneeli löytääksesi tiellesi sen monien ominaisuuksien läpi. Jos tarvitset apua, löydät <a href=\"https://docs.chamilo.org\">viralliset dokumentaatiomme</a> standardidokumentaatiosta, kun taas <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">verkkofoorumimme</a> auttaa jakamaan ideoita ja löytämään vastauksia muilta Chamilo-käyttäjiltä."
 
+msgid "Activities"
+msgstr "Toiminnot"
+
+msgid "Activity categories"
+msgstr "Toimintokategoriat"
+
+msgid "Add activity"
+msgstr "Lisää toiminto"
+
+msgid "Add category"
+msgstr "Lisää kategoria"
+
+msgid "Edit activity"
+msgstr "Muokkaa toimintoa"
+
+msgid "Edit category"
+msgstr "Muokkaa kategoriaa"
+
+msgid "Performance objectives"
+msgstr "Suorituskykytavoitteet"
+
+msgid "Objective categories"
+msgstr "Tavoitteen kategoriat"
+
+msgid "Add objective"
+msgstr "Lisää tavoite"
+
+msgid "Edit objective"
+msgstr "Muokkaa tavoitetta"
+
+msgid "Geographic zones"
+msgstr "Maantieteelliset alueet"
+
+msgid "Add geographic zone"
+msgstr "Lisää maantieteellinen alue"
+
+msgid "Edit geographic zone"
+msgstr "Muokkaa maantieteellistä aluetta"
+
+msgid "Geographic zone"
+msgstr "Maantieteellinen alue"
+
+msgid "Staff statuses"
+msgstr "Henkilöstön tilat"
+
+msgid "Add staff status"
+msgstr "Lisää henkilöstön tila"
+
+msgid "Edit staff status"
+msgstr "Muokkaa henkilöstön tilaa"
+
+msgid "Staff status"
+msgstr "Henkilöstön tila"
+
+msgid "Contract types"
+msgstr "Sopimustyypit"
+
+msgid "Add contract type"
+msgstr "Lisää sopimustyyppi"
+
+msgid "Edit contract type"
+msgstr "Muokkaa sopimustyyppiä"
+
+msgid "Contract type"
+msgstr "Sopimustyyppi"
+
+msgid "Business units"
+msgstr "Liiketoimintayksiköt"
+
+msgid "Add business unit"
+msgstr "Lisää liiketoimintayksikkö"
+
+msgid "Edit business unit"
+msgstr "Muokkaa liiketoimintayksikköä"
+
+msgid "Business unit"
+msgstr "Liiketoimintayksikkö"
+
+msgid "Add branch"
+msgstr "Lisää toimipiste"
+
+msgid "Edit branch"
+msgstr "Muokkaa toimipistettä"
+
+msgid "Parent unit"
+msgstr "Emoyksikkö"
+
+msgid "Primary branch"
+msgstr "Päätoimipiste"
+
+msgid "Coordinates"
+msgstr "Koordinaatit"
+
+msgid "HR Dashboard"
+msgstr "Henkilöstön ohjauspaneeli"
+
+msgid "Staff"
+msgstr "Henkilöstö"
+
+msgid "Organization"
+msgstr "Organisaatio"
+
+msgid "Performance Management"
+msgstr "Suorituskyvyn hallinta"
+
+msgid "Recruitment"
+msgstr "Rekrytointi"
+
+msgid "Benefits"
+msgstr "Edut"
+
+msgid "ROI and training"
+msgstr "ROI ja koulutus"
+
+msgid "Diversity and social responsibility"
+msgstr "Monimuotoisuus ja yhteiskuntavastuu"
+
+msgid "Professional functions"
+msgstr "Ammattitoiminnot"
+
+msgid "Positions"
+msgstr "Tehtävät"
+
+msgid "Units and positions list"
+msgstr "Yksiköiden ja tehtävien luettelo"
+
+msgid "Assign position to user"
+msgstr "Määritä tehtävä käyttäjälle"
+
+msgid "Organizational chart"
+msgstr "Organisaatiokaavio"
+
+msgid "Appraisal periods"
+msgstr "Arviointijaksot"
+
+msgid "Appraisal templates"
+msgstr "Arviointipohjat"
+
+msgid "Performance appraisals"
+msgstr "Suorituskykyarvioinnit"
+
+msgid "Recruitment stages"
+msgstr "Rekrytointivaiheet"
+
+msgid "Recruitment processes"
+msgstr "Rekrytointiprosessit"
+
+msgid "Job offers"
+msgstr "Työpaikkailmoitukset"
+
+msgid "Team skills goals"
+msgstr "Tiimin taitotavoitteet"
+
+msgid "Benefit tags"
+msgstr "Etutunnisteet"
+
+msgid "Assign benefits"
+msgstr "Määritä edut"
+
+msgid "Assigned benefits"
+msgstr "Määritetyt edut"
+
+msgid "ROI by course"
+msgstr "ROI kurssin mukaan"
+
+msgid "ROI by person"
+msgstr "ROI henkilön mukaan"
+
+msgid "ROI by organizational unit"
+msgstr "ROI organisaatioyksikön mukaan"
+
+msgid "Training needs assessment"
+msgstr "Koulutustarpeiden arviointi"
+
+msgid "Work climate surveys"
+msgstr "Työilmastokyselyt"
+
+msgid "Diversity criteria"
+msgstr "Monimuotoisuuskriteerit"
+
+msgid "Diversity guidelines"
+msgstr "Monimuotoisuusohjeet"
+
+msgid "Social responsibility guidelines"
+msgstr "Yhteiskuntavastuuohejeet"
+

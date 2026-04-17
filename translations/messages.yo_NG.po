@@ -33879,3 +33879,189 @@ msgstr "Kaabọ si Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ti o ba jẹ akoko akọkọ rẹ lati lo Chamilo, rii daju pe o ṣayẹwo akojọ ẹwa ẹgbẹ lati wa ọna rẹ nipasẹ awọn ẹya ọpọlọpọ rẹ. Ti o ba nilo iranlọwọ, iwọ yoo rii <a href=\"https://docs.chamilo.org\">awọn iwe itọnisọna osise wa</a> le ṣe iranlọwọ fun awọn iwe itọnisọna boṣewa, lakoko ti <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">apejọ ori ayelujara wa</a> le ṣe iranlọwọ lati pin awọn imọran ati ri awọn idahun lati ọdọ awọn olummo Chamilo miiran."
 
+msgid "Activities"
+msgstr "Ìṣẹ́ ṣiṣe"
+
+msgid "Activity categories"
+msgstr "Àwùjọ ìṣẹ́ ṣiṣe"
+
+msgid "Add activity"
+msgstr "Ṣafikun ìṣẹ́ ṣiṣe"
+
+msgid "Add category"
+msgstr "Ṣàfikún ẹ̀ka"
+
+msgid "Edit activity"
+msgstr "Ṣàtúnṣe ìṣẹ́ ṣiṣe"
+
+msgid "Edit category"
+msgstr "Ṣatunṣe ẹka"
+
+msgid "Performance objectives"
+msgstr "Àwùjọ ìdí ìṣẹ́ ṣiṣe"
+
+msgid "Objective categories"
+msgstr "Àwùjọ ìdí"
+
+msgid "Add objective"
+msgstr "Ṣafikun ìdí"
+
+msgid "Edit objective"
+msgstr "Ṣàtúnṣe ìdí"
+
+msgid "Geographic zones"
+msgstr "Àwùjọ agbègbè ilẹ̀"
+
+msgid "Add geographic zone"
+msgstr "Ṣafikun agbègbè ilẹ̀"
+
+msgid "Edit geographic zone"
+msgstr "Ṣàtúnṣe agbègbè ilẹ̀"
+
+msgid "Geographic zone"
+msgstr "Agbègbè ilẹ̀"
+
+msgid "Staff statuses"
+msgstr "Ìpò òṣiṣẹ́"
+
+msgid "Add staff status"
+msgstr "Ṣafikun ìpò òṣiṣẹ́"
+
+msgid "Edit staff status"
+msgstr "Ṣàtúnṣe ìpò òṣiṣẹ́"
+
+msgid "Staff status"
+msgstr "Ìpò òṣiṣẹ́"
+
+msgid "Contract types"
+msgstr "Àwùjọ ìwéwò"
+
+msgid "Add contract type"
+msgstr "Ṣafikun ìwò ìwéwò"
+
+msgid "Edit contract type"
+msgstr "Ṣàtúnṣe ìwò ìwéwò"
+
+msgid "Contract type"
+msgstr "Ìwò ìwéwò"
+
+msgid "Business units"
+msgstr "Àwùjọ iṣòwò"
+
+msgid "Add business unit"
+msgstr "Ṣafikun ẹ̀ka iṣòwò"
+
+msgid "Edit business unit"
+msgstr "Ṣàtúnṣe ẹ̀ka iṣòwò"
+
+msgid "Business unit"
+msgstr "Ẹ̀ka iṣòwò"
+
+msgid "Add branch"
+msgstr "Ṣafikun ẹ̀ka"
+
+msgid "Edit branch"
+msgstr "Ṣàtúnṣe ẹ̀ka"
+
+msgid "Parent unit"
+msgstr "Ẹ̀ka ìbílẹ̀"
+
+msgid "Primary branch"
+msgstr "Ẹ̀ka pàtàkì"
+
+msgid "Coordinates"
+msgstr "Àwòrán ìpín"
+
+msgid "HR Dashboard"
+msgstr "Dasibọ HR"
+
+msgid "Staff"
+msgstr "Oṣiṣẹ"
+
+msgid "Organization"
+msgstr "Ajo"
+
+msgid "Performance Management"
+msgstr "Ṣiṣà Ìdarí Ìdàgbàsókè"
+
+msgid "Recruitment"
+msgstr "Ìdàsílẹ̀"
+
+msgid "Benefits"
+msgstr "Ànfàní"
+
+msgid "ROI and training"
+msgstr "ROI àti ìkọ́nilẹ́kọ̀"
+
+msgid "Diversity and social responsibility"
+msgstr "Ìyàwòran àti ìdùbbọ̀ ajọ"
+
+msgid "Professional functions"
+msgstr "Iṣẹ́ ìjọba"
+
+msgid "Positions"
+msgstr "Àwùjọ"
+
+msgid "Units and positions list"
+msgstr "Àtòjọ ẹ̀ka àti àwùjọ"
+
+msgid "Assign position to user"
+msgstr "Fúnni ni ipò fún olùpẹ̀lò"
+
+msgid "Organizational chart"
+msgstr "Àwòrán àjọ"
+
+msgid "Appraisal periods"
+msgstr "Àkókò ìdíwò"
+
+msgid "Appraisal templates"
+msgstr "Àwòrán ìdíwò"
+
+msgid "Performance appraisals"
+msgstr "Ìdíwò ìdàgbàsókè"
+
+msgid "Recruitment stages"
+msgstr "Àwòrán ìdàsílẹ̀"
+
+msgid "Recruitment processes"
+msgstr "Ìlànà ìdàsílẹ̀"
+
+msgid "Job offers"
+msgstr "Àwòrán iṣẹ́"
+
+msgid "Team skills goals"
+msgstr "Àwòrán ìmọ̀ ẹgbẹ́"
+
+msgid "Benefit tags"
+msgstr "Àwòrán ànfàní"
+
+msgid "Assign benefits"
+msgstr "Fúnni ni ànfàní"
+
+msgid "Assigned benefits"
+msgstr "Àwòrán ànfàní"
+
+msgid "ROI by course"
+msgstr "ROI fún ìkọ́ni kọ̀ọ̀kan"
+
+msgid "ROI by person"
+msgstr "ROI fún ẹni kọ̀ọ̀kan"
+
+msgid "ROI by organizational unit"
+msgstr "ROI fún ẹ̀ka àjọ"
+
+msgid "Training needs assessment"
+msgstr "Ìdíwò àìní ìkọ́nilẹ́kọ̀"
+
+msgid "Work climate surveys"
+msgstr " Ìwádìí ìjìnlẹ̀ ìpò iṣẹ́"
+
+msgid "Diversity criteria"
+msgstr "Àwòrán ìyàwòran"
+
+msgid "Diversity guidelines"
+msgstr "Ìlànà ìyàwòran"
+
+msgid "Social responsibility guidelines"
+msgstr "Ìlànà ìdùbbọ̀ ajọ"
+

@@ -33879,3 +33879,189 @@ msgstr "Ласкаво просимо до Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Якщо це ваш перший раз у Chamilo, переконайтеся, що ви перевірили бокове меню, щоб знайти шлях через його численні функції. Якщо вам потрібна допомога, ви знайдете <a href=\"https://docs.chamilo.org\">нашу офіційну документацію</a> для стандартної документації, тоді як наш <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">онлайн-форум</a> може допомогти ділитися ідеями та знаходити відповіді від інших користувачів Chamilo."
 
+msgid "Activities"
+msgstr "Активності"
+
+msgid "Activity categories"
+msgstr "Категорії активностей"
+
+msgid "Add activity"
+msgstr "Додати активність"
+
+msgid "Add category"
+msgstr "Додати категорію"
+
+msgid "Edit activity"
+msgstr "Редагувати активність"
+
+msgid "Edit category"
+msgstr "Редагувати категорію"
+
+msgid "Performance objectives"
+msgstr "Цілі продуктивності"
+
+msgid "Objective categories"
+msgstr "Категорії цілей"
+
+msgid "Add objective"
+msgstr "Додати ціль"
+
+msgid "Edit objective"
+msgstr "Редагувати ціль"
+
+msgid "Geographic zones"
+msgstr "Географічні зони"
+
+msgid "Add geographic zone"
+msgstr "Додати географічну зону"
+
+msgid "Edit geographic zone"
+msgstr "Редагувати географічну зону"
+
+msgid "Geographic zone"
+msgstr "Географічна зона"
+
+msgid "Staff statuses"
+msgstr "Статуси персоналу"
+
+msgid "Add staff status"
+msgstr "Додати статус персоналу"
+
+msgid "Edit staff status"
+msgstr "Редагувати статус персоналу"
+
+msgid "Staff status"
+msgstr "Статус персоналу"
+
+msgid "Contract types"
+msgstr "Типи контрактів"
+
+msgid "Add contract type"
+msgstr "Додати тип контракту"
+
+msgid "Edit contract type"
+msgstr "Редагувати тип контракту"
+
+msgid "Contract type"
+msgstr "Тип контракту"
+
+msgid "Business units"
+msgstr "Бізнес-одиниці"
+
+msgid "Add business unit"
+msgstr "Додати бізнес-одиницю"
+
+msgid "Edit business unit"
+msgstr "Редагувати бізнес-одиницю"
+
+msgid "Business unit"
+msgstr "Бізнес-одиниця"
+
+msgid "Add branch"
+msgstr "Додати філію"
+
+msgid "Edit branch"
+msgstr "Редагувати філію"
+
+msgid "Parent unit"
+msgstr "Батьківська одиниця"
+
+msgid "Primary branch"
+msgstr "Основна філія"
+
+msgid "Coordinates"
+msgstr "Координати"
+
+msgid "HR Dashboard"
+msgstr "Панель HR"
+
+msgid "Staff"
+msgstr "Персонал"
+
+msgid "Organization"
+msgstr "Організація"
+
+msgid "Performance Management"
+msgstr "Управління продуктивністю"
+
+msgid "Recruitment"
+msgstr "Рекрутинг"
+
+msgid "Benefits"
+msgstr "Пільги"
+
+msgid "ROI and training"
+msgstr "ROI та навчання"
+
+msgid "Diversity and social responsibility"
+msgstr "Різноманітність та соціальна відповідальність"
+
+msgid "Professional functions"
+msgstr "Професійні функції"
+
+msgid "Positions"
+msgstr "Посади"
+
+msgid "Units and positions list"
+msgstr "Список підрозділів та посад"
+
+msgid "Assign position to user"
+msgstr "Призначити посаду користувачу"
+
+msgid "Organizational chart"
+msgstr "Організаційна схема"
+
+msgid "Appraisal periods"
+msgstr "Періоди оцінювання"
+
+msgid "Appraisal templates"
+msgstr "Шаблони оцінювання"
+
+msgid "Performance appraisals"
+msgstr "Оцінювання продуктивності"
+
+msgid "Recruitment stages"
+msgstr "Етапи рекрутингу"
+
+msgid "Recruitment processes"
+msgstr "Процеси рекрутингу"
+
+msgid "Job offers"
+msgstr "Вакансії"
+
+msgid "Team skills goals"
+msgstr "Цілі навичок команди"
+
+msgid "Benefit tags"
+msgstr "Теги пільг"
+
+msgid "Assign benefits"
+msgstr "Призначити пільги"
+
+msgid "Assigned benefits"
+msgstr "Призначені пільги"
+
+msgid "ROI by course"
+msgstr "ROI за курсом"
+
+msgid "ROI by person"
+msgstr "ROI за особою"
+
+msgid "ROI by organizational unit"
+msgstr "ROI за організаційним підрозділом"
+
+msgid "Training needs assessment"
+msgstr "Оцінка потреб у навчанні"
+
+msgid "Work climate surveys"
+msgstr "Опитування робочого клімату"
+
+msgid "Diversity criteria"
+msgstr "Критерії різноманітності"
+
+msgid "Diversity guidelines"
+msgstr "Рекомендації щодо різноманітності"
+
+msgid "Social responsibility guidelines"
+msgstr "Рекомендації щодо соціальної відповідальності"
+

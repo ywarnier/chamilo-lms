@@ -33879,3 +33879,189 @@ msgstr "Karibu Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Kama ni mara yako ya kwanza kutumia Chamilo, hakikisha unatazama menyu ya upande ili kupata njia katika vipengele vyake vingi. Kama unahitaji msaada, utapata <a href=\"https://docs.chamilo.org\">hati rasmi zetu</a> zinaweza kusaidia kwa hati za kawaida, wakati <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forum yetu ya mtandaoni</a> inaweza kusaidia kushiriki mawazo na kupata majibu kutoka kwa watumiaji wengine wa Chamilo."
 
+msgid "Activities"
+msgstr "Shughuli"
+
+msgid "Activity categories"
+msgstr "Jamii za shughuli"
+
+msgid "Add activity"
+msgstr "Ongeza shughuli"
+
+msgid "Add category"
+msgstr "Ongeza jamii"
+
+msgid "Edit activity"
+msgstr "Hariri shughuli"
+
+msgid "Edit category"
+msgstr "Hariri jamii"
+
+msgid "Performance objectives"
+msgstr "Malengo ya utendaji"
+
+msgid "Objective categories"
+msgstr "Jamii za malengo"
+
+msgid "Add objective"
+msgstr "Ongeza lengo"
+
+msgid "Edit objective"
+msgstr "Hariri lengo"
+
+msgid "Geographic zones"
+msgstr "Mikoa ya kijiografia"
+
+msgid "Add geographic zone"
+msgstr "Ongeza eneo la kijiografia"
+
+msgid "Edit geographic zone"
+msgstr "Hariri eneo la kijiografia"
+
+msgid "Geographic zone"
+msgstr "Eneo la kijiografia"
+
+msgid "Staff statuses"
+msgstr "Hali za wafanyikazi"
+
+msgid "Add staff status"
+msgstr "Ongeza hali ya wafanyikazi"
+
+msgid "Edit staff status"
+msgstr "Hariri hali ya wafanyikazi"
+
+msgid "Staff status"
+msgstr "Hali ya wafanyikazi"
+
+msgid "Contract types"
+msgstr "Aina za mikataba"
+
+msgid "Add contract type"
+msgstr "Ongeza aina ya mkataba"
+
+msgid "Edit contract type"
+msgstr "Hariri aina ya mkataba"
+
+msgid "Contract type"
+msgstr "Aina ya mkataba"
+
+msgid "Business units"
+msgstr "Vitengo vya biashara"
+
+msgid "Add business unit"
+msgstr "Ongeza kitengo cha biashara"
+
+msgid "Edit business unit"
+msgstr "Hariri kitengo cha biashara"
+
+msgid "Business unit"
+msgstr "Kitengo cha biashara"
+
+msgid "Add branch"
+msgstr "Ongeza tawi"
+
+msgid "Edit branch"
+msgstr "Hariri tawi"
+
+msgid "Parent unit"
+msgstr "Kitengo cha mzazi"
+
+msgid "Primary branch"
+msgstr "Tawi la msingi"
+
+msgid "Coordinates"
+msgstr "Kakati"
+
+msgid "HR Dashboard"
+msgstr "Dashibodi ya HR"
+
+msgid "Staff"
+msgstr "Wafanyakazi"
+
+msgid "Organization"
+msgstr "Shirika"
+
+msgid "Performance Management"
+msgstr "Usimamizi wa Utendaji"
+
+msgid "Recruitment"
+msgstr "Kuajiri"
+
+msgid "Benefits"
+msgstr "Faida"
+
+msgid "ROI and training"
+msgstr "ROI na mafunzo"
+
+msgid "Diversity and social responsibility"
+msgstr "Utofauti na wajibu wa kijamii"
+
+msgid "Professional functions"
+msgstr "Kazi za kitaalamu"
+
+msgid "Positions"
+msgstr "Naibu"
+
+msgid "Units and positions list"
+msgstr "Orodha ya vitengo na naibu"
+
+msgid "Assign position to user"
+msgstr "Patia nafasi mtumiaji"
+
+msgid "Organizational chart"
+msgstr "Chati ya shirika"
+
+msgid "Appraisal periods"
+msgstr "Vipindi vya tathmini"
+
+msgid "Appraisal templates"
+msgstr "Vigeuza vya tathmini"
+
+msgid "Performance appraisals"
+msgstr "Tathmini za utendaji"
+
+msgid "Recruitment stages"
+msgstr "Hatua za ajira"
+
+msgid "Recruitment processes"
+msgstr "Michakato ya ajira"
+
+msgid "Job offers"
+msgstr "Matangazo ya kazi"
+
+msgid "Team skills goals"
+msgstr "Malengo ya ustadi wa timu"
+
+msgid "Benefit tags"
+msgstr "Lebo za faida"
+
+msgid "Assign benefits"
+msgstr "Patia faida"
+
+msgid "Assigned benefits"
+msgstr "Faida zilizopatiwa"
+
+msgid "ROI by course"
+msgstr "ROI kwa kozi"
+
+msgid "ROI by person"
+msgstr "ROI kwa mtu"
+
+msgid "ROI by organizational unit"
+msgstr "ROI kwa kitengo cha shirika"
+
+msgid "Training needs assessment"
+msgstr "Tathmini ya mahitaji ya mafunzo"
+
+msgid "Work climate surveys"
+msgstr "Utafiti wa hali ya kazi"
+
+msgid "Diversity criteria"
+msgstr "Viainisho vya utofauti"
+
+msgid "Diversity guidelines"
+msgstr "Miongozo ya utofauti"
+
+msgid "Social responsibility guidelines"
+msgstr "Miongozo ya wajibu wa kijamii"
+

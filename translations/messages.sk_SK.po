@@ -33898,3 +33898,189 @@ msgstr "Vitajte v Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ak používate Chamilo prvýkrát, uistite sa, že skontrolujete bočné menu, aby ste sa zorientovali v jeho mnohých funkciách. Ak potrebujete pomoc, naša <a href=\"https://docs.chamilo.org\">oficiálna dokumentácia</a> vám pomôže so štandardnou dokumentáciou, zatiaľ čo naše <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online fórum</a> vám pomôže zdieľať nápady a nájsť odpovede od iných používateľov Chamilo."
 
+msgid "Activities"
+msgstr "Aktivity"
+
+msgid "Activity categories"
+msgstr "Kategórie aktivít"
+
+msgid "Add activity"
+msgstr "Pridať aktivitu"
+
+msgid "Add category"
+msgstr "Pridať kategóriu"
+
+msgid "Edit activity"
+msgstr "Upraviť aktivitu"
+
+msgid "Edit category"
+msgstr "Zmeniť kategóriu"
+
+msgid "Performance objectives"
+msgstr "Výkonové ciele"
+
+msgid "Objective categories"
+msgstr "Kategórie cieľov"
+
+msgid "Add objective"
+msgstr "Pridať cieľ"
+
+msgid "Edit objective"
+msgstr "Upraviť cieľ"
+
+msgid "Geographic zones"
+msgstr "Geografické zóny"
+
+msgid "Add geographic zone"
+msgstr "Pridať geografickú zónu"
+
+msgid "Edit geographic zone"
+msgstr "Upraviť geografickú zónu"
+
+msgid "Geographic zone"
+msgstr "Geografická zóna"
+
+msgid "Staff statuses"
+msgstr "Stavy zamestnancov"
+
+msgid "Add staff status"
+msgstr "Pridať stav zamestnanca"
+
+msgid "Edit staff status"
+msgstr "Upraviť stav zamestnanca"
+
+msgid "Staff status"
+msgstr "Stav zamestnanca"
+
+msgid "Contract types"
+msgstr "Typy zmlúv"
+
+msgid "Add contract type"
+msgstr "Pridať typ zmluvy"
+
+msgid "Edit contract type"
+msgstr "Upraviť typ zmluvy"
+
+msgid "Contract type"
+msgstr "Typ zmluvy"
+
+msgid "Business units"
+msgstr "Organizačné jednotky"
+
+msgid "Add business unit"
+msgstr "Pridať organizačnú jednotku"
+
+msgid "Edit business unit"
+msgstr "Upraviť organizačnú jednotku"
+
+msgid "Business unit"
+msgstr "Organizačná jednotka"
+
+msgid "Add branch"
+msgstr "Pridať pobočku"
+
+msgid "Edit branch"
+msgstr "Upraviť pobočku"
+
+msgid "Parent unit"
+msgstr "Rodičovská jednotka"
+
+msgid "Primary branch"
+msgstr "Hlavná pobočka"
+
+msgid "Coordinates"
+msgstr "Súradnice"
+
+msgid "HR Dashboard"
+msgstr "HR Dashboard"
+
+msgid "Staff"
+msgstr "Zamestnanci"
+
+msgid "Organization"
+msgstr "Organizácia"
+
+msgid "Performance Management"
+msgstr "Manažment výkonu"
+
+msgid "Recruitment"
+msgstr "Nábor"
+
+msgid "Benefits"
+msgstr "Príplatky"
+
+msgid "ROI and training"
+msgstr "ROI a školenia"
+
+msgid "Diversity and social responsibility"
+msgstr "Diverzita a sociálna zodpovednosť"
+
+msgid "Professional functions"
+msgstr "Profesijné funkcie"
+
+msgid "Positions"
+msgstr "Pozície"
+
+msgid "Units and positions list"
+msgstr "Zoznam jednotiek a pozícií"
+
+msgid "Assign position to user"
+msgstr "Priradiť pozíciu používateľovi"
+
+msgid "Organizational chart"
+msgstr "Organizačný schemat"
+
+msgid "Appraisal periods"
+msgstr "Obdobie hodnotení"
+
+msgid "Appraisal templates"
+msgstr "Šablóny hodnotení"
+
+msgid "Performance appraisals"
+msgstr "Hodnotenia výkonu"
+
+msgid "Recruitment stages"
+msgstr "Etapy náboru"
+
+msgid "Recruitment processes"
+msgstr "Procesy náboru"
+
+msgid "Job offers"
+msgstr "Ponuky práce"
+
+msgid "Team skills goals"
+msgstr "Ciele tímových zručností"
+
+msgid "Benefit tags"
+msgstr "Značky benefitov"
+
+msgid "Assign benefits"
+msgstr "Priradiť benefity"
+
+msgid "Assigned benefits"
+msgstr "Priradené benefity"
+
+msgid "ROI by course"
+msgstr "ROI podľa kurzu"
+
+msgid "ROI by person"
+msgstr "ROI podľa osoby"
+
+msgid "ROI by organizational unit"
+msgstr "ROI podľa organizačnej jednotky"
+
+msgid "Training needs assessment"
+msgstr "Posúdenie potrieb školenia"
+
+msgid "Work climate surveys"
+msgstr "Prieskumy pracovného prostredia"
+
+msgid "Diversity criteria"
+msgstr "Kritériá diverzity"
+
+msgid "Diversity guidelines"
+msgstr "Pokyny pre diverzitu"
+
+msgid "Social responsibility guidelines"
+msgstr "Pokyny pre sociálnu zodpovednosť"
+

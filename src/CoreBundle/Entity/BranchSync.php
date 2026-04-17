@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\Entity;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
+// Chamilo HR extension — geographic zone link
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
@@ -143,6 +144,12 @@ class BranchSync
     #[Groups(['branch:read'])]
     #[ORM\Column(name: 'branch_type', type: 'string', length: 250, nullable: true, unique: false)]
     protected ?string $branchType = null;
+
+    // Chamilo HR extension
+    #[Groups(['branch:read', 'branch:write'])]
+    #[ORM\ManyToOne(targetEntity: GeographicZone::class)]
+    #[ORM\JoinColumn(name: 'geographic_zone_id', referencedColumnName: 'id', nullable: true, onDelete: 'SET NULL')]
+    protected ?GeographicZone $geographicZone = null;
 
     #[Gedmo\TreeLeft]
     #[ORM\Column(name: 'lft', type: 'integer', nullable: true, unique: false)]
@@ -640,5 +647,18 @@ class BranchSync
     public function getChildren(): array|Collection
     {
         return $this->children;
+    }
+
+    // Chamilo HR extension
+    public function getGeographicZone(): ?GeographicZone
+    {
+        return $this->geographicZone;
+    }
+
+    public function setGeographicZone(?GeographicZone $geographicZone): self
+    {
+        $this->geographicZone = $geographicZone;
+
+        return $this;
     }
 }

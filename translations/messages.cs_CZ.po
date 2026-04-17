@@ -2017,7 +2017,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:autorské právo,, no:bez autorského práva"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Složka,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Složka,, application/msword:MsWord,, application/octet-stream:Okteťový proud,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:cvičení,,      simulation:simulace,,      questionnaire:dotazník,,      diagram:diagram,,      figure:obrázek,,      graph:graf,,      index:index,,      slide:slide,,      table:tabulka,,      narrative text:narrativní text,,      exam:zkouška,,      experiment:experiment,,      problem statement:zadání problému,,      self assessment:sám sebehodnocení,,      lecture:přednáška"
@@ -14647,7 +14647,7 @@ msgid "Enable button bars extended when the WYSIWYG editor is maximized"
 msgstr "Povolit rozšířené panely nástrojů, když je WYSIWYG editor maximalizován"
 
 msgid "HTML Editor"
-msgstr "HTML Editor"
+msgstr "HTML editor"
 
 msgid "Go directly to the course after login"
 msgstr "Přejít přímo do kurzu po přihlášení"
@@ -32380,7 +32380,7 @@ msgid "Delete failed: missing course context or invalid question id."
 msgstr "Smazání selhalo: chybí kontext kurzu nebo neplatné ID otázky."
 
 msgid "AI Tutor"
-msgstr "AI Tutor"
+msgstr "AI tutor"
 
 msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
 msgstr "Rozšíření APCu musí být nainstalováno a povoleno, aby platforma mohla být použita."
@@ -33878,4 +33878,190 @@ msgstr "Vítejte v Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Pokud používáte Chamilo poprvé, podívejte se na boční menu, abyste se zorientovali v jeho mnoha funkcích. Pokud potřebujete pomoc, naše <a href=\"https://docs.chamilo.org\">oficiální dokumentace</a> vám pomůže se standardní dokumentací, zatímco naše <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online fórum</a> vám pomůže sdílet nápady a najít odpovědi od jiných uživatelů Chamilo."
+
+msgid "Activities"
+msgstr "Aktivity"
+
+msgid "Activity categories"
+msgstr "Kategorie aktivit"
+
+msgid "Add activity"
+msgstr "Přidat aktivitu"
+
+msgid "Add category"
+msgstr "Přidat kategorii"
+
+msgid "Edit activity"
+msgstr "Upravit aktivitu"
+
+msgid "Edit category"
+msgstr "Upravit kategorii"
+
+msgid "Performance objectives"
+msgstr "Cílové výkony"
+
+msgid "Objective categories"
+msgstr "Kategorie cílových výkonů"
+
+msgid "Add objective"
+msgstr "Přidat cíl"
+
+msgid "Edit objective"
+msgstr "Upravit cíl"
+
+msgid "Geographic zones"
+msgstr "Geografické zóny"
+
+msgid "Add geographic zone"
+msgstr "Přidat geografickou zónu"
+
+msgid "Edit geographic zone"
+msgstr "Upravit geografickou zónu"
+
+msgid "Geographic zone"
+msgstr "Geografická zóna"
+
+msgid "Staff statuses"
+msgstr "Stavy zaměstnanců"
+
+msgid "Add staff status"
+msgstr "Přidat stav zaměstnance"
+
+msgid "Edit staff status"
+msgstr "Upravit stav zaměstnance"
+
+msgid "Staff status"
+msgstr "Stav zaměstnanců"
+
+msgid "Contract types"
+msgstr "Typy smluv"
+
+msgid "Add contract type"
+msgstr "Přidat typ smlouvy"
+
+msgid "Edit contract type"
+msgstr "Upravit typ smlouvy"
+
+msgid "Contract type"
+msgstr "Typ smlouvy"
+
+msgid "Business units"
+msgstr "Organizační jednotky"
+
+msgid "Add business unit"
+msgstr "Přidat organizační jednotku"
+
+msgid "Edit business unit"
+msgstr "Upravit organizační jednotku"
+
+msgid "Business unit"
+msgstr "Organizační jednotka"
+
+msgid "Add branch"
+msgstr "Přidat pobočku"
+
+msgid "Edit branch"
+msgstr "Upravit pobočku"
+
+msgid "Parent unit"
+msgstr "Mateřská jednotka"
+
+msgid "Primary branch"
+msgstr "Hlavní pobočka"
+
+msgid "Coordinates"
+msgstr "Souřadnice"
+
+msgid "HR Dashboard"
+msgstr "HR nástěnka"
+
+msgid "Staff"
+msgstr "Zaměstnanci"
+
+msgid "Organization"
+msgstr "Organizace"
+
+msgid "Performance Management"
+msgstr "Správa výkonu"
+
+msgid "Recruitment"
+msgstr "Nábor"
+
+msgid "Benefits"
+msgstr "Přínosy"
+
+msgid "ROI and training"
+msgstr "ROI a školení"
+
+msgid "Diversity and social responsibility"
+msgstr "Diverzita a společenská odpovědnost"
+
+msgid "Professional functions"
+msgstr "Profesní funkce"
+
+msgid "Positions"
+msgstr "Pozice"
+
+msgid "Units and positions list"
+msgstr "Seznam jednotek a pozic"
+
+msgid "Assign position to user"
+msgstr "Přiřadit pozici uživateli"
+
+msgid "Organizational chart"
+msgstr "Organizační schéma"
+
+msgid "Appraisal periods"
+msgstr "Období hodnocení"
+
+msgid "Appraisal templates"
+msgstr "Šablony hodnocení"
+
+msgid "Performance appraisals"
+msgstr "Hodnocení výkonu"
+
+msgid "Recruitment stages"
+msgstr "Etapy náboru"
+
+msgid "Recruitment processes"
+msgstr "Náborové procesy"
+
+msgid "Job offers"
+msgstr "Nabídky práce"
+
+msgid "Team skills goals"
+msgstr "Cíle dovedností týmu"
+
+msgid "Benefit tags"
+msgstr "Štítky benefitů"
+
+msgid "Assign benefits"
+msgstr "Přiřadit benefity"
+
+msgid "Assigned benefits"
+msgstr "Přiřazené benefity"
+
+msgid "ROI by course"
+msgstr "ROI podle kurzu"
+
+msgid "ROI by person"
+msgstr "ROI podle osoby"
+
+msgid "ROI by organizational unit"
+msgstr "ROI podle organizační jednotky"
+
+msgid "Training needs assessment"
+msgstr "Zjistění potřeb školení"
+
+msgid "Work climate surveys"
+msgstr "Průzkumy pracovního klimatu"
+
+msgid "Diversity criteria"
+msgstr "Kritéria diverzity"
+
+msgid "Diversity guidelines"
+msgstr "Směrnice pro diverzitu"
+
+msgid "Social responsibility guidelines"
+msgstr "Směrnice společenské odpovědnosti"
 

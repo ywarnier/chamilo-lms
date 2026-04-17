@@ -33914,6 +33914,70 @@ msgstr "Add objective"
 msgid "Edit objective"
 msgstr "Edit objective"
 
+msgid "Geographic zones"
+msgstr "Geographic zones"
+
+msgid "Add geographic zone"
+msgstr "Add geographic zone"
+
+msgid "Edit geographic zone"
+msgstr "Edit geographic zone"
+
+msgid "Geographic zone"
+msgstr "Geographic zone"
+
+msgid "Staff statuses"
+msgstr "Staff statuses"
+
+msgid "Add staff status"
+msgstr "Add staff status"
+
+msgid "Edit staff status"
+msgstr "Edit staff status"
+
+msgid "Staff status"
+msgstr "Staff status"
+
+msgid "Contract types"
+msgstr "Contract types"
+
+msgid "Add contract type"
+msgstr "Add contract type"
+
+msgid "Edit contract type"
+msgstr "Edit contract type"
+
+msgid "Contract type"
+msgstr "Contract type"
+
+msgid "Business units"
+msgstr "Business units"
+
+msgid "Add business unit"
+msgstr "Add business unit"
+
+msgid "Edit business unit"
+msgstr "Edit business unit"
+
+msgid "Business unit"
+msgstr "Business unit"
+
+msgid "Add branch"
+msgstr "Add branch"
+
+msgid "Edit branch"
+msgstr "Edit branch"
+
+msgid "Parent unit"
+msgstr "Parent unit"
+
+msgid "Primary branch"
+msgstr "Primary branch"
+
+msgid "Coordinates"
+msgstr "Coordinates"
+
+
 msgid "HR Dashboard"
 msgstr "HR Dashboard"
 
@@ -34006,67 +34070,3 @@ msgstr "Diversity guidelines"
 
 msgid "Social responsibility guidelines"
 msgstr "Social responsibility guidelines"
-
-msgid "Geographic zones"
-msgstr "Geographic zones"
-
-msgid "Add geographic zone"
-msgstr "Add geographic zone"
-
-msgid "Edit geographic zone"
-msgstr "Edit geographic zone"
-
-msgid "Geographic zone"
-msgstr "Geographic zone"
-
-msgid "Staff statuses"
-msgstr "Staff statuses"
-
-msgid "Add staff status"
-msgstr "Add staff status"
-
-msgid "Edit staff status"
-msgstr "Edit staff status"
-
-msgid "Staff status"
-msgstr "Staff status"
-
-msgid "Contract types"
-msgstr "Contract types"
-
-msgid "Add contract type"
-msgstr "Add contract type"
-
-msgid "Edit contract type"
-msgstr "Edit contract type"
-
-msgid "Contract type"
-msgstr "Contract type"
-
-msgid "Business units"
-msgstr "Business units"
-
-msgid "Add business unit"
-msgstr "Add business unit"
-
-msgid "Edit business unit"
-msgstr "Edit business unit"
-
-msgid "Business unit"
-msgstr "Business unit"
-
-msgid "Add branch"
-msgstr "Add branch"
-
-msgid "Edit branch"
-msgstr "Edit branch"
-
-msgid "Parent unit"
-msgstr "Parent unit"
-
-msgid "Primary branch"
-msgstr "Primary branch"
-
-msgid "Coordinates"
-msgstr "Coordinates"
-

@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:autoriaus teisės,, no:be autoriaus teisių"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory: aplankas,, application/msword:MsWord,, application/octet-stream:Oktobaitų srautas,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory: aplankas ,, application/msword:MsWord,, application/octet-stream:Oktobaitų srautas,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":testas:testas,,      simuliacija:simuliacija,,      klausimynas:klausimynas,,      diagrama:diagrama,,      paveikslėlis:paveikslėlis,,      grafikas:grafikas,,      indeksas:indeksas,,      skaidrė:skaidrė,,      lentelė:lentelė,,      naratyvinis tekstas:naratyvinis tekstas,,      egzaminas:egzaminas,,      eksperimentas:eksperimentas,,      problemos teiginys:problemos teiginys,,      savęs vertinimas:savęs vertinimas,,      paskaita:paskaita"
@@ -33883,4 +33883,190 @@ msgstr "Sveiki atvykę į Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Jei tai pirmas kartas naudojant Chamilo, įsitikinkite, kad patikrinote šoninį meniu, kad rastumėte kelią per daugybę jo funkcijų. Jei reikia pagalbos, rasite <a href=\"https://docs.chamilo.org\">mūsų oficialią dokumentaciją</a> standartinei dokumentacijai, o mūsų <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">internetinį forumą</a> idėjoms dalintis ir atsakymams iš kitų Chamilo naudotojų rasti."
+
+msgid "Activities"
+msgstr "Veiklos"
+
+msgid "Activity categories"
+msgstr "Veiklos kategorijos"
+
+msgid "Add activity"
+msgstr "Pridėti veiklą"
+
+msgid "Add category"
+msgstr "Pridėti kategoriją"
+
+msgid "Edit activity"
+msgstr "Redaguoti veiklą"
+
+msgid "Edit category"
+msgstr "Redaguoti kategoriją"
+
+msgid "Performance objectives"
+msgstr "Veiklos tikslai"
+
+msgid "Objective categories"
+msgstr "Tikslų kategorijos"
+
+msgid "Add objective"
+msgstr "Pridėti tikslą"
+
+msgid "Edit objective"
+msgstr "Redaguoti tikslą"
+
+msgid "Geographic zones"
+msgstr "Geografinės zonos"
+
+msgid "Add geographic zone"
+msgstr "Pridėti geografinę zoną"
+
+msgid "Edit geographic zone"
+msgstr "Redaguoti geografinę zoną"
+
+msgid "Geographic zone"
+msgstr "Geografinė zona"
+
+msgid "Staff statuses"
+msgstr "Personalui skiriami statusai"
+
+msgid "Add staff status"
+msgstr "Pridėti personalo statusą"
+
+msgid "Edit staff status"
+msgstr "Redaguoti personalo statusą"
+
+msgid "Staff status"
+msgstr "Personalo statusas"
+
+msgid "Contract types"
+msgstr "Sutarties tipai"
+
+msgid "Add contract type"
+msgstr "Pridėti sutarties tipą"
+
+msgid "Edit contract type"
+msgstr "Redaguoti sutarties tipą"
+
+msgid "Contract type"
+msgstr "Sutarties tipas"
+
+msgid "Business units"
+msgstr "Verslo vienetai"
+
+msgid "Add business unit"
+msgstr "Pridėti verslo vienetą"
+
+msgid "Edit business unit"
+msgstr "Redaguoti verslo vienetą"
+
+msgid "Business unit"
+msgstr "Verslo vienetas"
+
+msgid "Add branch"
+msgstr "Pridėti filialą"
+
+msgid "Edit branch"
+msgstr "Redaguoti filialą"
+
+msgid "Parent unit"
+msgstr "Pagrindinis vienetas"
+
+msgid "Primary branch"
+msgstr "Pagrindinis filials"
+
+msgid "Coordinates"
+msgstr "Koordinačių"
+
+msgid "HR Dashboard"
+msgstr "HR prietaisų skydelis"
+
+msgid "Staff"
+msgstr "Personalas"
+
+msgid "Organization"
+msgstr "Organizacija"
+
+msgid "Performance Management"
+msgstr "Veiklos valdymas"
+
+msgid "Recruitment"
+msgstr "Įdarbinimas"
+
+msgid "Benefits"
+msgstr "Privalumai"
+
+msgid "ROI and training"
+msgstr "ROI ir mokymai"
+
+msgid "Diversity and social responsibility"
+msgstr "Įvairovė ir socialinė atsakomybė"
+
+msgid "Professional functions"
+msgstr "Profesinės funkcijos"
+
+msgid "Positions"
+msgstr "Pareigos"
+
+msgid "Units and positions list"
+msgstr "Padalinių ir pareigų sąrašas"
+
+msgid "Assign position to user"
+msgstr "Priskirti pareigas naudotojui"
+
+msgid "Organizational chart"
+msgstr "Organizacijos schema"
+
+msgid "Appraisal periods"
+msgstr "Vertinimo laikotarpiai"
+
+msgid "Appraisal templates"
+msgstr "Vertinimo šablonai"
+
+msgid "Performance appraisals"
+msgstr "Veiklos vertinimai"
+
+msgid "Recruitment stages"
+msgstr "Įdarbinimo etapai"
+
+msgid "Recruitment processes"
+msgstr "Įdarbinimo procesai"
+
+msgid "Job offers"
+msgstr "Darbo pasiūlymai"
+
+msgid "Team skills goals"
+msgstr "Komandos įgūdžių tikslai"
+
+msgid "Benefit tags"
+msgstr "Privalumų žymės"
+
+msgid "Assign benefits"
+msgstr "Priskirti privalumus"
+
+msgid "Assigned benefits"
+msgstr "Priskirti privalumai"
+
+msgid "ROI by course"
+msgstr "ROI pagal kursą"
+
+msgid "ROI by person"
+msgstr "ROI pagal asmenį"
+
+msgid "ROI by organizational unit"
+msgstr "ROI pagal organizacinį vienetą"
+
+msgid "Training needs assessment"
+msgstr "Mokymų poreikių vertinimas"
+
+msgid "Work climate surveys"
+msgstr "Darbo klimato apklausos"
+
+msgid "Diversity criteria"
+msgstr "Įvairovės kriterijai"
+
+msgid "Diversity guidelines"
+msgstr "Įvairovės gairės"
+
+msgid "Social responsibility guidelines"
+msgstr "Socialinės atsakomybės gairės"
 

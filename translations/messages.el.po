@@ -33898,3 +33898,189 @@ msgstr "Καλώς ήρθατε στο Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Αν χρησιμοποιείτε το Chamilo για πρώτη φορά, βεβαιωθείτε ότι ελέγξετε το πλευρικό μενού για να βρείτε τον δρόμο σας μέσα από τα πολλά χαρακτηριστικά του. Αν χρειάζεστε βοήθεια, θα βρείτε ότι <a href=\"https://docs.chamilo.org\">η επίσημη τεκμηρίωσή μας</a> μπορεί να βοηθήσει για τυπική τεκμηρίωση, ενώ το <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">διαδικτυακό φόρουμ μας</a> μπορεί να βοηθήσει να μοιραστείτε ιδέες και να βρείτε απαντήσεις από άλλους χρήστες του Chamilo."
 
+msgid "Activities"
+msgstr "Δραστηριότητες"
+
+msgid "Activity categories"
+msgstr "Κατηγορίες δραστηριοτήτων"
+
+msgid "Add activity"
+msgstr "Προσθήκη δραστηριότητας"
+
+msgid "Add category"
+msgstr "Προσθήκη κατηγορίας"
+
+msgid "Edit activity"
+msgstr "Επεξεργασία δραστηριότητας"
+
+msgid "Edit category"
+msgstr "Επεξεργασία κατηγορίας"
+
+msgid "Performance objectives"
+msgstr "Στόχοι απόδοσης"
+
+msgid "Objective categories"
+msgstr "Κατηγορίες στόχων"
+
+msgid "Add objective"
+msgstr "Προσθήκη στόχου"
+
+msgid "Edit objective"
+msgstr "Επεξεργασία στόχου"
+
+msgid "Geographic zones"
+msgstr "Γεωγραφικές ζώνες"
+
+msgid "Add geographic zone"
+msgstr "Προσθήκη γεωγραφικής ζώνης"
+
+msgid "Edit geographic zone"
+msgstr "Επεξεργασία γεωγραφικής ζώνης"
+
+msgid "Geographic zone"
+msgstr "Γεωγραφική ζώνη"
+
+msgid "Staff statuses"
+msgstr "Καθεστώτα προσωπικού"
+
+msgid "Add staff status"
+msgstr "Προσθήκη καθεστώτος προσωπικού"
+
+msgid "Edit staff status"
+msgstr "Επεξεργασία καθεστώτος προσωπικού"
+
+msgid "Staff status"
+msgstr "Καθεστώς προσωπικού"
+
+msgid "Contract types"
+msgstr "Τύποι συμβολαίων"
+
+msgid "Add contract type"
+msgstr "Προσθήκη τύπου συμβολαίου"
+
+msgid "Edit contract type"
+msgstr "Επεξεργασία τύπου συμβολαίου"
+
+msgid "Contract type"
+msgstr "Τύπος συμβολαίου"
+
+msgid "Business units"
+msgstr "Μονάδες επιχείρησης"
+
+msgid "Add business unit"
+msgstr "Προσθήκη μονάδας επιχείρησης"
+
+msgid "Edit business unit"
+msgstr "Επεξεργασία μονάδας επιχείρησης"
+
+msgid "Business unit"
+msgstr "Μονάδα επιχείρησης"
+
+msgid "Add branch"
+msgstr "Προσθήκη υποκαταστήματος"
+
+msgid "Edit branch"
+msgstr "Επεξεργασία υποκαταστήματος"
+
+msgid "Parent unit"
+msgstr "Μητρική μονάδα"
+
+msgid "Primary branch"
+msgstr "Κύριο υποκατάστημα"
+
+msgid "Coordinates"
+msgstr "Συντεταγμένες"
+
+msgid "HR Dashboard"
+msgstr "Πίνακας ελέγχου HR"
+
+msgid "Staff"
+msgstr "Προσωπικό"
+
+msgid "Organization"
+msgstr "Οργανισμός"
+
+msgid "Performance Management"
+msgstr "Διαχείριση Απόδοσης"
+
+msgid "Recruitment"
+msgstr "Προσλήψεις"
+
+msgid "Benefits"
+msgstr "Παροχές"
+
+msgid "ROI and training"
+msgstr "ROI και κατάρτιση"
+
+msgid "Diversity and social responsibility"
+msgstr "Διαφορετικότητα και κοινωνική ευθύνη"
+
+msgid "Professional functions"
+msgstr "Επαγγελματικές λειτουργίες"
+
+msgid "Positions"
+msgstr "Θέσεις"
+
+msgid "Units and positions list"
+msgstr "Λίστα μονάδων και θέσεων"
+
+msgid "Assign position to user"
+msgstr "Ανάθεση θέσης σε χρήστη"
+
+msgid "Organizational chart"
+msgstr "Οργανόγραμμα"
+
+msgid "Appraisal periods"
+msgstr "Περίοδοι αξιολόγησης"
+
+msgid "Appraisal templates"
+msgstr "Πρότυπα αξιολόγησης"
+
+msgid "Performance appraisals"
+msgstr "Αξιολογήσεις απόδοσης"
+
+msgid "Recruitment stages"
+msgstr "Στάδια πρόσληψης"
+
+msgid "Recruitment processes"
+msgstr "Διαδικασίες πρόσληψης"
+
+msgid "Job offers"
+msgstr "Προσφορές εργασίας"
+
+msgid "Team skills goals"
+msgstr "Στόχοι δεξιοτήτων ομάδας"
+
+msgid "Benefit tags"
+msgstr "Ετικέτες παροχών"
+
+msgid "Assign benefits"
+msgstr "Ανάθεση παροχών"
+
+msgid "Assigned benefits"
+msgstr "Ανατεθειμένες παροχές"
+
+msgid "ROI by course"
+msgstr "ROI ανά μάθημα"
+
+msgid "ROI by person"
+msgstr "ROI ανά άτομο"
+
+msgid "ROI by organizational unit"
+msgstr "ROI ανά οργανωτική μονάδα"
+
+msgid "Training needs assessment"
+msgstr "Αξιολόγηση αναγκών κατάρτισης"
+
+msgid "Work climate surveys"
+msgstr "Έρευνες κλίματος εργασίας"
+
+msgid "Diversity criteria"
+msgstr "Κριτήρια διαφορετικότητας"
+
+msgid "Diversity guidelines"
+msgstr "Οδηγίες διαφορετικότητας"
+
+msgid "Social responsibility guidelines"
+msgstr "Οδηγίες κοινωνικής ευθύνης"
+

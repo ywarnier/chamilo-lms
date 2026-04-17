@@ -33896,3 +33896,189 @@ msgstr "ברוכים הבאים ל-Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> אם זו הפעם הראשונה שלך בשימוש ב-Chamilo, ודא שאתה בודק את תפריט הצד כדי למצוא את דרכך בין כל התכונות הרבות שלו. אם אתה זקוק לעזרה, תמצא ש-<a href=\"https://docs.chamilo.org\">התיעוד הרשמי שלנו</a> יכול לעזור עבור תיעוד סטנדרטי, בעוד <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">הפורום המקוון שלנו</a> יכול לעזור לשתף רעיונות ולמצוא תשובות ממשתמשי Chamilo אחרים."
 
+msgid "Activities"
+msgstr "פעילויות"
+
+msgid "Activity categories"
+msgstr "קטגוריות פעילות"
+
+msgid "Add activity"
+msgstr "הוספת פעילות"
+
+msgid "Add category"
+msgstr "הוסף קטגוריה"
+
+msgid "Edit activity"
+msgstr "עריכת פעילות"
+
+msgid "Edit category"
+msgstr "ערוך קטגוריה"
+
+msgid "Performance objectives"
+msgstr "יעדי ביצועים"
+
+msgid "Objective categories"
+msgstr "קטגוריות יעדים"
+
+msgid "Add objective"
+msgstr "הוספת יעד"
+
+msgid "Edit objective"
+msgstr "עריכת יעד"
+
+msgid "Geographic zones"
+msgstr "אזורים גיאוגרפיים"
+
+msgid "Add geographic zone"
+msgstr "הוספת אזור גיאוגרפי"
+
+msgid "Edit geographic zone"
+msgstr "עריכת אזור גיאוגרפי"
+
+msgid "Geographic zone"
+msgstr "אזור גיאוגרפי"
+
+msgid "Staff statuses"
+msgstr "סטטוסי צוות"
+
+msgid "Add staff status"
+msgstr "הוספת סטטוס צוות"
+
+msgid "Edit staff status"
+msgstr "עריכת סטטוס צוות"
+
+msgid "Staff status"
+msgstr "סטטוס צוות"
+
+msgid "Contract types"
+msgstr "סוגי חוזים"
+
+msgid "Add contract type"
+msgstr "הוספת סוג חוזה"
+
+msgid "Edit contract type"
+msgstr "עריכת סוג חוזה"
+
+msgid "Contract type"
+msgstr "סוג חוזה"
+
+msgid "Business units"
+msgstr "יחידות עסקיות"
+
+msgid "Add business unit"
+msgstr "הוספת יחידה עסקית"
+
+msgid "Edit business unit"
+msgstr "עריכת יחידה עסקית"
+
+msgid "Business unit"
+msgstr "יחידה עסקית"
+
+msgid "Add branch"
+msgstr "הוספת סניף"
+
+msgid "Edit branch"
+msgstr "עריכת סניף"
+
+msgid "Parent unit"
+msgstr "יחידה אב"
+
+msgid "Primary branch"
+msgstr "סניף ראשי"
+
+msgid "Coordinates"
+msgstr "קואורדינטות"
+
+msgid "HR Dashboard"
+msgstr "לוח מחוונים משאבי אנוש"
+
+msgid "Staff"
+msgstr "צוות"
+
+msgid "Organization"
+msgstr "ארגון"
+
+msgid "Performance Management"
+msgstr "ניהול ביצועים"
+
+msgid "Recruitment"
+msgstr "גיוס"
+
+msgid "Benefits"
+msgstr "הטבות"
+
+msgid "ROI and training"
+msgstr "ROI והכשרה"
+
+msgid "Diversity and social responsibility"
+msgstr "גיוון ואחריות חברתית"
+
+msgid "Professional functions"
+msgstr "פונקציות מקצועיות"
+
+msgid "Positions"
+msgstr "תפקידים"
+
+msgid "Units and positions list"
+msgstr "רשימת יחידות ותפקידים"
+
+msgid "Assign position to user"
+msgstr "הקצאת תפקיד למשתמש"
+
+msgid "Organizational chart"
+msgstr "תרשים ארגוני"
+
+msgid "Appraisal periods"
+msgstr "תקופות הערכה"
+
+msgid "Appraisal templates"
+msgstr "תבניות הערכה"
+
+msgid "Performance appraisals"
+msgstr "הערכות ביצועים"
+
+msgid "Recruitment stages"
+msgstr "שלבי גיוס"
+
+msgid "Recruitment processes"
+msgstr "תהליכי גיוס"
+
+msgid "Job offers"
+msgstr "הצעות עבודה"
+
+msgid "Team skills goals"
+msgstr "יעדי כישורי צוות"
+
+msgid "Benefit tags"
+msgstr "תגיות הטבות"
+
+msgid "Assign benefits"
+msgstr "הקצאת הטבות"
+
+msgid "Assigned benefits"
+msgstr "הטבות מוקצות"
+
+msgid "ROI by course"
+msgstr "ROI לפי קורס"
+
+msgid "ROI by person"
+msgstr "ROI לפי אדם"
+
+msgid "ROI by organizational unit"
+msgstr "ROI לפי יחידה ארגונית"
+
+msgid "Training needs assessment"
+msgstr "הערכת צורכי הכשרה"
+
+msgid "Work climate surveys"
+msgstr "סקרי אקלים עבודה"
+
+msgid "Diversity criteria"
+msgstr "קריטריונים לגיוון"
+
+msgid "Diversity guidelines"
+msgstr "הנחיות גיוון"
+
+msgid "Social responsibility guidelines"
+msgstr "הנחיות אחריות חברתית"
+

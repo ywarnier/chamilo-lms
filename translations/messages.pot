@@ -33828,6 +33828,70 @@ msgstr ""
 msgid "Edit objective"
 msgstr ""
 
+msgid "Geographic zones"
+msgstr ""
+
+msgid "Add geographic zone"
+msgstr ""
+
+msgid "Edit geographic zone"
+msgstr ""
+
+msgid "Geographic zone"
+msgstr ""
+
+msgid "Staff statuses"
+msgstr ""
+
+msgid "Add staff status"
+msgstr ""
+
+msgid "Edit staff status"
+msgstr ""
+
+msgid "Staff status"
+msgstr ""
+
+msgid "Contract types"
+msgstr ""
+
+msgid "Add contract type"
+msgstr ""
+
+msgid "Edit contract type"
+msgstr ""
+
+msgid "Contract type"
+msgstr ""
+
+msgid "Business units"
+msgstr ""
+
+msgid "Add business unit"
+msgstr ""
+
+msgid "Edit business unit"
+msgstr ""
+
+msgid "Business unit"
+msgstr ""
+
+msgid "Add branch"
+msgstr ""
+
+msgid "Edit branch"
+msgstr ""
+
+msgid "Parent unit"
+msgstr ""
+
+msgid "Primary branch"
+msgstr ""
+
+msgid "Coordinates"
+msgstr ""
+
+
 msgid "HR Dashboard"
 msgstr ""
 
@@ -33920,67 +33984,3 @@ msgstr ""
 
 msgid "Social responsibility guidelines"
 msgstr ""
-
-msgid "Geographic zones"
-msgstr ""
-
-msgid "Add geographic zone"
-msgstr ""
-
-msgid "Edit geographic zone"
-msgstr ""
-
-msgid "Geographic zone"
-msgstr ""
-
-msgid "Staff statuses"
-msgstr ""
-
-msgid "Add staff status"
-msgstr ""
-
-msgid "Edit staff status"
-msgstr ""
-
-msgid "Staff status"
-msgstr ""
-
-msgid "Contract types"
-msgstr ""
-
-msgid "Add contract type"
-msgstr ""
-
-msgid "Edit contract type"
-msgstr ""
-
-msgid "Contract type"
-msgstr ""
-
-msgid "Business units"
-msgstr ""
-
-msgid "Add business unit"
-msgstr ""
-
-msgid "Edit business unit"
-msgstr ""
-
-msgid "Business unit"
-msgstr ""
-
-msgid "Add branch"
-msgstr ""
-
-msgid "Edit branch"
-msgstr ""
-
-msgid "Parent unit"
-msgstr ""
-
-msgid "Primary branch"
-msgstr ""
-
-msgid "Coordinates"
-msgstr ""
-

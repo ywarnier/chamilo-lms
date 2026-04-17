@@ -33885,3 +33885,189 @@ msgstr "Chào mừng đến với Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Nếu đây là lần đầu bạn sử dụng Chamilo, hãy kiểm tra menu bên để tìm đường qua nhiều tính năng của nó. Nếu bạn cần trợ giúp, bạn sẽ tìm thấy <a href=\"https://docs.chamilo.org\">tài liệu chính thức của chúng tôi</a> có thể giúp cho tài liệu tiêu chuẩn, trong khi <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">diễn đàn trực tuyến</a> của chúng tôi có thể giúp chia sẻ ý tưởng và tìm câu trả lời từ các người dùng Chamilo khác."
 
+msgid "Activities"
+msgstr "Hoạt động"
+
+msgid "Activity categories"
+msgstr "Danh mục hoạt động"
+
+msgid "Add activity"
+msgstr "Thêm hoạt động"
+
+msgid "Add category"
+msgstr "Thêm danh mục"
+
+msgid "Edit activity"
+msgstr "Sửa hoạt động"
+
+msgid "Edit category"
+msgstr "Sửa danh mục"
+
+msgid "Performance objectives"
+msgstr "Mục tiêu hiệu suất"
+
+msgid "Objective categories"
+msgstr "Danh mục mục tiêu"
+
+msgid "Add objective"
+msgstr "Thêm mục tiêu"
+
+msgid "Edit objective"
+msgstr "Sửa mục tiêu"
+
+msgid "Geographic zones"
+msgstr "Vùng địa lý"
+
+msgid "Add geographic zone"
+msgstr "Thêm vùng địa lý"
+
+msgid "Edit geographic zone"
+msgstr "Sửa vùng địa lý"
+
+msgid "Geographic zone"
+msgstr "Vùng địa lý"
+
+msgid "Staff statuses"
+msgstr "Trạng thái nhân viên"
+
+msgid "Add staff status"
+msgstr "Thêm trạng thái nhân viên"
+
+msgid "Edit staff status"
+msgstr "Sửa trạng thái nhân viên"
+
+msgid "Staff status"
+msgstr "Trạng thái nhân viên"
+
+msgid "Contract types"
+msgstr "Loại hợp đồng"
+
+msgid "Add contract type"
+msgstr "Thêm loại hợp đồng"
+
+msgid "Edit contract type"
+msgstr "Sửa loại hợp đồng"
+
+msgid "Contract type"
+msgstr "Loại hợp đồng"
+
+msgid "Business units"
+msgstr "Đơn vị kinh doanh"
+
+msgid "Add business unit"
+msgstr "Thêm đơn vị kinh doanh"
+
+msgid "Edit business unit"
+msgstr "Sửa đơn vị kinh doanh"
+
+msgid "Business unit"
+msgstr "Đơn vị kinh doanh"
+
+msgid "Add branch"
+msgstr "Thêm chi nhánh"
+
+msgid "Edit branch"
+msgstr "Sửa chi nhánh"
+
+msgid "Parent unit"
+msgstr "Đơn vị mẹ"
+
+msgid "Primary branch"
+msgstr "Chi nhánh chính"
+
+msgid "Coordinates"
+msgstr "Tọa độ"
+
+msgid "HR Dashboard"
+msgstr "Bảng điều khiển HR"
+
+msgid "Staff"
+msgstr "Nhân viên"
+
+msgid "Organization"
+msgstr "Tổ chức"
+
+msgid "Performance Management"
+msgstr "Quản lý hiệu suất"
+
+msgid "Recruitment"
+msgstr "Tuyển dụng"
+
+msgid "Benefits"
+msgstr "Phúc lợi"
+
+msgid "ROI and training"
+msgstr "ROI và đào tạo"
+
+msgid "Diversity and social responsibility"
+msgstr "Đa dạng và trách nhiệm xã hội"
+
+msgid "Professional functions"
+msgstr "Chức năng chuyên môn"
+
+msgid "Positions"
+msgstr "Vị trí"
+
+msgid "Units and positions list"
+msgstr "Danh sách đơn vị và vị trí"
+
+msgid "Assign position to user"
+msgstr "Gán vị trí cho người dùng"
+
+msgid "Organizational chart"
+msgstr "Sơ đồ tổ chức"
+
+msgid "Appraisal periods"
+msgstr "Kỳ đánh giá"
+
+msgid "Appraisal templates"
+msgstr "Mẫu đánh giá"
+
+msgid "Performance appraisals"
+msgstr "Đánh giá hiệu suất"
+
+msgid "Recruitment stages"
+msgstr "Giai đoạn tuyển dụng"
+
+msgid "Recruitment processes"
+msgstr "Quy trình tuyển dụng"
+
+msgid "Job offers"
+msgstr "Tin tuyển dụng"
+
+msgid "Team skills goals"
+msgstr "Mục tiêu kỹ năng đội nhóm"
+
+msgid "Benefit tags"
+msgstr "Thẻ phúc lợi"
+
+msgid "Assign benefits"
+msgstr "Gán phúc lợi"
+
+msgid "Assigned benefits"
+msgstr "Phúc lợi đã gán"
+
+msgid "ROI by course"
+msgstr "ROI theo khóa học"
+
+msgid "ROI by person"
+msgstr "ROI theo cá nhân"
+
+msgid "ROI by organizational unit"
+msgstr "ROI theo đơn vị tổ chức"
+
+msgid "Training needs assessment"
+msgstr "Đánh giá nhu cầu đào tạo"
+
+msgid "Work climate surveys"
+msgstr "Khảo sát khí hậu làm việc"
+
+msgid "Diversity criteria"
+msgstr "Tiêu chí đa dạng"
+
+msgid "Diversity guidelines"
+msgstr "Hướng dẫn đa dạng"
+
+msgid "Social responsibility guidelines"
+msgstr "Hướng dẫn trách nhiệm xã hội"
+

@@ -49,6 +49,19 @@ class FeatureContext extends MinkContext
     }
 
     /**
+     * @Given /^I am an HR user$/
+     */
+    public function iAmAnHrUser()
+    {
+        $this->visit('/login');
+        $this->waitForThePageToBeLoaded();
+        $this->fillField('login', 'hr');
+        $this->fillField('password', 'HrHrHr11+');
+        $this->pressButton('Sign in');
+        $this->waitForThePageToBeLoaded();
+    }
+
+    /**
      * @Given /^I am a student boss$/
      */
     public function iAmAStudentBoss()

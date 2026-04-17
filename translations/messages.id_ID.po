@@ -33883,3 +33883,189 @@ msgstr "Selamat datang di Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Jika ini pertama kali Anda menggunakan Chamilo, pastikan Anda memeriksa menu samping untuk menemukan jalan melalui banyak fiturnya. Jika Anda membutuhkan bantuan, Anda akan menemukan <a href=\"https://docs.chamilo.org\">dokumentasi resmi kami</a> dapat membantu untuk dokumentasi standar, sementara <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forum online kami</a> dapat membantu berbagi ide dan menemukan jawaban dari pengguna Chamilo lainnya."
 
+msgid "Activities"
+msgstr "Aktivitas"
+
+msgid "Activity categories"
+msgstr "Kategori aktivitas"
+
+msgid "Add activity"
+msgstr "Tambah aktivitas"
+
+msgid "Add category"
+msgstr "Tambah kategori"
+
+msgid "Edit activity"
+msgstr "Edit aktivitas"
+
+msgid "Edit category"
+msgstr "Edit kategori"
+
+msgid "Performance objectives"
+msgstr "Tujuan kinerja"
+
+msgid "Objective categories"
+msgstr "Kategori tujuan"
+
+msgid "Add objective"
+msgstr "Tambah tujuan"
+
+msgid "Edit objective"
+msgstr "Edit tujuan"
+
+msgid "Geographic zones"
+msgstr "Zona geografis"
+
+msgid "Add geographic zone"
+msgstr "Tambah zona geografis"
+
+msgid "Edit geographic zone"
+msgstr "Edit zona geografis"
+
+msgid "Geographic zone"
+msgstr "Zona geografis"
+
+msgid "Staff statuses"
+msgstr "Status staf"
+
+msgid "Add staff status"
+msgstr "Tambah status staf"
+
+msgid "Edit staff status"
+msgstr "Edit status staf"
+
+msgid "Staff status"
+msgstr "Status staf"
+
+msgid "Contract types"
+msgstr "Jenis kontrak"
+
+msgid "Add contract type"
+msgstr "Tambah jenis kontrak"
+
+msgid "Edit contract type"
+msgstr "Edit jenis kontrak"
+
+msgid "Contract type"
+msgstr "Jenis kontrak"
+
+msgid "Business units"
+msgstr "Unit bisnis"
+
+msgid "Add business unit"
+msgstr "Tambah unit bisnis"
+
+msgid "Edit business unit"
+msgstr "Edit unit bisnis"
+
+msgid "Business unit"
+msgstr "Unit bisnis"
+
+msgid "Add branch"
+msgstr "Tambah cabang"
+
+msgid "Edit branch"
+msgstr "Edit cabang"
+
+msgid "Parent unit"
+msgstr "Unit induk"
+
+msgid "Primary branch"
+msgstr "Cabang utama"
+
+msgid "Coordinates"
+msgstr "Koordinat"
+
+msgid "HR Dashboard"
+msgstr "Dasbor SDM"
+
+msgid "Staff"
+msgstr "Staf"
+
+msgid "Organization"
+msgstr "Organisasi"
+
+msgid "Performance Management"
+msgstr "Manajemen Kinerja"
+
+msgid "Recruitment"
+msgstr "Rekrutmen"
+
+msgid "Benefits"
+msgstr "Tunjangan"
+
+msgid "ROI and training"
+msgstr "ROI dan pelatihan"
+
+msgid "Diversity and social responsibility"
+msgstr "Keberagaman dan tanggung jawab sosial"
+
+msgid "Professional functions"
+msgstr "Fungsi profesional"
+
+msgid "Positions"
+msgstr "Posisi"
+
+msgid "Units and positions list"
+msgstr "Daftar unit dan posisi"
+
+msgid "Assign position to user"
+msgstr "Tetapkan posisi ke pengguna"
+
+msgid "Organizational chart"
+msgstr "Bagan organisasi"
+
+msgid "Appraisal periods"
+msgstr "Periode penilaian"
+
+msgid "Appraisal templates"
+msgstr "Template penilaian"
+
+msgid "Performance appraisals"
+msgstr "Penilaian kinerja"
+
+msgid "Recruitment stages"
+msgstr "Tahap rekrutmen"
+
+msgid "Recruitment processes"
+msgstr "Proses rekrutmen"
+
+msgid "Job offers"
+msgstr "Penawaran pekerjaan"
+
+msgid "Team skills goals"
+msgstr "Target keterampilan tim"
+
+msgid "Benefit tags"
+msgstr "Tag tunjangan"
+
+msgid "Assign benefits"
+msgstr "Tetapkan tunjangan"
+
+msgid "Assigned benefits"
+msgstr "Tunjangan yang ditetapkan"
+
+msgid "ROI by course"
+msgstr "ROI per kursus"
+
+msgid "ROI by person"
+msgstr "ROI per orang"
+
+msgid "ROI by organizational unit"
+msgstr "ROI per unit organisasi"
+
+msgid "Training needs assessment"
+msgstr "Penilaian kebutuhan pelatihan"
+
+msgid "Work climate surveys"
+msgstr "Survei iklim kerja"
+
+msgid "Diversity criteria"
+msgstr "Kriteria keberagaman"
+
+msgid "Diversity guidelines"
+msgstr "Pedoman keberagaman"
+
+msgid "Social responsibility guidelines"
+msgstr "Pedoman tanggung jawab sosial"
+

@@ -33883,3 +33883,189 @@ msgstr "Velkommen til Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Om dette er første gong du brukar Chamilo, sjekk side-menyen for å finne vegen gjennom mange funksjonar. Om du treng hjelp, finn <a href=\"https://docs.chamilo.org\">offisiell dokumentasjon</a> for standard dokumentasjon, medan <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">nettforumet vårt</a> kan hjelpe med å dele idéar og finne svar frå andre Chamilo-brukarar."
 
+msgid "Activities"
+msgstr "Aktiviteter"
+
+msgid "Activity categories"
+msgstr "Aktivitetskategorier"
+
+msgid "Add activity"
+msgstr "Legg til aktivitet"
+
+msgid "Add category"
+msgstr "Legg til kategori"
+
+msgid "Edit activity"
+msgstr "Rediger aktivitet"
+
+msgid "Edit category"
+msgstr "Rediger kategori"
+
+msgid "Performance objectives"
+msgstr "Prestasjonsmål"
+
+msgid "Objective categories"
+msgstr "Målkategorier"
+
+msgid "Add objective"
+msgstr "Legg til mål"
+
+msgid "Edit objective"
+msgstr "Rediger mål"
+
+msgid "Geographic zones"
+msgstr "Geografiske soner"
+
+msgid "Add geographic zone"
+msgstr "Legg til geografisk sone"
+
+msgid "Edit geographic zone"
+msgstr "Rediger geografisk sone"
+
+msgid "Geographic zone"
+msgstr "Geografisk sone"
+
+msgid "Staff statuses"
+msgstr "Personalstatusar"
+
+msgid "Add staff status"
+msgstr "Legg til personalstatus"
+
+msgid "Edit staff status"
+msgstr "Rediger personalstatus"
+
+msgid "Staff status"
+msgstr "Personalstatus"
+
+msgid "Contract types"
+msgstr "Kontrakttypar"
+
+msgid "Add contract type"
+msgstr "Legg til kontrakttype"
+
+msgid "Edit contract type"
+msgstr "Rediger kontrakttype"
+
+msgid "Contract type"
+msgstr "Kontrakttype"
+
+msgid "Business units"
+msgstr "Driftsenheter"
+
+msgid "Add business unit"
+msgstr "Legg til driftsenhet"
+
+msgid "Edit business unit"
+msgstr "Rediger driftsenhet"
+
+msgid "Business unit"
+msgstr "Driftsenhet"
+
+msgid "Add branch"
+msgstr "Legg til avdeling"
+
+msgid "Edit branch"
+msgstr "Rediger avdeling"
+
+msgid "Parent unit"
+msgstr "Overordnet enhet"
+
+msgid "Primary branch"
+msgstr "Primær avdeling"
+
+msgid "Coordinates"
+msgstr "Koordinatar"
+
+msgid "HR Dashboard"
+msgstr "HR Dashboard"
+
+msgid "Staff"
+msgstr "Personell"
+
+msgid "Organization"
+msgstr "Organisasjon"
+
+msgid "Performance Management"
+msgstr "Ytlehandtering"
+
+msgid "Recruitment"
+msgstr "Rekruttering"
+
+msgid "Benefits"
+msgstr "Fordelar"
+
+msgid "ROI and training"
+msgstr "ROI og opplæring"
+
+msgid "Diversity and social responsibility"
+msgstr "Mangfold og sosial ansvar"
+
+msgid "Professional functions"
+msgstr "Faglege funksjonar"
+
+msgid "Positions"
+msgstr "Stillingar"
+
+msgid "Units and positions list"
+msgstr "Liste over einingar og stillingar"
+
+msgid "Assign position to user"
+msgstr "Tildel stilling til brukar"
+
+msgid "Organizational chart"
+msgstr "Organisasjonskart"
+
+msgid "Appraisal periods"
+msgstr "Vurderingsperiodar"
+
+msgid "Appraisal templates"
+msgstr "Vurderingsmal"
+
+msgid "Performance appraisals"
+msgstr "Ytle vurdaringar"
+
+msgid "Recruitment stages"
+msgstr "Rekrutteringsfaser"
+
+msgid "Recruitment processes"
+msgstr "Rekrutteringsprosessar"
+
+msgid "Job offers"
+msgstr "Stillingar"
+
+msgid "Team skills goals"
+msgstr "Teamferdighetsmål"
+
+msgid "Benefit tags"
+msgstr "Fordelsetikettar"
+
+msgid "Assign benefits"
+msgstr "Tildel fordeler"
+
+msgid "Assigned benefits"
+msgstr "Tildelte fordeler"
+
+msgid "ROI by course"
+msgstr "ROI per kurs"
+
+msgid "ROI by person"
+msgstr "ROI per person"
+
+msgid "ROI by organizational unit"
+msgstr "ROI per organisasjonsenhet"
+
+msgid "Training needs assessment"
+msgstr "Behovsundersøking for opplæring"
+
+msgid "Work climate surveys"
+msgstr "Spørreundersøkingar om arbeidsklima"
+
+msgid "Diversity criteria"
+msgstr "Mangefaldskriteria"
+
+msgid "Diversity guidelines"
+msgstr "Retningslinjer for mangfold"
+
+msgid "Social responsibility guidelines"
+msgstr "Retningslinjer for samfunnsansvar"
+

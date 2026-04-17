@@ -33883,3 +33883,189 @@ msgstr "Üdvözöljük a Chamilo-ban"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ha először használja a Chamilo-t, győződjön meg róla, hogy megnézi a oldalsó menüt, hogy eligazodjon számos funkciójában. Ha segítségre van szüksége, a <a href=\"https://docs.chamilo.org\">hivatalos dokumentációnk</a> segíthet a szabványos dokumentációhoz, míg az <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online fórumunk</a> segíthet ötletek megosztásában és más Chamilo-felhasználóktól származó válaszok megtalálásában."
 
+msgid "Activities"
+msgstr "Tevékenységek"
+
+msgid "Activity categories"
+msgstr "Tevékenység kategóriák"
+
+msgid "Add activity"
+msgstr "Tevékenység hozzáadása"
+
+msgid "Add category"
+msgstr "Kategória hozzáadása"
+
+msgid "Edit activity"
+msgstr "Tevékenység szerkesztése"
+
+msgid "Edit category"
+msgstr "Kategória szerkesztése"
+
+msgid "Performance objectives"
+msgstr "Teljesítménycélok"
+
+msgid "Objective categories"
+msgstr "Cél kategóriák"
+
+msgid "Add objective"
+msgstr "Cél hozzáadása"
+
+msgid "Edit objective"
+msgstr "Cél szerkesztése"
+
+msgid "Geographic zones"
+msgstr "Földrajzi zónák"
+
+msgid "Add geographic zone"
+msgstr "Földrajzi zóna hozzáadása"
+
+msgid "Edit geographic zone"
+msgstr "Földrajzi zóna szerkesztése"
+
+msgid "Geographic zone"
+msgstr "Földrajzi zóna"
+
+msgid "Staff statuses"
+msgstr "Személyzeti státuszok"
+
+msgid "Add staff status"
+msgstr "Személyzeti státusz hozzáadása"
+
+msgid "Edit staff status"
+msgstr "Személyzeti státusz szerkesztése"
+
+msgid "Staff status"
+msgstr "Személyzeti státusz"
+
+msgid "Contract types"
+msgstr "Szerződésfajták"
+
+msgid "Add contract type"
+msgstr "Szerződésfajta hozzáadása"
+
+msgid "Edit contract type"
+msgstr "Szerződésfajta szerkesztése"
+
+msgid "Contract type"
+msgstr "Szerződésfajta"
+
+msgid "Business units"
+msgstr "Üzleti egységek"
+
+msgid "Add business unit"
+msgstr "Üzleti egység hozzáadása"
+
+msgid "Edit business unit"
+msgstr "Üzleti egység szerkesztése"
+
+msgid "Business unit"
+msgstr "Üzleti egység"
+
+msgid "Add branch"
+msgstr "Filia hozzáadása"
+
+msgid "Edit branch"
+msgstr "Filia szerkesztése"
+
+msgid "Parent unit"
+msgstr "Szülő egység"
+
+msgid "Primary branch"
+msgstr "Elsődleges fióka"
+
+msgid "Coordinates"
+msgstr "Koordináták"
+
+msgid "HR Dashboard"
+msgstr "HR vezérlőpult"
+
+msgid "Staff"
+msgstr "Személyzet"
+
+msgid "Organization"
+msgstr "Szervezet"
+
+msgid "Performance Management"
+msgstr "Teljesítménykezelés"
+
+msgid "Recruitment"
+msgstr "Toborzás"
+
+msgid "Benefits"
+msgstr "Juttatások"
+
+msgid "ROI and training"
+msgstr "ROI és képzés"
+
+msgid "Diversity and social responsibility"
+msgstr "Sokszínűség és társadalmi felelősségvállalás"
+
+msgid "Professional functions"
+msgstr "Szakmai funkciók"
+
+msgid "Positions"
+msgstr "Beosztások"
+
+msgid "Units and positions list"
+msgstr "Egységek és beosztások listája"
+
+msgid "Assign position to user"
+msgstr "Beosztás felhasználóhoz rendelése"
+
+msgid "Organizational chart"
+msgstr "Szervezeti ábra"
+
+msgid "Appraisal periods"
+msgstr "Értékelési periódusok"
+
+msgid "Appraisal templates"
+msgstr "Értékelési sablonok"
+
+msgid "Performance appraisals"
+msgstr "Teljesítményértékelések"
+
+msgid "Recruitment stages"
+msgstr "Toborzási szakaszok"
+
+msgid "Recruitment processes"
+msgstr "Toborzási folyamatok"
+
+msgid "Job offers"
+msgstr "Álláshirdetések"
+
+msgid "Team skills goals"
+msgstr "Csapat készségcélok"
+
+msgid "Benefit tags"
+msgstr "Juttatás címkék"
+
+msgid "Assign benefits"
+msgstr "Juttatások kiosztása"
+
+msgid "Assigned benefits"
+msgstr "Kiosztott juttatások"
+
+msgid "ROI by course"
+msgstr "ROI kurzsonként"
+
+msgid "ROI by person"
+msgstr "ROI személyenként"
+
+msgid "ROI by organizational unit"
+msgstr "ROI szervezeti egység szerint"
+
+msgid "Training needs assessment"
+msgstr "Képzési igények felmérése"
+
+msgid "Work climate surveys"
+msgstr "Munkahelyi klíma felmérések"
+
+msgid "Diversity criteria"
+msgstr "Sokszínűségi kritériumok"
+
+msgid "Diversity guidelines"
+msgstr "Sokszínűségi irányelvek"
+
+msgid "Social responsibility guidelines"
+msgstr "Társadalmi felelősségvállalási irányelvek"
+

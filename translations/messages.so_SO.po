@@ -340,7 +340,7 @@ msgid "Sincerely"
 msgstr "Si sax ah"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Foomilada tusaale: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Foomulka tusaalaha: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Kala duwanaanshaha doorsoomaha"
@@ -33878,4 +33878,190 @@ msgstr "Ku soo dhawow Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Haddii kani yahay markii ugu horeysay ee aad isticmaasho Chamilo, hubi inaad ka hubiso menu-ka dhinaca bidix si aad u hesho jidka loo maro astaamihiisa badan. Haddii aad u baahan tahay caawinaad, waxaad ka heli doontaa <a href=\"https://docs.chamilo.org\">dukumentiyada rasmiga ah</a> waxay kaa caawin karaan dukumentiga caadiga ah, halka <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">guddiga online-ka</a> uu kaa caawin karo wadaagista fikradaha iyo helista jawaabaha ka yimaada isticmaale kale ee Chamilo."
+
+msgid "Activities"
+msgstr "Dhaqdhaqaaqyada"
+
+msgid "Activity categories"
+msgstr "Qaybaha dhaqdhaqaaqa"
+
+msgid "Add activity"
+msgstr "Ku dar dhaqdhaqaaq"
+
+msgid "Add category"
+msgstr "Ku dar qayb"
+
+msgid "Edit activity"
+msgstr "Tafatir dhaqdhaqaaqa"
+
+msgid "Edit category"
+msgstr "Tafatir qaybta"
+
+msgid "Performance objectives"
+msgstr "Hadafka waxqabadka"
+
+msgid "Objective categories"
+msgstr "Qaybaha Hadafka"
+
+msgid "Add objective"
+msgstr "Ku dar Hadaf"
+
+msgid "Edit objective"
+msgstr "Tafatir Hadafka"
+
+msgid "Geographic zones"
+msgstr "Aagagga Juquraafiyeed"
+
+msgid "Add geographic zone"
+msgstr "Ku dar aagga juquraafiyeed"
+
+msgid "Edit geographic zone"
+msgstr "Tafatir aagga juquraafiyeed"
+
+msgid "Geographic zone"
+msgstr "Aagga Juquraafiyeed"
+
+msgid "Staff statuses"
+msgstr "Xaaladaha shaqaalaha"
+
+msgid "Add staff status"
+msgstr "Ku dar xaaladda shaqaalaha"
+
+msgid "Edit staff status"
+msgstr "Tafatir xaaladda shaqaalaha"
+
+msgid "Staff status"
+msgstr "Xaaladda shaqaalaha"
+
+msgid "Contract types"
+msgstr "Noocyada qandaraaska"
+
+msgid "Add contract type"
+msgstr "Ku dar nooca qandaraaska"
+
+msgid "Edit contract type"
+msgstr "Tafatir nooca qandaraaska"
+
+msgid "Contract type"
+msgstr "Nooca qandaraaska"
+
+msgid "Business units"
+msgstr "Waaxaha ganacsiga"
+
+msgid "Add business unit"
+msgstr "Ku dar waaxda ganacsiga"
+
+msgid "Edit business unit"
+msgstr "Tafatir waaxda ganacsiga"
+
+msgid "Business unit"
+msgstr "Waaxda ganacsiga"
+
+msgid "Add branch"
+msgstr "Ku dar laanta"
+
+msgid "Edit branch"
+msgstr "Tafatir laanta"
+
+msgid "Parent unit"
+msgstr "Waaxda hooyada"
+
+msgid "Primary branch"
+msgstr "Laanta aasaasiga ah"
+
+msgid "Coordinates"
+msgstr "Iskuxirka"
+
+msgid "HR Dashboard"
+msgstr "Dashboard-ka Shaqada"
+
+msgid "Staff"
+msgstr "Shaqaalaha"
+
+msgid "Organization"
+msgstr "Ururka"
+
+msgid "Performance Management"
+msgstr "Maareynta Waxqabadka"
+
+msgid "Recruitment"
+msgstr "Shaqo-qaadista"
+
+msgid "Benefits"
+msgstr "Faa'iidooyinka"
+
+msgid "ROI and training"
+msgstr "ROI iyo tababarka"
+
+msgid "Diversity and social responsibility"
+msgstr "Kala duwanaanshaha iyo mas'uuliyadda bulshada"
+
+msgid "Professional functions"
+msgstr "Hawlo xirfadeed"
+
+msgid "Positions"
+msgstr "Jagooyinka"
+
+msgid "Units and positions list"
+msgstr "Liiska cutubyada iyo jagooyinka"
+
+msgid "Assign position to user"
+msgstr "Ku meele jago isticmaale"
+
+msgid "Organizational chart"
+msgstr "Jaantuska ururka"
+
+msgid "Appraisal periods"
+msgstr "Xilliyada qiimeynta"
+
+msgid "Appraisal templates"
+msgstr "Qaansooyinka qiimeynta"
+
+msgid "Performance appraisals"
+msgstr "Qiimeynta waxqabadka"
+
+msgid "Recruitment stages"
+msgstr "Marxaladaha shaqaaleysiinta"
+
+msgid "Recruitment processes"
+msgstr "Nidaamyada shaqaaleysiinta"
+
+msgid "Job offers"
+msgstr "Bixinta shaqooyinka"
+
+msgid "Team skills goals"
+msgstr "Hadafka xirfadaha kooxda"
+
+msgid "Benefit tags"
+msgstr "Calamadaha faa'iidooyinka"
+
+msgid "Assign benefits"
+msgstr "Qoondeynta faa'iidooyinka"
+
+msgid "Assigned benefits"
+msgstr "Faa'iidooyinka la qoondeeyay"
+
+msgid "ROI by course"
+msgstr "ROI koorsada linkiisa"
+
+msgid "ROI by person"
+msgstr "ROI qofkiisa"
+
+msgid "ROI by organizational unit"
+msgstr "ROI qaybta ururka"
+
+msgid "Training needs assessment"
+msgstr "Qiimeynta baahida tababarka"
+
+msgid "Work climate surveys"
+msgstr "Sahannada jawiga shaqada"
+
+msgid "Diversity criteria"
+msgstr "Shuruudaha kala duwanaanshaha"
+
+msgid "Diversity guidelines"
+msgstr "Tilmaamaha kala duwanaanshaha"
+
+msgid "Social responsibility guidelines"
+msgstr "Tilmaamaha mas'uuliyadda bulshada"
 

@@ -33879,3 +33879,189 @@ msgstr "Velkomin til Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Um hetta er fyrstu ferð tú brúkar Chamilo, so trygg at tú skoðar síðuna til at finna veg fram gjøgnum harin mongu funktionirnar. Um tú hevur brúk fyri hjálp, so finnur tú <a href=\"https://docs.chamilo.org\">okkara stovnrætta dokumentation</a> hjálpir við vanligum tingum, meðan okkara <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> kann hjálpa við at deila hugmyndum og finna svar hjá øðrum Chamilo-brúkarum."
 
+msgid "Activities"
+msgstr "Virkin"
+
+msgid "Activity categories"
+msgstr "Virkini bólkar"
+
+msgid "Add activity"
+msgstr "Legg afturat virki"
+
+msgid "Add category"
+msgstr "Legg bólk afturat"
+
+msgid "Edit activity"
+msgstr "Broyt virki"
+
+msgid "Edit category"
+msgstr "Brota flokk"
+
+msgid "Performance objectives"
+msgstr "Avrikamál"
+
+msgid "Objective categories"
+msgstr "Málbólkar"
+
+msgid "Add objective"
+msgstr "Legg afturat mál"
+
+msgid "Edit objective"
+msgstr "Broyt mál"
+
+msgid "Geographic zones"
+msgstr "Geografiskar svøður"
+
+msgid "Add geographic zone"
+msgstr "Legg afturat geografisk svøð"
+
+msgid "Edit geographic zone"
+msgstr "Broyt geografisk svøð"
+
+msgid "Geographic zone"
+msgstr "Geografisk svøð"
+
+msgid "Staff statuses"
+msgstr "Starvsstøðu"
+
+msgid "Add staff status"
+msgstr "Legg afturat starvsstøðu"
+
+msgid "Edit staff status"
+msgstr "Broyt starvsstøðu"
+
+msgid "Staff status"
+msgstr "Starvsstøða"
+
+msgid "Contract types"
+msgstr "Samtyppir"
+
+msgid "Add contract type"
+msgstr "Legg afturat samtyppi"
+
+msgid "Edit contract type"
+msgstr "Broyt samtyppi"
+
+msgid "Contract type"
+msgstr "Samtyppi"
+
+msgid "Business units"
+msgstr "Verkleiðslueiningar"
+
+msgid "Add business unit"
+msgstr "Legg afturat verkleiðslueining"
+
+msgid "Edit business unit"
+msgstr "Broyt verkleiðslueining"
+
+msgid "Business unit"
+msgstr "Verkleiðslueining"
+
+msgid "Add branch"
+msgstr "Legg afturat grein"
+
+msgid "Edit branch"
+msgstr "Broyt grein"
+
+msgid "Parent unit"
+msgstr "Foreldraeining"
+
+msgid "Primary branch"
+msgstr "Primara grein"
+
+msgid "Coordinates"
+msgstr "Kordinaturnar"
+
+msgid "HR Dashboard"
+msgstr "HR Dashboard"
+
+msgid "Staff"
+msgstr "Starvsfólk"
+
+msgid "Organization"
+msgstr "Organisation"
+
+msgid "Performance Management"
+msgstr "Avrikstýring"
+
+msgid "Recruitment"
+msgstr "Atvinnuleiting"
+
+msgid "Benefits"
+msgstr "Avgerðir"
+
+msgid "ROI and training"
+msgstr "ROI og útbúgving"
+
+msgid "Diversity and social responsibility"
+msgstr "Fjölbreytni og felagsansvar"
+
+msgid "Professional functions"
+msgstr "Starvsstøðuvirkna"
+
+msgid "Positions"
+msgstr "Støður"
+
+msgid "Units and positions list"
+msgstr "Listi yvir einingar og støður"
+
+msgid "Assign position to user"
+msgstr "Vísa støðu til brúkara"
+
+msgid "Organizational chart"
+msgstr "Støðuskipan"
+
+msgid "Appraisal periods"
+msgstr "Metingar tímabil"
+
+msgid "Appraisal templates"
+msgstr "Mettingarmyndir"
+
+msgid "Performance appraisals"
+msgstr "Avrikmetingar"
+
+msgid "Recruitment stages"
+msgstr "Etappir í atvinnuleiting"
+
+msgid "Recruitment processes"
+msgstr "Atvinnuleitingsferlir"
+
+msgid "Job offers"
+msgstr "Starvsúrtilboð"
+
+msgid "Team skills goals"
+msgstr "Liðsfæriligar mál"
+
+msgid "Benefit tags"
+msgstr "Avgerðamerki"
+
+msgid "Assign benefits"
+msgstr "Vísa avgerðir"
+
+msgid "Assigned benefits"
+msgstr "Vísar avgerðir"
+
+msgid "ROI by course"
+msgstr "ROI eftir kursi"
+
+msgid "ROI by person"
+msgstr "ROI eftir persóni"
+
+msgid "ROI by organizational unit"
+msgstr "ROI eftir felagsstovnu"
+
+msgid "Training needs assessment"
+msgstr "Metan av útbúgvingaravnøjum"
+
+msgid "Work climate surveys"
+msgstr "Arbaðsumhvørvisspurningar"
+
+msgid "Diversity criteria"
+msgstr "Fjölbreytniskriterium"
+
+msgid "Diversity guidelines"
+msgstr "Fjölbreytnislóanir"
+
+msgid "Social responsibility guidelines"
+msgstr "Lóanir um felagsansvar"
+

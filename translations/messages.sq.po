@@ -33883,3 +33883,189 @@ msgstr "Mirësevini në Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Nëse kjo është hera juaj e parë që përdorni Chamilo, sigurohuni të kontrolloni menunë anësore për të gjetur rrugën nëpër shumë karakteristikat e saj. Nëse keni nevojë për ndihmë, do të gjeni <a href=\"https://docs.chamilo.org\">dokumentacionin tonë zyrtar</a> mund të ndihmojë për dokumentacionin standard, ndërsa <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forumi ynë online</a> mund të ndihmojë për të ndarë ide dhe për të gjetur përgjigje nga përdorues të tjerë të Chamilo."
 
+msgid "Activities"
+msgstr "Aktivitete"
+
+msgid "Activity categories"
+msgstr "Kategori aktivitetesh"
+
+msgid "Add activity"
+msgstr "Shto aktivitet"
+
+msgid "Add category"
+msgstr "Shto kategori"
+
+msgid "Edit activity"
+msgstr "Ndrysho aktivitet"
+
+msgid "Edit category"
+msgstr "Ndrysho kategorinë"
+
+msgid "Performance objectives"
+msgstr "Objektiva performancash"
+
+msgid "Objective categories"
+msgstr "Kategori objektivash"
+
+msgid "Add objective"
+msgstr "Shto objektiv"
+
+msgid "Edit objective"
+msgstr "Ndrysho objektiv"
+
+msgid "Geographic zones"
+msgstr "Zona gjeografike"
+
+msgid "Add geographic zone"
+msgstr "Shto zonë gjeografike"
+
+msgid "Edit geographic zone"
+msgstr "Ndrysho zonë gjeografike"
+
+msgid "Geographic zone"
+msgstr "Zonë gjeografike"
+
+msgid "Staff statuses"
+msgstr "Statuset e stafit"
+
+msgid "Add staff status"
+msgstr "Shto status stafi"
+
+msgid "Edit staff status"
+msgstr "Ndrysho status stafi"
+
+msgid "Staff status"
+msgstr "Status stafi"
+
+msgid "Contract types"
+msgstr "Llojet e kontratave"
+
+msgid "Add contract type"
+msgstr "Shto lloj kontrate"
+
+msgid "Edit contract type"
+msgstr "Ndrysho lloj kontrate"
+
+msgid "Contract type"
+msgstr "Lloji i kontratës"
+
+msgid "Business units"
+msgstr "Njësitë e biznesit"
+
+msgid "Add business unit"
+msgstr "Shto njësi biznesi"
+
+msgid "Edit business unit"
+msgstr "Ndrysho njësi biznesi"
+
+msgid "Business unit"
+msgstr "Njësia e biznesit"
+
+msgid "Add branch"
+msgstr "Shto degë"
+
+msgid "Edit branch"
+msgstr "Ndrysho degë"
+
+msgid "Parent unit"
+msgstr "Njësia mëmë"
+
+msgid "Primary branch"
+msgstr "Degë kryesore"
+
+msgid "Coordinates"
+msgstr "Koordinatat"
+
+msgid "HR Dashboard"
+msgstr "Paneli i burimeve njerëzore"
+
+msgid "Staff"
+msgstr "Punonjës"
+
+msgid "Organization"
+msgstr "Organizatë"
+
+msgid "Performance Management"
+msgstr "Menaxhimi i performancës"
+
+msgid "Recruitment"
+msgstr "Rekrutimi"
+
+msgid "Benefits"
+msgstr "Përfitimet"
+
+msgid "ROI and training"
+msgstr "ROI dhe trajnimi"
+
+msgid "Diversity and social responsibility"
+msgstr "Diversiteti dhe përgjegjësia sociale"
+
+msgid "Professional functions"
+msgstr "Funksionet profesionale"
+
+msgid "Positions"
+msgstr "Pozicionet"
+
+msgid "Units and positions list"
+msgstr "Lista e njësive dhe pozicioneve"
+
+msgid "Assign position to user"
+msgstr "Cakto pozicionin te përdoruesi"
+
+msgid "Organizational chart"
+msgstr "Diagrami organizativ"
+
+msgid "Appraisal periods"
+msgstr "Periudhat e vlerësimit"
+
+msgid "Appraisal templates"
+msgstr "Modelet e vlerësimit"
+
+msgid "Performance appraisals"
+msgstr "Vlerësimet e performancës"
+
+msgid "Recruitment stages"
+msgstr "Etapat e rekrutimit"
+
+msgid "Recruitment processes"
+msgstr "Proceset e rekrutimit"
+
+msgid "Job offers"
+msgstr "Ofertët e punës"
+
+msgid "Team skills goals"
+msgstr "Qëllimet e aftësive të ekipit"
+
+msgid "Benefit tags"
+msgstr "Etiketat e përfitimeve"
+
+msgid "Assign benefits"
+msgstr "Caktoni përfitimet"
+
+msgid "Assigned benefits"
+msgstr "Përfitimet e caktuara"
+
+msgid "ROI by course"
+msgstr "ROI sipas kursit"
+
+msgid "ROI by person"
+msgstr "ROI sipas personit"
+
+msgid "ROI by organizational unit"
+msgstr "ROI sipas njësisë organizative"
+
+msgid "Training needs assessment"
+msgstr "Vlerësimi i nevojave të trajnimit"
+
+msgid "Work climate surveys"
+msgstr "Anketat e klimës së punës"
+
+msgid "Diversity criteria"
+msgstr "Kriteret e diversitetit"
+
+msgid "Diversity guidelines"
+msgstr "Udhëzimet e diversitetit"
+
+msgid "Social responsibility guidelines"
+msgstr "Udhëzimet e përgjegjësisë sociale"
+

@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":是:有版權,, 否:無版權"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:資料夾,, application/msword:MsWord,, application/octet-stream:八位元組流,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:資料夾,, application/msword:MsWord,, application/octet-stream:八位元組串流,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":練習:練習,, 類比:類比,, 問卷:問卷,, 圖表:圖表,, 圖:圖,, 圖:圖,, 索引:索引,, 幻燈:幻燈,, 表:表,, 描述文本:描述文本,, 考試:考試,, 實驗:實驗,, 問題聲明:問題聲明,, 自我評價:自我評價,, 演講:演講"
@@ -33884,4 +33884,190 @@ msgstr "歡迎來到 Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> 如果這是您第一次使用 Chamilo，請檢查側邊選單來探索其眾多功能。如果您需要幫助，您會發現 <a href=\"https://docs.chamilo.org\">我們的官方文件</a> 可提供標準文件，而我們的 <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">線上論壇</a> 可幫助分享想法並從其他 Chamilo 使用者那裡找到答案。"
+
+msgid "Activities"
+msgstr "活動"
+
+msgid "Activity categories"
+msgstr "活動類別"
+
+msgid "Add activity"
+msgstr "新增活動"
+
+msgid "Add category"
+msgstr "新增類別"
+
+msgid "Edit activity"
+msgstr "編輯活動"
+
+msgid "Edit category"
+msgstr "編輯分類"
+
+msgid "Performance objectives"
+msgstr "績效目標"
+
+msgid "Objective categories"
+msgstr "目標類別"
+
+msgid "Add objective"
+msgstr "新增目標"
+
+msgid "Edit objective"
+msgstr "編輯目標"
+
+msgid "Geographic zones"
+msgstr "地理區域"
+
+msgid "Add geographic zone"
+msgstr "新增地理區域"
+
+msgid "Edit geographic zone"
+msgstr "編輯地理區域"
+
+msgid "Geographic zone"
+msgstr "地理區域"
+
+msgid "Staff statuses"
+msgstr "員工狀態"
+
+msgid "Add staff status"
+msgstr "新增員工狀態"
+
+msgid "Edit staff status"
+msgstr "編輯員工狀態"
+
+msgid "Staff status"
+msgstr "員工狀態"
+
+msgid "Contract types"
+msgstr "合約類型"
+
+msgid "Add contract type"
+msgstr "新增合約類型"
+
+msgid "Edit contract type"
+msgstr "編輯合約類型"
+
+msgid "Contract type"
+msgstr "合約類型"
+
+msgid "Business units"
+msgstr "業務單位"
+
+msgid "Add business unit"
+msgstr "新增業務單位"
+
+msgid "Edit business unit"
+msgstr "編輯業務單位"
+
+msgid "Business unit"
+msgstr "業務單位"
+
+msgid "Add branch"
+msgstr "新增分支"
+
+msgid "Edit branch"
+msgstr "編輯分支"
+
+msgid "Parent unit"
+msgstr "上層單位"
+
+msgid "Primary branch"
+msgstr "主要分支"
+
+msgid "Coordinates"
+msgstr "座標"
+
+msgid "HR Dashboard"
+msgstr "人力資源儀表板"
+
+msgid "Staff"
+msgstr "員工"
+
+msgid "Organization"
+msgstr "組織"
+
+msgid "Performance Management"
+msgstr "績效管理"
+
+msgid "Recruitment"
+msgstr "招募"
+
+msgid "Benefits"
+msgstr "福利"
+
+msgid "ROI and training"
+msgstr "ROI 和訓練"
+
+msgid "Diversity and social responsibility"
+msgstr "多樣性和社會責任"
+
+msgid "Professional functions"
+msgstr "專業職能"
+
+msgid "Positions"
+msgstr "職位"
+
+msgid "Units and positions list"
+msgstr "單位與職位清單"
+
+msgid "Assign position to user"
+msgstr "指派職位給使用者"
+
+msgid "Organizational chart"
+msgstr "組織圖"
+
+msgid "Appraisal periods"
+msgstr "考核期間"
+
+msgid "Appraisal templates"
+msgstr "考核模板"
+
+msgid "Performance appraisals"
+msgstr "績效考核"
+
+msgid "Recruitment stages"
+msgstr "招募階段"
+
+msgid "Recruitment processes"
+msgstr "招募流程"
+
+msgid "Job offers"
+msgstr "職位空缺"
+
+msgid "Team skills goals"
+msgstr "團隊技能目標"
+
+msgid "Benefit tags"
+msgstr "福利標籤"
+
+msgid "Assign benefits"
+msgstr "指派福利"
+
+msgid "Assigned benefits"
+msgstr "已指派福利"
+
+msgid "ROI by course"
+msgstr "課程 ROI"
+
+msgid "ROI by person"
+msgstr "個人 ROI"
+
+msgid "ROI by organizational unit"
+msgstr "組織單位 ROI"
+
+msgid "Training needs assessment"
+msgstr "訓練需求評估"
+
+msgid "Work climate surveys"
+msgstr "工作氣候調查"
+
+msgid "Diversity criteria"
+msgstr "多樣性標準"
+
+msgid "Diversity guidelines"
+msgstr "多樣性指南"
+
+msgid "Social responsibility guidelines"
+msgstr "社會責任指南"
 

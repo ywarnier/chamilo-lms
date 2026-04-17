@@ -35451,3 +35451,189 @@ msgstr "Willkommen bei Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Wenn Sie Chamilo zum ersten Mal verwenden, schauen Sie bitte im Seitenmenü nach, um sich durch die vielen Funktionen zu navigieren. Wenn Sie Hilfe benötigen, finden Sie in <a href=\"https://docs.chamilo.org\">unserer offiziellen Dokumentation</a> Standarddokumentation und in unserem <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">Online-Forum</a> Ideen und Antworten von anderen Chamilo-Nutzern."
 
+msgid "Activities"
+msgstr "Aktivitäten"
+
+msgid "Activity categories"
+msgstr "Aktivitätkategorien"
+
+msgid "Add activity"
+msgstr "Aktivität hinzufügen"
+
+msgid "Add category"
+msgstr "Kategorie hinzufügen"
+
+msgid "Edit activity"
+msgstr "Aktivität bearbeiten"
+
+msgid "Edit category"
+msgstr "Kategorie bearbeiten"
+
+msgid "Performance objectives"
+msgstr "Leistungsziele"
+
+msgid "Objective categories"
+msgstr "Zielkategorien"
+
+msgid "Add objective"
+msgstr "Ziel hinzufügen"
+
+msgid "Edit objective"
+msgstr "Ziel bearbeiten"
+
+msgid "Geographic zones"
+msgstr "Geografische Zonen"
+
+msgid "Add geographic zone"
+msgstr "Geografische Zone hinzufügen"
+
+msgid "Edit geographic zone"
+msgstr "Geografische Zone bearbeiten"
+
+msgid "Geographic zone"
+msgstr "Geografische Zone"
+
+msgid "Staff statuses"
+msgstr "Personalstatus"
+
+msgid "Add staff status"
+msgstr "Personalstatus hinzufügen"
+
+msgid "Edit staff status"
+msgstr "Personalstatus bearbeiten"
+
+msgid "Staff status"
+msgstr "Personalstatus"
+
+msgid "Contract types"
+msgstr "Vertragstypen"
+
+msgid "Add contract type"
+msgstr "Vertragstyp hinzufügen"
+
+msgid "Edit contract type"
+msgstr "Vertragstyp bearbeiten"
+
+msgid "Contract type"
+msgstr "Vertragstyp"
+
+msgid "Business units"
+msgstr "Geschäftseinheiten"
+
+msgid "Add business unit"
+msgstr "Geschäftseinheit hinzufügen"
+
+msgid "Edit business unit"
+msgstr "Geschäftseinheit bearbeiten"
+
+msgid "Business unit"
+msgstr "Geschäftseinheit"
+
+msgid "Add branch"
+msgstr "Niederlassung hinzufügen"
+
+msgid "Edit branch"
+msgstr "Niederlassung bearbeiten"
+
+msgid "Parent unit"
+msgstr "Übergeordnete Einheit"
+
+msgid "Primary branch"
+msgstr "Hauptniederlassung"
+
+msgid "Coordinates"
+msgstr "Koordinaten"
+
+msgid "HR Dashboard"
+msgstr "HR-Dashboard"
+
+msgid "Staff"
+msgstr "Personal"
+
+msgid "Organization"
+msgstr "Organisation"
+
+msgid "Performance Management"
+msgstr "Leistungsmanagement"
+
+msgid "Recruitment"
+msgstr "Rekrutierung"
+
+msgid "Benefits"
+msgstr "Sozialleistungen"
+
+msgid "ROI and training"
+msgstr "ROI und Schulung"
+
+msgid "Diversity and social responsibility"
+msgstr "Vielfalt und soziale Verantwortung"
+
+msgid "Professional functions"
+msgstr "Berufliche Funktionen"
+
+msgid "Positions"
+msgstr "Positionen"
+
+msgid "Units and positions list"
+msgstr "Liste Einheiten und Positionen"
+
+msgid "Assign position to user"
+msgstr "Position Benutzer zuweisen"
+
+msgid "Organizational chart"
+msgstr "Organigramm"
+
+msgid "Appraisal periods"
+msgstr "Bewertungsperioden"
+
+msgid "Appraisal templates"
+msgstr "Bewertungsvorlagen"
+
+msgid "Performance appraisals"
+msgstr "Leistungsbeurteilungen"
+
+msgid "Recruitment stages"
+msgstr "Rekrutierungsstufen"
+
+msgid "Recruitment processes"
+msgstr "Rekrutierungsprozesse"
+
+msgid "Job offers"
+msgstr "Stellenangebote"
+
+msgid "Team skills goals"
+msgstr "Team-Fähigkeitsziele"
+
+msgid "Benefit tags"
+msgstr "Leistungs-Tags"
+
+msgid "Assign benefits"
+msgstr "Leistungen zuweisen"
+
+msgid "Assigned benefits"
+msgstr "Zugewiesene Leistungen"
+
+msgid "ROI by course"
+msgstr "ROI nach Kurs"
+
+msgid "ROI by person"
+msgstr "ROI nach Person"
+
+msgid "ROI by organizational unit"
+msgstr "ROI nach Organisationseinheit"
+
+msgid "Training needs assessment"
+msgstr "Bedarfsanalyse Schulung"
+
+msgid "Work climate surveys"
+msgstr "Arbeitsklimabefragungen"
+
+msgid "Diversity criteria"
+msgstr "Vielfaltskriterien"
+
+msgid "Diversity guidelines"
+msgstr "Vielfaltsrichtlinien"
+
+msgid "Social responsibility guidelines"
+msgstr "Richtlinien soziale Verantwortung"
+

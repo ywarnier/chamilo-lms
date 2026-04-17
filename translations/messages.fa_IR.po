@@ -33883,3 +33883,189 @@ msgstr "به Chamilo خوش آمدید"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> اگر اولین بار است که از Chamilo استفاده می‌کنید، مطمئن شوید که منوی کناری را بررسی کنید تا راه خود را در میان ویژگی‌های متعدد آن پیدا کنید. اگر به کمک نیاز دارید، <a href=\"https://docs.chamilo.org\">مستندات رسمی ما</a> برای مستندات استاندارد کمک‌کننده است، در حالی که <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">انجمن آنلاین ما</a> می‌تواند برای به اشتراک گذاشتن ایده‌ها و یافتن پاسخ‌ها از دیگر کاربران Chamilo کمک کند."
 
+msgid "Activities"
+msgstr "فعالیت‌ها"
+
+msgid "Activity categories"
+msgstr "دسته‌بندی‌های فعالیت"
+
+msgid "Add activity"
+msgstr "افزودن فعالیت"
+
+msgid "Add category"
+msgstr "افزودن دسته بندی"
+
+msgid "Edit activity"
+msgstr "ویرایش فعالیت"
+
+msgid "Edit category"
+msgstr "ویرایش دسته بندی"
+
+msgid "Performance objectives"
+msgstr "اهداف عملکردی"
+
+msgid "Objective categories"
+msgstr "دسته‌بندی‌های هدف"
+
+msgid "Add objective"
+msgstr "افزودن هدف"
+
+msgid "Edit objective"
+msgstr "ویرایش هدف"
+
+msgid "Geographic zones"
+msgstr "مناطق جغرافیایی"
+
+msgid "Add geographic zone"
+msgstr "افزودن منطقه جغرافیایی"
+
+msgid "Edit geographic zone"
+msgstr "ویرایش منطقه جغرافیایی"
+
+msgid "Geographic zone"
+msgstr "منطقه جغرافیایی"
+
+msgid "Staff statuses"
+msgstr "وضعیت‌های کارکنان"
+
+msgid "Add staff status"
+msgstr "افزودن وضعیت کارکنان"
+
+msgid "Edit staff status"
+msgstr "ویرایش وضعیت کارکنان"
+
+msgid "Staff status"
+msgstr "وضعیت کارکنان"
+
+msgid "Contract types"
+msgstr "انواع قرارداد"
+
+msgid "Add contract type"
+msgstr "افزودن نوع قرارداد"
+
+msgid "Edit contract type"
+msgstr "ویرایش نوع قرارداد"
+
+msgid "Contract type"
+msgstr "نوع قرارداد"
+
+msgid "Business units"
+msgstr "واحدهای تجاری"
+
+msgid "Add business unit"
+msgstr "افزودن واحد تجاری"
+
+msgid "Edit business unit"
+msgstr "ویرایش واحد تجاری"
+
+msgid "Business unit"
+msgstr "واحد تجاری"
+
+msgid "Add branch"
+msgstr "افزودن شعبه"
+
+msgid "Edit branch"
+msgstr "ویرایش شعبه"
+
+msgid "Parent unit"
+msgstr "واحد والد"
+
+msgid "Primary branch"
+msgstr "شعبه اصلی"
+
+msgid "Coordinates"
+msgstr "مختصات"
+
+msgid "HR Dashboard"
+msgstr "داشبورد منابع انسانی"
+
+msgid "Staff"
+msgstr "کارکنان"
+
+msgid "Organization"
+msgstr "سازمان"
+
+msgid "Performance Management"
+msgstr "مدیریت عملکرد"
+
+msgid "Recruitment"
+msgstr "استخدام"
+
+msgid "Benefits"
+msgstr "مزایا"
+
+msgid "ROI and training"
+msgstr "ROI و آموزش"
+
+msgid "Diversity and social responsibility"
+msgstr "تنوع و مسئولیت اجتماعی"
+
+msgid "Professional functions"
+msgstr "عملکردهای حرفه‌ای"
+
+msgid "Positions"
+msgstr "سمت‌ها"
+
+msgid "Units and positions list"
+msgstr "لیست واحدها و سمت‌ها"
+
+msgid "Assign position to user"
+msgstr "اختصاص سمت به کاربر"
+
+msgid "Organizational chart"
+msgstr "چارت سازمانی"
+
+msgid "Appraisal periods"
+msgstr "دوره‌های ارزیابی"
+
+msgid "Appraisal templates"
+msgstr "قالب‌های ارزیابی"
+
+msgid "Performance appraisals"
+msgstr "ارزیابی‌های عملکرد"
+
+msgid "Recruitment stages"
+msgstr "مراحل استخدام"
+
+msgid "Recruitment processes"
+msgstr "فرآیندهای استخدام"
+
+msgid "Job offers"
+msgstr "پیشنهادهای شغلی"
+
+msgid "Team skills goals"
+msgstr "اهداف مهارتی تیم"
+
+msgid "Benefit tags"
+msgstr "برچسب‌های مزایا"
+
+msgid "Assign benefits"
+msgstr "اختصاص مزایا"
+
+msgid "Assigned benefits"
+msgstr "مزایای اختصاص‌یافته"
+
+msgid "ROI by course"
+msgstr "ROI بر اساس دوره"
+
+msgid "ROI by person"
+msgstr "ROI بر اساس شخص"
+
+msgid "ROI by organizational unit"
+msgstr "ROI بر اساس واحد سازمانی"
+
+msgid "Training needs assessment"
+msgstr "ارزیابی نیازهای آموزشی"
+
+msgid "Work climate surveys"
+msgstr "نظرسنجی‌های فضای کاری"
+
+msgid "Diversity criteria"
+msgstr "معیارهای تنوع"
+
+msgid "Diversity guidelines"
+msgstr "راهنماهای تنوع"
+
+msgid "Social responsibility guidelines"
+msgstr "راهنماهای مسئولیت اجتماعی"
+

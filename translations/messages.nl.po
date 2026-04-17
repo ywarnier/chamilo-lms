@@ -35963,3 +35963,189 @@ msgstr "Welkom bij Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Als dit je eerste keer is dat je Chamilo gebruikt, zorg er dan voor dat je het zijmenu bekijkt om je weg te vinden door de vele functies. Als je hulp nodig hebt, vind je <a href=\"https://docs.chamilo.org\">onze officiële documentatie</a> voor standaarddocumentatie, terwijl ons <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> kan helpen om ideeën te delen en antwoorden te vinden van andere Chamilo-gebruikers."
 
+msgid "Activities"
+msgstr "Activiteiten"
+
+msgid "Activity categories"
+msgstr "Activiteitscategorieën"
+
+msgid "Add activity"
+msgstr "Activiteit toevoegen"
+
+msgid "Add category"
+msgstr "Voeg categorie toe"
+
+msgid "Edit activity"
+msgstr "Activiteit bewerken"
+
+msgid "Edit category"
+msgstr "Categorie wijzigen"
+
+msgid "Performance objectives"
+msgstr "Prestatiedoelen"
+
+msgid "Objective categories"
+msgstr "Doelcategorieën"
+
+msgid "Add objective"
+msgstr "Doel toevoegen"
+
+msgid "Edit objective"
+msgstr "Doel bewerken"
+
+msgid "Geographic zones"
+msgstr "Geografische zones"
+
+msgid "Add geographic zone"
+msgstr "Geografische zone toevoegen"
+
+msgid "Edit geographic zone"
+msgstr "Geografische zone bewerken"
+
+msgid "Geographic zone"
+msgstr "Geografische zone"
+
+msgid "Staff statuses"
+msgstr "Personeelsstatussen"
+
+msgid "Add staff status"
+msgstr "Personeelsstatus toevoegen"
+
+msgid "Edit staff status"
+msgstr "Personeelsstatus bewerken"
+
+msgid "Staff status"
+msgstr "Personeelsstatus"
+
+msgid "Contract types"
+msgstr "Contracttypen"
+
+msgid "Add contract type"
+msgstr "Contracttype toevoegen"
+
+msgid "Edit contract type"
+msgstr "Contracttype bewerken"
+
+msgid "Contract type"
+msgstr "Contracttype"
+
+msgid "Business units"
+msgstr "Bedrijfsunits"
+
+msgid "Add business unit"
+msgstr "Bedrijfsunit toevoegen"
+
+msgid "Edit business unit"
+msgstr "Bedrijfsunit bewerken"
+
+msgid "Business unit"
+msgstr "Bedrijfsunit"
+
+msgid "Add branch"
+msgstr "Tak toevoegen"
+
+msgid "Edit branch"
+msgstr "Tak bewerken"
+
+msgid "Parent unit"
+msgstr "Ouderunit"
+
+msgid "Primary branch"
+msgstr "Primaire tak"
+
+msgid "Coordinates"
+msgstr "Coördinaten"
+
+msgid "HR Dashboard"
+msgstr "HR-dashboard"
+
+msgid "Staff"
+msgstr "Personeel"
+
+msgid "Organization"
+msgstr "Organisatie"
+
+msgid "Performance Management"
+msgstr "Prestatiebeheer"
+
+msgid "Recruitment"
+msgstr "Werving"
+
+msgid "Benefits"
+msgstr "Voordelen"
+
+msgid "ROI and training"
+msgstr "ROI en opleiding"
+
+msgid "Diversity and social responsibility"
+msgstr "Diversiteit en sociale verantwoordelijkheid"
+
+msgid "Professional functions"
+msgstr "Professionele functies"
+
+msgid "Positions"
+msgstr "Posities"
+
+msgid "Units and positions list"
+msgstr "Lijst eenheden en posities"
+
+msgid "Assign position to user"
+msgstr "Positie toewijzen aan gebruiker"
+
+msgid "Organizational chart"
+msgstr "Organogram"
+
+msgid "Appraisal periods"
+msgstr "Beoordelingsperiodes"
+
+msgid "Appraisal templates"
+msgstr "Beoordelingssjablonen"
+
+msgid "Performance appraisals"
+msgstr "Prestatiebeoordelingen"
+
+msgid "Recruitment stages"
+msgstr "Wervingsfasen"
+
+msgid "Recruitment processes"
+msgstr "Wervingsprocessen"
+
+msgid "Job offers"
+msgstr "Vacatures"
+
+msgid "Team skills goals"
+msgstr "Teamvaardigheidsdoelen"
+
+msgid "Benefit tags"
+msgstr "Voordelenlabels"
+
+msgid "Assign benefits"
+msgstr "Voordelen toewijzen"
+
+msgid "Assigned benefits"
+msgstr "Toegewezen voordelen"
+
+msgid "ROI by course"
+msgstr "ROI per cursus"
+
+msgid "ROI by person"
+msgstr "ROI per persoon"
+
+msgid "ROI by organizational unit"
+msgstr "ROI per organisatorische eenheid"
+
+msgid "Training needs assessment"
+msgstr "Opleidingsbehoeftebeoordeling"
+
+msgid "Work climate surveys"
+msgstr "Werkklimaatonderzoeken"
+
+msgid "Diversity criteria"
+msgstr "Diversiteitscriteria"
+
+msgid "Diversity guidelines"
+msgstr "Diversiteitsrichtlijnen"
+
+msgid "Social responsibility guidelines"
+msgstr "Richtlijnen sociale verantwoordelijkheid"
+

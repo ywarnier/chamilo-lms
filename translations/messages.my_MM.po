@@ -33883,3 +33883,189 @@ msgstr "Chamilo သို့ ဧည့်ခံပါသည်"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Chamilo ကို ပထမဆုံး သုံးကြုံခဲ့ရင်၊ ဘေးမီနူးကို စစ်ဆေးပြီး အင်္ဂါရပ်များစွာကို ရှာဖွေပါ။ အကူအညီ လိုအပ်ပါက၊ <a href=\"https://docs.chamilo.org\">တရားဝင် စာရွက်စာတမ်းများ</a> က စံ စာရွက်စာတမ်းများအတွက် ကူညီပေးနိုင်ပြီး၊ <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">အွန်လိုင်း ဖိုရမ်</a> က Chamilo အသုံးပြုသူများထံမှ အကြံဉာဏ်များမျှဝေပြီး အဖြေများ ရှာဖွေနိုင်ပါသည်။"
 
+msgid "Activities"
+msgstr "လှုပ်ရှားမှုများ"
+
+msgid "Activity categories"
+msgstr "လှုပ်ရှားမှု အမျိုးအစားများ"
+
+msgid "Add activity"
+msgstr "လှုပ်ရှားမှု ထပ်မံထည့်ရန်"
+
+msgid "Add category"
+msgstr "အမျိုးအစားထည့်ပါ"
+
+msgid "Edit activity"
+msgstr "လှုပ်ရှားမှု တည်းဖြတ်ရန်"
+
+msgid "Edit category"
+msgstr "အမျိုးအစားကို တည်းဖြတ်ပါ"
+
+msgid "Performance objectives"
+msgstr "စွမ်းဆောင်ရည် ရည်မှန်းချက်များ"
+
+msgid "Objective categories"
+msgstr "ရည်မှန်းချက် အမျိုးအစားများ"
+
+msgid "Add objective"
+msgstr "ရည်မှန်းချက် ထပ်မံထည့်ရန်"
+
+msgid "Edit objective"
+msgstr "ရည်မှန်းချက် တည်းဖြတ်ရန်"
+
+msgid "Geographic zones"
+msgstr "ပထဝီအနေရာများ"
+
+msgid "Add geographic zone"
+msgstr "ပထဝီအနေရာ ထပ်မံထည့်ရန်"
+
+msgid "Edit geographic zone"
+msgstr "ပထဝီအနေရာ တည်းဖြတ်ရန်"
+
+msgid "Geographic zone"
+msgstr "ပထဝီအနေရာ"
+
+msgid "Staff statuses"
+msgstr "ဝန်ထမ်း အခြေအနေ"
+
+msgid "Add staff status"
+msgstr "ဝန်ထမ်း အခြေအနေ ထပ်မံထည့်ရန်"
+
+msgid "Edit staff status"
+msgstr "ဝန်ထမ်း အခြေအနေ တည်းဖြတ်ရန်"
+
+msgid "Staff status"
+msgstr "ဝန်ထမ်း အခြေအနေ"
+
+msgid "Contract types"
+msgstr "စာချုပ်အမျိုးအစားများ"
+
+msgid "Add contract type"
+msgstr "စာချုပ်အမျိုးအစား ထပ်မံထည့်ရန်"
+
+msgid "Edit contract type"
+msgstr "စာချုပ်အမျိုးအစား တည်းဖြတ်ရန်"
+
+msgid "Contract type"
+msgstr "စာချုပ်အမျိုးအစား"
+
+msgid "Business units"
+msgstr "လုပ်ငန်းယူနစ်များ"
+
+msgid "Add business unit"
+msgstr "လုပ်ငန်းယူနစ် ထပ်မံထည့်ရန်"
+
+msgid "Edit business unit"
+msgstr "လုပ်ငန်းယူနစ် တည်းဖြတ်ရန်"
+
+msgid "Business unit"
+msgstr "လုပ်ငန်းယူနစ်"
+
+msgid "Add branch"
+msgstr "ခွဲရုံး ထပ်မံထည့်ရန်"
+
+msgid "Edit branch"
+msgstr "ခွဲရုံး တည်းဖြတ်ရန်"
+
+msgid "Parent unit"
+msgstr "မိခင်ယူနစ်"
+
+msgid "Primary branch"
+msgstr "အဓိက ခွဲရုံး"
+
+msgid "Coordinates"
+msgstr "အစီအရင်း"
+
+msgid "HR Dashboard"
+msgstr "HR ဒက်ရှ်ဘုတ်"
+
+msgid "Staff"
+msgstr "ဝန်ထမ်း"
+
+msgid "Organization"
+msgstr "အဖွဲ့အစည်း"
+
+msgid "Performance Management"
+msgstr "စွမ်းဆောင်ရည်စီမံခန့်ခွဲမှု"
+
+msgid "Recruitment"
+msgstr "လူရှာဖွေခန့်အပ်မှု"
+
+msgid "Benefits"
+msgstr "အကျိုးခံစားခွင့်များ"
+
+msgid "ROI and training"
+msgstr "ROI နှင့် လေ့ကျင့်ရေး"
+
+msgid "Diversity and social responsibility"
+msgstr "မတူကွဲပြားမှုနှင့် လူမှုတာဝန်ယူမှု"
+
+msgid "Professional functions"
+msgstr "ပရော်ဖက်ရှင်နယ်လုပ်ငန်းတာဝန်များ"
+
+msgid "Positions"
+msgstr "ရာထူးများ"
+
+msgid "Units and positions list"
+msgstr "ယူနစ်နှင့် ရာထူးစာရင်း"
+
+msgid "Assign position to user"
+msgstr "အသုံးပြုသူအား ရာထူးခန့်အပ်ရန်"
+
+msgid "Organizational chart"
+msgstr "အဖွဲ့အစည်းဖွဲ့စည်းပုံဇယား"
+
+msgid "Appraisal periods"
+msgstr "စွမ်းဆောင်ရည်အကဲဖြတ်ကာလများ"
+
+msgid "Appraisal templates"
+msgstr "စွမ်းဆောင်ရည်အကဲဖြတ်ပုံစံများ"
+
+msgid "Performance appraisals"
+msgstr "စွမ်းဆောင်ရည်အကဲဖြတ်မှုများ"
+
+msgid "Recruitment stages"
+msgstr "လူရှာဖွေခန့်အပ်မှုအဆင့်များ"
+
+msgid "Recruitment processes"
+msgstr "လူရှာဖွေခန့်အပ်မှုလုပ်ငန်းစဉ်များ"
+
+msgid "Job offers"
+msgstr "အလုပ်ခေါ်ယူလှပွဲများ"
+
+msgid "Team skills goals"
+msgstr "အဖွဲ့လိုက်ကျွမ်းကျင်မှုပန်းတိုင်များ"
+
+msgid "Benefit tags"
+msgstr "အကျိုးခံစားခွင့်တံဆိပ်များ"
+
+msgid "Assign benefits"
+msgstr "အကျိုးခံစားခွင့်များခန့်အပ်ရန်"
+
+msgid "Assigned benefits"
+msgstr "ခန့်အပ်ထားသော အကျိုးခံစားခွင့်များ"
+
+msgid "ROI by course"
+msgstr "သင်တန်းအလိုက် ROI"
+
+msgid "ROI by person"
+msgstr "ပုဂ္ဂိုလ်အလိုက် ROI"
+
+msgid "ROI by organizational unit"
+msgstr "အဖွဲ့အစည်းယူနစ်အလိုက် ROI"
+
+msgid "Training needs assessment"
+msgstr "လေ့ကျင့်ရေးလိုအပ်ချက်အကဲဖြတ်မှု"
+
+msgid "Work climate surveys"
+msgstr "အလုပ်ပတ်ဝန်းကျင်စစ်တမ်းများ"
+
+msgid "Diversity criteria"
+msgstr "မတူကွဲပြားမှုစံနှုန်းများ"
+
+msgid "Diversity guidelines"
+msgstr "မတူကွဲပြားမှုလမ်းညွှန်ချက်များ"
+
+msgid "Social responsibility guidelines"
+msgstr "လူမှုတာဝန်ယူမှုလမ်းညွှန်ချက်များ"
+

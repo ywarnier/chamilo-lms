@@ -33886,3 +33886,189 @@ msgstr "Добро пожаловать в Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Если вы впервые используете Chamilo, обязательно проверьте боковое меню, чтобы найти путь через его множество функций. Если вам нужна помощь, вы найдете <a href=\"https://docs.chamilo.org\">официальную документацию</a> для стандартной документации, а наш <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">онлайн-форум</a> поможет поделиться идеями и найти ответы от других пользователей Chamilo."
 
+msgid "Activities"
+msgstr "Активности"
+
+msgid "Activity categories"
+msgstr "Категории активностей"
+
+msgid "Add activity"
+msgstr "Добавить активность"
+
+msgid "Add category"
+msgstr "Добавить категорию"
+
+msgid "Edit activity"
+msgstr "Редактировать активность"
+
+msgid "Edit category"
+msgstr "Редактировать категорию"
+
+msgid "Performance objectives"
+msgstr "Цели производительности"
+
+msgid "Objective categories"
+msgstr "Категории целей"
+
+msgid "Add objective"
+msgstr "Добавить цель"
+
+msgid "Edit objective"
+msgstr "Редактировать цель"
+
+msgid "Geographic zones"
+msgstr "Географические зоны"
+
+msgid "Add geographic zone"
+msgstr "Добавить географическую зону"
+
+msgid "Edit geographic zone"
+msgstr "Редактировать географическую зону"
+
+msgid "Geographic zone"
+msgstr "Географическая зона"
+
+msgid "Staff statuses"
+msgstr "Статусы персонала"
+
+msgid "Add staff status"
+msgstr "Добавить статус персонала"
+
+msgid "Edit staff status"
+msgstr "Редактировать статус персонала"
+
+msgid "Staff status"
+msgstr "Статус персонала"
+
+msgid "Contract types"
+msgstr "Типы контрактов"
+
+msgid "Add contract type"
+msgstr "Добавить тип контракта"
+
+msgid "Edit contract type"
+msgstr "Редактировать тип контракта"
+
+msgid "Contract type"
+msgstr "Тип контракта"
+
+msgid "Business units"
+msgstr "Бизнес-единицы"
+
+msgid "Add business unit"
+msgstr "Добавить бизнес-единицу"
+
+msgid "Edit business unit"
+msgstr "Редактировать бизнес-единицу"
+
+msgid "Business unit"
+msgstr "Бизнес-единица"
+
+msgid "Add branch"
+msgstr "Добавить филиал"
+
+msgid "Edit branch"
+msgstr "Редактировать филиал"
+
+msgid "Parent unit"
+msgstr "Родительская единица"
+
+msgid "Primary branch"
+msgstr "Основной филиал"
+
+msgid "Coordinates"
+msgstr "Координаты"
+
+msgid "HR Dashboard"
+msgstr "Панель HR"
+
+msgid "Staff"
+msgstr "Персонал"
+
+msgid "Organization"
+msgstr "Организация"
+
+msgid "Performance Management"
+msgstr "Управление эффективностью"
+
+msgid "Recruitment"
+msgstr "Подбор персонала"
+
+msgid "Benefits"
+msgstr "Преимущества"
+
+msgid "ROI and training"
+msgstr "ROI и обучение"
+
+msgid "Diversity and social responsibility"
+msgstr "Разнообразие и социальная ответственность"
+
+msgid "Professional functions"
+msgstr "Профессиональные функции"
+
+msgid "Positions"
+msgstr "Должности"
+
+msgid "Units and positions list"
+msgstr "Список подразделений и должностей"
+
+msgid "Assign position to user"
+msgstr "Назначить должность пользователю"
+
+msgid "Organizational chart"
+msgstr "Организационная схема"
+
+msgid "Appraisal periods"
+msgstr "Периоды оценки"
+
+msgid "Appraisal templates"
+msgstr "Шаблоны оценки"
+
+msgid "Performance appraisals"
+msgstr "Оценка эффективности"
+
+msgid "Recruitment stages"
+msgstr "Этапы подбора"
+
+msgid "Recruitment processes"
+msgstr "Процессы подбора"
+
+msgid "Job offers"
+msgstr "Вакансии"
+
+msgid "Team skills goals"
+msgstr "Цели навыков команды"
+
+msgid "Benefit tags"
+msgstr "Теги преимуществ"
+
+msgid "Assign benefits"
+msgstr "Назначить преимущества"
+
+msgid "Assigned benefits"
+msgstr "Назначенные преимущества"
+
+msgid "ROI by course"
+msgstr "ROI по курсу"
+
+msgid "ROI by person"
+msgstr "ROI по сотруднику"
+
+msgid "ROI by organizational unit"
+msgstr "ROI по организационному подразделению"
+
+msgid "Training needs assessment"
+msgstr "Оценка потребностей в обучении"
+
+msgid "Work climate surveys"
+msgstr "Опросы рабочего климата"
+
+msgid "Diversity criteria"
+msgstr "Критерии разнообразия"
+
+msgid "Diversity guidelines"
+msgstr "Рекомендации по разнообразию"
+
+msgid "Social responsibility guidelines"
+msgstr "Рекомендации по социальной ответственности"
+

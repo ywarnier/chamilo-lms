@@ -2021,7 +2021,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:cóipcheart,, no:gan cóipcheart"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Fillteán,, application/msword:MsWord,, application/octet-stream:Sruth octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Fillteán,, application/msword:MsWord,, application/octet-stream:Sruth Octad,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:cleachtadh,,      simulation:insamhal,,      questionnaire:fiosrúchán,,      diagram:léaráid,,      figure:figiúr,,      graph:graf,,      index:innéacs,,      slide:sleamhnán,,      table:tábla,,      narrative text:téacs insinte,,      exam:scrúdú,,      experiment:turgnamh,,      problem statement:ráiteas fadhb,,      self assessment:féimmeasúnú,,      lecture:léacht"
@@ -33882,4 +33882,190 @@ msgstr "Fáilte chuig Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Más é seo an chéad uair duit Chamilo a úsáid, déan cinnte go n-athraíonn tú an roghchlár taobh chun do bhealach a fháil trína ilghnéitheacha go leor. Má theastaíonn cabhair uait, gheobhaidh tú <a href=\"https://docs.chamilo.org\">ár gcáipéisí oifigiúla</a> in ann cabhrú le cáipéisíocht chaighdeánach, agus is féidir lenár <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">fóram ar líne</a> smaointe a roinnt agus freagraí a fháil ó úsáideoirí Chamilo eile."
+
+msgid "Activities"
+msgstr "Gníomhaíochtaí"
+
+msgid "Activity categories"
+msgstr "Catagóirí gníomhaíochta"
+
+msgid "Add activity"
+msgstr "Cuir gníomhaíocht leis"
+
+msgid "Add category"
+msgstr "Cuir catagóir leis"
+
+msgid "Edit activity"
+msgstr "Cuir gníomhaíocht in eagar"
+
+msgid "Edit category"
+msgstr "Cuir catagóir in eagar"
+
+msgid "Performance objectives"
+msgstr "Spriocanna feidhmíochta"
+
+msgid "Objective categories"
+msgstr "Catagóirí spriocanna"
+
+msgid "Add objective"
+msgstr "Cuir sprioc leis"
+
+msgid "Edit objective"
+msgstr "Cuir sprioc in eagar"
+
+msgid "Geographic zones"
+msgstr "Criosanna geografacha"
+
+msgid "Add geographic zone"
+msgstr "Cuir crios geografach leis"
+
+msgid "Edit geographic zone"
+msgstr "Cuir crios geografach in eagar"
+
+msgid "Geographic zone"
+msgstr "Crios geografach"
+
+msgid "Staff statuses"
+msgstr "Stádais foirne"
+
+msgid "Add staff status"
+msgstr "Cuir stádas foirne leis"
+
+msgid "Edit staff status"
+msgstr "Cuir stádas foirne in eagar"
+
+msgid "Staff status"
+msgstr "Stádas foirne"
+
+msgid "Contract types"
+msgstr "Cineálacha conartha"
+
+msgid "Add contract type"
+msgstr "Cuir cineál conartha leis"
+
+msgid "Edit contract type"
+msgstr "Cuir cineál conartha in eagar"
+
+msgid "Contract type"
+msgstr "Cineál conartha"
+
+msgid "Business units"
+msgstr "Aonaid ghnó"
+
+msgid "Add business unit"
+msgstr "Cuir aonad gnó leis"
+
+msgid "Edit business unit"
+msgstr "Cuir aonad gnó in eagar"
+
+msgid "Business unit"
+msgstr "Aonad gnó"
+
+msgid "Add branch"
+msgstr "Cuir brainse leis"
+
+msgid "Edit branch"
+msgstr "Cuir brainse in eagar"
+
+msgid "Parent unit"
+msgstr "Aonad tuismitheora"
+
+msgid "Primary branch"
+msgstr "Príomh-brainse"
+
+msgid "Coordinates"
+msgstr "Comhordanáidí"
+
+msgid "HR Dashboard"
+msgstr "Painéal HR"
+
+msgid "Staff"
+msgstr "Foireann"
+
+msgid "Organization"
+msgstr "Eagraíocht"
+
+msgid "Performance Management"
+msgstr "Bainistíocht Feidhmíochta"
+
+msgid "Recruitment"
+msgstr "Earcaíocht"
+
+msgid "Benefits"
+msgstr "Sochair"
+
+msgid "ROI and training"
+msgstr "ROI agus oiliúint"
+
+msgid "Diversity and social responsibility"
+msgstr "Éagsúlacht agus freagracht shóisialta"
+
+msgid "Professional functions"
+msgstr "Feidhmeanna gairmiúla"
+
+msgid "Positions"
+msgstr "Poist"
+
+msgid "Units and positions list"
+msgstr "Liosta aonad agus post"
+
+msgid "Assign position to user"
+msgstr "Post a shannadh d'úsáideoir"
+
+msgid "Organizational chart"
+msgstr "Cairt eagrúcháin"
+
+msgid "Appraisal periods"
+msgstr "Tréimhsí measúnachta"
+
+msgid "Appraisal templates"
+msgstr "Teimpléid measúnachta"
+
+msgid "Performance appraisals"
+msgstr "Measúnachtaí feidhmíochta"
+
+msgid "Recruitment stages"
+msgstr "Céimeanna earcaíochta"
+
+msgid "Recruitment processes"
+msgstr "Próisis earcaíochta"
+
+msgid "Job offers"
+msgstr "Tairiscintí fostaíochta"
+
+msgid "Team skills goals"
+msgstr "Spriocanna scileanna foirne"
+
+msgid "Benefit tags"
+msgstr "Clibeanna sochair"
+
+msgid "Assign benefits"
+msgstr "Sochair a shannadh"
+
+msgid "Assigned benefits"
+msgstr "Sochair shannta"
+
+msgid "ROI by course"
+msgstr "ROI de réir cúrsa"
+
+msgid "ROI by person"
+msgstr "ROI de réir duine"
+
+msgid "ROI by organizational unit"
+msgstr "ROI de réir aonad eagrúcháin"
+
+msgid "Training needs assessment"
+msgstr "Measúnú riachtanas oiliúna"
+
+msgid "Work climate surveys"
+msgstr "Suirbhéanna aeráide oibre"
+
+msgid "Diversity criteria"
+msgstr "Critéir éagsúlachta"
+
+msgid "Diversity guidelines"
+msgstr "Treoirlínte éagsúlachta"
+
+msgid "Social responsibility guidelines"
+msgstr "Treoirlínte freagrachta sóisialta"
 

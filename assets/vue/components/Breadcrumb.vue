@@ -613,6 +613,13 @@ function buildManualBreadcrumbIfNeeded() {
       label: t("Administration"),
       route: { name: "AdminIndex" },
     })
+    // Add HR index crumb as intermediate step on all sub-pages
+    if (route.name !== "HrIndex") {
+      calculatedList.value.push({
+        label: t("Human Resources"),
+        route: { name: "HrIndex" },
+      })
+    }
     const pageLabel = route.matched[route.matched.length - 1]?.meta?.breadcrumb
     if (pageLabel) {
       calculatedList.value.push({ label: t(pageLabel) })

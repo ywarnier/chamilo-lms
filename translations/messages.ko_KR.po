@@ -33883,3 +33883,189 @@ msgstr "Chamilo에 오신 것을 환영합니다"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Chamilo를 처음 사용하신다면, 다양한 기능을 탐색하기 위해 사이드 메뉴를 확인하세요. 도움이 필요하시면 <a href=\"https://docs.chamilo.org\">공식 문서</a>에서 표준 문서를 확인하거나, <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">온라인 포럼</a>에서 다른 Chamilo 사용자들과 아이디어를 공유하고 답변을 찾을 수 있습니다."
 
+msgid "Activities"
+msgstr "활동"
+
+msgid "Activity categories"
+msgstr "활동 카테고리"
+
+msgid "Add activity"
+msgstr "활동 추가"
+
+msgid "Add category"
+msgstr "카테고리 추가"
+
+msgid "Edit activity"
+msgstr "활동 편집"
+
+msgid "Edit category"
+msgstr "카테고리 편집"
+
+msgid "Performance objectives"
+msgstr "성과 목표"
+
+msgid "Objective categories"
+msgstr "목표 카테고리"
+
+msgid "Add objective"
+msgstr "목표 추가"
+
+msgid "Edit objective"
+msgstr "목표 편집"
+
+msgid "Geographic zones"
+msgstr "지리적 구역"
+
+msgid "Add geographic zone"
+msgstr "지리적 구역 추가"
+
+msgid "Edit geographic zone"
+msgstr "지리적 구역 편집"
+
+msgid "Geographic zone"
+msgstr "지리적 구역"
+
+msgid "Staff statuses"
+msgstr "직원 상태"
+
+msgid "Add staff status"
+msgstr "직원 상태 추가"
+
+msgid "Edit staff status"
+msgstr "직원 상태 편집"
+
+msgid "Staff status"
+msgstr "직원 상태"
+
+msgid "Contract types"
+msgstr "계약 유형"
+
+msgid "Add contract type"
+msgstr "계약 유형 추가"
+
+msgid "Edit contract type"
+msgstr "계약 유형 편집"
+
+msgid "Contract type"
+msgstr "계약 유형"
+
+msgid "Business units"
+msgstr "사업 단위"
+
+msgid "Add business unit"
+msgstr "사업 단위 추가"
+
+msgid "Edit business unit"
+msgstr "사업 단위 편집"
+
+msgid "Business unit"
+msgstr "사업 단위"
+
+msgid "Add branch"
+msgstr "지점 추가"
+
+msgid "Edit branch"
+msgstr "지점 편집"
+
+msgid "Parent unit"
+msgstr "상위 단위"
+
+msgid "Primary branch"
+msgstr "기본 지점"
+
+msgid "Coordinates"
+msgstr "좌표"
+
+msgid "HR Dashboard"
+msgstr "HR 대시보드"
+
+msgid "Staff"
+msgstr "직원"
+
+msgid "Organization"
+msgstr "조직"
+
+msgid "Performance Management"
+msgstr "성과 관리"
+
+msgid "Recruitment"
+msgstr "모집"
+
+msgid "Benefits"
+msgstr "복리후생"
+
+msgid "ROI and training"
+msgstr "ROI 및 교육"
+
+msgid "Diversity and social responsibility"
+msgstr "다양성 및 사회적 책임"
+
+msgid "Professional functions"
+msgstr "전문 기능"
+
+msgid "Positions"
+msgstr "직위"
+
+msgid "Units and positions list"
+msgstr "부서 및 직위 목록"
+
+msgid "Assign position to user"
+msgstr "사용자에게 직위 할당"
+
+msgid "Organizational chart"
+msgstr "조직도"
+
+msgid "Appraisal periods"
+msgstr "평가 기간"
+
+msgid "Appraisal templates"
+msgstr "평가 템플릿"
+
+msgid "Performance appraisals"
+msgstr "성과 평가"
+
+msgid "Recruitment stages"
+msgstr "모집 단계"
+
+msgid "Recruitment processes"
+msgstr "모집 프로세스"
+
+msgid "Job offers"
+msgstr "채용 공고"
+
+msgid "Team skills goals"
+msgstr "팀 역량 목표"
+
+msgid "Benefit tags"
+msgstr "복리후생 태그"
+
+msgid "Assign benefits"
+msgstr "복리후생 할당"
+
+msgid "Assigned benefits"
+msgstr "할당된 복리후생"
+
+msgid "ROI by course"
+msgstr "과정별 ROI"
+
+msgid "ROI by person"
+msgstr "개인별 ROI"
+
+msgid "ROI by organizational unit"
+msgstr "조직 단위별 ROI"
+
+msgid "Training needs assessment"
+msgstr "교육 수요 평가"
+
+msgid "Work climate surveys"
+msgstr "직무 환경 조사"
+
+msgid "Diversity criteria"
+msgstr "다양성 기준"
+
+msgid "Diversity guidelines"
+msgstr "다양성 지침"
+
+msgid "Social responsibility guidelines"
+msgstr "사회적 책임 지침"
+

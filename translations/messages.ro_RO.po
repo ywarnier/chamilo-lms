@@ -33899,3 +33899,189 @@ msgstr "Bine ați venit la Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Dacă este prima dată când folosiți Chamilo, asigurați-vă că verificați meniul lateral pentru a vă familiariza cu numeroasele sale funcționalități. Dacă aveți nevoie de ajutor, veți găsi <a href=\"https://docs.chamilo.org\">documentația oficială</a> utilă pentru documentație standard, în timp ce <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forumul nostru online</a> vă poate ajuta să împărtășiți idei și să găsiți răspunsuri de la alți utilizatori Chamilo."
 
+msgid "Activities"
+msgstr "Activități"
+
+msgid "Activity categories"
+msgstr "Categorii de activități"
+
+msgid "Add activity"
+msgstr "Adăugare activitate"
+
+msgid "Add category"
+msgstr "Adaugati categoria"
+
+msgid "Edit activity"
+msgstr "Editare activitate"
+
+msgid "Edit category"
+msgstr "Modificati categoria"
+
+msgid "Performance objectives"
+msgstr "Obiective de performanță"
+
+msgid "Objective categories"
+msgstr "Categorii de obiective"
+
+msgid "Add objective"
+msgstr "Adăugare obiectiv"
+
+msgid "Edit objective"
+msgstr "Editare obiectiv"
+
+msgid "Geographic zones"
+msgstr "Zone geografice"
+
+msgid "Add geographic zone"
+msgstr "Adăugare zonă geografică"
+
+msgid "Edit geographic zone"
+msgstr "Editare zonă geografică"
+
+msgid "Geographic zone"
+msgstr "Zonă geografică"
+
+msgid "Staff statuses"
+msgstr "Stări personal"
+
+msgid "Add staff status"
+msgstr "Adăugare stare personal"
+
+msgid "Edit staff status"
+msgstr "Editare stare personal"
+
+msgid "Staff status"
+msgstr "Stare personal"
+
+msgid "Contract types"
+msgstr "Tipuri de contract"
+
+msgid "Add contract type"
+msgstr "Adăugare tip contract"
+
+msgid "Edit contract type"
+msgstr "Editare tip contract"
+
+msgid "Contract type"
+msgstr "Tip contract"
+
+msgid "Business units"
+msgstr "Unități de afaceri"
+
+msgid "Add business unit"
+msgstr "Adăugare unitate de afaceri"
+
+msgid "Edit business unit"
+msgstr "Editare unitate de afaceri"
+
+msgid "Business unit"
+msgstr "Unitate de afaceri"
+
+msgid "Add branch"
+msgstr "Adăugare ramură"
+
+msgid "Edit branch"
+msgstr "Editare ramură"
+
+msgid "Parent unit"
+msgstr "Unitate părinte"
+
+msgid "Primary branch"
+msgstr "Ramură principală"
+
+msgid "Coordinates"
+msgstr "Coordonate"
+
+msgid "HR Dashboard"
+msgstr "Panou HR"
+
+msgid "Staff"
+msgstr "Personal"
+
+msgid "Organization"
+msgstr "Organizație"
+
+msgid "Performance Management"
+msgstr "Managementul performanței"
+
+msgid "Recruitment"
+msgstr "Recrutare"
+
+msgid "Benefits"
+msgstr "Beneficii"
+
+msgid "ROI and training"
+msgstr "ROI și formare"
+
+msgid "Diversity and social responsibility"
+msgstr "Diversitate și responsabilitate socială"
+
+msgid "Professional functions"
+msgstr "Funcții profesionale"
+
+msgid "Positions"
+msgstr "Posturi"
+
+msgid "Units and positions list"
+msgstr "Lista unități și posturi"
+
+msgid "Assign position to user"
+msgstr "Atribuie post utilizatorului"
+
+msgid "Organizational chart"
+msgstr "Organigrama"
+
+msgid "Appraisal periods"
+msgstr "Perioade de evaluare"
+
+msgid "Appraisal templates"
+msgstr "Șabloane de evaluare"
+
+msgid "Performance appraisals"
+msgstr "Evaluări de performanță"
+
+msgid "Recruitment stages"
+msgstr "Etape de recrutare"
+
+msgid "Recruitment processes"
+msgstr "Procese de recrutare"
+
+msgid "Job offers"
+msgstr "Oferte de joburi"
+
+msgid "Team skills goals"
+msgstr "Obiective abilități echipă"
+
+msgid "Benefit tags"
+msgstr "Etichete beneficii"
+
+msgid "Assign benefits"
+msgstr "Atribuie beneficii"
+
+msgid "Assigned benefits"
+msgstr "Beneficii atribuite"
+
+msgid "ROI by course"
+msgstr "ROI pe curs"
+
+msgid "ROI by person"
+msgstr "ROI pe persoană"
+
+msgid "ROI by organizational unit"
+msgstr "ROI pe unitate organizațională"
+
+msgid "Training needs assessment"
+msgstr "Evaluarea nevoilor de formare"
+
+msgid "Work climate surveys"
+msgstr "Sondaje privind clima de lucru"
+
+msgid "Diversity criteria"
+msgstr "Criterii de diversitate"
+
+msgid "Diversity guidelines"
+msgstr "Ghiduri de diversitate"
+
+msgid "Social responsibility guidelines"
+msgstr "Ghiduri de responsabilitate socială"
+

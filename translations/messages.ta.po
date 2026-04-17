@@ -344,7 +344,7 @@ msgid "Sincerely"
 msgstr "உண்மையாகவே"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "பூரண உதாரணம்: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "பூமுலை மாதிரி: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "மாறியின் வரம்புகள்"
@@ -33882,4 +33882,190 @@ msgstr "Chamiloக்கு வரவேற்கிறோம்"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Chamilo ஐ முதல் முறையாக பயன்படுத்தினால், அதன் பல அம்சங்களை அறிய பக்கப் பட்டியை சரிபார்க்கவும். உதவி தேவைப்பட்டால், <a href=\"https://docs.chamilo.org\">எங்கள் அதிகாரப்பூர்வ ஆவணங்கள்</a> தரமான ஆவணப்படுத்தலுக்கு உதவும், எங்கள் <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">ஆன்லைன் மன்றம்</a> Chamilo பயனர்களிடமிருந்து யோசனைகளைப் பகிர்ந்து பதில்களைக் கண்டுபிடிக்க உதவும்."
+
+msgid "Activities"
+msgstr "செயல்பாடுகள்"
+
+msgid "Activity categories"
+msgstr "செயல்பாட்டு வகைகள்"
+
+msgid "Add activity"
+msgstr "செயல்பாடு சேர்க்கவும்"
+
+msgid "Add category"
+msgstr "வகையை சேர்க்கவும்"
+
+msgid "Edit activity"
+msgstr "செயல்பாட்டைத் திருத்தவும்"
+
+msgid "Edit category"
+msgstr "பிரிவைத் திருத்து"
+
+msgid "Performance objectives"
+msgstr "செயல்திறன் இலக்குகள்"
+
+msgid "Objective categories"
+msgstr "இலக்கு வகைகள்"
+
+msgid "Add objective"
+msgstr "இலக்கு சேர்க்கவும்"
+
+msgid "Edit objective"
+msgstr "இலக்கைத் திருத்தவும்"
+
+msgid "Geographic zones"
+msgstr "புவியியல் மண்டலங்கள்"
+
+msgid "Add geographic zone"
+msgstr "புவியியல் மண்டலம் சேர்க்கவும்"
+
+msgid "Edit geographic zone"
+msgstr "புவியியல் மண்டலத்தைத் திருத்தவும்"
+
+msgid "Geographic zone"
+msgstr "புவியியல் மண்டலம்"
+
+msgid "Staff statuses"
+msgstr "ஊழியர் நிலைகள்"
+
+msgid "Add staff status"
+msgstr "ஊழியர் நிலை சேர்க்கவும்"
+
+msgid "Edit staff status"
+msgstr "ஊழியர் நிலையைத் திருத்தவும்"
+
+msgid "Staff status"
+msgstr "ஊழியர் நிலை"
+
+msgid "Contract types"
+msgstr " ஒப்பந்த வகைகள்"
+
+msgid "Add contract type"
+msgstr "ஒப்பந்த வகை சேர்க்கவும்"
+
+msgid "Edit contract type"
+msgstr "ஒப்பந்த வகையைத் திருத்தவும்"
+
+msgid "Contract type"
+msgstr "ஒப்பந்த வகை"
+
+msgid "Business units"
+msgstr "வணிக அலகுகள்"
+
+msgid "Add business unit"
+msgstr "வணிக அலகு சேர்க்கவும்"
+
+msgid "Edit business unit"
+msgstr "வணிக அலகைத் திருத்தவும்"
+
+msgid "Business unit"
+msgstr "வணிக அலகு"
+
+msgid "Add branch"
+msgstr "கிளை சேர்க்கவும்"
+
+msgid "Edit branch"
+msgstr "கிளையைத் திருத்தவும்"
+
+msgid "Parent unit"
+msgstr "பெற்றோர் அலகு"
+
+msgid "Primary branch"
+msgstr "முதன்மை கிளை"
+
+msgid "Coordinates"
+msgstr "அளவுகோல்கள்"
+
+msgid "HR Dashboard"
+msgstr "HR டாஷ்போர்டு"
+
+msgid "Staff"
+msgstr "ஊழியர்கள்"
+
+msgid "Organization"
+msgstr "அமைப்பு"
+
+msgid "Performance Management"
+msgstr "செயல்திறன் மேலாண்மை"
+
+msgid "Recruitment"
+msgstr "ஊழியர் தேர்வு"
+
+msgid "Benefits"
+msgstr "நன்மைகள்"
+
+msgid "ROI and training"
+msgstr "ROI மற்றும் பயிற்சி"
+
+msgid "Diversity and social responsibility"
+msgstr "பன்முகத்தன்மை மற்றும் சமூக பொறுப்பு"
+
+msgid "Professional functions"
+msgstr "தொழில்முறை பண்புகள்"
+
+msgid "Positions"
+msgstr "பதவிகள்"
+
+msgid "Units and positions list"
+msgstr "அலகுகள் மற்றும் பதவிகள் பட்டியல்"
+
+msgid "Assign position to user"
+msgstr "பயனருக்கு பதவி ஒதுக்கீடு"
+
+msgid "Organizational chart"
+msgstr "அமைப்பு வரைபடம்"
+
+msgid "Appraisal periods"
+msgstr "மதிப்பீட்டு காலங்கள்"
+
+msgid "Appraisal templates"
+msgstr "மதிப்பீட்டு டெம்ப்ளேட்டுகள்"
+
+msgid "Performance appraisals"
+msgstr "செயல்திறன் மதிப்பீடுகள்"
+
+msgid "Recruitment stages"
+msgstr "ஊழியர் தேர்வு நிலைகள்"
+
+msgid "Recruitment processes"
+msgstr "ஊழியர் தேர்வு செயல்முறைகள்"
+
+msgid "Job offers"
+msgstr "வேலை வாய்ப்புகள்"
+
+msgid "Team skills goals"
+msgstr "குழு திறன் இலக்குகள்"
+
+msgid "Benefit tags"
+msgstr "நன்மை டேக்குகள்"
+
+msgid "Assign benefits"
+msgstr "நன்மைகள் ஒதுக்கீடு"
+
+msgid "Assigned benefits"
+msgstr "ஒதுக்கப்பட்ட நன்மைகள்"
+
+msgid "ROI by course"
+msgstr "பாடத்தால் ROI"
+
+msgid "ROI by person"
+msgstr "நபரால் ROI"
+
+msgid "ROI by organizational unit"
+msgstr "அமைப்பு அலகால் ROI"
+
+msgid "Training needs assessment"
+msgstr "பயிற்சி தேவை மதிப்பீடு"
+
+msgid "Work climate surveys"
+msgstr "வேலை சூழல் ஆய்வுகள்"
+
+msgid "Diversity criteria"
+msgstr "பன்முகத்தன்மை அளவுகோல்கள்"
+
+msgid "Diversity guidelines"
+msgstr "பன்முகத்தன்மை வழிகாட்டிகள்"
+
+msgid "Social responsibility guidelines"
+msgstr "சமூகப் பொறுப்பு வழிகாட்டிகள்"
 

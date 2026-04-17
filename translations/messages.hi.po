@@ -340,7 +340,7 @@ msgid "Sincerely"
 msgstr "सादर"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "सूत्र नमूना: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "फ़ॉर्मूला नमूना: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "चर सीमाएं"
@@ -33878,4 +33878,190 @@ msgstr "Chamilo में स्वागत है"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> यदि यह आपका पहली बार Chamilo का उपयोग है, तो सुनिश्चित करें कि आप साइड मेनू की जाँच करें ताकि इसके कई फीचर्स के माध्यम से अपना रास्ता ढूंढ सकें। यदि आपको सहायता चाहिए, तो आप पाएंगे कि <a href=\"https://docs.chamilo.org\">हमारी आधिकारिक दस्तावेज़</a> मानक दस्तावेज़ीकरण के लिए मदद कर सकती हैं, जबकि हमारा <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">ऑनलाइन फ़ोरम</a> विचार साझा करने और अन्य Chamilo उपयोगकर्ताओं से उत्तर ढूंढने में मदद कर सकता है।"
+
+msgid "Activities"
+msgstr "गतिविधियाँ"
+
+msgid "Activity categories"
+msgstr "गतिविधि श्रेणियाँ"
+
+msgid "Add activity"
+msgstr "गतिविधि जोड़ें"
+
+msgid "Add category"
+msgstr "श्रेणी जोड़ें"
+
+msgid "Edit activity"
+msgstr "गतिविधि संपादित करें"
+
+msgid "Edit category"
+msgstr "श्रेणी संपादित करें"
+
+msgid "Performance objectives"
+msgstr "प्रदर्शन उद्देश्य"
+
+msgid "Objective categories"
+msgstr "उद्देश्य श्रेणियाँ"
+
+msgid "Add objective"
+msgstr "उद्देश्य जोड़ें"
+
+msgid "Edit objective"
+msgstr "उद्देश्य संपादित करें"
+
+msgid "Geographic zones"
+msgstr "भौगोलिक क्षेत्र"
+
+msgid "Add geographic zone"
+msgstr "भौगोलिक क्षेत्र जोड़ें"
+
+msgid "Edit geographic zone"
+msgstr "भौगोलिक क्षेत्र संपादित करें"
+
+msgid "Geographic zone"
+msgstr "भौगोलिक क्षेत्र"
+
+msgid "Staff statuses"
+msgstr "कर्मचारी स्थिति"
+
+msgid "Add staff status"
+msgstr "कर्मचारी स्थिति जोड़ें"
+
+msgid "Edit staff status"
+msgstr "कर्मचारी स्थिति संपादित करें"
+
+msgid "Staff status"
+msgstr "कर्मचारी स्थिति"
+
+msgid "Contract types"
+msgstr "अनुबंध प्रकार"
+
+msgid "Add contract type"
+msgstr "अनुबंध प्रकार जोड़ें"
+
+msgid "Edit contract type"
+msgstr "अनुबंध प्रकार संपादित करें"
+
+msgid "Contract type"
+msgstr "अनुबंध प्रकार"
+
+msgid "Business units"
+msgstr "व्यवसाय इकाइयाँ"
+
+msgid "Add business unit"
+msgstr "व्यवसाय इकाई जोड़ें"
+
+msgid "Edit business unit"
+msgstr "व्यवसाय इकाई संपादित करें"
+
+msgid "Business unit"
+msgstr "व्यवसाय इकाई"
+
+msgid "Add branch"
+msgstr "शाखा जोड़ें"
+
+msgid "Edit branch"
+msgstr "शाखा संपादित करें"
+
+msgid "Parent unit"
+msgstr "मूल इकाई"
+
+msgid "Primary branch"
+msgstr "प्राथमिक शाखा"
+
+msgid "Coordinates"
+msgstr "निर्देशांक"
+
+msgid "HR Dashboard"
+msgstr "एचआर डैशबोर्ड"
+
+msgid "Staff"
+msgstr "कर्मचारी"
+
+msgid "Organization"
+msgstr "संगठन"
+
+msgid "Performance Management"
+msgstr "प्रदर्शन प्रबंधन"
+
+msgid "Recruitment"
+msgstr "भर्ती"
+
+msgid "Benefits"
+msgstr "लाभ"
+
+msgid "ROI and training"
+msgstr "ROI और प्रशिक्षण"
+
+msgid "Diversity and social responsibility"
+msgstr "विविधता और सामाजिक जिम्मेदारी"
+
+msgid "Professional functions"
+msgstr "व्यावसायिक कार्य"
+
+msgid "Positions"
+msgstr "पद"
+
+msgid "Units and positions list"
+msgstr "इकाइयों और पदों की सूची"
+
+msgid "Assign position to user"
+msgstr "उपयोगकर्ता को पद सौंपें"
+
+msgid "Organizational chart"
+msgstr "संगठनात्मक चार्ट"
+
+msgid "Appraisal periods"
+msgstr "मूल्यांकन अवधियाँ"
+
+msgid "Appraisal templates"
+msgstr "मूल्यांकन टेम्पलेट्स"
+
+msgid "Performance appraisals"
+msgstr "प्रदर्शन मूल्यांकन"
+
+msgid "Recruitment stages"
+msgstr "भर्ती चरण"
+
+msgid "Recruitment processes"
+msgstr "भर्ती प्रक्रियाएँ"
+
+msgid "Job offers"
+msgstr "नौकरी के प्रस्ताव"
+
+msgid "Team skills goals"
+msgstr "टीम कौशल लक्ष्य"
+
+msgid "Benefit tags"
+msgstr "लाभ टैग्स"
+
+msgid "Assign benefits"
+msgstr "लाभ सौंपें"
+
+msgid "Assigned benefits"
+msgstr "सौंपे गए लाभ"
+
+msgid "ROI by course"
+msgstr "कोर्स के अनुसार ROI"
+
+msgid "ROI by person"
+msgstr "व्यक्ति के अनुसार ROI"
+
+msgid "ROI by organizational unit"
+msgstr "संगठनात्मक इकाई के अनुसार ROI"
+
+msgid "Training needs assessment"
+msgstr "प्रशिक्षण आवश्यकताओं का मूल्यांकन"
+
+msgid "Work climate surveys"
+msgstr "कार्य वातावरण सर्वेक्षण"
+
+msgid "Diversity criteria"
+msgstr "विविधता मानदंड"
+
+msgid "Diversity guidelines"
+msgstr "विविधता दिशानिर्देश"
+
+msgid "Social responsibility guidelines"
+msgstr "सामाजिक जिम्मेदारी दिशानिर्देश"
 

@@ -7669,7 +7669,7 @@ msgid "Please type your text below"
 msgstr "Nceda uchwethezele isicatshulwa sakho apha ezantsi"
 
 msgid "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Example fill the form activity : calculate the Body Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Age</strong></td>            <td width=\"75%\" style=\"\">[25] years old</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Sex</strong></td>            <td style=\"\" text-align:=\"\">[M] (M or F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Weight</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Height</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Weight/Size<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
-msgstr "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Umzekelo wokugcwalisa ifomu lomsebenzi : bala i-Body Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubudala</strong></td>            <td width=\"75%\" style=\"\">[25] iminyaka</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Isini</strong></td>            <td style=\"\" text-align:=\"\">[M] (M okanye F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubunzima</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Ubude</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Ubunzima/Ubude<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
+msgstr "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Umzekelo wokuzalisa ifomu lomsebenzi : bala iBody Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubudala</strong></td>            <td width=\"75%\" style=\"\">[25] iminyaka ubudala</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Esini</strong></td>            <td style=\"\" text-align:=\"\">[M] (M okanye F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubunzima</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong Ubude</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Ubunzima/Ubude<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
 
 msgid "Note down the address"
 msgstr "Bhala idilesi"
@@ -33878,4 +33878,190 @@ msgstr "Wamkelekile eChamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ukuba oku kuqala ukusebenzisa iChamilo, qinisekisa ukuba ujonge imenyu esecaleni ukuze ufumane indlela yokuhamba ngezinto ezininzi zayo. Ukuba ufuna uncedo, uya kufumana <a href=\"https://docs.chamilo.org\">amashicilelo ethu ase-official</a> anokunceda kuxwebhu oluqhelekileyo, ngelixa <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">iforum yethu ye-online</a> inokunceda ukwabelana ngezimvo kwaye ufumane iimpendulo abanye abasebenzisi beChamilo."
+
+msgid "Activities"
+msgstr "Imisebenzi"
+
+msgid "Activity categories"
+msgstr "Iindidi zemisebenzi"
+
+msgid "Add activity"
+msgstr "Faka umsebenzi"
+
+msgid "Add category"
+msgstr "Faka ikhategori"
+
+msgid "Edit activity"
+msgstr "Hlela umsebenzi"
+
+msgid "Edit category"
+msgstr "Hlela udidi"
+
+msgid "Performance objectives"
+msgstr "Iinjongo zokusebenza"
+
+msgid "Objective categories"
+msgstr "Iindidi zeenjongo"
+
+msgid "Add objective"
+msgstr "Faka injongo"
+
+msgid "Edit objective"
+msgstr "Hlela injongo"
+
+msgid "Geographic zones"
+msgstr "Iindawo zentsimi"
+
+msgid "Add geographic zone"
+msgstr "Faka indawo yemimezelo"
+
+msgid "Edit geographic zone"
+msgstr "Hlela indawo yemimezelo"
+
+msgid "Geographic zone"
+msgstr "Indawo yemimezelo"
+
+msgid "Staff statuses"
+msgstr "Iimeko zabasebenzi"
+
+msgid "Add staff status"
+msgstr "Faka imeko yabasebenzi"
+
+msgid "Edit staff status"
+msgstr "Hlela imeko yabasebenzi"
+
+msgid "Staff status"
+msgstr "Imeko yabasebenzi"
+
+msgid "Contract types"
+msgstr "Iintlobo zekhontrakthi"
+
+msgid "Add contract type"
+msgstr "Faka uhlobo lwekhontrakthi"
+
+msgid "Edit contract type"
+msgstr "Hlela uhlobo lwekhontrakthi"
+
+msgid "Contract type"
+msgstr "Uhlobo lwekhontrakthi"
+
+msgid "Business units"
+msgstr "Iiyunithi zeshishino"
+
+msgid "Add business unit"
+msgstr "Faka iyunithi yeshishino"
+
+msgid "Edit business unit"
+msgstr "Hlela iyunithi yeshishino"
+
+msgid "Business unit"
+msgstr "Iyunithi yeshishino"
+
+msgid "Add branch"
+msgstr "Faka isebe"
+
+msgid "Edit branch"
+msgstr "Hlela isebe"
+
+msgid "Parent unit"
+msgstr "Iyunithi ongumzali"
+
+msgid "Primary branch"
+msgstr "Isebe eliphambili"
+
+msgid "Coordinates"
+msgstr "Imizekelo"
+
+msgid "HR Dashboard"
+msgstr "I-HR Dashboard"
+
+msgid "Staff"
+msgstr "Abasebenzi"
+
+msgid "Organization"
+msgstr "Umanyano"
+
+msgid "Performance Management"
+msgstr "Ulawulo lokusebenza"
+
+msgid "Recruitment"
+msgstr "Ukugxininisa"
+
+msgid "Benefits"
+msgstr "Izinzuzo"
+
+msgid "ROI and training"
+msgstr "ROI kunye noqeqesho"
+
+msgid "Diversity and social responsibility"
+msgstr "Iyunifayothi kunye noxanduva lwentlalo"
+
+msgid "Professional functions"
+msgstr "Imisebenzi yobuchwepheshe"
+
+msgid "Positions"
+msgstr "Izikhundla"
+
+msgid "Units and positions list"
+msgstr "Uluhlu lweeyunithi neezikhundla"
+
+msgid "Assign position to user"
+msgstr "Nika isikhundla kumsebenzisi"
+
+msgid "Organizational chart"
+msgstr "Itswebhu yombutho"
+
+msgid "Appraisal periods"
+msgstr "Amaxesha ohlolisiso"
+
+msgid "Appraisal templates"
+msgstr "Iithemplethi zokuhlolisa"
+
+msgid "Performance appraisals"
+msgstr "Uhlolisiso lokusebenza kakuhle"
+
+msgid "Recruitment stages"
+msgstr "Izigaba zokuqesha"
+
+msgid "Recruitment processes"
+msgstr "Iinkqubo zokuqesha"
+
+msgid "Job offers"
+msgstr "Izinto ezifunwa ngumsebenzi"
+
+msgid "Team skills goals"
+msgstr "Iinjongo zobuchule beqela"
+
+msgid "Benefit tags"
+msgstr "Iimpawu zezinto ezilungiselelwayo"
+
+msgid "Assign benefits"
+msgstr "Nika izinto ezilungiselelwayo"
+
+msgid "Assigned benefits"
+msgstr "Izinto ezilungiselelwayo ezinikezelweyo"
+
+msgid "ROI by course"
+msgstr "ROI ngokwesifundo"
+
+msgid "ROI by person"
+msgstr "ROI ngomntu"
+
+msgid "ROI by organizational unit"
+msgstr "ROI ngoyunithi yombutho"
+
+msgid "Training needs assessment"
+msgstr "Uhlolisiso lweemfuno zoqeqesho"
+
+msgid "Work climate surveys"
+msgstr "Uhlolisiso lwemozulu yokusebenza"
+
+msgid "Diversity criteria"
+msgstr "Iikhrayitheriya zokwahluka"
+
+msgid "Diversity guidelines"
+msgstr "Izikhokelo zokwahluka"
+
+msgid "Social responsibility guidelines"
+msgstr "Izikhokelo zoxanduva lwentlalo"
 

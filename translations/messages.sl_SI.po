@@ -2031,7 +2031,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":da:avtorske pravice,, ne:brez avtorskih pravic"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapa,, application/msword:MsWord,, application/octet-stream:Okteatni tok,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapa,, application/msword:MsWord,, application/octet-stream:Okteetni tok,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":vaja:vaja,,      simulacija:simulacija,,      vprašalnik:vprašalnik,,      diagram:diagram,,      slika:slika,,      graf:graf,,      kazalo:kazalo,,      diapozitiv:diapozitiv,,      tabela:tabela,,      pripovedno besedilo:narrativno besedilo,,      izpit:izpit,,      poskus:poskus,,      izjava problema:izjava problema,,      samopredstavitev:samopredstavitev,,      predavanje:predavanje"
@@ -33898,4 +33898,190 @@ msgstr "Dobrodošli v Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Če je to vaš prvič, ko uporabljate Chamilo, preverite stranski meni, da najdete pot do njegovih številnih funkcij. Če potrebujete pomoč, vam bodo <a href=\"https://docs.chamilo.org\">naši uradni dokumenti</a> pomagali pri standardni dokumentaciji, medtem ko vam bo naša <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">spletna forum</a> pomagal deliti ideje in najti odgovore drugih uporabnikov Chamila."
+
+msgid "Activities"
+msgstr "Aktivnosti"
+
+msgid "Activity categories"
+msgstr "Kategorije aktivnosti"
+
+msgid "Add activity"
+msgstr "Dodaj aktivnost"
+
+msgid "Add category"
+msgstr "Dodaj kategorijo"
+
+msgid "Edit activity"
+msgstr "Uredi aktivnost"
+
+msgid "Edit category"
+msgstr "Spremeni kategorijo"
+
+msgid "Performance objectives"
+msgstr "Cilji uspešnosti"
+
+msgid "Objective categories"
+msgstr "Kategorije ciljev"
+
+msgid "Add objective"
+msgstr "Dodaj cilj"
+
+msgid "Edit objective"
+msgstr "Uredi cilj"
+
+msgid "Geographic zones"
+msgstr "Geografske cone"
+
+msgid "Add geographic zone"
+msgstr "Dodaj geografsko cono"
+
+msgid "Edit geographic zone"
+msgstr "Uredi geografsko cono"
+
+msgid "Geographic zone"
+msgstr "Geografska cona"
+
+msgid "Staff statuses"
+msgstr "Stališča osebja"
+
+msgid "Add staff status"
+msgstr "Dodaj stališče osebja"
+
+msgid "Edit staff status"
+msgstr "Uredi stališče osebja"
+
+msgid "Staff status"
+msgstr "Stališče osebja"
+
+msgid "Contract types"
+msgstr "Vrste pogodb"
+
+msgid "Add contract type"
+msgstr "Dodaj vrsto pogodbe"
+
+msgid "Edit contract type"
+msgstr "Uredi vrsto pogodbe"
+
+msgid "Contract type"
+msgstr "Vrsta pogodbe"
+
+msgid "Business units"
+msgstr "Poslovne enote"
+
+msgid "Add business unit"
+msgstr "Dodaj poslovno enoto"
+
+msgid "Edit business unit"
+msgstr "Uredi poslovno enoto"
+
+msgid "Business unit"
+msgstr "Poslovna enota"
+
+msgid "Add branch"
+msgstr "Dodaj podružnico"
+
+msgid "Edit branch"
+msgstr "Uredi podružnico"
+
+msgid "Parent unit"
+msgstr "Nadrejena enota"
+
+msgid "Primary branch"
+msgstr "Primarna podružnica"
+
+msgid "Coordinates"
+msgstr "Koordinate"
+
+msgid "HR Dashboard"
+msgstr "HR nadzorna plošča"
+
+msgid "Staff"
+msgstr "Zaposleni"
+
+msgid "Organization"
+msgstr "Organizacija"
+
+msgid "Performance Management"
+msgstr "Upravljanje uspešnosti"
+
+msgid "Recruitment"
+msgstr "Rekrutacija"
+
+msgid "Benefits"
+msgstr "Ugodnosti"
+
+msgid "ROI and training"
+msgstr "ROI in usposabljanje"
+
+msgid "Diversity and social responsibility"
+msgstr "Raznolikost in družbena odgovornost"
+
+msgid "Professional functions"
+msgstr "Poklicne funkcije"
+
+msgid "Positions"
+msgstr "Pozicije"
+
+msgid "Units and positions list"
+msgstr "Seznam enot in pozicij"
+
+msgid "Assign position to user"
+msgstr "Dodeli pozicijo uporabniku"
+
+msgid "Organizational chart"
+msgstr "Organizacijski diagram"
+
+msgid "Appraisal periods"
+msgstr "Obdobja ocenjevanja"
+
+msgid "Appraisal templates"
+msgstr "Predloge ocenjevanja"
+
+msgid "Performance appraisals"
+msgstr "Ocenjevanja uspešnosti"
+
+msgid "Recruitment stages"
+msgstr "Faze rekrutacije"
+
+msgid "Recruitment processes"
+msgstr "Procesi rekrutacije"
+
+msgid "Job offers"
+msgstr "Razpisi za delo"
+
+msgid "Team skills goals"
+msgstr "Cilji veščin ekipe"
+
+msgid "Benefit tags"
+msgstr "Oznake koristi"
+
+msgid "Assign benefits"
+msgstr "Dodeli koristi"
+
+msgid "Assigned benefits"
+msgstr "Dodeljene koristi"
+
+msgid "ROI by course"
+msgstr "ROI po tečaju"
+
+msgid "ROI by person"
+msgstr "ROI po osebi"
+
+msgid "ROI by organizational unit"
+msgstr "ROI po organizacijski enoti"
+
+msgid "Training needs assessment"
+msgstr "Ocena potreb po usposabljanju"
+
+msgid "Work climate surveys"
+msgstr "Ankete o delovnem podnebju"
+
+msgid "Diversity criteria"
+msgstr "Kriteriji raznolikosti"
+
+msgid "Diversity guidelines"
+msgstr "Smernice za raznolikost"
+
+msgid "Social responsibility guidelines"
+msgstr "Smernice družbene odgovornosti"
 

@@ -33885,3 +33885,189 @@ msgstr "欢迎使用 Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> 如果这是您第一次使用 Chamilo，请确保查看侧边菜单以了解其众多功能。如果您需要帮助，您会发现<a href=\"https://docs.chamilo.org\">我们的官方文档</a>可用于标准文档，而我们的<a href=\"https://github.com/chamilo/chamilo-lms/discussions\">在线论坛</a>可帮助分享想法并从其他 Chamilo 用户那里找到答案。"
 
+msgid "Activities"
+msgstr "活动"
+
+msgid "Activity categories"
+msgstr "活动类别"
+
+msgid "Add activity"
+msgstr "添加活动"
+
+msgid "Add category"
+msgstr "添加类别"
+
+msgid "Edit activity"
+msgstr "编辑活动"
+
+msgid "Edit category"
+msgstr "编辑类别"
+
+msgid "Performance objectives"
+msgstr "绩效目标"
+
+msgid "Objective categories"
+msgstr "目标类别"
+
+msgid "Add objective"
+msgstr "添加目标"
+
+msgid "Edit objective"
+msgstr "编辑目标"
+
+msgid "Geographic zones"
+msgstr "地理区域"
+
+msgid "Add geographic zone"
+msgstr "添加地理区域"
+
+msgid "Edit geographic zone"
+msgstr "编辑地理区域"
+
+msgid "Geographic zone"
+msgstr "地理区域"
+
+msgid "Staff statuses"
+msgstr "员工状态"
+
+msgid "Add staff status"
+msgstr "添加员工状态"
+
+msgid "Edit staff status"
+msgstr "编辑员工状态"
+
+msgid "Staff status"
+msgstr "员工状态"
+
+msgid "Contract types"
+msgstr "合同类型"
+
+msgid "Add contract type"
+msgstr "添加合同类型"
+
+msgid "Edit contract type"
+msgstr "编辑合同类型"
+
+msgid "Contract type"
+msgstr "合同类型"
+
+msgid "Business units"
+msgstr "业务单位"
+
+msgid "Add business unit"
+msgstr "添加业务单位"
+
+msgid "Edit business unit"
+msgstr "编辑业务单位"
+
+msgid "Business unit"
+msgstr "业务单位"
+
+msgid "Add branch"
+msgstr "添加分支"
+
+msgid "Edit branch"
+msgstr "编辑分支"
+
+msgid "Parent unit"
+msgstr "上级单位"
+
+msgid "Primary branch"
+msgstr "主分支"
+
+msgid "Coordinates"
+msgstr "坐标"
+
+msgid "HR Dashboard"
+msgstr "HR 仪表板"
+
+msgid "Staff"
+msgstr "员工"
+
+msgid "Organization"
+msgstr "组织"
+
+msgid "Performance Management"
+msgstr "绩效管理"
+
+msgid "Recruitment"
+msgstr "招聘"
+
+msgid "Benefits"
+msgstr "福利"
+
+msgid "ROI and training"
+msgstr "ROI 和培训"
+
+msgid "Diversity and social responsibility"
+msgstr "多样性和社会责任"
+
+msgid "Professional functions"
+msgstr "专业职能"
+
+msgid "Positions"
+msgstr "职位"
+
+msgid "Units and positions list"
+msgstr "单位和职位列表"
+
+msgid "Assign position to user"
+msgstr "为用户分配职位"
+
+msgid "Organizational chart"
+msgstr "组织结构图"
+
+msgid "Appraisal periods"
+msgstr "评估周期"
+
+msgid "Appraisal templates"
+msgstr "评估模板"
+
+msgid "Performance appraisals"
+msgstr "绩效评估"
+
+msgid "Recruitment stages"
+msgstr "招聘阶段"
+
+msgid "Recruitment processes"
+msgstr "招聘流程"
+
+msgid "Job offers"
+msgstr "职位空缺"
+
+msgid "Team skills goals"
+msgstr "团队技能目标"
+
+msgid "Benefit tags"
+msgstr "福利标签"
+
+msgid "Assign benefits"
+msgstr "分配福利"
+
+msgid "Assigned benefits"
+msgstr "已分配福利"
+
+msgid "ROI by course"
+msgstr "按课程 ROI"
+
+msgid "ROI by person"
+msgstr "按人员 ROI"
+
+msgid "ROI by organizational unit"
+msgstr "按组织单位 ROI"
+
+msgid "Training needs assessment"
+msgstr "培训需求评估"
+
+msgid "Work climate surveys"
+msgstr "工作氛围调查"
+
+msgid "Diversity criteria"
+msgstr "多样性标准"
+
+msgid "Diversity guidelines"
+msgstr "多样性指南"
+
+msgid "Social responsibility guidelines"
+msgstr "社会责任指南"
+

@@ -2021,7 +2021,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:հեղինակային իրավունք,, no:առանց հեղինակային իրավունքի"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Փաստաթղթեր,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Թղթապանակ,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:վարժություն,,      simulation:մոդելավորում,,      questionnaire:հարցաթերթիկ,,      diagram:սխեմա,,      figure:նկար,,      graph:գրաֆիկ,,      index:հիմնական ցուցիչ,,      slide:սլայդ,,      table:तालिका,,      narrative text:նարատիվ տեքստ,,      exam:քննություն,,      experiment:փորձ,,      problem statement:պրոբլեմի ձևակերպում,,      self assessment:ինքնագնահատում,,      lecture:դասախոսություն"
@@ -8627,7 +8627,7 @@ msgid "."
 msgstr "."
 
 msgid "%b %d, %Y"
-msgstr "%b %d, %Y"
+msgstr "%d %B, %Y"
 
 msgid "%A %B %d, %Y"
 msgstr "%A %B %d, %Y"
@@ -33882,4 +33882,190 @@ msgstr "Բարի գալուստ Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Եթե սա ձեր առաջին անգամն է օգտագործել Chamilo-ն, համոզվեք, որ ստուգեք կողմնակի մենյուն՝ ճանապարհ գտնելու համար դրա բազմաթիվ հնարավորություններով: Եթե օգնության կարիք ունեք, կգտնեք <a href=\"https://docs.chamilo.org\">մեր պաշտոնական փաստաթղթերը</a>, որոնք կարող են օգնել ստանդարտ փաստագրության համար, մինչդեռ մեր <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">ուղղակի ֆորումը</a> կարող է օգնել գաղափարներ կիսվել և գտնել պատասխաններ Chamilo-ի այլ օգտատերերից:"
+
+msgid "Activities"
+msgstr "Գործունեություններ"
+
+msgid "Activity categories"
+msgstr "Գործունեության կատեգորիաներ"
+
+msgid "Add activity"
+msgstr "Ավելացնել գործունեություն"
+
+msgid "Add category"
+msgstr "Ավելացնել կատեգորիա"
+
+msgid "Edit activity"
+msgstr "Խմբագրել գործունեությունը"
+
+msgid "Edit category"
+msgstr "Խմբագրել կատեգորիան"
+
+msgid "Performance objectives"
+msgstr "Արձագանքման նպատակներ"
+
+msgid "Objective categories"
+msgstr "Նպատակների կատեգորիաներ"
+
+msgid "Add objective"
+msgstr "Ավելացնել նպատակ"
+
+msgid "Edit objective"
+msgstr "Խմբագրել նպատակը"
+
+msgid "Geographic zones"
+msgstr "Երկրաբանական գոտիներ"
+
+msgid "Add geographic zone"
+msgstr "Ավելացնել երկրաբանական գոտի"
+
+msgid "Edit geographic zone"
+msgstr "Խմբագրել երկրաբանական գոտին"
+
+msgid "Geographic zone"
+msgstr "Երկրաբանական գոտի"
+
+msgid "Staff statuses"
+msgstr "Աշխատակիցների կարգավիճակներ"
+
+msgid "Add staff status"
+msgstr "Ավելացնել աշխատակիցների կարգավիճակ"
+
+msgid "Edit staff status"
+msgstr "Խմբագրել աշխատակիցների կարգավիճակը"
+
+msgid "Staff status"
+msgstr "Աշխատակիցների կարգավիճակ"
+
+msgid "Contract types"
+msgstr "Համաձայնագրերի տեսակներ"
+
+msgid "Add contract type"
+msgstr "Ավելացնել համաձայնագրի տեսակ"
+
+msgid "Edit contract type"
+msgstr "Խմբագրել համաձայնագրի տեսակը"
+
+msgid "Contract type"
+msgstr "Համաձայնագրի տեսակ"
+
+msgid "Business units"
+msgstr "Բիզնես միավորներ"
+
+msgid "Add business unit"
+msgstr "Ավելացնել բիզնես միավոր"
+
+msgid "Edit business unit"
+msgstr "Խմբագրել բիզնես միավոր"
+
+msgid "Business unit"
+msgstr "Բիզնես միավոր"
+
+msgid "Add branch"
+msgstr "Ավելացնել մասնաճյուղ"
+
+msgid "Edit branch"
+msgstr "Խմբագրել մասնաճյուղ"
+
+msgid "Parent unit"
+msgstr "Հայրական միավոր"
+
+msgid "Primary branch"
+msgstr "Հիմնական մասնաճյուղ"
+
+msgid "Coordinates"
+msgstr "Պատկոցներ"
+
+msgid "HR Dashboard"
+msgstr "HR Dashboard"
+
+msgid "Staff"
+msgstr "Աշխատակիցներ"
+
+msgid "Organization"
+msgstr "Կազմակերպություն"
+
+msgid "Performance Management"
+msgstr "Արդյունքների կառավարում"
+
+msgid "Recruitment"
+msgstr "Ներգրավում"
+
+msgid "Benefits"
+msgstr "Հաշվեհաշման փաթեթներ"
+
+msgid "ROI and training"
+msgstr "ROI և ուսուցում"
+
+msgid "Diversity and social responsibility"
+msgstr "Բազմազանություն և սոցիալական պատասխանատվություն"
+
+msgid "Professional functions"
+msgstr "Մասնագիտական գործառույթներ"
+
+msgid "Positions"
+msgstr "Թափանցիկ պաշտոններ"
+
+msgid "Units and positions list"
+msgstr "Միավորների և պաշտոնների ցուցակ"
+
+msgid "Assign position to user"
+msgstr "Պաշտոնի նշանակում օգտատիրոջ համար"
+
+msgid "Organizational chart"
+msgstr "Կազմակերպչական սխեմա"
+
+msgid "Appraisal periods"
+msgstr "Գնահատման ժամանակաշրջաններ"
+
+msgid "Appraisal templates"
+msgstr "Գնահատման ձևանմուշներ"
+
+msgid "Performance appraisals"
+msgstr "Արդյունքների գնահատումներ"
+
+msgid "Recruitment stages"
+msgstr "Ներգրավման փուլեր"
+
+msgid "Recruitment processes"
+msgstr "Ներգրավման գործընթացներ"
+
+msgid "Job offers"
+msgstr "Աշխատանքային հայտարարություններ"
+
+msgid "Team skills goals"
+msgstr "Թիմային հմտությունների նպատակներ"
+
+msgid "Benefit tags"
+msgstr "Հաշվեհաշման փաթեթների պիտակներ"
+
+msgid "Assign benefits"
+msgstr "Հաշվեհաշման փաթեթների նշանակում"
+
+msgid "Assigned benefits"
+msgstr "Նշանակված հաշվեհաշման փաթեթներ"
+
+msgid "ROI by course"
+msgstr "ROI ը հանդիսով"
+
+msgid "ROI by person"
+msgstr "ROI ը անձով"
+
+msgid "ROI by organizational unit"
+msgstr "ROI ը կազմակերպչական միավորով"
+
+msgid "Training needs assessment"
+msgstr "Ուսուցման կարիքների գնահատում"
+
+msgid "Work climate surveys"
+msgstr "Աշխատանքային միջավայրի հարցումներ"
+
+msgid "Diversity criteria"
+msgstr "Բազմազավթության չափանիշներ"
+
+msgid "Diversity guidelines"
+msgstr "Բազմազավթության ուղեցույցներ"
+
+msgid "Social responsibility guidelines"
+msgstr "Սոցիալական պատասխանատվության ուղեցույցներ"
 

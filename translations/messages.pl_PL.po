@@ -344,7 +344,7 @@ msgid "Sincerely"
 msgstr "Z poważaniem"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Przykładowa formuła: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Przykładowy wzór: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Zakresy zmiennych"
@@ -33888,4 +33888,190 @@ msgstr "Witamy w Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Jeśli korzystasz z Chamilo po raz pierwszy, upewnij się, że sprawdzisz menu boczne, aby znaleźć drogę przez jego liczne funkcje. Jeśli potrzebujesz pomocy, nasze <a href=\"https://docs.chamilo.org\">oficjalne dokumenty</a> pomogą w standardowej dokumentacji, podczas gdy nasze <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forum online</a> pomoże dzielić się pomysłami i znaleźć odpowiedzi od innych użytkowników Chamilo."
+
+msgid "Activities"
+msgstr "Aktywności"
+
+msgid "Activity categories"
+msgstr "Kategorie aktywności"
+
+msgid "Add activity"
+msgstr "Dodaj aktywność"
+
+msgid "Add category"
+msgstr "Dodaj kategorię"
+
+msgid "Edit activity"
+msgstr "Edytuj aktywność"
+
+msgid "Edit category"
+msgstr "Edytuj kategorię"
+
+msgid "Performance objectives"
+msgstr "Cele wydajności"
+
+msgid "Objective categories"
+msgstr "Kategorie celów"
+
+msgid "Add objective"
+msgstr "Dodaj cel"
+
+msgid "Edit objective"
+msgstr "Edytuj cel"
+
+msgid "Geographic zones"
+msgstr "Strefy geograficzne"
+
+msgid "Add geographic zone"
+msgstr "Dodaj strefę geograficzną"
+
+msgid "Edit geographic zone"
+msgstr "Edytuj strefę geograficzną"
+
+msgid "Geographic zone"
+msgstr "Strefa geograficzna"
+
+msgid "Staff statuses"
+msgstr "Statusy personelu"
+
+msgid "Add staff status"
+msgstr "Dodaj status personelu"
+
+msgid "Edit staff status"
+msgstr "Edytuj status personelu"
+
+msgid "Staff status"
+msgstr "Status personelu"
+
+msgid "Contract types"
+msgstr "Typy umów"
+
+msgid "Add contract type"
+msgstr "Dodaj typ umowy"
+
+msgid "Edit contract type"
+msgstr "Edytuj typ umowy"
+
+msgid "Contract type"
+msgstr "Typ umowy"
+
+msgid "Business units"
+msgstr "Jednostki biznesowe"
+
+msgid "Add business unit"
+msgstr "Dodaj jednostkę biznesową"
+
+msgid "Edit business unit"
+msgstr "Edytuj jednostkę biznesową"
+
+msgid "Business unit"
+msgstr "Jednostka biznesowa"
+
+msgid "Add branch"
+msgstr "Dodaj oddział"
+
+msgid "Edit branch"
+msgstr "Edytuj oddział"
+
+msgid "Parent unit"
+msgstr "Jednostka nadrzędna"
+
+msgid "Primary branch"
+msgstr "Główny oddział"
+
+msgid "Coordinates"
+msgstr "Współrzędne"
+
+msgid "HR Dashboard"
+msgstr "Panel HR"
+
+msgid "Staff"
+msgstr "Personel"
+
+msgid "Organization"
+msgstr "Organizacja"
+
+msgid "Performance Management"
+msgstr "Zarządzanie wydajnością"
+
+msgid "Recruitment"
+msgstr "Rekrutacja"
+
+msgid "Benefits"
+msgstr "Świadczenia"
+
+msgid "ROI and training"
+msgstr "ROI i szkolenia"
+
+msgid "Diversity and social responsibility"
+msgstr "Różnorodność i odpowiedzialność społeczna"
+
+msgid "Professional functions"
+msgstr "Funkcje zawodowe"
+
+msgid "Positions"
+msgstr "Stanowiska"
+
+msgid "Units and positions list"
+msgstr "Lista jednostek i stanowisk"
+
+msgid "Assign position to user"
+msgstr "Przypisz stanowisko do użytkownika"
+
+msgid "Organizational chart"
+msgstr "Schemat organizacyjny"
+
+msgid "Appraisal periods"
+msgstr "Okresy ocen"
+
+msgid "Appraisal templates"
+msgstr "Szablony ocen"
+
+msgid "Performance appraisals"
+msgstr "Oceny wydajności"
+
+msgid "Recruitment stages"
+msgstr "Etapy rekrutacji"
+
+msgid "Recruitment processes"
+msgstr "Procesy rekrutacyjne"
+
+msgid "Job offers"
+msgstr "Oferty pracy"
+
+msgid "Team skills goals"
+msgstr "Cele umiejętności zespołu"
+
+msgid "Benefit tags"
+msgstr "Tagi świadczeń"
+
+msgid "Assign benefits"
+msgstr "Przypisz świadczenia"
+
+msgid "Assigned benefits"
+msgstr "Przypisane świadczenia"
+
+msgid "ROI by course"
+msgstr "ROI według kursu"
+
+msgid "ROI by person"
+msgstr "ROI według osoby"
+
+msgid "ROI by organizational unit"
+msgstr "ROI według jednostki organizacyjnej"
+
+msgid "Training needs assessment"
+msgstr "Ocena potrzeb szkoleniowych"
+
+msgid "Work climate surveys"
+msgstr "Badania klimatu pracy"
+
+msgid "Diversity criteria"
+msgstr "Kryteria różnorodności"
+
+msgid "Diversity guidelines"
+msgstr "Wytyczne dotyczące różnorodności"
+
+msgid "Social responsibility guidelines"
+msgstr "Wytyczne dotyczące odpowiedzialności społecznej"
 

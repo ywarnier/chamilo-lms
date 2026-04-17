@@ -33897,3 +33897,189 @@ msgstr "مرحباً بك في Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> إذا كانت هذه هي المرة الأولى التي تستخدم فيها Chamilo، تأكد من التحقق من القائمة الجانبية للعثور على طريقك عبر ميزاته العديدة. إذا كنت بحاجة إلى مساعدة، ستجد <a href=\"https://docs.chamilo.org\">وثائقنا الرسمية</a> مفيدة للوثائق القياسية، بينما يمكن لـ <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">منتدى الإنترنت</a> مشاركة الأفكار والعثور على إجابات من مستخدمي Chamilo الآخرين."
 
+msgid "Activities"
+msgstr "الأنشطة"
+
+msgid "Activity categories"
+msgstr "فئات الأنشطة"
+
+msgid "Add activity"
+msgstr "إضافة نشاط"
+
+msgid "Add category"
+msgstr "اضافة فئة"
+
+msgid "Edit activity"
+msgstr "تعديل النشاط"
+
+msgid "Edit category"
+msgstr "تعديل الفئة"
+
+msgid "Performance objectives"
+msgstr "أهداف الأداء"
+
+msgid "Objective categories"
+msgstr "فئات الأهداف"
+
+msgid "Add objective"
+msgstr "إضافة هدف"
+
+msgid "Edit objective"
+msgstr "تعديل الهدف"
+
+msgid "Geographic zones"
+msgstr "المناطق الجغرافية"
+
+msgid "Add geographic zone"
+msgstr "إضافة منطقة جغرافية"
+
+msgid "Edit geographic zone"
+msgstr "تعديل المنطقة الجغرافية"
+
+msgid "Geographic zone"
+msgstr "المنطقة الجغرافية"
+
+msgid "Staff statuses"
+msgstr "حالة الموظفين"
+
+msgid "Add staff status"
+msgstr "إضافة حالة موظف"
+
+msgid "Edit staff status"
+msgstr "تعديل حالة الموظف"
+
+msgid "Staff status"
+msgstr "حالة الموظف"
+
+msgid "Contract types"
+msgstr "أنواع العقود"
+
+msgid "Add contract type"
+msgstr "إضافة نوع عقد"
+
+msgid "Edit contract type"
+msgstr "تعديل نوع العقد"
+
+msgid "Contract type"
+msgstr "نوع العقد"
+
+msgid "Business units"
+msgstr "الوحدات التجارية"
+
+msgid "Add business unit"
+msgstr "إضافة وحدة تجارية"
+
+msgid "Edit business unit"
+msgstr "تعديل الوحدة التجارية"
+
+msgid "Business unit"
+msgstr "الوحدة التجارية"
+
+msgid "Add branch"
+msgstr "إضافة فرع"
+
+msgid "Edit branch"
+msgstr "تعديل الفرع"
+
+msgid "Parent unit"
+msgstr "الوحدة الأم"
+
+msgid "Primary branch"
+msgstr "الفرع الأساسي"
+
+msgid "Coordinates"
+msgstr "الإحداثيات"
+
+msgid "HR Dashboard"
+msgstr "لوحة تحكم الموارد البشرية"
+
+msgid "Staff"
+msgstr "الموظفون"
+
+msgid "Organization"
+msgstr "المنظمة"
+
+msgid "Performance Management"
+msgstr "إدارة الأداء"
+
+msgid "Recruitment"
+msgstr "التوظيف"
+
+msgid "Benefits"
+msgstr "المزايا"
+
+msgid "ROI and training"
+msgstr "العائد على الاستثمار والتدريب"
+
+msgid "Diversity and social responsibility"
+msgstr "التنوع والمسؤولية الاجتماعية"
+
+msgid "Professional functions"
+msgstr "الوظائف المهنية"
+
+msgid "Positions"
+msgstr "المناصب"
+
+msgid "Units and positions list"
+msgstr "قائمة الوحدات والمناصب"
+
+msgid "Assign position to user"
+msgstr "تعيين منصب للمستخدم"
+
+msgid "Organizational chart"
+msgstr "الرسم التنظيمي"
+
+msgid "Appraisal periods"
+msgstr "فترات التقييم"
+
+msgid "Appraisal templates"
+msgstr "نماذج التقييم"
+
+msgid "Performance appraisals"
+msgstr "تقييمات الأداء"
+
+msgid "Recruitment stages"
+msgstr "مراحل التوظيف"
+
+msgid "Recruitment processes"
+msgstr "عمليات التوظيف"
+
+msgid "Job offers"
+msgstr "عروض الوظائف"
+
+msgid "Team skills goals"
+msgstr "أهداف مهارات الفريق"
+
+msgid "Benefit tags"
+msgstr "وسوم المزايا"
+
+msgid "Assign benefits"
+msgstr "تعيين المزايا"
+
+msgid "Assigned benefits"
+msgstr "المزايا المعينة"
+
+msgid "ROI by course"
+msgstr "العائد على الاستثمار حسب المقرر"
+
+msgid "ROI by person"
+msgstr "العائد على الاستثمار حسب الشخص"
+
+msgid "ROI by organizational unit"
+msgstr "العائد على الاستثمار حسب وحدة المنظمة"
+
+msgid "Training needs assessment"
+msgstr "تقييم احتياجات التدريب"
+
+msgid "Work climate surveys"
+msgstr "استطلاعات مناخ العمل"
+
+msgid "Diversity criteria"
+msgstr "معايير التنوع"
+
+msgid "Diversity guidelines"
+msgstr "إرشادات التنوع"
+
+msgid "Social responsibility guidelines"
+msgstr "إرشادات المسؤولية الاجتماعية"
+

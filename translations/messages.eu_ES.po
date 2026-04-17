@@ -33890,3 +33890,189 @@ msgstr "Ongi etorri Chamilorat"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Baldin Chamilo lehen aldiz erabiltzen baduzu, ziurtatu alboko menua egiaztatzen duzula haren ezaugarri askoak aurkitzeko. Laguntza behar baduzu, <a href=\"https://docs.chamilo.org\">gure dokumentazio ofiziala</a> lagunduko dizu dokumentazio estandarrentzat, eta gure <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">foroa linean</a> ideiaak partekatzen eta beste Chamilo erabiltzaile batzuen erantzunak aurkitzen lagunduko dizu."
 
+msgid "Activities"
+msgstr "Jarduerak"
+
+msgid "Activity categories"
+msgstr "Jarduera kategoriak"
+
+msgid "Add activity"
+msgstr "Gehitu jarduera"
+
+msgid "Add category"
+msgstr "Gehitu kategoria"
+
+msgid "Edit activity"
+msgstr "Editatu jarduera"
+
+msgid "Edit category"
+msgstr "Editatu kategoria"
+
+msgid "Performance objectives"
+msgstr "Errendimendu helburuak"
+
+msgid "Objective categories"
+msgstr "Helburu kategoriak"
+
+msgid "Add objective"
+msgstr "Gehitu helburua"
+
+msgid "Edit objective"
+msgstr "Editatu helburua"
+
+msgid "Geographic zones"
+msgstr "Geografiako zonak"
+
+msgid "Add geographic zone"
+msgstr "Gehitu geografiako zona"
+
+msgid "Edit geographic zone"
+msgstr "Editatu geografiako zona"
+
+msgid "Geographic zone"
+msgstr "Geografiako zona"
+
+msgid "Staff statuses"
+msgstr "Langile egoerak"
+
+msgid "Add staff status"
+msgstr "Gehitu langile egoera"
+
+msgid "Edit staff status"
+msgstr "Editatu langile egoera"
+
+msgid "Staff status"
+msgstr "Langile egoera"
+
+msgid "Contract types"
+msgstr "Kontratu motak"
+
+msgid "Add contract type"
+msgstr "Gehitu kontratu mota"
+
+msgid "Edit contract type"
+msgstr "Editatu kontratu mota"
+
+msgid "Contract type"
+msgstr "Kontratu mota"
+
+msgid "Business units"
+msgstr "Negozio unitateak"
+
+msgid "Add business unit"
+msgstr "Enpresa unitatea gehitu"
+
+msgid "Edit business unit"
+msgstr "Enpresa unitatea editatu"
+
+msgid "Business unit"
+msgstr "Enpresa unitatea"
+
+msgid "Add branch"
+msgstr "Adarra gehitu"
+
+msgid "Edit branch"
+msgstr "Adarra editatu"
+
+msgid "Parent unit"
+msgstr "Unitate guraso"
+
+msgid "Primary branch"
+msgstr "Adar nagusia"
+
+msgid "Coordinates"
+msgstr "Koordenatuak"
+
+msgid "HR Dashboard"
+msgstr "GR Aginte-panela"
+
+msgid "Staff"
+msgstr "Langileak"
+
+msgid "Organization"
+msgstr "Erakundea"
+
+msgid "Performance Management"
+msgstr "Errendimendu kudeaketa"
+
+msgid "Recruitment"
+msgstr "Hautaketak"
+
+msgid "Benefits"
+msgstr "Onurak"
+
+msgid "ROI and training"
+msgstr "ROI eta prestakuntza"
+
+msgid "Diversity and social responsibility"
+msgstr "Aniztasuna eta gizarte ardura"
+
+msgid "Professional functions"
+msgstr "Funtzio profesionalak"
+
+msgid "Positions"
+msgstr "Postuak"
+
+msgid "Units and positions list"
+msgstr "Unitateen eta postuen zerrenda"
+
+msgid "Assign position to user"
+msgstr "Esleitu postua erabiltzaileari"
+
+msgid "Organizational chart"
+msgstr "Antolaketa txartela"
+
+msgid "Appraisal periods"
+msgstr "Balorazio epeak"
+
+msgid "Appraisal templates"
+msgstr "Balorazio txantiloiak"
+
+msgid "Performance appraisals"
+msgstr "Errendimendu balorazioak"
+
+msgid "Recruitment stages"
+msgstr "Hautaketa etapak"
+
+msgid "Recruitment processes"
+msgstr "Hautaketa prozesuak"
+
+msgid "Job offers"
+msgstr "Lan eskaintzak"
+
+msgid "Team skills goals"
+msgstr "Talde gaitasunen helburuak"
+
+msgid "Benefit tags"
+msgstr "Onura etiketak"
+
+msgid "Assign benefits"
+msgstr "Onura esleitu"
+
+msgid "Assigned benefits"
+msgstr "Esleitutako onurak"
+
+msgid "ROI by course"
+msgstr "ROI ikastaroaren arabera"
+
+msgid "ROI by person"
+msgstr "ROI pertsonaren arabera"
+
+msgid "ROI by organizational unit"
+msgstr "ROI unitate organikoko arabera"
+
+msgid "Training needs assessment"
+msgstr "Formakuntzaren beharren ebaluazioa"
+
+msgid "Work climate surveys"
+msgstr "Lan-ingurunearen inkestak"
+
+msgid "Diversity criteria"
+msgstr "Aniztasun irizpideak"
+
+msgid "Diversity guidelines"
+msgstr "Aniztasun gidalerroak"
+
+msgid "Social responsibility guidelines"
+msgstr "Erantzukizun sozialaren gidalerroak"
+

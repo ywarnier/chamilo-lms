@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":ari:copyright nisqawan,, mana:mana copyright nisqawan"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Phuqllana,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Puqyu,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:ejercicio,,      simulation:simulación,,      questionnaire:cuestionario,,      diagram:diagrama,,      figure:figura,,      graph:gráfico,,      index:índice,,      slide:diapositiva,,      table:tabla,,      narrative text:texto narrativo,,      exam:examen,,      experiment:experiencia,,      problem statement:problema,,      self assessment:autoevaluación,,      lecture:presentación"
@@ -33884,4 +33884,190 @@ msgstr "Chamilo-man sumajkuy"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Kay Chamilo-manta qallariykichisqa kachkan, paqarina menuta qhawachinaykipaq, wakin hallp'akunata rikunaykipaq. Yanapayta munasqanmanta, <a href=\"https://docs.chamilo.org\">ñawpaq qillqakunata</a> rurankupaq, hukkuna Chamilo runakunaq willakuykunawan kutichisqa <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">foroman</a> yanapay."
+
+msgid "Activities"
+msgstr "Rurakuna"
+
+msgid "Activity categories"
+msgstr "Rura suyukuna"
+
+msgid "Add activity"
+msgstr "Rura yapay"
+
+msgid "Add category"
+msgstr "Katigoriata yapay"
+
+msgid "Edit activity"
+msgstr "Rura llamk'ay"
+
+msgid "Edit category"
+msgstr "T'ijrapay mitata"
+
+msgid "Performance objectives"
+msgstr "Qhapaq rurakuna"
+
+msgid "Objective categories"
+msgstr "Qhapaq suyukuna"
+
+msgid "Add objective"
+msgstr "Qhapaq yapay"
+
+msgid "Edit objective"
+msgstr "Qhapaq llamk'ay"
+
+msgid "Geographic zones"
+msgstr "Pacha suyukuna"
+
+msgid "Add geographic zone"
+msgstr "Pacha suyu yapay"
+
+msgid "Edit geographic zone"
+msgstr "Pacha suyu llamk'ay"
+
+msgid "Geographic zone"
+msgstr "Pacha suyu"
+
+msgid "Staff statuses"
+msgstr "Kamachiq hallp'akuna"
+
+msgid "Add staff status"
+msgstr "Kamachiq hallpa yapay"
+
+msgid "Edit staff status"
+msgstr "Kamachiq hallpa llamk'ay"
+
+msgid "Staff status"
+msgstr "Kamachiq hallpa"
+
+msgid "Contract types"
+msgstr "Willakuy killakuna"
+
+msgid "Add contract type"
+msgstr "Willakuy killa yapay"
+
+msgid "Edit contract type"
+msgstr "Willakuy killa llamk'ay"
+
+msgid "Contract type"
+msgstr "Willakuy killa"
+
+msgid "Business units"
+msgstr "Rakinakuna"
+
+msgid "Add business unit"
+msgstr "Raki yapay"
+
+msgid "Edit business unit"
+msgstr "Raki llamk'ay"
+
+msgid "Business unit"
+msgstr "Raki"
+
+msgid "Add branch"
+msgstr "Ch'usa yapay"
+
+msgid "Edit branch"
+msgstr "Ch'usa llamk'ay"
+
+msgid "Parent unit"
+msgstr "Iñuq unit"
+
+msgid "Primary branch"
+msgstr "Primariyu suti"
+
+msgid "Coordinates"
+msgstr "Coordenadas"
+
+msgid "HR Dashboard"
+msgstr "HR Ñawpaq pampachina"
+
+msgid "Staff"
+msgstr "Kamachisqakuna"
+
+msgid "Organization"
+msgstr "Kamachikuna"
+
+msgid "Performance Management"
+msgstr "Challwa kamachiy"
+
+msgid "Recruitment"
+msgstr "Kamachikuy"
+
+msgid "Benefits"
+msgstr "Kayninkuna"
+
+msgid "ROI and training"
+msgstr "ROI nisqa kursopi"
+
+msgid "Diversity and social responsibility"
+msgstr "Phuruq yachayniyoq kayninkuna"
+
+msgid "Professional functions"
+msgstr "Yachay kamachiyninkuna"
+
+msgid "Positions"
+msgstr "Kamachiyninkuna"
+
+msgid "Units and positions list"
+msgstr "Sutikuna y kamachiyninkuna willakuy"
+
+msgid "Assign position to user"
+msgstr "Runaman kamachiynita qhaway"
+
+msgid "Organizational chart"
+msgstr "Kamachikuna rurana"
+
+msgid "Appraisal periods"
+msgstr "Challwa pacha kuti"
+
+msgid "Appraisal templates"
+msgstr "Challwa rurasqakuna"
+
+msgid "Performance appraisals"
+msgstr "Challwa kamachikuykuna"
+
+msgid "Recruitment stages"
+msgstr "Kamachikuy kuti"
+
+msgid "Recruitment processes"
+msgstr "Kamachikuy rurakuna"
+
+msgid "Job offers"
+msgstr "Kamachiynin rikch'akuna"
+
+msgid "Team skills goals"
+msgstr "Qhaway team yachay willakuna"
+
+msgid "Benefit tags"
+msgstr "Kayni etiketakuna"
+
+msgid "Assign benefits"
+msgstr "Kaynikunata qhaway"
+
+msgid "Assigned benefits"
+msgstr "Qhaway kaynikuna"
+
+msgid "ROI by course"
+msgstr "ROI kursopi"
+
+msgid "ROI by person"
+msgstr "ROI runapi"
+
+msgid "ROI by organizational unit"
+msgstr "ROI kamachikuna sutipi"
+
+msgid "Training needs assessment"
+msgstr "Yachay necesidades yupay"
+
+msgid "Work climate surveys"
+msgstr "Kamay clima enquistakuna"
+
+msgid "Diversity criteria"
+msgstr "Qhananchakuy yatiqakuna"
+
+msgid "Diversity guidelines"
+msgstr "Qhananchakuy ruraykuna"
+
+msgid "Social responsibility guidelines"
+msgstr "Qamqallaykuy ruraykuna"
 

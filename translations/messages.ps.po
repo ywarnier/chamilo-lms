@@ -33879,3 +33879,189 @@ msgstr "د Chamilo ته ښه راغلاست"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> که دا ستاسو لومړی ځل دی چې Chamilo کاروئ، ډاډه کړئ چې له ګرځنده مینو څخه وکاروئ ترڅو د هغې ډېرو ځانګړتیاوو ته ورسیږئ. که تاسو سره مرستې ته اړتیا لرئ، تاسو به <a href=\"https://docs.chamilo.org\">زموږ رسمي اسناد</a> ومومئ چې د معیاري اسنادو لپاره مرسته کوي، په داسې حال کې چې زموږ <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">آنلاین فورم</a> کولی شي ایده شریکول او د نورو Chamilo کاروونکو څخه ځوابونه ومومئ."
 
+msgid "Activities"
+msgstr "فعالیتونه"
+
+msgid "Activity categories"
+msgstr "د فعالیت کټګورۍ"
+
+msgid "Add activity"
+msgstr "فعالیت اضافه کړئ"
+
+msgid "Add category"
+msgstr "کټګوري اضافه کړئ"
+
+msgid "Edit activity"
+msgstr "فعالیت سمول"
+
+msgid "Edit category"
+msgstr "کټګوري سم کړئ"
+
+msgid "Performance objectives"
+msgstr "د عملي اهداف"
+
+msgid "Objective categories"
+msgstr "د هدف کټګورۍ"
+
+msgid "Add objective"
+msgstr "هدف اضافه کړئ"
+
+msgid "Edit objective"
+msgstr "هدف سمول"
+
+msgid "Geographic zones"
+msgstr "جغرافيايي سيمې"
+
+msgid "Add geographic zone"
+msgstr "جغرافيايي سيمه اضافه کړئ"
+
+msgid "Edit geographic zone"
+msgstr "جغرافيايي سيمه سمول"
+
+msgid "Geographic zone"
+msgstr "جغرافيايي سيمه"
+
+msgid "Staff statuses"
+msgstr "د کارکوونکو حالتونه"
+
+msgid "Add staff status"
+msgstr "د کارکوونکي حالت اضافه کړئ"
+
+msgid "Edit staff status"
+msgstr "د کارکوونکي حالت سمول"
+
+msgid "Staff status"
+msgstr "د کارکوونکي حالت"
+
+msgid "Contract types"
+msgstr "د قرارداد ډولونه"
+
+msgid "Add contract type"
+msgstr "د قرارداد ډول اضافه کړئ"
+
+msgid "Edit contract type"
+msgstr "د قرارداد ډول سمول"
+
+msgid "Contract type"
+msgstr "د قرارداد ډول"
+
+msgid "Business units"
+msgstr "د سوداګريزو يونټونه"
+
+msgid "Add business unit"
+msgstr "سوداګريزه يونټ اضافه کړئ"
+
+msgid "Edit business unit"
+msgstr "سوداګريزه يونټ سمول"
+
+msgid "Business unit"
+msgstr "سوداګريزه يونټ"
+
+msgid "Add branch"
+msgstr "شاخصه اضافه کړئ"
+
+msgid "Edit branch"
+msgstr "شاخصه سمول"
+
+msgid "Parent unit"
+msgstr "والا يونټ"
+
+msgid "Primary branch"
+msgstr "اصلي شاخصه"
+
+msgid "Coordinates"
+msgstr "همکاردينې"
+
+msgid "HR Dashboard"
+msgstr "د HR ډاشبورډ"
+
+msgid "Staff"
+msgstr "کارکوونکي"
+
+msgid "Organization"
+msgstr "تنظیم"
+
+msgid "Performance Management"
+msgstr "د کارکردګۍ مدیریت"
+
+msgid "Recruitment"
+msgstr "د ګزینې پروسه"
+
+msgid "Benefits"
+msgstr "ګټې"
+
+msgid "ROI and training"
+msgstr "ROI او روزنه"
+
+msgid "Diversity and social responsibility"
+msgstr "تنوع او ټولنیزه مسؤلیت"
+
+msgid "Professional functions"
+msgstr "مسلکي دندې"
+
+msgid "Positions"
+msgstr "دندې"
+
+msgid "Units and positions list"
+msgstr "د واحدونو او دندو لیست"
+
+msgid "Assign position to user"
+msgstr "د کاروونکي لپاره دنده ټاکل"
+
+msgid "Organizational chart"
+msgstr "تنظیمي چارټ"
+
+msgid "Appraisal periods"
+msgstr "د ارزونې مودې"
+
+msgid "Appraisal templates"
+msgstr "د ارزونې نمونې"
+
+msgid "Performance appraisals"
+msgstr "د کارکردګۍ ارزونې"
+
+msgid "Recruitment stages"
+msgstr "د ګزینې مرحلې"
+
+msgid "Recruitment processes"
+msgstr "د ګزینې پروسې"
+
+msgid "Job offers"
+msgstr "د کار وړاندیزونه"
+
+msgid "Team skills goals"
+msgstr "د ټیم د مهارتونو موخې"
+
+msgid "Benefit tags"
+msgstr "د ګټو ټګونه"
+
+msgid "Assign benefits"
+msgstr "ګټې ټاکل"
+
+msgid "Assigned benefits"
+msgstr "ټاکل شوي ګټې"
+
+msgid "ROI by course"
+msgstr "د کورس له مخې ROI"
+
+msgid "ROI by person"
+msgstr "د شخص له مخې ROI"
+
+msgid "ROI by organizational unit"
+msgstr "د تنظیمي واحد له مخې ROI"
+
+msgid "Training needs assessment"
+msgstr "د روزنې اړتیاوو ارزونه"
+
+msgid "Work climate surveys"
+msgstr "د کار چاپیریال سروې"
+
+msgid "Diversity criteria"
+msgstr "د تنوع معیارونه"
+
+msgid "Diversity guidelines"
+msgstr "د تنوع لارښوونې"
+
+msgid "Social responsibility guidelines"
+msgstr "د ټولنیزې مسؤلیت لارښوونې"
+

@@ -1726,7 +1726,7 @@ msgid "This language will be valid for every visitor of your courses portal"
 msgstr "এই ভাষাটি আপনার কোর্স পোর্টালের প্রত্যেক দর্শনার্থীর জন্য বৈধ হবে"
 
 msgid "Chamilo LIVE"
-msgstr "Chamilo LIVE"
+msgstr "চামিলো লাইভ"
 
 msgid "Contributions"
 msgstr "অবদান"
@@ -4786,7 +4786,7 @@ msgid "Chamilo LIVE is a videoconferencing tool that offers: Slides sharing, whi
 msgstr "Chamilo LIVE একটি ভিডিও কনফারেন্সিং টুল যা প্রদান করে: স্লাইড শেয়ারিং, স্লাইডের উপর আঁকা এবং লেখার জন্য হোয়াইটবোর্ড, অডিও/ভিডিও ডুপ্লেক্স এবং চ্যাট। এটির জন্য Flash® প্লেয়ার ৯+ প্রয়োজন এবং ২টি মোড প্রদান করে: এক থেকে অনেক এবং অনেক থেকে অনেক।"
 
 msgid "Chamilo RAPID"
-msgstr "Chamilo RAPID"
+msgstr "চামিলো র‍্যাপিড"
 
 msgid "Chamilo RAPID is a Rapid Learning tool available in Chamilo Pro and Chamilo Medical. It allows you to convert Powerpoint or LibreOffice presentations to SCORM-compliant courses. After the conversion, you end up in the Courses authoring tool and are able to add audio comments on slides and pages, tests and activities between the slides or pages and interaction activities like forum discussions or assignment upload. Every step becomes an independent and removable learning object. And the whole course generates accurate SCORM reporting for further coaching."
 msgstr "Chamilo RAPID হলো Chamilo Pro এবং Chamilo Medical এ উপলব্ধ একটি র‍্যাপিড লার্নিং টুল। এটি Powerpoint বা LibreOffice উপস্থাপনাকে SCORM সামঞ্জস্যপূর্ণ কোর্সে রূপান্তর করতে দেয়। রূপান্তরের পর আপনি Courses authoring টুলে পৌঁছে স্লাইড এবং পেজে অডিও মন্তব্য, টেস্ট এবং অ্যাক্টিভিটি যোগ করতে পারেন এবং ফোরাম আলোচনা বা অ্যাসাইনমেন্ট আপলোডের মতো ইন্টারঅ্যাকশন অ্যাক্টিভিটি। প্রতিটি ধাপ স্বাধীন এবং অপসারণযোগ্য লার্নিং অবজেক্ট হয়ে ওঠে। এবং সম্পূর্ণ কোর্স সঠিক SCORM রিপোর্টিং তৈরি করে।"
@@ -4804,7 +4804,7 @@ msgid "AWStats allows you to consult the statistics of your platform : visitors,
 msgstr "AWStats আপনাকে আপনার প্ল্যাটফর্মের পরিসংখ্যান দেখতে দেয়: দর্শক, পেজ ভিউ, রেফারার..."
 
 msgid "Chamilo LIBRARY"
-msgstr "Chamilo LIBRARY"
+msgstr "চামিলো লাইব্রেরি"
 
 msgid "Chamilo LIBRARY is a Search Engine offering multi-criteria indexing and research. It is part of the Chamilo Medical features."
 msgstr "চামিলো লাইব্রেরি একটি সার্চ ইঞ্জিন যা মাল্টি-ক্রাইটেরিয়া ইনডেক্সিং এবং গবেষণা প্রদান করে। এটি চামিলো মেডিকেল ফিচারের অংশ।"
@@ -9523,7 +9523,7 @@ msgid "File upload failed: this file extension or file type is prohibited"
 msgstr "ফাইল আপলোড ব্যর্থ: এই ফাইল এক্সটেনশন বা ফাইল টাইপ নিষিদ্ধ"
 
 msgid "OpenID URL"
-msgstr "OpenID URL"
+msgstr "OpenID ইউআরএল"
 
 msgid "The file is too big to upload."
 msgstr "ফাইলটি আপলোড করার জন্য খুব বড়।"
@@ -15049,7 +15049,7 @@ msgid "Install Chamilo"
 msgstr "Chamilo ইনস্টল করুন"
 
 msgid "Chamilo URL"
-msgstr "Chamilo URL"
+msgstr "চামিলো ইউআরএল"
 
 msgid "You have no session in your sessions history"
 msgstr "আপনার সেশন ইতিহাসে কোনো সেশন নেই"
@@ -23200,7 +23200,7 @@ msgid "No status"
 msgstr "কোনো অবস্থা নেই"
 
 msgid "CAS 3"
-msgstr "CAS 3"
+msgstr "CAS ৩"
 
 msgid "Go back to video"
 msgstr "ভিডিওতে ফিরে যান"
@@ -27370,7 +27370,7 @@ msgid "Obtained the following skills"
 msgstr "নিম্নলিখিত দক্ষতা অর্জিত হয়েছে"
 
 msgid "Chamilo LMS"
-msgstr "Chamilo LMS"
+msgstr "চামিলো এলএমএস"
 
 msgid "No course sessions for this user"
 msgstr "এই ব্যবহারকারীর জন্য কোনো কোর্স সেশন নেই"
@@ -33878,4 +33878,190 @@ msgstr "Chamilo-এ স্বাগতম"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> যদি এটি আপনার প্রথমবার Chamilo ব্যবহার করা হয়, তাহলে সাইড মেনু চেক করুন যাতে এর অনেক ফিচারের মধ্যে পথ খুঁজে পান। সাহায্য প্রয়োজন হলে, আপনি <a href=\"https://docs.chamilo.org\">আমাদের অফিসিয়াল ডকুমেন্টেশন</a> স্ট্যান্ডার্ড ডকুমেন্টেশনের জন্য সাহায্য করতে পারে, যখন আমাদের <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">অনলাইন ফোরাম</a> অন্য Chamilo ব্যবহারকারীদের থেকে ধারণা শেয়ার করতে এবং উত্তর খুঁজে পেতে সাহায্য করতে পারে।"
+
+msgid "Activities"
+msgstr "কার্যক্রম"
+
+msgid "Activity categories"
+msgstr "কার্যক্রমের বিভাগ"
+
+msgid "Add activity"
+msgstr "কার্যক্রম যোগ করুন"
+
+msgid "Add category"
+msgstr "বিভাগ যোগ করুন"
+
+msgid "Edit activity"
+msgstr "কার্যক্রম সম্পাদনা করুন"
+
+msgid "Edit category"
+msgstr "ক্যাটাগরি সম্পাদনা করুন"
+
+msgid "Performance objectives"
+msgstr "কর্মক্ষমতার উদ্দেশ্য"
+
+msgid "Objective categories"
+msgstr "উদ্দেশ্যের বিভাগ"
+
+msgid "Add objective"
+msgstr "উদ্দেশ্য যোগ করুন"
+
+msgid "Edit objective"
+msgstr "উদ্দেশ্য সম্পাদনা করুন"
+
+msgid "Geographic zones"
+msgstr "ভৌগোলিক অঞ্চল"
+
+msgid "Add geographic zone"
+msgstr "ভৌগোলিক অঞ্চল যোগ করুন"
+
+msgid "Edit geographic zone"
+msgstr "ভৌগোলিক অঞ্চল সম্পাদনা করুন"
+
+msgid "Geographic zone"
+msgstr "ভৌগোলিক অঞ্চল"
+
+msgid "Staff statuses"
+msgstr "কর্মীদের অবস্থা"
+
+msgid "Add staff status"
+msgstr "কর্মী অবস্থা যোগ করুন"
+
+msgid "Edit staff status"
+msgstr "কর্মী অবস্থা সম্পাদনা করুন"
+
+msgid "Staff status"
+msgstr "কর্মী অবস্থা"
+
+msgid "Contract types"
+msgstr "চুক্তির ধরন"
+
+msgid "Add contract type"
+msgstr "চুক্তির ধরন যোগ করুন"
+
+msgid "Edit contract type"
+msgstr "চুক্তির ধরন সম্পাদনা করুন"
+
+msgid "Contract type"
+msgstr "চুক্তির ধরন"
+
+msgid "Business units"
+msgstr "ব্যবসায়িক ইউনিট"
+
+msgid "Add business unit"
+msgstr "ব্যবসায়িক ইউনিট যোগ করুন"
+
+msgid "Edit business unit"
+msgstr "ব্যবসায়িক ইউনিট সম্পাদনা করুন"
+
+msgid "Business unit"
+msgstr "ব্যবসায়িক ইউনিট"
+
+msgid "Add branch"
+msgstr "শাখা যোগ করুন"
+
+msgid "Edit branch"
+msgstr "শাখা সম্পাদনা করুন"
+
+msgid "Parent unit"
+msgstr "মূল ইউনিট"
+
+msgid "Primary branch"
+msgstr "প্রাথমিক শাখা"
+
+msgid "Coordinates"
+msgstr "স্থানাঙ্ক"
+
+msgid "HR Dashboard"
+msgstr "এইচআর ড্যাশবোর্ড"
+
+msgid "Staff"
+msgstr "কর্মী"
+
+msgid "Organization"
+msgstr "সংস্থা"
+
+msgid "Performance Management"
+msgstr "কর্মক্ষমতা ব্যবস্থাপনা"
+
+msgid "Recruitment"
+msgstr "নিয়োগ"
+
+msgid "Benefits"
+msgstr "সুবিধা"
+
+msgid "ROI and training"
+msgstr "ROI এবং প্রশিক্ষণ"
+
+msgid "Diversity and social responsibility"
+msgstr "বৈচিত্র্য এবং সামাজিক দায়িত্ব"
+
+msgid "Professional functions"
+msgstr "পেশাগত কার্যাবলী"
+
+msgid "Positions"
+msgstr "পদ"
+
+msgid "Units and positions list"
+msgstr "ইউনিট এবং পদের তালিকা"
+
+msgid "Assign position to user"
+msgstr "ব্যবহারকারীর পদ বরাদ্দ করুন"
+
+msgid "Organizational chart"
+msgstr "সাংগঠনিক চার্ট"
+
+msgid "Appraisal periods"
+msgstr "মূল্যায়নের সময়কাল"
+
+msgid "Appraisal templates"
+msgstr "মূল্যায়নের টেমপ্লেট"
+
+msgid "Performance appraisals"
+msgstr "কর্মক্ষমতা মূল্যায়ন"
+
+msgid "Recruitment stages"
+msgstr "নিয়োগের ধাপ"
+
+msgid "Recruitment processes"
+msgstr "নিয়োগ প্রক্রিয়া"
+
+msgid "Job offers"
+msgstr "চাকরির অফার"
+
+msgid "Team skills goals"
+msgstr "দলের দক্ষতা লক্ষ্য"
+
+msgid "Benefit tags"
+msgstr "সুবিধার ট্যাগ"
+
+msgid "Assign benefits"
+msgstr "সুবিধা বরাদ্দ করুন"
+
+msgid "Assigned benefits"
+msgstr "বরাদ্দকৃত সুবিধা"
+
+msgid "ROI by course"
+msgstr "কোর্স অনুযায়ী ROI"
+
+msgid "ROI by person"
+msgstr "ব্যক্তি অনুযায়ী ROI"
+
+msgid "ROI by organizational unit"
+msgstr "সাংগঠনিক ইউনিট অনুযায়ী ROI"
+
+msgid "Training needs assessment"
+msgstr "প্রশিক্ষণের প্রয়োজনীয়তা মূল্যায়ন"
+
+msgid "Work climate surveys"
+msgstr "কর্মপরিবেশ জরিপ"
+
+msgid "Diversity criteria"
+msgstr "বৈচিত্র্যের মানদণ্ড"
+
+msgid "Diversity guidelines"
+msgstr "বৈচিত্র্যের নির্দেশিকা"
+
+msgid "Social responsibility guidelines"
+msgstr "সামাজিক দায়িত্বের নির্দেশিকা"
 

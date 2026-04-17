@@ -33885,3 +33885,189 @@ msgstr "Bonvenon al Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Se ĉi tio estas via unua fojo uzante Chamilo, certigu vin kontroli la flankan menuon por trovi vian vojon tra ĝiaj multaj trajtoj. Se vi bezonas helpon, vi trovos <a href=\"https://docs.chamilo.org\">nujn oficialajn dokumentojn</a> povas helpi por norma dokumentado, dum nia <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">retejo</a> povas helpi kunhavigi ideojn kaj trovi respondojn de aliaj uzantoj de Chamilo."
 
+msgid "Activities"
+msgstr "Aktivoj"
+
+msgid "Activity categories"
+msgstr "Kategorioj de aktivoj"
+
+msgid "Add activity"
+msgstr "Aldoni aktivecon"
+
+msgid "Add category"
+msgstr "Aldoni kategorion"
+
+msgid "Edit activity"
+msgstr "Redakti aktivecon"
+
+msgid "Edit category"
+msgstr "Redakti kategorion"
+
+msgid "Performance objectives"
+msgstr "Celfikoj de efiko"
+
+msgid "Objective categories"
+msgstr "Kategorioj de celoj"
+
+msgid "Add objective"
+msgstr "Aldoni celon"
+
+msgid "Edit objective"
+msgstr "Redakti celon"
+
+msgid "Geographic zones"
+msgstr "Geografiaj zonoj"
+
+msgid "Add geographic zone"
+msgstr "Aldoni geografian zonon"
+
+msgid "Edit geographic zone"
+msgstr "Redakti geografian zonon"
+
+msgid "Geographic zone"
+msgstr "Geografia zono"
+
+msgid "Staff statuses"
+msgstr "Statusoj de kunlaborantaro"
+
+msgid "Add staff status"
+msgstr "Aldoni statuson de kunlaborantaro"
+
+msgid "Edit staff status"
+msgstr "Redakti statuson de kunlaborantaro"
+
+msgid "Staff status"
+msgstr "Statuso de kunlaborantaro"
+
+msgid "Contract types"
+msgstr "Tipoj de kontraktoj"
+
+msgid "Add contract type"
+msgstr "Aldoni tipon de kontrakto"
+
+msgid "Edit contract type"
+msgstr "Redakti tipon de kontrakto"
+
+msgid "Contract type"
+msgstr "Tipo de kontrakto"
+
+msgid "Business units"
+msgstr "Biz-unuoj"
+
+msgid "Add business unit"
+msgstr "Aldoni biz-unuon"
+
+msgid "Edit business unit"
+msgstr "Redakti biz-unuon"
+
+msgid "Business unit"
+msgstr "Biz-unuo"
+
+msgid "Add branch"
+msgstr "Aldoni branĉon"
+
+msgid "Edit branch"
+msgstr "Redakti branĉon"
+
+msgid "Parent unit"
+msgstr "Patra unuo"
+
+msgid "Primary branch"
+msgstr "Ĉefa branĉo"
+
+msgid "Coordinates"
+msgstr "Koordinatoj"
+
+msgid "HR Dashboard"
+msgstr "HR Paĝo ĉefa"
+
+msgid "Staff"
+msgstr "Personalo"
+
+msgid "Organization"
+msgstr "Organizo"
+
+msgid "Performance Management"
+msgstr "Administro de efiko"
+
+msgid "Recruitment"
+msgstr "Rekrutado"
+
+msgid "Benefits"
+msgstr "Avantaĝoj"
+
+msgid "ROI and training"
+msgstr "ROI kaj trejnado"
+
+msgid "Diversity and social responsibility"
+msgstr "Diverseco kaj socia respondeco"
+
+msgid "Professional functions"
+msgstr "Profesiaj funkcioj"
+
+msgid "Positions"
+msgstr "Postenoj"
+
+msgid "Units and positions list"
+msgstr "Listo de unuoj kaj postenoj"
+
+msgid "Assign position to user"
+msgstr "Atribui postenon al uzanto"
+
+msgid "Organizational chart"
+msgstr "Organigramo"
+
+msgid "Appraisal periods"
+msgstr "Periodoj de taksado"
+
+msgid "Appraisal templates"
+msgstr "Ŝablono j de taksado"
+
+msgid "Performance appraisals"
+msgstr "Taksadoj de efiko"
+
+msgid "Recruitment stages"
+msgstr "Etajpoj de rekrutado"
+
+msgid "Recruitment processes"
+msgstr "Procezoj de rekrutado"
+
+msgid "Job offers"
+msgstr "Laboraferoj"
+
+msgid "Team skills goals"
+msgstr "Celfaro de teamaj kompetencoj"
+
+msgid "Benefit tags"
+msgstr "Etiketoj de avantaĝoj"
+
+msgid "Assign benefits"
+msgstr "Atribui avantaĝojn"
+
+msgid "Assigned benefits"
+msgstr "Atribuitaj avantaĝoj"
+
+msgid "ROI by course"
+msgstr "ROI laŭ kurso"
+
+msgid "ROI by person"
+msgstr "ROI laŭ persono"
+
+msgid "ROI by organizational unit"
+msgstr "ROI laŭ organiza unuo"
+
+msgid "Training needs assessment"
+msgstr "Taksado de trejnaj bezonoj"
+
+msgid "Work climate surveys"
+msgstr "Enketoj pri laborlaborambiente"
+
+msgid "Diversity criteria"
+msgstr "Kriterioj de diverseco"
+
+msgid "Diversity guidelines"
+msgstr "Gvidlinioj de diverseco"
+
+msgid "Social responsibility guidelines"
+msgstr "Gvidlinioj de socia respondeco"
+

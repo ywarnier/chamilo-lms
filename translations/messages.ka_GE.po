@@ -33879,3 +33879,189 @@ msgstr "მოგესალმებით Chamilo-ში"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> თუ ეს არის თქვენი პირველი ჯერზე Chamilo-ს გამოყენება, დარწმუნდით რომ შეამოწმებთ გვერდით მენიუს მისი მრავალი ფუნქციის საპოვნელად. თუ დაგჭირდებათ დახმარება, <a href=\"https://docs.chamilo.org\"> ჩვენი ოფიციალური დოკუმენტაცია</a> დაგეხმარებათ სტანდარტული დოკუმენტაციისთვის, ხოლო ჩვენი <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">ონლაინ ფორუმი</a> დაგეხმარებათ იდეების გაზიარებასა და სხვა Chamilo მომხმარებლებისგან პასუხების მოძიებაში."
 
+msgid "Activities"
+msgstr "აქტივობები"
+
+msgid "Activity categories"
+msgstr "აქტივობის კატეგორიები"
+
+msgid "Add activity"
+msgstr "აქტივობის დამატება"
+
+msgid "Add category"
+msgstr "კატეგორიის დამატება"
+
+msgid "Edit activity"
+msgstr "აქტივობის რედაქტირება"
+
+msgid "Edit category"
+msgstr "კატეგორიის რედაქტირება"
+
+msgid "Performance objectives"
+msgstr "შესრულების მიზნები"
+
+msgid "Objective categories"
+msgstr "მიზნის კატეგორიები"
+
+msgid "Add objective"
+msgstr "მიზნის დამატება"
+
+msgid "Edit objective"
+msgstr "მიზნის რედაქტირება"
+
+msgid "Geographic zones"
+msgstr "გეოგრაფიული ზონები"
+
+msgid "Add geographic zone"
+msgstr "გეოგრაფიული ზონის დამატება"
+
+msgid "Edit geographic zone"
+msgstr "გეოგრაფიული ზონის რედაქტირება"
+
+msgid "Geographic zone"
+msgstr "გეოგრაფიული ზონა"
+
+msgid "Staff statuses"
+msgstr "პერსონალის სტატუსები"
+
+msgid "Add staff status"
+msgstr "პერსონალის სტატუსის დამატება"
+
+msgid "Edit staff status"
+msgstr "პერსონალის სტატუსის რედაქტირება"
+
+msgid "Staff status"
+msgstr "პერსონალის სტატუსი"
+
+msgid "Contract types"
+msgstr "კონტრაქტის ტიპები"
+
+msgid "Add contract type"
+msgstr "კონტრაქტის ტიპის დამატება"
+
+msgid "Edit contract type"
+msgstr "კონტრაქტის ტიპის რედაქტირება"
+
+msgid "Contract type"
+msgstr "კონტრაქტის ტიპი"
+
+msgid "Business units"
+msgstr "ბიზნეს ერთეულები"
+
+msgid "Add business unit"
+msgstr "ბიზნეს ერთეულის დამატება"
+
+msgid "Edit business unit"
+msgstr "ბიზნეს ერთეულის რედაქტირება"
+
+msgid "Business unit"
+msgstr "ბიზნეს ერთეული"
+
+msgid "Add branch"
+msgstr "ფილიალის დამატება"
+
+msgid "Edit branch"
+msgstr "ფილიალის რედაქტირება"
+
+msgid "Parent unit"
+msgstr "მშობელი ერთეული"
+
+msgid "Primary branch"
+msgstr "ძირითადი ფილიალი"
+
+msgid "Coordinates"
+msgstr "კოორდინატები"
+
+msgid "HR Dashboard"
+msgstr "HR Dashboard"
+
+msgid "Staff"
+msgstr "პერსონალი"
+
+msgid "Organization"
+msgstr "ორგანიზაცია"
+
+msgid "Performance Management"
+msgstr "შესრულების მართვა"
+
+msgid "Recruitment"
+msgstr "შეუბრუნებელი რეკრუტინგი"
+
+msgid "Benefits"
+msgstr "შეღავათები"
+
+msgid "ROI and training"
+msgstr "ROI და ტრენინგი"
+
+msgid "Diversity and social responsibility"
+msgstr "მრავალფეროვნება და სოციალური პასუხისმგებლობა"
+
+msgid "Professional functions"
+msgstr "პროფესიული ფუნქციები"
+
+msgid "Positions"
+msgstr "პოზიციები"
+
+msgid "Units and positions list"
+msgstr "ერთეულების და პოზიციების სია"
+
+msgid "Assign position to user"
+msgstr "პოზიციის მინიჭება მომხმარებელს"
+
+msgid "Organizational chart"
+msgstr "ორგანიზაციული სქემა"
+
+msgid "Appraisal periods"
+msgstr "შეფასების პერიოდები"
+
+msgid "Appraisal templates"
+msgstr "შეფასების შაბლონები"
+
+msgid "Performance appraisals"
+msgstr "შესრულების შეფასებები"
+
+msgid "Recruitment stages"
+msgstr "რეკრუტინგის ეტაპები"
+
+msgid "Recruitment processes"
+msgstr "რეკრუტინგის პროცესები"
+
+msgid "Job offers"
+msgstr "სამუშაო შეთავაზებები"
+
+msgid "Team skills goals"
+msgstr "გუნდური უნარების მიზნები"
+
+msgid "Benefit tags"
+msgstr "შეღავათების ეტიკეტები"
+
+msgid "Assign benefits"
+msgstr "შეღავათების მინიჭება"
+
+msgid "Assigned benefits"
+msgstr "მინიჭებული შეღავათები"
+
+msgid "ROI by course"
+msgstr "ROI კურსის მიხედვით"
+
+msgid "ROI by person"
+msgstr "ROI პიროვნების მიხედვით"
+
+msgid "ROI by organizational unit"
+msgstr "ROI ორგანიზაციული ერთეულის მიხედვით"
+
+msgid "Training needs assessment"
+msgstr "ტრენინგის მოთხოვნების შეფასება"
+
+msgid "Work climate surveys"
+msgstr "სამუშაო კლიმატის გამოკითხვები"
+
+msgid "Diversity criteria"
+msgstr "მრავალფეროვნების კრიტერიუმები"
+
+msgid "Diversity guidelines"
+msgstr "მრავალფეროვნების მითითებები"
+
+msgid "Social responsibility guidelines"
+msgstr "სოციალური პასუხისმგებლობის მითითებები"
+

@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:запазени права,, no:свободен"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Папка,, application/msword:MsWord,, application/octet-stream:Поток от октети,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Папка,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:тест (упражнение),,      simulation:симулация,,      questionnaire:въпросник,,      diagram:диаграма,,      figure:фигура,,      graph:графика,,      index:индекс,,      slide:слайд,,      table:таблица,,      narrative text:обзор,,      exam:изпит,,      experiment:експеримент,,      problem statement:постановка на проблем,,      self assessment:самостоятелно оценяване,,      lecture:лекция"
@@ -33884,4 +33884,190 @@ msgstr "Добре дошли в Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ако това е първият ви път с Chamilo, уверете се, че проверите страничното меню, за да се ориентирате в многото му функции. Ако ви трябва помощ, <a href=\"https://docs.chamilo.org\">нашата официална документация</a> ще ви помогне за стандартната документация, докато нашият <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">онлайн форум</a> може да помогне за споделяне на идеи и намиране на отговори от други потребители на Chamilo."
+
+msgid "Activities"
+msgstr "Дейности"
+
+msgid "Activity categories"
+msgstr "Категории дейности"
+
+msgid "Add activity"
+msgstr "Добавяне на дейност"
+
+msgid "Add category"
+msgstr "Добавяне на категория"
+
+msgid "Edit activity"
+msgstr "Редактиране на дейност"
+
+msgid "Edit category"
+msgstr "Редактиране на категорията"
+
+msgid "Performance objectives"
+msgstr "Цели за изпълнение"
+
+msgid "Objective categories"
+msgstr "Категории цели"
+
+msgid "Add objective"
+msgstr "Добавяне на цел"
+
+msgid "Edit objective"
+msgstr "Редактиране на цел"
+
+msgid "Geographic zones"
+msgstr "Географски зони"
+
+msgid "Add geographic zone"
+msgstr "Добавяне на географска зона"
+
+msgid "Edit geographic zone"
+msgstr "Редактиране на географска зона"
+
+msgid "Geographic zone"
+msgstr "Географска зона"
+
+msgid "Staff statuses"
+msgstr "Статуси на персонала"
+
+msgid "Add staff status"
+msgstr "Добавяне на статус на персонал"
+
+msgid "Edit staff status"
+msgstr "Редактиране на статус на персонал"
+
+msgid "Staff status"
+msgstr "Статус на персонал"
+
+msgid "Contract types"
+msgstr "Видове договори"
+
+msgid "Add contract type"
+msgstr "Добавяне на вид договор"
+
+msgid "Edit contract type"
+msgstr "Редактиране на вид договор"
+
+msgid "Contract type"
+msgstr "Вид договор"
+
+msgid "Business units"
+msgstr "Бизнес единици"
+
+msgid "Add business unit"
+msgstr "Добавяне на бизнес единица"
+
+msgid "Edit business unit"
+msgstr "Редактиране на бизнес единица"
+
+msgid "Business unit"
+msgstr "Бизнес единица"
+
+msgid "Add branch"
+msgstr "Добавяне на клон"
+
+msgid "Edit branch"
+msgstr "Редактиране на клон"
+
+msgid "Parent unit"
+msgstr "Родителска единица"
+
+msgid "Primary branch"
+msgstr "Основен клон"
+
+msgid "Coordinates"
+msgstr "Координати"
+
+msgid "HR Dashboard"
+msgstr "Табло за човешки ресурси"
+
+msgid "Staff"
+msgstr "Персонал"
+
+msgid "Organization"
+msgstr "Организация"
+
+msgid "Performance Management"
+msgstr "Управление на представянето"
+
+msgid "Recruitment"
+msgstr "Наемане"
+
+msgid "Benefits"
+msgstr "Ползи"
+
+msgid "ROI and training"
+msgstr "ROI и обучение"
+
+msgid "Diversity and social responsibility"
+msgstr "Разнообразие и социална отговорност"
+
+msgid "Professional functions"
+msgstr "Професионални функции"
+
+msgid "Positions"
+msgstr "Длъжности"
+
+msgid "Units and positions list"
+msgstr "Списък на звената и длъжностите"
+
+msgid "Assign position to user"
+msgstr "Назначи длъжност на потребител"
+
+msgid "Organizational chart"
+msgstr "Организационна схема"
+
+msgid "Appraisal periods"
+msgstr "Периоди за оценка"
+
+msgid "Appraisal templates"
+msgstr "Шаблони за оценка"
+
+msgid "Performance appraisals"
+msgstr "Оценки на представянето"
+
+msgid "Recruitment stages"
+msgstr "Етапи на наемане"
+
+msgid "Recruitment processes"
+msgstr "Процеси на наемане"
+
+msgid "Job offers"
+msgstr "Обяви за работа"
+
+msgid "Team skills goals"
+msgstr "Цели за умения на екипа"
+
+msgid "Benefit tags"
+msgstr "Етикети за ползи"
+
+msgid "Assign benefits"
+msgstr "Назначи ползи"
+
+msgid "Assigned benefits"
+msgstr "Назначени ползи"
+
+msgid "ROI by course"
+msgstr "ROI по курс"
+
+msgid "ROI by person"
+msgstr "ROI по човек"
+
+msgid "ROI by organizational unit"
+msgstr "ROI по организационно звено"
+
+msgid "Training needs assessment"
+msgstr "Оценка на нуждите от обучение"
+
+msgid "Work climate surveys"
+msgstr "Анкети за работната атмосфера"
+
+msgid "Diversity criteria"
+msgstr "Критерии за разнообразие"
+
+msgid "Diversity guidelines"
+msgstr "Напътствия за разнообразие"
+
+msgid "Social responsibility guidelines"
+msgstr "Напътствия за социална отговорност"
 

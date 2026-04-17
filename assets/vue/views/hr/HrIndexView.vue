@@ -1,158 +1,166 @@
 <template>
-  <div class="p-6 space-y-6">
-    <h2 class="text-lg font-semibold text-gray-700">
-      {{ t("Human Resources") }}
-    </h2>
+  <div class="admin-index">
+    <AdminBlock
+      id="block-hr-staff"
+      :description="t('Manage staff signaletics: branches, statuses, contract types and organisational structure')"
+      :items="staffItems"
+      :title="t('Staff')"
+      icon="account"
+      bg-image="images/bg-block-admin-users.png"
+    />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-      <div
-        v-for="block in visibleBlocks"
-        :key="block.id"
-        class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden"
-      >
-        <div class="flex items-center gap-3 px-5 py-3 border-b border-gray-100 bg-gray-50">
-          <i
-            :class="`mdi mdi-${block.mdiIcon} text-xl text-gray-500`"
-            aria-hidden="true"
-          />
-          <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-            {{ t(block.title) }}
-          </h3>
-        </div>
-        <ul class="py-2">
-          <li
-            v-for="item in visibleItems(block)"
-            :key="item.label"
-            class="px-5 py-1"
-          >
-            <router-link
-              v-if="item.route"
-              :to="{ name: item.route }"
-              class="text-sm text-blue-600 hover:text-blue-800 hover:underline"
-            >
-              {{ t(item.label) }}
-            </router-link>
-            <span
-              v-else
-              class="text-sm text-gray-400 italic"
-            >
-              {{ t(item.label) }}
-            </span>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <AdminBlock
+      id="block-hr-organization"
+      :description="t('Manage professional functions, positions and the organisational chart')"
+      :items="organizationItems"
+      :title="t('Organization')"
+      icon="list"
+      bg-image="images/bg-block-admin-platform.png"
+    />
+
+    <AdminBlock
+      id="block-hr-performance"
+      :description="t('Manage appraisal periods, templates, evaluations, activities and objectives')"
+      :items="performanceItems"
+      :title="t('Performance Management')"
+      icon="tracking"
+      bg-image="images/bg-block-admin-tracking.png"
+    />
+
+    <AdminBlock
+      id="block-hr-recruitment"
+      :description="t('Manage recruitment stages, processes and job offers')"
+      :items="recruitmentItems"
+      :title="t('Recruitment')"
+      icon="account-multiple-plus"
+      bg-image="images/bg-block-admin-users.png"
+    />
+
+    <AdminBlock
+      id="block-hr-skills"
+      :description="t('Manage skill profiles, levels and team skill goals')"
+      :items="skillsItems"
+      :title="t('Skills')"
+      icon="wheel"
+      bg-image="images/bg-block-admin-skills.png"
+    />
+
+    <AdminBlock
+      id="block-hr-benefits"
+      :description="t('Manage benefit categories and assignments to staff')"
+      :items="benefitsItems"
+      :title="t('Benefits')"
+      icon="package"
+      bg-image="images/bg-block-admin-gradebook.png"
+    />
+
+    <AdminBlock
+      id="block-hr-roi"
+      :description="t('Track training return on investment and identify training needs')"
+      :items="roiItems"
+      :title="t('ROI and training')"
+      icon="usage"
+      bg-image="images/bg-block-admin-tracking.png"
+    />
+
+    <AdminBlock
+      id="block-hr-diversity"
+      :description="t('Manage diversity criteria, guidelines and social responsibility policies')"
+      :items="diversityItems"
+      :title="t('Diversity and social responsibility')"
+      icon="globe"
+      bg-image="images/bg-block-admin-settings.png"
+    />
   </div>
 </template>
 
 <script setup>
 import { computed } from "vue"
 import { useI18n } from "vue-i18n"
+import AdminBlock from "../../components/admin/AdminBlock.vue"
 import { useSecurityStore } from "../../store/securityStore"
 
 const { t } = useI18n()
 const securityStore = useSecurityStore()
 
-const blocks = [
-  {
-    id: "hr-staff",
-    mdiIcon: "account-group",
-    title: "Staff",
-    items: [
-      { label: "User list" },
-      { label: "Geographic zones", route: "HrGeographicZones", adminOnly: true },
-      { label: "Branches", route: "HrBranches" },
-      { label: "Staff statuses", route: "HrStaffStatuses" },
-      { label: "Contract types", route: "HrContractTypes" },
-      { label: "Business units", route: "HrBusinessUnits" },
-    ],
-  },
-  {
-    id: "hr-organization",
-    mdiIcon: "sitemap",
-    title: "Organization",
-    items: [
-      { label: "Professional functions" },
-      { label: "Positions" },
-      { label: "Units and positions list" },
-      { label: "Assign position to user" },
-      { label: "Organizational chart" },
-    ],
-  },
-  {
-    id: "hr-performance",
-    mdiIcon: "chart-line",
-    title: "Performance Management",
-    items: [
-      { label: "Appraisal periods" },
-      { label: "Appraisal templates" },
-      { label: "Performance appraisals" },
-      { label: "Activities", route: "HrActivities", adminOnly: true },
-      { label: "Performance objectives", route: "HrPerformanceObjectives", adminOnly: true },
-    ],
-  },
-  {
-    id: "hr-recruitment",
-    mdiIcon: "account-multiple-plus",
-    title: "Recruitment",
-    items: [
-      { label: "Recruitment stages" },
-      { label: "Recruitment processes" },
-      { label: "Job offers" },
-    ],
-  },
-  {
-    id: "hr-skills",
-    mdiIcon: "certificate",
-    title: "Skills",
-    items: [
-      { label: "Skill profiles" },
-      { label: "Skill levels" },
-      { label: "Manage skills" },
-      { label: "Team skills goals" },
-    ],
-  },
-  {
-    id: "hr-benefits",
-    mdiIcon: "gift-outline",
-    title: "Benefits",
-    items: [
-      { label: "Benefit tags" },
-      { label: "Benefits" },
-      { label: "Assign benefits" },
-      { label: "Assigned benefits" },
-    ],
-  },
-  {
-    id: "hr-roi",
-    mdiIcon: "currency-usd",
-    title: "ROI and training",
-    items: [
-      { label: "ROI by course" },
-      { label: "ROI by person" },
-      { label: "ROI by organizational unit" },
-      { label: "Training needs assessment" },
-      { label: "Work climate surveys" },
-    ],
-  },
-  {
-    id: "hr-diversity",
-    mdiIcon: "scale-balance",
-    title: "Diversity and social responsibility",
-    items: [
-      { label: "Diversity criteria" },
-      { label: "Diversity guidelines" },
-      { label: "Social responsibility guidelines" },
-    ],
-  },
-]
+const isAdmin = computed(() => securityStore.isAdmin)
 
-const visibleBlocks = computed(() => blocks)
-
-function visibleItems(block) {
-  if (securityStore.isAdmin) {
-    return block.items
+const staffItems = computed(() => {
+  const items = [
+    { class: "item-hr-user-list", label: t("User list") },
+    { class: "item-hr-branches", route: { name: "HrBranches" }, label: t("Branches") },
+    { class: "item-hr-staff-statuses", route: { name: "HrStaffStatuses" }, label: t("Staff statuses") },
+    { class: "item-hr-contract-types", route: { name: "HrContractTypes" }, label: t("Contract types") },
+    { class: "item-hr-business-units", route: { name: "HrBusinessUnits" }, label: t("Business units") },
+  ]
+  if (isAdmin.value) {
+    items.splice(1, 0, {
+      class: "item-hr-geographic-zones",
+      route: { name: "HrGeographicZones" },
+      label: t("Geographic zones"),
+    })
   }
-  return block.items.filter((item) => !item.adminOnly)
-}
+  return items
+})
+
+const organizationItems = computed(() => [
+  { class: "item-hr-professional-functions", label: t("Professional functions") },
+  { class: "item-hr-positions", label: t("Positions") },
+  { class: "item-hr-units-positions-list", label: t("Units and positions list") },
+  { class: "item-hr-assign-position", label: t("Assign position to user") },
+  { class: "item-hr-org-chart", label: t("Organizational chart") },
+])
+
+const performanceItems = computed(() => {
+  const items = [
+    { class: "item-hr-appraisal-periods", label: t("Appraisal periods") },
+    { class: "item-hr-appraisal-templates", label: t("Appraisal templates") },
+    { class: "item-hr-performance-appraisals", label: t("Performance appraisals") },
+  ]
+  if (isAdmin.value) {
+    items.push(
+      { class: "item-hr-activities", route: { name: "HrActivities" }, label: t("Activities") },
+      {
+        class: "item-hr-performance-objectives",
+        route: { name: "HrPerformanceObjectives" },
+        label: t("Performance objectives"),
+      },
+    )
+  }
+  return items
+})
+
+const recruitmentItems = computed(() => [
+  { class: "item-hr-recruitment-stages", label: t("Recruitment stages") },
+  { class: "item-hr-recruitment-processes", label: t("Recruitment processes") },
+  { class: "item-hr-job-offers", label: t("Job offers") },
+])
+
+const skillsItems = computed(() => [
+  { class: "item-hr-skill-profiles", label: t("Skill profiles") },
+  { class: "item-hr-skill-levels", label: t("Skill levels") },
+  { class: "item-hr-manage-skills", label: t("Manage skills") },
+  { class: "item-hr-team-skills-goals", label: t("Team skills goals") },
+])
+
+const benefitsItems = computed(() => [
+  { class: "item-hr-benefit-tags", label: t("Benefit tags") },
+  { class: "item-hr-benefits", label: t("Benefits") },
+  { class: "item-hr-assign-benefits", label: t("Assign benefits") },
+  { class: "item-hr-assigned-benefits", label: t("Assigned benefits") },
+])
+
+const roiItems = computed(() => [
+  { class: "item-hr-roi-course", label: t("ROI by course") },
+  { class: "item-hr-roi-person", label: t("ROI by person") },
+  { class: "item-hr-roi-unit", label: t("ROI by organizational unit") },
+  { class: "item-hr-training-needs", label: t("Training needs assessment") },
+  { class: "item-hr-work-climate", label: t("Work climate surveys") },
+])
+
+const diversityItems = computed(() => [
+  { class: "item-hr-diversity-criteria", label: t("Diversity criteria") },
+  { class: "item-hr-diversity-guidelines", label: t("Diversity guidelines") },
+  { class: "item-hr-social-responsibility", label: t("Social responsibility guidelines") },
+])
 </script>

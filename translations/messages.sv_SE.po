@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":ja:copyright,, nej:ingen copyright"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapp,, application/msword:MsWord,, application/octet-stream:Okettströmm,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapp,, application/msword:MsWord,, application/octet-stream:Octetströmmar,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:övning,, simulation:simulering,, questionnaire:frågeställningar,, diagram:diagram,, figure:figur,, graph:graf,, index:index,, slide:slide,, table:bordläggning,, narrative text:berättartext,, exam:examen,, experiment:experiment,, problem statement:problemställning,, self assessment:självbedömning,, lecture:föreläsning"
@@ -33884,4 +33884,190 @@ msgstr "Välkommen till Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Om detta är första gången du använder Chamilo, se till att du kollar sidomenyn för att hitta vägen genom alla dess funktioner. Om du behöver hjälp hittar du <a href=\"https://docs.chamilo.org\">vår officiella dokumentation</a> för standarddokumentation, medan vårt <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">onlineforum</a> kan hjälpa till att dela idéer och hitta svar från andra Chamilo-användare."
+
+msgid "Activities"
+msgstr "Aktiviteter"
+
+msgid "Activity categories"
+msgstr "Aktivitetskategorier"
+
+msgid "Add activity"
+msgstr "Lägg till aktivitet"
+
+msgid "Add category"
+msgstr "Lägg till kategori"
+
+msgid "Edit activity"
+msgstr "Redigera aktivitet"
+
+msgid "Edit category"
+msgstr "Redigera kategori"
+
+msgid "Performance objectives"
+msgstr "Prestationsmål"
+
+msgid "Objective categories"
+msgstr "Målkategorier"
+
+msgid "Add objective"
+msgstr "Lägg till mål"
+
+msgid "Edit objective"
+msgstr "Redigera mål"
+
+msgid "Geographic zones"
+msgstr "Geografiska zoner"
+
+msgid "Add geographic zone"
+msgstr "Lägg till geografisk zon"
+
+msgid "Edit geographic zone"
+msgstr "Redigera geografisk zon"
+
+msgid "Geographic zone"
+msgstr "Geografisk zon"
+
+msgid "Staff statuses"
+msgstr "Personalstatusar"
+
+msgid "Add staff status"
+msgstr "Lägg till personalstatus"
+
+msgid "Edit staff status"
+msgstr "Redigera personalstatus"
+
+msgid "Staff status"
+msgstr "Personalstatus"
+
+msgid "Contract types"
+msgstr "Kontrakttyper"
+
+msgid "Add contract type"
+msgstr "Lägg till kontrakttyp"
+
+msgid "Edit contract type"
+msgstr "Redigera kontrakttyp"
+
+msgid "Contract type"
+msgstr "Kontrakttyp"
+
+msgid "Business units"
+msgstr "Verksamhetsenheter"
+
+msgid "Add business unit"
+msgstr "Lägg till verksamhetsenhet"
+
+msgid "Edit business unit"
+msgstr "Redigera verksamhetsenhet"
+
+msgid "Business unit"
+msgstr "Verksamhetsenhet"
+
+msgid "Add branch"
+msgstr "Lägg till gren"
+
+msgid "Edit branch"
+msgstr "Redigera gren"
+
+msgid "Parent unit"
+msgstr "Överordnad enhet"
+
+msgid "Primary branch"
+msgstr "Primär gren"
+
+msgid "Coordinates"
+msgstr "Koordinater"
+
+msgid "HR Dashboard"
+msgstr ""
+
+msgid "Staff"
+msgstr ""
+
+msgid "Organization"
+msgstr ""
+
+msgid "Performance Management"
+msgstr ""
+
+msgid "Recruitment"
+msgstr ""
+
+msgid "Benefits"
+msgstr ""
+
+msgid "ROI and training"
+msgstr ""
+
+msgid "Diversity and social responsibility"
+msgstr ""
+
+msgid "Professional functions"
+msgstr ""
+
+msgid "Positions"
+msgstr ""
+
+msgid "Units and positions list"
+msgstr ""
+
+msgid "Assign position to user"
+msgstr ""
+
+msgid "Organizational chart"
+msgstr ""
+
+msgid "Appraisal periods"
+msgstr ""
+
+msgid "Appraisal templates"
+msgstr ""
+
+msgid "Performance appraisals"
+msgstr ""
+
+msgid "Recruitment stages"
+msgstr ""
+
+msgid "Recruitment processes"
+msgstr ""
+
+msgid "Job offers"
+msgstr ""
+
+msgid "Team skills goals"
+msgstr ""
+
+msgid "Benefit tags"
+msgstr "Fördelsetiketter"
+
+msgid "Assign benefits"
+msgstr "Tilldela fördelar"
+
+msgid "Assigned benefits"
+msgstr "Tilldelade fördelar"
+
+msgid "ROI by course"
+msgstr "ROI per kurs"
+
+msgid "ROI by person"
+msgstr "ROI per person"
+
+msgid "ROI by organizational unit"
+msgstr "ROI per organisatorisk enhet"
+
+msgid "Training needs assessment"
+msgstr "Behovsanalys för utbildning"
+
+msgid "Work climate surveys"
+msgstr "Arbetsklimatundersökningar"
+
+msgid "Diversity criteria"
+msgstr "Mångfaldskriterier"
+
+msgid "Diversity guidelines"
+msgstr "Mångfaldsriktlinjer"
+
+msgid "Social responsibility guidelines"
+msgstr "Riktlinjer för socialt ansvar"
 

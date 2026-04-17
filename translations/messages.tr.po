@@ -33885,3 +33885,189 @@ msgstr "Chamilo'ya Hoş Geldiniz"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Chamilo'yu ilk kez kullanıyorsanız, birçok özelliğini keşfetmek için yan menüyü kontrol ettiğinizden emin olun. Yardıma ihtiyacınız olursa, standart belgeler için <a href=\"https://docs.chamilo.org\">resmi belgelerimiz</a> yardımcı olabilir, fikir paylaşmak ve diğer Chamilo kullanıcılarından cevaplar bulmak için ise <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">çevrimiçi forumumuz</a> yardımcı olabilir."
 
+msgid "Activities"
+msgstr "Etkinlikler"
+
+msgid "Activity categories"
+msgstr "Etkinlik kategorileri"
+
+msgid "Add activity"
+msgstr "Etkinlik ekle"
+
+msgid "Add category"
+msgstr "Kategori ekle"
+
+msgid "Edit activity"
+msgstr "Etkinliği düzenle"
+
+msgid "Edit category"
+msgstr "Kategoriyi düzenle"
+
+msgid "Performance objectives"
+msgstr "Performans hedefleri"
+
+msgid "Objective categories"
+msgstr "Hedef kategorileri"
+
+msgid "Add objective"
+msgstr "Hedef ekle"
+
+msgid "Edit objective"
+msgstr "Hedefi düzenle"
+
+msgid "Geographic zones"
+msgstr "Coğrafi bölgeler"
+
+msgid "Add geographic zone"
+msgstr "Coğrafi bölge ekle"
+
+msgid "Edit geographic zone"
+msgstr "Coğrafi bölgeyi düzenle"
+
+msgid "Geographic zone"
+msgstr "Coğrafi bölge"
+
+msgid "Staff statuses"
+msgstr "Personel durumları"
+
+msgid "Add staff status"
+msgstr "Personel durumu ekle"
+
+msgid "Edit staff status"
+msgstr "Personel durumunu düzenle"
+
+msgid "Staff status"
+msgstr "Personel durumu"
+
+msgid "Contract types"
+msgstr "Sözleşme türleri"
+
+msgid "Add contract type"
+msgstr "Sözleşme türü ekle"
+
+msgid "Edit contract type"
+msgstr "Sözleşme türünü düzenle"
+
+msgid "Contract type"
+msgstr "Sözleşme türü"
+
+msgid "Business units"
+msgstr "İş birimleri"
+
+msgid "Add business unit"
+msgstr "İş birimi ekle"
+
+msgid "Edit business unit"
+msgstr "İş birimini düzenle"
+
+msgid "Business unit"
+msgstr "İş birimi"
+
+msgid "Add branch"
+msgstr "Şube ekle"
+
+msgid "Edit branch"
+msgstr "Şubeyi düzenle"
+
+msgid "Parent unit"
+msgstr "Üst birim"
+
+msgid "Primary branch"
+msgstr "Birincil şube"
+
+msgid "Coordinates"
+msgstr "Koordinatlar"
+
+msgid "HR Dashboard"
+msgstr "İK Gösterge Tablosu"
+
+msgid "Staff"
+msgstr "Personel"
+
+msgid "Organization"
+msgstr "Organizasyon"
+
+msgid "Performance Management"
+msgstr "Performans Yönetimi"
+
+msgid "Recruitment"
+msgstr "İşe Alım"
+
+msgid "Benefits"
+msgstr "Yan Haklar"
+
+msgid "ROI and training"
+msgstr "ROI ve eğitim"
+
+msgid "Diversity and social responsibility"
+msgstr "Çeşitlilik ve sosyal sorumluluk"
+
+msgid "Professional functions"
+msgstr "Mesleki işlevler"
+
+msgid "Positions"
+msgstr "Pozisyonlar"
+
+msgid "Units and positions list"
+msgstr "Birimler ve pozisyonlar listesi"
+
+msgid "Assign position to user"
+msgstr "Kullanıcıya pozisyon ata"
+
+msgid "Organizational chart"
+msgstr "Organizasyon şeması"
+
+msgid "Appraisal periods"
+msgstr "Değerlendirme dönemleri"
+
+msgid "Appraisal templates"
+msgstr "Değerlendirme şablonları"
+
+msgid "Performance appraisals"
+msgstr "Performans değerlendirmeleri"
+
+msgid "Recruitment stages"
+msgstr "İşe alım aşamaları"
+
+msgid "Recruitment processes"
+msgstr "İşe alım süreçleri"
+
+msgid "Job offers"
+msgstr "İş ilanları"
+
+msgid "Team skills goals"
+msgstr "Takım beceri hedefleri"
+
+msgid "Benefit tags"
+msgstr "Yan hak etiketleri"
+
+msgid "Assign benefits"
+msgstr "Yan hak ata"
+
+msgid "Assigned benefits"
+msgstr "Atanmış yan haklar"
+
+msgid "ROI by course"
+msgstr "Kursa göre ROI"
+
+msgid "ROI by person"
+msgstr "Kişiye göre ROI"
+
+msgid "ROI by organizational unit"
+msgstr "Organizasyon birimine göre ROI"
+
+msgid "Training needs assessment"
+msgstr "Eğitim ihtiyaç değerlendirmesi"
+
+msgid "Work climate surveys"
+msgstr "İş iklimi anketleri"
+
+msgid "Diversity criteria"
+msgstr "Çeşitlilik kriterleri"
+
+msgid "Diversity guidelines"
+msgstr "Çeşitlilik yönergeleri"
+
+msgid "Social responsibility guidelines"
+msgstr "Sosyal sorumluluk yönergeleri"
+

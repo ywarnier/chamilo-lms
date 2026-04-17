@@ -380,8 +380,9 @@ router.beforeEach(async (to, from, next) => {
   const needsAuth = to.matched.some((record) => record.meta?.requiresAuth === true)
   const wantsAdmin = to.matched.some((record) => record.meta?.requiresAdmin === true)
   const wantsSessionAdmin = to.matched.some((record) => record.meta?.requiresSessionAdmin === true)
+  const wantsHr = to.matched.some((record) => record.meta?.requiresHr === true)
 
-  const mustBeLogged = needsAuth || wantsAdmin || wantsSessionAdmin
+  const mustBeLogged = needsAuth || wantsAdmin || wantsSessionAdmin || wantsHr
 
   if (mustBeLogged && !securityStore.isLoading) {
     await securityStore.checkSession()
@@ -397,8 +398,8 @@ router.beforeEach(async (to, from, next) => {
     return
   }
 
-  // Role-based access control: admin / session-admin
-  if (wantsAdmin || wantsSessionAdmin) {
+  // Role-based access control: admin / session-admin / HR
+  if (wantsAdmin || wantsSessionAdmin || wantsHr) {
     let allowed = true
 
     if (wantsAdmin && wantsSessionAdmin) {
@@ -410,6 +411,9 @@ router.beforeEach(async (to, from, next) => {
     } else if (wantsSessionAdmin) {
       // Only session admins
       allowed = !!securityStore.isSessionAdmin
+    } else if (wantsHr) {
+      // Platform admins or HR managers
+      allowed = !!securityStore.isAdmin || !!securityStore.isHRM
     }
 
     if (!allowed) {

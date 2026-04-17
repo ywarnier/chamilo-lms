@@ -33883,3 +33883,189 @@ msgstr "Добредојде во Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ако ова е првпат користите Chamilo, проверете го менито на страната за да ги најдете сите негови можности. Ако ви треба помош, нашата <a href=\"https://docs.chamilo.org\">официјална документација</a> може да помогне за стандардна документација, додека нашиот <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">онлајн форум</a> може да помогне за споделување идеи и наоѓање одговори од други корисници на Chamilo."
 
+msgid "Activities"
+msgstr "Активности"
+
+msgid "Activity categories"
+msgstr "Категории на активности"
+
+msgid "Add activity"
+msgstr "Додај активност"
+
+msgid "Add category"
+msgstr "Додај категорија"
+
+msgid "Edit activity"
+msgstr "Уреди активност"
+
+msgid "Edit category"
+msgstr "Уреди категорија"
+
+msgid "Performance objectives"
+msgstr "Цели за перформанси"
+
+msgid "Objective categories"
+msgstr "Категории на цели"
+
+msgid "Add objective"
+msgstr "Додај цел"
+
+msgid "Edit objective"
+msgstr "Уреди цел"
+
+msgid "Geographic zones"
+msgstr "Географски зони"
+
+msgid "Add geographic zone"
+msgstr "Додај географска зона"
+
+msgid "Edit geographic zone"
+msgstr "Уреди географска зона"
+
+msgid "Geographic zone"
+msgstr "Географска зона"
+
+msgid "Staff statuses"
+msgstr "Статуси на персонал"
+
+msgid "Add staff status"
+msgstr "Додај статус на персонал"
+
+msgid "Edit staff status"
+msgstr "Уреди статус на персонал"
+
+msgid "Staff status"
+msgstr "Статус на персонал"
+
+msgid "Contract types"
+msgstr "Типови на договори"
+
+msgid "Add contract type"
+msgstr "Додај тип на договор"
+
+msgid "Edit contract type"
+msgstr "Уреди тип на договор"
+
+msgid "Contract type"
+msgstr "Тип на договор"
+
+msgid "Business units"
+msgstr "Бизнис единици"
+
+msgid "Add business unit"
+msgstr "Додај бизнис единица"
+
+msgid "Edit business unit"
+msgstr "Уреди бизнис единица"
+
+msgid "Business unit"
+msgstr "Бизнис единица"
+
+msgid "Add branch"
+msgstr "Додај гранка"
+
+msgid "Edit branch"
+msgstr "Уреди гранка"
+
+msgid "Parent unit"
+msgstr "Родителска единица"
+
+msgid "Primary branch"
+msgstr "Главна гранка"
+
+msgid "Coordinates"
+msgstr "Координати"
+
+msgid "HR Dashboard"
+msgstr "HR Табла"
+
+msgid "Staff"
+msgstr "Персонал"
+
+msgid "Organization"
+msgstr "Организација"
+
+msgid "Performance Management"
+msgstr "Управување со перформанси"
+
+msgid "Recruitment"
+msgstr "Регутирање"
+
+msgid "Benefits"
+msgstr "Поволности"
+
+msgid "ROI and training"
+msgstr "ROI и обука"
+
+msgid "Diversity and social responsibility"
+msgstr "Разновидност и социјална одговорност"
+
+msgid "Professional functions"
+msgstr "Професионални функции"
+
+msgid "Positions"
+msgstr "Позиции"
+
+msgid "Units and positions list"
+msgstr "Листа на единици и позиции"
+
+msgid "Assign position to user"
+msgstr "Додели позиција на корисник"
+
+msgid "Organizational chart"
+msgstr "Организациски шема"
+
+msgid "Appraisal periods"
+msgstr "Периоди за проценка"
+
+msgid "Appraisal templates"
+msgstr "Шаблони за проценка"
+
+msgid "Performance appraisals"
+msgstr "Проценки на перформанси"
+
+msgid "Recruitment stages"
+msgstr "Фази на регутирање"
+
+msgid "Recruitment processes"
+msgstr "Процеси на регутирање"
+
+msgid "Job offers"
+msgstr "Огласи за работни места"
+
+msgid "Team skills goals"
+msgstr "Цели за тимски вештини"
+
+msgid "Benefit tags"
+msgstr "Ознаки за поволности"
+
+msgid "Assign benefits"
+msgstr "Додели поволности"
+
+msgid "Assigned benefits"
+msgstr "Доделени поволности"
+
+msgid "ROI by course"
+msgstr "ROI по курс"
+
+msgid "ROI by person"
+msgstr "ROI по лице"
+
+msgid "ROI by organizational unit"
+msgstr "ROI по организациска единица"
+
+msgid "Training needs assessment"
+msgstr "Оценка на потребите за обука"
+
+msgid "Work climate surveys"
+msgstr "Анкети за работната клима"
+
+msgid "Diversity criteria"
+msgstr "Критериуми за разновидност"
+
+msgid "Diversity guidelines"
+msgstr "Насоки за разновидност"
+
+msgid "Social responsibility guidelines"
+msgstr "Насоки за социјална одговорност"
+

@@ -8908,7 +8908,7 @@ msgid "Document"
 msgstr "Pagsasanay"
 
 msgid "Portal Admin"
-msgstr "Portal Admin"
+msgstr "Admin ng Portal"
 
 msgid "none"
 msgstr "wala"
@@ -9757,10 +9757,10 @@ msgid "Width"
 msgstr "Lapad"
 
 msgid "V Space"
-msgstr "V Space"
+msgstr "V Espasyo"
 
 msgid "H Space"
-msgstr "H Space"
+msgstr "H Espasyo"
 
 msgid "Border"
 msgstr "Border"
@@ -10084,7 +10084,7 @@ msgid "There are no unqualified learners"
 msgstr "Walang unqualified na mag-aaral"
 
 msgid "Social network"
-msgstr "Social network"
+msgstr "Social na network"
 
 msgid "Back to outbox"
 msgstr "Bumalik sa outbox"
@@ -11248,7 +11248,7 @@ msgid "Discuss this page"
 msgstr "Talakayin ang pahinang ito"
 
 msgid "Wiki home"
-msgstr "Wiki home"
+msgstr "Wiki tahanan"
 
 msgid "Delete all"
 msgstr "Tanggalin lahat"
@@ -19984,7 +19984,7 @@ msgid "Hide Learning Path PDF export"
 msgstr "Itago ang Learning Path PDF export"
 
 msgid "Hide the Learning Path PDF Export icon from the Learning Paths list"
-msgstr "Itago ang icon ng PDF Export ng Learning Path mula sa listahan ng Learning Paths"
+msgstr "Itago ang Learning Path PDF Export icon mula sa listahan ng Learning Paths"
 
 msgid "Default coach access days before session"
 msgstr "Default coach access days bago ang session"
@@ -25642,7 +25642,7 @@ msgid "Video player renderers"
 msgstr "Mga renderer ng video player"
 
 msgid "Enable player renderers for YouTube, Vimeo, Facebook, DailyMotion, Twitch medias"
-msgstr "I-activate ang mga tagapag-render ng player para sa YouTube, Vimeo, Facebook, DailyMotion, Twitch na media"
+msgstr "I-activate ang player renderers para sa YouTube, Vimeo, Facebook, DailyMotion, Twitch medias"
 
 msgid "Allow teachers to edit tests in learning paths"
 msgstr "Payagan ang mga guro na mag-edit ng mga pagsusulit sa learning paths"
@@ -26587,7 +26587,7 @@ msgid "LDAP connection configuration"
 msgstr "Kombigurasyon ng koneksyon ng LDAP"
 
 msgid "Array defining host and port for the LDAP server.<br><pre> ['host' => '', 'port' => ''] </pre>"
-msgstr "Array na tumutukoy sa host at port para sa LDAP server.<br><pre> ['host' => '', 'port' => ''] </pre>"
+msgstr "Array na nagdedepina ng host at port para sa LDAP server.<br><pre> ['host' => '', 'port' => ''] </pre>"
 
 msgid "Set expiration date on first login"
 msgstr "Itakda ang expiration date sa unang login"
@@ -26599,7 +26599,7 @@ msgid "Selective display of roles"
 msgstr "Piliin ang pagpapakita ng mga role"
 
 msgid "An array of role => true/false that defines whether that role should be shown or hidden.<br><pre> [ 'COURSEMANAGER' => true, 'STUDENT' => true, 'DRH' => false, 'SESSIONADMIN' => false, 'STUDENT_BOSS' => false, 'INVITEE' => false ] </pre>"
-msgstr "Isang array ng role => true/false na tumutukoy kung ang role na iyon ay dapat ipakita o itago.<br><pre> [ 'COURSEMANAGER' => true, 'STUDENT' => true, 'DRH' => false, 'SESSIONADMIN' => false, 'STUDENT_BOSS' => false, 'INVITEE' => false ] </pre>"
+msgstr "Isang array ng role => true/false na nagdedepina kung ang role na iyon ay dapat ipakita o itago.<br><pre> [ 'COURSEMANAGER' => true, 'STUDENT' => true, 'DRH' => false, 'SESSIONADMIN' => false, 'STUDENT_BOSS' => false, 'INVITEE' => false ] </pre>"
 
 msgid "Roles display options"
 msgstr "Mga opsyon sa pagpapakita ng mga role"
@@ -27733,7 +27733,7 @@ msgid "Update introduction links"
 msgstr "I-update ang mga link ng introduction"
 
 msgid "Conference Room"
-msgstr "Conference Room"
+msgstr "Silid ng Konperensya"
 
 msgid "Choose item"
 msgstr "Pumili ng item"
@@ -27943,7 +27943,7 @@ msgid "When this feature is enabled on a multi-URL configuration, you can go to 
 msgstr "Kapag pinagana ang feature na ito sa multi-URL configuration, maaari kang pumunta sa main URL at magbigay ng URL-specific na bersyon ng anumang file (sa documents tool). Ang orihinal na file ay papalitan ng alternatibo kapag tinitingnan ito mula sa ibang URL. Ito ay nagbibigay-daan sa iyo na i-customize ang bawat URL pa lalo, habang tinatamasa ang pakinabang ng pag-reuse ng parehong mga kurso nang maraming beses."
 
 msgid "Project manager"
-msgstr "Project manager"
+msgstr "Tagapamahala ng Proyekto"
 
 msgid "Select classes for which this course will be visible for subscription in the catalogue. Subscription rules still apply apart from it being visible in the catalogue."
 msgstr "Piliin ang mga klase kung saan makikita ang kurso na ito para sa subscription sa catalogue. Ang mga rule ng subscription ay nananatiling naaangkop bukod sa pagiging makikita sa catalogue."
@@ -28177,7 +28177,7 @@ msgid "Global admin"
 msgstr "Global admin"
 
 msgid "Question manager"
-msgstr "Question manager"
+msgstr "Tagapamahala ng Tanong"
 
 msgid "Then enter the 6-digit code shown in your app at the bottom of the form."
 msgstr "Pagkatapos, ilagay ang 6-digit code na ipinapakita sa iyong app sa ibaba ng form."
@@ -28249,7 +28249,7 @@ msgid "No push subscriptions found for this user."
 msgstr "Walang natagpuang push subscriptions para sa user na ito."
 
 msgid "Push notification test"
-msgstr "Push notification test"
+msgstr "Subukan ang push notification"
 
 msgid "This is a test push notification from this platform to the user's browser or app."
 msgstr "Ito ay test push notification mula sa platform na ito sa browser o app ng user."
@@ -28339,7 +28339,7 @@ msgid "Sessions that depend on this session"
 msgstr "Sessions na umaasa sa session na ito"
 
 msgid "My Sessions display mode"
-msgstr "My Sessions display mode"
+msgstr "Mode ng pagpapakita ng Mga Sesyon Ko"
 
 msgid "Choose how the \"My Sessions\" page is displayed: as a modern visual block (card) view or the classic list style."
 msgstr "Pumili kung paano ipapakita ang pahina ng \"My Sessions\": bilang modernong visual block (card) view o classic list style."
@@ -33055,13 +33055,13 @@ msgid "MDI icon name"
 msgstr "Pangalan ng MDI icon"
 
 msgid "Assign authentication sources"
-msgstr ""
+msgstr "Magtalaga ng mga pinagmulan ng pagpapatunay"
 
 msgid "Assignment details"
-msgstr ""
+msgstr "Detalye ng Gawain"
 
 msgid "Terms and conditions"
-msgstr ""
+msgstr "Mga Tuntunin at Kondisyon"
 
 msgid "Icons"
 msgstr "Mga Icon"
@@ -33878,4 +33878,190 @@ msgstr "Maligayang pagdating sa Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Kung ito ang unang pagkakataon mong gumamit ng Chamilo, tiyaking suriin ang side menu upang matagpuan ang iyong daan sa maraming tampok nito. Kung kailangan mo ng tulong, makikita mo na <a href=\"https://docs.chamilo.org\">ang aming opisyal na dokumentasyon</a> ay makakatulong para sa karaniwang dokumentasyon, habang ang aming <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> ay makakatulong na magbahagi ng mga ideya at makahanap ng mga sagot mula sa iba pang mga gumagamit ng Chamilo."
+
+msgid "Activities"
+msgstr "Mga Aktibidad"
+
+msgid "Activity categories"
+msgstr "Mga kategorya ng aktibidad"
+
+msgid "Add activity"
+msgstr "Magdagdag ng aktibidad"
+
+msgid "Add category"
+msgstr "Magdagdag ng category"
+
+msgid "Edit activity"
+msgstr "I-edit ang aktibidad"
+
+msgid "Edit category"
+msgstr "I-edit ang kategorya"
+
+msgid "Performance objectives"
+msgstr "Mga layuning pampasigla"
+
+msgid "Objective categories"
+msgstr "Mga kategorya ng layunin"
+
+msgid "Add objective"
+msgstr "Magdagdag ng layunin"
+
+msgid "Edit objective"
+msgstr "I-edit ang layunin"
+
+msgid "Geographic zones"
+msgstr "Mga heograpikal na zone"
+
+msgid "Add geographic zone"
+msgstr "Magdagdag ng heograpikal na zone"
+
+msgid "Edit geographic zone"
+msgstr "I-edit ang heograpikal na zone"
+
+msgid "Geographic zone"
+msgstr "Heograpikal na zone"
+
+msgid "Staff statuses"
+msgstr "Mga katayuan ng kawani"
+
+msgid "Add staff status"
+msgstr "Magdagdag ng katayuan ng kawani"
+
+msgid "Edit staff status"
+msgstr "I-edit ang katayuan ng kawani"
+
+msgid "Staff status"
+msgstr "Katayuan ng kawani"
+
+msgid "Contract types"
+msgstr "Mga uri ng kontrata"
+
+msgid "Add contract type"
+msgstr "Magdagdag ng uri ng kontrata"
+
+msgid "Edit contract type"
+msgstr "I-edit ang uri ng kontrata"
+
+msgid "Contract type"
+msgstr "Uri ng kontrata"
+
+msgid "Business units"
+msgstr "Mga yunit ng negosyo"
+
+msgid "Add business unit"
+msgstr "Magdagdag ng yunit ng negosyo"
+
+msgid "Edit business unit"
+msgstr "I-edit ang yunit ng negosyo"
+
+msgid "Business unit"
+msgstr "Yunit ng negosyo"
+
+msgid "Add branch"
+msgstr "Magdagdag ng sangay"
+
+msgid "Edit branch"
+msgstr "I-edit ang sangay"
+
+msgid "Parent unit"
+msgstr "Pangunahing yunit"
+
+msgid "Primary branch"
+msgstr "Pangunahing sangay"
+
+msgid "Coordinates"
+msgstr "Mga koordinata"
+
+msgid "HR Dashboard"
+msgstr "HR Dashboard"
+
+msgid "Staff"
+msgstr "Mga Empleyado"
+
+msgid "Organization"
+msgstr "Organisasyon"
+
+msgid "Performance Management"
+msgstr "Pamamahala ng Pagganap"
+
+msgid "Recruitment"
+msgstr "Pagre-recruit"
+
+msgid "Benefits"
+msgstr "Mga Benepisyo"
+
+msgid "ROI and training"
+msgstr "ROI at pagsasanay"
+
+msgid "Diversity and social responsibility"
+msgstr "Pagkakaiba-iba at panlipunang responsibilidad"
+
+msgid "Professional functions"
+msgstr "Mga Propesyonal na Tungkulin"
+
+msgid "Positions"
+msgstr "Mga Posisyon"
+
+msgid "Units and positions list"
+msgstr "Listahan ng mga Yunit at Posisyon"
+
+msgid "Assign position to user"
+msgstr "Magtalaga ng posisyon sa gumagamit"
+
+msgid "Organizational chart"
+msgstr "Organisasyong Tsart"
+
+msgid "Appraisal periods"
+msgstr "Mga Panahon ng Pagtatasa"
+
+msgid "Appraisal templates"
+msgstr "Mga Template ng Pagtatasa"
+
+msgid "Performance appraisals"
+msgstr "Mga Pagtatasa ng Pagganap"
+
+msgid "Recruitment stages"
+msgstr "Mga Yugto ng Pagre-recruit"
+
+msgid "Recruitment processes"
+msgstr "Mga Proseso ng Pagre-recruit"
+
+msgid "Job offers"
+msgstr "Mga Alok ng Trabaho"
+
+msgid "Team skills goals"
+msgstr "Mga Layunin ng Kasanayan ng Koponan"
+
+msgid "Benefit tags"
+msgstr "Mga Tag ng Benepisyo"
+
+msgid "Assign benefits"
+msgstr "Magtalaga ng mga Benepisyo"
+
+msgid "Assigned benefits"
+msgstr "Mga Naitalagang Benepisyo"
+
+msgid "ROI by course"
+msgstr "ROI bawat kurso"
+
+msgid "ROI by person"
+msgstr "ROI bawat tao"
+
+msgid "ROI by organizational unit"
+msgstr "ROI bawat yunit ng organisasyon"
+
+msgid "Training needs assessment"
+msgstr "Pagtatasa ng Pangangailangan sa Pagsasanay"
+
+msgid "Work climate surveys"
+msgstr "Mga Sarbey ng Klima sa Trabaho"
+
+msgid "Diversity criteria"
+msgstr "Mga Kriteria ng Pagkakaiba-iba"
+
+msgid "Diversity guidelines"
+msgstr "Mga Gabay ng Pagkakaiba-iba"
+
+msgid "Social responsibility guidelines"
+msgstr "Mga Gabay sa Panlipunang Responsibilidad"
 

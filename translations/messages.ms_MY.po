@@ -2020,7 +2020,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:berhak cipta,, no:tiada hak cipta"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Pasta,, application/msword:MsWord,, application/octet-stream:Aliran oktet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:latihan,,      simulation:simulasi,,      questionnaire:soal selidik,,      diagram:diagram,,      figure:gambar,,      graph:graf,,      index:indeks,,      slide:slaid,,      table:jadual,,      narrative text:teks naratif,,      exam:ujian,,      experiment:eksperimen,,      problem statement:penyata masalah,,      self assessment:penilaian diri,,      lecture:kuliah"
@@ -33882,4 +33882,190 @@ msgstr "Selamat datang ke Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Jika ini kali pertama anda menggunakan Chamilo, pastikan anda semak menu sisi untuk mencari jalan melalui banyak ciri-cirinya. Jika anda memerlukan bantuan, anda akan jumpa <a href=\"https://docs.chamilo.org\">dokumentasi rasmi kami</a> boleh membantu untuk dokumentasi standard, manakala <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forum dalam talian kami</a> boleh membantu berkongsi idea dan mencari jawapan daripada pengguna Chamilo lain."
+
+msgid "Activities"
+msgstr "Aktiviti"
+
+msgid "Activity categories"
+msgstr "Kategori aktiviti"
+
+msgid "Add activity"
+msgstr "Tambah aktiviti"
+
+msgid "Add category"
+msgstr "Tambah kategori"
+
+msgid "Edit activity"
+msgstr "Edit aktiviti"
+
+msgid "Edit category"
+msgstr "Edit kategori"
+
+msgid "Performance objectives"
+msgstr "Objektif prestasi"
+
+msgid "Objective categories"
+msgstr "Kategori objektif"
+
+msgid "Add objective"
+msgstr "Tambah objektif"
+
+msgid "Edit objective"
+msgstr "Edit objektif"
+
+msgid "Geographic zones"
+msgstr "Zon geografi"
+
+msgid "Add geographic zone"
+msgstr "Tambah zon geografi"
+
+msgid "Edit geographic zone"
+msgstr "Edit zon geografi"
+
+msgid "Geographic zone"
+msgstr "Zon geografi"
+
+msgid "Staff statuses"
+msgstr "Status kakitangan"
+
+msgid "Add staff status"
+msgstr "Tambah status kakitangan"
+
+msgid "Edit staff status"
+msgstr "Edit status kakitangan"
+
+msgid "Staff status"
+msgstr "Status kakitangan"
+
+msgid "Contract types"
+msgstr "Jenis kontrak"
+
+msgid "Add contract type"
+msgstr "Tambah jenis kontrak"
+
+msgid "Edit contract type"
+msgstr "Edit jenis kontrak"
+
+msgid "Contract type"
+msgstr "Jenis kontrak"
+
+msgid "Business units"
+msgstr "Unit perniagaan"
+
+msgid "Add business unit"
+msgstr "Tambah unit perniagaan"
+
+msgid "Edit business unit"
+msgstr "Edit unit perniagaan"
+
+msgid "Business unit"
+msgstr "Unit perniagaan"
+
+msgid "Add branch"
+msgstr "Tambah cawangan"
+
+msgid "Edit branch"
+msgstr "Edit cawangan"
+
+msgid "Parent unit"
+msgstr "Unit induk"
+
+msgid "Primary branch"
+msgstr "Cawangan utama"
+
+msgid "Coordinates"
+msgstr "Koordinat"
+
+msgid "HR Dashboard"
+msgstr ""
+
+msgid "Staff"
+msgstr ""
+
+msgid "Organization"
+msgstr ""
+
+msgid "Performance Management"
+msgstr ""
+
+msgid "Recruitment"
+msgstr ""
+
+msgid "Benefits"
+msgstr ""
+
+msgid "ROI and training"
+msgstr ""
+
+msgid "Diversity and social responsibility"
+msgstr ""
+
+msgid "Professional functions"
+msgstr ""
+
+msgid "Positions"
+msgstr ""
+
+msgid "Units and positions list"
+msgstr ""
+
+msgid "Assign position to user"
+msgstr ""
+
+msgid "Organizational chart"
+msgstr ""
+
+msgid "Appraisal periods"
+msgstr ""
+
+msgid "Appraisal templates"
+msgstr ""
+
+msgid "Performance appraisals"
+msgstr ""
+
+msgid "Recruitment stages"
+msgstr ""
+
+msgid "Recruitment processes"
+msgstr ""
+
+msgid "Job offers"
+msgstr ""
+
+msgid "Team skills goals"
+msgstr ""
+
+msgid "Benefit tags"
+msgstr ""
+
+msgid "Assign benefits"
+msgstr ""
+
+msgid "Assigned benefits"
+msgstr ""
+
+msgid "ROI by course"
+msgstr "ROI mengikut kursus"
+
+msgid "ROI by person"
+msgstr "ROI mengikut individu"
+
+msgid "ROI by organizational unit"
+msgstr "ROI mengikut unit organisasi"
+
+msgid "Training needs assessment"
+msgstr "Penilaian keperluan latihan"
+
+msgid "Work climate surveys"
+msgstr "Tinjauan iklim kerja"
+
+msgid "Diversity criteria"
+msgstr "Kriteria kepelbagaian"
+
+msgid "Diversity guidelines"
+msgstr "Panduan kepelbagaian"
+
+msgid "Social responsibility guidelines"
+msgstr "Panduan tanggungjawab sosial"
 

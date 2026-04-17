@@ -33885,3 +33885,189 @@ msgstr "Bienveníu a Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Si ye la primera vegada que uses Chamilo, asegúrate de consultar el menú lateral pa atopar el camín ente les toes les sos prestaciones. Si necesitas ayuda, atoparás que <a href=\"https://docs.chamilo.org\">nosa documentación oficial</a> te puede ayudar col estándar, mentres que <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">nusu forum en llinia</a> puede ayudar a compartir idegues y atopar respuestes d'outros usuarios de Chamilo."
 
+msgid "Activities"
+msgstr "Actividáes"
+
+msgid "Activity categories"
+msgstr "Categoríes d'actividáes"
+
+msgid "Add activity"
+msgstr "Amestar actividá"
+
+msgid "Add category"
+msgstr "Amestar categoría"
+
+msgid "Edit activity"
+msgstr "Editar actividá"
+
+msgid "Edit category"
+msgstr "Camudar categoría"
+
+msgid "Performance objectives"
+msgstr "Oxetivos de rendimientu"
+
+msgid "Objective categories"
+msgstr "Categoríes d'oxetivos"
+
+msgid "Add objective"
+msgstr "Amestar oxetivu"
+
+msgid "Edit objective"
+msgstr "Editar oxetivu"
+
+msgid "Geographic zones"
+msgstr "Zones xeográficas"
+
+msgid "Add geographic zone"
+msgstr "Amestar zona xeográfica"
+
+msgid "Edit geographic zone"
+msgstr "Editar zona xeográfica"
+
+msgid "Geographic zone"
+msgstr "Zona xeográfica"
+
+msgid "Staff statuses"
+msgstr "Estatutos del personal"
+
+msgid "Add staff status"
+msgstr "Amestar estautu del personal"
+
+msgid "Edit staff status"
+msgstr "Editar estautu del personal"
+
+msgid "Staff status"
+msgstr "Estatutu del personal"
+
+msgid "Contract types"
+msgstr "Tipos de contratación"
+
+msgid "Add contract type"
+msgstr "Amestar tipu de contratación"
+
+msgid "Edit contract type"
+msgstr "Editar tipu de contratación"
+
+msgid "Contract type"
+msgstr "Tipu de contratación"
+
+msgid "Business units"
+msgstr "Unidáes de negocariu"
+
+msgid "Add business unit"
+msgstr "Amestar unidá de negocariu"
+
+msgid "Edit business unit"
+msgstr "Editar unidá de negocariu"
+
+msgid "Business unit"
+msgstr "Unidá de negocariu"
+
+msgid "Add branch"
+msgstr "Amestar ramu"
+
+msgid "Edit branch"
+msgstr "Editar ramu"
+
+msgid "Parent unit"
+msgstr "Unidá pai"
+
+msgid "Primary branch"
+msgstr "Ramu primariu"
+
+msgid "Coordinates"
+msgstr "Coordenáes"
+
+msgid "HR Dashboard"
+msgstr "Tablón RRHH"
+
+msgid "Staff"
+msgstr "Personal"
+
+msgid "Organization"
+msgstr "Organización"
+
+msgid "Performance Management"
+msgstr "Xestión del rendimientu"
+
+msgid "Recruitment"
+msgstr "Seleición de personal"
+
+msgid "Benefits"
+msgstr "Beneficios"
+
+msgid "ROI and training"
+msgstr "ROI y formación"
+
+msgid "Diversity and social responsibility"
+msgstr "Diversidá y responsabilidad social"
+
+msgid "Professional functions"
+msgstr "Funciones profesionales"
+
+msgid "Positions"
+msgstr "Puestos"
+
+msgid "Units and positions list"
+msgstr "Llista d'unidaes y puestos"
+
+msgid "Assign position to user"
+msgstr "Asignar postu a l'usuariu"
+
+msgid "Organizational chart"
+msgstr "Organigrama"
+
+msgid "Appraisal periods"
+msgstr "Períodos de valoración"
+
+msgid "Appraisal templates"
+msgstr "Plantilles de valoración"
+
+msgid "Performance appraisals"
+msgstr "Valoraciones del rendimientu"
+
+msgid "Recruitment stages"
+msgstr "Etapes de seleición"
+
+msgid "Recruitment processes"
+msgstr "Procesos de seleición"
+
+msgid "Job offers"
+msgstr "Ofertes d'emplegu"
+
+msgid "Team skills goals"
+msgstr "Oxetivos d'habilidades del equipu"
+
+msgid "Benefit tags"
+msgstr "Etiquetes de beneficios"
+
+msgid "Assign benefits"
+msgstr "Asignar beneficios"
+
+msgid "Assigned benefits"
+msgstr "Beneficios asignaos"
+
+msgid "ROI by course"
+msgstr "ROI por cursu"
+
+msgid "ROI by person"
+msgstr "ROI por persona"
+
+msgid "ROI by organizational unit"
+msgstr "ROI por unidá organizativa"
+
+msgid "Training needs assessment"
+msgstr "Avaliación de necesidaes formatives"
+
+msgid "Work climate surveys"
+msgstr "Encuestes de clima laboral"
+
+msgid "Diversity criteria"
+msgstr "Criterios de diversidá"
+
+msgid "Diversity guidelines"
+msgstr "Guíes de diversidá"
+
+msgid "Social responsibility guidelines"
+msgstr "Guíes de responsabilidad social"
+

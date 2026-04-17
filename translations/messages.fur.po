@@ -2017,7 +2017,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:dirit d'autor,, no:senza dirit d'autor"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Cartelle,, application/msword:MsWord,, application/octet-stream:Flui octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:esercizi,,      simulation:simulazion,,      questionnaire:cuestionari,,      diagram:diagrami,,      figure:figure,,      graph:graf,,      index:indis,,      slide:diapositivis,,      table:tabile,,      narrative text:test narativ,,      exam:sîs,,      experiment:esperiments,,      problem statement:enunzi de problem,,      self assessment:auto valutazion,,      lecture:lecion"
@@ -33878,4 +33878,190 @@ msgstr "Benvegniuts a Chamilo"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Se chest e je prime volte che deplots Chamilo, jenç di controllâ il menu laterâl par rivâ a jê funcions. Se âs bisoin di agude, i <a href=\"https://docs.chamilo.org\">documentazion uficiaâ</a> a podarai jutar par la documentazion standard, mentri il <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forum online</a> a pues jutar a partî ideis e cjatâ rispuestis di altri utents Chamilo."
+
+msgid "Activities"
+msgstr "Ativitâts"
+
+msgid "Activity categories"
+msgstr "Categorîs di ativitât"
+
+msgid "Add activity"
+msgstr "Zonte une ativitât"
+
+msgid "Add category"
+msgstr "Zedi categorîe"
+
+msgid "Edit activity"
+msgstr "Modifiche une ativitât"
+
+msgid "Edit category"
+msgstr "Modifiche categorîe"
+
+msgid "Performance objectives"
+msgstr "Obietîfs di prestazion"
+
+msgid "Objective categories"
+msgstr "Categorîs di obietîfs"
+
+msgid "Add objective"
+msgstr "Zonte un obietîf"
+
+msgid "Edit objective"
+msgstr "Modifiche un obietîf"
+
+msgid "Geographic zones"
+msgstr "Zônis geogràfichis"
+
+msgid "Add geographic zone"
+msgstr "Zonte une zône geogràfiche"
+
+msgid "Edit geographic zone"
+msgstr "Modifiche une zône geogràfiche"
+
+msgid "Geographic zone"
+msgstr "Zône geogràfiche"
+
+msgid "Staff statuses"
+msgstr "Stâts dal staff"
+
+msgid "Add staff status"
+msgstr "Zonte un stât dal staff"
+
+msgid "Edit staff status"
+msgstr "Modifiche un stât dal staff"
+
+msgid "Staff status"
+msgstr "Stât dal staff"
+
+msgid "Contract types"
+msgstr "Tipis di contrât"
+
+msgid "Add contract type"
+msgstr "Zonte un tip di contrât"
+
+msgid "Edit contract type"
+msgstr "Modifiche un tip di contrât"
+
+msgid "Contract type"
+msgstr "Tip di contrât"
+
+msgid "Business units"
+msgstr "Untâts empresariâls"
+
+msgid "Add business unit"
+msgstr "Zonte un untât empresariâl"
+
+msgid "Edit business unit"
+msgstr "Modifiche un untât empresariâl"
+
+msgid "Business unit"
+msgstr "Untât empresariâl"
+
+msgid "Add branch"
+msgstr "Zonte sucûrse"
+
+msgid "Edit branch"
+msgstr "Modifiche sucûrse"
+
+msgid "Parent unit"
+msgstr "Untât genitore"
+
+msgid "Primary branch"
+msgstr "Sucûrse primarie"
+
+msgid "Coordinates"
+msgstr "Coordinâdis"
+
+msgid "HR Dashboard"
+msgstr "Dashboard HR"
+
+msgid "Staff"
+msgstr "Cuadrîts"
+
+msgid "Organization"
+msgstr "Organizazion"
+
+msgid "Performance Management"
+msgstr "Gestión de prestazion"
+
+msgid "Recruitment"
+msgstr "Reclutament"
+
+msgid "Benefits"
+msgstr "Benefizis"
+
+msgid "ROI and training"
+msgstr "ROI e formazion"
+
+msgid "Diversity and social responsibility"
+msgstr "Diversitât e responsabilitât social"
+
+msgid "Professional functions"
+msgstr "Funzions professionâls"
+
+msgid "Positions"
+msgstr "Postis"
+
+msgid "Units and positions list"
+msgstr "Leste des unitâts e postis"
+
+msgid "Assign position to user"
+msgstr "Asignâ posti a utent"
+
+msgid "Organizational chart"
+msgstr "Organigrame"
+
+msgid "Appraisal periods"
+msgstr "Perîods di valûtazion"
+
+msgid "Appraisal templates"
+msgstr "Stampis di valûtazion"
+
+msgid "Performance appraisals"
+msgstr "Valutazions di prestazion"
+
+msgid "Recruitment stages"
+msgstr "Fas de reclutament"
+
+msgid "Recruitment processes"
+msgstr "Process di reclutament"
+
+msgid "Job offers"
+msgstr "Offeris di lavôr"
+
+msgid "Team skills goals"
+msgstr "Obietivis di competenis dal tiim"
+
+msgid "Benefit tags"
+msgstr "Etichitis di beneficis"
+
+msgid "Assign benefits"
+msgstr "Assegnâ beneficis"
+
+msgid "Assigned benefits"
+msgstr "Beneficis asignâts"
+
+msgid "ROI by course"
+msgstr "ROI par curs"
+
+msgid "ROI by person"
+msgstr "ROI par persône"
+
+msgid "ROI by organizational unit"
+msgstr "ROI par unitât organizative"
+
+msgid "Training needs assessment"
+msgstr "Valutazion des besoins di formazion"
+
+msgid "Work climate surveys"
+msgstr "Sondagis sul climat di lavôr"
+
+msgid "Diversity criteria"
+msgstr "Critiris di diversitât"
+
+msgid "Diversity guidelines"
+msgstr "Linieis giduâtis pe diversitât"
+
+msgid "Social responsibility guidelines"
+msgstr "Linieis giduâtis pe responsabitât sociale"
 

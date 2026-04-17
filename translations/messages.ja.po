@@ -33949,3 +33949,189 @@ msgstr "Chamiloへようこそ"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Chamiloを初めてお使いの場合、サイドメニューを確認して多くの機能を探してください。ヘルプが必要な場合は、<a href=\"https://docs.chamilo.org\">公式ドキュメント</a>が標準的なドキュメントを提供し、<a href=\"https://github.com/chamilo/chamilo-lms/discussions\">オンラインフォーラム</a>で他のChamiloユーザーからアイデアや回答を得ることができます。"
 
+msgid "Activities"
+msgstr "活動"
+
+msgid "Activity categories"
+msgstr "活動カテゴリ"
+
+msgid "Add activity"
+msgstr "活動を追加"
+
+msgid "Add category"
+msgstr "カテゴリを追加"
+
+msgid "Edit activity"
+msgstr "活動を編集"
+
+msgid "Edit category"
+msgstr "カテゴリを編集"
+
+msgid "Performance objectives"
+msgstr "パフォーマンス目標"
+
+msgid "Objective categories"
+msgstr "目標カテゴリ"
+
+msgid "Add objective"
+msgstr "目標を追加"
+
+msgid "Edit objective"
+msgstr "目標を編集"
+
+msgid "Geographic zones"
+msgstr "地理的ゾーン"
+
+msgid "Add geographic zone"
+msgstr "地理的ゾーンを追加"
+
+msgid "Edit geographic zone"
+msgstr "地理的ゾーンを編集"
+
+msgid "Geographic zone"
+msgstr "地理的ゾーン"
+
+msgid "Staff statuses"
+msgstr "スタッフステータス"
+
+msgid "Add staff status"
+msgstr "スタッフステータスを追加"
+
+msgid "Edit staff status"
+msgstr "スタッフステータスを編集"
+
+msgid "Staff status"
+msgstr "スタッフステータス"
+
+msgid "Contract types"
+msgstr "契約タイプ"
+
+msgid "Add contract type"
+msgstr "契約タイプを追加"
+
+msgid "Edit contract type"
+msgstr "契約タイプを編集"
+
+msgid "Contract type"
+msgstr "契約タイプ"
+
+msgid "Business units"
+msgstr "事業単位"
+
+msgid "Add business unit"
+msgstr "事業単位を追加"
+
+msgid "Edit business unit"
+msgstr "事業単位を編集"
+
+msgid "Business unit"
+msgstr "事業単位"
+
+msgid "Add branch"
+msgstr "支店を追加"
+
+msgid "Edit branch"
+msgstr "支店を編集"
+
+msgid "Parent unit"
+msgstr "親単位"
+
+msgid "Primary branch"
+msgstr "主支店"
+
+msgid "Coordinates"
+msgstr "座標"
+
+msgid "HR Dashboard"
+msgstr "HRダッシュボード"
+
+msgid "Staff"
+msgstr "スタッフ"
+
+msgid "Organization"
+msgstr "組織"
+
+msgid "Performance Management"
+msgstr "パフォーマンス管理"
+
+msgid "Recruitment"
+msgstr "採用"
+
+msgid "Benefits"
+msgstr "福利厚生"
+
+msgid "ROI and training"
+msgstr "ROIと研修"
+
+msgid "Diversity and social responsibility"
+msgstr "多様性と社会的責任"
+
+msgid "Professional functions"
+msgstr "職務機能"
+
+msgid "Positions"
+msgstr "役職"
+
+msgid "Units and positions list"
+msgstr "部門と役職リスト"
+
+msgid "Assign position to user"
+msgstr "ユーザーに役職を割り当て"
+
+msgid "Organizational chart"
+msgstr "組織図"
+
+msgid "Appraisal periods"
+msgstr "評価期間"
+
+msgid "Appraisal templates"
+msgstr "評価テンプレート"
+
+msgid "Performance appraisals"
+msgstr "パフォーマンス評価"
+
+msgid "Recruitment stages"
+msgstr "採用段階"
+
+msgid "Recruitment processes"
+msgstr "採用プロセス"
+
+msgid "Job offers"
+msgstr "求人"
+
+msgid "Team skills goals"
+msgstr "チームスキル目標"
+
+msgid "Benefit tags"
+msgstr "福利厚生タグ"
+
+msgid "Assign benefits"
+msgstr "福利厚生の割り当て"
+
+msgid "Assigned benefits"
+msgstr "割り当て済み福利厚生"
+
+msgid "ROI by course"
+msgstr "コース別ROI"
+
+msgid "ROI by person"
+msgstr "個人別ROI"
+
+msgid "ROI by organizational unit"
+msgstr "組織単位別ROI"
+
+msgid "Training needs assessment"
+msgstr "研修ニーズ評価"
+
+msgid "Work climate surveys"
+msgstr "職場環境調査"
+
+msgid "Diversity criteria"
+msgstr "多様性基準"
+
+msgid "Diversity guidelines"
+msgstr "多様性ガイドライン"
+
+msgid "Social responsibility guidelines"
+msgstr "社会的責任ガイドライン"
+

@@ -33884,3 +33884,189 @@ msgstr "Laipni lūdzam Chamilo"
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ja tas ir jūsu pirmais reizi, izmantojot Chamilo, pārliecinieties, ka pārbaudāt sānjoslu, lai atrastu ceļu caur daudzo funkciju. Ja nepieciešama palīdzība, mūsu <a href=\"https://docs.chamilo.org\">oficiālā dokumentācija</a> palīdzēs standarta dokumentācijai, savukārt mūsu <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">tiešsaistes forums</a> palīdzēs dalīties idejās un atrast atbildes no citiem Chamilo lietotājiem."
 
+msgid "Activities"
+msgstr "Darbības"
+
+msgid "Activity categories"
+msgstr "Darbības kategorijas"
+
+msgid "Add activity"
+msgstr "Pievienot darbību"
+
+msgid "Add category"
+msgstr "Pievienot kategoriju"
+
+msgid "Edit activity"
+msgstr "Rediģēt darbību"
+
+msgid "Edit category"
+msgstr "Rediģēt kategoriju"
+
+msgid "Performance objectives"
+msgstr "Veiktspējas mērķi"
+
+msgid "Objective categories"
+msgstr "Mērķu kategorijas"
+
+msgid "Add objective"
+msgstr "Pievienot mērķi"
+
+msgid "Edit objective"
+msgstr "Rediģēt mērķi"
+
+msgid "Geographic zones"
+msgstr "Ģeogrāfiskās zonas"
+
+msgid "Add geographic zone"
+msgstr "Pievienot ģeogrāfisko zonu"
+
+msgid "Edit geographic zone"
+msgstr "Rediģēt ģeogrāfisko zonu"
+
+msgid "Geographic zone"
+msgstr "Ģeogrāfiskā zona"
+
+msgid "Staff statuses"
+msgstr "Personāla statusi"
+
+msgid "Add staff status"
+msgstr "Pievienot personāla statusu"
+
+msgid "Edit staff status"
+msgstr "Rediģēt personāla statusu"
+
+msgid "Staff status"
+msgstr "Personāla statuss"
+
+msgid "Contract types"
+msgstr "Līguma veidi"
+
+msgid "Add contract type"
+msgstr "Pievienot līguma veidu"
+
+msgid "Edit contract type"
+msgstr "Rediģēt līguma veidu"
+
+msgid "Contract type"
+msgstr "Līguma veids"
+
+msgid "Business units"
+msgstr "Biznesa vienības"
+
+msgid "Add business unit"
+msgstr "Pievienot biznesa vienību"
+
+msgid "Edit business unit"
+msgstr "Rediģēt biznesa vienību"
+
+msgid "Business unit"
+msgstr "Biznesa vienība"
+
+msgid "Add branch"
+msgstr "Pievienot filiāli"
+
+msgid "Edit branch"
+msgstr "Rediģēt filiāli"
+
+msgid "Parent unit"
+msgstr "Vecāku vienība"
+
+msgid "Primary branch"
+msgstr "Primārā filiāle"
+
+msgid "Coordinates"
+msgstr "Koordinātas"
+
+msgid "HR Dashboard"
+msgstr "HR panelis"
+
+msgid "Staff"
+msgstr "Personāls"
+
+msgid "Organization"
+msgstr "Organizācija"
+
+msgid "Performance Management"
+msgstr "Veiktspējas vadība"
+
+msgid "Recruitment"
+msgstr "Pieņemšana darbā"
+
+msgid "Benefits"
+msgstr "Pabalsti"
+
+msgid "ROI and training"
+msgstr "ROI un apmācība"
+
+msgid "Diversity and social responsibility"
+msgstr "Daudzveidība un sociālā atbildība"
+
+msgid "Professional functions"
+msgstr "Profesionālās funkcijas"
+
+msgid "Positions"
+msgstr "Amati"
+
+msgid "Units and positions list"
+msgstr "Vienību un amatu saraksts"
+
+msgid "Assign position to user"
+msgstr "Piešķirt amatu lietotājam"
+
+msgid "Organizational chart"
+msgstr "Organizācijas shēma"
+
+msgid "Appraisal periods"
+msgstr "Novērtēšanas periodi"
+
+msgid "Appraisal templates"
+msgstr "Novērtēšanas veidnes"
+
+msgid "Performance appraisals"
+msgstr "Veiktspējas novērtējumi"
+
+msgid "Recruitment stages"
+msgstr "Pieņemšanas posmi"
+
+msgid "Recruitment processes"
+msgstr "Pieņemšanas procesi"
+
+msgid "Job offers"
+msgstr "Darba piedāvājumi"
+
+msgid "Team skills goals"
+msgstr "Komandas prasmju mērķi"
+
+msgid "Benefit tags"
+msgstr "Labuma birkas"
+
+msgid "Assign benefits"
+msgstr "Piešķirt labumus"
+
+msgid "Assigned benefits"
+msgstr "Piešķirtie labumi"
+
+msgid "ROI by course"
+msgstr "ROI pēc kursa"
+
+msgid "ROI by person"
+msgstr "ROI pēc personas"
+
+msgid "ROI by organizational unit"
+msgstr "ROI pēc organizācijas vienības"
+
+msgid "Training needs assessment"
+msgstr "Apmācību vajadzību novērtējums"
+
+msgid "Work climate surveys"
+msgstr "Darba klimata aptaujas"
+
+msgid "Diversity criteria"
+msgstr "Dažādības kritēriji"
+
+msgid "Diversity guidelines"
+msgstr "Dažādības vadlīnijas"
+
+msgid "Social responsibility guidelines"
+msgstr "Sociālās atbildības vadlīnijas"
+
