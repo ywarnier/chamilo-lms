@@ -75,6 +75,68 @@ For every database table identified in Step 1:
 
 For each new Doctrine entity needed (category B or C from Step 2):
 
+### Generating entities with make:entity
+
+**Always use `php bin/console make:entity` to generate entities and their relationships.**
+Never write entity classes from scratch — the generator produces correct bidirectional
+collection methods (`add*`, `remove*`), `ArrayCollection` initialisation, and `inversedBy`/
+`mappedBy` attributes that are required for Doctrine and API Platform to work correctly.
+
+Manual entity code consistently misses the inverse side of `ManyToMany` and `OneToMany`
+relations, which causes API Platform POST/PUT operations to silently drop collection fields.
+
+#### Workflow
+
+1. Generate the entity skeleton and its scalar fields:
+   ```bash
+   php bin/console make:entity EntityName
+   ```
+   Answer the interactive prompts for each property. Use `relation` type for associations.
+
+2. For each relation field the generator asks:
+    - **Relation type**: `ManyToOne`, `OneToMany`, `ManyToMany`, `OneToOne`
+    - **Target entity**: the class name (e.g. `CompensationTag`)
+    - **Add the inverse side?** → always answer **yes** for bidirectional relations
+    - The generator then adds the matching property + `add*/remove*` methods to the target entity
+
+3. After generation, apply the project-specific rules below (the generator uses annotations or
+   attributes depending on config, so verify PHP 8 attribute syntax is used).
+
+#### Bidirectional ManyToMany — what correct code looks like
+
+Owning side (`Compensation.php`):
+```php
+#[ORM\ManyToMany(targetEntity: CompensationTag::class, inversedBy: 'compensations')]
+#[ORM\JoinTable(name: 'compensation_rel_tag', ...)]
+private Collection $tags;
+```
+
+Inverse side (`CompensationTag.php`):
+```php
+#[ORM\ManyToMany(targetEntity: Compensation::class, mappedBy: 'tags')]
+private Collection $compensations;
+
+public function addCompensation(Compensation $compensation): static
+{
+    if (!$this->compensations->contains($compensation)) {
+        $this->compensations->add($compensation);
+        $compensation->addTag($this);
+    }
+    return $this;
+}
+
+public function removeCompensation(Compensation $compensation): static
+{
+    if ($this->compensations->removeElement($compensation)) {
+        $compensation->removeTag($this);
+    }
+    return $this;
+}
+```
+
+Without both sides (`inversedBy`/`mappedBy` + the collection + add/remove methods), API Platform
+will accept the POST payload but silently discard the relation — no error, just missing data.
+
 ### Entity rules
 - Namespace: `Chamilo\CoreBundle\Entity` (or `Chamilo\CourseBundle\Entity` for course-scoped data).
 - File: `src/CoreBundle/Entity/{EntityName}.php` (or `src/CourseBundle/Entity/`).
@@ -167,11 +229,94 @@ the generated migration file unless column types or default values need explicit
 
 ---
 
-## Step 5 — Create the Symfony controller(s)
+## Step 5 — Implement data endpoints via API Platform state providers
 
-Create controllers in `src/CoreBundle/Controller/` (or `.../Admin/` for admin-only features).
+### Decision: state provider vs. plain controller
 
-### Functional rules
+For every legacy data endpoint, **first ask**: does it return one or more instances of an entity
+that already has (or will have) an `#[ApiResource]` attribute?
+
+- **Yes → use an API Platform `GetCollection` or `Get` operation with a state provider.**
+  Do NOT create a plain Symfony controller for this endpoint.
+- **No → use a plain Symfony controller** (e.g. actions that send messages, trigger side-effects,
+  or aggregate data from multiple unrelated entities into a custom shape).
+
+This rule applies to both new endpoints and existing controllers being refactored. If a controller
+currently returns entity data, migrate it to a state provider.
+
+### Creating a state provider (preferred path)
+
+1. Create `src/CoreBundle/State/{FeatureName}StateProvider.php`:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Chamilo\CoreBundle\State;
+
+use ApiPlatform\Metadata\Operation;
+use ApiPlatform\State\ProviderInterface;
+use Chamilo\CoreBundle\Entity\YourEntity;
+use Chamilo\CoreBundle\Helpers\UserHelper;
+use Chamilo\CoreBundle\Repository\YourEntityRepository;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+
+/**
+ * @template-implements ProviderInterface<YourEntity>
+ */
+final class YourFeatureStateProvider implements ProviderInterface
+{
+    public function __construct(
+        private readonly YourEntityRepository $repository,
+        private readonly UserHelper $userHelper,
+    ) {}
+
+    public function provide(Operation $operation, array $uriVariables = [], array $context = []): array
+    {
+        $user = $this->userHelper->getCurrent();
+        if (!$user) {
+            throw new AccessDeniedHttpException();
+        }
+
+        return $this->repository->findByUser($user);
+    }
+}
+```
+
+2. Add a new `GetCollection` (or `Get`) operation to the entity's `#[ApiResource]` block:
+
+```php
+new GetCollection(
+    uriTemplate: '/your_entities/my_subset',
+    security: "is_granted('IS_AUTHENTICATED_FULLY')",
+    provider: YourFeatureStateProvider::class,
+    paginationEnabled: false,
+),
+```
+
+Key rules for state provider operations:
+- The `uriTemplate` lives under `/api/` automatically — no `-data` suffix needed (no clash with SPA routes).
+- Set `paginationEnabled: false` when the result set is always small and the client expects a plain array.
+- Use `normalizationContext: ['groups' => ['entity:read']]` on the operation if a subset of fields
+  differs from the default resource group.
+- Use `UserHelper::getCurrent()` (injected via constructor) to get the authenticated user — never
+  call `$this->getUser()` inside a state provider (no controller context available).
+- Expose related-entity fields needed by the frontend by adding the entity's read group to the
+  relevant property in the related entity class (e.g. add `'benefit_assignment:read'` to
+  `Compensation::$description`).
+
+### When a plain controller is still appropriate
+
+Create controllers in `src/CoreBundle/Controller/` (or `.../Admin/` for admin-only features)
+**only** for endpoints that:
+- Trigger side-effects without returning entity data (send a message, mark as read, etc.).
+- Aggregate data from multiple unrelated entities into a shape that does not map to any single entity.
+- Wrap legacy operations (`MessageManager`, file I/O) that have no API Platform equivalent.
+
+For these controllers, follow the rules below.
+
+### Functional rules (controllers only)
 - Data endpoints must end in `-data` to avoid clashing with Vue SPA routes (e.g. SPA at
   `/my-feature` → data at `/my-feature-data`).
 - Use `EntityManagerInterface` and Doctrine QueryBuilder / DQL — no raw SQL or `Connection` unless
@@ -208,8 +353,11 @@ Create controllers in `src/CoreBundle/Controller/` (or `.../Admin/` for admin-on
 ### Post-write verification
 Run both checks and fix all issues before proceeding to the next step:
 ```bash
-vendor/bin/ecs check src/CoreBundle/Controller/Path/To/YourController.php
-vendor/bin/psalm --show-info=false src/CoreBundle/Controller/Path/To/YourController.php
+vendor/bin/ecs check src/CoreBundle/State/YourStateProvider.php \
+                     src/CoreBundle/Controller/Path/To/YourController.php
+vendor/bin/psalm --show-info=false \
+                 src/CoreBundle/State/YourStateProvider.php \
+                 src/CoreBundle/Controller/Path/To/YourController.php
 ```
 
 ---
@@ -253,6 +401,24 @@ Create `assets/vue/views/<domain>/YourFeatureView.vue` (one file per logical pag
 - State-changing operations (create, update, delete) call `baseService.post/put/delete` and handle
   loading/error states explicitly.
 - Tailwind classes only — no inline styles, no custom CSS unless unavoidable.
+
+### Base* components — mandatory
+
+After writing each Vue view, **always invoke the `/use-base-components` skill** on the file:
+
+```
+/use-base-components assets/vue/views/<domain>/YourFeatureView.vue
+```
+
+This ensures:
+- All native `<input>`, `<select>`, `<textarea>` are replaced with `Base*` components.
+- `<Dialog>` is replaced with `<BaseDialog>`.
+- `useToast` is replaced with `useNotification`.
+- `<h2>` + button header blocks are replaced with `<SectionHeader>`.
+- `id` props are present on all `BaseInputText` and `BaseTextArea` components.
+
+Do **not** skip this step even if you believe all Base* components are already used — the skill
+catches subtle issues (missing `id`, wrong label binding, raw `useToast` usage, etc.).
 
 ---
 
