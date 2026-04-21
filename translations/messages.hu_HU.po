@@ -34069,3 +34069,129 @@ msgstr "Sokszínűségi irányelvek"
 msgid "Social responsibility guidelines"
 msgstr "Társadalmi felelősségvállalási irányelvek"
 
+msgid "Professional functions"
+msgstr "Szakmai funkciók"
+
+msgid "Function-unit associations"
+msgstr "Függvény-egység hozzárendelések"
+
+msgid "Unit function list"
+msgstr "Egység függvény lista"
+
+msgid "Positions"
+msgstr "Beosztások"
+
+msgid "Competency search"
+msgstr "Kompetencia keresés"
+
+msgid "Organizational chart"
+msgstr "Szervezeti ábra"
+
+msgid "Function-unit association"
+msgstr "Függvény-egység hozzárendelés"
+
+msgid "Add association"
+msgstr "Hozzárendelés hozzáadása"
+
+msgid "Edit association"
+msgstr "Hozzárendelés szerkesztése"
+
+msgid "Required skills"
+msgstr "Kötelező készségek"
+
+msgid "Add skill requirement"
+msgstr "Készségkövetelmény hozzáadása"
+
+msgid "Add position"
+msgstr "Pozíció hozzáadása"
+
+msgid "Edit position"
+msgstr "Pozíció szerkesztése"
+
+msgid "Position title"
+msgstr "Pozíció megnevezése"
+
+msgid "Staff member"
+msgstr "Munkatárs"
+
+msgid "Is manager/boss"
+msgstr "Menedzser/vezető"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Vezető"
+
+msgid "Headcount"
+msgstr "Headcount"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Válasszon egységet a headcount eloszlás megtekintéséhez"
+
+msgid "Search by skill"
+msgstr "Keresés készség szerint"
+
+msgid "Search by function profile"
+msgstr "Keresés függvényprofil szerint"
+
+msgid "Compare two staff members"
+msgstr "Két munkatárs összehasonlítása"
+
+msgid "User vs. function profile"
+msgstr "Felhasználó vs. függvényprofil"
+
+msgid "Skill(s)"
+msgstr "Készség(ek)"
+
+msgid "Required level"
+msgstr "Kötelező szint"
+
+msgid "Acquired level"
+msgstr "Elér szintre"
+
+msgid "Meets level"
+msgstr "Megfelel a szintnek"
+
+msgid "Below required"
+msgstr "Alatta a szükségesnek"
+
+msgid "Missing"
+msgstr "Hiányzik"
+
+msgid "Searching…"
+msgstr "Keresés…"
+
+msgid "staff member(s) found"
+msgstr "%d munkatársat talált"
+
+msgid "Unit hierarchy"
+msgstr "Szervezeti egységek hierarchiája"
+
+msgid "All staff"
+msgstr "Minden munkatárs"
+
+msgid "This chart is not publicly available."
+msgstr "Ez a diagram nem nyilvánosan elérhető."
+
+msgid "Failed to load chart data."
+msgstr "A diagram adatainak betöltése sikertelen."
+
+msgid "Parent function"
+msgstr "Szülő funkció"
+
+msgid "Add activity…"
+msgstr "Tevékenység hozzáadása…"
+
+msgid "Any level"
+msgstr "Bármely szint"
+
+msgid "Geographic zone"
+msgstr "Földrajzi zóna"
+
+msgid "Required skills"
+msgstr "Kötelező készségek"
+

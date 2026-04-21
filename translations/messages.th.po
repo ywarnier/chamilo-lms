@@ -34071,3 +34071,129 @@ msgstr "แนวทางปฏิบัติความหลากหลา
 msgid "Social responsibility guidelines"
 msgstr "แนวทางปฏิบัติความรับผิดชอบทางสังคม"
 
+msgid "Professional functions"
+msgstr "หน้าที่วิชาชีพ"
+
+msgid "Function-unit associations"
+msgstr "ความสัมพันธ์หน่วยงาน-หน้าที่"
+
+msgid "Unit function list"
+msgstr "รายการหน้าที่ของหน่วยงาน"
+
+msgid "Positions"
+msgstr "ตำแหน่ง"
+
+msgid "Competency search"
+msgstr "ค้นหาความสามารถ"
+
+msgid "Organizational chart"
+msgstr "โครงสร้างองค์กร"
+
+msgid "Function-unit association"
+msgstr "ความสัมพันธ์หน่วยงาน-หน้าที่"
+
+msgid "Add association"
+msgstr "เพิ่มความสัมพันธ์"
+
+msgid "Edit association"
+msgstr "แก้ไขความสัมพันธ์"
+
+msgid "Required skills"
+msgstr "ทักษะที่จำเป็น"
+
+msgid "Add skill requirement"
+msgstr "เพิ่มความต้องการทักษะ"
+
+msgid "Add position"
+msgstr "เพิ่มตำแหน่ง"
+
+msgid "Edit position"
+msgstr "แก้ไขตำแหน่ง"
+
+msgid "Position title"
+msgstr "ชื่อตำแหน่ง"
+
+msgid "Staff member"
+msgstr "เจ้าหน้าที่"
+
+msgid "Is manager/boss"
+msgstr "เป็นผู้จัดการ/หัวหน้า"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "หัวหน้า"
+
+msgid "Headcount"
+msgstr "จำนวนคน"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "เลือกหน่วยงานเพื่อดูการกระจายจำนวนคน"
+
+msgid "Search by skill"
+msgstr "ค้นหาตามทักษะ"
+
+msgid "Search by function profile"
+msgstr "ค้นหาตามโปรไฟล์หน้าที่"
+
+msgid "Compare two staff members"
+msgstr "เปรียบเทียบเจ้าหน้าที่สองคน"
+
+msgid "User vs. function profile"
+msgstr "ผู้ใช้เทียบกับโปรไฟล์หน้าที่"
+
+msgid "Skill(s)"
+msgstr "ทักษะ"
+
+msgid "Required level"
+msgstr "ระดับที่จำเป็น"
+
+msgid "Acquired level"
+msgstr "ระดับที่ได้มา"
+
+msgid "Meets level"
+msgstr "ตรงตามระดับ"
+
+msgid "Below required"
+msgstr "ต่ำกว่าที่จำเป็น"
+
+msgid "Missing"
+msgstr "ขาดหาย"
+
+msgid "Searching…"
+msgstr "กำลังค้นหา…"
+
+msgid "staff member(s) found"
+msgstr "พนักงานที่พบ"
+
+msgid "Unit hierarchy"
+msgstr "ลำดับชั้นหน่วยงาน"
+
+msgid "All staff"
+msgstr "พนักงานทั้งหมด"
+
+msgid "This chart is not publicly available."
+msgstr "แผนภูมินี้ไม่เปิดให้สาธารณะเข้าถึง"
+
+msgid "Failed to load chart data."
+msgstr "โหลดข้อมูลแผนภูมิไม่สำเร็จ"
+
+msgid "Parent function"
+msgstr "หน้าที่หลัก"
+
+msgid "Add activity…"
+msgstr "เพิ่มกิจกรรม…"
+
+msgid "Any level"
+msgstr "ทุกระดับ"
+
+msgid "Geographic zone"
+msgstr "เขตภูมิศาสตร์"
+
+msgid "Required skills"
+msgstr "ทักษะที่จำเป็น"
+

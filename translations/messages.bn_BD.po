@@ -340,7 +340,7 @@ msgid "Sincerely"
 msgstr "আন্তরিকতার সাথে"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "সূত্র নমুনা: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "সূত্রের নমুনা: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "ভেরিয়েবলের পরিসর"
@@ -30724,7 +30724,7 @@ msgid "Azure UID (internal ID)"
 msgstr "Azure UID (অভ্যন্তরীণ আইডি)"
 
 msgid "Azure ID (mailNickname)"
-msgstr "Azure ID (mailNickname)"
+msgstr "Azure আইডি (mailNickname)"
 
 msgid "Organisation e-mail"
 msgstr "সংস্থার ইমেইল"
@@ -31459,7 +31459,7 @@ msgid "SCIM external ID"
 msgstr "SCIM বাহ্যিক ID"
 
 msgid "OAuth2 ID"
-msgstr "OAuth2 ID"
+msgstr "OAuth2 আইডি"
 
 msgid "Please accept the latest version of the terms and conditions."
 msgstr "অনুগ্রহ করে শর্তাবলী এবং নিয়মাবলীর সর্বশেষ সংস্করণ গ্রহণ করুন।"
@@ -34064,4 +34064,130 @@ msgstr "বৈচিত্র্যের নির্দেশিকা"
 
 msgid "Social responsibility guidelines"
 msgstr "সামাজিক দায়িত্বের নির্দেশিকা"
+
+msgid "Professional functions"
+msgstr "পেশাগত কার্যাবলী"
+
+msgid "Function-unit associations"
+msgstr "ফাংশন-ইউনিট সম্পর্ক"
+
+msgid "Unit function list"
+msgstr "ইউনিট ফাংশন তালিকা"
+
+msgid "Positions"
+msgstr "পদ"
+
+msgid "Competency search"
+msgstr "দক্ষতা অনুসন্ধান"
+
+msgid "Organizational chart"
+msgstr "সাংগঠনিক চার্ট"
+
+msgid "Function-unit association"
+msgstr "ফাংশন-ইউনিট সম্পর্ক"
+
+msgid "Add association"
+msgstr "সম্পর্ক যোগ করুন"
+
+msgid "Edit association"
+msgstr "সম্পর্ক সম্পাদনা করুন"
+
+msgid "Required skills"
+msgstr "প্রয়োজনীয় দক্ষতা"
+
+msgid "Add skill requirement"
+msgstr "দক্ষতা প্রয়োজনীয়তা যোগ করুন"
+
+msgid "Add position"
+msgstr "পদ যোগ করুন"
+
+msgid "Edit position"
+msgstr "পদ সম্পাদনা করুন"
+
+msgid "Position title"
+msgstr "পদের শিরোনাম"
+
+msgid "Staff member"
+msgstr "কর্মচারী"
+
+msgid "Is manager/boss"
+msgstr "প্রধান/বস কিনা"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (০–১)"
+
+msgid "Boss"
+msgstr "বস"
+
+msgid "Headcount"
+msgstr "মানুষের সংখ্যা"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "মানুষের সংখ্যার বণ্টন দেখতে একটি ইউনিট নির্বাচন করুন"
+
+msgid "Search by skill"
+msgstr "দক্ষতা অনুসারে অনুসন্ধান"
+
+msgid "Search by function profile"
+msgstr "ফাংশন প্রোফাইল অনুসারে অনুসন্ধান"
+
+msgid "Compare two staff members"
+msgstr "দুই কর্মচারী তুলনা করুন"
+
+msgid "User vs. function profile"
+msgstr "ব্যবহারকারী বনাম ফাংশন প্রোফাইল"
+
+msgid "Skill(s)"
+msgstr "দক্ষতা(গুলি)"
+
+msgid "Required level"
+msgstr "প্রয়োজনীয় স্তর"
+
+msgid "Acquired level"
+msgstr "অর্জিত স্তর"
+
+msgid "Meets level"
+msgstr "স্তর পূরণ হয়েছে"
+
+msgid "Below required"
+msgstr "প্রয়োজনের নিচে"
+
+msgid "Missing"
+msgstr "অভাব"
+
+msgid "Searching…"
+msgstr "অনুসন্ধান করা হচ্ছে…"
+
+msgid "staff member(s) found"
+msgstr "কর্মচারী পাওয়া গেছে"
+
+msgid "Unit hierarchy"
+msgstr "ইউনিটের শ্রেণিবিন্যাস"
+
+msgid "All staff"
+msgstr "সকল কর্মচারী"
+
+msgid "This chart is not publicly available."
+msgstr "এই চার্টটি সর্বজনীনভাবে উপলব্ধ নয়।"
+
+msgid "Failed to load chart data."
+msgstr "চার্ট ডেটা লোড করতে ব্যর্থ হয়েছে।"
+
+msgid "Parent function"
+msgstr "পিতৃ ফাংশন"
+
+msgid "Add activity…"
+msgstr "কার্যক্রম যোগ করুন…"
+
+msgid "Any level"
+msgstr "যেকোনো স্তর"
+
+msgid "Geographic zone"
+msgstr "ভৌগোলিক অঞ্চল"
+
+msgid "Required skills"
+msgstr "প্রয়োজনীয় দক্ষতা"
 

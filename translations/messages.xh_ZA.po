@@ -7669,7 +7669,7 @@ msgid "Please type your text below"
 msgstr "Nceda uchwethezele isicatshulwa sakho apha ezantsi"
 
 msgid "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Example fill the form activity : calculate the Body Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Age</strong></td>            <td width=\"75%\" style=\"\">[25] years old</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Sex</strong></td>            <td style=\"\" text-align:=\"\">[M] (M or F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Weight</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Height</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Weight/Size<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
-msgstr "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Umzekelo wokuzalisa ifomu lomsebenzi : bala iBody Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubudala</strong></td>            <td width=\"75%\" style=\"\">[25] iminyaka ubudala</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Esini</strong></td>            <td style=\"\" text-align:=\"\">[M] (M okanye F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubunzima</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong Ubude</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Ubunzima/Ubude<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
+msgstr "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Umzekelo wokuzalisa ifomu lomsebenzi : bala iBody Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubudala</strong></td>            <td width=\"75%\" style=\"\">[25] iminyaka</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Isini</strong></td>            <td style=\"\" text-align:=\"\">[M] (M okanye F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubunzima</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong Ubude</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Ubunzima/Ubude<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
 
 msgid "Note down the address"
 msgstr "Bhala idilesi"
@@ -34064,4 +34064,130 @@ msgstr "Izikhokelo zokwahluka"
 
 msgid "Social responsibility guidelines"
 msgstr "Izikhokelo zoxanduva lwentlalo"
+
+msgid "Professional functions"
+msgstr "Imisebenzi yobuchwepheshe"
+
+msgid "Function-unit associations"
+msgstr "Unxulumano lwemisebenzi yoyunithi"
+
+msgid "Unit function list"
+msgstr "Uluhlu lomsebenzi weyunithi"
+
+msgid "Positions"
+msgstr "Izikhundla"
+
+msgid "Competency search"
+msgstr "Kopa isakhono"
+
+msgid "Organizational chart"
+msgstr "Itswebhu yombutho"
+
+msgid "Function-unit association"
+msgstr "Unxulumano lomsebenzi weyunithi"
+
+msgid "Add association"
+msgstr "Faka unxulumano"
+
+msgid "Edit association"
+msgstr "Hlela unxulumano"
+
+msgid "Required skills"
+msgstr "Izakhono ezifunwayo"
+
+msgid "Add skill requirement"
+msgstr "Faka imfuneko yesakhono"
+
+msgid "Add position"
+msgstr "Faka isikhundla"
+
+msgid "Edit position"
+msgstr "Hlela isikhundla"
+
+msgid "Position title"
+msgstr "Isihloko sesikhundla"
+
+msgid "Staff member"
+msgstr "Ilungu labasebenzi"
+
+msgid "Is manager/boss"
+msgstr "Ungumphathi"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Umphathi"
+
+msgid "Headcount"
+msgstr "Inani labasebenzi"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Khetha iyunithi ukuze ubone uhanjiso lwamanani asebenzini"
+
+msgid "Search by skill"
+msgstr "Gqiba ngobuchule"
+
+msgid "Search by function profile"
+msgstr "Gqiba ngemifanelo yomsebenzi"
+
+msgid "Compare two staff members"
+msgstr "Thelekisa amalungu amabini asebenzini"
+
+msgid "User vs. function profile"
+msgstr "Umsebenzisi vs. iphrofayili yomsebenzi"
+
+msgid "Skill(s)"
+msgstr "Isakhono(i)"
+
+msgid "Required level"
+msgstr "Inqanaba elifunwayo"
+
+msgid "Acquired level"
+msgstr "Inqanaba elifunyanwayo"
+
+msgid "Meets level"
+msgstr "Ifikelela inqanaba"
+
+msgid "Below required"
+msgstr "Ngaphantsi kwelifunwayo"
+
+msgid "Missing"
+msgstr "Iyaphuthelwa"
+
+msgid "Searching…"
+msgstr "Kusafunwa…"
+
+msgid "staff member(s) found"
+msgstr "amalungu asebenzini afunyanwa"
+
+msgid "Unit hierarchy"
+msgstr "Ulawulo lweeyunithi"
+
+msgid "All staff"
+msgstr "Bonke abasebenzi"
+
+msgid "This chart is not publicly available."
+msgstr "Le tshati ayifumaneki esidlangalaleni."
+
+msgid "Failed to load chart data."
+msgstr "Akukwazeki ukulayisha idatha yetshati."
+
+msgid "Parent function"
+msgstr "Umsebenzi ongumzali"
+
+msgid "Add activity…"
+msgstr "Faka umsebenzi…"
+
+msgid "Any level"
+msgstr "Nalinye inqanaba"
+
+msgid "Geographic zone"
+msgstr "Indawo yemimezelo"
+
+msgid "Required skills"
+msgstr "Izakhono ezifunwayo"
 

@@ -34071,3 +34071,129 @@ msgstr "多样性指南"
 msgid "Social responsibility guidelines"
 msgstr "社会责任指南"
 
+msgid "Professional functions"
+msgstr "专业职能"
+
+msgid "Function-unit associations"
+msgstr "职能-单位关联"
+
+msgid "Unit function list"
+msgstr "单位职能列表"
+
+msgid "Positions"
+msgstr "职位"
+
+msgid "Competency search"
+msgstr "能力搜索"
+
+msgid "Organizational chart"
+msgstr "组织结构图"
+
+msgid "Function-unit association"
+msgstr "职能-单位关联"
+
+msgid "Add association"
+msgstr "添加关联"
+
+msgid "Edit association"
+msgstr "编辑关联"
+
+msgid "Required skills"
+msgstr "所需技能"
+
+msgid "Add skill requirement"
+msgstr "添加技能要求"
+
+msgid "Add position"
+msgstr "添加职位"
+
+msgid "Edit position"
+msgstr "编辑职位"
+
+msgid "Position title"
+msgstr "职位名称"
+
+msgid "Staff member"
+msgstr "员工"
+
+msgid "Is manager/boss"
+msgstr "是经理/主管"
+
+msgid "FTE"
+msgstr "全职当量"
+
+msgid "FTE (0–1)"
+msgstr "全职当量 (0–1)"
+
+msgid "Boss"
+msgstr "主管"
+
+msgid "Headcount"
+msgstr "头数"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "选择一个单位查看头数分布"
+
+msgid "Search by skill"
+msgstr "按技能搜索"
+
+msgid "Search by function profile"
+msgstr "按职能档案搜索"
+
+msgid "Compare two staff members"
+msgstr "比较两个员工"
+
+msgid "User vs. function profile"
+msgstr "用户与职能档案"
+
+msgid "Skill(s)"
+msgstr "技能"
+
+msgid "Required level"
+msgstr "要求水平"
+
+msgid "Acquired level"
+msgstr "已获得水平"
+
+msgid "Meets level"
+msgstr "达到水平"
+
+msgid "Below required"
+msgstr "低于要求"
+
+msgid "Missing"
+msgstr "缺失"
+
+msgid "Searching…"
+msgstr "搜索中…"
+
+msgid "staff member(s) found"
+msgstr "找到员工"
+
+msgid "Unit hierarchy"
+msgstr "单位层级"
+
+msgid "All staff"
+msgstr "所有员工"
+
+msgid "This chart is not publicly available."
+msgstr "此图表非公开。"
+
+msgid "Failed to load chart data."
+msgstr "加载图表数据失败。"
+
+msgid "Parent function"
+msgstr "上级职能"
+
+msgid "Add activity…"
+msgstr "添加活动…"
+
+msgid "Any level"
+msgstr "任意级别"
+
+msgid "Geographic zone"
+msgstr "地理区域"
+
+msgid "Required skills"
+msgstr "所需技能"
+

@@ -104,11 +104,32 @@ const staffItems = computed(() => {
 })
 
 const organizationItems = computed(() => [
-  { class: "item-hr-professional-functions", label: t("Professional functions") },
-  { class: "item-hr-positions", label: t("Positions") },
-  { class: "item-hr-units-positions-list", label: t("Units and positions list") },
-  { class: "item-hr-assign-position", label: t("Assign position to user") },
-  { class: "item-hr-org-chart", label: t("Organizational chart") },
+  {
+    class: "item-hr-professional-functions",
+    route: { name: "HrProfessionalFunctions" },
+    label: t("Professional functions"),
+  },
+  {
+    class: "item-hr-function-in-unit",
+    route: { name: "HrFunctionInUnit" },
+    label: t("Function-unit associations"),
+  },
+  {
+    class: "item-hr-unit-function-list",
+    route: { name: "HrUnitFunctionList" },
+    label: t("Unit function list"),
+  },
+  { class: "item-hr-positions", route: { name: "HrPositions" }, label: t("Positions") },
+  {
+    class: "item-hr-org-chart",
+    route: { name: "OrganizationalChart" },
+    label: t("Organizational chart"),
+  },
+  {
+    class: "item-hr-competency-search",
+    route: { name: "HrCompetencySearch" },
+    label: t("Competency search"),
+  },
 ])
 
 const performanceItems = computed(() => {

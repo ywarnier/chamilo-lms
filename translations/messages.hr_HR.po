@@ -34070,3 +34070,129 @@ msgstr "Smjernice raznolikosti"
 msgid "Social responsibility guidelines"
 msgstr "Smjernice društvene odgovornosti"
 
+msgid "Professional functions"
+msgstr "Profesionalne funkcije"
+
+msgid "Function-unit associations"
+msgstr "Povezanosti jedinica funkcija"
+
+msgid "Unit function list"
+msgstr "Popis funkcija jedinice"
+
+msgid "Positions"
+msgstr "Pozicije"
+
+msgid "Competency search"
+msgstr "Pretraživanje kompetencija"
+
+msgid "Organizational chart"
+msgstr "Organizacijski dijagram"
+
+msgid "Function-unit association"
+msgstr "Povezanost jedinice i funkcije"
+
+msgid "Add association"
+msgstr "Dodaj povezanost"
+
+msgid "Edit association"
+msgstr "Uredi povezanost"
+
+msgid "Required skills"
+msgstr "Zahtjevane vještine"
+
+msgid "Add skill requirement"
+msgstr "Dodaj zahtjev za vještinu"
+
+msgid "Add position"
+msgstr "Dodaj poziciju"
+
+msgid "Edit position"
+msgstr "Uredi poziciju"
+
+msgid "Position title"
+msgstr "Naziv pozicije"
+
+msgid "Staff member"
+msgstr "Član osoblja"
+
+msgid "Is manager/boss"
+msgstr "Je upravitelj/šef"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Šef"
+
+msgid "Headcount"
+msgstr "Broj zaposlenika"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Odaberite jedinicu za pregled distribucije broja zaposlenika"
+
+msgid "Search by skill"
+msgstr "Pretraži po vještini"
+
+msgid "Search by function profile"
+msgstr "Pretraži po profilu funkcije"
+
+msgid "Compare two staff members"
+msgstr "Usporedi dva člana osoblja"
+
+msgid "User vs. function profile"
+msgstr "Korisnik naspram profila funkcije"
+
+msgid "Skill(s)"
+msgstr "Vještina(e)"
+
+msgid "Required level"
+msgstr "Zahtjevani nivo"
+
+msgid "Acquired level"
+msgstr "Steceni nivo"
+
+msgid "Meets level"
+msgstr "Ispunjava nivo"
+
+msgid "Below required"
+msgstr "Ispod zahtjevanog"
+
+msgid "Missing"
+msgstr "Nedostaje"
+
+msgid "Searching…"
+msgstr "Pretražujem…"
+
+msgid "staff member(s) found"
+msgstr "član(ov)a osoblja pronađen(ih)"
+
+msgid "Unit hierarchy"
+msgstr "Hijerarhija jedinica"
+
+msgid "All staff"
+msgstr "Sve osobe"
+
+msgid "This chart is not publicly available."
+msgstr "Ovaj dijagram nije javno dostupan."
+
+msgid "Failed to load chart data."
+msgstr "Neuspjeh učitavanja podataka dijagrama."
+
+msgid "Parent function"
+msgstr "Nadređena funkcija"
+
+msgid "Add activity…"
+msgstr "Dodaj aktivnost…"
+
+msgid "Any level"
+msgstr "Bilo koji nivo"
+
+msgid "Geographic zone"
+msgstr "Geografska zona"
+
+msgid "Required skills"
+msgstr "Zahtjevane vještine"
+

@@ -35951,3 +35951,129 @@ msgstr "Directives de diversité"
 msgid "Social responsibility guidelines"
 msgstr "Directives de responsabilité sociale"
 
+msgid "Professional functions"
+msgstr "Fonctions professionnelles"
+
+msgid "Function-unit associations"
+msgstr "Associations unité-fonction"
+
+msgid "Unit function list"
+msgstr "Liste des fonctions d'unité"
+
+msgid "Positions"
+msgstr "Postes"
+
+msgid "Competency search"
+msgstr "Recherche de compétences"
+
+msgid "Organizational chart"
+msgstr "Organigramme"
+
+msgid "Function-unit association"
+msgstr "Association unité-fonction"
+
+msgid "Add association"
+msgstr "Ajouter une association"
+
+msgid "Edit association"
+msgstr "Modifier l'association"
+
+msgid "Required skills"
+msgstr "Compétences requises"
+
+msgid "Add skill requirement"
+msgstr "Ajouter une exigence de compétence"
+
+msgid "Add position"
+msgstr "Ajouter un poste"
+
+msgid "Edit position"
+msgstr "Modifier le poste"
+
+msgid "Position title"
+msgstr "Titre du poste"
+
+msgid "Staff member"
+msgstr "Membre du personnel"
+
+msgid "Is manager/boss"
+msgstr "Est manager/supérieur"
+
+msgid "FTE"
+msgstr "ETPT"
+
+msgid "FTE (0–1)"
+msgstr "ETPT (0–1)"
+
+msgid "Boss"
+msgstr "Supérieur"
+
+msgid "Headcount"
+msgstr "Effectif"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Sélectionnez une unité pour voir la répartition de l'effectif"
+
+msgid "Search by skill"
+msgstr "Rechercher par compétence"
+
+msgid "Search by function profile"
+msgstr "Rechercher par profil de fonction"
+
+msgid "Compare two staff members"
+msgstr "Comparer deux membres du personnel"
+
+msgid "User vs. function profile"
+msgstr "Utilisateur vs. profil de fonction"
+
+msgid "Skill(s)"
+msgstr "Compétence(s)"
+
+msgid "Required level"
+msgstr "Niveau requis"
+
+msgid "Acquired level"
+msgstr "Niveau acquis"
+
+msgid "Meets level"
+msgstr "Niveau atteint"
+
+msgid "Below required"
+msgstr "Inférieur à l'exigence"
+
+msgid "Missing"
+msgstr "Manquant"
+
+msgid "Searching…"
+msgstr "Recherche…"
+
+msgid "staff member(s) found"
+msgstr "membre(s) du personnel trouvé(s)"
+
+msgid "Unit hierarchy"
+msgstr "Hiérarchie des unités"
+
+msgid "All staff"
+msgstr "Tout le personnel"
+
+msgid "This chart is not publicly available."
+msgstr "Ce graphique n'est pas publiquement disponible."
+
+msgid "Failed to load chart data."
+msgstr "Échec du chargement des données du graphique."
+
+msgid "Parent function"
+msgstr "Fonction parente"
+
+msgid "Add activity…"
+msgstr "Ajouter une activité…"
+
+msgid "Any level"
+msgstr "Tout niveau"
+
+msgid "Geographic zone"
+msgstr "Zone géographique"
+
+msgid "Required skills"
+msgstr "Compétences requises"
+

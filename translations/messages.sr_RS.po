@@ -346,7 +346,7 @@ msgid "Sincerely"
 msgstr "Srdačno"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Primer formule: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Formula primer: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Opsezi varijabli"
@@ -34071,4 +34071,130 @@ msgstr "Смернице разноликости"
 
 msgid "Social responsibility guidelines"
 msgstr "Смернице друштвене одговорности"
+
+msgid "Professional functions"
+msgstr "Profesionalne funkcije"
+
+msgid "Function-unit associations"
+msgstr "Asocijacije funkcija-jedinica"
+
+msgid "Unit function list"
+msgstr "Lista funkcija jedinice"
+
+msgid "Positions"
+msgstr "Позиције"
+
+msgid "Competency search"
+msgstr "Pretraga kompetencija"
+
+msgid "Organizational chart"
+msgstr "Организациони шема"
+
+msgid "Function-unit association"
+msgstr "Asocijacija funkcija-jedinica"
+
+msgid "Add association"
+msgstr "Dodaj asocijaciju"
+
+msgid "Edit association"
+msgstr "Izmeni asocijaciju"
+
+msgid "Required skills"
+msgstr "Zahtevane veštine"
+
+msgid "Add skill requirement"
+msgstr "Dodaj zahtev za veštinu"
+
+msgid "Add position"
+msgstr "Dodaj poziciju"
+
+msgid "Edit position"
+msgstr "Izmeni poziciju"
+
+msgid "Position title"
+msgstr "Naziv pozicije"
+
+msgid "Staff member"
+msgstr "Član osoblja"
+
+msgid "Is manager/boss"
+msgstr "Je menadžer/šef"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Šef"
+
+msgid "Headcount"
+msgstr "Broj zaposlenih"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Izaberite jedinicu da vidite distribuciju broja zaposlenih"
+
+msgid "Search by skill"
+msgstr "Pretraga po veštini"
+
+msgid "Search by function profile"
+msgstr "Pretraga po profilu funkcije"
+
+msgid "Compare two staff members"
+msgstr "Uporedi dva člana osoblja"
+
+msgid "User vs. function profile"
+msgstr "Korisnik naspram profila funkcije"
+
+msgid "Skill(s)"
+msgstr "Veština(e)"
+
+msgid "Required level"
+msgstr "Zahtevani nivo"
+
+msgid "Acquired level"
+msgstr "Steceni nivo"
+
+msgid "Meets level"
+msgstr "Ispunjava nivo"
+
+msgid "Below required"
+msgstr "Ispod zahtevanog"
+
+msgid "Missing"
+msgstr "Fali"
+
+msgid "Searching…"
+msgstr "Pretraživanje…"
+
+msgid "staff member(s) found"
+msgstr "član(ov)a osoblja pronađeno"
+
+msgid "Unit hierarchy"
+msgstr "Hijerarhija jedinica"
+
+msgid "All staff"
+msgstr "Sve osoblje"
+
+msgid "This chart is not publicly available."
+msgstr "Ovaj grafik nije javno dostupan."
+
+msgid "Failed to load chart data."
+msgstr "Neuspešno učitavanje podataka grafikona."
+
+msgid "Parent function"
+msgstr "Roditeljska funkcija"
+
+msgid "Add activity…"
+msgstr "Dodaj aktivnost…"
+
+msgid "Any level"
+msgstr "Bilo koji nivo"
+
+msgid "Geographic zone"
+msgstr "Geografska zona"
+
+msgid "Required skills"
+msgstr "Zahtevane veštine"
 

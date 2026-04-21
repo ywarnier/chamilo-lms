@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":是:有版權,, 否:無版權"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:資料夾,, application/msword:MsWord,, application/octet-stream:八位元組串流,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:資料夾,, application/msword:MsWord,, application/octet-stream:八位元組流,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":練習:練習,, 類比:類比,, 問卷:問卷,, 圖表:圖表,, 圖:圖,, 圖:圖,, 索引:索引,, 幻燈:幻燈,, 表:表,, 描述文本:描述文本,, 考試:考試,, 實驗:實驗,, 問題聲明:問題聲明,, 自我評價:自我評價,, 演講:演講"
@@ -34070,4 +34070,130 @@ msgstr "多樣性指南"
 
 msgid "Social responsibility guidelines"
 msgstr "社會責任指南"
+
+msgid "Professional functions"
+msgstr "專業職能"
+
+msgid "Function-unit associations"
+msgstr "功能-單位關聯"
+
+msgid "Unit function list"
+msgstr "單位功能清單"
+
+msgid "Positions"
+msgstr "職位"
+
+msgid "Competency search"
+msgstr "能力搜尋"
+
+msgid "Organizational chart"
+msgstr "組織圖"
+
+msgid "Function-unit association"
+msgstr "功能-單位關聯"
+
+msgid "Add association"
+msgstr "新增關聯"
+
+msgid "Edit association"
+msgstr "編輯關聯"
+
+msgid "Required skills"
+msgstr "所需技能"
+
+msgid "Add skill requirement"
+msgstr "新增技能需求"
+
+msgid "Add position"
+msgstr "新增職位"
+
+msgid "Edit position"
+msgstr "編輯職位"
+
+msgid "Position title"
+msgstr "職位名稱"
+
+msgid "Staff member"
+msgstr "員工"
+
+msgid "Is manager/boss"
+msgstr "是主管/老闆"
+
+msgid "FTE"
+msgstr "全職當量"
+
+msgid "FTE (0–1)"
+msgstr "全職當量 (0–1)"
+
+msgid "Boss"
+msgstr "主管"
+
+msgid "Headcount"
+msgstr "人數"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "選擇單位以查看人數分佈"
+
+msgid "Search by skill"
+msgstr "依技能搜尋"
+
+msgid "Search by function profile"
+msgstr "依功能檔案搜尋"
+
+msgid "Compare two staff members"
+msgstr "比較兩位員工"
+
+msgid "User vs. function profile"
+msgstr "使用者與功能檔案"
+
+msgid "Skill(s)"
+msgstr "技能"
+
+msgid "Required level"
+msgstr "所需等級"
+
+msgid "Acquired level"
+msgstr "已取得等級"
+
+msgid "Meets level"
+msgstr "符合等級"
+
+msgid "Below required"
+msgstr "低於所需"
+
+msgid "Missing"
+msgstr "缺少"
+
+msgid "Searching…"
+msgstr "搜尋中…"
+
+msgid "staff member(s) found"
+msgstr "找到 %d 名職員"
+
+msgid "Unit hierarchy"
+msgstr "單位層級"
+
+msgid "All staff"
+msgstr "所有職員"
+
+msgid "This chart is not publicly available."
+msgstr "此圖表非公開。"
+
+msgid "Failed to load chart data."
+msgstr "載入圖表資料失敗。"
+
+msgid "Parent function"
+msgstr "上層職能"
+
+msgid "Add activity…"
+msgstr "新增活動…"
+
+msgid "Any level"
+msgstr "任何層級"
+
+msgid "Geographic zone"
+msgstr "地理區域"
+
+msgid "Required skills"
+msgstr "所需技能"
 

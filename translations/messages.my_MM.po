@@ -34069,3 +34069,129 @@ msgstr "မတူကွဲပြားမှုလမ်းညွှန်ချ
 msgid "Social responsibility guidelines"
 msgstr "လူမှုတာဝန်ယူမှုလမ်းညွှန်ချက်များ"
 
+msgid "Professional functions"
+msgstr "ပရော်ဖက်ရှင်နယ်လုပ်ငန်းတာဝန်များ"
+
+msgid "Function-unit associations"
+msgstr "လုပ်ငန်းယူနစ်ဆက်နွယ်မှုများ"
+
+msgid "Unit function list"
+msgstr "ယူနစ်လုပ်ငန်းစာရင်း"
+
+msgid "Positions"
+msgstr "ရာထူးများ"
+
+msgid "Competency search"
+msgstr "စွမ်းရည်ရှာဖွေခြင်း"
+
+msgid "Organizational chart"
+msgstr "အဖွဲ့အစည်းဖွဲ့စည်းပုံဇယား"
+
+msgid "Function-unit association"
+msgstr "လုပ်ငန်း-ယူနစ်ဆက်နွယ်မှု"
+
+msgid "Add association"
+msgstr "ဆက်နွယ်မှုထည့်သွင်း"
+
+msgid "Edit association"
+msgstr "ဆက်နွယ်မှုပြင်ဆင်"
+
+msgid "Required skills"
+msgstr "လိုအပ်သော ကျွမ်းကျင်မှုများ"
+
+msgid "Add skill requirement"
+msgstr "ကျွမ်းကျင်မှုလိုအပ်ချက်ထည့်သွင်း"
+
+msgid "Add position"
+msgstr "ရာထူအချက်ထည့်သွင်း"
+
+msgid "Edit position"
+msgstr "ရာထူပြင်ဆင်"
+
+msgid "Position title"
+msgstr "ရာထူခေါင်းစဉ်"
+
+msgid "Staff member"
+msgstr "ဝန်ထမ်း"
+
+msgid "Is manager/boss"
+msgstr "မန်နေဂျာဖြစ်သည်"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (၀–၁)"
+
+msgid "Boss"
+msgstr "သူဌေး"
+
+msgid "Headcount"
+msgstr "ဝန်ထမ်းအရေအတွက်"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "ဝန်ထမ်းအရေအတွက်ဖြန့်ဖြူးမှုကြည့်ရန် ယူနစ်ရွေးချယ်ပါ"
+
+msgid "Search by skill"
+msgstr "ကျွမ်းကျင်မှုဖြင့်ရှာဖွေပါ"
+
+msgid "Search by function profile"
+msgstr "လုပ်ငန်းပရိုဖိုင်ဖြင့်ရှာဖွေပါ"
+
+msgid "Compare two staff members"
+msgstr "ဝန်ထမ်း နှစ်ဦးနှိုင်းယှဉ်ပါ"
+
+msgid "User vs. function profile"
+msgstr "အသုံးပြုသူ နှင့် လုပ်ငန်းပရိုဖိုင်"
+
+msgid "Skill(s)"
+msgstr "ကျွမ်းကျင်မှု(များ)"
+
+msgid "Required level"
+msgstr "လိုအပ်သော အဆင့်"
+
+msgid "Acquired level"
+msgstr "ရရှိသော အဆင့်"
+
+msgid "Meets level"
+msgstr "လိုအပ်ချက်နှင့်ကိုက်ညီသည်"
+
+msgid "Below required"
+msgstr "လိုအပ်ချက်အောက်"
+
+msgid "Missing"
+msgstr "လွဲချော်နေသည်"
+
+msgid "Searching…"
+msgstr "ရှာနေသည်…"
+
+msgid "staff member(s) found"
+msgstr "ဝန်ထမ်း(များ) တွေ့ရှိသည်"
+
+msgid "Unit hierarchy"
+msgstr "ယူနစ်အဆင့်အစဉ်"
+
+msgid "All staff"
+msgstr "ဝန်ထမ်းအားလုံး"
+
+msgid "This chart is not publicly available."
+msgstr "ဤဇယားကို အများပြည်သူအတွက် မဖွင့်ထားပါ။"
+
+msgid "Failed to load chart data."
+msgstr "ဇယားဒေတာဖွင့်လှစ်ရန် မအောင်မြင်ပါ။"
+
+msgid "Parent function"
+msgstr "မိခင်လုပ်ငန်း"
+
+msgid "Add activity…"
+msgstr "လှုပ်ရှားမှုထည့်သွင်း…"
+
+msgid "Any level"
+msgstr "အဆင့်မည်သည်မဆို"
+
+msgid "Geographic zone"
+msgstr "ပထဝီအနေရာ"
+
+msgid "Required skills"
+msgstr "လိုအပ်သော ကျွမ်းကျင်မှုများ"
+

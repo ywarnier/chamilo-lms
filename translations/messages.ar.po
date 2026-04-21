@@ -34083,3 +34083,129 @@ msgstr "إرشادات التنوع"
 msgid "Social responsibility guidelines"
 msgstr "إرشادات المسؤولية الاجتماعية"
 
+msgid "Professional functions"
+msgstr "الوظائف المهنية"
+
+msgid "Function-unit associations"
+msgstr "ارتباطات الوحدة-الوظيفة"
+
+msgid "Unit function list"
+msgstr "قائمة وظائف الوحدة"
+
+msgid "Positions"
+msgstr "المناصب"
+
+msgid "Competency search"
+msgstr "بحث الكفاءات"
+
+msgid "Organizational chart"
+msgstr "الرسم التنظيمي"
+
+msgid "Function-unit association"
+msgstr "ارتباط الوظيفة-الوحدة"
+
+msgid "Add association"
+msgstr "إضافة ارتباط"
+
+msgid "Edit association"
+msgstr "تعديل الارتباط"
+
+msgid "Required skills"
+msgstr "المهارات المطلوبة"
+
+msgid "Add skill requirement"
+msgstr "إضافة متطلب مهارة"
+
+msgid "Add position"
+msgstr "إضافة منصب"
+
+msgid "Edit position"
+msgstr "تعديل المنصب"
+
+msgid "Position title"
+msgstr "عنوان المنصب"
+
+msgid "Staff member"
+msgstr "عضو هيئة التدريس"
+
+msgid "Is manager/boss"
+msgstr "مدير/رئيس"
+
+msgid "FTE"
+msgstr "معادلة الوقت الكامل"
+
+msgid "FTE (0–1)"
+msgstr "معادلة الوقت الكامل (0–1)"
+
+msgid "Boss"
+msgstr "الرئيس"
+
+msgid "Headcount"
+msgstr "عدد الموظفين"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "اختر وحدة لرؤية توزيع عدد الموظفين"
+
+msgid "Search by skill"
+msgstr "البحث حسب المهارة"
+
+msgid "Search by function profile"
+msgstr "البحث حسب ملف الوظيفة"
+
+msgid "Compare two staff members"
+msgstr "مقارنة موظفين"
+
+msgid "User vs. function profile"
+msgstr "المستخدم مقابل ملف الوظيفة"
+
+msgid "Skill(s)"
+msgstr "المهارة (المهارات)"
+
+msgid "Required level"
+msgstr "المستوى المطلوب"
+
+msgid "Acquired level"
+msgstr "المستوى المكتسب"
+
+msgid "Meets level"
+msgstr "يحقق المستوى"
+
+msgid "Below required"
+msgstr "أقل من المطلوب"
+
+msgid "Missing"
+msgstr "مفقود"
+
+msgid "Searching…"
+msgstr "جاري البحث…"
+
+msgid "staff member(s) found"
+msgstr "عضو هيئة تدريس (أعضاء) تم العثور عليهم"
+
+msgid "Unit hierarchy"
+msgstr "تسلسل الوحدات"
+
+msgid "All staff"
+msgstr "جميع أعضاء هيئة التدريس"
+
+msgid "This chart is not publicly available."
+msgstr "هذا الرسم البياني غير متاح للعامة."
+
+msgid "Failed to load chart data."
+msgstr "فشل في تحميل بيانات الرسم البياني."
+
+msgid "Parent function"
+msgstr "الوظيفة الأم"
+
+msgid "Add activity…"
+msgstr "إضافة نشاط…"
+
+msgid "Any level"
+msgstr "أي مستوى"
+
+msgid "Geographic zone"
+msgstr "المنطقة الجغرافية"
+
+msgid "Required skills"
+msgstr "المهارات المطلوبة"
+

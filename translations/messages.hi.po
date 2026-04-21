@@ -34065,3 +34065,129 @@ msgstr "विविधता दिशानिर्देश"
 msgid "Social responsibility guidelines"
 msgstr "सामाजिक जिम्मेदारी दिशानिर्देश"
 
+msgid "Professional functions"
+msgstr "व्यावसायिक कार्य"
+
+msgid "Function-unit associations"
+msgstr "कार्य-इकाई संबंध"
+
+msgid "Unit function list"
+msgstr "इकाई कार्य सूची"
+
+msgid "Positions"
+msgstr "पद"
+
+msgid "Competency search"
+msgstr "क्षमता खोज"
+
+msgid "Organizational chart"
+msgstr "संगठनात्मक चार्ट"
+
+msgid "Function-unit association"
+msgstr "कार्य-इकाई संबंध"
+
+msgid "Add association"
+msgstr "संबंध जोड़ें"
+
+msgid "Edit association"
+msgstr "संबंध संपादित करें"
+
+msgid "Required skills"
+msgstr "आवश्यक कौशल"
+
+msgid "Add skill requirement"
+msgstr "कौशल आवश्यकता जोड़ें"
+
+msgid "Add position"
+msgstr "पद जोड़ें"
+
+msgid "Edit position"
+msgstr "पद संपादित करें"
+
+msgid "Position title"
+msgstr "पद शीर्षक"
+
+msgid "Staff member"
+msgstr "कर्मचारी सदस्य"
+
+msgid "Is manager/boss"
+msgstr "प्रबंधक/मालिक है"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "मालिक"
+
+msgid "Headcount"
+msgstr "हेडकाउंट"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "हेडकाउंट वितरण देखने के लिए इकाई चुनें"
+
+msgid "Search by skill"
+msgstr "कौशल से खोजें"
+
+msgid "Search by function profile"
+msgstr "कार्य प्रोफ़ाइल से खोजें"
+
+msgid "Compare two staff members"
+msgstr "दो कर्मचारियों की तुलना करें"
+
+msgid "User vs. function profile"
+msgstr "उपयोगकर्ता बनाम कार्य प्रोफ़ाइल"
+
+msgid "Skill(s)"
+msgstr "कौशल(गण)"
+
+msgid "Required level"
+msgstr "आवश्यक स्तर"
+
+msgid "Acquired level"
+msgstr "प्राप्त स्तर"
+
+msgid "Meets level"
+msgstr "स्तर पूरा करता है"
+
+msgid "Below required"
+msgstr "आवश्यक से नीचे"
+
+msgid "Missing"
+msgstr "अनुपस्थित"
+
+msgid "Searching…"
+msgstr "खोज रहे हैं…"
+
+msgid "staff member(s) found"
+msgstr "स्टाफ सदस्य पाए गए"
+
+msgid "Unit hierarchy"
+msgstr "इकाई पदानुक्रम"
+
+msgid "All staff"
+msgstr "सभी स्टाफ"
+
+msgid "This chart is not publicly available."
+msgstr "यह चार्ट सार्वजनिक रूप से उपलब्ध नहीं है।"
+
+msgid "Failed to load chart data."
+msgstr "चार्ट डेटा लोड करने में विफल।"
+
+msgid "Parent function"
+msgstr "मूल फलन"
+
+msgid "Add activity…"
+msgstr "गतिविधि जोड़ें…"
+
+msgid "Any level"
+msgstr "कोई भी स्तर"
+
+msgid "Geographic zone"
+msgstr "भौगोलिक क्षेत्र"
+
+msgid "Required skills"
+msgstr "आवश्यक कौशल"
+

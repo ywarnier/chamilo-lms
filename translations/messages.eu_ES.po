@@ -34076,3 +34076,129 @@ msgstr "Aniztasun gidalerroak"
 msgid "Social responsibility guidelines"
 msgstr "Erantzukizun sozialaren gidalerroak"
 
+msgid "Professional functions"
+msgstr "Funtzio profesionalak"
+
+msgid "Function-unit associations"
+msgstr "Funtzio-unitate loterak"
+
+msgid "Unit function list"
+msgstr "Unitate funtzio zerrenda"
+
+msgid "Positions"
+msgstr "Postuak"
+
+msgid "Competency search"
+msgstr "Gaitasun bilaketa"
+
+msgid "Organizational chart"
+msgstr "Antolaketa txartela"
+
+msgid "Function-unit association"
+msgstr "Funtzio-unitate lotura"
+
+msgid "Add association"
+msgstr "Gehitu lotura"
+
+msgid "Edit association"
+msgstr "Editatu lotura"
+
+msgid "Required skills"
+msgstr "Gaitasun beharrak"
+
+msgid "Add skill requirement"
+msgstr "Gehitu gaitasun beharra"
+
+msgid "Add position"
+msgstr "Gehitu kargua"
+
+msgid "Edit position"
+msgstr "Editatu kargua"
+
+msgid "Position title"
+msgstr "Kargu izenburua"
+
+msgid "Staff member"
+msgstr "Langile kidea"
+
+msgid "Is manager/boss"
+msgstr "Zuzendaria/burua da"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Burua"
+
+msgid "Headcount"
+msgstr "Langile kopurua"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Hautatu unitate bat langile kopuruaren banaketa ikusteko"
+
+msgid "Search by skill"
+msgstr "Bilatu gaitasunaz"
+
+msgid "Search by function profile"
+msgstr "Bilatu funtzio-profilaz"
+
+msgid "Compare two staff members"
+msgstr "Konparatu bi langile kide"
+
+msgid "User vs. function profile"
+msgstr "Erabiltzailea vs. funtzio-profila"
+
+msgid "Skill(s)"
+msgstr "Gaitasun(a)k"
+
+msgid "Required level"
+msgstr "Maila behartua"
+
+msgid "Acquired level"
+msgstr "Lortutako maila"
+
+msgid "Meets level"
+msgstr "Betetzen du maila"
+
+msgid "Below required"
+msgstr "Beharraren azpian"
+
+msgid "Missing"
+msgstr "Faltan"
+
+msgid "Searching…"
+msgstr "Bilaketak…"
+
+msgid "staff member(s) found"
+msgstr "langile(k) aurkitu dira"
+
+msgid "Unit hierarchy"
+msgstr "Unitate-hierarkia"
+
+msgid "All staff"
+msgstr "Langile guztiak"
+
+msgid "This chart is not publicly available."
+msgstr "Grafiko hau ez dago publikoa."
+
+msgid "Failed to load chart data."
+msgstr "Hutsegitea kargatzean grafikoaren datuak."
+
+msgid "Parent function"
+msgstr "Funtzio gurasoa"
+
+msgid "Add activity…"
+msgstr "Gehitu jarduera…"
+
+msgid "Any level"
+msgstr "Edozein maila"
+
+msgid "Geographic zone"
+msgstr "Geografiako zona"
+
+msgid "Required skills"
+msgstr "Gaitasun beharrak"
+

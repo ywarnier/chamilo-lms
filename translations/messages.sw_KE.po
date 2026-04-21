@@ -34065,3 +34065,129 @@ msgstr "Miongozo ya utofauti"
 msgid "Social responsibility guidelines"
 msgstr "Miongozo ya wajibu wa kijamii"
 
+msgid "Professional functions"
+msgstr "Kazi za kitaalamu"
+
+msgid "Function-unit associations"
+msgstr "Ushirikiano wa kitengo na kazi"
+
+msgid "Unit function list"
+msgstr "Orodha ya kazi za kitengo"
+
+msgid "Positions"
+msgstr "Naibu"
+
+msgid "Competency search"
+msgstr "Tafuta uwezo"
+
+msgid "Organizational chart"
+msgstr "Chati ya shirika"
+
+msgid "Function-unit association"
+msgstr "Ushirikiano wa kazi-kitengo"
+
+msgid "Add association"
+msgstr "Ongeza ushirikiano"
+
+msgid "Edit association"
+msgstr "Hariri ushirikiano"
+
+msgid "Required skills"
+msgstr "Ustadi unaohitajika"
+
+msgid "Add skill requirement"
+msgstr "Ongeza mahitaji ya ustadi"
+
+msgid "Add position"
+msgstr "Ongeza nafasi"
+
+msgid "Edit position"
+msgstr "Hariri nafasi"
+
+msgid "Position title"
+msgstr "Jina la nafasi"
+
+msgid "Staff member"
+msgstr "Mwanachama wa wafanyakazi"
+
+msgid "Is manager/boss"
+msgstr "Ni msimamizi/bosi"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Bosi"
+
+msgid "Headcount"
+msgstr "Idadi ya wafanyakazi"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Chagua kitengo ili kuona usambazaji wa idadi ya wafanyakazi"
+
+msgid "Search by skill"
+msgstr "Tafuta kwa ustadi"
+
+msgid "Search by function profile"
+msgstr "Tafuta kwa wasifu wa kazi"
+
+msgid "Compare two staff members"
+msgstr "Linganisha wafanyakazi wawili"
+
+msgid "User vs. function profile"
+msgstr "Mtumiaji dhidi ya wasifu wa kazi"
+
+msgid "Skill(s)"
+msgstr "Ustadi(zi)"
+
+msgid "Required level"
+msgstr "Kiwango kinachohitajika"
+
+msgid "Acquired level"
+msgstr "Kiwango kilichopatikana"
+
+msgid "Meets level"
+msgstr "Kifiki kiwango"
+
+msgid "Below required"
+msgstr "Chini ya kinachohitajika"
+
+msgid "Missing"
+msgstr "Inayokosekana"
+
+msgid "Searching…"
+msgstr "Inatafuta…"
+
+msgid "staff member(s) found"
+msgstr "mwanachama(zi) wa wafanyakazi amefuatwa"
+
+msgid "Unit hierarchy"
+msgstr "Utaratibu wa kitengo"
+
+msgid "All staff"
+msgstr "Wafanyakazi wote"
+
+msgid "This chart is not publicly available."
+msgstr "Grafu hii haipatikani hadharani."
+
+msgid "Failed to load chart data."
+msgstr "Imeshindwa kupakia data ya grafu."
+
+msgid "Parent function"
+msgstr "Kazi ya mzazi"
+
+msgid "Add activity…"
+msgstr "Ongeza shughuli…"
+
+msgid "Any level"
+msgstr "Kiwango chochote"
+
+msgid "Geographic zone"
+msgstr "Eneo la kijiografia"
+
+msgid "Required skills"
+msgstr "Ustadi unaohitajika"
+

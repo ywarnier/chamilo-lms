@@ -344,7 +344,7 @@ msgid "Sincerely"
 msgstr "Z poważaniem"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Przykładowy wzór: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Przykładowa formuła: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Zakresy zmiennych"
@@ -34074,4 +34074,130 @@ msgstr "Wytyczne dotyczące różnorodności"
 
 msgid "Social responsibility guidelines"
 msgstr "Wytyczne dotyczące odpowiedzialności społecznej"
+
+msgid "Professional functions"
+msgstr "Funkcje zawodowe"
+
+msgid "Function-unit associations"
+msgstr "Powiązania jednostek z funkcjami"
+
+msgid "Unit function list"
+msgstr "Lista funkcji jednostki"
+
+msgid "Positions"
+msgstr "Stanowiska"
+
+msgid "Competency search"
+msgstr "Wyszukiwanie kompetencji"
+
+msgid "Organizational chart"
+msgstr "Schemat organizacyjny"
+
+msgid "Function-unit association"
+msgstr "Powiązanie funkcji z jednostką"
+
+msgid "Add association"
+msgstr "Dodaj powiązanie"
+
+msgid "Edit association"
+msgstr "Edytuj powiązanie"
+
+msgid "Required skills"
+msgstr "Wymagane umiejętności"
+
+msgid "Add skill requirement"
+msgstr "Dodaj wymóg umiejętności"
+
+msgid "Add position"
+msgstr "Dodaj stanowisko"
+
+msgid "Edit position"
+msgstr "Edytuj stanowisko"
+
+msgid "Position title"
+msgstr "Nazwa stanowiska"
+
+msgid "Staff member"
+msgstr "Pracownik"
+
+msgid "Is manager/boss"
+msgstr "Jest kierownikiem/szefem"
+
+msgid "FTE"
+msgstr "ETAT"
+
+msgid "FTE (0–1)"
+msgstr "ETAT (0–1)"
+
+msgid "Boss"
+msgstr "Szef"
+
+msgid "Headcount"
+msgstr "Stanowiska"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Wybierz jednostkę, aby zobaczyć rozkład etatów"
+
+msgid "Search by skill"
+msgstr "Wyszukaj według umiejętności"
+
+msgid "Search by function profile"
+msgstr "Wyszukaj według profilu funkcji"
+
+msgid "Compare two staff members"
+msgstr "Porównaj dwóch pracowników"
+
+msgid "User vs. function profile"
+msgstr "Użytkownik vs. profil funkcji"
+
+msgid "Skill(s)"
+msgstr "Umiejętność(nie)"
+
+msgid "Required level"
+msgstr "Wymagany poziom"
+
+msgid "Acquired level"
+msgstr "Osiągnięty poziom"
+
+msgid "Meets level"
+msgstr "Spełnia poziom"
+
+msgid "Below required"
+msgstr "Poniżej wymaganego"
+
+msgid "Missing"
+msgstr "Brakuje"
+
+msgid "Searching…"
+msgstr "Wyszukiwanie…"
+
+msgid "staff member(s) found"
+msgstr "znaleziono pracownik(ów)"
+
+msgid "Unit hierarchy"
+msgstr "Hierarchia jednostek"
+
+msgid "All staff"
+msgstr "Wszyscy pracownicy"
+
+msgid "This chart is not publicly available."
+msgstr "Ten wykres nie jest publicznie dostępny."
+
+msgid "Failed to load chart data."
+msgstr "Nie udało się załadować danych wykresu."
+
+msgid "Parent function"
+msgstr "Funkcja nadrzędna"
+
+msgid "Add activity…"
+msgstr "Dodaj aktywność…"
+
+msgid "Any level"
+msgstr "Dowolny poziom"
+
+msgid "Geographic zone"
+msgstr "Strefa geograficzna"
+
+msgid "Required skills"
+msgstr "Wymagane umiejętności"
 

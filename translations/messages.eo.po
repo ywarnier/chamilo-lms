@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:kopirajto,, no:ne kopirajto"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Okta flugo,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:ekzerco,, simulation:simulado,, questionnaire:enketo,, diagram:diagramo,, figure:figuro,, graph:grafiko,, index:indekso,, slide:diapozitivo,, table:tabelo,, narrative text:rakonta teksto,, exam:ekzameno,, experiment:eksperimento,, problem statement:problemstarigo,, self assessment:memtesto,, lecture:prelego"
@@ -34070,4 +34070,130 @@ msgstr "Gvidlinioj de diverseco"
 
 msgid "Social responsibility guidelines"
 msgstr "Gvidlinioj de socia respondeco"
+
+msgid "Professional functions"
+msgstr "Profesiaj funkcioj"
+
+msgid "Function-unit associations"
+msgstr "Rilatoj funkcio-unuo"
+
+msgid "Unit function list"
+msgstr "Listo de funkcioj de la unuo"
+
+msgid "Positions"
+msgstr "Postenoj"
+
+msgid "Competency search"
+msgstr "Serĉo de kompetencoj"
+
+msgid "Organizational chart"
+msgstr "Organigramo"
+
+msgid "Function-unit association"
+msgstr "Rilato funkcio-unuo"
+
+msgid "Add association"
+msgstr "Aldoni rilaton"
+
+msgid "Edit association"
+msgstr "Redakti rilaton"
+
+msgid "Required skills"
+msgstr "Postulataj kompetoj"
+
+msgid "Add skill requirement"
+msgstr "Aldoni postulanteco de kompetenco"
+
+msgid "Add position"
+msgstr "Aldoni pozicion"
+
+msgid "Edit position"
+msgstr "Redakti pozicion"
+
+msgid "Position title"
+msgstr "Titolo de la pozicio"
+
+msgid "Staff member"
+msgstr "Kunlaboranto"
+
+msgid "Is manager/boss"
+msgstr "Estas manaĝero/patrono"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Patrono"
+
+msgid "Headcount"
+msgstr "Nombro de kunlaborantoj"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Elektu unuon por vidi distribuon de kunlaborantoj"
+
+msgid "Search by skill"
+msgstr "Serĉi laŭ kompetenco"
+
+msgid "Search by function profile"
+msgstr "Serĉi laŭ profilo de funkcio"
+
+msgid "Compare two staff members"
+msgstr "Kompari du kunlaborantojn"
+
+msgid "User vs. function profile"
+msgstr "Uzanto kontraŭ funkcia profilo"
+
+msgid "Skill(s)"
+msgstr "Kompeto(j)"
+
+msgid "Required level"
+msgstr "Postulata nivelo"
+
+msgid "Acquired level"
+msgstr "Akirita nivelo"
+
+msgid "Meets level"
+msgstr "Atings la nivelon"
+
+msgid "Below required"
+msgstr "Sube postulata"
+
+msgid "Missing"
+msgstr "Mankas"
+
+msgid "Searching…"
+msgstr "Serĉante…"
+
+msgid "staff member(s) found"
+msgstr "kunlaboranto(j) trovitaj"
+
+msgid "Unit hierarchy"
+msgstr "Unuo hierarkio"
+
+msgid "All staff"
+msgstr "Ĉiuj kunlaborantoj"
+
+msgid "This chart is not publicly available."
+msgstr "Ĉi tiu diagramo ne estas publike havebla."
+
+msgid "Failed to load chart data."
+msgstr "Fiaskis ŝargi datenojn de la diagramo."
+
+msgid "Parent function"
+msgstr "Patra funkcio"
+
+msgid "Add activity…"
+msgstr "Aldoni agadon…"
+
+msgid "Any level"
+msgstr "Iuj ajn nivelo"
+
+msgid "Geographic zone"
+msgstr "Geografia zono"
+
+msgid "Required skills"
+msgstr "Postulataj kompetoj"
 

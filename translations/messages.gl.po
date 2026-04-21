@@ -34084,3 +34084,129 @@ msgstr "Directrices de diversidade"
 msgid "Social responsibility guidelines"
 msgstr "Directrices de responsabilidade social"
 
+msgid "Professional functions"
+msgstr "Funcións profesionais"
+
+msgid "Function-unit associations"
+msgstr "Asociacións función-unidade"
+
+msgid "Unit function list"
+msgstr "Lista de funcións da unidade"
+
+msgid "Positions"
+msgstr "Prazas"
+
+msgid "Competency search"
+msgstr "Busca de competencias"
+
+msgid "Organizational chart"
+msgstr "Organigrama"
+
+msgid "Function-unit association"
+msgstr "Asociación función-unidade"
+
+msgid "Add association"
+msgstr "Engadir asociación"
+
+msgid "Edit association"
+msgstr "Editar asociación"
+
+msgid "Required skills"
+msgstr "Competencias requiridas"
+
+msgid "Add skill requirement"
+msgstr "Engadir requisito de competencia"
+
+msgid "Add position"
+msgstr "Engadir praza"
+
+msgid "Edit position"
+msgstr "Editar praza"
+
+msgid "Position title"
+msgstr "Título da praza"
+
+msgid "Staff member"
+msgstr "Membro do persoal"
+
+msgid "Is manager/boss"
+msgstr "É xefe/xefa"
+
+msgid "FTE"
+msgstr "ETE"
+
+msgid "FTE (0–1)"
+msgstr "ETE (0–1)"
+
+msgid "Boss"
+msgstr "Xefe/Xefa"
+
+msgid "Headcount"
+msgstr "Efectivo"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Seleccione unha unidade para ver a distribución do efectivo"
+
+msgid "Search by skill"
+msgstr "Buscar por competencia"
+
+msgid "Search by function profile"
+msgstr "Buscar por perfil de función"
+
+msgid "Compare two staff members"
+msgstr "Comparar dous membros do persoal"
+
+msgid "User vs. function profile"
+msgstr "Usuario vs. perfil de función"
+
+msgid "Skill(s)"
+msgstr "Competencia(s)"
+
+msgid "Required level"
+msgstr "Nivel requirido"
+
+msgid "Acquired level"
+msgstr "Nivel adquirido"
+
+msgid "Meets level"
+msgstr "Cumpre o nivel"
+
+msgid "Below required"
+msgstr "Por debaixo do requirido"
+
+msgid "Missing"
+msgstr "Falta"
+
+msgid "Searching…"
+msgstr "Buscando…"
+
+msgid "staff member(s) found"
+msgstr "membro(s) do persoal atopado(s)"
+
+msgid "Unit hierarchy"
+msgstr " Xerarquía da unidade"
+
+msgid "All staff"
+msgstr "Todo o persoal"
+
+msgid "This chart is not publicly available."
+msgstr "Este gráfico non está dispoñible publicamente."
+
+msgid "Failed to load chart data."
+msgstr "Produciuse un erro ao cargar os datos do gráfico."
+
+msgid "Parent function"
+msgstr "Función principal"
+
+msgid "Add activity…"
+msgstr "Engadir actividade…"
+
+msgid "Any level"
+msgstr "Calquera nivel"
+
+msgid "Geographic zone"
+msgstr "Zona xeográfica"
+
+msgid "Required skills"
+msgstr "Competencias requiridas"
+

@@ -1164,6 +1164,31 @@ class IndexBlocksController extends BaseController
                 'route' => ['name' => 'HrBusinessUnits'],
                 'label' => $this->translator->trans('Business units'),
             ],
+            [
+                'class' => 'item-hr-professional-functions',
+                'route' => ['name' => 'HrProfessionalFunctions'],
+                'label' => $this->translator->trans('Professional functions'),
+            ],
+            [
+                'class' => 'item-hr-function-in-unit',
+                'route' => ['name' => 'HrFunctionInUnit'],
+                'label' => $this->translator->trans('Function-unit associations'),
+            ],
+            [
+                'class' => 'item-hr-unit-function-list',
+                'route' => ['name' => 'HrUnitFunctionList'],
+                'label' => $this->translator->trans('Unit function list'),
+            ],
+            [
+                'class' => 'item-hr-positions',
+                'route' => ['name' => 'HrPositions'],
+                'label' => $this->translator->trans('Positions'),
+            ],
+            [
+                'class' => 'item-hr-competency-search',
+                'route' => ['name' => 'HrCompetencySearch'],
+                'label' => $this->translator->trans('Competency search'),
+            ],
         ];
     }
 }

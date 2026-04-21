@@ -34135,3 +34135,129 @@ msgstr "多様性ガイドライン"
 msgid "Social responsibility guidelines"
 msgstr "社会的責任ガイドライン"
 
+msgid "Professional functions"
+msgstr "職務機能"
+
+msgid "Function-unit associations"
+msgstr "機能-ユニット関連付け"
+
+msgid "Unit function list"
+msgstr "ユニット機能リスト"
+
+msgid "Positions"
+msgstr "役職"
+
+msgid "Competency search"
+msgstr "能力検索"
+
+msgid "Organizational chart"
+msgstr "組織図"
+
+msgid "Function-unit association"
+msgstr "機能-ユニット関連付け"
+
+msgid "Add association"
+msgstr "関連付けを追加"
+
+msgid "Edit association"
+msgstr "関連付けを編集"
+
+msgid "Required skills"
+msgstr "必須スキル"
+
+msgid "Add skill requirement"
+msgstr "スキル要件を追加"
+
+msgid "Add position"
+msgstr "役職を追加"
+
+msgid "Edit position"
+msgstr "役職を編集"
+
+msgid "Position title"
+msgstr "役職名"
+
+msgid "Staff member"
+msgstr "スタッフメンバー"
+
+msgid "Is manager/boss"
+msgstr "上司/マネージャー"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "上司"
+
+msgid "Headcount"
+msgstr "ヘッドカウント"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "ヘッドカウント分布を見るためにユニットを選択"
+
+msgid "Search by skill"
+msgstr "スキルで検索"
+
+msgid "Search by function profile"
+msgstr "機能プロファイルで検索"
+
+msgid "Compare two staff members"
+msgstr "2人のスタッフメンバーを比較"
+
+msgid "User vs. function profile"
+msgstr "ユーザー対機能プロファイル"
+
+msgid "Skill(s)"
+msgstr "スキル"
+
+msgid "Required level"
+msgstr "必須レベル"
+
+msgid "Acquired level"
+msgstr "習得レベル"
+
+msgid "Meets level"
+msgstr "レベルを満たす"
+
+msgid "Below required"
+msgstr "必須未満"
+
+msgid "Missing"
+msgstr "不足"
+
+msgid "Searching…"
+msgstr "検索中…"
+
+msgid "staff member(s) found"
+msgstr "スタッフが見つかりました"
+
+msgid "Unit hierarchy"
+msgstr "組織階層"
+
+msgid "All staff"
+msgstr "全スタッフ"
+
+msgid "This chart is not publicly available."
+msgstr "このチャートは公開されていません。"
+
+msgid "Failed to load chart data."
+msgstr "チャートデータの読み込みに失敗しました。"
+
+msgid "Parent function"
+msgstr "親機能"
+
+msgid "Add activity…"
+msgstr "アクティビティを追加…"
+
+msgid "Any level"
+msgstr "すべてのレベル"
+
+msgid "Geographic zone"
+msgstr "地理的ゾーン"
+
+msgid "Required skills"
+msgstr "必須スキル"
+

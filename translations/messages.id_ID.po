@@ -34069,3 +34069,129 @@ msgstr "Pedoman keberagaman"
 msgid "Social responsibility guidelines"
 msgstr "Pedoman tanggung jawab sosial"
 
+msgid "Professional functions"
+msgstr "Fungsi profesional"
+
+msgid "Function-unit associations"
+msgstr "Asosiasi fungsi-unit"
+
+msgid "Unit function list"
+msgstr "Daftar fungsi unit"
+
+msgid "Positions"
+msgstr "Posisi"
+
+msgid "Competency search"
+msgstr "Pencarian kompetensi"
+
+msgid "Organizational chart"
+msgstr "Bagan organisasi"
+
+msgid "Function-unit association"
+msgstr "Asosiasi fungsi-unit"
+
+msgid "Add association"
+msgstr "Tambah asosiasi"
+
+msgid "Edit association"
+msgstr "Edit asosiasi"
+
+msgid "Required skills"
+msgstr "Keterampilan yang diperlukan"
+
+msgid "Add skill requirement"
+msgstr "Tambah persyaratan keterampilan"
+
+msgid "Add position"
+msgstr "Tambah posisi"
+
+msgid "Edit position"
+msgstr "Edit posisi"
+
+msgid "Position title"
+msgstr "Judul posisi"
+
+msgid "Staff member"
+msgstr "Anggota staf"
+
+msgid "Is manager/boss"
+msgstr "Adalah manajer/bos"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Bos"
+
+msgid "Headcount"
+msgstr "Jumlah personel"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Pilih unit untuk melihat distribusi jumlah personel"
+
+msgid "Search by skill"
+msgstr "Cari berdasarkan keterampilan"
+
+msgid "Search by function profile"
+msgstr "Cari berdasarkan profil fungsi"
+
+msgid "Compare two staff members"
+msgstr "Bandingkan dua anggota staf"
+
+msgid "User vs. function profile"
+msgstr "Pengguna vs. profil fungsi"
+
+msgid "Skill(s)"
+msgstr "Keterampilan"
+
+msgid "Required level"
+msgstr "Tingkat yang diperlukan"
+
+msgid "Acquired level"
+msgstr "Tingkat yang diperoleh"
+
+msgid "Meets level"
+msgstr "Memenuhi tingkat"
+
+msgid "Below required"
+msgstr "Di bawah yang diperlukan"
+
+msgid "Missing"
+msgstr "Kurang"
+
+msgid "Searching…"
+msgstr "Mencari…"
+
+msgid "staff member(s) found"
+msgstr "anggota staf ditemukan"
+
+msgid "Unit hierarchy"
+msgstr "Hirarki unit"
+
+msgid "All staff"
+msgstr "Semua staf"
+
+msgid "This chart is not publicly available."
+msgstr "Bagan ini tidak tersedia secara publik."
+
+msgid "Failed to load chart data."
+msgstr "Gagal memuat data bagan."
+
+msgid "Parent function"
+msgstr "Fungsi induk"
+
+msgid "Add activity…"
+msgstr "Tambah aktivitas…"
+
+msgid "Any level"
+msgstr "Semua tingkat"
+
+msgid "Geographic zone"
+msgstr "Zona geografis"
+
+msgid "Required skills"
+msgstr "Keterampilan yang diperlukan"
+

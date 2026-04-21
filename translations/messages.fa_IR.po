@@ -34069,3 +34069,129 @@ msgstr "راهنماهای تنوع"
 msgid "Social responsibility guidelines"
 msgstr "راهنماهای مسئولیت اجتماعی"
 
+msgid "Professional functions"
+msgstr "عملکردهای حرفه‌ای"
+
+msgid "Function-unit associations"
+msgstr "ارتباطات واحد-عملکرد"
+
+msgid "Unit function list"
+msgstr "فهرست عملکردهای واحد"
+
+msgid "Positions"
+msgstr "سمت‌ها"
+
+msgid "Competency search"
+msgstr "جستجوی شایستگی"
+
+msgid "Organizational chart"
+msgstr "چارت سازمانی"
+
+msgid "Function-unit association"
+msgstr "ارتباط واحد-عملکرد"
+
+msgid "Add association"
+msgstr "افزودن ارتباط"
+
+msgid "Edit association"
+msgstr "ویرایش ارتباط"
+
+msgid "Required skills"
+msgstr "مهارت‌های مورد نیاز"
+
+msgid "Add skill requirement"
+msgstr "افزودن الزام مهارت"
+
+msgid "Add position"
+msgstr "افزودن سمت"
+
+msgid "Edit position"
+msgstr "ویرایش سمت"
+
+msgid "Position title"
+msgstr "عنوان سمت"
+
+msgid "Staff member"
+msgstr "کارمند"
+
+msgid "Is manager/boss"
+msgstr "مدیر/رئیس است"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (۰–۱)"
+
+msgid "Boss"
+msgstr "رئیس"
+
+msgid "Headcount"
+msgstr "تعداد نیروی انسانی"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "یک واحد را انتخاب کنید تا توزیع تعداد نیروی انسانی را ببینید"
+
+msgid "Search by skill"
+msgstr "جستجو بر اساس مهارت"
+
+msgid "Search by function profile"
+msgstr "جستجو بر اساس پروفایل عملکرد"
+
+msgid "Compare two staff members"
+msgstr "مقایسه دو کارمند"
+
+msgid "User vs. function profile"
+msgstr "کاربر در مقابل پروفایل عملکرد"
+
+msgid "Skill(s)"
+msgstr "مهارت(ها)"
+
+msgid "Required level"
+msgstr "سطح مورد نیاز"
+
+msgid "Acquired level"
+msgstr "سطح کسب شده"
+
+msgid "Meets level"
+msgstr "تطابق سطح"
+
+msgid "Below required"
+msgstr "زیر سطح مورد نیاز"
+
+msgid "Missing"
+msgstr "مفقود"
+
+msgid "Searching…"
+msgstr "در حال جستجو…"
+
+msgid "staff member(s) found"
+msgstr "کارمند(گان) یافت شد"
+
+msgid "Unit hierarchy"
+msgstr "سلسله مراتب واحد"
+
+msgid "All staff"
+msgstr "تمام کارکنان"
+
+msgid "This chart is not publicly available."
+msgstr "این نمودار به صورت عمومی در دسترس نیست."
+
+msgid "Failed to load chart data."
+msgstr "بارگذاری داده‌های نمودار ناموفق بود."
+
+msgid "Parent function"
+msgstr "عملکرد والد"
+
+msgid "Add activity…"
+msgstr "افزودن فعالیت…"
+
+msgid "Any level"
+msgstr "هر سطحی"
+
+msgid "Geographic zone"
+msgstr "منطقه جغرافیایی"
+
+msgid "Required skills"
+msgstr "مهارت‌های مورد نیاز"
+

@@ -34085,3 +34085,129 @@ msgstr "Ghiduri de diversitate"
 msgid "Social responsibility guidelines"
 msgstr "Ghiduri de responsabilitate socială"
 
+msgid "Professional functions"
+msgstr "Funcții profesionale"
+
+msgid "Function-unit associations"
+msgstr "Asocieri funcție-unitate"
+
+msgid "Unit function list"
+msgstr "Lista funcții unitate"
+
+msgid "Positions"
+msgstr "Posturi"
+
+msgid "Competency search"
+msgstr "Căutare competențe"
+
+msgid "Organizational chart"
+msgstr "Organigrama"
+
+msgid "Function-unit association"
+msgstr "Asociere funcție-unitate"
+
+msgid "Add association"
+msgstr "Adăugare asociere"
+
+msgid "Edit association"
+msgstr "Editare asociere"
+
+msgid "Required skills"
+msgstr "Competențe obligatorii"
+
+msgid "Add skill requirement"
+msgstr "Adăugare cerință competență"
+
+msgid "Add position"
+msgstr "Adăugare post"
+
+msgid "Edit position"
+msgstr "Editare post"
+
+msgid "Position title"
+msgstr "Titlu post"
+
+msgid "Staff member"
+msgstr "Membru personal"
+
+msgid "Is manager/boss"
+msgstr "Este manager/șef"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Șef"
+
+msgid "Headcount"
+msgstr "Număr posturi"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Selectați o unitate pentru a vedea distribuția numărului de posturi"
+
+msgid "Search by skill"
+msgstr "Căutare după competență"
+
+msgid "Search by function profile"
+msgstr "Căutare după profil funcție"
+
+msgid "Compare two staff members"
+msgstr "Comparați doi membri ai personalului"
+
+msgid "User vs. function profile"
+msgstr "Utilizator vs. profil funcție"
+
+msgid "Skill(s)"
+msgstr "Competență(i)"
+
+msgid "Required level"
+msgstr "Nivel necesar"
+
+msgid "Acquired level"
+msgstr "Nivel atins"
+
+msgid "Meets level"
+msgstr "Îndeplinește nivelul"
+
+msgid "Below required"
+msgstr "Sub cerința"
+
+msgid "Missing"
+msgstr "Lipsește"
+
+msgid "Searching…"
+msgstr "Se caută…"
+
+msgid "staff member(s) found"
+msgstr "%d membru(i) personal găsit(i)"
+
+msgid "Unit hierarchy"
+msgstr "Ierarhia unităților"
+
+msgid "All staff"
+msgstr "Toți membrii personalului"
+
+msgid "This chart is not publicly available."
+msgstr "Acest grafic nu este disponibil public."
+
+msgid "Failed to load chart data."
+msgstr "Eșec la încărcarea datelor graficului."
+
+msgid "Parent function"
+msgstr "Funcție părinte"
+
+msgid "Add activity…"
+msgstr "Adăugare activitate…"
+
+msgid "Any level"
+msgstr "Orice nivel"
+
+msgid "Geographic zone"
+msgstr "Zonă geografică"
+
+msgid "Required skills"
+msgstr "Competențe obligatorii"
+

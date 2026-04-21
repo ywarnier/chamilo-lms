@@ -31618,7 +31618,7 @@ msgid "Save diagnostic changes"
 msgstr "Diagnose-Änderungen speichern"
 
 msgid "Domain %s"
-msgstr "Domain %s"
+msgstr "Domäne %s"
 
 msgid "Topic %s"
 msgstr "Thema %s"
@@ -35636,4 +35636,130 @@ msgstr "Vielfaltsrichtlinien"
 
 msgid "Social responsibility guidelines"
 msgstr "Richtlinien soziale Verantwortung"
+
+msgid "Professional functions"
+msgstr "Berufliche Funktionen"
+
+msgid "Function-unit associations"
+msgstr "Funktions-Einheiten-Zuordnungen"
+
+msgid "Unit function list"
+msgstr "Einheitenfunktionsliste"
+
+msgid "Positions"
+msgstr "Positionen"
+
+msgid "Competency search"
+msgstr "Kompetenzsuche"
+
+msgid "Organizational chart"
+msgstr "Organigramm"
+
+msgid "Function-unit association"
+msgstr "Funktions-Einheiten-Zuordnung"
+
+msgid "Add association"
+msgstr "Zuordnung hinzufügen"
+
+msgid "Edit association"
+msgstr "Zuordnung bearbeiten"
+
+msgid "Required skills"
+msgstr "Erforderliche Fähigkeiten"
+
+msgid "Add skill requirement"
+msgstr "Kompetenzanforderung hinzufügen"
+
+msgid "Add position"
+msgstr "Position hinzufügen"
+
+msgid "Edit position"
+msgstr "Position bearbeiten"
+
+msgid "Position title"
+msgstr "Positionstitel"
+
+msgid "Staff member"
+msgstr "Mitarbeiter"
+
+msgid "Is manager/boss"
+msgstr "Ist Vorgesetzter/Chef"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Chef"
+
+msgid "Headcount"
+msgstr "Stellenanzahl"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Wählen Sie eine Einheit aus, um die Stellenverteilung zu sehen"
+
+msgid "Search by skill"
+msgstr "Nach Kompetenz suchen"
+
+msgid "Search by function profile"
+msgstr "Nach Funktionsprofil suchen"
+
+msgid "Compare two staff members"
+msgstr "Zwei Mitarbeiter vergleichen"
+
+msgid "User vs. function profile"
+msgstr "Benutzer vs. Funktionsprofil"
+
+msgid "Skill(s)"
+msgstr "Kompetenz(en)"
+
+msgid "Required level"
+msgstr "Erforderliches Niveau"
+
+msgid "Acquired level"
+msgstr "Erreichtes Niveau"
+
+msgid "Meets level"
+msgstr "Erfüllt Niveau"
+
+msgid "Below required"
+msgstr "Unter erforderlich"
+
+msgid "Missing"
+msgstr "Fehlend"
+
+msgid "Searching…"
+msgstr "Suche…"
+
+msgid "staff member(s) found"
+msgstr "Mitarbeiter gefunden"
+
+msgid "Unit hierarchy"
+msgstr "Einheitenhierarchie"
+
+msgid "All staff"
+msgstr "Alle Mitarbeiter"
+
+msgid "This chart is not publicly available."
+msgstr "Dieses Diagramm ist nicht öffentlich verfügbar."
+
+msgid "Failed to load chart data."
+msgstr "Diagrammdaten konnten nicht geladen werden."
+
+msgid "Parent function"
+msgstr "Übergeordnete Funktion"
+
+msgid "Add activity…"
+msgstr "Aktivität hinzufügen…"
+
+msgid "Any level"
+msgstr "Beliebige Stufe"
+
+msgid "Geographic zone"
+msgstr "Geografische Zone"
+
+msgid "Required skills"
+msgstr "Erforderliche Fähigkeiten"
 

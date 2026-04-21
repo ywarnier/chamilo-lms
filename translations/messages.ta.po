@@ -344,7 +344,7 @@ msgid "Sincerely"
 msgstr "உண்மையாகவே"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "பூமுலை மாதிரி: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "பூரணசமி மாதிரி: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "மாறியின் வரம்புகள்"
@@ -34068,4 +34068,130 @@ msgstr "பன்முகத்தன்மை வழிகாட்டிக�
 
 msgid "Social responsibility guidelines"
 msgstr "சமூகப் பொறுப்பு வழிகாட்டிகள்"
+
+msgid "Professional functions"
+msgstr "தொழில்முறை பண்புகள்"
+
+msgid "Function-unit associations"
+msgstr "பணியின் அலகு சேர்க்கைகள்"
+
+msgid "Unit function list"
+msgstr "அலகு பணி பட்டியல்"
+
+msgid "Positions"
+msgstr "பதவிகள்"
+
+msgid "Competency search"
+msgstr "திறன் தேடல்"
+
+msgid "Organizational chart"
+msgstr "அமைப்பு வரைபடம்"
+
+msgid "Function-unit association"
+msgstr "பணி-அலகு சேர்க்கை"
+
+msgid "Add association"
+msgstr "சேர்க்கை சேர்க்கவும்"
+
+msgid "Edit association"
+msgstr "சேர்க்கையைத் திருத்தவும்"
+
+msgid "Required skills"
+msgstr "தேவையான திறன்கள்"
+
+msgid "Add skill requirement"
+msgstr "திறன் தேவையைச் சேர்க்கவும்"
+
+msgid "Add position"
+msgstr "பதவி சேர்க்கவும்"
+
+msgid "Edit position"
+msgstr "பதவியைத் திருத்தவும்"
+
+msgid "Position title"
+msgstr "பதவி பெயர்"
+
+msgid "Staff member"
+msgstr "ஊழியர்"
+
+msgid "Is manager/boss"
+msgstr "மேலாளர்/முதலாள்"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "முதலாள்"
+
+msgid "Headcount"
+msgstr "ஊழிய எண்ணிக்கை"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "ஊழிய எண்ணிக்கை பங்கீட்டைக் காண அலகைத் தேர்ந்தெடுக்கவும்"
+
+msgid "Search by skill"
+msgstr "திறனின்படி தேடவும்"
+
+msgid "Search by function profile"
+msgstr "பணி சுயவிவரத்தின்படி தேடவும்"
+
+msgid "Compare two staff members"
+msgstr "இரு ஊழியர்களை ஒப்பிடவும்"
+
+msgid "User vs. function profile"
+msgstr "பயனர் vs. பணி சுயவிவரம்"
+
+msgid "Skill(s)"
+msgstr "திறன்(ங்கள்)"
+
+msgid "Required level"
+msgstr "தேவையான நிலை"
+
+msgid "Acquired level"
+msgstr "பெற்ற நிலை"
+
+msgid "Meets level"
+msgstr "நிறைவேற்றுகிறது"
+
+msgid "Below required"
+msgstr "தேவையிலிருந்து குறைவு"
+
+msgid "Missing"
+msgstr "காணவில்லை"
+
+msgid "Searching…"
+msgstr "தேடுகிறது…"
+
+msgid "staff member(s) found"
+msgstr "ஊழியர்(ங்கள்) கண்டுபிடிக்கப்பட்டது"
+
+msgid "Unit hierarchy"
+msgstr "அலகு படிநிலை"
+
+msgid "All staff"
+msgstr "எல்லா ஊழியர்களும்"
+
+msgid "This chart is not publicly available."
+msgstr "இந்த வரைபடம் பொது மக்களுக்கு கிடைக்கவில்லை."
+
+msgid "Failed to load chart data."
+msgstr "வரைபடு தரவை ஏற்றத் தவறியது."
+
+msgid "Parent function"
+msgstr "பெற்றோர் செயல்பாடு"
+
+msgid "Add activity…"
+msgstr "செயல்பாடு சேர்க்கவும்…"
+
+msgid "Any level"
+msgstr "எந்த நிலை"
+
+msgid "Geographic zone"
+msgstr "புவியியல் மண்டலம்"
+
+msgid "Required skills"
+msgstr "தேவையான திறன்கள்"
 

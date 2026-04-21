@@ -34065,3 +34065,129 @@ msgstr "Mga Gabay ng Pagkakaiba-iba"
 msgid "Social responsibility guidelines"
 msgstr "Mga Gabay sa Panlipunang Responsibilidad"
 
+msgid "Professional functions"
+msgstr "Mga Propesyonal na Tungkulin"
+
+msgid "Function-unit associations"
+msgstr "Function-unit associations"
+
+msgid "Unit function list"
+msgstr "Unit function list"
+
+msgid "Positions"
+msgstr "Mga Posisyon"
+
+msgid "Competency search"
+msgstr "Competency search"
+
+msgid "Organizational chart"
+msgstr "Organisasyong Tsart"
+
+msgid "Function-unit association"
+msgstr "Function-unit association"
+
+msgid "Add association"
+msgstr "Add association"
+
+msgid "Edit association"
+msgstr "Edit association"
+
+msgid "Required skills"
+msgstr "Kinakailangang kasanayan"
+
+msgid "Add skill requirement"
+msgstr "Add skill requirement"
+
+msgid "Add position"
+msgstr "Magdagdag ng posisyon"
+
+msgid "Edit position"
+msgstr "I-edit ang posisyon"
+
+msgid "Position title"
+msgstr "Pamagat ng posisyon"
+
+msgid "Staff member"
+msgstr "Miembro ng staff"
+
+msgid "Is manager/boss"
+msgstr "Ay manager/boss"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Boss"
+
+msgid "Headcount"
+msgstr "Bilang ng tauhan"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Pumili ng yunit upang makita ang distribusyon ng bilang ng tauhan"
+
+msgid "Search by skill"
+msgstr "Maghanap ayon sa kasanayan"
+
+msgid "Search by function profile"
+msgstr "Maghanap ayon sa profile ng tungkulin"
+
+msgid "Compare two staff members"
+msgstr "I-compare ang dalawang miyembro ng staff"
+
+msgid "User vs. function profile"
+msgstr "User laban sa profile ng tungkulin"
+
+msgid "Skill(s)"
+msgstr "Kasanayan(gan)"
+
+msgid "Required level"
+msgstr "Kinakailangang antas"
+
+msgid "Acquired level"
+msgstr "Nakuha na ang antas"
+
+msgid "Meets level"
+msgstr "Nakakatugon sa antas"
+
+msgid "Below required"
+msgstr "Mababa sa kinakailangan"
+
+msgid "Missing"
+msgstr "Nawawala"
+
+msgid "Searching…"
+msgstr "Nagbabayad…"
+
+msgid "staff member(s) found"
+msgstr "miyembro ng staff natagpuan"
+
+msgid "Unit hierarchy"
+msgstr "Hierarchy ng yunit"
+
+msgid "All staff"
+msgstr "Lahat ng staff"
+
+msgid "This chart is not publicly available."
+msgstr "Hindi publiko ang tsart na ito."
+
+msgid "Failed to load chart data."
+msgstr "Nabigo sa pag-load ng data ng tsart."
+
+msgid "Parent function"
+msgstr "Magulang na tungkulin"
+
+msgid "Add activity…"
+msgstr "Magdagdag ng aktibidad…"
+
+msgid "Any level"
+msgstr "Anumang antas"
+
+msgid "Geographic zone"
+msgstr "Heograpikal na zone"
+
+msgid "Required skills"
+msgstr "Kinakailangang kasanayan"
+

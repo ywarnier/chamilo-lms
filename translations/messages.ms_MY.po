@@ -33977,73 +33977,73 @@ msgid "Coordinates"
 msgstr "Koordinat"
 
 msgid "HR Dashboard"
-msgstr ""
+msgstr "Papan Pemuka Sumber Manusia"
 
 msgid "Staff"
-msgstr ""
+msgstr "Kakitangan"
 
 msgid "Organization"
-msgstr ""
+msgstr "Organisasi"
 
 msgid "Performance Management"
-msgstr ""
+msgstr "Pengurusan Prestasi"
 
 msgid "Recruitment"
-msgstr ""
+msgstr "Perekrutan"
 
 msgid "Benefits"
-msgstr ""
+msgstr "Faedah"
 
 msgid "ROI and training"
-msgstr ""
+msgstr "ROI dan latihan"
 
 msgid "Diversity and social responsibility"
-msgstr ""
+msgstr "Kepelbagaian dan tanggungjawab sosial"
 
 msgid "Professional functions"
-msgstr ""
+msgstr "Fungsi profesional"
 
 msgid "Positions"
-msgstr ""
+msgstr "Jawatan"
 
 msgid "Units and positions list"
-msgstr ""
+msgstr "Senarai unit dan jawatan"
 
 msgid "Assign position to user"
-msgstr ""
+msgstr "Tugaskan jawatan kepada pengguna"
 
 msgid "Organizational chart"
-msgstr ""
+msgstr "Carta organisasi"
 
 msgid "Appraisal periods"
-msgstr ""
+msgstr "Tempoh penilaian"
 
 msgid "Appraisal templates"
-msgstr ""
+msgstr "Templat penilaian"
 
 msgid "Performance appraisals"
-msgstr ""
+msgstr "Penilaian prestasi"
 
 msgid "Recruitment stages"
-msgstr ""
+msgstr "Peringkat perekrutan"
 
 msgid "Recruitment processes"
-msgstr ""
+msgstr "Proses perekrutan"
 
 msgid "Job offers"
-msgstr ""
+msgstr "Tawaran kerja"
 
 msgid "Team skills goals"
-msgstr ""
+msgstr "Matlamat kemahiran pasukan"
 
 msgid "Benefit tags"
-msgstr ""
+msgstr "Tag faedah"
 
 msgid "Assign benefits"
-msgstr ""
+msgstr "Tugaskan faedah"
 
 msgid "Assigned benefits"
-msgstr ""
+msgstr "Faedah yang ditugaskan"
 
 msgid "ROI by course"
 msgstr "ROI mengikut kursus"
@@ -34068,4 +34068,130 @@ msgstr "Panduan kepelbagaian"
 
 msgid "Social responsibility guidelines"
 msgstr "Panduan tanggungjawab sosial"
+
+msgid "Professional functions"
+msgstr "Fungsi profesional"
+
+msgid "Function-unit associations"
+msgstr "Hubungan fungsi-unit"
+
+msgid "Unit function list"
+msgstr "Senarai fungsi unit"
+
+msgid "Positions"
+msgstr "Jawatan"
+
+msgid "Competency search"
+msgstr "Carian kompetensi"
+
+msgid "Organizational chart"
+msgstr "Carta organisasi"
+
+msgid "Function-unit association"
+msgstr "Hubungan fungsi-unit"
+
+msgid "Add association"
+msgstr "Tambah hubungan"
+
+msgid "Edit association"
+msgstr "Edit hubungan"
+
+msgid "Required skills"
+msgstr "Kemahiran diperlukan"
+
+msgid "Add skill requirement"
+msgstr "Tambah keperluan kemahiran"
+
+msgid "Add position"
+msgstr "Tambah jawatan"
+
+msgid "Edit position"
+msgstr "Edit jawatan"
+
+msgid "Position title"
+msgstr "Tajuk jawatan"
+
+msgid "Staff member"
+msgstr "Ahli staf"
+
+msgid "Is manager/boss"
+msgstr "Adalah pengurus/bos"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Bos"
+
+msgid "Headcount"
+msgstr "Bilangan pekerja"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Pilih unit untuk melihat taburan bilangan pekerja"
+
+msgid "Search by skill"
+msgstr "Cari mengikut kemahiran"
+
+msgid "Search by function profile"
+msgstr "Cari mengikut profil fungsi"
+
+msgid "Compare two staff members"
+msgstr "Bandingkan dua ahli staf"
+
+msgid "User vs. function profile"
+msgstr "Pengguna vs. profil fungsi"
+
+msgid "Skill(s)"
+msgstr "Kemahiran"
+
+msgid "Required level"
+msgstr "Tahap diperlukan"
+
+msgid "Acquired level"
+msgstr "Tahap diperoleh"
+
+msgid "Meets level"
+msgstr "Memenuhi tahap"
+
+msgid "Below required"
+msgstr "Di bawah keperluan"
+
+msgid "Missing"
+msgstr "Hilang"
+
+msgid "Searching…"
+msgstr "Mencari…"
+
+msgid "staff member(s) found"
+msgstr "ahli staf dijumpai"
+
+msgid "Unit hierarchy"
+msgstr "Hierarki unit"
+
+msgid "All staff"
+msgstr "Semua staf"
+
+msgid "This chart is not publicly available."
+msgstr "Carta ini tidak boleh diakses secara awam."
+
+msgid "Failed to load chart data."
+msgstr "Gagal memuatkan data carta."
+
+msgid "Parent function"
+msgstr "Fungsi induk"
+
+msgid "Add activity…"
+msgstr "Tambah aktiviti…"
+
+msgid "Any level"
+msgstr "Mana-mana tahap"
+
+msgid "Geographic zone"
+msgstr "Zon geografi"
+
+msgid "Required skills"
+msgstr "Kemahiran diperlukan"
 

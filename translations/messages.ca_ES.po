@@ -34084,3 +34084,129 @@ msgstr "Directrius de diversitat"
 msgid "Social responsibility guidelines"
 msgstr "Directrius de responsabilitat social"
 
+msgid "Professional functions"
+msgstr "Funcions professionals"
+
+msgid "Function-unit associations"
+msgstr "Associacions unitat-funció"
+
+msgid "Unit function list"
+msgstr "Llista de funcions de la unitat"
+
+msgid "Positions"
+msgstr "Pots"
+
+msgid "Competency search"
+msgstr "Cerca de competències"
+
+msgid "Organizational chart"
+msgstr "Organigrama"
+
+msgid "Function-unit association"
+msgstr "Associació unitat-funció"
+
+msgid "Add association"
+msgstr "Afegir associació"
+
+msgid "Edit association"
+msgstr "Editar associació"
+
+msgid "Required skills"
+msgstr "Competències requerides"
+
+msgid "Add skill requirement"
+msgstr "Afegir requisit de competència"
+
+msgid "Add position"
+msgstr "Afegir càrrec"
+
+msgid "Edit position"
+msgstr "Editar càrrec"
+
+msgid "Position title"
+msgstr "Títol del càrrec"
+
+msgid "Staff member"
+msgstr "Membre del personal"
+
+msgid "Is manager/boss"
+msgstr "És gerent/cap"
+
+msgid "FTE"
+msgstr "EFT"
+
+msgid "FTE (0–1)"
+msgstr "EFT (0–1)"
+
+msgid "Boss"
+msgstr "Cap"
+
+msgid "Headcount"
+msgstr "Efectiu"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Seleccioneu una unitat per veure la distribució d'efectiu"
+
+msgid "Search by skill"
+msgstr "Cerca per competència"
+
+msgid "Search by function profile"
+msgstr "Cerca per perfil de funció"
+
+msgid "Compare two staff members"
+msgstr "Comparar dos membres del personal"
+
+msgid "User vs. function profile"
+msgstr "Usuari vs. perfil de funció"
+
+msgid "Skill(s)"
+msgstr "Competència(s)"
+
+msgid "Required level"
+msgstr "Nivell requerit"
+
+msgid "Acquired level"
+msgstr "Nivell assolit"
+
+msgid "Meets level"
+msgstr "Compleix el nivell"
+
+msgid "Below required"
+msgstr "Per sota del requerit"
+
+msgid "Missing"
+msgstr "Falta"
+
+msgid "Searching…"
+msgstr "S'ha cercat…"
+
+msgid "staff member(s) found"
+msgstr "membre(s) del personal trobat(s)"
+
+msgid "Unit hierarchy"
+msgstr "Jerarquia d'unitats"
+
+msgid "All staff"
+msgstr "Tot el personal"
+
+msgid "This chart is not publicly available."
+msgstr "Aquest gràfic no està disponible públicament."
+
+msgid "Failed to load chart data."
+msgstr "No s'ha pogut carregar les dades del gràfic."
+
+msgid "Parent function"
+msgstr "Funció principal"
+
+msgid "Add activity…"
+msgstr "Afegir activitat…"
+
+msgid "Any level"
+msgstr "Qualsevol nivell"
+
+msgid "Geographic zone"
+msgstr "Zona geogràfica"
+
+msgid "Required skills"
+msgstr "Competències requerides"
+

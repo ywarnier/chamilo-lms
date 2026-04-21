@@ -34071,3 +34071,129 @@ msgstr "Hướng dẫn đa dạng"
 msgid "Social responsibility guidelines"
 msgstr "Hướng dẫn trách nhiệm xã hội"
 
+msgid "Professional functions"
+msgstr "Chức năng chuyên môn"
+
+msgid "Function-unit associations"
+msgstr "Liên kết chức năng-đơn vị"
+
+msgid "Unit function list"
+msgstr "Danh sách chức năng đơn vị"
+
+msgid "Positions"
+msgstr "Vị trí"
+
+msgid "Competency search"
+msgstr "Tìm kiếm năng lực"
+
+msgid "Organizational chart"
+msgstr "Sơ đồ tổ chức"
+
+msgid "Function-unit association"
+msgstr "Liên kết chức năng-đơn vị"
+
+msgid "Add association"
+msgstr "Thêm liên kết"
+
+msgid "Edit association"
+msgstr "Sửa liên kết"
+
+msgid "Required skills"
+msgstr "Kỹ năng bắt buộc"
+
+msgid "Add skill requirement"
+msgstr "Thêm yêu cầu kỹ năng"
+
+msgid "Add position"
+msgstr "Thêm vị trí"
+
+msgid "Edit position"
+msgstr "Sửa vị trí"
+
+msgid "Position title"
+msgstr "Tiêu đề vị trí"
+
+msgid "Staff member"
+msgstr "Nhân viên"
+
+msgid "Is manager/boss"
+msgstr "Là quản lý/sếp"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Sếp"
+
+msgid "Headcount"
+msgstr "Số lượng nhân sự"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Chọn một đơn vị để xem phân bố số lượng nhân sự"
+
+msgid "Search by skill"
+msgstr "Tìm kiếm theo kỹ năng"
+
+msgid "Search by function profile"
+msgstr "Tìm kiếm theo hồ sơ chức năng"
+
+msgid "Compare two staff members"
+msgstr "So sánh hai nhân viên"
+
+msgid "User vs. function profile"
+msgstr "Người dùng so với hồ sơ chức năng"
+
+msgid "Skill(s)"
+msgstr "Kỹ năng"
+
+msgid "Required level"
+msgstr "Cấp độ yêu cầu"
+
+msgid "Acquired level"
+msgstr "Cấp độ đạt được"
+
+msgid "Meets level"
+msgstr "Đạt cấp độ"
+
+msgid "Below required"
+msgstr "Dưới yêu cầu"
+
+msgid "Missing"
+msgstr "Thiếu"
+
+msgid "Searching…"
+msgstr "Đang tìm kiếm…"
+
+msgid "staff member(s) found"
+msgstr "nhân viên được tìm thấy"
+
+msgid "Unit hierarchy"
+msgstr "Cấu trúc đơn vị"
+
+msgid "All staff"
+msgstr "Tất cả nhân viên"
+
+msgid "This chart is not publicly available."
+msgstr "Biểu đồ này không công khai."
+
+msgid "Failed to load chart data."
+msgstr "Không tải được dữ liệu biểu đồ."
+
+msgid "Parent function"
+msgstr "Chức năng cha"
+
+msgid "Add activity…"
+msgstr "Thêm hoạt động…"
+
+msgid "Any level"
+msgstr "Mọi cấp độ"
+
+msgid "Geographic zone"
+msgstr "Vùng địa lý"
+
+msgid "Required skills"
+msgstr "Kỹ năng bắt buộc"
+

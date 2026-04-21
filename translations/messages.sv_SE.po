@@ -33979,64 +33979,64 @@ msgid "Coordinates"
 msgstr "Koordinater"
 
 msgid "HR Dashboard"
-msgstr ""
+msgstr "HR-instrumentpanel"
 
 msgid "Staff"
-msgstr ""
+msgstr "Personal"
 
 msgid "Organization"
-msgstr ""
+msgstr "Organisation"
 
 msgid "Performance Management"
-msgstr ""
+msgstr "Prestationshantering"
 
 msgid "Recruitment"
-msgstr ""
+msgstr "Rekrytering"
 
 msgid "Benefits"
-msgstr ""
+msgstr "Fördelar"
 
 msgid "ROI and training"
-msgstr ""
+msgstr "ROI och utbildning"
 
 msgid "Diversity and social responsibility"
-msgstr ""
+msgstr "Mångfald och socialt ansvar"
 
 msgid "Professional functions"
-msgstr ""
+msgstr "Professionella funktioner"
 
 msgid "Positions"
-msgstr ""
+msgstr "Positioner"
 
 msgid "Units and positions list"
-msgstr ""
+msgstr "Lista över enheter och positioner"
 
 msgid "Assign position to user"
-msgstr ""
+msgstr "Tilldela position till användare"
 
 msgid "Organizational chart"
-msgstr ""
+msgstr "Organisationsschema"
 
 msgid "Appraisal periods"
-msgstr ""
+msgstr "Bedömningsperioder"
 
 msgid "Appraisal templates"
-msgstr ""
+msgstr "Bedömningsmallar"
 
 msgid "Performance appraisals"
-msgstr ""
+msgstr "Prestationsbedömningar"
 
 msgid "Recruitment stages"
-msgstr ""
+msgstr "Rekryteringsstadier"
 
 msgid "Recruitment processes"
-msgstr ""
+msgstr "Rekryteringsprocesser"
 
 msgid "Job offers"
-msgstr ""
+msgstr "Jobberbjudanden"
 
 msgid "Team skills goals"
-msgstr ""
+msgstr "Lagfärdighetsmål"
 
 msgid "Benefit tags"
 msgstr "Fördelsetiketter"
@@ -34070,4 +34070,130 @@ msgstr "Mångfaldsriktlinjer"
 
 msgid "Social responsibility guidelines"
 msgstr "Riktlinjer för socialt ansvar"
+
+msgid "Professional functions"
+msgstr "Professionella funktioner"
+
+msgid "Function-unit associations"
+msgstr "Funktionsenhetsassociationer"
+
+msgid "Unit function list"
+msgstr "Enhetsfunktionslista"
+
+msgid "Positions"
+msgstr "Positioner"
+
+msgid "Competency search"
+msgstr "Kompetenssökning"
+
+msgid "Organizational chart"
+msgstr "Organisationsschema"
+
+msgid "Function-unit association"
+msgstr "Funktionsenhetsassociation"
+
+msgid "Add association"
+msgstr "Lägg till association"
+
+msgid "Edit association"
+msgstr "Redigera association"
+
+msgid "Required skills"
+msgstr "Krävd kompetens"
+
+msgid "Add skill requirement"
+msgstr "Lägg till kompetenskrav"
+
+msgid "Add position"
+msgstr "Lägg till position"
+
+msgid "Edit position"
+msgstr "Redigera position"
+
+msgid "Position title"
+msgstr "Positionstitel"
+
+msgid "Staff member"
+msgstr "Medarbetare"
+
+msgid "Is manager/boss"
+msgstr "Är chef"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Chef"
+
+msgid "Headcount"
+msgstr "Antal tjänster"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Välj en enhet för att se fördelning av antal tjänster"
+
+msgid "Search by skill"
+msgstr "Sök efter kompetens"
+
+msgid "Search by function profile"
+msgstr "Sök efter funktionsprofil"
+
+msgid "Compare two staff members"
+msgstr "Jämför två medarbetare"
+
+msgid "User vs. function profile"
+msgstr "Användare mot funktionsprofil"
+
+msgid "Skill(s)"
+msgstr "Kompetens(er)"
+
+msgid "Required level"
+msgstr "Krävd nivå"
+
+msgid "Acquired level"
+msgstr "Uppnådd nivå"
+
+msgid "Meets level"
+msgstr "Uppfyller nivå"
+
+msgid "Below required"
+msgstr "Under krav"
+
+msgid "Missing"
+msgstr "Saknas"
+
+msgid "Searching…"
+msgstr "Söker…"
+
+msgid "staff member(s) found"
+msgstr "medarbetare(s) hittad(e)"
+
+msgid "Unit hierarchy"
+msgstr "Enhetshierarki"
+
+msgid "All staff"
+msgstr "Alla medarbetare"
+
+msgid "This chart is not publicly available."
+msgstr "Detta schema är inte offentligt tillgängligt."
+
+msgid "Failed to load chart data."
+msgstr "Kunde inte ladda schemadata."
+
+msgid "Parent function"
+msgstr "Överordnad funktion"
+
+msgid "Add activity…"
+msgstr "Lägg till aktivitet…"
+
+msgid "Any level"
+msgstr "Vilken nivå som helst"
+
+msgid "Geographic zone"
+msgstr "Geografisk zon"
+
+msgid "Required skills"
+msgstr "Krävd kompetens"
 

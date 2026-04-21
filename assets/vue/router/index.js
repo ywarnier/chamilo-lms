@@ -118,6 +118,15 @@ function derivePageTypeClasses(to) {
 
 const router = createRouter({
   history: createWebHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+    if (to.hash) {
+      return { el: to.hash }
+    }
+    return { top: 0 }
+  },
   routes: [
     {
       path: "/",
@@ -335,6 +344,12 @@ const router = createRouter({
     branchRoutes,
     roomRoutes,
     hrRoutes,
+    {
+      path: "/organizational-chart",
+      name: "OrganizationalChart",
+      meta: { showBreadcrumb: false },
+      component: () => import("../views/hr/OrgChartView.vue"),
+    },
   ],
 })
 

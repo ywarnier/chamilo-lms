@@ -34065,3 +34065,129 @@ msgstr "Ìlànà ìyàwòran"
 msgid "Social responsibility guidelines"
 msgstr "Ìlànà ìdùbbọ̀ ajọ"
 
+msgid "Professional functions"
+msgstr "Iṣẹ́ ìjọba"
+
+msgid "Function-unit associations"
+msgstr "Iṣọkan ẹka-iṣẹ"
+
+msgid "Unit function list"
+msgstr "Akojọ iṣẹ ẹka"
+
+msgid "Positions"
+msgstr "Àwùjọ"
+
+msgid "Competency search"
+msgstr "Ṣiṣawari Agbara"
+
+msgid "Organizational chart"
+msgstr "Àwòrán àjọ"
+
+msgid "Function-unit association"
+msgstr "Iṣọkan iṣẹ-ẹka"
+
+msgid "Add association"
+msgstr "Fi kun ṣe iṣọkan"
+
+msgid "Edit association"
+msgstr "Ṣatunṣe iṣọkan"
+
+msgid "Required skills"
+msgstr "Awọn ogbon ti o nilo"
+
+msgid "Add skill requirement"
+msgstr "Fi kun ibeere ogbon"
+
+msgid "Add position"
+msgstr "Fi kun ipo"
+
+msgid "Edit position"
+msgstr "Ṣatunṣe ipo"
+
+msgid "Position title"
+msgstr "Akọle ipo"
+
+msgid "Staff member"
+msgstr "Ọmọ ẹgbẹ oṣiṣẹ"
+
+msgid "Is manager/boss"
+msgstr "Jẹ oludari/olori"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Olori"
+
+msgid "Headcount"
+msgstr "Iṣiro oṣiṣẹ"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Yan ẹka kan lati wo pinpin iṣiro oṣiṣẹ"
+
+msgid "Search by skill"
+msgstr "Ṣawari nipasẹ ogbon"
+
+msgid "Search by function profile"
+msgstr "Ṣawari nipasẹ profaili iṣẹ"
+
+msgid "Compare two staff members"
+msgstr "Fiwewe awọn oṣiṣẹ meji"
+
+msgid "User vs. function profile"
+msgstr "Olumulo si. profaili iṣẹ"
+
+msgid "Skill(s)"
+msgstr "Ogbon"
+
+msgid "Required level"
+msgstr "Ipele ti o nilo"
+
+msgid "Acquired level"
+msgstr "Ipele ti a gba"
+
+msgid "Meets level"
+msgstr "Baamu ipele"
+
+msgid "Below required"
+msgstr "Labẹ ti o nilo"
+
+msgid "Missing"
+msgstr "Ti nsọnu"
+
+msgid "Searching…"
+msgstr "Ṣiṣawari…"
+
+msgid "staff member(s) found"
+msgstr "oṣiṣẹ ti a ri"
+
+msgid "Unit hierarchy"
+msgstr "Ẹka ẹka"
+
+msgid "All staff"
+msgstr "Gbogbo oṣiṣẹ"
+
+msgid "This chart is not publicly available."
+msgstr "Atilẹyin aworan yii ko ṣe anfani ni gbangba."
+
+msgid "Failed to load chart data."
+msgstr "Ikuna lati gbe data aworan."
+
+msgid "Parent function"
+msgstr "Iṣẹ obi"
+
+msgid "Add activity…"
+msgstr "Fi kun iṣẹ…"
+
+msgid "Any level"
+msgstr "Ipele eyikeyi"
+
+msgid "Geographic zone"
+msgstr "Agbègbè ilẹ̀"
+
+msgid "Required skills"
+msgstr "Awọn ogbon ti o nilo"
+

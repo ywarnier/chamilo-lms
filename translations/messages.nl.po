@@ -36149,3 +36149,129 @@ msgstr "Diversiteitsrichtlijnen"
 msgid "Social responsibility guidelines"
 msgstr "Richtlijnen sociale verantwoordelijkheid"
 
+msgid "Professional functions"
+msgstr "Professionele functies"
+
+msgid "Function-unit associations"
+msgstr "Functie-eenheid associaties"
+
+msgid "Unit function list"
+msgstr "Eenheidsfunctielijst"
+
+msgid "Positions"
+msgstr "Posities"
+
+msgid "Competency search"
+msgstr "Competentiezoekopdracht"
+
+msgid "Organizational chart"
+msgstr "Organogram"
+
+msgid "Function-unit association"
+msgstr "Functie-eenheid associatie"
+
+msgid "Add association"
+msgstr "Associatie toevoegen"
+
+msgid "Edit association"
+msgstr "Associatie bewerken"
+
+msgid "Required skills"
+msgstr "Vereiste vaardigheden"
+
+msgid "Add skill requirement"
+msgstr "Vaardigheidseis toevoegen"
+
+msgid "Add position"
+msgstr "Functie toevoegen"
+
+msgid "Edit position"
+msgstr "Functie bewerken"
+
+msgid "Position title"
+msgstr "Functietitel"
+
+msgid "Staff member"
+msgstr "Medewerker"
+
+msgid "Is manager/boss"
+msgstr "Is manager/baas"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Baas"
+
+msgid "Headcount"
+msgstr "Headcount"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Selecteer een eenheid om headcount-verdeling te zien"
+
+msgid "Search by skill"
+msgstr "Zoeken op vaardigheid"
+
+msgid "Search by function profile"
+msgstr "Zoeken op functieprofiel"
+
+msgid "Compare two staff members"
+msgstr "Twee medewerkers vergelijken"
+
+msgid "User vs. function profile"
+msgstr "Gebruiker vs. functieprofiel"
+
+msgid "Skill(s)"
+msgstr "Vaardigheid(en)"
+
+msgid "Required level"
+msgstr "Vereist niveau"
+
+msgid "Acquired level"
+msgstr "Behaald niveau"
+
+msgid "Meets level"
+msgstr "Voldoet aan niveau"
+
+msgid "Below required"
+msgstr "Onder vereist"
+
+msgid "Missing"
+msgstr "Ontbreekt"
+
+msgid "Searching…"
+msgstr "Zoeken…"
+
+msgid "staff member(s) found"
+msgstr "medewerker(s) gevonden"
+
+msgid "Unit hierarchy"
+msgstr "Eenheid hiërarchie"
+
+msgid "All staff"
+msgstr "Alle medewerkers"
+
+msgid "This chart is not publicly available."
+msgstr "Deze grafiek is niet openbaar beschikbaar."
+
+msgid "Failed to load chart data."
+msgstr "Kon grafiekgegevens niet laden."
+
+msgid "Parent function"
+msgstr "Ouderfunctie"
+
+msgid "Add activity…"
+msgstr "Activiteit toevoegen…"
+
+msgid "Any level"
+msgstr "Elk niveau"
+
+msgid "Geographic zone"
+msgstr "Geografische zone"
+
+msgid "Required skills"
+msgstr "Vereiste vaardigheden"
+

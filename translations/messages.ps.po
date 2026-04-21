@@ -34065,3 +34065,129 @@ msgstr "د تنوع لارښوونې"
 msgid "Social responsibility guidelines"
 msgstr "د ټولنیزې مسؤلیت لارښوونې"
 
+msgid "Professional functions"
+msgstr "مسلکي دندې"
+
+msgid "Function-unit associations"
+msgstr "د فعالیت-واحدې اړیکې"
+
+msgid "Unit function list"
+msgstr "د واحد فعالیتونو لړ"
+
+msgid "Positions"
+msgstr "دندې"
+
+msgid "Competency search"
+msgstr "د وړتیا لټون"
+
+msgid "Organizational chart"
+msgstr "تنظیمي چارټ"
+
+msgid "Function-unit association"
+msgstr "د فعالیت-واحدې اړیکه"
+
+msgid "Add association"
+msgstr "اړیکه ورگډول"
+
+msgid "Edit association"
+msgstr "اړیکه سمول"
+
+msgid "Required skills"
+msgstr "اړین مهارتونه"
+
+msgid "Add skill requirement"
+msgstr "د وړتیا اړتیا ورگډول"
+
+msgid "Add position"
+msgstr "د مقام اضافه کول"
+
+msgid "Edit position"
+msgstr "د مقام سمول"
+
+msgid "Position title"
+msgstr "د مقام سرلیک"
+
+msgid "Staff member"
+msgstr "کارکوونکی غړی"
+
+msgid "Is manager/boss"
+msgstr "مدیره/مشره ده"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (۰–۱)"
+
+msgid "Boss"
+msgstr "مشره"
+
+msgid "Headcount"
+msgstr "د کارکوونکو شمېر"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "یوه واحد غوره کړئ ترڅو د کارکوونکو شمېر وویش وګورئ"
+
+msgid "Search by skill"
+msgstr "د وړتیا له مخې لټون"
+
+msgid "Search by function profile"
+msgstr "د فعالیت پروفایل له مخې لټون"
+
+msgid "Compare two staff members"
+msgstr "دوه کارکوونکي غړي پرتله کول"
+
+msgid "User vs. function profile"
+msgstr "کاروونکي بمقابلې د فعالیت پروفایل"
+
+msgid "Skill(s)"
+msgstr "وړتیا(ګانې)"
+
+msgid "Required level"
+msgstr "اړین کچه"
+
+msgid "Acquired level"
+msgstr "ترلاسه شوې کچه"
+
+msgid "Meets level"
+msgstr "کچه پوره کوي"
+
+msgid "Below required"
+msgstr "لاندې له اړتیا"
+
+msgid "Missing"
+msgstr "نه شته"
+
+msgid "Searching…"
+msgstr "لټون کې دی…"
+
+msgid "staff member(s) found"
+msgstr "کارکوونکي غړي وموندل شول"
+
+msgid "Unit hierarchy"
+msgstr "د واحد درجې"
+
+msgid "All staff"
+msgstr "ټول کارکوونکي"
+
+msgid "This chart is not publicly available."
+msgstr "دا چارت په عامه توګه شته نه دی."
+
+msgid "Failed to load chart data."
+msgstr "د چارټ ډاټا بارکول پېښه شوه."
+
+msgid "Parent function"
+msgstr "والي فعالیت"
+
+msgid "Add activity…"
+msgstr "فعالیت ورگډول…"
+
+msgid "Any level"
+msgstr "کومه کچه"
+
+msgid "Geographic zone"
+msgstr "جغرافيايي سيمه"
+
+msgid "Required skills"
+msgstr "اړین مهارتونه"
+

@@ -36416,3 +36416,129 @@ msgstr "ຄຳແນະນຳກ່ຽວກັບຄວາມຫຼາກຫຼ
 msgid "Social responsibility guidelines"
 msgstr "ຄຳແນະນຳກ່ຽວກັບຄວາມຮັບຜິດຊອບສັງຄົມ"
 
+msgid "Professional functions"
+msgstr "ຫນ້າທີ່ມືອາຊີບ"
+
+msgid "Function-unit associations"
+msgstr "ການສຳພັນລະຫວ່າງຟັງຊັນ-ໜ່ວຍງານ"
+
+msgid "Unit function list"
+msgstr "ລາຍການຟັງຊັນຂອງໜ່ວຍງານ"
+
+msgid "Positions"
+msgstr "ຕຳແໜ່ງ"
+
+msgid "Competency search"
+msgstr "ການຄົ້ນຫາຄວາມສາມາດ"
+
+msgid "Organizational chart"
+msgstr "ແຜນກຣາຟອົງການ"
+
+msgid "Function-unit association"
+msgstr "ການສຳພັນລະຫວ່າງຟັງຊັນ-ໜ່ວຍງານ"
+
+msgid "Add association"
+msgstr "ເພີ່ມການສຳພັນ"
+
+msgid "Edit association"
+msgstr "ແກ້ໄຂການສຳພັນ"
+
+msgid "Required skills"
+msgstr "ທັດສະນິຍົມທີ່ຕ້ອງການ"
+
+msgid "Add skill requirement"
+msgstr "ເພີ່ມຄວາມຕ້ອງການທັດສະນິຍົມ"
+
+msgid "Add position"
+msgstr "ເພີ່ມຕຳແໜ່ງ"
+
+msgid "Edit position"
+msgstr "ແກ້ໄຂຕຳແໜ່ງ"
+
+msgid "Position title"
+msgstr "ຫົວຂໍ້ຕຳແໜ່ງ"
+
+msgid "Staff member"
+msgstr "ພະນັກງານ"
+
+msgid "Is manager/boss"
+msgstr "ເປັນຜູ້ຈັດການ/ເຈ້ຍນ້ອຍ"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "ເຈ້ຍນ້ອຍ"
+
+msgid "Headcount"
+msgstr "ຈຳນວນພະນັກງານ"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "ເລືອກໜ່ວຍງານເພື່ອເບິ່ງການຈັດສັນຈຳນວນພະນັກງານ"
+
+msgid "Search by skill"
+msgstr "ຄົ້ນຫາຕາມທັດສະນິຍົມ"
+
+msgid "Search by function profile"
+msgstr "ຄົ້ນຫາຕາມໂປຣໄຟລ໌ຟັງຊັນ"
+
+msgid "Compare two staff members"
+msgstr "ປຽບທຽບພະນັກງານສອງຄົນ"
+
+msgid "User vs. function profile"
+msgstr "ຜູ້ໃຊ້ທຽບກັບໂປຣໄຟລ໌ຟັງຊັນ"
+
+msgid "Skill(s)"
+msgstr "ທັດສະນິຍົມ"
+
+msgid "Required level"
+msgstr "ລະດັບທີ່ຕ້ອງການ"
+
+msgid "Acquired level"
+msgstr "ລະດັບທີ່ໄດ້ຮັບ"
+
+msgid "Meets level"
+msgstr "ບັນລຸລະດັບ"
+
+msgid "Below required"
+msgstr "ຕ່ຳກວ່າທີ່ຕ້ອງການ"
+
+msgid "Missing"
+msgstr "ຂາດຫາຍ"
+
+msgid "Searching…"
+msgstr "ກຳລັງຄົ້ນຫາ…"
+
+msgid "staff member(s) found"
+msgstr "ພະນັກງານທີ່ພົບ"
+
+msgid "Unit hierarchy"
+msgstr "ໂຄງສ້າງປະຕິບັດການຂອງໜ່ວຍງານ"
+
+msgid "All staff"
+msgstr "ພະນັກງານທັງໝົດ"
+
+msgid "This chart is not publicly available."
+msgstr "ແຜນກາຟນີ້ບໍ່ເປັນສາທາລະນະ."
+
+msgid "Failed to load chart data."
+msgstr "ແກ້ໄຂການໂຫຼດຂໍ້ມູນແຜນກາຟບໍ່ສຳເລັດ."
+
+msgid "Parent function"
+msgstr "ຟັງຊັນຫົວໜ້າ"
+
+msgid "Add activity…"
+msgstr "ເພີ່ມກິດຈະກຳ…"
+
+msgid "Any level"
+msgstr "ລະດັບໃດກໍໄດ້"
+
+msgid "Geographic zone"
+msgstr "ເຂດດິນແດນ"
+
+msgid "Required skills"
+msgstr "ທັດສະນິຍົມທີ່ຕ້ອງການ"
+

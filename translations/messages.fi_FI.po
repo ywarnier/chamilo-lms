@@ -34071,3 +34071,129 @@ msgstr "Monimuotoisuusohjeet"
 msgid "Social responsibility guidelines"
 msgstr "Yhteiskuntavastuuohejeet"
 
+msgid "Professional functions"
+msgstr "Ammattitoiminnot"
+
+msgid "Function-unit associations"
+msgstr "Toiminto-yksikkö-yhdistykset"
+
+msgid "Unit function list"
+msgstr "Yksikön toimintoluettelo"
+
+msgid "Positions"
+msgstr "Tehtävät"
+
+msgid "Competency search"
+msgstr "Osaamishaku"
+
+msgid "Organizational chart"
+msgstr "Organisaatiokaavio"
+
+msgid "Function-unit association"
+msgstr "Toiminto-yksikkö-yhdistys"
+
+msgid "Add association"
+msgstr "Lisää yhdistys"
+
+msgid "Edit association"
+msgstr "Muokkaa yhdistystä"
+
+msgid "Required skills"
+msgstr "Vaatimukset taidot"
+
+msgid "Add skill requirement"
+msgstr "Lisää taitovaatimus"
+
+msgid "Add position"
+msgstr "Lisää asema"
+
+msgid "Edit position"
+msgstr "Muokkaa asemaa"
+
+msgid "Position title"
+msgstr "Aseman nimi"
+
+msgid "Staff member"
+msgstr "Henkilöstöjäsen"
+
+msgid "Is manager/boss"
+msgstr "Onko esimies/pomo"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Pomo"
+
+msgid "Headcount"
+msgstr "Henkilömäärä"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Valitse yksikkö nähdäksesi henkilömäärän jakauman"
+
+msgid "Search by skill"
+msgstr "Hae taidon mukaan"
+
+msgid "Search by function profile"
+msgstr "Hae toiminto profiilin mukaan"
+
+msgid "Compare two staff members"
+msgstr "Vertaile kahta henkilöstöjäsentä"
+
+msgid "User vs. function profile"
+msgstr "Käyttäjä vs. toiminto profiili"
+
+msgid "Skill(s)"
+msgstr "Taito(a)"
+
+msgid "Required level"
+msgstr "Vaativa taso"
+
+msgid "Acquired level"
+msgstr "Saatu taso"
+
+msgid "Meets level"
+msgstr "Täyttää tason"
+
+msgid "Below required"
+msgstr "Alle vaaditun"
+
+msgid "Missing"
+msgstr "Puuttuu"
+
+msgid "Searching…"
+msgstr "Etsitään…"
+
+msgid "staff member(s) found"
+msgstr "henkilöstöjäsentä löytyi"
+
+msgid "Unit hierarchy"
+msgstr "Yksikön hierarkia"
+
+msgid "All staff"
+msgstr "Kaikki henkilöstö"
+
+msgid "This chart is not publicly available."
+msgstr "Tämä kaavio ei ole julkisesti saatavilla."
+
+msgid "Failed to load chart data."
+msgstr "Kaavion lataus epäonnistui."
+
+msgid "Parent function"
+msgstr "Ylemmän tason toiminto"
+
+msgid "Add activity…"
+msgstr "Lisää toiminto…"
+
+msgid "Any level"
+msgstr "Kaikki tasot"
+
+msgid "Geographic zone"
+msgstr "Maantieteellinen alue"
+
+msgid "Required skills"
+msgstr "Vaatimukset taidot"
+

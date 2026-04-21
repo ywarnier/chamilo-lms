@@ -33984,3 +33984,126 @@ msgstr ""
 
 msgid "Social responsibility guidelines"
 msgstr ""
+
+msgid "Professional functions"
+msgstr ""
+
+msgid "Function-unit associations"
+msgstr ""
+
+msgid "Unit function list"
+msgstr ""
+
+msgid "Positions"
+msgstr ""
+
+msgid "Competency search"
+msgstr ""
+
+msgid "Organizational chart"
+msgstr ""
+
+msgid "Function-unit association"
+msgstr ""
+
+msgid "Add association"
+msgstr ""
+
+msgid "Edit association"
+msgstr ""
+
+msgid "Required skills"
+msgstr ""
+
+msgid "Add skill requirement"
+msgstr ""
+
+msgid "Add position"
+msgstr ""
+
+msgid "Edit position"
+msgstr ""
+
+msgid "Position title"
+msgstr ""
+
+msgid "Staff member"
+msgstr ""
+
+msgid "Is manager/boss"
+msgstr ""
+
+msgid "FTE"
+msgstr ""
+
+msgid "FTE (0–1)"
+msgstr ""
+
+msgid "Boss"
+msgstr ""
+
+msgid "Headcount"
+msgstr ""
+
+msgid "Select a unit to see headcount distribution"
+msgstr ""
+
+msgid "Search by skill"
+msgstr ""
+
+msgid "Search by function profile"
+msgstr ""
+
+msgid "Compare two staff members"
+msgstr ""
+
+msgid "User vs. function profile"
+msgstr ""
+
+msgid "Skill(s)"
+msgstr ""
+
+msgid "Required level"
+msgstr ""
+
+msgid "Acquired level"
+msgstr ""
+
+msgid "Meets level"
+msgstr ""
+
+msgid "Below required"
+msgstr ""
+
+msgid "Missing"
+msgstr ""
+
+msgid "Searching…"
+msgstr ""
+
+msgid "staff member(s) found"
+msgstr ""
+
+msgid "Unit hierarchy"
+msgstr ""
+
+msgid "All staff"
+msgstr ""
+
+msgid "This chart is not publicly available."
+msgstr ""
+
+msgid "Failed to load chart data."
+msgstr ""
+
+msgid "Parent function"
+msgstr ""
+
+msgid "Add activity…"
+msgstr ""
+
+msgid "Any level"
+msgstr ""
+
+msgid "Geographic zone"
+msgstr ""

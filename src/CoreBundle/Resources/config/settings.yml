@@ -104,6 +104,12 @@ services:
         tags:
             - {name: sylius.settings_schema, alias: chamilo_core.settings.group, namespace: group}
 
+    # Chamilo HR extension
+    chamilo_core.settings.hr:
+        class: Chamilo\CoreBundle\Settings\HrSettingsSchema
+        tags:
+            - {name: sylius.settings_schema, alias: chamilo_core.settings.hr, namespace: hr}
+
     chamilo_core.settings.language:
         class: Chamilo\CoreBundle\Settings\LanguageSettingsSchema
         tags:

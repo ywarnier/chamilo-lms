@@ -34072,3 +34072,129 @@ msgstr "Рекомендации по разнообразию"
 msgid "Social responsibility guidelines"
 msgstr "Рекомендации по социальной ответственности"
 
+msgid "Professional functions"
+msgstr "Профессиональные функции"
+
+msgid "Function-unit associations"
+msgstr "Ассоциации функции-единицы"
+
+msgid "Unit function list"
+msgstr "Список функций единицы"
+
+msgid "Positions"
+msgstr "Должности"
+
+msgid "Competency search"
+msgstr "Поиск компетенций"
+
+msgid "Organizational chart"
+msgstr "Организационная схема"
+
+msgid "Function-unit association"
+msgstr "Ассоциация функции-единицы"
+
+msgid "Add association"
+msgstr "Добавить ассоциацию"
+
+msgid "Edit association"
+msgstr "Редактировать ассоциацию"
+
+msgid "Required skills"
+msgstr "Необходимые навыки"
+
+msgid "Add skill requirement"
+msgstr "Добавить требование навыка"
+
+msgid "Add position"
+msgstr "Добавить должность"
+
+msgid "Edit position"
+msgstr "Редактировать должность"
+
+msgid "Position title"
+msgstr "Название должности"
+
+msgid "Staff member"
+msgstr "Сотрудник"
+
+msgid "Is manager/boss"
+msgstr "Является руководителем"
+
+msgid "FTE"
+msgstr "ФТЕ"
+
+msgid "FTE (0–1)"
+msgstr "ФТЕ (0–1)"
+
+msgid "Boss"
+msgstr "Руководитель"
+
+msgid "Headcount"
+msgstr "Штатная численность"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Выберите единицу, чтобы увидеть распределение штатной численности"
+
+msgid "Search by skill"
+msgstr "Поиск по навыку"
+
+msgid "Search by function profile"
+msgstr "Поиск по профилю функции"
+
+msgid "Compare two staff members"
+msgstr "Сравнить двух сотрудников"
+
+msgid "User vs. function profile"
+msgstr "Пользователь против профиля функции"
+
+msgid "Skill(s)"
+msgstr "Навык(и)"
+
+msgid "Required level"
+msgstr "Требуемый уровень"
+
+msgid "Acquired level"
+msgstr "Полученный уровень"
+
+msgid "Meets level"
+msgstr "Соответствует уровню"
+
+msgid "Below required"
+msgstr "Ниже требуемого"
+
+msgid "Missing"
+msgstr "Отсутствует"
+
+msgid "Searching…"
+msgstr "Поиск…"
+
+msgid "staff member(s) found"
+msgstr "сотрудник(а) найдено"
+
+msgid "Unit hierarchy"
+msgstr "Иерархия единиц"
+
+msgid "All staff"
+msgstr "Все сотрудники"
+
+msgid "This chart is not publicly available."
+msgstr "Эта диаграмма недоступна публично."
+
+msgid "Failed to load chart data."
+msgstr "Не удалось загрузить данные диаграммы."
+
+msgid "Parent function"
+msgstr "Родительская функция"
+
+msgid "Add activity…"
+msgstr "Добавить активность…"
+
+msgid "Any level"
+msgstr "Любой уровень"
+
+msgid "Geographic zone"
+msgstr "Географическая зона"
+
+msgid "Required skills"
+msgstr "Необходимые навыки"
+

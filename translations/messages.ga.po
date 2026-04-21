@@ -2021,7 +2021,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:cóipcheart,, no:gan cóipcheart"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Fillteán,, application/msword:MsWord,, application/octet-stream:Sruth Octad,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Fillteán,, application/msword:MsWord,, application/octet-stream:Sruth Octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:cleachtadh,,      simulation:insamhal,,      questionnaire:fiosrúchán,,      diagram:léaráid,,      figure:figiúr,,      graph:graf,,      index:innéacs,,      slide:sleamhnán,,      table:tábla,,      narrative text:téacs insinte,,      exam:scrúdú,,      experiment:turgnamh,,      problem statement:ráiteas fadhb,,      self assessment:féimmeasúnú,,      lecture:léacht"
@@ -34068,4 +34068,130 @@ msgstr "Treoirlínte éagsúlachta"
 
 msgid "Social responsibility guidelines"
 msgstr "Treoirlínte freagrachta sóisialta"
+
+msgid "Professional functions"
+msgstr "Feidhmeanna gairmiúla"
+
+msgid "Function-unit associations"
+msgstr "Comhcheangail aonaid fheidhmeanna"
+
+msgid "Unit function list"
+msgstr "Liosta feidhmeanna aonaid"
+
+msgid "Positions"
+msgstr "Poist"
+
+msgid "Competency search"
+msgstr "Cuardaigh inniúlachtaí"
+
+msgid "Organizational chart"
+msgstr "Cairt eagrúcháin"
+
+msgid "Function-unit association"
+msgstr "Comhcheangal feidhm-aonad"
+
+msgid "Add association"
+msgstr "Cuir comhcheangal leis"
+
+msgid "Edit association"
+msgstr "Cuir comhcheangal in eagar"
+
+msgid "Required skills"
+msgstr "Scileanna riachtanacha"
+
+msgid "Add skill requirement"
+msgstr "Cuir ceanglas scile leis"
+
+msgid "Add position"
+msgstr "Cuir post leis"
+
+msgid "Edit position"
+msgstr "Cuir post in eagar"
+
+msgid "Position title"
+msgstr "Teideal an phoist"
+
+msgid "Staff member"
+msgstr "Ball foirne"
+
+msgid "Is manager/boss"
+msgstr "Is bainisteoir/saoiste é"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Saoiste"
+
+msgid "Headcount"
+msgstr "Líon daoine"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Roghnaigh aonad le dáileadh líon daoine a fheiceáil"
+
+msgid "Search by skill"
+msgstr "Cuardaigh de réir scile"
+
+msgid "Search by function profile"
+msgstr "Cuardaigh de réir phróifíl fheidhme"
+
+msgid "Compare two staff members"
+msgstr "Déan comparáid idir dhá bhall foirne"
+
+msgid "User vs. function profile"
+msgstr "Úsáideoir vs. próifíl fheidhme"
+
+msgid "Skill(s)"
+msgstr "Scileanna"
+
+msgid "Required level"
+msgstr "Leibhéal riachtanach"
+
+msgid "Acquired level"
+msgstr "Leibhéal faighte"
+
+msgid "Meets level"
+msgstr "Comhlíonann leibhéal"
+
+msgid "Below required"
+msgstr "Faoi bhun an riachtanaigh"
+
+msgid "Missing"
+msgstr "In easnamh"
+
+msgid "Searching…"
+msgstr "Ag cuardach…"
+
+msgid "staff member(s) found"
+msgstr "ball foirne aimsithe"
+
+msgid "Unit hierarchy"
+msgstr "Ord aonaid"
+
+msgid "All staff"
+msgstr "Gach ball foirne"
+
+msgid "This chart is not publicly available."
+msgstr "Níl an chairt seo ar fáil go poiblí."
+
+msgid "Failed to load chart data."
+msgstr "Theip ar luchtú sonraí an chairt."
+
+msgid "Parent function"
+msgstr "Feidhm tuismitheora"
+
+msgid "Add activity…"
+msgstr "Cuir gníomhaíocht leis…"
+
+msgid "Any level"
+msgstr "Aon leibhéal"
+
+msgid "Geographic zone"
+msgstr "Crios geografach"
+
+msgid "Required skills"
+msgstr "Scileanna riachtanacha"
 

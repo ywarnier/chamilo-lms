@@ -34071,3 +34071,129 @@ msgstr "Çeşitlilik yönergeleri"
 msgid "Social responsibility guidelines"
 msgstr "Sosyal sorumluluk yönergeleri"
 
+msgid "Professional functions"
+msgstr "Mesleki işlevler"
+
+msgid "Function-unit associations"
+msgstr "Fonksiyon-birim ilişkileri"
+
+msgid "Unit function list"
+msgstr "Birim fonksiyon listesi"
+
+msgid "Positions"
+msgstr "Pozisyonlar"
+
+msgid "Competency search"
+msgstr "Yeterlilik arama"
+
+msgid "Organizational chart"
+msgstr "Organizasyon şeması"
+
+msgid "Function-unit association"
+msgstr "Fonksiyon-birim ilişkisi"
+
+msgid "Add association"
+msgstr "İlişki ekle"
+
+msgid "Edit association"
+msgstr "İlişki düzenle"
+
+msgid "Required skills"
+msgstr "Gerekli beceriler"
+
+msgid "Add skill requirement"
+msgstr "Beceri gereksinimi ekle"
+
+msgid "Add position"
+msgstr "Pozisyon ekle"
+
+msgid "Edit position"
+msgstr "Pozisyon düzenle"
+
+msgid "Position title"
+msgstr "Pozisyon başlığı"
+
+msgid "Staff member"
+msgstr "Personel üyesi"
+
+msgid "Is manager/boss"
+msgstr "Yönetici/patron mu"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Patron"
+
+msgid "Headcount"
+msgstr "Personel sayısı"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Personel dağılımını görmek için bir birim seçin"
+
+msgid "Search by skill"
+msgstr "Beceri ile ara"
+
+msgid "Search by function profile"
+msgstr "Fonksiyon profili ile ara"
+
+msgid "Compare two staff members"
+msgstr "İki personel üyesini karşılaştır"
+
+msgid "User vs. function profile"
+msgstr "Kullanıcı vs. fonksiyon profili"
+
+msgid "Skill(s)"
+msgstr "Beceri(ler)"
+
+msgid "Required level"
+msgstr "Gerekli seviye"
+
+msgid "Acquired level"
+msgstr "Kazanılan seviye"
+
+msgid "Meets level"
+msgstr "Seviyeyi karşılıyor"
+
+msgid "Below required"
+msgstr "Gerekinin altında"
+
+msgid "Missing"
+msgstr "Eksik"
+
+msgid "Searching…"
+msgstr "Aranıyor…"
+
+msgid "staff member(s) found"
+msgstr "personel üyesi bulundu"
+
+msgid "Unit hierarchy"
+msgstr "Birim hiyerarşisi"
+
+msgid "All staff"
+msgstr "Tüm personel"
+
+msgid "This chart is not publicly available."
+msgstr "Bu grafik herkese açık değil."
+
+msgid "Failed to load chart data."
+msgstr "Grafik verileri yüklenemedi."
+
+msgid "Parent function"
+msgstr "Üst fonksiyon"
+
+msgid "Add activity…"
+msgstr "Etkinlik ekle…"
+
+msgid "Any level"
+msgstr "Herhangi bir seviye"
+
+msgid "Geographic zone"
+msgstr "Coğrafi bölge"
+
+msgid "Required skills"
+msgstr "Gerekli beceriler"
+

@@ -34065,3 +34065,129 @@ msgstr "Linieis giduâtis pe diversitât"
 msgid "Social responsibility guidelines"
 msgstr "Linieis giduâtis pe responsabitât sociale"
 
+msgid "Professional functions"
+msgstr "Funzions professionâls"
+
+msgid "Function-unit associations"
+msgstr "Associazions funçion-unità"
+
+msgid "Unit function list"
+msgstr "Liste des funçions de unitât"
+
+msgid "Positions"
+msgstr "Postis"
+
+msgid "Competency search"
+msgstr "Çerca competenzis"
+
+msgid "Organizational chart"
+msgstr "Organigrame"
+
+msgid "Function-unit association"
+msgstr "Associazion funçion-unità"
+
+msgid "Add association"
+msgstr "Zontâ associazion"
+
+msgid "Edit association"
+msgstr "Modifiche associazion"
+
+msgid "Required skills"
+msgstr "Cumpetence desîadis"
+
+msgid "Add skill requirement"
+msgstr "Zontâ requisit di competense"
+
+msgid "Add position"
+msgstr "Zontâ posision"
+
+msgid "Edit position"
+msgstr "Modifiche posision"
+
+msgid "Position title"
+msgstr "Titel posision"
+
+msgid "Staff member"
+msgstr "Membro dal staff"
+
+msgid "Is manager/boss"
+msgstr "È chestion/cap"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Cap"
+
+msgid "Headcount"
+msgstr "Numar di personis"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Scealt une unitât par viodi la distribussion dal numar di personis"
+
+msgid "Search by skill"
+msgstr "Çerca par cumpetence"
+
+msgid "Search by function profile"
+msgstr "Çerca par profîl funcjôn"
+
+msgid "Compare two staff members"
+msgstr "Confronte doi membiris dal staff"
+
+msgid "User vs. function profile"
+msgstr "Utint contri profîl funcjôn"
+
+msgid "Skill(s)"
+msgstr "Cumpetence"
+
+msgid "Required level"
+msgstr "Livêl desîât"
+
+msgid "Acquired level"
+msgstr "Livêl acquistit"
+
+msgid "Meets level"
+msgstr "Sazîfê livêl"
+
+msgid "Below required"
+msgstr "Sot dal desîât"
+
+msgid "Missing"
+msgstr "Manquant"
+
+msgid "Searching…"
+msgstr "Çercjant…"
+
+msgid "staff member(s) found"
+msgstr "membiris dal staff trovâts"
+
+msgid "Unit hierarchy"
+msgstr "Gerarchie des unitâts"
+
+msgid "All staff"
+msgstr "Tût il staff"
+
+msgid "This chart is not publicly available."
+msgstr "Chest grafic no je pubblichmente disponibil."
+
+msgid "Failed to load chart data."
+msgstr "No si è pudût vûrgi i dâts dal grafic."
+
+msgid "Parent function"
+msgstr "Funcjôn parente"
+
+msgid "Add activity…"
+msgstr "Zont une atividât…"
+
+msgid "Any level"
+msgstr "Cualche livêl"
+
+msgid "Geographic zone"
+msgstr "Zône geogràfiche"
+
+msgid "Required skills"
+msgstr "Cumpetence desîadis"
+

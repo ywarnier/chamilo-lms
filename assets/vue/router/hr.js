@@ -90,5 +90,60 @@ export default {
       },
       component: () => import("../views/hr/HrBusinessUnitView.vue"),
     },
+    {
+      name: "HrProfessionalFunctions",
+      path: "professional-functions",
+      meta: {
+        requiresAuth: true,
+        requiresAdmin: true,
+        showBreadcrumb: true,
+        breadcrumb: "Professional functions",
+      },
+      component: () => import("../views/hr/HrProfessionalFunctionView.vue"),
+    },
+    {
+      name: "HrFunctionInUnit",
+      path: "function-in-unit",
+      meta: {
+        requiresAuth: true,
+        requiresAdmin: true,
+        showBreadcrumb: true,
+        breadcrumb: "Function-unit associations",
+      },
+      component: () => import("../views/hr/HrFunctionInUnitView.vue"),
+    },
+    {
+      name: "HrUnitFunctionList",
+      path: "unit-function-list",
+      meta: {
+        requiresAuth: true,
+        requiresAdmin: true,
+        showBreadcrumb: true,
+        breadcrumb: "Unit function list",
+      },
+      component: () => import("../views/hr/HrUnitFunctionListView.vue"),
+    },
+    {
+      name: "HrPositions",
+      path: "positions",
+      meta: {
+        requiresAuth: true,
+        requiresAdmin: true,
+        showBreadcrumb: true,
+        breadcrumb: "Positions",
+      },
+      component: () => import("../views/hr/HrPositionView.vue"),
+    },
+    {
+      name: "HrCompetencySearch",
+      path: "competency-search",
+      meta: {
+        requiresAuth: true,
+        requiresAdmin: true,
+        showBreadcrumb: true,
+        breadcrumb: "Competency search",
+      },
+      component: () => import("../views/hr/HrCompetencySearchView.vue"),
+    },
   ],
 }

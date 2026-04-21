@@ -34069,3 +34069,129 @@ msgstr "Насоки за разновидност"
 msgid "Social responsibility guidelines"
 msgstr "Насоки за социјална одговорност"
 
+msgid "Professional functions"
+msgstr "Професионални функции"
+
+msgid "Function-unit associations"
+msgstr "Асоциации функција-единица"
+
+msgid "Unit function list"
+msgstr "Листа на функции на единицата"
+
+msgid "Positions"
+msgstr "Позиции"
+
+msgid "Competency search"
+msgstr "Пребарување компетенции"
+
+msgid "Organizational chart"
+msgstr "Организациски шема"
+
+msgid "Function-unit association"
+msgstr "Асоцијација функција-единица"
+
+msgid "Add association"
+msgstr "Додади асоцијација"
+
+msgid "Edit association"
+msgstr "Уреди асоцијација"
+
+msgid "Required skills"
+msgstr "Задолжителни вештини"
+
+msgid "Add skill requirement"
+msgstr "Додади барање за вештина"
+
+msgid "Add position"
+msgstr "Додади позиција"
+
+msgid "Edit position"
+msgstr "Уреди позиција"
+
+msgid "Position title"
+msgstr "Наслов на позиција"
+
+msgid "Staff member"
+msgstr "Вработен"
+
+msgid "Is manager/boss"
+msgstr "Е раководител/шеф"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Шеф"
+
+msgid "Headcount"
+msgstr "Број на вработени"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Избери единица за да ја видиш распределбата на вработените"
+
+msgid "Search by skill"
+msgstr "Пребарај по вештина"
+
+msgid "Search by function profile"
+msgstr "Пребарај по профил на функција"
+
+msgid "Compare two staff members"
+msgstr "Спореди двајца вработени"
+
+msgid "User vs. function profile"
+msgstr "Корисник наспроти профил на функција"
+
+msgid "Skill(s)"
+msgstr "Вештина(и)"
+
+msgid "Required level"
+msgstr "Барано ниво"
+
+msgid "Acquired level"
+msgstr "Стечено ниво"
+
+msgid "Meets level"
+msgstr "Го исполнува нивото"
+
+msgid "Below required"
+msgstr "Под задолжително"
+
+msgid "Missing"
+msgstr "Фали"
+
+msgid "Searching…"
+msgstr "Пребарување…"
+
+msgid "staff member(s) found"
+msgstr "најдени вработени"
+
+msgid "Unit hierarchy"
+msgstr "Хиерархија на единици"
+
+msgid "All staff"
+msgstr "Сите вработени"
+
+msgid "This chart is not publicly available."
+msgstr "Овој графикон не е јавно достапен."
+
+msgid "Failed to load chart data."
+msgstr "Неуспешно вчитување на податоци за графиконот."
+
+msgid "Parent function"
+msgstr "Родителска функција"
+
+msgid "Add activity…"
+msgstr "Додај активност…"
+
+msgid "Any level"
+msgstr "Секое ниво"
+
+msgid "Geographic zone"
+msgstr "Географска зона"
+
+msgid "Required skills"
+msgstr "Задолжителни вештини"
+

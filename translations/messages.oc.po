@@ -2017,7 +2017,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":òc:dret d'autor,, non:sens dret d'autor"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Dossiè,, application/msword:MsWord,, application/octet-stream:Flux octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Dossiè,, application/msword:MsWord,, application/octet-stream:Flux d'octets,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercici:exercici,,      simulacion:simulacion,,      questionari:questionari,,      diagrama:diagrama,,      figura:figura,,      grafic:grafic,,      indèx:indèx,,      diapositiva:diapositiva,,      taula:taula,,      tèxte narratiu:tèxte narratiu,,      examen:examen,,      experiment:experiment,,      enunciat de problèma:enunciat de problèma,,      autoevaluacion:autoevaluacion,,      leçon:leçon"
@@ -34064,4 +34064,130 @@ msgstr "Directivas de diversitat"
 
 msgid "Social responsibility guidelines"
 msgstr "Directivas de responsabilitat sociala"
+
+msgid "Professional functions"
+msgstr "Fonctions professionnas"
+
+msgid "Function-unit associations"
+msgstr "Associacions unitat-foncion"
+
+msgid "Unit function list"
+msgstr "Lista de foncions de l'unitat"
+
+msgid "Positions"
+msgstr "Postes"
+
+msgid "Competency search"
+msgstr "Recèrca de competéncias"
+
+msgid "Organizational chart"
+msgstr "Organigrama"
+
+msgid "Function-unit association"
+msgstr "Associacion foncion-unitat"
+
+msgid "Add association"
+msgstr "Apondre associacion"
+
+msgid "Edit association"
+msgstr "Modificar associacion"
+
+msgid "Required skills"
+msgstr "Competéncias requesidas"
+
+msgid "Add skill requirement"
+msgstr "Apondre requisit de competéncia"
+
+msgid "Add position"
+msgstr "Apondre post"
+
+msgid "Edit position"
+msgstr "Modificar post"
+
+msgid "Position title"
+msgstr "Títol del post"
+
+msgid "Staff member"
+msgstr "Membre del personal"
+
+msgid "Is manager/boss"
+msgstr "És gerente/cap"
+
+msgid "FTE"
+msgstr "ETP"
+
+msgid "FTE (0–1)"
+msgstr "ETP (0–1)"
+
+msgid "Boss"
+msgstr "Cap"
+
+msgid "Headcount"
+msgstr "Efectiu"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Seleccionar una unitat per veire la distribucion de l'efectiu"
+
+msgid "Search by skill"
+msgstr "Recercar per competéncia"
+
+msgid "Search by function profile"
+msgstr "Recercar per perfil de foncion"
+
+msgid "Compare two staff members"
+msgstr "Comparar dos membres del personal"
+
+msgid "User vs. function profile"
+msgstr "Utilizaire vs. perfil de foncion"
+
+msgid "Skill(s)"
+msgstr "Competéncia(s)"
+
+msgid "Required level"
+msgstr "Nivèl requesit"
+
+msgid "Acquired level"
+msgstr "Nivèl adquèrit"
+
+msgid "Meets level"
+msgstr "Atén lo nivèl"
+
+msgid "Below required"
+msgstr "En dessot del requesit"
+
+msgid "Missing"
+msgstr "Manca"
+
+msgid "Searching…"
+msgstr "Recèrca en cors…"
+
+msgid "staff member(s) found"
+msgstr "membre(s) del personal trobat(s)"
+
+msgid "Unit hierarchy"
+msgstr "Gerarquia de las unitats"
+
+msgid "All staff"
+msgstr "Tot lo personal"
+
+msgid "This chart is not publicly available."
+msgstr "Aquest diagrama es pas disponible publiquament."
+
+msgid "Failed to load chart data."
+msgstr "Fracàs del cargament de las donadas del diagrama."
+
+msgid "Parent function"
+msgstr "Foncion parenta"
+
+msgid "Add activity…"
+msgstr "Apondre activitat…"
+
+msgid "Any level"
+msgstr "Quinqu’un nivèl"
+
+msgid "Geographic zone"
+msgstr "Zòna geografica"
+
+msgid "Required skills"
+msgstr "Competéncias requesidas"
 

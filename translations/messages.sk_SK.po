@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "Úprimne"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Vzorková formula: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Vzorník vzorca: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Rozsahy premennej"
@@ -34083,4 +34083,130 @@ msgstr "Pokyny pre diverzitu"
 
 msgid "Social responsibility guidelines"
 msgstr "Pokyny pre sociálnu zodpovednosť"
+
+msgid "Professional functions"
+msgstr "Profesijné funkcie"
+
+msgid "Function-unit associations"
+msgstr "Asociácie funkcia-jednotka"
+
+msgid "Unit function list"
+msgstr "Zoznam funkcií jednotky"
+
+msgid "Positions"
+msgstr "Pozície"
+
+msgid "Competency search"
+msgstr "Vyhľadávanie kompetencií"
+
+msgid "Organizational chart"
+msgstr "Organizačný schemat"
+
+msgid "Function-unit association"
+msgstr "Asociácia funkcia-jednotka"
+
+msgid "Add association"
+msgstr "Pridať asociáciu"
+
+msgid "Edit association"
+msgstr "Upraviť asociáciu"
+
+msgid "Required skills"
+msgstr "Požadované zručnosti"
+
+msgid "Add skill requirement"
+msgstr "Pridať požiadavku na zručnosť"
+
+msgid "Add position"
+msgstr "Pridať pozíciu"
+
+msgid "Edit position"
+msgstr "Upraviť pozíciu"
+
+msgid "Position title"
+msgstr "Názov pozície"
+
+msgid "Staff member"
+msgstr "Zamestnanec"
+
+msgid "Is manager/boss"
+msgstr "Je manažér/šéf"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Šéf"
+
+msgid "Headcount"
+msgstr "Počet zamestnancov"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Vybrať jednotku na zobrazenie distribúcie počtu zamestnancov"
+
+msgid "Search by skill"
+msgstr "Hľadať podľa zručnosti"
+
+msgid "Search by function profile"
+msgstr "Hľadať podľa funkčného profilu"
+
+msgid "Compare two staff members"
+msgstr "Porovnať dvoch zamestnancov"
+
+msgid "User vs. function profile"
+msgstr "Používateľ vs. funkčný profil"
+
+msgid "Skill(s)"
+msgstr "Zručnosť(nosti)"
+
+msgid "Required level"
+msgstr "Požadovaná úroveň"
+
+msgid "Acquired level"
+msgstr "Získaná úroveň"
+
+msgid "Meets level"
+msgstr "Spĺňa úroveň"
+
+msgid "Below required"
+msgstr "Pod požadovanou"
+
+msgid "Missing"
+msgstr "Chýba"
+
+msgid "Searching…"
+msgstr "Vyhľadávam…"
+
+msgid "staff member(s) found"
+msgstr "zamestnancov nájdených"
+
+msgid "Unit hierarchy"
+msgstr "Hierarchia jednotiek"
+
+msgid "All staff"
+msgstr "Všetci zamestnanci"
+
+msgid "This chart is not publicly available."
+msgstr "Tento graf nie je verejne dostupný."
+
+msgid "Failed to load chart data."
+msgstr "Nepodarilo sa načítať údaje grafu."
+
+msgid "Parent function"
+msgstr "Rodičovská funkcia"
+
+msgid "Add activity…"
+msgstr "Pridať aktivitu…"
+
+msgid "Any level"
+msgstr "Akákoľvek úroveň"
+
+msgid "Geographic zone"
+msgstr "Geografická zóna"
+
+msgid "Required skills"
+msgstr "Požadované zručnosti"
 

@@ -34084,3 +34084,129 @@ msgstr "Οδηγίες διαφορετικότητας"
 msgid "Social responsibility guidelines"
 msgstr "Οδηγίες κοινωνικής ευθύνης"
 
+msgid "Professional functions"
+msgstr "Επαγγελματικές λειτουργίες"
+
+msgid "Function-unit associations"
+msgstr "Συσχετίσεις μονάδας-λειτουργίας"
+
+msgid "Unit function list"
+msgstr "Λίστα λειτουργιών μονάδας"
+
+msgid "Positions"
+msgstr "Θέσεις"
+
+msgid "Competency search"
+msgstr "Αναζήτηση δεξιοτήτων"
+
+msgid "Organizational chart"
+msgstr "Οργανόγραμμα"
+
+msgid "Function-unit association"
+msgstr "Συσχέτιση λειτουργίας-μονάδας"
+
+msgid "Add association"
+msgstr "Προσθήκη συσχέτισης"
+
+msgid "Edit association"
+msgstr "Επεξεργασία συσχέτισης"
+
+msgid "Required skills"
+msgstr "Απαιτούμενες δεξιότητες"
+
+msgid "Add skill requirement"
+msgstr "Προσθήκη απαίτησης δεξιότητας"
+
+msgid "Add position"
+msgstr "Προσθήκη θέσης"
+
+msgid "Edit position"
+msgstr "Επεξεργασία θέσης"
+
+msgid "Position title"
+msgstr "Τίτλος θέσης"
+
+msgid "Staff member"
+msgstr "Μέλος προσωπικού"
+
+msgid "Is manager/boss"
+msgstr "Είναι προϊστάμενος"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Προϊστάμενος"
+
+msgid "Headcount"
+msgstr "Κεφαλαιοποίηση προσωπικού"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Επιλέξτε μονάδα για να δείτε κατανομή κεφαλαιοποίησης προσωπικού"
+
+msgid "Search by skill"
+msgstr "Αναζήτηση κατά δεξιότητα"
+
+msgid "Search by function profile"
+msgstr "Αναζήτηση κατά προφίλ λειτουργίας"
+
+msgid "Compare two staff members"
+msgstr "Σύγκριση δύο μελών προσωπικού"
+
+msgid "User vs. function profile"
+msgstr "Χρήστης εναντίον προφίλ λειτουργίας"
+
+msgid "Skill(s)"
+msgstr "Δεξιότητα(ες)"
+
+msgid "Required level"
+msgstr "Απαιτούμενο επίπεδο"
+
+msgid "Acquired level"
+msgstr "Αποκτηθέν επίπεδο"
+
+msgid "Meets level"
+msgstr "Ικανοποιεί το επίπεδο"
+
+msgid "Below required"
+msgstr "Κάτω από το απαιτούμενο"
+
+msgid "Missing"
+msgstr "Λείπει"
+
+msgid "Searching…"
+msgstr "Αναζήτηση…"
+
+msgid "staff member(s) found"
+msgstr "μέλη προσωπικού βρέθηκαν"
+
+msgid "Unit hierarchy"
+msgstr "Ιεραρχία μονάδας"
+
+msgid "All staff"
+msgstr "Όλο το προσωπικό"
+
+msgid "This chart is not publicly available."
+msgstr "Αυτό το διάγραμμα δεν είναι δημόσια διαθέσιμο."
+
+msgid "Failed to load chart data."
+msgstr "Αποτυχία φόρτωσης δεδομένων διαγράμματος."
+
+msgid "Parent function"
+msgstr "Γονική λειτουργία"
+
+msgid "Add activity…"
+msgstr "Προσθήκη δραστηριότητας…"
+
+msgid "Any level"
+msgstr "Οποιοδήποτε επίπεδο"
+
+msgid "Geographic zone"
+msgstr "Γεωγραφική ζώνη"
+
+msgid "Required skills"
+msgstr "Απαιτούμενες δεξιότητες"
+

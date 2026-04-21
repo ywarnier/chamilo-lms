@@ -33973,7 +33973,7 @@ msgid "Coordinates"
 msgstr "კოორდინატები"
 
 msgid "HR Dashboard"
-msgstr "HR Dashboard"
+msgstr "ადამიანური რესურსების მაწკრივი"
 
 msgid "Staff"
 msgstr "პერსონალი"
@@ -34064,4 +34064,130 @@ msgstr "მრავალფეროვნების მითითებ�
 
 msgid "Social responsibility guidelines"
 msgstr "სოციალური პასუხისმგებლობის მითითებები"
+
+msgid "Professional functions"
+msgstr "პროფესიული ფუნქციები"
+
+msgid "Function-unit associations"
+msgstr "ფუნქცია-ერთეულის ასოციაციები"
+
+msgid "Unit function list"
+msgstr "ერთეულის ფუნქციის სია"
+
+msgid "Positions"
+msgstr "პოზიციები"
+
+msgid "Competency search"
+msgstr "კომპეტენციის ძიება"
+
+msgid "Organizational chart"
+msgstr "ორგანიზაციული სქემა"
+
+msgid "Function-unit association"
+msgstr "ფუნქცია-ერთეულის ასოციაცია"
+
+msgid "Add association"
+msgstr "ასოციაციის დამატება"
+
+msgid "Edit association"
+msgstr "ასოციაციის რედაქტირება"
+
+msgid "Required skills"
+msgstr "საჭირო უნარები"
+
+msgid "Add skill requirement"
+msgstr "უნარის მოთხოვნის დამატება"
+
+msgid "Add position"
+msgstr "პოზიციის დამატება"
+
+msgid "Edit position"
+msgstr "პოზიციის რედაქტირება"
+
+msgid "Position title"
+msgstr "პოზიციის სათაური"
+
+msgid "Staff member"
+msgstr "პერსონალი"
+
+msgid "Is manager/boss"
+msgstr "მენეჯერია/ბოსია"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "ბოსი"
+
+msgid "Headcount"
+msgstr "შტატი"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "შტატის განაწილების ნახვისთვის აირჩიეთ ერთეული"
+
+msgid "Search by skill"
+msgstr "ძიება უნარით"
+
+msgid "Search by function profile"
+msgstr "ძიება ფუნქციის პროფილით"
+
+msgid "Compare two staff members"
+msgstr "ორი თანამშრომლის შედარება"
+
+msgid "User vs. function profile"
+msgstr "მომხმარებელი ორმაგ ფუნქციის პროფილთან"
+
+msgid "Skill(s)"
+msgstr "უნარ(ები)"
+
+msgid "Required level"
+msgstr "საჭირო დონე"
+
+msgid "Acquired level"
+msgstr "მიღებული დონე"
+
+msgid "Meets level"
+msgstr "შეესაბამება დონეს"
+
+msgid "Below required"
+msgstr "ქვემოთ საჭიროს"
+
+msgid "Missing"
+msgstr "არ არის"
+
+msgid "Searching…"
+msgstr "ძებნა…"
+
+msgid "staff member(s) found"
+msgstr "პერსონალის წევრ(ები) მოიძებნა"
+
+msgid "Unit hierarchy"
+msgstr "ერთეულის იერარქია"
+
+msgid "All staff"
+msgstr "ყველა პერსონალი"
+
+msgid "This chart is not publicly available."
+msgstr "ეს დიაგრამა საჯაროდ არ არის ხელმისაწვდომი."
+
+msgid "Failed to load chart data."
+msgstr "დიაგრამის მონაცემების ჩატვირთვა ვერ მოხერხდა."
+
+msgid "Parent function"
+msgstr "მშობელი ფუნქცია"
+
+msgid "Add activity…"
+msgstr "აქტივობის დამატება…"
+
+msgid "Any level"
+msgstr "ნებისმიერი დონე"
+
+msgid "Geographic zone"
+msgstr "გეოგრაფიული ზონა"
+
+msgid "Required skills"
+msgstr "საჭირო უნარები"
 

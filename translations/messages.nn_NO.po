@@ -34069,3 +34069,129 @@ msgstr "Retningslinjer for mangfold"
 msgid "Social responsibility guidelines"
 msgstr "Retningslinjer for samfunnsansvar"
 
+msgid "Professional functions"
+msgstr "Faglege funksjonar"
+
+msgid "Function-unit associations"
+msgstr "Funksjon-enhet-samanhald"
+
+msgid "Unit function list"
+msgstr "Einheitsfunksjonsliste"
+
+msgid "Positions"
+msgstr "Stillingar"
+
+msgid "Competency search"
+msgstr "Kompetansesøk"
+
+msgid "Organizational chart"
+msgstr "Organisasjonskart"
+
+msgid "Function-unit association"
+msgstr "Funksjon-enhet-samanhald"
+
+msgid "Add association"
+msgstr "Legg til samanhald"
+
+msgid "Edit association"
+msgstr "Rediger samanhald"
+
+msgid "Required skills"
+msgstr "Krav til ferdigheiter"
+
+msgid "Add skill requirement"
+msgstr "Legg til ferdighetskrav"
+
+msgid "Add position"
+msgstr "Legg til stilling"
+
+msgid "Edit position"
+msgstr "Rediger stilling"
+
+msgid "Position title"
+msgstr "Stillingstitel"
+
+msgid "Staff member"
+msgstr "Ansatt"
+
+msgid "Is manager/boss"
+msgstr "Er leiar/sjef"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Sjef"
+
+msgid "Headcount"
+msgstr "Antall stillingar"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Vel ein eining for å sjå fordelinga av talet på personell"
+
+msgid "Search by skill"
+msgstr "Søk etter ferdigheit"
+
+msgid "Search by function profile"
+msgstr "Søk etter funksjonsprofil"
+
+msgid "Compare two staff members"
+msgstr "Samanlikn to tilsett"
+
+msgid "User vs. function profile"
+msgstr "Brukar mot funksjonsprofil"
+
+msgid "Skill(s)"
+msgstr "Ferdigheit(ar)"
+
+msgid "Required level"
+msgstr "Kravnivå"
+
+msgid "Acquired level"
+msgstr "Oppnådd nivå"
+
+msgid "Meets level"
+msgstr "Oppfyller nivå"
+
+msgid "Below required"
+msgstr "Under kravet"
+
+msgid "Missing"
+msgstr "Manglar"
+
+msgid "Searching…"
+msgstr "Søker…"
+
+msgid "staff member(s) found"
+msgstr "tilsett funne"
+
+msgid "Unit hierarchy"
+msgstr "Einingahierarki"
+
+msgid "All staff"
+msgstr "Alt personell"
+
+msgid "This chart is not publicly available."
+msgstr "Denne grafen er ikkje tilgjengeleg offentleg."
+
+msgid "Failed to load chart data."
+msgstr "Kunne ikkje laste grafdata."
+
+msgid "Parent function"
+msgstr "Overordnet funksjon"
+
+msgid "Add activity…"
+msgstr "Legg til aktivitet…"
+
+msgid "Any level"
+msgstr "Eit valkelt nivå"
+
+msgid "Geographic zone"
+msgstr "Geografisk sone"
+
+msgid "Required skills"
+msgstr "Krav til ferdigheiter"
+

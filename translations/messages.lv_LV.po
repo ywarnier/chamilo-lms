@@ -344,7 +344,7 @@ msgid "Sincerely"
 msgstr "Ar cieņu"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Formulas paraugs: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Formulas piemērs: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Mainīgo diapazoni"
@@ -34069,4 +34069,130 @@ msgstr "Dažādības vadlīnijas"
 
 msgid "Social responsibility guidelines"
 msgstr "Sociālās atbildības vadlīnijas"
+
+msgid "Professional functions"
+msgstr "Profesionālās funkcijas"
+
+msgid "Function-unit associations"
+msgstr "Funkciju-nodaļu asociācijas"
+
+msgid "Unit function list"
+msgstr "Nodaļas funkciju saraksts"
+
+msgid "Positions"
+msgstr "Amati"
+
+msgid "Competency search"
+msgstr "Kompetenču meklēšana"
+
+msgid "Organizational chart"
+msgstr "Organizācijas shēma"
+
+msgid "Function-unit association"
+msgstr "Funkcijas-nodaļas asociācija"
+
+msgid "Add association"
+msgstr "Pievienot asociāciju"
+
+msgid "Edit association"
+msgstr "Rediģēt asociāciju"
+
+msgid "Required skills"
+msgstr "Nepieciešamās prasmes"
+
+msgid "Add skill requirement"
+msgstr "Pievienot prasmes prasību"
+
+msgid "Add position"
+msgstr "Pievienot amatu"
+
+msgid "Edit position"
+msgstr "Rediģēt amatu"
+
+msgid "Position title"
+msgstr "Amata nosaukums"
+
+msgid "Staff member"
+msgstr "Darbinieks"
+
+msgid "Is manager/boss"
+msgstr "Vai ir vadītājs/šefs"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Šefs"
+
+msgid "Headcount"
+msgstr "Darbinieku skaits"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Izvēlieties nodaļu, lai redzētu darbinieku skaita sadalījumu"
+
+msgid "Search by skill"
+msgstr "Meklēt pēc prasmes"
+
+msgid "Search by function profile"
+msgstr "Meklēt pēc funkcijas profila"
+
+msgid "Compare two staff members"
+msgstr "Salīdzināt divus darbiniekus"
+
+msgid "User vs. function profile"
+msgstr "Lietotājs pret. funkciju profilu"
+
+msgid "Skill(s)"
+msgstr "Prasm(e)(es)"
+
+msgid "Required level"
+msgstr "Nepieciešamais līmenis"
+
+msgid "Acquired level"
+msgstr "Iegūtais līmenis"
+
+msgid "Meets level"
+msgstr "Atbilst līmenim"
+
+msgid "Below required"
+msgstr "Zem nepieciešamā"
+
+msgid "Missing"
+msgstr "Trūkst"
+
+msgid "Searching…"
+msgstr "Meklē…"
+
+msgid "staff member(s) found"
+msgstr "atrasts darbiniek(i)"
+
+msgid "Unit hierarchy"
+msgstr "Vienības hierarhija"
+
+msgid "All staff"
+msgstr "Visi darbinieki"
+
+msgid "This chart is not publicly available."
+msgstr "Šī diagramma nav publiski pieejama."
+
+msgid "Failed to load chart data."
+msgstr "Neizdevās ielādēt diagrammas datus."
+
+msgid "Parent function"
+msgstr "Vecāku funkcija"
+
+msgid "Add activity…"
+msgstr "Pievienot darbību…"
+
+msgid "Any level"
+msgstr "Jebkurš līmenis"
+
+msgid "Geographic zone"
+msgstr "Ģeogrāfiskā zona"
+
+msgid "Required skills"
+msgstr "Nepieciešamās prasmes"
 

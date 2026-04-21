@@ -34065,3 +34065,129 @@ msgstr "Рекомендації щодо різноманітності"
 msgid "Social responsibility guidelines"
 msgstr "Рекомендації щодо соціальної відповідальності"
 
+msgid "Professional functions"
+msgstr "Професійні функції"
+
+msgid "Function-unit associations"
+msgstr "Асоціації функція-одиниця"
+
+msgid "Unit function list"
+msgstr "Список функцій одиниці"
+
+msgid "Positions"
+msgstr "Посади"
+
+msgid "Competency search"
+msgstr "Пошук компетенцій"
+
+msgid "Organizational chart"
+msgstr "Організаційна схема"
+
+msgid "Function-unit association"
+msgstr "Асоціація функція-одиниця"
+
+msgid "Add association"
+msgstr "Додати асоціацію"
+
+msgid "Edit association"
+msgstr "Редагувати асоціацію"
+
+msgid "Required skills"
+msgstr "Необхідні навички"
+
+msgid "Add skill requirement"
+msgstr "Додати вимогу навички"
+
+msgid "Add position"
+msgstr "Додати посаду"
+
+msgid "Edit position"
+msgstr "Редагувати посаду"
+
+msgid "Position title"
+msgstr "Назва посади"
+
+msgid "Staff member"
+msgstr "Співробітник"
+
+msgid "Is manager/boss"
+msgstr "Є менеджером/керівником"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Керівник"
+
+msgid "Headcount"
+msgstr "Штатна чисельність"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Виберіть одиницю, щоб побачити розподіл штатної чисельності"
+
+msgid "Search by skill"
+msgstr "Пошук за навичкою"
+
+msgid "Search by function profile"
+msgstr "Пошук за профілем функції"
+
+msgid "Compare two staff members"
+msgstr "Порівняти двох співробітників"
+
+msgid "User vs. function profile"
+msgstr "Користувач проти профілю функції"
+
+msgid "Skill(s)"
+msgstr "Навичка(и)"
+
+msgid "Required level"
+msgstr "Необхідний рівень"
+
+msgid "Acquired level"
+msgstr "Набутий рівень"
+
+msgid "Meets level"
+msgstr "Відповідає рівню"
+
+msgid "Below required"
+msgstr "Нижче необхідного"
+
+msgid "Missing"
+msgstr "Відсутня"
+
+msgid "Searching…"
+msgstr "Пошук…"
+
+msgid "staff member(s) found"
+msgstr "знайдено працівника(ів)"
+
+msgid "Unit hierarchy"
+msgstr "Ієрархія підрозділів"
+
+msgid "All staff"
+msgstr "Увесь персонал"
+
+msgid "This chart is not publicly available."
+msgstr "Цей графік не є публічно доступним."
+
+msgid "Failed to load chart data."
+msgstr "Не вдалося завантажити дані графіка."
+
+msgid "Parent function"
+msgstr "Батьківська функція"
+
+msgid "Add activity…"
+msgstr "Додати активність…"
+
+msgid "Any level"
+msgstr "Будь-який рівень"
+
+msgid "Geographic zone"
+msgstr "Географічна зона"
+
+msgid "Required skills"
+msgstr "Необхідні навички"
+

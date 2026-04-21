@@ -283,6 +283,17 @@ Admin pages should always show: **Administration** (linked) / **Page title** (pl
 
 Standard HTML `<input>`, `<select>` with Tailwind: `border border-gray-300 rounded px-3 py-1.5 text-sm`. Group elements with `flex gap-4 items-end`.
 
+### PHP performance — session locking
+
+Whenever a controller or script no longer needs to read or write session data, call `session_write_close()` immediately to release the session file lock. Holding the lock blocks concurrent requests from the same browser (e.g. parallel API calls from `Promise.all` in Vue).
+
+```php
+// As soon as session reads/writes are done:
+session_write_close();
+```
+
+This applies to all legacy PHP scripts and any Symfony controller that accesses the session early and then performs slow work (DB queries, file I/O, external HTTP calls).
+
 ### Migrating a legacy PHP page to Vue
 
 See `.claude/commands/legacy-to-vue.md` for the step-by-step checklist, invokable as `/legacy-to-vue` in Claude Code.

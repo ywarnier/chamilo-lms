@@ -34069,3 +34069,129 @@ msgstr "Udhëzimet e diversitetit"
 msgid "Social responsibility guidelines"
 msgstr "Udhëzimet e përgjegjësisë sociale"
 
+msgid "Professional functions"
+msgstr "Funksionet profesionale"
+
+msgid "Function-unit associations"
+msgstr "Lidhjet funksion-njësi"
+
+msgid "Unit function list"
+msgstr "Lista e funksioneve të njësisë"
+
+msgid "Positions"
+msgstr "Pozicionet"
+
+msgid "Competency search"
+msgstr "Kërkim aftësie"
+
+msgid "Organizational chart"
+msgstr "Diagrami organizativ"
+
+msgid "Function-unit association"
+msgstr "Lidhja funksion-njësi"
+
+msgid "Add association"
+msgstr "Shto lidhje"
+
+msgid "Edit association"
+msgstr "Ndrysho lidhje"
+
+msgid "Required skills"
+msgstr "Aftësitë e kërkuara"
+
+msgid "Add skill requirement"
+msgstr "Shto kërkesë aftësie"
+
+msgid "Add position"
+msgstr "Shto pozicion"
+
+msgid "Edit position"
+msgstr "Ndrysho pozicion"
+
+msgid "Position title"
+msgstr "Titulli i pozicionit"
+
+msgid "Staff member"
+msgstr "Anëtar i stafit"
+
+msgid "Is manager/boss"
+msgstr "Është menaxher/shef"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Shef"
+
+msgid "Headcount"
+msgstr "Numri i kokave"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Zgjidh një njësi për të parë shpërndarjen e numrit të kokave"
+
+msgid "Search by skill"
+msgstr "Kërko sipas aftësie"
+
+msgid "Search by function profile"
+msgstr "Kërko sipas profilit të funksionit"
+
+msgid "Compare two staff members"
+msgstr "Krahasoni dy punonjës"
+
+msgid "User vs. function profile"
+msgstr "Përdorues kundrejt profilit të funksionit"
+
+msgid "Skill(s)"
+msgstr "Aftësi(a)"
+
+msgid "Required level"
+msgstr "Niveli i kërkuar"
+
+msgid "Acquired level"
+msgstr "Niveli i fituar"
+
+msgid "Meets level"
+msgstr "I plotëson nivelin"
+
+msgid "Below required"
+msgstr "Më poshtë të kërkuarit"
+
+msgid "Missing"
+msgstr "Mungon"
+
+msgid "Searching…"
+msgstr "Duke kërkuar…"
+
+msgid "staff member(s) found"
+msgstr "punonjës të gjetur"
+
+msgid "Unit hierarchy"
+msgstr "Hierarkia e njësive"
+
+msgid "All staff"
+msgstr "Të gjithë punonjësit"
+
+msgid "This chart is not publicly available."
+msgstr "Ky grafik nuk është i disponueshëm publikisht."
+
+msgid "Failed to load chart data."
+msgstr "Deshtoi ngarkimi i të dhënave të grafikut."
+
+msgid "Parent function"
+msgstr "Funksioni prind"
+
+msgid "Add activity…"
+msgstr "Shto aktivitet…"
+
+msgid "Any level"
+msgstr "Çdo nivel"
+
+msgid "Geographic zone"
+msgstr "Zonë gjeografike"
+
+msgid "Required skills"
+msgstr "Aftësitë e kërkuara"
+

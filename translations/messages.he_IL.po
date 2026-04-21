@@ -34082,3 +34082,129 @@ msgstr "הנחיות גיוון"
 msgid "Social responsibility guidelines"
 msgstr "הנחיות אחריות חברתית"
 
+msgid "Professional functions"
+msgstr "פונקציות מקצועיות"
+
+msgid "Function-unit associations"
+msgstr "קשרי יחידה-פונקציה"
+
+msgid "Unit function list"
+msgstr "רשימת פונקציות יחידה"
+
+msgid "Positions"
+msgstr "תפקידים"
+
+msgid "Competency search"
+msgstr "חיפוש כישורים"
+
+msgid "Organizational chart"
+msgstr "תרשים ארגוני"
+
+msgid "Function-unit association"
+msgstr "קשר יחידה-פונקציה"
+
+msgid "Add association"
+msgstr "הוספת קשר"
+
+msgid "Edit association"
+msgstr "עריכת קשר"
+
+msgid "Required skills"
+msgstr "מיומנויות נדרשות"
+
+msgid "Add skill requirement"
+msgstr "הוספת דרישת כישור"
+
+msgid "Add position"
+msgstr "הוספת תפקיד"
+
+msgid "Edit position"
+msgstr "עריכת תפקיד"
+
+msgid "Position title"
+msgstr "כותרת תפקיד"
+
+msgid "Staff member"
+msgstr "עובד"
+
+msgid "Is manager/boss"
+msgstr "מנהל/בוס"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "בוס"
+
+msgid "Headcount"
+msgstr "מספר עובדים"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "בחר יחידה כדי לראות חלוקת מספר עובדים"
+
+msgid "Search by skill"
+msgstr "חיפוש לפי כישור"
+
+msgid "Search by function profile"
+msgstr "חיפוש לפי פרופיל תפקיד"
+
+msgid "Compare two staff members"
+msgstr "השוואת שני עובדים"
+
+msgid "User vs. function profile"
+msgstr "משתמש לעומת פרופיל תפקיד"
+
+msgid "Skill(s)"
+msgstr "כישור(ים)"
+
+msgid "Required level"
+msgstr "רמה נדרשת"
+
+msgid "Acquired level"
+msgstr "רמה נרכשת"
+
+msgid "Meets level"
+msgstr "עומד ברמה"
+
+msgid "Below required"
+msgstr "מתחת לנדרש"
+
+msgid "Missing"
+msgstr "חסר"
+
+msgid "Searching…"
+msgstr "מחפש…"
+
+msgid "staff member(s) found"
+msgstr "עובד(ים) נמצאו"
+
+msgid "Unit hierarchy"
+msgstr "היררכיית יחידות"
+
+msgid "All staff"
+msgstr "כל העובדים"
+
+msgid "This chart is not publicly available."
+msgstr "תרשים זה אינו זמין לציבור."
+
+msgid "Failed to load chart data."
+msgstr "נכשל בטעינת נתוני התרשים."
+
+msgid "Parent function"
+msgstr "פונקציית אב"
+
+msgid "Add activity…"
+msgstr "הוסף פעילות…"
+
+msgid "Any level"
+msgstr "כל רמה"
+
+msgid "Geographic zone"
+msgstr "אזור גיאוגרפי"
+
+msgid "Required skills"
+msgstr "מיומנויות נדרשות"
+

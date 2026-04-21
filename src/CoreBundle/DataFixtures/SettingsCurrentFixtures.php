@@ -3810,6 +3810,19 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'comment' => 'This setting defines the extra user field key (e.g., "company") that will be used to search for users and to define the name of the session when registering students from /admin-dashboard/register.',
                 ],
             ],
+            // Chamilo HR extension
+            'hr' => [
+                [
+                    'name' => 'skills_orga_unit_public',
+                    'title' => 'Make organisational unit chart public',
+                    'comment' => 'When enabled, the organisational unit hierarchy chart tab is accessible without login.',
+                ],
+                [
+                    'name' => 'skills_orga_people_public',
+                    'title' => 'Make organisational people chart public',
+                    'comment' => 'When enabled, the all-staff organisational chart tab is accessible without login.',
+                ],
+            ],
         ];
     }
 }

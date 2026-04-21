@@ -33977,7 +33977,7 @@ msgid "Coordinates"
 msgstr "Պատկոցներ"
 
 msgid "HR Dashboard"
-msgstr "HR Dashboard"
+msgstr "Աշխատակազմի վահանակ"
 
 msgid "Staff"
 msgstr "Աշխատակիցներ"
@@ -34068,4 +34068,130 @@ msgstr "Բազմազավթության ուղեցույցներ"
 
 msgid "Social responsibility guidelines"
 msgstr "Սոցիալական պատասխանատվության ուղեցույցներ"
+
+msgid "Professional functions"
+msgstr "Մասնագիտական գործառույթներ"
+
+msgid "Function-unit associations"
+msgstr "Գործառույթ-միավոր կապեր"
+
+msgid "Unit function list"
+msgstr "Միավորի գործառույթների ցուցակ"
+
+msgid "Positions"
+msgstr "Թափանցիկ պաշտոններ"
+
+msgid "Competency search"
+msgstr "Կարողությունների որոնում"
+
+msgid "Organizational chart"
+msgstr "Կազմակերպչական սխեմա"
+
+msgid "Function-unit association"
+msgstr "Գործառույթ-միավոր կապ"
+
+msgid "Add association"
+msgstr "Ավելացնել կապ"
+
+msgid "Edit association"
+msgstr "Խմբագրել կապը"
+
+msgid "Required skills"
+msgstr "Պահանջվող վերջինակներ"
+
+msgid "Add skill requirement"
+msgstr "Ավելացնել հմտության պահանջ"
+
+msgid "Add position"
+msgstr "Ավելացնել պաշտոն"
+
+msgid "Edit position"
+msgstr "Խմբագրել պաշտոնը"
+
+msgid "Position title"
+msgstr "Պաշտոնի վերնագիր"
+
+msgid "Staff member"
+msgstr "Աշխատակից"
+
+msgid "Is manager/boss"
+msgstr "Մենեջեր/ղեկավար է"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Ղեկավար"
+
+msgid "Headcount"
+msgstr "Աշխատակիցների թիվ"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Ընտրեք միավոր՝ աշխատակիցների բաշխումը տեսնելու համար"
+
+msgid "Search by skill"
+msgstr "Որոնել հմտությամբ"
+
+msgid "Search by function profile"
+msgstr "Որոնել գործառույթի профիլով"
+
+msgid "Compare two staff members"
+msgstr "Համեմատել երկու աշխատակիցներ"
+
+msgid "User vs. function profile"
+msgstr "Օգտատեր ընդդեմ գործառույթի профիլի"
+
+msgid "Skill(s)"
+msgstr "Վերջինակ(s)"
+
+msgid "Required level"
+msgstr "Պահանջվող մակարդակ"
+
+msgid "Acquired level"
+msgstr "Ձեռքբերված մակարդակ"
+
+msgid "Meets level"
+msgstr "Համապատասխանում է մակարդակին"
+
+msgid "Below required"
+msgstr "Ցածր պահանջվողից"
+
+msgid "Missing"
+msgstr "Բացակայում է"
+
+msgid "Searching…"
+msgstr "Որոնում…"
+
+msgid "staff member(s) found"
+msgstr "գտնված անձնակազմի անդամ(ներ)"
+
+msgid "Unit hierarchy"
+msgstr "Միավորի հիերարխիա"
+
+msgid "All staff"
+msgstr "Ամբողջ անձնակազմը"
+
+msgid "This chart is not publicly available."
+msgstr "Այս գծապատկերը հանրային հասանելի չէ:"
+
+msgid "Failed to load chart data."
+msgstr "Չհաջողվեց բեռնել գծապատկերի տվյալները:"
+
+msgid "Parent function"
+msgstr "Հայրական ֆունկցիա"
+
+msgid "Add activity…"
+msgstr "Ավելացնել գործունեություն…"
+
+msgid "Any level"
+msgstr "Ցանկացած մակարդակ"
+
+msgid "Geographic zone"
+msgstr "Երկրաբանական գոտի"
+
+msgid "Required skills"
+msgstr "Պահանջվող վերջինակներ"
 

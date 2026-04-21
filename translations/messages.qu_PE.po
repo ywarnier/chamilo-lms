@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "Allin kuyaywan"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Rurasqa rakiy: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Ruraynikuna ñawpaq: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Sutikuna umu"
@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":ari:copyright nisqawan,, mana:mana copyright nisqawan"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Puqyu,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Phuqllana,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:ejercicio,,      simulation:simulación,,      questionnaire:cuestionario,,      diagram:diagrama,,      figure:figura,,      graph:gráfico,,      index:índice,,      slide:diapositiva,,      table:tabla,,      narrative text:texto narrativo,,      exam:examen,,      experiment:experiencia,,      problem statement:problema,,      self assessment:autoevaluación,,      lecture:presentación"
@@ -34070,4 +34070,130 @@ msgstr "Qhananchakuy ruraykuna"
 
 msgid "Social responsibility guidelines"
 msgstr "Qamqallaykuy ruraykuna"
+
+msgid "Professional functions"
+msgstr "Yachay kamachiyninkuna"
+
+msgid "Function-unit associations"
+msgstr "Ruray - hina hutichakuna"
+
+msgid "Unit function list"
+msgstr "Hina ruray q'illqay"
+
+msgid "Positions"
+msgstr "Kamachiyninkuna"
+
+msgid "Competency search"
+msgstr "Yachaykuna rikunki"
+
+msgid "Organizational chart"
+msgstr "Kamachikuna rurana"
+
+msgid "Function-unit association"
+msgstr "Ruray - hina hutichay"
+
+msgid "Add association"
+msgstr "Hutichay yapaspa"
+
+msgid "Edit association"
+msgstr "Hutichay llamk'achiy"
+
+msgid "Required skills"
+msgstr "Kutichisqa yachaykuna"
+
+msgid "Add skill requirement"
+msgstr "Yachay munay yapaspa"
+
+msgid "Add position"
+msgstr "Hina yapaspa"
+
+msgid "Edit position"
+msgstr "Hina llamk'achiy"
+
+msgid "Position title"
+msgstr "Hina sutin"
+
+msgid "Staff member"
+msgstr "Kamachiq"
+
+msgid "Is manager/boss"
+msgstr "Kamachiq / Jatun kamachiq"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Jatun kamachiq"
+
+msgid "Headcount"
+msgstr "Runakuna hamut'ay"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Runakuna hamut'ay raphiyna hina akllay"
+
+msgid "Search by skill"
+msgstr "Yachaypaq rikunki"
+
+msgid "Search by function profile"
+msgstr "Ruray perfilpaq rikunki"
+
+msgid "Compare two staff members"
+msgstr "Iskay kamachiqta raphiyna"
+
+msgid "User vs. function profile"
+msgstr "Ruraq vs. ruray perfil"
+
+msgid "Skill(s)"
+msgstr "Yachaykuna"
+
+msgid "Required level"
+msgstr "Munay sapañan"
+
+msgid "Acquired level"
+msgstr "Chaskisqa sapañan"
+
+msgid "Meets level"
+msgstr "Sapañanta qhapaq"
+
+msgid "Below required"
+msgstr "Kutichisqanmanta qhapaq"
+
+msgid "Missing"
+msgstr "Ñawpaq"
+
+msgid "Searching…"
+msgstr "Rispaspa…"
+
+msgid "staff member(s) found"
+msgstr "kamachisqakuna rikhurqan"
+
+msgid "Unit hierarchy"
+msgstr "Unidadnin simi"
+
+msgid "All staff"
+msgstr "Tukuy kamachisqakuna"
+
+msgid "This chart is not publicly available."
+msgstr "Kay tablanqa manam pukaqllawan rikhurqanchu."
+
+msgid "Failed to load chart data."
+msgstr "Mana allinmi kay tablata carganapaq."
+
+msgid "Parent function"
+msgstr "Maway funcion"
+
+msgid "Add activity…"
+msgstr "Rurayta yapasqa…"
+
+msgid "Any level"
+msgstr "Huknalla suyumanta"
+
+msgid "Geographic zone"
+msgstr "Pacha suyu"
+
+msgid "Required skills"
+msgstr "Kutichisqa yachaykuna"
 

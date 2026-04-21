@@ -34070,3 +34070,129 @@ msgstr "Diversity guidelines"
 
 msgid "Social responsibility guidelines"
 msgstr "Social responsibility guidelines"
+
+msgid "Professional functions"
+msgstr "Professional functions"
+
+msgid "Function-unit associations"
+msgstr "Function-unit associations"
+
+msgid "Unit function list"
+msgstr "Unit function list"
+
+msgid "Positions"
+msgstr "Positions"
+
+msgid "Competency search"
+msgstr "Competency search"
+
+msgid "Organizational chart"
+msgstr "Organizational chart"
+
+msgid "Function-unit association"
+msgstr "Function-unit association"
+
+msgid "Add association"
+msgstr "Add association"
+
+msgid "Edit association"
+msgstr "Edit association"
+
+msgid "Required skills"
+msgstr "Required skills"
+
+msgid "Add skill requirement"
+msgstr "Add skill requirement"
+
+msgid "Add position"
+msgstr "Add position"
+
+msgid "Edit position"
+msgstr "Edit position"
+
+msgid "Position title"
+msgstr "Position title"
+
+msgid "Staff member"
+msgstr "Staff member"
+
+msgid "Is manager/boss"
+msgstr "Is manager/boss"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Boss"
+
+msgid "Headcount"
+msgstr "Headcount"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Select a unit to see headcount distribution"
+
+msgid "Search by skill"
+msgstr "Search by skill"
+
+msgid "Search by function profile"
+msgstr "Search by function profile"
+
+msgid "Compare two staff members"
+msgstr "Compare two staff members"
+
+msgid "User vs. function profile"
+msgstr "User vs. function profile"
+
+msgid "Skill(s)"
+msgstr "Skill(s)"
+
+msgid "Required level"
+msgstr "Required level"
+
+msgid "Acquired level"
+msgstr "Acquired level"
+
+msgid "Meets level"
+msgstr "Meets level"
+
+msgid "Below required"
+msgstr "Below required"
+
+msgid "Missing"
+msgstr "Missing"
+
+msgid "Searching…"
+msgstr "Searching…"
+
+msgid "staff member(s) found"
+msgstr "staff member(s) found"
+
+msgid "Unit hierarchy"
+msgstr "Unit hierarchy"
+
+msgid "All staff"
+msgstr "All staff"
+
+msgid "This chart is not publicly available."
+msgstr "This chart is not publicly available."
+
+msgid "Failed to load chart data."
+msgstr "Failed to load chart data."
+
+msgid "Parent function"
+msgstr "Parent function"
+
+msgid "Add activity…"
+msgstr "Add activity…"
+
+msgid "Any level"
+msgstr "Any level"
+
+msgid "Geographic zone"
+msgstr "Geographic zone"
+
+msgid "Required skills"
+msgstr "Required skills"

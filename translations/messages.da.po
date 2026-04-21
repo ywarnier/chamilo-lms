@@ -34071,3 +34071,129 @@ msgstr "Mangfoldighedsretningslinjer"
 msgid "Social responsibility guidelines"
 msgstr "Socialt ansvar-retningslinjer"
 
+msgid "Professional functions"
+msgstr "Professionelle funktioner"
+
+msgid "Function-unit associations"
+msgstr "Funktions-enhedsforbindelser"
+
+msgid "Unit function list"
+msgstr "Enhedsfunktionsliste"
+
+msgid "Positions"
+msgstr "Stillinger"
+
+msgid "Competency search"
+msgstr "Kompetencesøgning"
+
+msgid "Organizational chart"
+msgstr "Organisationsdiagram"
+
+msgid "Function-unit association"
+msgstr "Funktions-enhedsforbindelse"
+
+msgid "Add association"
+msgstr "Tilføj forbindelse"
+
+msgid "Edit association"
+msgstr "Redigér forbindelse"
+
+msgid "Required skills"
+msgstr "Påkrævede kompetencer"
+
+msgid "Add skill requirement"
+msgstr "Tilføj kompetencekrav"
+
+msgid "Add position"
+msgstr "Tilføj stilling"
+
+msgid "Edit position"
+msgstr "Redigér stilling"
+
+msgid "Position title"
+msgstr "Stillingstitel"
+
+msgid "Staff member"
+msgstr "Medarbejder"
+
+msgid "Is manager/boss"
+msgstr "Er leder/chef"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Chef"
+
+msgid "Headcount"
+msgstr "Headcount"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Vælg en enhed for at se headcount-fordeling"
+
+msgid "Search by skill"
+msgstr "Søg efter kompetence"
+
+msgid "Search by function profile"
+msgstr "Søg efter funktionsprofil"
+
+msgid "Compare two staff members"
+msgstr "Sammenlign to medarbejdere"
+
+msgid "User vs. function profile"
+msgstr "Bruger vs. funktionsprofil"
+
+msgid "Skill(s)"
+msgstr "Kompetence(r)"
+
+msgid "Required level"
+msgstr "Påkrævet niveau"
+
+msgid "Acquired level"
+msgstr "Opnået niveau"
+
+msgid "Meets level"
+msgstr "Opfylder niveau"
+
+msgid "Below required"
+msgstr "Under påkrævet"
+
+msgid "Missing"
+msgstr "Manglende"
+
+msgid "Searching…"
+msgstr "Søger…"
+
+msgid "staff member(s) found"
+msgstr "medarbejder(e) fundet"
+
+msgid "Unit hierarchy"
+msgstr "Enhedshierarki"
+
+msgid "All staff"
+msgstr "Alle medarbejdere"
+
+msgid "This chart is not publicly available."
+msgstr "Denne graf er ikke offentligt tilgængelig."
+
+msgid "Failed to load chart data."
+msgstr "Fejl ved indlæsning af grafdata."
+
+msgid "Parent function"
+msgstr "Overordnet funktion"
+
+msgid "Add activity…"
+msgstr "Tilføj aktivitet…"
+
+msgid "Any level"
+msgstr "Ethvert niveau"
+
+msgid "Geographic zone"
+msgstr "Geografisk zone"
+
+msgid "Required skills"
+msgstr "Påkrævede kompetencer"
+

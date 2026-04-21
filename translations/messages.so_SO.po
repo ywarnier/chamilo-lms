@@ -34065,3 +34065,129 @@ msgstr "Tilmaamaha kala duwanaanshaha"
 msgid "Social responsibility guidelines"
 msgstr "Tilmaamaha mas'uuliyadda bulshada"
 
+msgid "Professional functions"
+msgstr "Hawlo xirfadeed"
+
+msgid "Function-unit associations"
+msgstr "Xiriirka unug-funkshinka"
+
+msgid "Unit function list"
+msgstr "Liiska funkshinka unugga"
+
+msgid "Positions"
+msgstr "Jagooyinka"
+
+msgid "Competency search"
+msgstr "Raadiinta kartida"
+
+msgid "Organizational chart"
+msgstr "Jaantuska ururka"
+
+msgid "Function-unit association"
+msgstr "Xiriirka unug-funkshin"
+
+msgid "Add association"
+msgstr "Ku dar xiriirka"
+
+msgid "Edit association"
+msgstr "Tafatir xiriirka"
+
+msgid "Required skills"
+msgstr "Xirfadaha loo baahan yahay"
+
+msgid "Add skill requirement"
+msgstr "Ku dar shuruudda xirfadda"
+
+msgid "Add position"
+msgstr "Ku dar jago"
+
+msgid "Edit position"
+msgstr "Tafatir jago"
+
+msgid "Position title"
+msgstr "Ciwaanka jagooyinka"
+
+msgid "Staff member"
+msgstr "Xubinta shaqaalaha"
+
+msgid "Is manager/boss"
+msgstr "Waa maamule/madax"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Madax"
+
+msgid "Headcount"
+msgstr "Tirada shaqaalaha"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Dooro unug si aad u aragto qaybsanta tirada shaqaalaha"
+
+msgid "Search by skill"
+msgstr "Raadi xirfad"
+
+msgid "Search by function profile"
+msgstr "Raadi muuqaalka shaqada"
+
+msgid "Compare two staff members"
+msgstr "Isbarbardhig laba xubin shaqaale ah"
+
+msgid "User vs. function profile"
+msgstr "Isticmaale vs. muuqaalka shaqada"
+
+msgid "Skill(s)"
+msgstr "Xirfad(aha)"
+
+msgid "Required level"
+msgstr "Heerka loo baahan yahay"
+
+msgid "Acquired level"
+msgstr "Heerka la helay"
+
+msgid "Meets level"
+msgstr "Fuliya heerkan"
+
+msgid "Below required"
+msgstr "Ka hooseeya kan loo baahan yahay"
+
+msgid "Missing"
+msgstr "Ka maqan"
+
+msgid "Searching…"
+msgstr "Raadinaya…"
+
+msgid "staff member(s) found"
+msgstr "xubin(aha) shaqaale ah ayaa la helay"
+
+msgid "Unit hierarchy"
+msgstr "Silsiladda unugga"
+
+msgid "All staff"
+msgstr "Dhammaan shaqaalaha"
+
+msgid "This chart is not publicly available."
+msgstr "Jaantarkani si dadweyne ah uma heli karo."
+
+msgid "Failed to load chart data."
+msgstr "Waan ku guuldareystay inaan raro xogta jaantarka."
+
+msgid "Parent function"
+msgstr "Shaqa shaqada hooyada"
+
+msgid "Add activity…"
+msgstr "Ku dar waxqabad…"
+
+msgid "Any level"
+msgstr "Heer kasta"
+
+msgid "Geographic zone"
+msgstr "Aagga Juquraafiyeed"
+
+msgid "Required skills"
+msgstr "Xirfadaha loo baahan yahay"
+

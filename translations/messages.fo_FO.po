@@ -34065,3 +34065,129 @@ msgstr "Fjölbreytnislóanir"
 msgid "Social responsibility guidelines"
 msgstr "Lóanir um felagsansvar"
 
+msgid "Professional functions"
+msgstr "Starvsstøðuvirkna"
+
+msgid "Function-unit associations"
+msgstr "Virki-einingar samtilfar"
+
+msgid "Unit function list"
+msgstr "Listi yvir einingarvirki"
+
+msgid "Positions"
+msgstr "Støður"
+
+msgid "Competency search"
+msgstr "Leita eftir kompetensum"
+
+msgid "Organizational chart"
+msgstr "Støðuskipan"
+
+msgid "Function-unit association"
+msgstr "Virki-einingar samtilfar"
+
+msgid "Add association"
+msgstr "Legg samtilfar afturat"
+
+msgid "Edit association"
+msgstr "Broyt samtilfar"
+
+msgid "Required skills"
+msgstr "Kravdug fíggindi"
+
+msgid "Add skill requirement"
+msgstr "Legg krav til fíggindi afturat"
+
+msgid "Add position"
+msgstr "Legg støðu afturat"
+
+msgid "Edit position"
+msgstr "Broyt støðu"
+
+msgid "Position title"
+msgstr "Støðuheiti"
+
+msgid "Staff member"
+msgstr "Starvsmaður"
+
+msgid "Is manager/boss"
+msgstr "Er yvirmann/chef"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Yvirmannur"
+
+msgid "Headcount"
+msgstr "Mannatal"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Vel ein einingu at síggja mannatalsdreingir"
+
+msgid "Search by skill"
+msgstr "Leita eftir fíggindum"
+
+msgid "Search by function profile"
+msgstr "Leita eftir virkiprofli"
+
+msgid "Compare two staff members"
+msgstr "Ber tveir starvsmonnur saman"
+
+msgid "User vs. function profile"
+msgstr "Brúkari móti virkiprofli"
+
+msgid "Skill(s)"
+msgstr "Fíggindi"
+
+msgid "Required level"
+msgstr "Kravd stig"
+
+msgid "Acquired level"
+msgstr "Náð stig"
+
+msgid "Meets level"
+msgstr "Neytir stigið"
+
+msgid "Below required"
+msgstr "Undir kravdugum"
+
+msgid "Missing"
+msgstr "Mangi"
+
+msgid "Searching…"
+msgstr "Leiti…"
+
+msgid "staff member(s) found"
+msgstr "starvsmonnur funnin"
+
+msgid "Unit hierarchy"
+msgstr "Einingarhierarkii"
+
+msgid "All staff"
+msgstr "Allir starvsmonnur"
+
+msgid "This chart is not publicly available."
+msgstr "Hendan talvan er ikki almennt tøk."
+
+msgid "Failed to load chart data."
+msgstr "Miseyknað at lesa talvuupplýsingar."
+
+msgid "Parent function"
+msgstr "Foreldurvirki"
+
+msgid "Add activity…"
+msgstr "Legg virksemi afturat…"
+
+msgid "Any level"
+msgstr "Hvat helst stig"
+
+msgid "Geographic zone"
+msgstr "Geografisk svøð"
+
+msgid "Required skills"
+msgstr "Kravdug fíggindi"
+

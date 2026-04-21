@@ -2017,7 +2017,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:autorské právo,, no:bez autorského práva"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Složka,, application/msword:MsWord,, application/octet-stream:Okteťový proud,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Složka,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:cvičení,,      simulation:simulace,,      questionnaire:dotazník,,      diagram:diagram,,      figure:obrázek,,      graph:graf,,      index:index,,      slide:slide,,      table:tabulka,,      narrative text:narrativní text,,      exam:zkouška,,      experiment:experiment,,      problem statement:zadání problému,,      self assessment:sám sebehodnocení,,      lecture:přednáška"
@@ -34064,4 +34064,130 @@ msgstr "Směrnice pro diverzitu"
 
 msgid "Social responsibility guidelines"
 msgstr "Směrnice společenské odpovědnosti"
+
+msgid "Professional functions"
+msgstr "Profesní funkce"
+
+msgid "Function-unit associations"
+msgstr "Asociace funkce-jednotky"
+
+msgid "Unit function list"
+msgstr "Seznam funkcí jednotky"
+
+msgid "Positions"
+msgstr "Pozice"
+
+msgid "Competency search"
+msgstr "Vyhledávání kompetencí"
+
+msgid "Organizational chart"
+msgstr "Organizační schéma"
+
+msgid "Function-unit association"
+msgstr "Asociace funkce-jednotky"
+
+msgid "Add association"
+msgstr "Přidat asociaci"
+
+msgid "Edit association"
+msgstr "Upravit asociaci"
+
+msgid "Required skills"
+msgstr "Požadované dovednosti"
+
+msgid "Add skill requirement"
+msgstr "Přidat požadavek na dovednost"
+
+msgid "Add position"
+msgstr "Přidat pozici"
+
+msgid "Edit position"
+msgstr "Upravit pozici"
+
+msgid "Position title"
+msgstr "Název pozice"
+
+msgid "Staff member"
+msgstr "Zaměstnanec"
+
+msgid "Is manager/boss"
+msgstr "Je manažer/šéf"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Šéf"
+
+msgid "Headcount"
+msgstr "Počet zaměstnanců"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Vyberte jednotku pro zobrazení distribuce počtu zaměstnanců"
+
+msgid "Search by skill"
+msgstr "Hledat podle dovednosti"
+
+msgid "Search by function profile"
+msgstr "Hledat podle funkčního profilu"
+
+msgid "Compare two staff members"
+msgstr "Porovnat dva zaměstnance"
+
+msgid "User vs. function profile"
+msgstr "Uživatel vs. funkční profil"
+
+msgid "Skill(s)"
+msgstr "Dovednost(i)"
+
+msgid "Required level"
+msgstr "Požadovaná úroveň"
+
+msgid "Acquired level"
+msgstr "Získaná úroveň"
+
+msgid "Meets level"
+msgstr "Splňuje úroveň"
+
+msgid "Below required"
+msgstr "Pod požadavkem"
+
+msgid "Missing"
+msgstr "Chybí"
+
+msgid "Searching…"
+msgstr "Hledání…"
+
+msgid "staff member(s) found"
+msgstr "zaměstnanec(ů) nalezeno"
+
+msgid "Unit hierarchy"
+msgstr "Hierarchie jednotek"
+
+msgid "All staff"
+msgstr "Všichni zaměstnanci"
+
+msgid "This chart is not publicly available."
+msgstr "Tento graf není veřejně dostupný."
+
+msgid "Failed to load chart data."
+msgstr "Nepodařilo se načíst data grafu."
+
+msgid "Parent function"
+msgstr "Nadřazená funkce"
+
+msgid "Add activity…"
+msgstr "Přidat aktivitu…"
+
+msgid "Any level"
+msgstr "Jakákoli úroveň"
+
+msgid "Geographic zone"
+msgstr "Geografická zóna"
+
+msgid "Required skills"
+msgstr "Požadované dovednosti"
 

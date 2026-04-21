@@ -34070,3 +34070,129 @@ msgstr "Įvairovės gairės"
 msgid "Social responsibility guidelines"
 msgstr "Socialinės atsakomybės gairės"
 
+msgid "Professional functions"
+msgstr "Profesinės funkcijos"
+
+msgid "Function-unit associations"
+msgstr "Funkcijos ir padalinio asociacijos"
+
+msgid "Unit function list"
+msgstr "Padalinio funkcijų sąrašas"
+
+msgid "Positions"
+msgstr "Pareigos"
+
+msgid "Competency search"
+msgstr "Kompetencijų paieška"
+
+msgid "Organizational chart"
+msgstr "Organizacijos schema"
+
+msgid "Function-unit association"
+msgstr "Funkcijos ir padalinio asociacija"
+
+msgid "Add association"
+msgstr "Pridėti asociaciją"
+
+msgid "Edit association"
+msgstr "Redaguoti asociaciją"
+
+msgid "Required skills"
+msgstr "Reikalingi įgūdžiai"
+
+msgid "Add skill requirement"
+msgstr "Pridėti įgūdžio reikalavimą"
+
+msgid "Add position"
+msgstr "Pridėti pareigas"
+
+msgid "Edit position"
+msgstr "Redaguoti pareigas"
+
+msgid "Position title"
+msgstr "Pareigų pavadinimas"
+
+msgid "Staff member"
+msgstr "Darbuotojas"
+
+msgid "Is manager/boss"
+msgstr "Yra vadovas/vadovė"
+
+msgid "FTE"
+msgstr "FTE"
+
+msgid "FTE (0–1)"
+msgstr "FTE (0–1)"
+
+msgid "Boss"
+msgstr "Vadovas"
+
+msgid "Headcount"
+msgstr "Etatų skaičius"
+
+msgid "Select a unit to see headcount distribution"
+msgstr "Pasirinkite padalinį, kad pamatytumėte etatų paskirstymą"
+
+msgid "Search by skill"
+msgstr "Ieškoti pagal įgūdį"
+
+msgid "Search by function profile"
+msgstr "Ieškoti pagal funkcijos profilį"
+
+msgid "Compare two staff members"
+msgstr "Palyginti du darbuotojus"
+
+msgid "User vs. function profile"
+msgstr "Vartotojas prieš funkcijos profilį"
+
+msgid "Skill(s)"
+msgstr "Įgūdis(-iai)"
+
+msgid "Required level"
+msgstr "Reikalingas lygis"
+
+msgid "Acquired level"
+msgstr "Įgytas lygis"
+
+msgid "Meets level"
+msgstr "Atitinka lygį"
+
+msgid "Below required"
+msgstr "Žemiau reikalingo"
+
+msgid "Missing"
+msgstr "Trūksta"
+
+msgid "Searching…"
+msgstr "Ieškoma…"
+
+msgid "staff member(s) found"
+msgstr "rasta darbuotojų"
+
+msgid "Unit hierarchy"
+msgstr "Padalinio hierarchija"
+
+msgid "All staff"
+msgstr "Visi darbuotojai"
+
+msgid "This chart is not publicly available."
+msgstr "Šis diagramos nėra viešai prieinama."
+
+msgid "Failed to load chart data."
+msgstr "Nepavyko įkelti diagramos duomenų."
+
+msgid "Parent function"
+msgstr "Tėvinė funkcija"
+
+msgid "Add activity…"
+msgstr "Pridėti veiklą…"
+
+msgid "Any level"
+msgstr "Bet koks lygis"
+
+msgid "Geographic zone"
+msgstr "Geografinė zona"
+
+msgid "Required skills"
+msgstr "Reikalingi įgūdžiai"
+
