@@ -7669,7 +7669,7 @@ msgid "Please type your text below"
 msgstr "Nceda uchwethezele isicatshulwa sakho apha ezantsi"
 
 msgid "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Example fill the form activity : calculate the Body Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Age</strong></td>            <td width=\"75%\" style=\"\">[25] years old</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Sex</strong></td>            <td style=\"\" text-align:=\"\">[M] (M or F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Weight</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Height</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Weight/Size<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
-msgstr "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Umzekelo wokuzalisa ifomu lomsebenzi : bala iBody Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubudala</strong></td>            <td width=\"75%\" style=\"\">[25] iminyaka</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Isini</strong></td>            <td style=\"\" text-align:=\"\">[M] (M okanye F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubunzima</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong Ubude</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Ubunzima/Ubude<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
+msgstr "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Umzekelo wokugcwalisa ifomu lomsebenzi : bala iBody Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubudala</strong></td>            <td width=\"75%\" style=\"\">[25] iminyaka</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Isini</strong></td>            <td style=\"\" text-align:=\"\">[M] (M okanye F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubunzima</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong Ubude</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Ubunzima/Ubude<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
 
 msgid "Note down the address"
 msgstr "Bhala idilesi"
@@ -34190,4 +34190,81 @@ msgstr "Indawo yemimezelo"
 
 msgid "Required skills"
 msgstr "Izakhono ezifunwayo"
+msgid "Social Responsibility"
+msgstr "Uxanduva loLuntu"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Izimviselo zethu kwiinjongo zoPhuhliso oluzinzileyo lweNhlangano yoMdiliya"
+
+msgid "No published SDG commitments yet."
+msgstr "Akukho zimviselo SDG zipapashiweyo okwangoku."
+
+msgid "SDG Goals"
+msgstr "Iinjongo ze-SDG"
+
+msgid "Enforcement"
+msgstr "Ukunyanzeliswa"
+
+msgid "Translate"
+msgstr "Guqula"
+
+msgid "No AI provider configured"
+msgstr "Akukho mnikezeli we-AI oqwalaselweyo"
+
+msgid "Translate this goal to another language"
+msgstr "Guqula le njongo kwesinye ulwimi"
+
+msgid "Change history"
+msgstr "Mbali yotshintsho"
+
+msgid "No history yet."
+msgstr "Akukho mbali ncam yet."
+
+msgid "Translation ready — please review before saving."
+msgstr "Uguqulwa lufundiswe — nceda uhlolisise ngaphambi kokugcina."
+
+msgid "Target language"
+msgstr "Ulwimi olufunwayo"
+
+msgid "Translate SDG %s"
+msgstr "Guqula i-SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Guqula inkcazo kunye nokunyanzeliswa okuvela"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Oku kuya kugcinwa njenge-%s version entsha ye-SDG %s."
+
+msgid "Confirm and save"
+msgstr "Qinisekisa kwaye gcina"
+
+msgid "Translation failed."
+msgstr "Uguqulwa lwasilela."
+
+msgid "Select a goal from the sidebar."
+msgstr "Khetha injongo kwi-sidebar."
+
+msgid "Unpublished"
+msgstr "Ayapapashwa"
+
+msgid "to:"
+msgstr "kuya:"
+
+msgid "— select a language —"
+msgstr "— khetha ulwimi —"
+
+msgid "Add translation"
+msgstr "Faka uguqulelo"
+
+msgid "Add a manual translation"
+msgstr "Faka uguqulelo ngokwaziso"
+
+msgid "Translate with AI"
+msgstr "Guqula nge-AI"
+
+msgid "Enter manually"
+msgstr "Faka ngokwaziso"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Akukho mnikezeli we-AI text oqwalaselweyo. Nceda uqwalasele enye kwizicwangqiso ze-AI."
 

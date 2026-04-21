@@ -34190,4 +34190,81 @@ msgstr "Zône geogràfiche"
 
 msgid "Required skills"
 msgstr "Cumpetence desîadis"
+msgid "Social Responsibility"
+msgstr ""
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr ""
+
+msgid "No published SDG commitments yet."
+msgstr ""
+
+msgid "SDG Goals"
+msgstr ""
+
+msgid "Enforcement"
+msgstr ""
+
+msgid "Translate"
+msgstr ""
+
+msgid "No AI provider configured"
+msgstr ""
+
+msgid "Translate this goal to another language"
+msgstr ""
+
+msgid "Change history"
+msgstr ""
+
+msgid "No history yet."
+msgstr ""
+
+msgid "Translation ready — please review before saving."
+msgstr ""
+
+msgid "Target language"
+msgstr ""
+
+msgid "Translate SDG %s"
+msgstr ""
+
+msgid "Translate the description and enforcement from"
+msgstr ""
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr ""
+
+msgid "Confirm and save"
+msgstr "Conferme e salva"
+
+msgid "Translation failed."
+msgstr "Traduzion falîe."
+
+msgid "Select a goal from the sidebar."
+msgstr "Scealt un objectîf dal bar lateral."
+
+msgid "Unpublished"
+msgstr "Non publicât"
+
+msgid "to:"
+msgstr "a:"
+
+msgid "— select a language —"
+msgstr "— sèlet une lenghe —"
+
+msgid "Add translation"
+msgstr "Zovê une tradussion"
+
+msgid "Add a manual translation"
+msgstr "Zovê une tradussion manuale"
+
+msgid "Translate with AI"
+msgstr "Traduis cun IA"
+
+msgid "Enter manually"
+msgstr "Inserîs manualment"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Nissun fornidor di test AI jè configurât. Ples configurâ un in lis impostazions AI."
 

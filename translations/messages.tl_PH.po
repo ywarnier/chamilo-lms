@@ -34188,6 +34188,81 @@ msgstr "Anumang antas"
 msgid "Geographic zone"
 msgstr "Heograpikal na zone"
 
-msgid "Required skills"
-msgstr "Kinakailangang kasanayan"
+msgid "Social Responsibility"
+msgstr "Pananagutan sa Lipunan"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Ang aming mga pangako sa mga Layunin ng UN para sa Napapanatiling Pag-unlad"
+
+msgid "No published SDG commitments yet."
+msgstr "Walang nailathalang pangako sa SDG pa."
+
+msgid "SDG Goals"
+msgstr "Mga Layunin ng SDG"
+
+msgid "Enforcement"
+msgstr "Pagpapatupad"
+
+msgid "Translate"
+msgstr "Isalin"
+
+msgid "No AI provider configured"
+msgstr "Walang nakonfigurang tagapagbigay ng AI"
+
+msgid "Translate this goal to another language"
+msgstr "Isalin ang layuning ito sa ibang wika"
+
+msgid "Change history"
+msgstr "Kasaysayan ng pagbabago"
+
+msgid "No history yet."
+msgstr "Walang kasaysayan pa."
+
+msgid "Translation ready — please review before saving."
+msgstr "Handa na ang pagsasalin — mangyaring suriin bago i-save."
+
+msgid "Target language"
+msgstr "Wika ng target"
+
+msgid "Translate SDG %s"
+msgstr "Isalin ang SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Isalin ang deskripsyon at pagpapatupad mula sa"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "I-save ito bilang bagong %s bersyon ng SDG %s."
+
+msgid "Confirm and save"
+msgstr "Kumpirmahin at i-save"
+
+msgid "Translation failed."
+msgstr "Nabigo ang pagsasalin."
+
+msgid "Select a goal from the sidebar."
+msgstr "Pumili ng layunin mula sa sidebar."
+
+msgid "Unpublished"
+msgstr "Hindi nailathala"
+
+msgid "to:"
+msgstr "sa:"
+
+msgid "— select a language —"
+msgstr "— piliin ang wika —"
+
+msgid "Add translation"
+msgstr "Magdagdag ng salin"
+
+msgid "Add a manual translation"
+msgstr "Magdagdag ng manuwal na salin"
+
+msgid "Translate with AI"
+msgstr "Isalin gamit ang AI"
+
+msgid "Enter manually"
+msgstr "Ipasok nang manuano"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Walang nakonfigurang AI text provider. Mangyaring i-configure ito sa mga setting ng AI."
 

@@ -20,6 +20,7 @@ import accessUrlRoutes from "./accessurl"
 import branchRoutes from "./branch"
 import roomRoutes from "./room"
 import hrRoutes from "./hr"
+import sdgRoutes from "./sdg"
 
 //import courseCategoryRoutes from './coursecategory';
 import documents from "./documents"
@@ -350,6 +351,7 @@ const router = createRouter({
       meta: { showBreadcrumb: false },
       component: () => import("../views/hr/OrgChartView.vue"),
     },
+    sdgRoutes,
   ],
 })
 

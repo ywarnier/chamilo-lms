@@ -34196,4 +34196,81 @@ msgstr "Coğrafi bölge"
 
 msgid "Required skills"
 msgstr "Gerekli beceriler"
+msgid "Social Responsibility"
+msgstr "Sosyal Sorumluluk"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "BM Sürdürülebilir Kalkınma Hedeflerine Verdiğimiz Taahhütler"
+
+msgid "No published SDG commitments yet."
+msgstr "Henüz yayınlanmış SKH taahhüdü yok."
+
+msgid "SDG Goals"
+msgstr "SKH Hedefleri"
+
+msgid "Enforcement"
+msgstr "Uygulama"
+
+msgid "Translate"
+msgstr "Çevir"
+
+msgid "No AI provider configured"
+msgstr "Yapılandırılmış AI sağlayıcısı yok"
+
+msgid "Translate this goal to another language"
+msgstr "Bu hedefi başka bir dile çevirin"
+
+msgid "Change history"
+msgstr "Değişiklik geçmişi"
+
+msgid "No history yet."
+msgstr "Henüz geçmiş yok."
+
+msgid "Translation ready — please review before saving."
+msgstr "Çeviri hazır — kaydetmeden önce gözden geçirin."
+
+msgid "Target language"
+msgstr "Hedef dil"
+
+msgid "Translate SDG %s"
+msgstr "SKH %s'yi çevir"
+
+msgid "Translate the description and enforcement from"
+msgstr "Açıklama ve uygulamayı şu dilden çevir"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Bu, SKH %s'nin yeni bir %s sürümü olarak kaydedilecek."
+
+msgid "Confirm and save"
+msgstr "Onayla ve kaydet"
+
+msgid "Translation failed."
+msgstr "Çeviri başarısız oldu."
+
+msgid "Select a goal from the sidebar."
+msgstr "Kenar çubuğundan bir hedef seçin."
+
+msgid "Unpublished"
+msgstr "Yayınlanmamış"
+
+msgid "to:"
+msgstr "alıcı:"
+
+msgid "— select a language —"
+msgstr "— bir dil seçin —"
+
+msgid "Add translation"
+msgstr "Çeviri ekle"
+
+msgid "Add a manual translation"
+msgstr "Manuel çeviri ekle"
+
+msgid "Translate with AI"
+msgstr "Yapay zeka ile çevir"
+
+msgid "Enter manually"
+msgstr "Manuel gir"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Yapılandırılmış AI metin sağlayıcısı yok. Lütfen AI ayarlarında bir tane yapılandırın."
 

@@ -34196,4 +34196,81 @@ msgstr "Vùng địa lý"
 
 msgid "Required skills"
 msgstr "Kỹ năng bắt buộc"
+msgid "Social Responsibility"
+msgstr "Trách nhiệm Xã hội"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Cam kết của chúng tôi đối với Mục tiêu Phát triển Bền vững của Liên Hợp Quốc"
+
+msgid "No published SDG commitments yet."
+msgstr "Chưa có cam kết SDG nào được công bố."
+
+msgid "SDG Goals"
+msgstr "Mục tiêu SDG"
+
+msgid "Enforcement"
+msgstr "Thực thi"
+
+msgid "Translate"
+msgstr "Dịch"
+
+msgid "No AI provider configured"
+msgstr "Chưa cấu hình nhà cung cấp AI"
+
+msgid "Translate this goal to another language"
+msgstr "Dịch mục tiêu này sang ngôn ngữ khác"
+
+msgid "Change history"
+msgstr "Lịch sử thay đổi"
+
+msgid "No history yet."
+msgstr "Chưa có lịch sử."
+
+msgid "Translation ready — please review before saving."
+msgstr "Dịch sẵn sàng — vui lòng xem xét trước khi lưu."
+
+msgid "Target language"
+msgstr "Ngôn ngữ đích"
+
+msgid "Translate SDG %s"
+msgstr "Dịch SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Dịch mô tả và thực thi từ"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Sẽ được lưu dưới dạng phiên bản %s mới của SDG %s."
+
+msgid "Confirm and save"
+msgstr "Xác nhận và lưu"
+
+msgid "Translation failed."
+msgstr "Dịch thất bại."
+
+msgid "Select a goal from the sidebar."
+msgstr "Chọn một mục tiêu từ thanh bên."
+
+msgid "Unpublished"
+msgstr "Chưa xuất bản"
+
+msgid "to:"
+msgstr "đến:"
+
+msgid "— select a language —"
+msgstr "— chọn ngôn ngữ —"
+
+msgid "Add translation"
+msgstr "Thêm bản dịch"
+
+msgid "Add a manual translation"
+msgstr "Thêm bản dịch thủ công"
+
+msgid "Translate with AI"
+msgstr "Dịch bằng AI"
+
+msgid "Enter manually"
+msgstr "Nhập thủ công"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Chưa cấu hình nhà cung cấp văn bản AI. Vui lòng cấu hình một cái trong cài đặt AI."
 

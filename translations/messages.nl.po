@@ -36274,4 +36274,81 @@ msgstr "Geografische zone"
 
 msgid "Required skills"
 msgstr "Vereiste vaardigheden"
+msgid "Social Responsibility"
+msgstr "Maatschappelijke verantwoordelijkheid"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Onze commitments aan de VN Duurzame Ontwikkelingsdoelen"
+
+msgid "No published SDG commitments yet."
+msgstr "Nog geen gepubliceerde SDG-commitments."
+
+msgid "SDG Goals"
+msgstr "SDG-doelen"
+
+msgid "Enforcement"
+msgstr "Handhaving"
+
+msgid "Translate"
+msgstr "Vertalen"
+
+msgid "No AI provider configured"
+msgstr "Geen AI-provider geconfigureerd"
+
+msgid "Translate this goal to another language"
+msgstr "Vertaal dit doel naar een andere taal"
+
+msgid "Change history"
+msgstr "Wijzigingsgeschiedenis"
+
+msgid "No history yet."
+msgstr "Nog geen geschiedenis."
+
+msgid "Translation ready — please review before saving."
+msgstr "Vertaling gereed — controleer voor het opslaan."
+
+msgid "Target language"
+msgstr "Doeltaal"
+
+msgid "Translate SDG %s"
+msgstr "Vertaal SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Vertaal de beschrijving en handhaving van"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Dit wordt opgeslagen als een nieuwe %s-versie van SDG %s."
+
+msgid "Confirm and save"
+msgstr "Bevestigen en opslaan"
+
+msgid "Translation failed."
+msgstr "Vertaling mislukt."
+
+msgid "Select a goal from the sidebar."
+msgstr "Selecteer een doel vanuit de zijbalk."
+
+msgid "Unpublished"
+msgstr "Niet gepubliceerd"
+
+msgid "to:"
+msgstr "naar:"
+
+msgid "— select a language —"
+msgstr "— selecteer een taal —"
+
+msgid "Add translation"
+msgstr "Vertaling toevoegen"
+
+msgid "Add a manual translation"
+msgstr "Handmatige vertaling toevoegen"
+
+msgid "Translate with AI"
+msgstr "Vertaal met AI"
+
+msgid "Enter manually"
+msgstr "Handmatig invoeren"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Geen AI-tekstprovider geconfigureerd. Configureer er een in de AI-instellingen."
 

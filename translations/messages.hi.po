@@ -34190,4 +34190,81 @@ msgstr "भौगोलिक क्षेत्र"
 
 msgid "Required skills"
 msgstr "आवश्यक कौशल"
+msgid "Social Responsibility"
+msgstr "सामाजिक उत्तरदायित्व"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "संयुक्त राष्ट्र सतत विकास लक्ष्यों के प्रति हमारी प्रतिबद्धताएँ"
+
+msgid "No published SDG commitments yet."
+msgstr "अभी तक कोई प्रकाशित SDG प्रतिबद्धता नहीं।"
+
+msgid "SDG Goals"
+msgstr "SDG लक्ष्य"
+
+msgid "Enforcement"
+msgstr "प्रवर्तन"
+
+msgid "Translate"
+msgstr "अनुवाद करें"
+
+msgid "No AI provider configured"
+msgstr "कोई AI प्रदाता कॉन्फ़िगर नहीं किया गया"
+
+msgid "Translate this goal to another language"
+msgstr "इस लक्ष्य को किसी अन्य भाषा में अनुवाद करें"
+
+msgid "Change history"
+msgstr "परिवर्तन इतिहास"
+
+msgid "No history yet."
+msgstr "अभी तक कोई इतिहास नहीं।"
+
+msgid "Translation ready — please review before saving."
+msgstr "अनुवाद तैयार — सहेजने से पहले कृपया समीक्षा करें।"
+
+msgid "Target language"
+msgstr "लक्ष्य भाषा"
+
+msgid "Translate SDG %s"
+msgstr "SDG %s को अनुवाद करें"
+
+msgid "Translate the description and enforcement from"
+msgstr "विवरण और प्रवर्तन को अनुवाद करें"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "यह SDG %s का नया %s संस्करण के रूप में सहेजा जाएगा।"
+
+msgid "Confirm and save"
+msgstr "पुष्टि करें और सहेजें"
+
+msgid "Translation failed."
+msgstr "अनुवाद विफल।"
+
+msgid "Select a goal from the sidebar."
+msgstr "साइडबार से एक लक्ष्य चुनें।"
+
+msgid "Unpublished"
+msgstr "अप्रकाशित"
+
+msgid "to:"
+msgstr "को:"
+
+msgid "— select a language —"
+msgstr "— एक भाषा चुनें —"
+
+msgid "Add translation"
+msgstr "अनुवाद जोड़ें"
+
+msgid "Add a manual translation"
+msgstr "मैनुअल अनुवाद जोड़ें"
+
+msgid "Translate with AI"
+msgstr "AI से अनुवाद करें"
+
+msgid "Enter manually"
+msgstr "मैन्युअली दर्ज करें"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "कोई AI टेक्स्ट प्रदाता कॉन्फ़िगर नहीं है। कृपया AI सेटिंग्स में एक कॉन्फ़िगर करें।"
 

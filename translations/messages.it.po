@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "Cordialmente"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Formula di esempio: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Esempio di formula: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Intervalli variabili"
@@ -34210,4 +34210,81 @@ msgstr "Zona geografica"
 
 msgid "Required skills"
 msgstr "Competenze richieste"
+msgid "Social Responsibility"
+msgstr "Responsabilità sociale"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "I nostri impegni per gli Obiettivi di Sviluppo Sostenibile delle Nazioni Unite"
+
+msgid "No published SDG commitments yet."
+msgstr "Nessun impegno SDG pubblicato ancora."
+
+msgid "SDG Goals"
+msgstr "Obiettivi SDG"
+
+msgid "Enforcement"
+msgstr "Esecuzione"
+
+msgid "Translate"
+msgstr "Traduci"
+
+msgid "No AI provider configured"
+msgstr "Nessun fornitore AI configurato"
+
+msgid "Translate this goal to another language"
+msgstr "Traduci questo obiettivo in un'altra lingua"
+
+msgid "Change history"
+msgstr "Cronologia modifiche"
+
+msgid "No history yet."
+msgstr "Nessuna cronologia ancora."
+
+msgid "Translation ready — please review before saving."
+msgstr "Traduzione pronta — rivedere prima di salvare."
+
+msgid "Target language"
+msgstr "Lingua di destinazione"
+
+msgid "Translate SDG %s"
+msgstr "Traduci SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Traduci la descrizione e l'esecuzione da"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Verrà salvato come nuova versione %s di SDG %s."
+
+msgid "Confirm and save"
+msgstr "Conferma e salva"
+
+msgid "Translation failed."
+msgstr "Traduzione fallita."
+
+msgid "Select a goal from the sidebar."
+msgstr "Seleziona un obiettivo dalla barra laterale."
+
+msgid "Unpublished"
+msgstr "Non pubblicato"
+
+msgid "to:"
+msgstr "a:"
+
+msgid "— select a language —"
+msgstr "— seleziona una lingua —"
+
+msgid "Add translation"
+msgstr "Aggiungi traduzione"
+
+msgid "Add a manual translation"
+msgstr "Aggiungi una traduzione manuale"
+
+msgid "Translate with AI"
+msgstr "Traduci con AI"
+
+msgid "Enter manually"
+msgstr "Inserisci manualmente"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Nessun fornitore di testo AI è configurato. Configurarne uno nelle impostazioni AI."
 

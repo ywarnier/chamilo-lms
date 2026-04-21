@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:запазени права,, no:свободен"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Папка,, application/msword:MsWord,, application/octet-stream:Octet поток,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Папка,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:тест (упражнение),,      simulation:симулация,,      questionnaire:въпросник,,      diagram:диаграма,,      figure:фигура,,      graph:графика,,      index:индекс,,      slide:слайд,,      table:таблица,,      narrative text:обзор,,      exam:изпит,,      experiment:експеримент,,      problem statement:постановка на проблем,,      self assessment:самостоятелно оценяване,,      lecture:лекция"
@@ -34196,4 +34196,81 @@ msgstr "Географска зона"
 
 msgid "Required skills"
 msgstr "Изисквани умения"
+msgid "Social Responsibility"
+msgstr "Социална отговорност"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Нашите ангажименти към Целите за устойчивото развитие на ООН"
+
+msgid "No published SDG commitments yet."
+msgstr "Все още няма публикувани ангажименти за ЦУР."
+
+msgid "SDG Goals"
+msgstr "Цели ЦУР"
+
+msgid "Enforcement"
+msgstr "Накраняване"
+
+msgid "Translate"
+msgstr "Преведи"
+
+msgid "No AI provider configured"
+msgstr "Няма конфигуриран доставчик на ИИ"
+
+msgid "Translate this goal to another language"
+msgstr "Преведи тази цел на друг език"
+
+msgid "Change history"
+msgstr "История на промените"
+
+msgid "No history yet."
+msgstr "Все още няма история."
+
+msgid "Translation ready — please review before saving."
+msgstr "Преводът е готов — моля, прегледайте преди запазване."
+
+msgid "Target language"
+msgstr "Целеви език"
+
+msgid "Translate SDG %s"
+msgstr "Преведи ЦУР %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Преведи описанието и накраняването от"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Това ще бъде запазено като нова %s версия на ЦУР %s."
+
+msgid "Confirm and save"
+msgstr "Потвърди и запази"
+
+msgid "Translation failed."
+msgstr "Преводът неуспешен."
+
+msgid "Select a goal from the sidebar."
+msgstr "Изберете цел от страничното меню."
+
+msgid "Unpublished"
+msgstr "Непубликувано"
+
+msgid "to:"
+msgstr "към:"
+
+msgid "— select a language —"
+msgstr "— изберете език —"
+
+msgid "Add translation"
+msgstr "Добави превод"
+
+msgid "Add a manual translation"
+msgstr "Добави ръчен превод"
+
+msgid "Translate with AI"
+msgstr "Преведи с ИИ"
+
+msgid "Enter manually"
+msgstr "Въведи ръчно"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Няма конфигуриран доставчик на текст от ИИ. Моля, конфигурирайте един в настройките за ИИ."
 

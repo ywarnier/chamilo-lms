@@ -522,6 +522,24 @@ export function useSidebarMenu() {
       })
     }
 
+    if (securityStore.isAdmin || securityStore.isHRM) {
+      const hrItems = [
+        {
+          label: t("HR dashboard"),
+          route: { name: "HrIndex" },
+          icon: "mdi mdi-view-dashboard-outline",
+          class: "pl-4",
+        },
+      ]
+
+      items.push({
+        icon: "mdi mdi-account-hard-hat",
+        label: t("HR manager"),
+        items: hrItems,
+        expanded: isActive({ items: hrItems }),
+      })
+    }
+
     if (isMenuTabEnabled("platform_administration")) {
       if (securityStore.isAdmin || securityStore.isSessionAdmin) {
         const adminItems = [

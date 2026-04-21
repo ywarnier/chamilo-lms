@@ -34207,4 +34207,81 @@ msgstr "אזור גיאוגרפי"
 
 msgid "Required skills"
 msgstr "מיומנויות נדרשות"
+msgid "Social Responsibility"
+msgstr "אחריות חברתית"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "התחייבויותינו ליעדי הפיתוח בר קיימא של האו\"ם"
+
+msgid "No published SDG commitments yet."
+msgstr "אין עדיין התחייבויות SDG מפורסמות."
+
+msgid "SDG Goals"
+msgstr "יעדי SDG"
+
+msgid "Enforcement"
+msgstr "אכיפה"
+
+msgid "Translate"
+msgstr "תרגם"
+
+msgid "No AI provider configured"
+msgstr "אין ספק AI מוגדר"
+
+msgid "Translate this goal to another language"
+msgstr "תרגם יעד זה לשפה אחרת"
+
+msgid "Change history"
+msgstr "היסטוריית שינויים"
+
+msgid "No history yet."
+msgstr "אין היסטוריה עדיין."
+
+msgid "Translation ready — please review before saving."
+msgstr "תרגום מוכן — נא לעיין לפני השמירה."
+
+msgid "Target language"
+msgstr "שפת יעד"
+
+msgid "Translate SDG %s"
+msgstr "תרגם SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "תרגם את התיאור והאכיפה מ"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "זה יישמר כגרסה חדשה %s של SDG %s."
+
+msgid "Confirm and save"
+msgstr "אשר ושמור"
+
+msgid "Translation failed."
+msgstr "תרגום נכשל."
+
+msgid "Select a goal from the sidebar."
+msgstr "בחר יעד מצד הסרגל."
+
+msgid "Unpublished"
+msgstr "לא פורסם"
+
+msgid "to:"
+msgstr "אל:"
+
+msgid "— select a language —"
+msgstr "— בחר שפה —"
+
+msgid "Add translation"
+msgstr "הוסף תרגום"
+
+msgid "Add a manual translation"
+msgstr "הוסף תרגום ידני"
+
+msgid "Translate with AI"
+msgstr "תרגם עם AI"
+
+msgid "Enter manually"
+msgstr "הזן ידנית"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "אין ספק טקסט AI מוגדר. נא להגדיר אחד בהגדרות AI."
 

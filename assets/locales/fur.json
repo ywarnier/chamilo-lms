@@ -1972,5 +1972,18 @@
     "Failed to load chart data.": "No si \u00e8 pud\u00fbt v\u00fbrgi i d\u00e2ts dal grafic.",
     "Parent function": "Funcj\u00f4n parente",
     "Add activity\u2026": "Zont une ativid\u00e2t\u2026",
-    "Any level": "Cualche liv\u00eal"
+    "Any level": "Cualche liv\u00eal",
+    "Translate SDG {0}": "Translate SDG {0}",
+    "This will be saved as a new {0} version of SDG {1}.": "This will be saved as a new {0} version of SDG {1}.",
+    "Confirm and save": "Conferme e salva",
+    "Translation failed.": "Traduzion fal\u00eee.",
+    "Select a goal from the sidebar.": "Scealt un object\u00eef dal bar lateral.",
+    "Unpublished": "Non public\u00e2t",
+    "to:": "a:",
+    "\u2014 select a language \u2014": "\u2014 s\u00e8let une lenghe \u2014",
+    "Add translation": "Zov\u00ea une tradussion",
+    "Add a manual translation": "Zov\u00ea une tradussion manuale",
+    "Translate with AI": "Traduis cun IA",
+    "Enter manually": "Inser\u00ees manualment",
+    "No AI text provider is configured. Please configure one in the AI settings.": "Nissun fornidor di test AI j\u00e8 configur\u00e2t. Ples configur\u00e2 un in lis impostazions AI."
 }

@@ -34196,4 +34196,81 @@ msgstr "Zona xeográfica"
 
 msgid "Required skills"
 msgstr "Competencies requeríes"
+msgid "Social Responsibility"
+msgstr "Responsabilidad Social"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Nusos axebamientos cola Agenda 2030 de les Nacions Xuníes"
+
+msgid "No published SDG commitments yet."
+msgstr "Encami nun hai axebamientos SDG publicados."
+
+msgid "SDG Goals"
+msgstr "Obxetivos SDG"
+
+msgid "Enforcement"
+msgstr "Executivu"
+
+msgid "Translate"
+msgstr "Traducir"
+
+msgid "No AI provider configured"
+msgstr "Nun hai provedor d'IA configuráu"
+
+msgid "Translate this goal to another language"
+msgstr "Traducir esti obxetivu a otru idioma"
+
+msgid "Change history"
+msgstr "Historial de cambéos"
+
+msgid "No history yet."
+msgstr "Encami nun hai historial."
+
+msgid "Translation ready — please review before saving."
+msgstr "Traducción llista — revise anques guardar."
+
+msgid "Target language"
+msgstr "Idioma de destinu"
+
+msgid "Translate SDG %s"
+msgstr "Traducir SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Traducir la descripción y l'executivu de"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Guardarase como nueva versión %s del SDG %s."
+
+msgid "Confirm and save"
+msgstr "Confirmar y guardar"
+
+msgid "Translation failed."
+msgstr "La traducción falló."
+
+msgid "Select a goal from the sidebar."
+msgstr "Escueye un obxetivu del bar lateral."
+
+msgid "Unpublished"
+msgstr "Sen publicar"
+
+msgid "to:"
+msgstr "pa:"
+
+msgid "— select a language —"
+msgstr "— seleicionar una llingua —"
+
+msgid "Add translation"
+msgstr "Amestar traducición"
+
+msgid "Add a manual translation"
+msgstr "Amestar una traducición manual"
+
+msgid "Translate with AI"
+msgstr "Traducir con IA"
+
+msgid "Enter manually"
+msgstr "Introducir manualmente"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Nun hai provedor de testu d'IA configuráu. Configure uno nes axustes d'IA."
 

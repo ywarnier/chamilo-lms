@@ -34194,4 +34194,81 @@ msgstr "Geografisk sone"
 
 msgid "Required skills"
 msgstr "Krav til ferdigheiter"
+msgid "Social Responsibility"
+msgstr "Samfunnsansvar"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Våre forpliktelser til FNs bærekraftsmål"
+
+msgid "No published SDG commitments yet."
+msgstr "Ingen publiserte forpliktelser til bærekraftsmåla enno."
+
+msgid "SDG Goals"
+msgstr "Bærekraftsmål"
+
+msgid "Enforcement"
+msgstr "Gjennomførande"
+
+msgid "Translate"
+msgstr "Oversett"
+
+msgid "No AI provider configured"
+msgstr "Ingen AI-tilbydar konfigurert"
+
+msgid "Translate this goal to another language"
+msgstr "Oversett dette målet til eit anna språk"
+
+msgid "Change history"
+msgstr "Endringshistorikk"
+
+msgid "No history yet."
+msgstr "Ingen historikk enno."
+
+msgid "Translation ready — please review before saving."
+msgstr "Oversettelse klar — vennlegst gjennomgå før du seier."
+
+msgid "Target language"
+msgstr "Målspråk"
+
+msgid "Translate SDG %s"
+msgstr "Oversett bærekraftsmål %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Oversett beskrivinga og gjennomføranda frå"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Dette vil bli lagra som ein ny %s-versjon av bærekraftsmål %s."
+
+msgid "Confirm and save"
+msgstr "Stadfest og lagre"
+
+msgid "Translation failed."
+msgstr "Oversettelse mislyktes."
+
+msgid "Select a goal from the sidebar."
+msgstr "Vel ein mål frå sidemargen."
+
+msgid "Unpublished"
+msgstr "Ikkje publisert"
+
+msgid "to:"
+msgstr "til:"
+
+msgid "— select a language —"
+msgstr "— vel eit språk —"
+
+msgid "Add translation"
+msgstr "Legg til oversettelse"
+
+msgid "Add a manual translation"
+msgstr "Legg til manuell oversettelse"
+
+msgid "Translate with AI"
+msgstr "Oversett med KI"
+
+msgid "Enter manually"
+msgstr "Skriv inn manuelt"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Ingen AI-tekstleverandør er konfigurert. Vennleg sett opp ein i AI-innstillingane."
 

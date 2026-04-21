@@ -34190,4 +34190,81 @@ msgstr "Geografická zóna"
 
 msgid "Required skills"
 msgstr "Požadované dovednosti"
+msgid "Social Responsibility"
+msgstr "Sociální odpovědnost"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Naše závazky vůči Cílům udržitelného rozvoje OSN"
+
+msgid "No published SDG commitments yet."
+msgstr "Zatím nejsou publikovány žádné závazky SDG."
+
+msgid "SDG Goals"
+msgstr "Cíle SDG"
+
+msgid "Enforcement"
+msgstr "Prostředkování"
+
+msgid "Translate"
+msgstr "Přeložit"
+
+msgid "No AI provider configured"
+msgstr "Není nakonfigurován žádný poskytovatel AI"
+
+msgid "Translate this goal to another language"
+msgstr "Přeložit tento cíl do jiného jazyka"
+
+msgid "Change history"
+msgstr "Historie změn"
+
+msgid "No history yet."
+msgstr "Zatím žádná historie."
+
+msgid "Translation ready — please review before saving."
+msgstr "Překlad připraven — před uložením jej prosím zkontrolujte."
+
+msgid "Target language"
+msgstr "Cílový jazyk"
+
+msgid "Translate SDG %s"
+msgstr "Přeložit SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Přeložit popis a prostředkování z"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Toto bude uloženo jako nová verze %s SDG %s."
+
+msgid "Confirm and save"
+msgstr "Potvrdit a uložit"
+
+msgid "Translation failed."
+msgstr "Překlad selhal."
+
+msgid "Select a goal from the sidebar."
+msgstr "Vyberte cíl z postranního panelu."
+
+msgid "Unpublished"
+msgstr "Nepublikováno"
+
+msgid "to:"
+msgstr "komu:"
+
+msgid "— select a language —"
+msgstr "— vyberte jazyk —"
+
+msgid "Add translation"
+msgstr "Přidat překlad"
+
+msgid "Add a manual translation"
+msgstr "Přidat ruční překlad"
+
+msgid "Translate with AI"
+msgstr "Přeložit s AI"
+
+msgid "Enter manually"
+msgstr "Zadat ručně"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Není nakonfigurován žádný poskytovatel AI textu. Prosím, nakonfigurujte jeden v nastavení AI."
 

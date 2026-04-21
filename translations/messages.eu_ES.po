@@ -34201,4 +34201,81 @@ msgstr "Geografiako zona"
 
 msgid "Required skills"
 msgstr "Gaitasun beharrak"
+msgid "Social Responsibility"
+msgstr "Erantzukizun soziala"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Nazio Batuen Garapen Iraunkorreko Helburuen aurkako gure konpromisoak"
+
+msgid "No published SDG commitments yet."
+msgstr "Oraindik ez dago argitaratutako SDG konpromisorik."
+
+msgid "SDG Goals"
+msgstr "SDG Helburuak"
+
+msgid "Enforcement"
+msgstr "Betearazpena"
+
+msgid "Translate"
+msgstr "Itzuli"
+
+msgid "No AI provider configured"
+msgstr "Ez dago AI hornitzailerik konfiguraturik"
+
+msgid "Translate this goal to another language"
+msgstr "Itzuli helburu hau beste hizkuntza batera"
+
+msgid "Change history"
+msgstr "Aldaketa historia"
+
+msgid "No history yet."
+msgstr "Oraindik ez dago historiarik."
+
+msgid "Translation ready — please review before saving."
+msgstr "Itzulpena prest dago — gorde aurretik berrikusi mesedez."
+
+msgid "Target language"
+msgstr "Helburu hizkuntza"
+
+msgid "Translate SDG %s"
+msgstr "Itzuli SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Itzuli deskribapena eta betearazpena hemendik"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Hau gordeko da SDG %s-ren %s bertsio berri gisa."
+
+msgid "Confirm and save"
+msgstr "Baieztatu eta gorde"
+
+msgid "Translation failed."
+msgstr "Itzulpena huts egin du."
+
+msgid "Select a goal from the sidebar."
+msgstr "Hautatu helburu bat alboko barratatik."
+
+msgid "Unpublished"
+msgstr "Argitaratu gabe"
+
+msgid "to:"
+msgstr "honi:"
+
+msgid "— select a language —"
+msgstr "— hizkuntza bat hautatu —"
+
+msgid "Add translation"
+msgstr "Itzulpena gehitu"
+
+msgid "Add a manual translation"
+msgstr "Itzulpen eskuz gehitu"
+
+msgid "Translate with AI"
+msgstr "AIrekin itzuli"
+
+msgid "Enter manually"
+msgstr "Eskuz sartu"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Ez dago AI testu hornitzailerik konfiguraturik. Mesedez, konfiguratu bat AI ezarpenetan."
 

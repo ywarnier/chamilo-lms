@@ -340,7 +340,7 @@ msgid "Sincerely"
 msgstr "আন্তরিকতার সাথে"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "সূত্রের নমুনা: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "সূত্র নমুনা: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "ভেরিয়েবলের পরিসর"
@@ -34190,4 +34190,81 @@ msgstr "ভৌগোলিক অঞ্চল"
 
 msgid "Required skills"
 msgstr "প্রয়োজনীয় দক্ষতা"
+msgid "Social Responsibility"
+msgstr "সামাজিক দায়িত্ব"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "জাতিসংঘের টেকসই উন্নয়ন লক্ষ্যমাত্রার প্রতি আমাদের প্রতিশ্রুতি"
+
+msgid "No published SDG commitments yet."
+msgstr "এখনও কোনো প্রকাশিত SDG প্রতিশ্রুতি নেই।"
+
+msgid "SDG Goals"
+msgstr "SDG লক্ষ্য"
+
+msgid "Enforcement"
+msgstr "প্রয়োগ"
+
+msgid "Translate"
+msgstr "অনুবাদ করুন"
+
+msgid "No AI provider configured"
+msgstr "কোনো AI প্রোভাইডার কনফিগার করা হয়নি"
+
+msgid "Translate this goal to another language"
+msgstr "এই লক্ষ্যটিকে অন্য ভাষায় অনুবাদ করুন"
+
+msgid "Change history"
+msgstr "পরিবর্তনের ইতিহাস"
+
+msgid "No history yet."
+msgstr "এখনও কোনো ইতিহাস নেই।"
+
+msgid "Translation ready — please review before saving."
+msgstr "অনুবাদ প্রস্তুত — সংরক্ষণের আগে পর্যালোচনা করুন।"
+
+msgid "Target language"
+msgstr "লক্ষ্য ভাষা"
+
+msgid "Translate SDG %s"
+msgstr "SDG %s অনুবাদ করুন"
+
+msgid "Translate the description and enforcement from"
+msgstr "বর্ণনা এবং প্রয়োগ থেকে অনুবাদ করুন"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "এটি SDG %s এর নতুন %s সংস্করণ হিসেবে সংরক্ষিত হবে।"
+
+msgid "Confirm and save"
+msgstr "নিশ্চিত করুন এবং সংরক্ষণ করুন"
+
+msgid "Translation failed."
+msgstr "অনুবাদ ব্যর্থ হয়েছে।"
+
+msgid "Select a goal from the sidebar."
+msgstr "সাইডবার থেকে একটি লক্ষ্য নির্বাচন করুন।"
+
+msgid "Unpublished"
+msgstr "অপ্রকাশিত"
+
+msgid "to:"
+msgstr "প্রতি:"
+
+msgid "— select a language —"
+msgstr "— একটি ভাষা নির্বাচন করুন —"
+
+msgid "Add translation"
+msgstr "অনুবাদ যোগ করুন"
+
+msgid "Add a manual translation"
+msgstr "ম্যানুয়াল অনুবাদ যোগ করুন"
+
+msgid "Translate with AI"
+msgstr "AI দিয়ে অনুবাদ করুন"
+
+msgid "Enter manually"
+msgstr "ম্যানুয়ালি প্রবেশ করুন"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "কোনো AI টেক্সট প্রোভাইডার কনফিগার করা নেই। দয়া করে AI সেটিংসে একটি কনফিগার করুন।"
 

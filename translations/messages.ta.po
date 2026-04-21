@@ -344,7 +344,7 @@ msgid "Sincerely"
 msgstr "உண்மையாகவே"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "பூரணசமி மாதிரி: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "சூத்திர நட样: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "மாறியின் வரம்புகள்"
@@ -2021,7 +2021,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:பதிப்புரிமை,, no:பதிப்புரிமை இல்லை"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:பாக்கெடு,, application/msword:MsWord,, application/octet-stream:அக்டெட் ஸ்ட்ரீம்,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:பாக்கெட்,, application/msword:MsWord,, application/octet-stream:அக்டெட் ஸ்ட்ரீம்,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:பயிற்சி,,      simulation:மெய்யப்படுத்தல்,,      questionnaire:கேள்வித்தாள்,,      diagram:சித்திரம்,,      figure:உருவம்,,      graph:படம்,,      index:அட்டவணை,,      slide:இன்னுசைடு,,      table:அட்டவணை,,      narrative text:கதை உரை,,      exam:தேர்வு,,      experiment:பரிசோதனை,,      problem statement:பிரச்சினை அறிக்கை,,      self assessment:சுய மதிப்பீடு,,      lecture:உபதேசம்"
@@ -34194,4 +34194,81 @@ msgstr "புவியியல் மண்டலம்"
 
 msgid "Required skills"
 msgstr "தேவையான திறன்கள்"
+msgid "Social Responsibility"
+msgstr "சமூகப் பொறுப்பு"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "ஐ.நா. நிலைத்திரைவு வளர்ச்சி இலக்குகளுக்கான நம் ஏற்பாடுகள்"
+
+msgid "No published SDG commitments yet."
+msgstr "வெளியிடப்பட்ட SDG ஏற்பாடுகள் இல்லை."
+
+msgid "SDG Goals"
+msgstr "SDG இலக்குகள்"
+
+msgid "Enforcement"
+msgstr "அமலாக்கம்"
+
+msgid "Translate"
+msgstr "மொழிபெயர்க்கவும்"
+
+msgid "No AI provider configured"
+msgstr "AI வழங்கி எதுவும் அமைக்கப்படவில்லை"
+
+msgid "Translate this goal to another language"
+msgstr "இந்த இலக்கை மற்றொரு மொழிக்கு மொழிபெயர்க்கவும்"
+
+msgid "Change history"
+msgstr "மாற்ற வரலாறு"
+
+msgid "No history yet."
+msgstr "வரலாறு இல்லை."
+
+msgid "Translation ready — please review before saving."
+msgstr "மொழிபெயவல் தயார் — சேமிக்கும் முன் சரிபார்க்கவும்."
+
+msgid "Target language"
+msgstr "இலக்கு மொழி"
+
+msgid "Translate SDG %s"
+msgstr "SDG %s ஐ மொழிபெயர்க்கவும்"
+
+msgid "Translate the description and enforcement from"
+msgstr "விளக்கம் மற்றும் அமலாக்கத்தை இலிருந்து மொழிபெயர்க்கவும்"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "இது SDG %s இன் புதிய %s பதிப்பாக சேமிக்கப்படும்."
+
+msgid "Confirm and save"
+msgstr "உறுதிப்படுத்தி சேமிக்கவும்"
+
+msgid "Translation failed."
+msgstr "மொழிபெயவல் தோல்வியடைந்தது."
+
+msgid "Select a goal from the sidebar."
+msgstr "பக்கச் சட்டத்தில் இருந்து ஒரு இலக்கைத் தேர்ந்தெடுக்கவும்."
+
+msgid "Unpublished"
+msgstr "பிரசுரிக்கப்படாத"
+
+msgid "to:"
+msgstr "பெறுபவர்:"
+
+msgid "— select a language —"
+msgstr "— மொழியைத் தேர்ந்தெடுக்கவும் —"
+
+msgid "Add translation"
+msgstr "மொழிபெயர்ப்பு சேர்க்கவும்"
+
+msgid "Add a manual translation"
+msgstr "கைமுறை மொழிபெயர்ப்பு சேர்க்கவும்"
+
+msgid "Translate with AI"
+msgstr "AI மூலம் மொழிபெயர்க்கவும்"
+
+msgid "Enter manually"
+msgstr "கைமுறையாக உள்ளிடவும்"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "AI உரை வழங்கி எதுவும் அமைக்கப்படவில்லை. AI அமைப்புகளில் ஒன்றை அமைக்கவும்."
 

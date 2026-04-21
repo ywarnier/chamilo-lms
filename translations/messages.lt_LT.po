@@ -34195,4 +34195,81 @@ msgstr "Geografinė zona"
 
 msgid "Required skills"
 msgstr "Reikalingi įgūdžiai"
+msgid "Social Responsibility"
+msgstr "Socialinė atsakomybė"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Mūsų įsipareigojimai JT darnaus vystymosi tikslams"
+
+msgid "No published SDG commitments yet."
+msgstr "Dar nėra paskelbtų DVT įsipareigojimų."
+
+msgid "SDG Goals"
+msgstr "DVT tikslai"
+
+msgid "Enforcement"
+msgstr "Įgyvendinimas"
+
+msgid "Translate"
+msgstr "Vertimas"
+
+msgid "No AI provider configured"
+msgstr "Nėra sukonfigūruoto DI tiekėjo"
+
+msgid "Translate this goal to another language"
+msgstr "Išversti šį tikslą į kitą kalbą"
+
+msgid "Change history"
+msgstr "Pakeitimų istorija"
+
+msgid "No history yet."
+msgstr "Dar nėra istorijos."
+
+msgid "Translation ready — please review before saving."
+msgstr "Vertimas paruoštas — peržiūrėkite prieš įrašydami."
+
+msgid "Target language"
+msgstr "Tikslinė kalba"
+
+msgid "Translate SDG %s"
+msgstr "Išversti DVT %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Išversti aprašą ir įgyvendinimą iš"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Tai bus įrašyta kaip nauja %s DVT %s versija."
+
+msgid "Confirm and save"
+msgstr "Patvirtinti ir įrašyti"
+
+msgid "Translation failed."
+msgstr "Vertimas nepavyko."
+
+msgid "Select a goal from the sidebar."
+msgstr "Pasirinkite tikslą iš šoninės juostos."
+
+msgid "Unpublished"
+msgstr "Nepublikuotas"
+
+msgid "to:"
+msgstr "kam:"
+
+msgid "— select a language —"
+msgstr "— pasirinkite kalbą —"
+
+msgid "Add translation"
+msgstr "Pridėti vertimą"
+
+msgid "Add a manual translation"
+msgstr "Pridėti rankinį vertimą"
+
+msgid "Translate with AI"
+msgstr "Vertimas su DI"
+
+msgid "Enter manually"
+msgstr "Įvesti rankiniu būdu"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Nėra sukonfigūruoto DI teksto tiekėjo. Sukonfigūruokite jį DI nustatymuose."
 

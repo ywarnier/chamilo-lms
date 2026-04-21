@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:kopirajto,, no:ne kopirajto"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Okta flugo,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:ekzerco,, simulation:simulado,, questionnaire:enketo,, diagram:diagramo,, figure:figuro,, graph:grafiko,, index:indekso,, slide:diapozitivo,, table:tabelo,, narrative text:rakonta teksto,, exam:ekzameno,, experiment:eksperimento,, problem statement:problemstarigo,, self assessment:memtesto,, lecture:prelego"
@@ -34196,4 +34196,81 @@ msgstr "Geografia zono"
 
 msgid "Required skills"
 msgstr "Postulataj kompetoj"
+msgid "Social Responsibility"
+msgstr "Socia respondeco"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Niaj engaĵoj rilate al la Celoj de la UN pri Daŭriga Evoluo"
+
+msgid "No published SDG commitments yet."
+msgstr "Neniam publikigitaj engaĵoj pri ODC."
+
+msgid "SDG Goals"
+msgstr "ODC-celoj"
+
+msgid "Enforcement"
+msgstr "Devigado"
+
+msgid "Translate"
+msgstr "Traduki"
+
+msgid "No AI provider configured"
+msgstr "Neniu AI-provizanto agordita"
+
+msgid "Translate this goal to another language"
+msgstr "Traduki ĉi tiun celon al alia lingvo"
+
+msgid "Change history"
+msgstr "Ŝanĝhistorio"
+
+msgid "No history yet."
+msgstr "Neniu historio ankoraŭ."
+
+msgid "Translation ready — please review before saving."
+msgstr "Traduko preta — bonvolu kontroli antaŭ ol konservi."
+
+msgid "Target language"
+msgstr "Celta lingvo"
+
+msgid "Translate SDG %s"
+msgstr "Traduki ODC %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Traduki la priskribon kaj devigon el"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Jen estos konservita kiel nova %s versio de ODC %s."
+
+msgid "Confirm and save"
+msgstr "Konfirmi kaj konservi"
+
+msgid "Translation failed."
+msgstr "Traduko malsukcesis."
+
+msgid "Select a goal from the sidebar."
+msgstr "Elektu celon el la flankpanelo."
+
+msgid "Unpublished"
+msgstr "Neeldonita"
+
+msgid "to:"
+msgstr "al:"
+
+msgid "— select a language —"
+msgstr "— elektu lingvon —"
+
+msgid "Add translation"
+msgstr "Aldoni tradukon"
+
+msgid "Add a manual translation"
+msgstr "Aldoni manalan tradukon"
+
+msgid "Translate with AI"
+msgstr "Traduki per IA"
+
+msgid "Enter manually"
+msgstr "Enigi mane"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Neniu AI-tekstprovizanto estas agordita. Bonvolu agordi unu en la AI-agordoj."
 

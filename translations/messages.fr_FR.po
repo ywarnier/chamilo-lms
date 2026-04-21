@@ -36076,4 +36076,81 @@ msgstr "Zone géographique"
 
 msgid "Required skills"
 msgstr "Compétences requises"
+msgid "Social Responsibility"
+msgstr "Responsabilité sociale"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Nos engagements envers les Objectifs de développement durable des Nations Unies"
+
+msgid "No published SDG commitments yet."
+msgstr "Aucun engagement ODD publié pour le moment."
+
+msgid "SDG Goals"
+msgstr "Objectifs ODD"
+
+msgid "Enforcement"
+msgstr "Application"
+
+msgid "Translate"
+msgstr "Traduire"
+
+msgid "No AI provider configured"
+msgstr "Aucun fournisseur d'IA configuré"
+
+msgid "Translate this goal to another language"
+msgstr "Traduire cet objectif dans une autre langue"
+
+msgid "Change history"
+msgstr "Historique des modifications"
+
+msgid "No history yet."
+msgstr "Aucun historique pour le moment."
+
+msgid "Translation ready — please review before saving."
+msgstr "Traduction prête — veuillez la relire avant d'enregistrer."
+
+msgid "Target language"
+msgstr "Langue cible"
+
+msgid "Translate SDG %s"
+msgstr "Traduire l'ODD %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Traduire la description et l'application depuis"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Ceci sera enregistré comme une nouvelle version %s de l'ODD %s."
+
+msgid "Confirm and save"
+msgstr "Confirmer et enregistrer"
+
+msgid "Translation failed."
+msgstr "Échec de la traduction."
+
+msgid "Select a goal from the sidebar."
+msgstr "Sélectionnez un objectif dans la barre latérale."
+
+msgid "Unpublished"
+msgstr "Non publié"
+
+msgid "to:"
+msgstr "à :"
+
+msgid "— select a language —"
+msgstr "— sélectionner une langue —"
+
+msgid "Add translation"
+msgstr "Ajouter une traduction"
+
+msgid "Add a manual translation"
+msgstr "Ajouter une traduction manuelle"
+
+msgid "Translate with AI"
+msgstr "Traduire avec l'IA"
+
+msgid "Enter manually"
+msgstr "Saisir manuellement"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Aucun fournisseur de texte IA n'est configuré. Veuillez en configurer un dans les paramètres IA."
 

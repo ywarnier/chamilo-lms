@@ -34196,4 +34196,81 @@ msgstr "เขตภูมิศาสตร์"
 
 msgid "Required skills"
 msgstr "ทักษะที่จำเป็น"
+msgid "Social Responsibility"
+msgstr "ความรับผิดชอบทางสังคม"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "ความมุ่งมั่นของเราต่อเป้าหมายการพัฒนาที่ยั่งยืนของสหประชาชาติ"
+
+msgid "No published SDG commitments yet."
+msgstr "ยังไม่มีคำมุ่งมั่น SDG ที่เผยแพร่"
+
+msgid "SDG Goals"
+msgstr "เป้าหมาย SDG"
+
+msgid "Enforcement"
+msgstr "การบังคับใช้"
+
+msgid "Translate"
+msgstr "แปล"
+
+msgid "No AI provider configured"
+msgstr "ยังไม่ได้กำหนดค่า AI provider"
+
+msgid "Translate this goal to another language"
+msgstr "แปลเป้าหมายนี้เป็นภาษาอื่น"
+
+msgid "Change history"
+msgstr "ประวัติการเปลี่ยนแปลง"
+
+msgid "No history yet."
+msgstr "ยังไม่มีประวัติ"
+
+msgid "Translation ready — please review before saving."
+msgstr "การแปลพร้อมแล้ว — กรุณาตรวจสอบก่อนบันทึก"
+
+msgid "Target language"
+msgstr "ภาษาเป้าหมาย"
+
+msgid "Translate SDG %s"
+msgstr "แปล SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "แปลคำอธิบายและการบังคับใช้จาก"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "จะถูกบันทึกเป็นเวอร์ชัน %s ใหม่ของ SDG %s"
+
+msgid "Confirm and save"
+msgstr "ยืนยันและบันทึก"
+
+msgid "Translation failed."
+msgstr "การแปลล้มเหลว"
+
+msgid "Select a goal from the sidebar."
+msgstr "เลือกเป้าหมายจากแถบด้านข้าง"
+
+msgid "Unpublished"
+msgstr "ยังไม่เผยแพร่"
+
+msgid "to:"
+msgstr "ถึง:"
+
+msgid "— select a language —"
+msgstr "— เลือกภาษา —"
+
+msgid "Add translation"
+msgstr "เพิ่มการแปล"
+
+msgid "Add a manual translation"
+msgstr "เพิ่มการแปลด้วยตนเอง"
+
+msgid "Translate with AI"
+msgstr "แปลด้วย AI"
+
+msgid "Enter manually"
+msgstr "ป้อนด้วยตนเอง"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "ยังไม่ได้กำหนดค่า AI text provider กรุณากำหนดค่าในการตั้งค่า AI"
 

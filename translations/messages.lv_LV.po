@@ -344,7 +344,7 @@ msgid "Sincerely"
 msgstr "Ar cieņu"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Formulas piemērs: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Formulas paraugs: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Mainīgo diapazoni"
@@ -34193,6 +34193,81 @@ msgstr "Jebkurš līmenis"
 msgid "Geographic zone"
 msgstr "Ģeogrāfiskā zona"
 
-msgid "Required skills"
-msgstr "Nepieciešamās prasmes"
+msgid "Social Responsibility"
+msgstr "Sociālā atbildība"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Mūsu saistības pret ANO Ilgtspējīgas attīstības mērķiem"
+
+msgid "No published SDG commitments yet."
+msgstr "Vēl nav publicētas IAM saistības."
+
+msgid "SDG Goals"
+msgstr "IAM mērķi"
+
+msgid "Enforcement"
+msgstr "Piespiedu izpilde"
+
+msgid "Translate"
+msgstr "Tulkošana"
+
+msgid "No AI provider configured"
+msgstr "Nav konfigurēts nevads AI nodrošinātājs"
+
+msgid "Translate this goal to another language"
+msgstr "Tulkojiet šo mērķi citā valodā"
+
+msgid "Change history"
+msgstr "Izmaiņu vēsture"
+
+msgid "No history yet."
+msgstr "Vēl nav vēstures."
+
+msgid "Translation ready — please review before saving."
+msgstr "Tulkojums gatavs — lūdzu, pārskatiet pirms saglabāšanas."
+
+msgid "Target language"
+msgstr "Mērķa valoda"
+
+msgid "Translate SDG %s"
+msgstr "Tulkojiet IAM %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Tulkojiet aprakstu un piespiedu izpildi no"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Tas tiks saglabāts kā jauna %s IAM %s versija."
+
+msgid "Confirm and save"
+msgstr "Apstiprināt un saglabāt"
+
+msgid "Translation failed."
+msgstr "Tulkošana neizdevās."
+
+msgid "Select a goal from the sidebar."
+msgstr "Izvēlieties mērķi no sānjoslas."
+
+msgid "Unpublished"
+msgstr "Nepublicēts"
+
+msgid "to:"
+msgstr "uz:"
+
+msgid "— select a language —"
+msgstr "— izvēlieties valodu —"
+
+msgid "Add translation"
+msgstr "Pievienot tulkojumu"
+
+msgid "Add a manual translation"
+msgstr "Pievienot manuālu tulkojumu"
+
+msgid "Translate with AI"
+msgstr "Tulkot ar AI"
+
+msgid "Enter manually"
+msgstr "Ievadīt manuāli"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Nav konfigurēts neviens AI teksta nodrošinātājs. Lūdzu, konfigurējiet vienu AI iestatījumos."
 

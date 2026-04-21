@@ -34190,4 +34190,81 @@ msgstr "منطقه جغرافیایی"
 
 msgid "Required skills"
 msgstr "مهارت‌های مورد نیاز"
+msgid "Social Responsibility"
+msgstr "مسئولیت اجتماعی"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "تعهدات ما به اهداف توسعه پایدار سازمان ملل متحد"
+
+msgid "No published SDG commitments yet."
+msgstr "هیچ تعهد SDG منتشرشده‌ای هنوز وجود ندارد."
+
+msgid "SDG Goals"
+msgstr "اهداف SDG"
+
+msgid "Enforcement"
+msgstr "اجرا"
+
+msgid "Translate"
+msgstr "ترجمه"
+
+msgid "No AI provider configured"
+msgstr "هیچ ارائه‌دهنده هوش مصنوعی پیکربندی نشده است"
+
+msgid "Translate this goal to another language"
+msgstr "این هدف را به زبان دیگری ترجمه کنید"
+
+msgid "Change history"
+msgstr "تاریخچه تغییرات"
+
+msgid "No history yet."
+msgstr "هنوز هیچ تاریخچه‌ای وجود ندارد."
+
+msgid "Translation ready — please review before saving."
+msgstr "ترجمه آماده است — لطفاً قبل از ذخیره بررسی کنید."
+
+msgid "Target language"
+msgstr "زبان مقصد"
+
+msgid "Translate SDG %s"
+msgstr "ترجمه SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "ترجمه توضیحات و اجرا از"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "این به عنوان نسخه جدید %s از SDG %s ذخیره خواهد شد."
+
+msgid "Confirm and save"
+msgstr "تأیید و ذخیره"
+
+msgid "Translation failed."
+msgstr "ترجمه ناموفق بود."
+
+msgid "Select a goal from the sidebar."
+msgstr "یک هدف از نوار کناری انتخاب کنید."
+
+msgid "Unpublished"
+msgstr "منتشر نشده"
+
+msgid "to:"
+msgstr "به:"
+
+msgid "— select a language —"
+msgstr "— یک زبان را انتخاب کنید —"
+
+msgid "Add translation"
+msgstr "افزودن ترجمه"
+
+msgid "Add a manual translation"
+msgstr "افزودن ترجمه دستی"
+
+msgid "Translate with AI"
+msgstr "ترجمه با هوش مصنوعی"
+
+msgid "Enter manually"
+msgstr "وارد کردن دستی"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "هیچ ارائه‌دهنده متن هوش مصنوعی پیکربندی نشده است. لطفاً یکی را در تنظیمات هوش مصنوعی پیکربندی کنید."
 

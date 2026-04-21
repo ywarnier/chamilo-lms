@@ -2021,7 +2021,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:cóipcheart,, no:gan cóipcheart"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Fillteán,, application/msword:MsWord,, application/octet-stream:Sruth Octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Fillteán,, application/msword:MsWord,, application/octet-stream:Sruth octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:cleachtadh,,      simulation:insamhal,,      questionnaire:fiosrúchán,,      diagram:léaráid,,      figure:figiúr,,      graph:graf,,      index:innéacs,,      slide:sleamhnán,,      table:tábla,,      narrative text:téacs insinte,,      exam:scrúdú,,      experiment:turgnamh,,      problem statement:ráiteas fadhb,,      self assessment:féimmeasúnú,,      lecture:léacht"
@@ -34194,4 +34194,81 @@ msgstr "Crios geografach"
 
 msgid "Required skills"
 msgstr "Scileanna riachtanacha"
+msgid "Social Responsibility"
+msgstr "Freagracht Shóisialta"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Ár dtiomantais do Spriocanna Forbartha Inbhuanaithe na NA"
+
+msgid "No published SDG commitments yet."
+msgstr "Gan aon tiomantais SDG foilsithe fós."
+
+msgid "SDG Goals"
+msgstr "Spiorad SDG"
+
+msgid "Enforcement"
+msgstr "Forfheidhmiú"
+
+msgid "Translate"
+msgstr "Aistrigh"
+
+msgid "No AI provider configured"
+msgstr "Gan soláthraí AI cumraichte"
+
+msgid "Translate this goal to another language"
+msgstr "Aistrigh an sprioc seo go teanga eile"
+
+msgid "Change history"
+msgstr "Stair athraithe"
+
+msgid "No history yet."
+msgstr "Gan stair fós."
+
+msgid "Translation ready — please review before saving."
+msgstr "Aistriúchán réidh — déan athbhreithniú roimh shábháil."
+
+msgid "Target language"
+msgstr "Teanga sprice"
+
+msgid "Translate SDG %s"
+msgstr "Aistrigh SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Aistrigh an cur síos agus an forfheidhmiú ó"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Sábhálfar é seo mar leagan %s nua de SDG %s."
+
+msgid "Confirm and save"
+msgstr "Deimhnigh agus sábháil"
+
+msgid "Translation failed."
+msgstr "Theip ar an aistriúchán."
+
+msgid "Select a goal from the sidebar."
+msgstr "Roghnaigh sprioc ón taobh-bharra."
+
+msgid "Unpublished"
+msgstr "Gan foilsiú"
+
+msgid "to:"
+msgstr "chun:"
+
+msgid "— select a language —"
+msgstr "— roghnaigh teanga —"
+
+msgid "Add translation"
+msgstr "Cuir aistriúchán leis"
+
+msgid "Add a manual translation"
+msgstr "Cuir aistriúchán lámhscríofa leis"
+
+msgid "Translate with AI"
+msgstr "Aistrigh le AI"
+
+msgid "Enter manually"
+msgstr "Iontráil de láimh"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Níl aon soláthraí téacs AI cumraichte. Cumraigh ceann sna socruithe AI le do thoil."
 

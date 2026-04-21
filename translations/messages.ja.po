@@ -34260,4 +34260,81 @@ msgstr "地理的ゾーン"
 
 msgid "Required skills"
 msgstr "必須スキル"
+msgid "Social Responsibility"
+msgstr "社会的責任"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "国連持続可能な開発目標への取り組み"
+
+msgid "No published SDG commitments yet."
+msgstr "公開されたSDG取り組みはまだありません。"
+
+msgid "SDG Goals"
+msgstr "SDG目標"
+
+msgid "Enforcement"
+msgstr "実施"
+
+msgid "Translate"
+msgstr "翻訳"
+
+msgid "No AI provider configured"
+msgstr "AIプロバイダーが設定されていません"
+
+msgid "Translate this goal to another language"
+msgstr "この目標を別の言語に翻訳"
+
+msgid "Change history"
+msgstr "変更履歴"
+
+msgid "No history yet."
+msgstr "履歴はありません。"
+
+msgid "Translation ready — please review before saving."
+msgstr "翻訳完了 — 保存前に確認してください。"
+
+msgid "Target language"
+msgstr "対象言語"
+
+msgid "Translate SDG %s"
+msgstr "SDG %s を翻訳"
+
+msgid "Translate the description and enforcement from"
+msgstr "説明と実施を %s から翻訳"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "これはSDG %s の新しい %s バージョンとして保存されます。"
+
+msgid "Confirm and save"
+msgstr "確認して保存"
+
+msgid "Translation failed."
+msgstr "翻訳に失敗しました。"
+
+msgid "Select a goal from the sidebar."
+msgstr "サイドバーから目標を選択してください。"
+
+msgid "Unpublished"
+msgstr "未公開"
+
+msgid "to:"
+msgstr "宛先:"
+
+msgid "— select a language —"
+msgstr "— 言語を選択 —"
+
+msgid "Add translation"
+msgstr "翻訳を追加"
+
+msgid "Add a manual translation"
+msgstr "手動翻訳を追加"
+
+msgid "Translate with AI"
+msgstr "AIで翻訳"
+
+msgid "Enter manually"
+msgstr "手動入力"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "AIテキストプロバイダーが設定されていません。AI設定で設定してください。"
 

@@ -34190,4 +34190,81 @@ msgstr "جغرافيايي سيمه"
 
 msgid "Required skills"
 msgstr "اړین مهارتونه"
+msgid "Social Responsibility"
+msgstr "ټولنیزه مسؤلیت"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "زموږ ژمنې د ملګرو ملتونو د دایمي پرمختګ موخو سره"
+
+msgid "No published SDG commitments yet."
+msgstr "تر اوسه هیڅ خپور شوی SDG ژمنې نشته."
+
+msgid "SDG Goals"
+msgstr "SDG موخې"
+
+msgid "Enforcement"
+msgstr "اجرایي کول"
+
+msgid "Translate"
+msgstr "ژباړه"
+
+msgid "No AI provider configured"
+msgstr "هیڅ AI چمتو کونکی تنظیم شوی نه دی"
+
+msgid "Translate this goal to another language"
+msgstr "دا موخه بلې ژبې ته ژباړه کړئ"
+
+msgid "Change history"
+msgstr "د بدلون تاریخچه"
+
+msgid "No history yet."
+msgstr "تر اوسه هیڅ تاریخچه نشته."
+
+msgid "Translation ready — please review before saving."
+msgstr "ژباړه چمتو ده — مخکې له خوندي کولو له مخکې یې وڅارئ."
+
+msgid "Target language"
+msgstr "لومړۍ ژبه"
+
+msgid "Translate SDG %s"
+msgstr "SDG %s ژباړه کړئ"
+
+msgid "Translate the description and enforcement from"
+msgstr "تشریح او اجرایي کول له"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "دا به د SDG %s نوې %s نسخې په توګه خوندي شي."
+
+msgid "Confirm and save"
+msgstr "تایید او خوندي کول"
+
+msgid "Translation failed."
+msgstr "ژباړه ناکامه شوه."
+
+msgid "Select a goal from the sidebar."
+msgstr "له غاړې څخه یوه موخه غوره کړئ."
+
+msgid "Unpublished"
+msgstr "خپور شوی نه دی"
+
+msgid "to:"
+msgstr "ته:"
+
+msgid "— select a language —"
+msgstr "— یو ژبه غوره کړئ —"
+
+msgid "Add translation"
+msgstr "د ژباړې اضافه کول"
+
+msgid "Add a manual translation"
+msgstr "د لاسي ژباړې اضافه کول"
+
+msgid "Translate with AI"
+msgstr "د مصنوعي ذکاوت سره ژباړه کول"
+
+msgid "Enter manually"
+msgstr "لاسي ډول کول"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "هیڅ AI متن چمتو کونکی تنظیم شوی نه دی. مهرباني وکړئ یو یې په AI ایښودو کې تنظیم کړئ."
 

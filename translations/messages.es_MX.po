@@ -34196,4 +34196,81 @@ msgstr "Zona geográfica"
 
 msgid "Required skills"
 msgstr "Habilidades requeridas"
+msgid "Social Responsibility"
+msgstr "Responsabilidad Social"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Nuestros compromisos con los Objetivos de Desarrollo Sostenible de la ONU"
+
+msgid "No published SDG commitments yet."
+msgstr "No hay compromisos ODS publicados aún."
+
+msgid "SDG Goals"
+msgstr "Objetivos ODS"
+
+msgid "Enforcement"
+msgstr "Ejecución"
+
+msgid "Translate"
+msgstr "Traducir"
+
+msgid "No AI provider configured"
+msgstr "No hay proveedor de IA configurado"
+
+msgid "Translate this goal to another language"
+msgstr "Traducir este objetivo a otro idioma"
+
+msgid "Change history"
+msgstr "Historial de cambios"
+
+msgid "No history yet."
+msgstr "No hay historial aún."
+
+msgid "Translation ready — please review before saving."
+msgstr "Traducción lista — por favor revisa antes de guardar."
+
+msgid "Target language"
+msgstr "Idioma objetivo"
+
+msgid "Translate SDG %s"
+msgstr "Traducir ODS %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Traducir la descripción y ejecución desde"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Esto se guardará como una nueva versión %s del ODS %s."
+
+msgid "Confirm and save"
+msgstr "Confirmar y guardar"
+
+msgid "Translation failed."
+msgstr "Traducción fallida."
+
+msgid "Select a goal from the sidebar."
+msgstr "Selecciona un objetivo de la barra lateral."
+
+msgid "Unpublished"
+msgstr "No publicado"
+
+msgid "to:"
+msgstr "para:"
+
+msgid "— select a language —"
+msgstr "— selecciona un idioma —"
+
+msgid "Add translation"
+msgstr "Agregar traducción"
+
+msgid "Add a manual translation"
+msgstr "Agregar una traducción manual"
+
+msgid "Translate with AI"
+msgstr "Traducir con IA"
+
+msgid "Enter manually"
+msgstr "Ingresar manualmente"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "No hay proveedor de texto de IA configurado. Por favor configura uno en la configuración de IA."
 

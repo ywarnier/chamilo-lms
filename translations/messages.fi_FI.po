@@ -34196,4 +34196,81 @@ msgstr "Maantieteellinen alue"
 
 msgid "Required skills"
 msgstr "Vaatimukset taidot"
+msgid "Social Responsibility"
+msgstr "Yhteiskuntavastuu"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Sitoutumisemme YK:n kestävän kehityksen tavoitteisiin"
+
+msgid "No published SDG commitments yet."
+msgstr "Ei julkaistuja KKT-sitoumuksia vielä."
+
+msgid "SDG Goals"
+msgstr "KKT-tavoitteet"
+
+msgid "Enforcement"
+msgstr "Toteutus"
+
+msgid "Translate"
+msgstr "Käännä"
+
+msgid "No AI provider configured"
+msgstr "Ei AI-tarjoajaa määritetty"
+
+msgid "Translate this goal to another language"
+msgstr "Käännä tämä tavoite toiselle kielelle"
+
+msgid "Change history"
+msgstr "Muutos-historia"
+
+msgid "No history yet."
+msgstr "Ei historiaa vielä."
+
+msgid "Translation ready — please review before saving."
+msgstr "Käännös valmis — tarkista ennen tallennusta."
+
+msgid "Target language"
+msgstr "Kohdekieli"
+
+msgid "Translate SDG %s"
+msgstr "Käännä KKT %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Käännä kuvaus ja toteutus kieleltä"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Tämä tallennetaan uutena %s-versiona KKT:stä %s."
+
+msgid "Confirm and save"
+msgstr "Vahvista ja tallenna"
+
+msgid "Translation failed."
+msgstr "Käännös epäonnistui."
+
+msgid "Select a goal from the sidebar."
+msgstr "Valitse tavoite sivupalkista."
+
+msgid "Unpublished"
+msgstr ""
+
+msgid "to:"
+msgstr ""
+
+msgid "— select a language —"
+msgstr ""
+
+msgid "Add translation"
+msgstr ""
+
+msgid "Add a manual translation"
+msgstr ""
+
+msgid "Translate with AI"
+msgstr ""
+
+msgid "Enter manually"
+msgstr ""
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "AI-tekstipakettia ei ole määritetty. Ole hyvä ja määritä sellainen AI-asetuksissa."
 

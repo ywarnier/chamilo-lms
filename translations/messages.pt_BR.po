@@ -34209,4 +34209,81 @@ msgstr "Zona geográfica"
 
 msgid "Required skills"
 msgstr "Habilidades requeridas"
+msgid "Social Responsibility"
+msgstr "Responsabilidade Social"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Nossos compromissos com os Objetivos de Desenvolvimento Sustentável da ONU"
+
+msgid "No published SDG commitments yet."
+msgstr "Nenhum compromisso ODS publicado ainda."
+
+msgid "SDG Goals"
+msgstr "Objetivos ODS"
+
+msgid "Enforcement"
+msgstr "Execução"
+
+msgid "Translate"
+msgstr "Traduzir"
+
+msgid "No AI provider configured"
+msgstr "Nenhum provedor de IA configurado"
+
+msgid "Translate this goal to another language"
+msgstr "Traduza este objetivo para outro idioma"
+
+msgid "Change history"
+msgstr "Histórico de alterações"
+
+msgid "No history yet."
+msgstr "Nenhum histórico ainda."
+
+msgid "Translation ready — please review before saving."
+msgstr "Tradução pronta — revise antes de salvar."
+
+msgid "Target language"
+msgstr "Idioma de destino"
+
+msgid "Translate SDG %s"
+msgstr "Traduzir ODS %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Traduzir a descrição e execução de"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Isso será salvo como uma nova versão %s do ODS %s."
+
+msgid "Confirm and save"
+msgstr "Confirmar e salvar"
+
+msgid "Translation failed."
+msgstr "Falha na tradução."
+
+msgid "Select a goal from the sidebar."
+msgstr "Selecione um objetivo na barra lateral."
+
+msgid "Unpublished"
+msgstr "Não publicado"
+
+msgid "to:"
+msgstr "para:"
+
+msgid "— select a language —"
+msgstr "— selecione um idioma —"
+
+msgid "Add translation"
+msgstr "Adicionar tradução"
+
+msgid "Add a manual translation"
+msgstr "Adicionar tradução manual"
+
+msgid "Translate with AI"
+msgstr "Traduzir com IA"
+
+msgid "Enter manually"
+msgstr "Inserir manualmente"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Nenhum provedor de texto de IA está configurado. Configure um nas configurações de IA."
 

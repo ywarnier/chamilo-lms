@@ -34190,4 +34190,81 @@ msgstr "Geografisk svøð"
 
 msgid "Required skills"
 msgstr "Kravdug fíggindi"
+msgid "Social Responsibility"
+msgstr "Socialt ansvar"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Okkara bindingar til FN's tígildis mál um holdugum utvikling"
+
+msgid "No published SDG commitments yet."
+msgstr "Ongar útgivnar bindingar til SDG enn."
+
+msgid "SDG Goals"
+msgstr "SDG mál"
+
+msgid "Enforcement"
+msgstr "Handhæving"
+
+msgid "Translate"
+msgstr "Umset"
+
+msgid "No AI provider configured"
+msgstr "Ongin AI-leverandur er sett upp"
+
+msgid "Translate this goal to another language"
+msgstr "Umset hetta málið til annað mál"
+
+msgid "Change history"
+msgstr "Broytarhistorikk"
+
+msgid "No history yet."
+msgstr "Ongin historikk enn."
+
+msgid "Translation ready — please review before saving."
+msgstr "Umseting er liðug — venlig granska áðrenn tú goymir."
+
+msgid "Target language"
+msgstr "Málmál"
+
+msgid "Translate SDG %s"
+msgstr "Umset SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Umset lýsingina og handhævingina frá"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Hetta verður goymt sum ein nýggj %s útgáva av SDG %s."
+
+msgid "Confirm and save"
+msgstr "Støðfest og goym"
+
+msgid "Translation failed."
+msgstr "Umseting miseyknaðist."
+
+msgid "Select a goal from the sidebar."
+msgstr "Vel eitt mál frá síðubjørnunni."
+
+msgid "Unpublished"
+msgstr "Óútgivið"
+
+msgid "to:"
+msgstr "til:"
+
+msgid "— select a language —"
+msgstr "— vel máltøk —"
+
+msgid "Add translation"
+msgstr "Legg afturat týðing"
+
+msgid "Add a manual translation"
+msgstr "Legg afturat handbókartýðing"
+
+msgid "Translate with AI"
+msgstr "Týð við AI"
+
+msgid "Enter manually"
+msgstr "Skriva inn manuelt"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Ongin AI tekstaleverandur er settur upp. Venlig sett ein upp í AI-instillingunum."
 

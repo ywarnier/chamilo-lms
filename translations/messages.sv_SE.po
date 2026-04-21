@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":ja:copyright,, nej:ingen copyright"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapp,, application/msword:MsWord,, application/octet-stream:Octetströmmar,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapp,, application/msword:MsWord,, application/octet-stream:Okettströmmar,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:övning,, simulation:simulering,, questionnaire:frågeställningar,, diagram:diagram,, figure:figur,, graph:graf,, index:index,, slide:slide,, table:bordläggning,, narrative text:berättartext,, exam:examen,, experiment:experiment,, problem statement:problemställning,, self assessment:självbedömning,, lecture:föreläsning"
@@ -33980,6 +33980,7 @@ msgstr "Koordinater"
 
 msgid "HR Dashboard"
 msgstr "HR-instrumentpanel"
+msgstr "HR-instrumentbräda"
 
 msgid "Staff"
 msgstr "Personal"
@@ -34009,10 +34010,10 @@ msgid "Positions"
 msgstr "Positioner"
 
 msgid "Units and positions list"
-msgstr "Lista över enheter och positioner"
+msgstr "Lista över enheter och befattningar"
 
 msgid "Assign position to user"
-msgstr "Tilldela position till användare"
+msgstr "Tilldela befattning till användare"
 
 msgid "Organizational chart"
 msgstr "Organisationsschema"
@@ -34196,4 +34197,81 @@ msgstr "Geografisk zon"
 
 msgid "Required skills"
 msgstr "Krävd kompetens"
+msgid "Social Responsibility"
+msgstr "Socialt ansvar"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Våra åtaganden för FN:s hållbarhetsmål"
+
+msgid "No published SDG commitments yet."
+msgstr "Inga publicerade åtaganden för hållbarhetsmål ännu."
+
+msgid "SDG Goals"
+msgstr "Hållbarhetsmål"
+
+msgid "Enforcement"
+msgstr "Genomförande"
+
+msgid "Translate"
+msgstr "Översätt"
+
+msgid "No AI provider configured"
+msgstr "Ingen AI-leverantör konfigurerad"
+
+msgid "Translate this goal to another language"
+msgstr "Översätt detta mål till ett annat språk"
+
+msgid "Change history"
+msgstr "Ändringshistorik"
+
+msgid "No history yet."
+msgstr "Ingen historik ännu."
+
+msgid "Translation ready — please review before saving."
+msgstr "Översättning klar — granska innan du sparar."
+
+msgid "Target language"
+msgstr "Målspråk"
+
+msgid "Translate SDG %s"
+msgstr "Översätt hållbarhetsmål %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Översätt beskrivningen och genomförandet från"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Detta kommer att sparas som en ny %s-version av hållbarhetsmål %s."
+
+msgid "Confirm and save"
+msgstr "Bekräfta och spara"
+
+msgid "Translation failed."
+msgstr "Översättning misslyckades."
+
+msgid "Select a goal from the sidebar."
+msgstr "Välj ett mål från sidopanelen."
+
+msgid "Unpublished"
+msgstr "Opublicerad"
+
+msgid "to:"
+msgstr "till:"
+
+msgid "— select a language —"
+msgstr "— välj ett språk —"
+
+msgid "Add translation"
+msgstr "Lägg till översättning"
+
+msgid "Add a manual translation"
+msgstr "Lägg till manuell översättning"
+
+msgid "Translate with AI"
+msgstr "Översätt med KI"
+
+msgid "Enter manually"
+msgstr "Ange manuellt"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Ingen AI-textleverantör är konfigurerad. Konfigurera en i AI-inställningarna."
 

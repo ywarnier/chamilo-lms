@@ -34194,4 +34194,81 @@ msgstr "지리적 구역"
 
 msgid "Required skills"
 msgstr "필수 기술"
+msgid "Social Responsibility"
+msgstr "사회적 책임"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "UN 지속가능발전목표에 대한 우리의 약속"
+
+msgid "No published SDG commitments yet."
+msgstr "아직 게시된 SDG 약속이 없습니다."
+
+msgid "SDG Goals"
+msgstr "SDG 목표"
+
+msgid "Enforcement"
+msgstr "시행"
+
+msgid "Translate"
+msgstr "번역"
+
+msgid "No AI provider configured"
+msgstr "AI 제공자가 구성되지 않음"
+
+msgid "Translate this goal to another language"
+msgstr "이 목표를 다른 언어로 번역"
+
+msgid "Change history"
+msgstr "변경 이력"
+
+msgid "No history yet."
+msgstr "아직 이력이 없습니다."
+
+msgid "Translation ready — please review before saving."
+msgstr "번역 완료 — 저장 전에 검토하세요."
+
+msgid "Target language"
+msgstr "목표 언어"
+
+msgid "Translate SDG %s"
+msgstr "SDG %s 번역"
+
+msgid "Translate the description and enforcement from"
+msgstr "설명과 시행을 다음에서 번역"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "이것은 SDG %s의 새로운 %s 버전으로 저장됩니다."
+
+msgid "Confirm and save"
+msgstr "확인 및 저장"
+
+msgid "Translation failed."
+msgstr "번역 실패."
+
+msgid "Select a goal from the sidebar."
+msgstr "사이드바에서 목표를 선택하세요."
+
+msgid "Unpublished"
+msgstr "미발행"
+
+msgid "to:"
+msgstr "수신자:"
+
+msgid "— select a language —"
+msgstr "— 언어 선택 —"
+
+msgid "Add translation"
+msgstr "번역 추가"
+
+msgid "Add a manual translation"
+msgstr "수동 번역 추가"
+
+msgid "Translate with AI"
+msgstr "AI로 번역"
+
+msgid "Enter manually"
+msgstr "수동 입력"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "AI 텍스트 제공자가 구성되지 않았습니다. AI 설정에서 하나를 구성하세요."
 

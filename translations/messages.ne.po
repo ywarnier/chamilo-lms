@@ -34194,4 +34194,81 @@ msgstr "भौगोलिक क्षेत्र"
 
 msgid "Required skills"
 msgstr "आवश्यक सीपहरू"
+msgid "Social Responsibility"
+msgstr "सामाजिक उत्तरदायित्व"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "संयुक्त राष्ट्र दिगो विकास लक्ष्यहरू प्रतिको हाम्रो प्रतिबद्धता"
+
+msgid "No published SDG commitments yet."
+msgstr "अझै कुनै प्रकाशित SDG प्रतिबद्धता छैन।"
+
+msgid "SDG Goals"
+msgstr "SDG लक्ष्यहरू"
+
+msgid "Enforcement"
+msgstr "कार्यान्वयन"
+
+msgid "Translate"
+msgstr "अनुवाद गर्नुहोस्"
+
+msgid "No AI provider configured"
+msgstr "कुनै AI प्रदायक कन्फिगर गरिएको छैन"
+
+msgid "Translate this goal to another language"
+msgstr "यो लक्ष्यलाई अर्को भाषामा अनुवाद गर्नुहोस्"
+
+msgid "Change history"
+msgstr "परिवर्तन इतिहास"
+
+msgid "No history yet."
+msgstr "अझै कुनै इतिहास छैन।"
+
+msgid "Translation ready — please review before saving."
+msgstr "अनुवाद तयार — बचत गर्नु अघि समीक्षा गर्नुहोस्।"
+
+msgid "Target language"
+msgstr "लक्षित भाषा"
+
+msgid "Translate SDG %s"
+msgstr "SDG %s लाई अनुवाद गर्नुहोस्"
+
+msgid "Translate the description and enforcement from"
+msgstr "वर्णन र कार्यान्वयनलाई यसबाट अनुवाद गर्नुहोस्"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "यो SDG %s को नयाँ %s संस्करणको रूपमा बचत हुनेछ।"
+
+msgid "Confirm and save"
+msgstr "पुष्टि गर्नुहोस् र बचत गर्नुहोस्"
+
+msgid "Translation failed."
+msgstr "अनुवाद असफल भयो।"
+
+msgid "Select a goal from the sidebar."
+msgstr "साइडबारबाट एउटा लक्ष्य छान्नुहोस्।"
+
+msgid "Unpublished"
+msgstr "प्रकाशित नभएको"
+
+msgid "to:"
+msgstr "प्रति:"
+
+msgid "— select a language —"
+msgstr "— भाषा छान्नुहोस् —"
+
+msgid "Add translation"
+msgstr "अनुवाद थप्नुहोस्"
+
+msgid "Add a manual translation"
+msgstr "म्यानुअल अनुवाद थप्नुहोस्"
+
+msgid "Translate with AI"
+msgstr "AI द्वारा अनुवाद गर्नुहोस्"
+
+msgid "Enter manually"
+msgstr "म्यानुअल रूपमा प्रविष्ट गर्नुहोस्"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "कुनै AI पाठ प्रदायक कन्फिगर गरिएको छैन। कृपया AI सेटिङहरूमा एउटा कन्फिगर गर्नुहोस्।"
 

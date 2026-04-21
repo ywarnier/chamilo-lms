@@ -34190,4 +34190,81 @@ msgstr "Agbègbè ilẹ̀"
 
 msgid "Required skills"
 msgstr "Awọn ogbon ti o nilo"
+msgid "Social Responsibility"
+msgstr "Ojuse Iṣẹ́-Ẹ̀dùn"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Awọn ìfẹ́sowòpò wa sí Àwọn Ìdíje Ìdàgbàsókè Ìdùgbò Ìdùgbò ti UN"
+
+msgid "No published SDG commitments yet."
+msgstr "Ko si ìfẹ́sowòpò SDG tí a ti tẹ̀jáde síbẹ̀."
+
+msgid "SDG Goals"
+msgstr "Àwọn Ìdíje SDG"
+
+msgid "Enforcement"
+msgstr "Ìdùmọ̀ Ìdíje"
+
+msgid "Translate"
+msgstr "Tún ìtumọ̀ ṣe"
+
+msgid "No AI provider configured"
+msgstr "Ko si ìpèsè AI tí a ṣe ìdàpọ̀"
+
+msgid "Translate this goal to another language"
+msgstr "Tún ìtumọ̀ ìdíje yìí ṣe sí èdè mìíràn"
+
+msgid "Change history"
+msgstr "Ìtàn ìyípadà"
+
+msgid "No history yet."
+msgstr "Ko si ìtàn síbẹ̀."
+
+msgid "Translation ready — please review before saving."
+msgstr "Ìtumọ̀ ṣe tán — jọ̀wọ́ ṣàyẹ̀wò kí o to fipamọ́."
+
+msgid "Target language"
+msgstr "Èdè ìdíje"
+
+msgid "Translate SDG %s"
+msgstr "Tún ìtumọ̀ SDG %s ṣe"
+
+msgid "Translate the description and enforcement from"
+msgstr "Tún ìtumọ̀ ìṣàpẹẹrẹ àti ìdùmọ̀ ìdíje ṣe láti"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Èyí yóò fipamọ́ gẹ́gẹ́ bí ẹya tuntun %s ti SDG %s."
+
+msgid "Confirm and save"
+msgstr "Fìdídì àti fipamọ́"
+
+msgid "Translation failed."
+msgstr "Ìtumọ̀ kùnà."
+
+msgid "Select a goal from the sidebar."
+msgstr "Yan ìdíje kan láti ìdàkejì."
+
+msgid "Unpublished"
+msgstr "A ko ṣe atẹjade"
+
+msgid "to:"
+msgstr "si:"
+
+msgid "— select a language —"
+msgstr "— yan ede kan —"
+
+msgid "Add translation"
+msgstr "Ṣafikun itumọ"
+
+msgid "Add a manual translation"
+msgstr "Ṣafikun itumọ pẹlu ọwọ"
+
+msgid "Translate with AI"
+msgstr "Tumọ pẹlu AI"
+
+msgid "Enter manually"
+msgstr "Tẹwọle pẹlu ọwọ"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Ko si ìpèsè ọrọ̀ AI tí a ṣe ìdàpọ̀. Jọ̀wọ́ ṣe ìdàpọ̀ ọkan nínú ìṣètò AI."
 

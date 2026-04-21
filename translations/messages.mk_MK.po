@@ -34194,4 +34194,81 @@ msgstr "Географска зона"
 
 msgid "Required skills"
 msgstr "Задолжителни вештини"
+msgid "Social Responsibility"
+msgstr "Социјална одговорност"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Нашите обврски кон Целите за одржлив развој на ОН"
+
+msgid "No published SDG commitments yet."
+msgstr "Сè уште нема објавени обврски за ЦОР."
+
+msgid "SDG Goals"
+msgstr "Цели ЦОР"
+
+msgid "Enforcement"
+msgstr "Спроведување"
+
+msgid "Translate"
+msgstr "Преведи"
+
+msgid "No AI provider configured"
+msgstr "Нема конфигуриран добавувач на ИИ"
+
+msgid "Translate this goal to another language"
+msgstr "Преведи ја оваа цел на друг јазик"
+
+msgid "Change history"
+msgstr "Историја на промени"
+
+msgid "No history yet."
+msgstr "Сè уште нема историја."
+
+msgid "Translation ready — please review before saving."
+msgstr "Преводот е готов — прегледајте пред да зачувате."
+
+msgid "Target language"
+msgstr "Целниот јазик"
+
+msgid "Translate SDG %s"
+msgstr "Преведи ЦОР %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Преведи го описот и спроведувањето од"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Ова ќе се зачува како нова %s верзија на ЦОР %s."
+
+msgid "Confirm and save"
+msgstr "Потврди и зачувај"
+
+msgid "Translation failed."
+msgstr "Преводот не успеа."
+
+msgid "Select a goal from the sidebar."
+msgstr "Избери цел од страничната лента."
+
+msgid "Unpublished"
+msgstr "Непобројана"
+
+msgid "to:"
+msgstr "до:"
+
+msgid "— select a language —"
+msgstr "— изберете јазик —"
+
+msgid "Add translation"
+msgstr "Додади превод"
+
+msgid "Add a manual translation"
+msgstr "Додади рачен превод"
+
+msgid "Translate with AI"
+msgstr "Преведи со ИИ"
+
+msgid "Enter manually"
+msgstr "Внеси рачно"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Нема конфигуриран добавувач на ИИ текст. Ве молиме конфигурирајте еден во поставките за ИИ."
 

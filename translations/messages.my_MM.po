@@ -34194,4 +34194,81 @@ msgstr "ပထဝီအနေရာ"
 
 msgid "Required skills"
 msgstr "လိုအပ်သော ကျွမ်းကျင်မှုများ"
+msgid "Social Responsibility"
+msgstr "လူမှုတာဝန်ယူမှု"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "UN ရေရှည်တည်တံ့သောဖွံ့ဖြိုးရေးပန်းတိုင်များအပေါ် ကျွန်ုပ်တို့၏ ကတိများ"
+
+msgid "No published SDG commitments yet."
+msgstr "ထုတ်ဝေထားသော SDG ကတိများ မရှိသေးပါ။"
+
+msgid "SDG Goals"
+msgstr "SDG ပန်းတိုင်များ"
+
+msgid "Enforcement"
+msgstr "အကောင်အထည်ဖော်ရေး"
+
+msgid "Translate"
+msgstr "ဘာသာပြန်"
+
+msgid "No AI provider configured"
+msgstr "AI ပေးသူ မထောက်ပံ့ထားပါ"
+
+msgid "Translate this goal to another language"
+msgstr "ဤပန်းတိုင်ကို အခြားဘာသာသို့ ဘာသာပြန်ပါ"
+
+msgid "Change history"
+msgstr "ပြောင်းလဲမှု သမိုင်း"
+
+msgid "No history yet."
+msgstr "သမိုင်း မရှိသေးပါ။"
+
+msgid "Translation ready — please review before saving."
+msgstr "ဘာသာပြန် အဆင်သင့်ဖြစ်ပါပြီ — သိမ်းမီက စစ်ဆေးပါ။"
+
+msgid "Target language"
+msgstr "ပစ်မှတ်ဘာသာ"
+
+msgid "Translate SDG %s"
+msgstr "SDG %s ကို ဘာသာပြန်ပါ"
+
+msgid "Translate the description and enforcement from"
+msgstr "ဖော်ပြချက်နှင့် အကောင်အထည်ဖော်ရေးကို ဘာသာပြန်ပါ"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "ဤသည်မှာ SDG %s ၏ အသစ် %s ဗားရှင်း အဖြစ် သိမ်းဆည်းပါမည်။"
+
+msgid "Confirm and save"
+msgstr "အတည်ပြုပြီး သိမ်းဆည်း"
+
+msgid "Translation failed."
+msgstr "ဘာသာပြန်မှု မအောင်မြင်ပါ။"
+
+msgid "Select a goal from the sidebar."
+msgstr "ဘေးဘက်ဘားမှ ပန်းတိုင်တစ်ခုကို ရွေးချယ်ပါ။"
+
+msgid "Unpublished"
+msgstr "မထုတ်ဝေရသေး"
+
+msgid "to:"
+msgstr "သို့:"
+
+msgid "— select a language —"
+msgstr "— ဘာသာစကားတစ်ခုရွေးပါ —"
+
+msgid "Add translation"
+msgstr "ဘာသာပြန်ထည့်ရန်"
+
+msgid "Add a manual translation"
+msgstr "လက်စွဲဘာသာပြန်ထည့်ရန်"
+
+msgid "Translate with AI"
+msgstr "AI ဖြင့်ဘာသာပြန်ရန်"
+
+msgid "Enter manually"
+msgstr "လက်စွဲရေးရန်"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "AI စာသားပေးသူ မထောက်ပံ့ထားပါ။ AI ဆက်တင်များတွင် တစ်ခုကို ထောက်ပံ့ပါ။"
 

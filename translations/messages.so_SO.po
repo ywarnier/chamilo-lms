@@ -34190,4 +34190,81 @@ msgstr "Aagga Juquraafiyeed"
 
 msgid "Required skills"
 msgstr "Xirfadaha loo baahan yahay"
+msgid "Social Responsibility"
+msgstr "Mas'uuliyadda Bulshada"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Ballanqaadyadayada Ahliyaadka Horumarinta Waara ee Qaramada Midoobay"
+
+msgid "No published SDG commitments yet."
+msgstr "Ma jiraan ballanqaadyo SDG la daabacay welwel."
+
+msgid "SDG Goals"
+msgstr "Hadafka SDG"
+
+msgid "Enforcement"
+msgstr "Fulinta"
+
+msgid "Translate"
+msgstr "Tarjumay"
+
+msgid "No AI provider configured"
+msgstr "Ma jiro bixiye AI la sameeyay"
+
+msgid "Translate this goal to another language"
+msgstr "U tarjum haddahan luqad kale"
+
+msgid "Change history"
+msgstr "Taariikhda isbeddelka"
+
+msgid "No history yet."
+msgstr "Taariikh weli ma jiro."
+
+msgid "Translation ready — please review before saving."
+msgstr "Tarjumaadda diyaar tahay — fadlan dib u eeg ka hor inta aan la keydin."
+
+msgid "Target language"
+msgstr "Luqadda la beegsaday"
+
+msgid "Translate SDG %s"
+msgstr "Tarjum SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Tarjumaadda sharaxaadda iyo fulinta ka"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Tani waxay u kaydsan doontaa sidii %s cusub version ee SDG %s."
+
+msgid "Confirm and save"
+msgstr "Xaqiiji oo keydi"
+
+msgid "Translation failed."
+msgstr "Tarjumiddu way fashilantay."
+
+msgid "Select a goal from the sidebar."
+msgstr "Dooro himilo ka soo jeeda barxadda."
+
+msgid "Unpublished"
+msgstr "Ma daabicin"
+
+msgid "to:"
+msgstr "ilaa:"
+
+msgid "— select a language —"
+msgstr "— dooro luqad —"
+
+msgid "Add translation"
+msgstr "Ku dar tarjumaad"
+
+msgid "Add a manual translation"
+msgstr "Ku dar tarjumaad gacmeed"
+
+msgid "Translate with AI"
+msgstr "Tarjumay AI"
+
+msgid "Enter manually"
+msgstr "Gali gacanta"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Ma jiro bixiye qoraal AI la sameeyay. Fadlan mid ka mid ah ku samee goobaha AI-da."
 

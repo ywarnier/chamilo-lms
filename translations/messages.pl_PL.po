@@ -34200,4 +34200,81 @@ msgstr "Strefa geograficzna"
 
 msgid "Required skills"
 msgstr "Wymagane umiejętności"
+msgid "Social Responsibility"
+msgstr "Odpowiedzialność społeczna"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Nasze zobowiązania wobec Celów Zrównoważonego Rozwoju ONZ"
+
+msgid "No published SDG commitments yet."
+msgstr "Brak opublikowanych zobowiązań SDG."
+
+msgid "SDG Goals"
+msgstr "Cele SDG"
+
+msgid "Enforcement"
+msgstr "Egzekwowanie"
+
+msgid "Translate"
+msgstr "Tłumacz"
+
+msgid "No AI provider configured"
+msgstr "Brak skonfigurowanego dostawcy AI"
+
+msgid "Translate this goal to another language"
+msgstr "Przetłumacz ten cel na inny język"
+
+msgid "Change history"
+msgstr "Historia zmian"
+
+msgid "No history yet."
+msgstr "Brak historii."
+
+msgid "Translation ready — please review before saving."
+msgstr "Tłumaczenie gotowe — proszę przejrzeć przed zapisaniem."
+
+msgid "Target language"
+msgstr "Język docelowy"
+
+msgid "Translate SDG %s"
+msgstr "Tłumacz SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Przetłumacz opis i egzekwowanie z"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Zostanie zapisane jako nowa wersja %s SDG %s."
+
+msgid "Confirm and save"
+msgstr "Potwierdź i zapisz"
+
+msgid "Translation failed."
+msgstr "Tłumaczenie nie powiodło się."
+
+msgid "Select a goal from the sidebar."
+msgstr "Wybierz cel z paska bocznego."
+
+msgid "Unpublished"
+msgstr "Nieopublikowany"
+
+msgid "to:"
+msgstr "do:"
+
+msgid "— select a language —"
+msgstr "— wybierz język —"
+
+msgid "Add translation"
+msgstr "Dodaj tłumaczenie"
+
+msgid "Add a manual translation"
+msgstr "Dodaj ręczne tłumaczenie"
+
+msgid "Translate with AI"
+msgstr "Tłumacz z AI"
+
+msgid "Enter manually"
+msgstr "Wprowadź ręcznie"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Nie skonfigurowano dostawcy tekstu AI. Proszę skonfigurować jeden w ustawieniach AI."
 

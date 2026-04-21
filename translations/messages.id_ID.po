@@ -34194,4 +34194,81 @@ msgstr "Zona geografis"
 
 msgid "Required skills"
 msgstr "Keterampilan yang diperlukan"
+msgid "Social Responsibility"
+msgstr "Tanggung Jawab Sosial"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Komitmen kami terhadap Tujuan Pembangunan Berkelanjutan PBB"
+
+msgid "No published SDG commitments yet."
+msgstr "Belum ada komitmen SDG yang dipublikasikan."
+
+msgid "SDG Goals"
+msgstr "Tujuan SDG"
+
+msgid "Enforcement"
+msgstr "Penegakan"
+
+msgid "Translate"
+msgstr "Terjemahkan"
+
+msgid "No AI provider configured"
+msgstr "Tidak ada penyedia AI yang dikonfigurasi"
+
+msgid "Translate this goal to another language"
+msgstr "Terjemahkan tujuan ini ke bahasa lain"
+
+msgid "Change history"
+msgstr "Riwayat perubahan"
+
+msgid "No history yet."
+msgstr "Belum ada riwayat."
+
+msgid "Translation ready — please review before saving."
+msgstr "Terjemahan siap — silakan tinjau sebelum menyimpan."
+
+msgid "Target language"
+msgstr "Bahasa target"
+
+msgid "Translate SDG %s"
+msgstr "Terjemahkan SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Terjemahkan deskripsi dan penegakan dari"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Ini akan disimpan sebagai versi %s baru dari SDG %s."
+
+msgid "Confirm and save"
+msgstr "Konfirmasi dan simpan"
+
+msgid "Translation failed."
+msgstr "Terjemahan gagal."
+
+msgid "Select a goal from the sidebar."
+msgstr "Pilih tujuan dari sidebar."
+
+msgid "Unpublished"
+msgstr "Belum dipublikasikan"
+
+msgid "to:"
+msgstr "ke:"
+
+msgid "— select a language —"
+msgstr "— pilih bahasa —"
+
+msgid "Add translation"
+msgstr "Tambah terjemahan"
+
+msgid "Add a manual translation"
+msgstr "Tambah terjemahan manual"
+
+msgid "Translate with AI"
+msgstr "Terjemahkan dengan AI"
+
+msgid "Enter manually"
+msgstr "Masukkan secara manual"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Tidak ada penyedia teks AI yang dikonfigurasi. Silakan konfigurasikan satu di pengaturan AI."
 

@@ -34209,4 +34209,81 @@ msgstr "Zona geogràfica"
 
 msgid "Required skills"
 msgstr "Competències requerides"
+msgid "Social Responsibility"
+msgstr "Responsabilitat social"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Els nostres compromisos amb els Objectius de Desenvolupament Sostenible de l'ONU"
+
+msgid "No published SDG commitments yet."
+msgstr "Encara no hi ha compromisos ODS publicats."
+
+msgid "SDG Goals"
+msgstr "Objectius ODS"
+
+msgid "Enforcement"
+msgstr "Execució"
+
+msgid "Translate"
+msgstr "Traduir"
+
+msgid "No AI provider configured"
+msgstr "No hi ha cap proveïdor d'IA configurat"
+
+msgid "Translate this goal to another language"
+msgstr "Traduir aquest objectiu a un altre idioma"
+
+msgid "Change history"
+msgstr "Historial de canvis"
+
+msgid "No history yet."
+msgstr "Encara no hi ha historial."
+
+msgid "Translation ready — please review before saving."
+msgstr "Traducción preparada — reviseu abans de desar."
+
+msgid "Target language"
+msgstr "Idioma destí"
+
+msgid "Translate SDG %s"
+msgstr "Traduir l'ODS %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Traduir la descripció i l'execució des de"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "S'adequarà com una nova versió %s de l'ODS %s."
+
+msgid "Confirm and save"
+msgstr "Confirmar i desar"
+
+msgid "Translation failed."
+msgstr "La traducció ha fallat."
+
+msgid "Select a goal from the sidebar."
+msgstr "Seleccioneu un objectiu des de la barra lateral."
+
+msgid "Unpublished"
+msgstr "No publicat"
+
+msgid "to:"
+msgstr "a:"
+
+msgid "— select a language —"
+msgstr "— seleccioneu un idioma —"
+
+msgid "Add translation"
+msgstr "Afegir traducció"
+
+msgid "Add a manual translation"
+msgstr "Afegir una traducció manual"
+
+msgid "Translate with AI"
+msgstr "Traduir amb IA"
+
+msgid "Enter manually"
+msgstr "Introduir manualment"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "No hi ha cap proveïdor de text d'IA configurat. Configureu-ne un a la configuració d'IA."
 

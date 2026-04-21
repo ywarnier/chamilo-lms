@@ -34209,4 +34209,81 @@ msgstr "Γεωγραφική ζώνη"
 
 msgid "Required skills"
 msgstr "Απαιτούμενες δεξιότητες"
+msgid "Social Responsibility"
+msgstr "Κοινωνική Ευθύνη"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Οι δεσμεύσεις μας για τους Στόχους Βιώσιμης Ανάπτυξης του ΟΗΕ"
+
+msgid "No published SDG commitments yet."
+msgstr "Δεν υπάρχουν δημοσιευμένες δεσμεύσεις SDG ακόμη."
+
+msgid "SDG Goals"
+msgstr "Στόχοι SDG"
+
+msgid "Enforcement"
+msgstr "Εφαρμογή"
+
+msgid "Translate"
+msgstr "Μετάφραση"
+
+msgid "No AI provider configured"
+msgstr "Δεν έχει ρυθμιστεί πάροχος AI"
+
+msgid "Translate this goal to another language"
+msgstr "Μετάφραση αυτού του στόχου σε άλλη γλώσσα"
+
+msgid "Change history"
+msgstr "Ιστορικό αλλαγών"
+
+msgid "No history yet."
+msgstr "Δεν υπάρχει ιστορικό ακόμη."
+
+msgid "Translation ready — please review before saving."
+msgstr "Η μετάφραση είναι έτοιμη — παρακαλούμε ελέγξτε πριν αποθηκεύσετε."
+
+msgid "Target language"
+msgstr "Γλώσσα προορισμού"
+
+msgid "Translate SDG %s"
+msgstr "Μετάφραση SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Μετάφραση περιγραφής και εφαρμογής από"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Αυτό θα αποθηκευτεί ως νέα έκδοση %s του SDG %s."
+
+msgid "Confirm and save"
+msgstr "Επιβεβαίωση και αποθήκευση"
+
+msgid "Translation failed."
+msgstr "Η μετάφραση απέτυχε."
+
+msgid "Select a goal from the sidebar."
+msgstr "Επιλέξτε έναν στόχο από την πλευρική γραμμή."
+
+msgid "Unpublished"
+msgstr "Δεν δημοσιεύτηκε"
+
+msgid "to:"
+msgstr "προς:"
+
+msgid "— select a language —"
+msgstr "— επιλέξτε γλώσσα —"
+
+msgid "Add translation"
+msgstr "Προσθήκη μετάφρασης"
+
+msgid "Add a manual translation"
+msgstr "Προσθήκη χειροκίνητης μετάφρασης"
+
+msgid "Translate with AI"
+msgstr "Μετάφραση με ΤΝ"
+
+msgid "Enter manually"
+msgstr "Εισαγωγή χειροκίνητα"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Δεν έχει ρυθμιστεί πάροχος κειμένου AI. Παρακαλούμε ρυθμίστε έναν στις ρυθμίσεις AI."
 

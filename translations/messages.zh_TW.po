@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":是:有版權,, 否:無版權"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:資料夾,, application/msword:MsWord,, application/octet-stream:八位元組流,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:資料夾,, application/msword:MsWord,, application/octet-stream:八位元組串流,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":練習:練習,, 類比:類比,, 問卷:問卷,, 圖表:圖表,, 圖:圖,, 圖:圖,, 索引:索引,, 幻燈:幻燈,, 表:表,, 描述文本:描述文本,, 考試:考試,, 實驗:實驗,, 問題聲明:問題聲明,, 自我評價:自我評價,, 演講:演講"
@@ -34196,4 +34196,81 @@ msgstr "地理區域"
 
 msgid "Required skills"
 msgstr "所需技能"
+msgid "Social Responsibility"
+msgstr "社會責任"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "我們對聯合國永續發展目標的承諾"
+
+msgid "No published SDG commitments yet."
+msgstr "尚未發布 SDG 承諾。"
+
+msgid "SDG Goals"
+msgstr "SDG 目標"
+
+msgid "Enforcement"
+msgstr "執行"
+
+msgid "Translate"
+msgstr "翻譯"
+
+msgid "No AI provider configured"
+msgstr "未配置 AI 提供者"
+
+msgid "Translate this goal to another language"
+msgstr "將此目標翻譯成另一種語言"
+
+msgid "Change history"
+msgstr "變更歷史"
+
+msgid "No history yet."
+msgstr "尚未有歷史記錄。"
+
+msgid "Translation ready — please review before saving."
+msgstr "翻譯完成 — 請在儲存前檢閱。"
+
+msgid "Target language"
+msgstr "目標語言"
+
+msgid "Translate SDG %s"
+msgstr "翻譯 SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "從以下翻譯描述和執行"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "這將儲存為 SDG %s 的新 %s 版本。"
+
+msgid "Confirm and save"
+msgstr "確認並儲存"
+
+msgid "Translation failed."
+msgstr "翻譯失敗。"
+
+msgid "Select a goal from the sidebar."
+msgstr "從側邊欄選擇一個目標。"
+
+msgid "Unpublished"
+msgstr "未發布"
+
+msgid "to:"
+msgstr "收件人："
+
+msgid "— select a language —"
+msgstr "— 選擇語言 —"
+
+msgid "Add translation"
+msgstr "新增翻譯"
+
+msgid "Add a manual translation"
+msgstr "新增手動翻譯"
+
+msgid "Translate with AI"
+msgstr "使用 AI 翻譯"
+
+msgid "Enter manually"
+msgstr "手動輸入"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "未配置 AI 文字提供者。請在 AI 設定中配置一個。"
 

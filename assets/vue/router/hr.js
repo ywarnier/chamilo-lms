@@ -145,5 +145,16 @@ export default {
       },
       component: () => import("../views/hr/HrCompetencySearchView.vue"),
     },
+    {
+      name: "HrSocialResponsibility",
+      path: "social-responsibility",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Social Responsibility",
+      },
+      component: () => import("../views/hr/HrSocialResponsibilityView.vue"),
+    },
   ],
 }

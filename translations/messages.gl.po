@@ -34209,4 +34209,81 @@ msgstr "Zona xeográfica"
 
 msgid "Required skills"
 msgstr "Competencias requiridas"
+msgid "Social Responsibility"
+msgstr "Responsabilidade Social"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Os nosos compromisos cos Obxectivos de Desenvolvemento Sostible da ONU"
+
+msgid "No published SDG commitments yet."
+msgstr "Aínda non hai compromisos ODS publicados."
+
+msgid "SDG Goals"
+msgstr "Obxectivos ODS"
+
+msgid "Enforcement"
+msgstr "Execución"
+
+msgid "Translate"
+msgstr "Traducir"
+
+msgid "No AI provider configured"
+msgstr "Non hai ningún proveedor de IA configurado"
+
+msgid "Translate this goal to another language"
+msgstr "Traducir este obxectivo a outro idioma"
+
+msgid "Change history"
+msgstr "Historial de cambios"
+
+msgid "No history yet."
+msgstr "Aínda non hai historial."
+
+msgid "Translation ready — please review before saving."
+msgstr "Tradución lista — revise antes de gardar."
+
+msgid "Target language"
+msgstr "Idioma de destino"
+
+msgid "Translate SDG %s"
+msgstr "Traducir ODS %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Traducir a descrición e execución desde"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Gardarase como nova versión %s do ODS %s."
+
+msgid "Confirm and save"
+msgstr "Confirmar e gardar"
+
+msgid "Translation failed."
+msgstr "Fallou a tradución."
+
+msgid "Select a goal from the sidebar."
+msgstr "Seleccione un obxectivo na barra lateral."
+
+msgid "Unpublished"
+msgstr "Non publicado"
+
+msgid "to:"
+msgstr "a:"
+
+msgid "— select a language —"
+msgstr "— seleccione un idioma —"
+
+msgid "Add translation"
+msgstr "Engadir tradución"
+
+msgid "Add a manual translation"
+msgstr "Engadir unha tradución manual"
+
+msgid "Translate with AI"
+msgstr "Traducir con IA"
+
+msgid "Enter manually"
+msgstr "Introducir manualmente"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Non hai ningún proveedor de texto de IA configurado. Configure un nas configuracións de IA."
 

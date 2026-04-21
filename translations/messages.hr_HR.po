@@ -34195,4 +34195,81 @@ msgstr "Geografska zona"
 
 msgid "Required skills"
 msgstr "Zahtjevane vještine"
+msgid "Social Responsibility"
+msgstr "Društvena odgovornost"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Naši obvezi prema Ciljevima održivog razvoja Ujedinjenih naroda"
+
+msgid "No published SDG commitments yet."
+msgstr "Još nema objavljenih obveza SDG-a."
+
+msgid "SDG Goals"
+msgstr "Ciljevi SDG-a"
+
+msgid "Enforcement"
+msgstr "Primjena"
+
+msgid "Translate"
+msgstr "Prevedi"
+
+msgid "No AI provider configured"
+msgstr "Nema konfiguriranog AI pružatelja usluga"
+
+msgid "Translate this goal to another language"
+msgstr "Prevedi ovaj cilj na drugi jezik"
+
+msgid "Change history"
+msgstr "Povijest promjena"
+
+msgid "No history yet."
+msgstr "Još nema povijesti."
+
+msgid "Translation ready — please review before saving."
+msgstr "Prevedeno — pregledajte prije spremanja."
+
+msgid "Target language"
+msgstr "Ciljni jezik"
+
+msgid "Translate SDG %s"
+msgstr "Prevedi SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Prevedi opis i primjenu s"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Ovo će biti spremljeno kao nova %s verzija SDG %s."
+
+msgid "Confirm and save"
+msgstr "Potvrdi i spremi"
+
+msgid "Translation failed."
+msgstr "Prevođenje nije uspjelo."
+
+msgid "Select a goal from the sidebar."
+msgstr "Odaberite cilj iz bočne trake."
+
+msgid "Unpublished"
+msgstr "Nepobjavljeno"
+
+msgid "to:"
+msgstr "za:"
+
+msgid "— select a language —"
+msgstr "— odaberite jezik —"
+
+msgid "Add translation"
+msgstr "Dodaj prijevod"
+
+msgid "Add a manual translation"
+msgstr "Dodaj ručni prijevod"
+
+msgid "Translate with AI"
+msgstr "Prevedi s AI"
+
+msgid "Enter manually"
+msgstr "Unesi ručno"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Nijedan AI pružatelj teksta nije konfiguriran. Molimo konfigurirajte jedan u AI postavkama."
 

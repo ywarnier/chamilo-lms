@@ -182,6 +182,6 @@ const roiItems = computed(() => [
 const diversityItems = computed(() => [
   { class: "item-hr-diversity-criteria", label: t("Diversity criteria") },
   { class: "item-hr-diversity-guidelines", label: t("Diversity guidelines") },
-  { class: "item-hr-social-responsibility", label: t("Social responsibility guidelines") },
+  { class: "item-hr-social-responsibility", route: { name: "HrSocialResponsibility" }, label: t("Social responsibility guidelines") },
 ])
 </script>

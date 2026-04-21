@@ -34190,4 +34190,81 @@ msgstr "Географічна зона"
 
 msgid "Required skills"
 msgstr "Необхідні навички"
+msgid "Social Responsibility"
+msgstr "Соціальна відповідальність"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Наші зобов’язання щодо Цілей сталого розвитку ООН"
+
+msgid "No published SDG commitments yet."
+msgstr "Ще не опубліковано зобов’язань щодо ЦСР."
+
+msgid "SDG Goals"
+msgstr "ЦСР Цілі"
+
+msgid "Enforcement"
+msgstr "Виконання"
+
+msgid "Translate"
+msgstr "Перекласти"
+
+msgid "No AI provider configured"
+msgstr "Постачальник ШІ не налаштовано"
+
+msgid "Translate this goal to another language"
+msgstr "Перекласти цю ціль іншою мовою"
+
+msgid "Change history"
+msgstr "Історія змін"
+
+msgid "No history yet."
+msgstr "Історії ще немає."
+
+msgid "Translation ready — please review before saving."
+msgstr "Переклад готовий — перегляньте перед збереженням."
+
+msgid "Target language"
+msgstr "Цільова мова"
+
+msgid "Translate SDG %s"
+msgstr "Перекласти ЦСР %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Перекласти опис та виконання з"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Це буде збережено як нова версія %s ЦСР %s."
+
+msgid "Confirm and save"
+msgstr "Підтвердити та зберегти"
+
+msgid "Translation failed."
+msgstr "Переклад не вдався."
+
+msgid "Select a goal from the sidebar."
+msgstr "Виберіть ціль у бічній панелі."
+
+msgid "Unpublished"
+msgstr "Неопубліковано"
+
+msgid "to:"
+msgstr "кому:"
+
+msgid "— select a language —"
+msgstr "— оберіть мову —"
+
+msgid "Add translation"
+msgstr "Додати переклад"
+
+msgid "Add a manual translation"
+msgstr "Додати ручний переклад"
+
+msgid "Translate with AI"
+msgstr "Перекласти за допомогою ШІ"
+
+msgid "Enter manually"
+msgstr "Ввести вручну"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Постачальник текстового ШІ не налаштовано. Будь ласка, налаштуйте його в параметрах ШІ."
 

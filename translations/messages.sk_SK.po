@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "Úprimne"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Vzorník vzorca: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Vzorkový vzorec: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Rozsahy premennej"
@@ -34209,4 +34209,81 @@ msgstr "Geografická zóna"
 
 msgid "Required skills"
 msgstr "Požadované zručnosti"
+msgid "Social Responsibility"
+msgstr "Sociálna zodpovednosť"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Naše záväzky voči cieľom udržateľného rozvoja OSN"
+
+msgid "No published SDG commitments yet."
+msgstr "Zatiaľ žiadne publikované záväzky SDG."
+
+msgid "SDG Goals"
+msgstr "Ciele SDG"
+
+msgid "Enforcement"
+msgstr "Vynútenie"
+
+msgid "Translate"
+msgstr "Preložiť"
+
+msgid "No AI provider configured"
+msgstr "Žiadny poskytovateľ AI nenastavený"
+
+msgid "Translate this goal to another language"
+msgstr "Preložiť tento cieľ do iného jazyka"
+
+msgid "Change history"
+msgstr "História zmien"
+
+msgid "No history yet."
+msgstr "Zatiaľ žiadna história."
+
+msgid "Translation ready — please review before saving."
+msgstr "Preklad pripravený — pred uložením ho skontrolujte."
+
+msgid "Target language"
+msgstr "Cieľový jazyk"
+
+msgid "Translate SDG %s"
+msgstr "Preložiť SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Preložiť popis a vykonávanie z"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Toto sa uloží ako nová verzia %s SDG %s."
+
+msgid "Confirm and save"
+msgstr "Potvrdiť a uložiť"
+
+msgid "Translation failed."
+msgstr "Preklad zlyhal."
+
+msgid "Select a goal from the sidebar."
+msgstr "Vyberte cieľ z bočného panelu."
+
+msgid "Unpublished"
+msgstr "Nepublikované"
+
+msgid "to:"
+msgstr "komu:"
+
+msgid "— select a language —"
+msgstr "— vybrať jazyk —"
+
+msgid "Add translation"
+msgstr "Pridať preklad"
+
+msgid "Add a manual translation"
+msgstr "Pridať manuálny preklad"
+
+msgid "Translate with AI"
+msgstr "Preložiť s AI"
+
+msgid "Enter manually"
+msgstr "Zadať manuálne"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Nie je nakonfigurovaný žiadny poskytovateľ AI textu. Prosím, nakonfigurujte jeden v nastaveniach AI."
 

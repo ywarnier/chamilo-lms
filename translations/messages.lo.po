@@ -34667,13 +34667,13 @@ msgid "Save private conversations in documents"
 msgstr "ບັນທຶກການສົນທະນາສ່ວນຕົວໃນເອກະສານ"
 
 msgid "EU AI Act – Transparency & risk notice"
-msgstr ""
+msgstr "EU AI Act – ການໂປ່ງໃສ & ການແຈ້ງເຕືອນເລື່ອງຄວາມສ່ຽງ"
 
 msgid "Under the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), AI systems used in education are generally classified as “high-risk”. This software itself is <strong>not</strong> an AI system, but it can integrate optional internal or external AI systems—depending on your configuration—to enhance user task performance. These systems could access personal data <em>only if</em> users include such data in their prompts. By design, this software does not share personal data with AI systems without the user's active input. By default, all AI features are disabled."
-msgstr ""
+msgstr "ຕາມກົດໝາຍປັນຍາຈໍາກົນ EU (ກົດລະບຽບ (EU) 2024/1689), ລະບົບ AI ທີ່ໃຊ້ໃນການສຶກສາໄດ້ຖືກຈັດປະເພດເປັນ “ຄວາມສ່ຽງສູງ” ໂດຍທົ່ວໄປ. ຊອບແວນີ້ຈິງໆ <strong>ບໍ່ແມ່ນ</strong> ລະບົບ AI, ແຕ່ມັນສາມາດປະສົມປະສານກັບລະບົບ AI ພາຍໃນ ຫຼື ພາຍນອກທີ່ເລືອກໄດ້—ຕາມການຕັ້ງຄ່າຂອງເຈົ້າ—ເພື່ອຍົກລະດັບການປະຕິບັດງານຂອງຜູ້ໃຊ້. ລະບົບເຫຼົ່ານີ້ສາມາດເຂົ້າເຖິງຂໍ້ມູນສ່ວນຕົວ <em>ພຽງແຕ່</em> ຖ້າຜູ້ໃຊ້ຕົ່ວເລືອກໃສ່ຂໍ້ມູນນັ້ນໃນການສົ່ງຄຳສັ່ງຂອງເຂົາເຈົ້າ. ດ້ວຍການອອກແບບ, ຊອບແວນີ້ຈະບໍ່ແບ່ງປັນຂໍ້ມູນສ່ວນຕົວກັບລະບົບ AI ໂດຍບໍ່ມີການປ້ອນຂໍ້ມູນຈາກຜູ້ໃຊ້."
 
 msgid "Admin responsibility & disclosures"
-msgstr ""
+msgstr "ຄວາມຮັບຜິດຊອບຂອງຜູ້ບໍລິຫານ & ການເປີດເຜີຍ"
 
 msgid "This configuration page details each AI feature and its purpose. As a deployer, you should review them carefully and update your GDPR-compliant data privacy policies to reflect the options you enable. While most AI features do not directly share personal data with external systems, user prompts sent to AI may inadvertently include personal information. As a deployer, <strong>you are responsible</strong> for informing users of this risk. For transparency, future releases may show non-intrusive end-user tags indicating that certain content or feedback was generated with the help of AI."
 msgstr "ໜ້າການຕັ້ງຄ່ານີ້ລາຍລະອຽດລັກສະນະ AI ທຸກຢ່າງ ແລະ ຈຸດປະສົງຂອງມັນ. ໃນຖານະເປັນຜູ້ປະກາດ, ເຈົ້າຄວນກວດເບິ່ງມັນອີກຄັ້ງ ແລະ ອັບເດດນະໂຍບາຍຄວາມເປັນສ່ວນຕົວຂໍ້ມູນທີ່ປະຕິບັດຕາມ GDPR ເພື່ອສະແດງຕົວເລືອກທີ່ເຈົ້າເປີດໃຊ້. ເຖິງແຕ່ລັກສະນະ AI ສ່ວໃຫຍ່ບໍ່ໄດ້ແບ່ງປັນຂໍ້ມູນສ່ວນຕົວກັບລະບົບພາຍນອກໂດຍກົງ, ການສົ່ງຄຳຖາມຂອງຜູ້ໃຊ້ໄປກັບ AI ອາດຈະມີຂໍ້ມູນສ່ວນຕົວໂດຍບັງເອີນ. ໃນຖານະເປັນຜູ້ປະກາດ, <strong>ເຈົ້າມີຄວາມຮັບພັນທັງໝົດ</strong> ສຳລັບການແຈ້ງເຕືອນຜູ້ໃຊ້ກ່ຽວກັບຄວາມສ່ຽງນີ້. ເພື່ອຄວາມໂປ່ງໃສ, ການປ່ອຍລຸ້ນໃນອະນາຄົດອາດຈະສະແດງປ້າຍຜູ້ໃຊ້ທ້າຍຕອນທີ່ບໍ່ລົບກວນ ທີ່ບອກວ່າເນື້ອໃນ ຫຼື ຄຳເຫັນບາງຢ່າງໄດ້ຖືກສ້າງດ້ວຍການຊ່ວຍເຫຼືອຈາກ AI."
@@ -35156,82 +35156,82 @@ msgid "Select permission"
 msgstr "ເລືອກສິດ"
 
 msgid "By accepting this invitation, you will become linked to the requesting user in a way that will make some or all of your profile data available for reading by the requesting user"
-msgstr ""
+msgstr "ດ້ວຍການຍອມຮັບເຊື່ອເຊີນດັ່ງກ່າວ, ເຈົ້າຈະກາຍເປັນຄົນກັບກັບຜູ້ຮ້ອງຂໍໃນທາງທີ່ຈະເຮັດໃຫ້ຂໍ້ມູນດ້ານປະຫວັດຂອງເຈົ້າບາງສ່ວນ ຫຼື ທັງໝົດສາມາດອ່ານໄດ້ໂດຍຜູ້ຮ້ອງຂໍ"
 
 msgid "Showing %d of approximately %d result(s) for %s."
-msgstr ""
+msgstr "ກຳລັງສະແດງ %d ຂອງປະມານ %d ຜົນການຄົ້ນຫາສຳລັບ %s."
 
 msgid "Showing %d accessible result(s) for %s."
-msgstr ""
+msgstr "ກຳລັງສະແດງ %d ຜົນການທີ່ເຂົ້າເຖິງໄດ້ສຳລັບ %s."
 
 msgid "You will therefore be automatically redirected to this URL"
-msgstr ""
+msgstr "ດັ່ງນັ້ນເຈົ້າຈະຖືກສົ່ງຕໍ່ໄປຫາ URL ນີ້ໂດຍອັດຕະໂນມັດ"
 
 msgid "You have access to multiple URLs"
-msgstr ""
+msgstr "ເຈົ້າມີການເຂົ້າເຖິງ URL ຫຼາຍອັນ"
 
 msgid "Please click on the link below corresponding to the URL you wish to access"
-msgstr ""
+msgstr "ກະລຸນາກົດລິ້ງດ້ານລຸ່ມນີ້ທີ່ຕົງກັບ URL ທີ່ເຈົ້າຢາກເຂົ້າເຖິງ"
 
 msgid "You do not currently have access to any URL"
-msgstr ""
+msgstr "ປັດຈຸບັນເຈົ້າບໍ່ມີການເຂົ້າເຖິງ URL ໃດໆ"
 
 msgid "Maximum number of subscriptions allowed"
-msgstr ""
+msgstr "ຈຳນວນສູງສຸດຂອງການສະໝັກທີ່ອະນຸຍາດໄດ້"
 
 msgid "An error occurred"
-msgstr ""
+msgstr "ເກີດຂໍ້ຜິດພາດ"
 
 msgid "You don't have any course content yet"
-msgstr ""
+msgstr "ເຈົ້າຍັງບໍ່ມີເນື້ອຫາຄອສໄດ້"
 
 msgid "This course is locked"
-msgstr ""
+msgstr "ຄອສນີ້ຖືກລັອກ"
 
 msgid "The e-mail address from which e-mails will be sent when the platform sends an e-mail, also used as 'reply-to' header"
-msgstr ""
+msgstr "ອີເມວທີ່ຈະສົ່ງອີເມວເມື່ອແພລັດຟອມສົ່ງອີເມວ, ນຳໃຊ້ເປັນ 'reply-to' header ດ້ວຍ"
 
 msgid "Cannot find your language in the list? Contact us at %s to contribute as a translator"
-msgstr ""
+msgstr "ບໍ່ພົບພາສາຂອງເຈົ້າໃນລາຍການ? ຕິດຕໍ່ພວກເຮົາທີ່ %s ເພື່ອຊ່ວຍແປ"
 
 msgid "An update is available"
-msgstr ""
+msgstr "ມີການອັບເດດມາ"
 
 msgid "to know what's new and what has been changed"
-msgstr ""
+msgstr "ເພື່ອຮູ້ວ່າມີຫຍັງໃຫມ່ ແລະ ມີການປ່ຽນແປງອັນໃດບ້າງ"
 
 msgid "We have detected that your PHP installation does not define the date"
-msgstr ""
+msgstr "ພວກເຮົາພົບວ່າການຕິດຕັ້ງ PHP ຂອງເຈົ້າບໍ່ກຳນົດວັນທີ"
 
 msgid "Your PHP version does not match the requirements for this software"
-msgstr ""
+msgstr "ລຸ້ນ PHP ຂອງເຈົ້າບໍ່ຕົງກັບຄວາມຕ້ອງການຂອງຊອບແວນີ້"
 
 msgid "Some files or folders don't have writing permission"
-msgstr ""
+msgstr "ໄຟລ໌ ຫຼື ໂຟນເດີບາງອັນບໍ່ມີສິດການເປີດ"
 
 msgid "Warning! The installer has detected an existing Chamilo platform on your system"
-msgstr ""
+msgstr "ເຕືອນ! ຜູ້ຕິດຕັ້ງພົບແພລັດຟອມ Chamilo ທີ່ມີຢູ່ໃນລະບົບຂອງເຈົ້າ"
 
 msgid "Because the <code>newscorm</code> and <code>exercice</code> directories were renamed to <code>lp</code> and <code>exercise</code> respectively, is necessary to delete or rename to <code>newscorm_old</code> and <code>exercice_old</code>"
-msgstr ""
+msgstr "ເພາະວ່າໂຟນເດີ <code>newscorm</code> ແລະ <code>exercice</code> ຖືກປ່ຽນຊື່ເປັນ <code>lp</code> ແລະ <code>exercise</code> ຕາມລຳດັບ, ຈຶ່ງຕ້ອງລຶບ ຫຼື ປ່ຽນຊື່ເປັນ <code>newscorm_old</code> ແລະ <code>exercice_old</code>"
 
 msgid "The form contains incorrect or incomplete data"
-msgstr ""
+msgstr "ໂຟມມມີຂໍ້ມູນທີ່ຜິດຫຼືບໍ່ສົມບູນ"
 
 msgid "Your contact information could not be sent"
-msgstr ""
+msgstr "ບໍ່ສາມາດສົ່ງຂໍ້ມູນຕິດຕໍ່ຂອງເຈົ້າໄດ້"
 
 msgid "Please contact support with the error details"
-msgstr ""
+msgstr "ກະລຸນາຕິດຕໍ່ການສະໜັບສະໜຸນພ້ອມລາຍລະອຽດຂໍ້ຜິດພາດ"
 
 msgid "Click the image to crop it (1:1 ratio, 120x120 px recommended)"
-msgstr ""
+msgstr "ກົດທີ່ຮູບພາບເພື່ອຕັດມັນ (ອັດຕາສ່ວນ 1:1, 120x120 px ແນະນຳ)"
 
 msgid "Use the crop tool to select a 1:1 region"
-msgstr ""
+msgstr "ໃຊ້ເຄື່ອງມືຕັດເພື່ອເລືອກພື້ນທີ່ 1:1"
 
 msgid "Checking push subscription"
-msgstr ""
+msgstr "ກຳລັງກວດສອບການສະໝັກ push"
 
 msgid "You're subscribed to push notifications in this browser"
 msgstr "ເຄື່ອງນັ້ນຂອງເຈົ້າໄດ້ລົງທະບຽນຮັບການແຈ້ງເຕືອນ push ໃນ browser ນີ້ແລ້ວ"
@@ -36541,4 +36541,81 @@ msgstr "ເຂດດິນແດນ"
 
 msgid "Required skills"
 msgstr "ທັດສະນິຍົມທີ່ຕ້ອງການ"
+msgid "Social Responsibility"
+msgstr "ຄວາມຮັບຜິດຊອບສັງຄົມ"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "ການຮັບມັນສ່ວນກ່ຽວຂ້ອງຂອງເຮົາຕໍ່ເປົ້າໝາຍການພັດທະນາຢ່າງຍືນຍົງຂອງສະຫະປະຊາຊາດ"
+
+msgid "No published SDG commitments yet."
+msgstr "ຍັງບໍ່ມີການຮັບມັນສ່ວນກ່ຽວຂ້ອງ SDG ທີ່ເຜີມແຜ່."
+
+msgid "SDG Goals"
+msgstr "ເປົ້າໝາຍ SDG"
+
+msgid "Enforcement"
+msgstr "ການປະຕິບັດ"
+
+msgid "Translate"
+msgstr "ແປ"
+
+msgid "No AI provider configured"
+msgstr "ບໍ່ມີຜູ້ສະໜອງ AI ທີ່ກຳນົດ"
+
+msgid "Translate this goal to another language"
+msgstr "ແປເປົ້າໝາຍນີ້ໄປເຖິງພາສາອື່ນ"
+
+msgid "Change history"
+msgstr "ປະຫວັດການเปลี่ยนแปลง"
+
+msgid "No history yet."
+msgstr "ຍັງບໍ່ມີປະຫວັດ."
+
+msgid "Translation ready — please review before saving."
+msgstr "ການແປແລ້ວ — ກະລຸນາທົດສອບກ່ອນບັນທຶກ."
+
+msgid "Target language"
+msgstr "ພາສາປາຍທາງ"
+
+msgid "Translate SDG %s"
+msgstr "ແປ SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "ແປຄຳອະທິບາຍ ແລະ ການປະຕິບັດຈາກ"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "ນີ້ຈະຖືກບັນທຶກເປັນສ່ວນໃໝ່ %s ຂອງ SDG %s."
+
+msgid "Confirm and save"
+msgstr "ຢືນຢັນ ແລະ ບັນທຶກ"
+
+msgid "Translation failed."
+msgstr "ການແປລົ້ມເຫລວ."
+
+msgid "Select a goal from the sidebar."
+msgstr "ເລືອກເປົ້າໝາຍຈາກແຖບຂ້າວມື້."
+
+msgid "Unpublished"
+msgstr "ບໍ່ຈັດພິມ"
+
+msgid "to:"
+msgstr "ເຖິງ:"
+
+msgid "— select a language —"
+msgstr "— ເລືອກພາສາ —"
+
+msgid "Add translation"
+msgstr "ເພີ່ມການແປ"
+
+msgid "Add a manual translation"
+msgstr "ເພີ່ມການແປດ້ວຍມື"
+
+msgid "Translate with AI"
+msgstr "ແປດ້ວຍ AI"
+
+msgid "Enter manually"
+msgstr "ປ້ອນດ້ວຍມື"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "ບໍ່ມີຜູ້ສະໜອງຂໍ້ຄວາມ AI ທີ່ກຳນົດ. ກະລຸນາກຳນົດໜຶ່ງໃນການຕັ້ງຄ່າ AI."
 

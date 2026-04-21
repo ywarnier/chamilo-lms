@@ -346,7 +346,7 @@ msgid "Sincerely"
 msgstr "Srdačno"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Formula primer: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Primer formule: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Opsezi varijabli"
@@ -34197,4 +34197,81 @@ msgstr "Geografska zona"
 
 msgid "Required skills"
 msgstr "Zahtevane veštine"
+msgid "Social Responsibility"
+msgstr "Društvena odgovornost"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Naše obaveze prema Ciljevima UN održivog razvoja"
+
+msgid "No published SDG commitments yet."
+msgstr "Još uvek nema objavljenih obaveza SDG."
+
+msgid "SDG Goals"
+msgstr "SDG Ciljevi"
+
+msgid "Enforcement"
+msgstr "Primena"
+
+msgid "Translate"
+msgstr "Prevedi"
+
+msgid "No AI provider configured"
+msgstr "Nijedan AI provajder nije podešen"
+
+msgid "Translate this goal to another language"
+msgstr "Prevedi ovaj cilj na drugi jezik"
+
+msgid "Change history"
+msgstr "Istorija izmena"
+
+msgid "No history yet."
+msgstr "Još uvek nema istorije."
+
+msgid "Translation ready — please review before saving."
+msgstr "Prevod je spreman — pregledajte pre čuvanja."
+
+msgid "Target language"
+msgstr "Ciljni jezik"
+
+msgid "Translate SDG %s"
+msgstr "Prevedi SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Prevedi opis i sprovođenje sa"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Ovo će biti sačuvano kao nova %s verzija SDG %s."
+
+msgid "Confirm and save"
+msgstr "Potvrdi i sačuvaj"
+
+msgid "Translation failed."
+msgstr "Prevođenje nije uspelo."
+
+msgid "Select a goal from the sidebar."
+msgstr "Izaberite cilj iz bočne trake."
+
+msgid "Unpublished"
+msgstr "Nepobjavljeno"
+
+msgid "to:"
+msgstr "za:"
+
+msgid "— select a language —"
+msgstr "— izaberite jezik —"
+
+msgid "Add translation"
+msgstr "Dodaj prevod"
+
+msgid "Add a manual translation"
+msgstr "Dodaj ručni prevod"
+
+msgid "Translate with AI"
+msgstr "Prevedi pomoću AI"
+
+msgid "Enter manually"
+msgstr "Unesite ručno"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Nijedan AI pružalac teksta nije podešen. Podesite jedan u AI podešavanjima."
 

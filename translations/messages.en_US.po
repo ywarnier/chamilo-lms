@@ -34196,3 +34196,80 @@ msgstr "Geographic zone"
 
 msgid "Required skills"
 msgstr "Required skills"
+msgid "Social Responsibility"
+msgstr "Social Responsibility"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Our commitments to the UN Sustainable Development Goals"
+
+msgid "No published SDG commitments yet."
+msgstr "No published SDG commitments yet."
+
+msgid "SDG Goals"
+msgstr "SDG Goals"
+
+msgid "Enforcement"
+msgstr "Enforcement"
+
+msgid "Translate"
+msgstr "Translate"
+
+msgid "No AI provider configured"
+msgstr "No AI provider configured"
+
+msgid "Translate this goal to another language"
+msgstr "Translate this goal to another language"
+
+msgid "Change history"
+msgstr "Change history"
+
+msgid "No history yet."
+msgstr "No history yet."
+
+msgid "Translation ready — please review before saving."
+msgstr "Translation ready — please review before saving."
+
+msgid "Target language"
+msgstr "Target language"
+
+msgid "Translate SDG %s"
+msgstr "Translate SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Translate the description and enforcement from"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "This will be saved as a new %s version of SDG %s."
+
+msgid "Confirm and save"
+msgstr "Confirm and save"
+
+msgid "Translation failed."
+msgstr "Translation failed."
+
+msgid "Select a goal from the sidebar."
+msgstr "Select a goal from the sidebar."
+
+msgid "Unpublished"
+msgstr "Unpublished"
+
+msgid "to:"
+msgstr "to:"
+
+msgid "— select a language —"
+msgstr "— select a language —"
+
+msgid "Add translation"
+msgstr "Add translation"
+
+msgid "Add a manual translation"
+msgstr "Add a manual translation"
+
+msgid "Translate with AI"
+msgstr "Translate with AI"
+
+msgid "Enter manually"
+msgstr "Enter manually"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "No AI text provider is configured. Please configure one in the AI settings."

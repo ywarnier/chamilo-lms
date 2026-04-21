@@ -34208,4 +34208,81 @@ msgstr "المنطقة الجغرافية"
 
 msgid "Required skills"
 msgstr "المهارات المطلوبة"
+msgid "Social Responsibility"
+msgstr "المسؤولية الاجتماعية"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "التزاماتنا بأهداف التنمية المستدامة للأمم المتحدة"
+
+msgid "No published SDG commitments yet."
+msgstr "لا توجد التزامات منشورة بأهداف التنمية المستدامة حتى الآن."
+
+msgid "SDG Goals"
+msgstr "أهداف التنمية المستدامة"
+
+msgid "Enforcement"
+msgstr "التنفيذ"
+
+msgid "Translate"
+msgstr "ترجمة"
+
+msgid "No AI provider configured"
+msgstr "لم يتم تكوين مزود ذكاء اصطناعي"
+
+msgid "Translate this goal to another language"
+msgstr "ترجمة هذه الهدف إلى لغة أخرى"
+
+msgid "Change history"
+msgstr "سجل التغييرات"
+
+msgid "No history yet."
+msgstr "لا يوجد سجل حتى الآن."
+
+msgid "Translation ready — please review before saving."
+msgstr "الترجمة جاهزة — يرجى المراجعة قبل الحفظ."
+
+msgid "Target language"
+msgstr "اللغة المستهدفة"
+
+msgid "Translate SDG %s"
+msgstr "ترجمة هدف التنمية المستدامة %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "ترجمة الوصف والتنفيذ من"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "سيتم حفظ هذا كإصدار جديد %s لهدف التنمية المستدامة %s."
+
+msgid "Confirm and save"
+msgstr "تأكيد وحفظ"
+
+msgid "Translation failed."
+msgstr "فشل الترجمة."
+
+msgid "Select a goal from the sidebar."
+msgstr "اختر هدفًا من الشريط الجانبي."
+
+msgid "Unpublished"
+msgstr "غير منشور"
+
+msgid "to:"
+msgstr "إلى:"
+
+msgid "— select a language —"
+msgstr "— اختر لغة —"
+
+msgid "Add translation"
+msgstr "إضافة ترجمة"
+
+msgid "Add a manual translation"
+msgstr "إضافة ترجمة يدوية"
+
+msgid "Translate with AI"
+msgstr "ترجمة باستخدام الذكاء الاصطناعي"
+
+msgid "Enter manually"
+msgstr "إدخال يدوي"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "لم يتم تكوين مزود نصوص ذكاء اصطناعي. يرجى تكوين واحد في إعدادات الذكاء الاصطناعي."
 

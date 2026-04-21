@@ -34190,4 +34190,81 @@ msgstr "გეოგრაფიული ზონა"
 
 msgid "Required skills"
 msgstr "საჭირო უნარები"
+msgid "Social Responsibility"
+msgstr "სოციალური პასუხისმგებლობა"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "ჩვენი ვალდებულებები გაეროს მდგრადი განვითარების მიზნებთან მიმართებაში"
+
+msgid "No published SDG commitments yet."
+msgstr "აღწერილი SDG ვალდებულებები ჯერ არ არის."
+
+msgid "SDG Goals"
+msgstr "SDG მიზნები"
+
+msgid "Enforcement"
+msgstr "განხორციელება"
+
+msgid "Translate"
+msgstr "თარგმნა"
+
+msgid "No AI provider configured"
+msgstr "AI მიმწოდებელი არ არის კონფიგურირებული"
+
+msgid "Translate this goal to another language"
+msgstr "ამ მიზნის თარგმნა სხვა ენაზე"
+
+msgid "Change history"
+msgstr "ცვლილების ისტორია"
+
+msgid "No history yet."
+msgstr "ისტორია ჯერ არ არის."
+
+msgid "Translation ready — please review before saving."
+msgstr "თარგმანი მზადაა — შეამოწმეთ შენახვამდე."
+
+msgid "Target language"
+msgstr "სამიზნე ენა"
+
+msgid "Translate SDG %s"
+msgstr "SDG %s-ის თარგმნა"
+
+msgid "Translate the description and enforcement from"
+msgstr "აღწერისა და განხორციელების თარგმნა ენიდან"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "ეს შენახული იქნება როგორც SDG %s-ის ახალი %s ვერსია."
+
+msgid "Confirm and save"
+msgstr "დადასტურება და შენახვა"
+
+msgid "Translation failed."
+msgstr "თარგმანი ვერ შესრულდა."
+
+msgid "Select a goal from the sidebar."
+msgstr "აირჩიეთ მიზანი გვერდის ჩამოშლადი მენიუდან."
+
+msgid "Unpublished"
+msgstr "გამოუქვეყნებელი"
+
+msgid "to:"
+msgstr "მაგ:"
+
+msgid "— select a language —"
+msgstr "— აირჩიეთ ენა —"
+
+msgid "Add translation"
+msgstr "თარგმნობის დამატება"
+
+msgid "Add a manual translation"
+msgstr "ხელით თარგმნობის დამატება"
+
+msgid "Translate with AI"
+msgstr "თარგმნობა AI-ით"
+
+msgid "Enter manually"
+msgstr "შეყვანა ხელით"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "AI ტექსტის მიმწოდებელი არ არის კონფიგურირებული. გთხოვთ, დააკონფიგურიროთ ერთი AI პარამეტრებში."
 

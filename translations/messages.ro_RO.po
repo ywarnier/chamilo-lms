@@ -34210,4 +34210,81 @@ msgstr "Zonă geografică"
 
 msgid "Required skills"
 msgstr "Competențe obligatorii"
+msgid "Social Responsibility"
+msgstr "Responsabilitate socială"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Angajamentele noastre față de Obiectivele de Dezvoltare Durabilă ale ONU"
+
+msgid "No published SDG commitments yet."
+msgstr "Nu există încă angajamente SDG publicate."
+
+msgid "SDG Goals"
+msgstr "Obiective SDG"
+
+msgid "Enforcement"
+msgstr "Implementare"
+
+msgid "Translate"
+msgstr "Tradu"
+
+msgid "No AI provider configured"
+msgstr "Niciun furnizor AI configurat"
+
+msgid "Translate this goal to another language"
+msgstr "Tradu acest obiectiv în altă limbă"
+
+msgid "Change history"
+msgstr "Istoricul modificărilor"
+
+msgid "No history yet."
+msgstr "Niciun istoric încă."
+
+msgid "Translation ready — please review before saving."
+msgstr "Traducere gata — vă rugăm să revizuiți înainte de salvare."
+
+msgid "Target language"
+msgstr "Limba țintă"
+
+msgid "Translate SDG %s"
+msgstr "Tradu SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Tradu descrierea și implementarea din"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Aceasta va fi salvată ca o nouă versiune %s a SDG %s."
+
+msgid "Confirm and save"
+msgstr "Confirmă și salvează"
+
+msgid "Translation failed."
+msgstr "Traducerea a eșuat."
+
+msgid "Select a goal from the sidebar."
+msgstr "Selectați un obiectiv din bara laterală."
+
+msgid "Unpublished"
+msgstr "Nepublicat"
+
+msgid "to:"
+msgstr "către:"
+
+msgid "— select a language —"
+msgstr "— selectați o limbă —"
+
+msgid "Add translation"
+msgstr "Adăugați traducere"
+
+msgid "Add a manual translation"
+msgstr "Adăugați o traducere manuală"
+
+msgid "Translate with AI"
+msgstr "Traduceți cu AI"
+
+msgid "Enter manually"
+msgstr "Introduceți manual"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Niciun furnizor de text AI nu este configurat. Vă rugăm să configurați unul în setările AI."
 

@@ -34190,4 +34190,81 @@ msgstr "Eneo la kijiografia"
 
 msgid "Required skills"
 msgstr "Ustadi unaohitajika"
+msgid "Social Responsibility"
+msgstr "Wajibu wa Kijamii"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Ahadi zetu kwa Malengo ya Maendeleo Endelevu ya Umoja wa Mataifa"
+
+msgid "No published SDG commitments yet."
+msgstr "Hakuna ahadi za SDG zilizochapishwa bado."
+
+msgid "SDG Goals"
+msgstr "Malengo ya SDG"
+
+msgid "Enforcement"
+msgstr "Utekelezaji"
+
+msgid "Translate"
+msgstr "Tafsiri"
+
+msgid "No AI provider configured"
+msgstr "Hakuna mtoa huduma wa AI uliobainishwa"
+
+msgid "Translate this goal to another language"
+msgstr "Tafsiri lengo hili kwa lugha nyingine"
+
+msgid "Change history"
+msgstr "Historia ya mabadiliko"
+
+msgid "No history yet."
+msgstr "Hakuna historia bado."
+
+msgid "Translation ready — please review before saving."
+msgstr "Tafsiri imeandaliwa — tafadhali angalia kabla ya kuhifadhi."
+
+msgid "Target language"
+msgstr "Lugha ya lengo"
+
+msgid "Translate SDG %s"
+msgstr "Tafsiri SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Tafsiri maelezo na utekelezaji kutoka"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Hii itahifadhiwa kama toleo jipya la %s la SDG %s."
+
+msgid "Confirm and save"
+msgstr "Thibitisha na uhifadhi"
+
+msgid "Translation failed."
+msgstr "Tafsiri imeshindwa."
+
+msgid "Select a goal from the sidebar."
+msgstr "Chagua lengo kutoka kwenye bar ya pembeni."
+
+msgid "Unpublished"
+msgstr "Haijachapishwa"
+
+msgid "to:"
+msgstr "kwenda:"
+
+msgid "— select a language —"
+msgstr "— chagua lugha —"
+
+msgid "Add translation"
+msgstr "Ongeza tafsiri"
+
+msgid "Add a manual translation"
+msgstr "Ongeza tafsiri ya mkono"
+
+msgid "Translate with AI"
+msgstr "Tafsiri na AI"
+
+msgid "Enter manually"
+msgstr "Ingiza kwa mkono"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Hakuna mtoa huduma wa maandishi ya AI uliowekwa. Tafadhali uweke moja katika mipangilio ya AI."
 

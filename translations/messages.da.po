@@ -34196,4 +34196,81 @@ msgstr "Geografisk zone"
 
 msgid "Required skills"
 msgstr "Påkrævede kompetencer"
+msgid "Social Responsibility"
+msgstr "Socialt ansvar"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Vores forpligtelser til FN's Verdensmål"
+
+msgid "No published SDG commitments yet."
+msgstr "Ingen publicerede forpligtelser til Verdensmål endnu."
+
+msgid "SDG Goals"
+msgstr "Verdensmål"
+
+msgid "Enforcement"
+msgstr "Gennemførelse"
+
+msgid "Translate"
+msgstr "Oversæt"
+
+msgid "No AI provider configured"
+msgstr "Ingen AI-udbyder konfigureret"
+
+msgid "Translate this goal to another language"
+msgstr "Oversæt dette mål til et andet sprog"
+
+msgid "Change history"
+msgstr "Ændringshistorik"
+
+msgid "No history yet."
+msgstr "Ingen historik endnu."
+
+msgid "Translation ready — please review before saving."
+msgstr "Oversættelse klar — gennemse venligst før gemning."
+
+msgid "Target language"
+msgstr "Målsprog"
+
+msgid "Translate SDG %s"
+msgstr "Oversæt Verdensmål %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Oversæt beskrivelse og gennemførelse fra"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Dette gemmes som en ny %s-version af Verdensmål %s."
+
+msgid "Confirm and save"
+msgstr "Bekræft og gem"
+
+msgid "Translation failed."
+msgstr "Oversættelse mislykkedes."
+
+msgid "Select a goal from the sidebar."
+msgstr "Vælg et mål fra sidebjælken."
+
+msgid "Unpublished"
+msgstr "Ikke offentliggjort"
+
+msgid "to:"
+msgstr "til:"
+
+msgid "— select a language —"
+msgstr "— vælg et sprog —"
+
+msgid "Add translation"
+msgstr "Tilføj oversættelse"
+
+msgid "Add a manual translation"
+msgstr "Tilføj manuel oversættelse"
+
+msgid "Translate with AI"
+msgstr "Oversæt med KI"
+
+msgid "Enter manually"
+msgstr "Indtast manuelt"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Ingen AI-tekstudbyder er konfigureret. Konfigurer venligst en i AI-indstillingerne."
 

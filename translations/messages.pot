@@ -34106,4 +34106,80 @@ msgid "Any level"
 msgstr ""
 
 msgid "Geographic zone"
+msgid "Social Responsibility"
+msgstr ""
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr ""
+
+msgid "No published SDG commitments yet."
+msgstr ""
+
+msgid "SDG Goals"
+msgstr ""
+
+msgid "Enforcement"
+msgstr ""
+
+msgid "Translate"
+msgstr ""
+
+msgid "No AI provider configured"
+msgstr ""
+
+msgid "Translate this goal to another language"
+msgstr ""
+
+msgid "Change history"
+msgstr ""
+
+msgid "No history yet."
+msgstr ""
+
+msgid "Translation ready — please review before saving."
+msgstr ""
+
+msgid "Target language"
+msgstr ""
+
+msgid "Translate SDG %s"
+msgstr ""
+
+msgid "Translate the description and enforcement from"
+msgstr ""
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr ""
+
+msgid "Confirm and save"
+msgstr ""
+
+msgid "Translation failed."
+msgstr ""
+
+msgid "Select a goal from the sidebar."
+msgstr ""
+
+msgid "Unpublished"
+msgstr ""
+
+msgid "to:"
+msgstr ""
+
+msgid "— select a language —"
+msgstr ""
+
+msgid "Add translation"
+msgstr ""
+
+msgid "Add a manual translation"
+msgstr ""
+
+msgid "Translate with AI"
+msgstr ""
+
+msgid "Enter manually"
+msgstr ""
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
 msgstr ""

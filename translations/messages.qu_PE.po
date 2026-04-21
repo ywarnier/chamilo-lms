@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "Allin kuyaywan"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Ruraynikuna ñawpaq: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Ñawpaq ruray: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Sutikuna umu"
@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":ari:copyright nisqawan,, mana:mana copyright nisqawan"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Phuqllana,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Phuqñuq,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:ejercicio,,      simulation:simulación,,      questionnaire:cuestionario,,      diagram:diagrama,,      figure:figura,,      graph:gráfico,,      index:índice,,      slide:diapositiva,,      table:tabla,,      narrative text:texto narrativo,,      exam:examen,,      experiment:experiencia,,      problem statement:problema,,      self assessment:autoevaluación,,      lecture:presentación"
@@ -34196,4 +34196,81 @@ msgstr "Pacha suyu"
 
 msgid "Required skills"
 msgstr "Kutichisqa yachaykuna"
+msgid "Social Responsibility"
+msgstr "Yachay willakuy"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "ONUq Yachakunaq Kawsaypaq Rurakunataq kallpanakuy"
+
+msgid "No published SDG commitments yet."
+msgstr "Manam ñawpaq SDG kallpanakuna kanchu."
+
+msgid "SDG Goals"
+msgstr "SDG Kawsaykunakuna"
+
+msgid "Enforcement"
+msgstr "Kamachiy"
+
+msgid "Translate"
+msgstr "Pukyunakuy"
+
+msgid "No AI provider configured"
+msgstr "Manam AI provisor kanchu"
+
+msgid "Translate this goal to another language"
+msgstr "Kay kawsayta huk simita pukyunakuy"
+
+msgid "Change history"
+msgstr "Pukyunakuy historia"
+
+msgid "No history yet."
+msgstr "Manam historia kanchu."
+
+msgid "Translation ready — please review before saving."
+msgstr "Pukyunakuy listo — kuyanakuy munaykunaq ñawpaq."
+
+msgid "Target language"
+msgstr "Challwa simi"
+
+msgid "Translate SDG %s"
+msgstr "SDG %s pukyunakuy"
+
+msgid "Translate the description and enforcement from"
+msgstr "Willakuyta kamachiytaq %s simimanta pukyunakuy"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Kayqa SDG %s nisqap %s huk ñawpaq versiopaq kuyanakusqa kan."
+
+msgid "Confirm and save"
+msgstr "Sulluychiy kuyanakuy"
+
+msgid "Translation failed."
+msgstr "Pukyunakuy manam atinchu."
+
+msgid "Select a goal from the sidebar."
+msgstr "Lluqsiqanmanta huk kawsay suyakuychiy."
+
+msgid "Unpublished"
+msgstr "Mana ñawpaqchakuq"
+
+msgid "to:"
+msgstr "maqan:"
+
+msgid "— select a language —"
+msgstr "— rimay simit yachay —"
+
+msgid "Add translation"
+msgstr "Yapasachiy"
+
+msgid "Add a manual translation"
+msgstr "Yantaq rimay yapasachiy"
+
+msgid "Translate with AI"
+msgstr "AIwan yapasachiy"
+
+msgid "Enter manually"
+msgstr "Yantaq qillqay"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Manam AI willakuy provisor kanchu. AI kuyanakunapi hukninta kuyanakuy."
 

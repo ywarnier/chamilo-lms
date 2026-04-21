@@ -34196,4 +34196,81 @@ msgstr "地理区域"
 
 msgid "Required skills"
 msgstr "所需技能"
+msgid "Social Responsibility"
+msgstr "社会责任"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "我们对联合国可持续发展目标的承诺"
+
+msgid "No published SDG commitments yet."
+msgstr "尚未发布可持续发展目标承诺。"
+
+msgid "SDG Goals"
+msgstr "可持续发展目标"
+
+msgid "Enforcement"
+msgstr "执行"
+
+msgid "Translate"
+msgstr "翻译"
+
+msgid "No AI provider configured"
+msgstr "未配置 AI 提供商"
+
+msgid "Translate this goal to another language"
+msgstr "将此目标翻译成其他语言"
+
+msgid "Change history"
+msgstr "变更历史"
+
+msgid "No history yet."
+msgstr "暂无历史记录。"
+
+msgid "Translation ready — please review before saving."
+msgstr "翻译已准备好 — 保存前请审阅。"
+
+msgid "Target language"
+msgstr "目标语言"
+
+msgid "Translate SDG %s"
+msgstr "翻译可持续发展目标 %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "从以下语言翻译描述和执行"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "这将保存为可持续发展目标 %s 的新 %s 版本。"
+
+msgid "Confirm and save"
+msgstr "确认并保存"
+
+msgid "Translation failed."
+msgstr "翻译失败。"
+
+msgid "Select a goal from the sidebar."
+msgstr "从侧边栏选择一个目标。"
+
+msgid "Unpublished"
+msgstr "未发布"
+
+msgid "to:"
+msgstr "收件人："
+
+msgid "— select a language —"
+msgstr "— 选择语言 —"
+
+msgid "Add translation"
+msgstr "添加翻译"
+
+msgid "Add a manual translation"
+msgstr "添加手动翻译"
+
+msgid "Translate with AI"
+msgstr "使用 AI 翻译"
+
+msgid "Enter manually"
+msgstr "手动输入"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "未配置 AI 文本提供商。请在 AI 设置中配置一个。"
 

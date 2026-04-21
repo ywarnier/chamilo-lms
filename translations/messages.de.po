@@ -35762,4 +35762,81 @@ msgstr "Geografische Zone"
 
 msgid "Required skills"
 msgstr "Erforderliche Fähigkeiten"
+msgid "Social Responsibility"
+msgstr "Soziale Verantwortung"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Unsere Verpflichtungen gegenüber den UN-Zielen für nachhaltige Entwicklung"
+
+msgid "No published SDG commitments yet."
+msgstr "Noch keine veröffentlichten SDG-Verpflichtungen."
+
+msgid "SDG Goals"
+msgstr "SDG-Ziele"
+
+msgid "Enforcement"
+msgstr "Durchsetzung"
+
+msgid "Translate"
+msgstr "Übersetzen"
+
+msgid "No AI provider configured"
+msgstr "Kein KI-Anbieter konfiguriert"
+
+msgid "Translate this goal to another language"
+msgstr "Dieses Ziel in eine andere Sprache übersetzen"
+
+msgid "Change history"
+msgstr "Änderungshistorie"
+
+msgid "No history yet."
+msgstr "Noch keine Historie vorhanden."
+
+msgid "Translation ready — please review before saving."
+msgstr "Übersetzung bereit — bitte vor dem Speichern überprüfen."
+
+msgid "Target language"
+msgstr "Zielsprache"
+
+msgid "Translate SDG %s"
+msgstr "SDG %s übersetzen"
+
+msgid "Translate the description and enforcement from"
+msgstr "Beschreibung und Durchsetzung übersetzen von"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Dies wird als neue %s-Version von SDG %s gespeichert."
+
+msgid "Confirm and save"
+msgstr "Bestätigen und speichern"
+
+msgid "Translation failed."
+msgstr "Übersetzung fehlgeschlagen."
+
+msgid "Select a goal from the sidebar."
+msgstr "Wählen Sie ein Ziel aus der Seitenleiste aus."
+
+msgid "Unpublished"
+msgstr "Nicht veröffentlicht"
+
+msgid "to:"
+msgstr "an:"
+
+msgid "— select a language —"
+msgstr "— Sprache auswählen —"
+
+msgid "Add translation"
+msgstr "Übersetzung hinzufügen"
+
+msgid "Add a manual translation"
+msgstr "Manuelle Übersetzung hinzufügen"
+
+msgid "Translate with AI"
+msgstr "Mit KI übersetzen"
+
+msgid "Enter manually"
+msgstr "Manuell eingeben"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Kein KI-Textanbieter konfiguriert. Bitte konfigurieren Sie einen in den KI-Einstellungen."
 

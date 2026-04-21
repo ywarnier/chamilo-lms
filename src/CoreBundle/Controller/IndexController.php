@@ -40,6 +40,7 @@ class IndexController extends BaseController
     #[Route('/hr', name: 'hr_entrypoint', options: ['expose' => true])]
     #[Route('/hr/{vueRouting}', name: 'hr_vue_entrypoint', requirements: ['vueRouting' => '.+'])]
     #[Route('/organizational-chart', name: 'org_chart_entrypoint', options: ['expose' => true])]
+    #[Route('/sdg', name: 'sdg_public', options: ['expose' => true])]
     #[Route('/access-url/auth-sources', methods: ['GET'])]
     public function index(): Response
     {

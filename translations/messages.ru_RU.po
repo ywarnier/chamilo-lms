@@ -34197,4 +34197,81 @@ msgstr "Географическая зона"
 
 msgid "Required skills"
 msgstr "Необходимые навыки"
+msgid "Social Responsibility"
+msgstr "Социальная ответственность"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Наши обязательства по Целям устойчивого развития ООН"
+
+msgid "No published SDG commitments yet."
+msgstr "Опубликованных обязательств по ЦУР пока нет."
+
+msgid "SDG Goals"
+msgstr "Цели ЦУР"
+
+msgid "Enforcement"
+msgstr "Применение"
+
+msgid "Translate"
+msgstr "Перевести"
+
+msgid "No AI provider configured"
+msgstr "Поставщик ИИ не настроен"
+
+msgid "Translate this goal to another language"
+msgstr "Перевести эту цель на другой язык"
+
+msgid "Change history"
+msgstr "История изменений"
+
+msgid "No history yet."
+msgstr "Истории пока нет."
+
+msgid "Translation ready — please review before saving."
+msgstr "Перевод готов — проверьте перед сохранением."
+
+msgid "Target language"
+msgstr "Целевой язык"
+
+msgid "Translate SDG %s"
+msgstr "Перевести ЦУР %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Перевести описание и применение с"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Это будет сохранено как новая версия %s ЦУР %s."
+
+msgid "Confirm and save"
+msgstr "Подтвердить и сохранить"
+
+msgid "Translation failed."
+msgstr "Перевод не удался."
+
+msgid "Select a goal from the sidebar."
+msgstr "Выберите цель в боковой панели."
+
+msgid "Unpublished"
+msgstr "Не опубликовано"
+
+msgid "to:"
+msgstr "кому:"
+
+msgid "— select a language —"
+msgstr "— выберите язык —"
+
+msgid "Add translation"
+msgstr "Добавить перевод"
+
+msgid "Add a manual translation"
+msgstr "Добавить ручной перевод"
+
+msgid "Translate with AI"
+msgstr "Перевести с помощью ИИ"
+
+msgid "Enter manually"
+msgstr "Ввести вручную"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Поставщик ИИ для текста не настроен. Пожалуйста, настройте его в настройках ИИ."
 

@@ -34194,4 +34194,81 @@ msgstr "Zon geografi"
 
 msgid "Required skills"
 msgstr "Kemahiran diperlukan"
+msgid "Social Responsibility"
+msgstr "Tanggungjawab Sosial"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Komitmen kami kepada Matlamat Pembangunan Lestari PBB"
+
+msgid "No published SDG commitments yet."
+msgstr "Tiada komitmen SDG yang diterbitkan lagi."
+
+msgid "SDG Goals"
+msgstr "Matlamat SDG"
+
+msgid "Enforcement"
+msgstr "Penguatkuasaan"
+
+msgid "Translate"
+msgstr "Terjemah"
+
+msgid "No AI provider configured"
+msgstr "Tiada penyedia AI yang dikonfigurasi"
+
+msgid "Translate this goal to another language"
+msgstr "Terjemah matlamat ini ke bahasa lain"
+
+msgid "Change history"
+msgstr "Sejarah perubahan"
+
+msgid "No history yet."
+msgstr "Tiada sejarah lagi."
+
+msgid "Translation ready — please review before saving."
+msgstr "Terjemahan siap — sila semak sebelum simpan."
+
+msgid "Target language"
+msgstr "Bahasa sasaran"
+
+msgid "Translate SDG %s"
+msgstr "Terjemah SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Terjemah penerangan dan penguatkuasaan dari"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Ini akan disimpan sebagai versi %s baru SDG %s."
+
+msgid "Confirm and save"
+msgstr "Sahkan dan simpan"
+
+msgid "Translation failed."
+msgstr "Terjemahan gagal."
+
+msgid "Select a goal from the sidebar."
+msgstr "Pilih matlamat dari sidbar."
+
+msgid "Unpublished"
+msgstr "Belum diterbitkan"
+
+msgid "to:"
+msgstr "kepada:"
+
+msgid "— select a language —"
+msgstr "— pilih bahasa —"
+
+msgid "Add translation"
+msgstr "Tambah terjemahan"
+
+msgid "Add a manual translation"
+msgstr "Tambah terjemahan manual"
+
+msgid "Translate with AI"
+msgstr "Terjemah dengan AI"
+
+msgid "Enter manually"
+msgstr "Masukkan secara manual"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Tiada penyedia teks AI yang dikonfigurasi. Sila konfigurasi satu dalam tetapan AI."
 

@@ -34194,4 +34194,81 @@ msgstr "Երկրաբանական գոտի"
 
 msgid "Required skills"
 msgstr "Պահանջվող վերջինակներ"
+msgid "Social Responsibility"
+msgstr "Հասարակական պատասխանատվություն"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Մեր պարտավորությունները ՄԱԿ-ի կայուն զարգացման նպատակների նկատմամբ"
+
+msgid "No published SDG commitments yet."
+msgstr "Ոչ մի հրապարակված SDG պարտավորություն դեռևս չկա:"
+
+msgid "SDG Goals"
+msgstr "SDG նպատակներ"
+
+msgid "Enforcement"
+msgstr "Իրականացում"
+
+msgid "Translate"
+msgstr "Թարգմանել"
+
+msgid "No AI provider configured"
+msgstr "Չի կարգավորված ոչ մի AI մատակարար"
+
+msgid "Translate this goal to another language"
+msgstr "Թարգմանել այս նպատակը մեկ այլ լեզվով"
+
+msgid "Change history"
+msgstr "Փոփոխությունների պատմություն"
+
+msgid "No history yet."
+msgstr "Պատմություն դեռևս չկա:"
+
+msgid "Translation ready — please review before saving."
+msgstr "Թարգմանությունը պատրաստ է՝ խնդրում ենք վերանայել պահպանելուց առաջ:"
+
+msgid "Target language"
+msgstr "Նպատակային լեզու"
+
+msgid "Translate SDG %s"
+msgstr "Թարգմանել SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Թարգմանել նկարագրությունը և իրականացումը"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Սա կպահպանվի որպես SDG %s-ի նոր %s տարբերակ:"
+
+msgid "Confirm and save"
+msgstr "Հաստատել և պահպանել"
+
+msgid "Translation failed."
+msgstr "Թարգմանությունը ձախողվեց:"
+
+msgid "Select a goal from the sidebar."
+msgstr "Ընտրեք նպատակը կողային վահանակից:"
+
+msgid "Unpublished"
+msgstr "Չհրապարակված"
+
+msgid "to:"
+msgstr "ինչպես՝"
+
+msgid "— select a language —"
+msgstr "— ընտրեք լեզու —"
+
+msgid "Add translation"
+msgstr "Ավելացնել թարգմանություն"
+
+msgid "Add a manual translation"
+msgstr "Ավելացնել ձեռքով թարգմանություն"
+
+msgid "Translate with AI"
+msgstr "Թարգմանել AI-ով"
+
+msgid "Enter manually"
+msgstr "Մուտքագրել ձեռքով"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Չի կարգավորված ոչ մի AI տեքստային մատակարար: Խնդրում ենք կարգավորել մեկը AI կարգավորումներում:"
 

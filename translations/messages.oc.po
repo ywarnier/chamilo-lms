@@ -2017,7 +2017,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":òc:dret d'autor,, non:sens dret d'autor"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Dossiè,, application/msword:MsWord,, application/octet-stream:Flux d'octets,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Dossiè,, application/msword:MsWord,, application/octet-stream:Flux octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercici:exercici,,      simulacion:simulacion,,      questionari:questionari,,      diagrama:diagrama,,      figura:figura,,      grafic:grafic,,      indèx:indèx,,      diapositiva:diapositiva,,      taula:taula,,      tèxte narratiu:tèxte narratiu,,      examen:examen,,      experiment:experiment,,      enunciat de problèma:enunciat de problèma,,      autoevaluacion:autoevaluacion,,      leçon:leçon"
@@ -34190,4 +34190,81 @@ msgstr "Zòna geografica"
 
 msgid "Required skills"
 msgstr "Competéncias requesidas"
+msgid "Social Responsibility"
+msgstr "Responsabilitat sociala"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Nòstres empenhs pel Objectius de Desenrotlament Durauble de l’ONU"
+
+msgid "No published SDG commitments yet."
+msgstr "Cap d’empenhs SDG publicats encara."
+
+msgid "SDG Goals"
+msgstr "Objectius SDG"
+
+msgid "Enforcement"
+msgstr "Execucion"
+
+msgid "Translate"
+msgstr "Traduire"
+
+msgid "No AI provider configured"
+msgstr "Cap fornidor d’IA configurat"
+
+msgid "Translate this goal to another language"
+msgstr "Traduire cet objectiu dins una autra lenga"
+
+msgid "Change history"
+msgstr "Istoric dels cambiaments"
+
+msgid "No history yet."
+msgstr "Cap d’istoric encara."
+
+msgid "Translation ready — please review before saving."
+msgstr "Traduccion prèsta — verificatz abans de salvar."
+
+msgid "Target language"
+msgstr "Lenga ciba"
+
+msgid "Translate SDG %s"
+msgstr "Traduire lo SDG %s"
+
+msgid "Translate the description and enforcement from"
+msgstr "Traduire la descripcion e l’execucion de"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Aquò serà salvat coma una novèla version %s del SDG %s."
+
+msgid "Confirm and save"
+msgstr "Confirmar e enregistrar"
+
+msgid "Translation failed."
+msgstr "La traduccion a fracassat."
+
+msgid "Select a goal from the sidebar."
+msgstr "Seleccionatz un objectiu dempuèi la barra lateral."
+
+msgid "Unpublished"
+msgstr "Pas publicat"
+
+msgid "to:"
+msgstr "a:"
+
+msgid "— select a language —"
+msgstr "— seleccionar una lenga —"
+
+msgid "Add translation"
+msgstr "Apondre una traduccion"
+
+msgid "Add a manual translation"
+msgstr "Apondre una traduccion manuala"
+
+msgid "Translate with AI"
+msgstr "Traduire amb IA"
+
+msgid "Enter manually"
+msgstr "Sasir manualament"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Cap fornidor de tèxte IA es pas configurat. Configuratz-ne un dins las paramètres IA."
 

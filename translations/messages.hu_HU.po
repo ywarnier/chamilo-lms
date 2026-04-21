@@ -34194,4 +34194,81 @@ msgstr "Földrajzi zóna"
 
 msgid "Required skills"
 msgstr "Kötelező készségek"
+msgid "Social Responsibility"
+msgstr "Társadalmi felelősségvállalás"
+
+msgid "Our commitments to the UN Sustainable Development Goals"
+msgstr "Elkötelezettségeink az ENSZ Fenntartható Fejlődési Céljai iránt"
+
+msgid "No published SDG commitments yet."
+msgstr "Még nincsenek közzétett FFC elkötelezettségek."
+
+msgid "SDG Goals"
+msgstr "FFC célok"
+
+msgid "Enforcement"
+msgstr "Megvalósítás"
+
+msgid "Translate"
+msgstr "Fordítás"
+
+msgid "No AI provider configured"
+msgstr "Nincs AI szolgáltató beállítva"
+
+msgid "Translate this goal to another language"
+msgstr "Fordítsa le ezt a célt egy másik nyelvre"
+
+msgid "Change history"
+msgstr "Változtatási előzmények"
+
+msgid "No history yet."
+msgstr "Még nincsenek előzmények."
+
+msgid "Translation ready — please review before saving."
+msgstr "Fordítás kész — mentés előtt kérjük, ellenőrizze."
+
+msgid "Target language"
+msgstr "Célnyelv"
+
+msgid "Translate SDG %s"
+msgstr "FFC %s fordítása"
+
+msgid "Translate the description and enforcement from"
+msgstr "Leírás és megvalósítás fordítása ebből"
+
+msgid "This will be saved as a new %s version of SDG %s."
+msgstr "Ez %s új verzióként kerül mentésre az FFC %s számára."
+
+msgid "Confirm and save"
+msgstr "Megerősítés és mentés"
+
+msgid "Translation failed."
+msgstr "A fordítás sikertelen."
+
+msgid "Select a goal from the sidebar."
+msgstr "Válasszon egy célt a oldalsávból."
+
+msgid "Unpublished"
+msgstr "Nem publikált"
+
+msgid "to:"
+msgstr "címzett:"
+
+msgid "— select a language —"
+msgstr "— válasszon nyelvet —"
+
+msgid "Add translation"
+msgstr "Fordítás hozzáadása"
+
+msgid "Add a manual translation"
+msgstr "Kézi fordítás hozzáadása"
+
+msgid "Translate with AI"
+msgstr "Fordítás AI-val"
+
+msgid "Enter manually"
+msgstr "Kézi bevitel"
+
+msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgstr "Nincs AI szövegszolgáltató beállítva. Kérjük, állítson be egyet az AI beállításokban."
 
