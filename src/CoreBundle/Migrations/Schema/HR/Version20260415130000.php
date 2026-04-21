@@ -4,12 +4,12 @@
 
 declare(strict_types=1);
 
-namespace Chamilo\CoreBundle\Migrations\Schema\V200;
+namespace Chamilo\CoreBundle\Migrations\Schema\HR;
 
 use Chamilo\CoreBundle\Migrations\AbstractMigrationChamilo;
 use Doctrine\DBAL\Schema\Schema;
 
-final class Version20260415120000 extends AbstractMigrationChamilo
+final class Version20260415130000 extends AbstractMigrationChamilo
 {
     public function getDescription(): string
     {
