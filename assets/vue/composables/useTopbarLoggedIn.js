@@ -389,6 +389,11 @@ export function useTopbarLoggedIn(props) {
       })
     }
 
+    items[0].items.push({
+      label: t("My benefits"),
+      route: { name: "HrMyBenefits" },
+    })
+
     if (!hideLogoutButton.value) {
       items[0].items.push(
         { separator: true },

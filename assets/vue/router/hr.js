@@ -9,7 +9,7 @@ export default {
         requiresAuth: true,
         requiresHr: true,
         showBreadcrumb: true,
-        breadcrumb: "Human Resources",
+        breadcrumb: "HR",
       },
       component: () => import("../views/hr/HrIndexView.vue"),
     },
@@ -155,6 +155,38 @@ export default {
         breadcrumb: "Social Responsibility",
       },
       component: () => import("../views/hr/HrSocialResponsibilityView.vue"),
+    },
+    {
+      name: "HrBenefits",
+      path: "benefits",
+      meta: {
+        requiresAuth: true,
+        requiresAdmin: true,
+        showBreadcrumb: true,
+        breadcrumb: "Benefits",
+      },
+      component: () => import("../views/hr/HrBenefitView.vue"),
+    },
+    {
+      name: "HrBenefitAssignments",
+      path: "benefit-assignments",
+      meta: {
+        requiresAuth: true,
+        requiresAdmin: true,
+        showBreadcrumb: true,
+        breadcrumb: "Assigned benefits",
+      },
+      component: () => import("../views/hr/HrBenefitAssignmentView.vue"),
+    },
+    {
+      name: "HrMyBenefits",
+      path: "my-benefits",
+      meta: {
+        requiresAuth: true,
+        showBreadcrumb: true,
+        breadcrumb: "My benefits",
+      },
+      component: () => import("../views/hr/HrMyBenefitsView.vue"),
     },
   ],
 }

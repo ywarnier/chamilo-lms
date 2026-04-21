@@ -151,6 +151,13 @@ services:
       tags:
         - { name: 'api_platform.state_processor' }
 
+    Chamilo\CoreBundle\State\BenefitAssignmentStateProcessor:
+      arguments:
+        $persistProcessor: '@api_platform.doctrine.orm.state.persist_processor'
+        $security: '@security.helper'
+      tags:
+        - { name: 'api_platform.state_processor' }
+
     Chamilo\CoreBundle\EventSubscriber\RememberMeSubscriber:
       arguments:
         $appSecret: '%kernel.secret%'

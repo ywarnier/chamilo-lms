@@ -31,7 +31,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Throwable;
 
-#[IsGranted(new Expression('is_granted("ROLE_ADMIN") or is_granted("ROLE_SESSION_MANAGER")'))]
+#[IsGranted(new Expression('is_granted("ROLE_ADMIN") or is_granted("ROLE_SESSION_MANAGER") or is_granted("ROLE_HR")'))]
 #[Route('/admin/index', name: 'admin_index_blocks')]
 class IndexBlocksController extends BaseController
 {
@@ -58,6 +58,7 @@ class IndexBlocksController extends BaseController
     {
         $this->isAdmin = $this->isGranted('ROLE_ADMIN');
         $this->isSessionAdmin = $this->isGranted('ROLE_SESSION_MANAGER');
+        $isHr = $this->isGranted('ROLE_HR');
 
         $json = [];
 
@@ -123,14 +124,6 @@ class IndexBlocksController extends BaseController
                 ];
             }
 
-            // Chamilo HR extension
-            $json['hr'] = [
-                'id' => 'block-admin-hr',
-                'editable' => false,
-                'items' => $this->getItemsHr(),
-                'extraContent' => $this->getExtraContent('block-admin-hr'),
-            ];
-
             if ('true' === $this->settingsManager->getSetting('gradebook.gradebook_dependency')) {
                 $json['gradebook'] = [
                     'id' => 'block-admin-gradebook',
@@ -176,6 +169,16 @@ class IndexBlocksController extends BaseController
                 'id' => 'block-admin-health-check',
                 'editable' => false,
                 'items' => $this->getItemsHealthCheck(),
+            ];
+        }
+
+        // Chamilo HR extension
+        if ($this->isAdmin || $isHr) {
+            $json['hr'] = [
+                'id' => 'block-admin-hr',
+                'editable' => false,
+                'items' => $this->getItemsHr(),
+                'extraContent' => $this->getExtraContent('block-admin-hr'),
             ];
         }
 
@@ -1188,6 +1191,16 @@ class IndexBlocksController extends BaseController
                 'class' => 'item-hr-competency-search',
                 'route' => ['name' => 'HrCompetencySearch'],
                 'label' => $this->translator->trans('Competency search'),
+            ],
+            [
+                'class' => 'item-hr-benefits',
+                'route' => ['name' => 'HrBenefits'],
+                'label' => $this->translator->trans('Benefits'),
+            ],
+            [
+                'class' => 'item-hr-benefit-assignments',
+                'route' => ['name' => 'HrBenefitAssignments'],
+                'label' => $this->translator->trans('Assigned benefits'),
             ],
         ];
     }

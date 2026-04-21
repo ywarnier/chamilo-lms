@@ -34181,5 +34181,132 @@ msgstr ""
 msgid "Enter manually"
 msgstr ""
 
+msgid "Paste user URL or IRI…"
+msgstr ""
+
 msgid "No AI text provider is configured. Please configure one in the AI settings."
+msgid "Geographic zones"
+msgstr ""
+
+msgid "Add geographic zone"
+msgstr ""
+
+msgid "Edit geographic zone"
+msgstr ""
+
+msgid "Geographic zone"
+msgstr ""
+
+msgid "Staff statuses"
+msgstr ""
+
+msgid "Add staff status"
+msgstr ""
+
+msgid "Edit staff status"
+msgstr ""
+
+msgid "Staff status"
+msgstr ""
+
+msgid "Contract types"
+msgstr ""
+
+msgid "Add contract type"
+msgstr ""
+
+msgid "Edit contract type"
+msgstr ""
+
+msgid "Contract type"
+msgstr ""
+
+msgid "Business units"
+msgstr ""
+
+msgid "Add business unit"
+msgstr ""
+
+msgid "Edit business unit"
+msgstr ""
+
+msgid "Business unit"
+msgstr ""
+
+msgid "Add branch"
+msgstr ""
+
+msgid "Edit branch"
+msgstr ""
+
+msgid "Parent unit"
+msgstr ""
+
+msgid "Primary branch"
+msgstr ""
+
+msgid "Coordinates"
+msgstr ""
+
+msgid "Add benefit"
+msgstr ""
+
+msgid "Edit benefit"
+msgstr ""
+
+msgid "Add tag"
+msgstr ""
+
+msgid "Edit tag"
+msgstr ""
+
+msgid "No tags available"
+msgstr ""
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr ""
+
+msgid "Assign benefit"
+msgstr ""
+
+msgid "My benefits"
+msgstr ""
+
+msgid "Beneficiary"
+msgstr ""
+
+msgid "Economical equivalent"
+msgstr ""
+
+msgid "Assigned on"
+msgstr ""
+
+msgid "Assigned until"
+msgstr ""
+
+msgid "Assigned by"
+msgstr ""
+
+msgid "Notifications sent"
+msgstr ""
+
+msgid "Send notification"
+msgstr ""
+
+msgid "Notification sent"
+msgstr ""
+
+msgid "Benefit notification"
+msgstr ""
+
+msgid "From date"
+msgstr ""
+
+msgid "Search by name..."
+msgstr ""
+
+msgid "Filtering by"
+msgstr ""
+
+msgid "Select a benefit"
 msgstr ""

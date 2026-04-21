@@ -33977,7 +33977,6 @@ msgstr "Primary branch"
 msgid "Coordinates"
 msgstr "Coordinates"
 
-
 msgid "HR Dashboard"
 msgstr "HR Dashboard"
 
@@ -34271,5 +34270,70 @@ msgstr "Translate with AI"
 msgid "Enter manually"
 msgstr "Enter manually"
 
+msgid "Paste user URL or IRI…"
+msgstr "Paste user URL or IRI…"
+
 msgid "No AI text provider is configured. Please configure one in the AI settings."
 msgstr "No AI text provider is configured. Please configure one in the AI settings."
+msgid "Add benefit"
+msgstr "Add benefit"
+
+msgid "Edit benefit"
+msgstr "Edit benefit"
+
+msgid "Add tag"
+msgstr "Add tag"
+
+msgid "Edit tag"
+msgstr "Edit tag"
+
+msgid "No tags available"
+msgstr "No tags available"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Cannot delete a benefit that has active assignments."
+
+msgid "Assign benefit"
+msgstr "Assign benefit"
+
+msgid "My benefits"
+msgstr "My benefits"
+
+msgid "Beneficiary"
+msgstr "Beneficiary"
+
+msgid "Economical equivalent"
+msgstr "Economical equivalent"
+
+msgid "Assigned on"
+msgstr "Assigned on"
+
+msgid "Assigned until"
+msgstr "Assigned until"
+
+msgid "Assigned by"
+msgstr "Assigned by"
+
+msgid "Notifications sent"
+msgstr "Notifications sent"
+
+msgid "Send notification"
+msgstr "Send notification"
+
+msgid "Notification sent"
+msgstr "Notification sent"
+
+msgid "Benefit notification"
+msgstr "Benefit notification"
+
+msgid "From date"
+msgstr "From date"
+
+msgid "Search by name..."
+msgstr "Search by name..."
+
+msgid "Filtering by"
+msgstr "Filtering by"
+
+msgid "Select a benefit"
+msgstr "Select a benefit"
