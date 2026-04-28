@@ -1,39 +1,51 @@
 <template>
   <div class="p-4">
-    <div class="flex items-center justify-between mb-4">
-      <h1 class="text-xl font-semibold">{{ t("Professional functions") }}</h1>
+    <SectionHeader :title="t('Professional functions')">
       <BaseButton
-        type="success"
-        icon="plus-box"
         :label="t('Add professional function')"
+        icon="plus-box"
+        type="success"
         @click="openCreate"
       />
-    </div>
+    </SectionHeader>
 
-    <BaseTable :values="items" :is-loading="isLoading">
-      <Column field="title" :header="t('Title')" sortable />
-      <Column field="parentTitle" :header="t('Parent function')" />
+    <BaseTable
+      :is-loading="isLoading"
+      :values="items"
+    >
+      <Column
+        :header="t('Title')"
+        field="title"
+        sortable
+      />
+      <Column
+        :header="t('Parent function')"
+        field="parentTitle"
+      />
       <Column :header="t('Start date')">
         <template #body="{ data }">{{ data.startDate ? data.startDate.substring(0, 10) : "" }}</template>
       </Column>
       <Column :header="t('End date')">
         <template #body="{ data }">{{ data.endDate ? data.endDate.substring(0, 10) : "" }}</template>
       </Column>
-      <Column :header="t('Actions')" style="width: 100px">
+      <Column
+        :header="t('Actions')"
+        style="width: 100px"
+      >
         <template #body="{ data }">
           <div class="flex gap-1">
             <BaseButton
-              type="secondary-text"
               icon="pencil"
               only-icon
               size="small"
+              type="secondary-text"
               @click="openEdit(data)"
             />
             <BaseButton
-              type="danger-text"
               icon="delete"
               only-icon
               size="small"
+              type="danger-text"
               @click="confirmDelete(data)"
             />
           </div>
@@ -41,107 +53,98 @@
       </Column>
     </BaseTable>
 
-    <Dialog
-      v-model:visible="dialogVisible"
-      :header="editingItem ? t('Edit professional function') : t('Add professional function')"
-      modal
+    <BaseDialog
+      v-model:is-visible="dialogVisible"
       :style="{ width: '520px' }"
+      :title="editingItem ? t('Edit professional function') : t('Add professional function')"
     >
-      <div class="flex flex-col gap-3 pt-2">
-        <div>
-          <label class="block text-sm font-medium mb-1">{{ t("Title") }} *</label>
-          <input
-            v-model="form.title"
-            name="function_title"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-          />
-        </div>
-        <div>
-          <label class="block text-sm font-medium mb-1">{{ t("Parent function") }}</label>
-          <select
-            v-model="form.parent"
-            name="function_parent"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
+      <BaseInputText
+        id="function-title"
+        v-model="form.title"
+        :label="t('Title')"
+        name="function_title"
+      />
+      <BaseSelect
+        id="function-parent"
+        v-model="form.parent"
+        :label="t('Parent function')"
+        :options="parentOptions"
+        allow-cleared
+        name="function_parent"
+      />
+      <BaseTextArea
+        id="function-description"
+        v-model="form.description"
+        label="Description"
+        name="function_description"
+        rows="3"
+      />
+      <BaseCalendar
+        id="function-date-range"
+        v-model="dateRange"
+        :label="t('Period')"
+        type="range"
+      />
+      <Fieldset
+        v-if="editingItem"
+        :legend="t('Activities')"
+      >
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span
+            v-for="act in form.activities"
+            :key="act"
+            class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded flex items-center gap-1"
           >
-            <option :value="null">— {{ t("None") }} —</option>
-            <option v-for="fn in parentOptions" :key="fn['@id']" :value="fn['@id']">
-              {{ fn.title }}
-            </option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-medium mb-1">{{ t("Description") }}</label>
-          <textarea
-            v-model="form.description"
-            name="function_description"
-            rows="3"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-          />
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-1">
-            <label class="block text-sm font-medium mb-1">{{ t("Start date") }}</label>
-            <input
-              v-model="form.startDate"
-              name="function_start_date"
-              type="date"
-              class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            />
-          </div>
-          <div class="flex-1">
-            <label class="block text-sm font-medium mb-1">{{ t("End date") }}</label>
-            <input
-              v-model="form.endDate"
-              name="function_end_date"
-              type="date"
-              class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            />
-          </div>
-        </div>
-        <div v-if="editingItem">
-          <label class="block text-sm font-medium mb-1">{{ t("Activities") }}</label>
-          <div class="flex flex-wrap gap-2 mb-2">
-            <span
-              v-for="act in form.activities"
-              :key="act"
-              class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded flex items-center gap-1"
+            {{ activityLabel(act) }}
+            <button
+              class="hover:text-red-500"
+              type="button"
+              @click="removeActivity(act)"
             >
-              {{ activityLabel(act) }}
-              <button type="button" class="hover:text-red-500" @click="removeActivity(act)">×</button>
-            </span>
-          </div>
-          <select
-            name="function_add_activity"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            @change="addActivity($event)"
-          >
-            <option value="">{{ t("Add activity…") }}</option>
-            <option
-              v-for="act in availableActivities"
-              :key="act['@id']"
-              :value="act['@id']"
-            >
-              {{ act.title }}
-            </option>
-          </select>
+              ×
+            </button>
+          </span>
         </div>
-      </div>
+        <BaseSelect
+          id="function-add-activity"
+          v-model="selectedActivityToAdd"
+          :label="t('Add activity')"
+          :options="activityOptions"
+          allow-cleared
+          name="function_add_activity"
+        />
+      </Fieldset>
       <template #footer>
-        <div class="flex gap-2 justify-end">
-          <BaseButton type="plain" :label="t('Cancel')" @click="dialogVisible = false" />
-          <BaseButton type="success" :label="t('Save')" :disabled="isSaving" @click="save" />
-        </div>
+        <BaseButton
+          :label="t('Cancel')"
+          icon="close"
+          type="plain"
+          @click="dialogVisible = false"
+        />
+        <BaseButton
+          :disabled="isSaving"
+          :label="t('Save')"
+          icon="save"
+          type="success"
+          @click="save"
+        />
       </template>
-    </Dialog>
+    </BaseDialog>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue"
+import { computed, onMounted, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
-import Dialog from "primevue/dialog"
+import Fieldset from "primevue/fieldset"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
+import BaseCalendar from "../../components/basecomponents/BaseCalendar.vue"
+import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
+import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
+import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
+import BaseTextArea from "../../components/basecomponents/BaseTextArea.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
 import axios from "axios"
 
@@ -154,18 +157,31 @@ const isLoading = ref(false)
 const isSaving = ref(false)
 const dialogVisible = ref(false)
 const editingItem = ref(null)
+const dateRange = ref(null)
+const selectedActivityToAdd = ref(null)
 
-const form = ref({ title: "", description: "", parent: null, startDate: "", endDate: "", activities: [] })
+const form = ref({ title: "", description: "", parent: null, activities: [] })
 
 const parentOptions = computed(() =>
-  items.value.filter((fn) => !editingItem.value || fn["@id"] !== editingItem.value["@id"]),
+  items.value
+    .filter((fn) => !editingItem.value || fn["@id"] !== editingItem.value["@id"])
+    .map((fn) => ({ label: fn.title, value: fn["@id"] })),
 )
 
-const availableActivities = computed(() =>
-  allActivities.value.filter((a) => !form.value.activities.includes(a["@id"])),
-)
+const availableActivities = computed(() => allActivities.value.filter((a) => !form.value.activities.includes(a["@id"])))
+
+const activityOptions = computed(() => availableActivities.value.map((a) => ({ label: a.title, value: a["@id"] })))
 
 const activityLabel = (iri) => allActivities.value.find((a) => a["@id"] === iri)?.title ?? iri
+
+watch(selectedActivityToAdd, (iri) => {
+  if (iri) {
+    if (!form.value.activities.includes(iri)) {
+      form.value.activities.push(iri)
+    }
+    selectedActivityToAdd.value = null
+  }
+})
 
 async function load() {
   isLoading.value = true
@@ -185,7 +201,8 @@ async function loadActivitiesIfNeeded() {
 
 async function openCreate() {
   editingItem.value = null
-  form.value = { title: "", description: "", parent: null, startDate: "", endDate: "", activities: [] }
+  form.value = { title: "", description: "", parent: null, activities: [] }
+  dateRange.value = null
   dialogVisible.value = true
   await loadActivitiesIfNeeded()
 }
@@ -193,27 +210,17 @@ async function openCreate() {
 async function openEdit(item) {
   editingItem.value = item
   dialogVisible.value = true
-  const [fullRes] = await Promise.all([
-    axios.get(`/api/professional_functions/${item.id}`),
-    loadActivitiesIfNeeded(),
-  ])
+  const [fullRes] = await Promise.all([axios.get(`/api/professional_functions/${item.id}`), loadActivitiesIfNeeded()])
   const full = fullRes.data
   form.value = {
     title: full.title,
     description: full.description ?? "",
     parent: full.parent ? (full.parent["@id"] ?? full.parent) : null,
-    startDate: full.startDate ? full.startDate.substring(0, 10) : "",
-    endDate: full.endDate ? full.endDate.substring(0, 10) : "",
     activities: (full.activities ?? []).map((a) => (typeof a === "string" ? a : a["@id"])),
   }
-}
-
-function addActivity(event) {
-  const iri = event.target.value
-  if (iri && !form.value.activities.includes(iri)) {
-    form.value.activities.push(iri)
-  }
-  event.target.value = ""
+  const startDate = full.startDate ? new Date(full.startDate.substring(0, 10)) : null
+  const endDate = full.endDate ? new Date(full.endDate.substring(0, 10)) : null
+  dateRange.value = startDate ? [startDate, endDate] : null
 }
 
 function removeActivity(iri) {
@@ -228,8 +235,8 @@ async function save() {
       title: form.value.title,
       description: form.value.description || null,
       parent: form.value.parent || null,
-      startDate: form.value.startDate || null,
-      endDate: form.value.endDate || null,
+      startDate: dateRange.value?.[0] ? new Date(dateRange.value[0]).toISOString().slice(0, 10) : null,
+      endDate: dateRange.value?.[1] ? new Date(dateRange.value[1]).toISOString().slice(0, 10) : null,
       activities: form.value.activities,
     }
     if (editingItem.value) {

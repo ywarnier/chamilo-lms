@@ -1,22 +1,21 @@
 <template>
-  <div class="p-6 space-y-6">
-    <div class="flex items-center justify-between mb-4">
-      <h2 class="text-lg font-semibold text-gray-700">{{ t("Branches") }}</h2>
+  <div class="p-4">
+    <SectionHeader :title="t('Branches')">
       <BaseButton
         :label="t('Add branch')"
-        icon="plus"
+        icon="plus-box"
         type="success"
         @click="openForm()"
       />
-    </div>
+    </SectionHeader>
 
     <BaseTable
-      :values="branches"
       :is-loading="isLoading"
+      :values="branches"
     >
       <Column
-        field="title"
         :header="t('Title')"
+        field="title"
         sortable
       />
       <Column :header="t('Address')">
@@ -59,100 +58,88 @@
       </Column>
     </BaseTable>
 
-    <Dialog
-      v-model:visible="dialog"
-      :header="editing ? t('Edit branch') : t('Add branch')"
-      :modal="true"
+    <BaseDialog
+      v-model:is-visible="dialog"
       :style="{ width: '480px' }"
+      :title="editing ? t('Edit branch') : t('Add branch')"
     >
-      <div class="space-y-4 pt-2">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Title") }}</label>
-          <input
-            v-model="form.title"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            type="text"
-            name="branch_title"
+      <BaseInputText
+        id="branch-title"
+        v-model="form.title"
+        :label="t('Title')"
+        name="branch_title"
+      />
+      <BaseTextArea
+        id="branch-address"
+        v-model="form.address"
+        label="Address"
+        name="branch_address"
+        rows="2"
+      />
+      <BaseSelect
+        id="branch-zone"
+        v-model="form.geographicZone"
+        :label="t('Geographic zone')"
+        :options="zoneOptions"
+        allow-cleared
+        name="branch_zone"
+      />
+      <div class="flex gap-4">
+        <div class="flex-1">
+          <BaseInputNumber
+            id="branch-latitude"
+            v-model="form.latitude"
+            :label="t('Latitude')"
+            :step="0.000001"
+            name="branch_latitude"
           />
         </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Address") }}</label>
-          <textarea
-            v-model="form.address"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            rows="2"
-            name="branch_address"
+        <div class="flex-1">
+          <BaseInputNumber
+            id="branch-longitude"
+            v-model="form.longitude"
+            :label="t('Longitude')"
+            :step="0.000001"
+            name="branch_longitude"
           />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Geographic zone") }}</label>
-          <select
-            v-model="form.geographicZone"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            name="branch_zone"
-          >
-            <option :value="null">{{ t("None") }}</option>
-            <option
-              v-for="zone in zones"
-              :key="zone['@id']"
-              :value="zone['@id']"
-            >
-              {{ zone.title }}
-            </option>
-          </select>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-1">
-            <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Latitude") }}</label>
-            <input
-              v-model="form.latitude"
-              class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-              type="number"
-              step="any"
-              name="branch_latitude"
-            />
-          </div>
-          <div class="flex-1">
-            <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Longitude") }}</label>
-            <input
-              v-model="form.longitude"
-              class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-              type="number"
-              step="any"
-              name="branch_longitude"
-            />
-          </div>
         </div>
       </div>
       <template #footer>
         <BaseButton
           :label="t('Cancel')"
+          icon="close"
           type="plain"
           @click="dialog = false"
         />
         <BaseButton
-          :label="t('Save')"
-          type="success"
           :disabled="!form.title"
+          :label="t('Save')"
+          icon="content-save"
+          type="success"
           @click="save"
         />
       </template>
-    </Dialog>
+    </BaseDialog>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue"
+import { computed, onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
-import { useToast } from "primevue/usetoast"
-import Dialog from "primevue/dialog"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
+import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
+import BaseInputNumber from "../../components/basecomponents/BaseInputNumber.vue"
+import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
+import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
-import baseService from "../../services/baseService"
+import BaseTextArea from "../../components/basecomponents/BaseTextArea.vue"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
+import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
+import baseService from "../../services/baseService"
 
 const { t } = useI18n()
-const toast = useToast()
+const { showSuccessNotification, showErrorNotification } = useNotification()
 const { requireConfirmation } = useConfirmation()
 
 const branches = ref([])
@@ -160,7 +147,9 @@ const zones = ref([])
 const isLoading = ref(true)
 const dialog = ref(false)
 const editing = ref(null)
-const form = ref({ title: "", address: "", geographicZone: null, latitude: "", longitude: "" })
+const form = ref({ title: "", address: "", geographicZone: null, latitude: null, longitude: null })
+
+const zoneOptions = computed(() => zones.value.map((z) => ({ label: z.title, value: z["@id"] })))
 
 async function load() {
   isLoading.value = true
@@ -184,8 +173,8 @@ function openForm(item = null) {
     title: item ? item.title : "",
     address: item ? (item.address ?? "") : "",
     geographicZone: item && item.geographicZone ? item.geographicZone["@id"] : null,
-    latitude: item ? (item.latitude ?? "") : "",
-    longitude: item ? (item.longitude ?? "") : "",
+    latitude: item?.latitude ?? null,
+    longitude: item?.longitude ?? null,
   }
   dialog.value = true
 }
@@ -195,8 +184,8 @@ async function save() {
     title: form.value.title,
     address: form.value.address || "",
     geographicZone: form.value.geographicZone,
-    latitude: form.value.latitude || null,
-    longitude: form.value.longitude || null,
+    latitude: form.value.latitude ?? null,
+    longitude: form.value.longitude ?? null,
   }
   try {
     if (editing.value) {
@@ -205,10 +194,10 @@ async function save() {
       await baseService.post("/hr/branches-data", payload, true)
     }
     dialog.value = false
-    toast.add({ severity: "success", detail: t("Saved"), life: 3000 })
+    showSuccessNotification(t("Saved"))
     await load()
   } catch (e) {
-    toast.add({ severity: "error", detail: e.message, life: 5000 })
+    showErrorNotification(e)
   }
 }
 
@@ -218,10 +207,10 @@ function confirmDelete(item) {
     accept: async () => {
       try {
         await baseService.delete("/hr/branches-data/" + item.id)
-        toast.add({ severity: "success", detail: t("Deleted"), life: 3000 })
+        showSuccessNotification(t("Deleted"))
         await load()
       } catch (e) {
-        toast.add({ severity: "error", detail: e.message, life: 5000 })
+        showErrorNotification(e)
       }
     },
   })
