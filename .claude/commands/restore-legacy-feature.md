@@ -13,9 +13,9 @@ resources. Do not write speculative abstractions — implement only what the des
 ## Step 1 — Parse arguments and locate legacy source files
 
 1. Split `$ARGUMENTS` into:
-   - **entry_path**: the URL path or file path of the main entry page (e.g. `main/social/skills.php`
-     or `https://raw.githubusercontent.com/chamilo/chamilo-lms/1.11.x/main/social/skills.php`)
-   - **feature_description**: everything after the first whitespace / newline.
+    - **entry_path**: the URL path or file path of the main entry page (e.g. `main/social/skills.php`
+      or `https://raw.githubusercontent.com/chamilo/chamilo-lms/1.11.x/main/social/skills.php`)
+    - **feature_description**: everything after the first whitespace / newline.
 
 2. If entry_path is a local file path (not a URL), check whether the `1.11.x` branch exists locally:
    ```bash
@@ -30,14 +30,14 @@ resources. Do not write speculative abstractions — implement only what the des
    before proceeding — partial understanding leads to missed functionality.
 
 4. From the entry page and the feature description, answer:
-   - What is the feature's primary purpose?
-   - Who can access it (admin only, any logged-in user, course member, session coach, etc.)?
-   - What database tables does it read/write? (Look for `Database::get_main_table()`, raw SQL,
-     `api_get_course_dbname_prefix()`, etc.)
-   - What external libraries or services does it depend on? (jQuery plugins, mail, cron, etc.)
-   - Does it have sub-pages, modals, or multi-step workflows?
-   - Does it depend on platform settings (`api_get_configuration_value`, `api_get_setting`)?
-   - Does it use file storage or generate downloadable files?
+    - What is the feature's primary purpose?
+    - Who can access it (admin only, any logged-in user, course member, session coach, etc.)?
+    - What database tables does it read/write? (Look for `Database::get_main_table()`, raw SQL,
+      `api_get_course_dbname_prefix()`, etc.)
+    - What external libraries or services does it depend on? (jQuery plugins, mail, cron, etc.)
+    - Does it have sub-pages, modals, or multi-step workflows?
+    - Does it depend on platform settings (`api_get_configuration_value`, `api_get_setting`)?
+    - Does it use file storage or generate downloadable files?
 
 ---
 
@@ -52,9 +52,9 @@ For every database table identified in Step 1:
    ```
 
 2. Categorise each table as one of:
-   - **A** — Already mapped to a current entity (note the entity class and file path).
-   - **B** — Table exists in the legacy schema but has no current entity — needs a new entity.
-   - **C** — Table no longer exists and the data model must be redesigned.
+    - **A** — Already mapped to a current entity (note the entity class and file path).
+    - **B** — Table exists in the legacy schema but has no current entity — needs a new entity.
+    - **C** — Table no longer exists and the data model must be redesigned.
 
 3. For category-B tables, fetch the legacy table schema from the 1.11.x install scripts:
    ```
@@ -360,6 +360,32 @@ vendor/bin/psalm --show-info=false \
                  src/CoreBundle/Controller/Path/To/YourController.php
 ```
 
+### Verifying the generated API schema
+
+After enabling a new entity as an `#[ApiResource]`, dump the OpenAPI schema to confirm the actual
+endpoint URLs, HTTP methods, request/response shapes, and security requirements before writing any
+Vue service calls:
+
+```bash
+php bin/console api:openapi:export 2>/dev/null | python3 -m json.tool | grep -A 20 '"\/api\/your_resource'
+```
+
+Or dump the full schema to a file for inspection:
+
+```bash
+php bin/console api:openapi:export > /tmp/openapi.json
+```
+
+Use the output to verify:
+- The collection URL (e.g. `/api/job_offers`) and item URL (e.g. `/api/job_offers/{id}`) match what
+  you will call from `baseService`.
+- Custom `uriTemplate` values (e.g. `/api/job_offers/public`) are exported as expected.
+- The serialization groups produce the fields the Vue component needs — catch missing `#[Groups]`
+  annotations before the frontend is written.
+- Security restrictions appear correctly on each operation.
+
+This avoids writing Vue service calls against endpoint URLs that don't exist or return unexpected shapes.
+
 ---
 
 ## Step 6 — Register the SPA route(s) in IndexController
@@ -457,11 +483,11 @@ covers the same need. If no equivalent exists, describe the gap to the user and 
 
 3. For each setting found:
    a. Search `src/CoreBundle/DataFixtures/SettingsCurrentFixtures.php` and
-      `src/CoreBundle/Migrations/` for the variable name.
+   `src/CoreBundle/Migrations/` for the variable name.
    b. If the setting **no longer exists**: print
-      `[Settings audit] Skipped '<name>' — no longer in settings table.`
+   `[Settings audit] Skipped '<name>' — no longer in settings table.`
    c. If the setting **still exists**: explain to the user what it controls and how you plan to
-      implement it in the 2.0 stack. **Wait for user confirmation** before implementing.
+   implement it in the 2.0 stack. **Wait for user confirmation** before implementing.
 
 4. For each setting that requires a database column or table: verify that column exists in the
    current entity. If it is missing, flag it as a blocker and ask the user how to proceed.
@@ -550,7 +576,7 @@ Run ECS and Psalm on every PHP file created or modified during this task, fix al
 and re-run until both tools report zero errors:
 
 ```bash
-vendor/bin/ecs check src/CoreBundle/Entity/YourEntity.php \
+composer phpcs-fix src/CoreBundle/Entity/YourEntity.php \
                      src/CoreBundle/Repository/YourEntityRepository.php \
                      src/CoreBundle/Controller/YourController.php
 
