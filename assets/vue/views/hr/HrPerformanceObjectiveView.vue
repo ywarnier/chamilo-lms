@@ -1,24 +1,23 @@
 <template>
-  <div class="p-6 space-y-8">
+  <div class="performance-objective-page">
     <!-- Objective Categories -->
     <section>
-      <div class="flex items-center justify-between mb-4">
-        <h2 class="text-lg font-semibold text-gray-700">{{ t("Objective categories") }}</h2>
+      <SectionHeader :title="t('Objective categories')">
         <BaseButton
           :label="t('Add category')"
           icon="plus"
           type="success"
           @click="openCategoryForm()"
         />
-      </div>
+      </SectionHeader>
 
       <BaseTable
-        :values="categories"
         :is-loading="categoriesLoading"
+        :values="categories"
       >
         <Column
-          field="title"
           :header="t('Title')"
+          field="title"
           sortable
         />
         <Column :header="t('Description')">
@@ -30,7 +29,6 @@
           <template #body="{ data }">
             <div class="flex justify-end gap-2">
               <BaseButton
-                :label="t('Edit')"
                 icon="pencil"
                 only-icon
                 size="small"
@@ -38,7 +36,6 @@
                 @click="openCategoryForm(data)"
               />
               <BaseButton
-                :label="t('Delete')"
                 icon="delete"
                 only-icon
                 size="small"
@@ -53,23 +50,22 @@
 
     <!-- Performance Objectives -->
     <section>
-      <div class="flex items-center justify-between mb-4">
-        <h2 class="text-lg font-semibold text-gray-700">{{ t("Performance objectives") }}</h2>
+      <SectionHeader :title="t('Performance objectives')">
         <BaseButton
           :label="t('Add objective')"
           icon="plus"
           type="success"
           @click="openObjectiveForm()"
         />
-      </div>
+      </SectionHeader>
 
       <BaseTable
-        :values="objectives"
         :is-loading="objectivesLoading"
+        :values="objectives"
       >
         <Column
-          field="title"
           :header="t('Title')"
+          field="title"
           sortable
         />
         <Column :header="t('Description')">
@@ -86,7 +82,6 @@
           <template #body="{ data }">
             <div class="flex justify-end gap-2">
               <BaseButton
-                :label="t('Edit')"
                 icon="pencil"
                 only-icon
                 size="small"
@@ -94,7 +89,6 @@
                 @click="openObjectiveForm(data)"
               />
               <BaseButton
-                :label="t('Delete')"
                 icon="delete"
                 only-icon
                 size="small"
@@ -108,120 +102,104 @@
     </section>
 
     <!-- Category form dialog -->
-    <Dialog
-      v-model:visible="categoryDialog"
-      :header="editingCategory ? t('Edit category') : t('Add category')"
-      :modal="true"
+    <BaseDialog
+      v-model:is-visible="categoryDialog"
       :style="{ width: '420px' }"
+      :title="editingCategory ? t('Edit category') : t('Add category')"
     >
-      <div class="space-y-4 pt-2">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Title") }}</label>
-          <input
-            v-model="categoryForm.title"
-            name="category_title"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            type="text"
-          />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Description") }}</label>
-          <input
-            v-model="categoryForm.description"
-            name="category_description"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            type="text"
-          />
-        </div>
-      </div>
+      <BaseInputText
+        id="category-title"
+        v-model="categoryForm.title"
+        :label="t('Title')"
+        name="category_title"
+      />
+      <BaseInputText
+        id="category-description"
+        v-model="categoryForm.description"
+        :label="t('Description')"
+        name="category_description"
+      />
+
       <template #footer>
         <BaseButton
           :label="t('Cancel')"
+          icon="close"
           type="plain"
           @click="categoryDialog = false"
         />
         <BaseButton
-          :label="t('Save')"
-          type="success"
           :disabled="!categoryForm.title"
+          :label="t('Save')"
+          icon="save"
+          type="success"
           @click="saveCategory"
         />
       </template>
-    </Dialog>
+    </BaseDialog>
 
     <!-- Objective form dialog -->
-    <Dialog
-      v-model:visible="objectiveDialog"
-      :header="editingObjective ? t('Edit objective') : t('Add objective')"
-      :modal="true"
+    <BaseDialog
+      v-model:is-visible="objectiveDialog"
       :style="{ width: '480px' }"
+      :title="editingObjective ? t('Edit objective') : t('Add objective')"
     >
-      <div class="space-y-4 pt-2">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Title") }}</label>
-          <input
-            v-model="objectiveForm.title"
-            name="objective_title"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            type="text"
-          />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Description") }}</label>
-          <textarea
-            v-model="objectiveForm.description"
-            name="objective_description"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            rows="3"
-          />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Category") }}</label>
-          <select
-            v-model="objectiveForm.category"
-            name="objective_category"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-          >
-            <option :value="null">{{ t("None") }}</option>
-            <option
-              v-for="cat in categories"
-              :key="cat['@id']"
-              :value="cat['@id']"
-            >
-              {{ cat.title }}
-            </option>
-          </select>
-        </div>
-      </div>
+      <BaseInputText
+        id="objective-title"
+        v-model="objectiveForm.title"
+        :label="t('Title')"
+        name="objective_title"
+      />
+      <BaseTextArea
+        id="objective-description"
+        v-model="objectiveForm.description"
+        label="Description"
+        name="objective_description"
+        rows="3"
+      />
+      <BaseSelect
+        id="objective-category"
+        v-model="objectiveForm.category"
+        :label="t('Category')"
+        :options="categoryOptions"
+        allow-cleared
+        name="objective_category"
+      />
+
       <template #footer>
         <BaseButton
           :label="t('Cancel')"
+          icon="close"
           type="plain"
           @click="objectiveDialog = false"
         />
         <BaseButton
-          :label="t('Save')"
-          type="success"
           :disabled="!objectiveForm.title"
+          :label="t('Save')"
+          icon="save"
+          type="success"
           @click="saveObjective"
         />
       </template>
-    </Dialog>
+    </BaseDialog>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue"
+import { computed, onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
-import { useToast } from "primevue/usetoast"
-import Dialog from "primevue/dialog"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
+import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
+import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
+import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
-import baseService from "../../services/baseService"
+import BaseTextArea from "../../components/basecomponents/BaseTextArea.vue"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
+import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
+import baseService from "../../services/baseService"
 
 const { t } = useI18n()
-const toast = useToast()
+const { showSuccessNotification, showErrorNotification } = useNotification()
 const { requireConfirmation } = useConfirmation()
 
 const categories = ref([])
@@ -237,6 +215,8 @@ const editingObjective = ref(null)
 
 const categoryForm = ref({ title: "", description: "" })
 const objectiveForm = ref({ title: "", description: "", category: null })
+
+const categoryOptions = computed(() => categories.value.map((cat) => ({ label: cat.title, value: cat["@id"] })))
 
 async function loadCategories() {
   categoriesLoading.value = true
@@ -287,10 +267,10 @@ async function saveCategory() {
       await baseService.post("/api/performance_objective_categories", payload, true)
     }
     categoryDialog.value = false
-    toast.add({ severity: "success", detail: t("Saved"), life: 3000 })
+    showSuccessNotification(t("Saved"))
     await loadCategories()
   } catch (e) {
-    toast.add({ severity: "error", detail: e.message, life: 5000 })
+    showErrorNotification(e)
   }
 }
 
@@ -307,10 +287,10 @@ async function saveObjective() {
       await baseService.post("/api/performance_objectives", payload, true)
     }
     objectiveDialog.value = false
-    toast.add({ severity: "success", detail: t("Saved"), life: 3000 })
+    showSuccessNotification(t("Saved"))
     await loadObjectives()
   } catch (e) {
-    toast.add({ severity: "error", detail: e.message, life: 5000 })
+    showErrorNotification(e)
   }
 }
 
@@ -320,10 +300,10 @@ function confirmDeleteCategory(item) {
     accept: async () => {
       try {
         await baseService.delete(item["@id"])
-        toast.add({ severity: "success", detail: t("Deleted"), life: 3000 })
+        showSuccessNotification(t("Deleted"))
         await loadCategories()
       } catch (e) {
-        toast.add({ severity: "error", detail: e.message, life: 5000 })
+        showErrorNotification(e)
       }
     },
   })
@@ -335,10 +315,10 @@ function confirmDeleteObjective(item) {
     accept: async () => {
       try {
         await baseService.delete(item["@id"])
-        toast.add({ severity: "success", detail: t("Deleted"), life: 3000 })
+        showSuccessNotification(t("Deleted"))
         await loadObjectives()
       } catch (e) {
-        toast.add({ severity: "error", detail: e.message, life: 5000 })
+        showErrorNotification(e)
       }
     },
   })

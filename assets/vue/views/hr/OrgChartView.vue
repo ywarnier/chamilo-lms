@@ -1,52 +1,92 @@
 <template>
-  <div class="p-4">
-    <nav v-if="securityStore.isAdmin || securityStore.isHRM" class="text-sm text-gray-500 mb-3 flex items-center gap-1">
-      <router-link to="/admin" class="hover:underline text-blue-600">{{ t("Administration") }}</router-link>
+  <div class="org-chart-page">
+    <nav
+      v-if="securityStore.isAdmin || securityStore.isHRM"
+      class="text-sm text-gray-500 mb-3 flex items-center gap-1"
+    >
+      <router-link
+        class="hover:underline text-blue-600"
+        to="/admin"
+      >
+        {{ t("Administration") }}
+      </router-link>
       <span>/</span>
-      <router-link to="/hr" class="hover:underline text-blue-600">{{ t("Human Resources") }}</router-link>
+      <router-link
+        class="hover:underline text-blue-600"
+        to="/hr"
+      >
+        {{ t("Human Resources") }}
+      </router-link>
     </nav>
-    <h1 class="text-xl font-semibold mb-4">{{ t("Organizational chart") }}</h1>
+    <SectionHeader :title="t('Organizational chart')" />
 
-    <div v-if="isLoading" class="text-gray-500">{{ t("Loading…") }}</div>
-    <div v-else-if="error" class="text-red-500">{{ error }}</div>
+    <div
+      v-if="isLoading"
+      class="text-gray-500"
+    >
+      {{ t("Loading…") }}
+    </div>
+    <div
+      v-else-if="error"
+      class="text-red-500"
+    >
+      {{ error }}
+    </div>
     <div v-else>
       <div class="flex gap-2 mb-4 border-b border-gray-200">
         <button
           v-if="settings.unitPublic"
-          :class="['px-4 py-2 text-sm font-medium border-b-2 -mb-px',
+          :class="[
+            'px-4 py-2 text-sm font-medium border-b-2 -mb-px',
             activeTab === 'units'
               ? 'border-blue-600 text-blue-700'
-              : 'border-transparent text-gray-500 hover:text-gray-700']"
+              : 'border-transparent text-gray-500 hover:text-gray-700',
+          ]"
           @click="activeTab = 'units'"
         >
           {{ t("Unit hierarchy") }}
         </button>
         <button
           v-if="settings.peoplePublic"
-          :class="['px-4 py-2 text-sm font-medium border-b-2 -mb-px',
+          :class="[
+            'px-4 py-2 text-sm font-medium border-b-2 -mb-px',
             activeTab === 'people'
               ? 'border-blue-600 text-blue-700'
-              : 'border-transparent text-gray-500 hover:text-gray-700']"
+              : 'border-transparent text-gray-500 hover:text-gray-700',
+          ]"
           @click="activeTab = 'people'"
         >
           {{ t("All staff") }}
         </button>
       </div>
 
-      <div v-if="activeTab === 'units' && settings.unitPublic" class="overflow-auto">
-        <svg ref="svgUnits" width="100%" />
+      <div
+        v-if="activeTab === 'units' && settings.unitPublic"
+        class="overflow-auto"
+      >
+        <svg
+          ref="svgUnits"
+          width="100%"
+        />
       </div>
-      <div v-if="activeTab === 'people' && settings.peoplePublic" class="overflow-auto">
-        <svg ref="svgPeople" width="100%" />
+      <div
+        v-if="activeTab === 'people' && settings.peoplePublic"
+        class="overflow-auto"
+      >
+        <svg
+          ref="svgPeople"
+          width="100%"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, watch, onMounted, nextTick } from "vue"
+import { nextTick, onMounted, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
 import * as d3 from "d3"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 import axios from "axios"
 import { useSecurityStore } from "../../store/securityStore"
 
@@ -100,7 +140,9 @@ function renderTree(svgEl, hierarchyData, bossOnly) {
   }
 
   const root = d3.hierarchy(hierarchyData)
-  root.each((d) => { d._h = nodeH(d) })
+  root.each((d) => {
+    d._h = nodeH(d)
+  })
 
   const maxH = Math.max(...root.descendants().map((d) => d._h))
   const layout = d3.tree().nodeSize([nodeWidth + 24, maxH + 40])
@@ -111,7 +153,8 @@ function renderTree(svgEl, hierarchyData, bossOnly) {
   const xMax = Math.max(...desc.map((d) => d.x)) + nodeWidth / 2 + 20
   const yMax = Math.max(...desc.map((d) => d.y + d._h)) + 20
 
-  const svg = d3.select(svgEl)
+  const svg = d3
+    .select(svgEl)
     .attr("viewBox", `${xMin} 0 ${xMax - xMin} ${yMax}`)
     .attr("height", yMax)
 
@@ -125,18 +168,22 @@ function renderTree(svgEl, hierarchyData, bossOnly) {
     .attr("stroke", "#94a3b8")
     .attr("stroke-width", 1.5)
     .attr("d", ({ source: s, target: t }) => {
-      const x1 = s.x, y1 = s.y + s._h
-      const x2 = t.x, y2 = t.y
+      const x1 = s.x,
+        y1 = s.y + s._h
+      const x2 = t.x,
+        y2 = t.y
       const mid = (y1 + y2) / 2
       return `M${x1},${y1} C${x1},${mid} ${x2},${mid} ${x2},${y2}`
     })
 
-  const nodeG = g.selectAll("g.node")
+  const nodeG = g
+    .selectAll("g.node")
     .data(desc)
     .join("g")
     .attr("transform", (d) => `translate(${d.x - nodeWidth / 2},${d.y})`)
 
-  nodeG.append("rect")
+  nodeG
+    .append("rect")
     .attr("width", nodeWidth)
     .attr("height", (d) => d._h)
     .attr("rx", 6)
@@ -145,7 +192,8 @@ function renderTree(svgEl, hierarchyData, bossOnly) {
     .attr("stroke-width", 1.5)
 
   // Unit title
-  nodeG.append("text")
+  nodeG
+    .append("text")
     .attr("x", nodeWidth / 2)
     .attr("y", 16)
     .attr("text-anchor", "middle")
@@ -156,7 +204,8 @@ function renderTree(svgEl, hierarchyData, bossOnly) {
 
   // Boss name (units tab only)
   if (bossOnly) {
-    nodeG.append("text")
+    nodeG
+      .append("text")
       .attr("x", nodeWidth / 2)
       .attr("y", 34)
       .attr("text-anchor", "middle")
@@ -204,7 +253,8 @@ async function load() {
       activeTab.value = settings.value.peoplePublic ? "people" : "units"
     }
   } catch (e) {
-    error.value = e.response?.status === 403 ? t("This chart is not publicly available.") : t("Failed to load chart data.")
+    error.value =
+      e.response?.status === 403 ? t("This chart is not publicly available.") : t("Failed to load chart data.")
   } finally {
     isLoading.value = false
   }

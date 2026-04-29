@@ -1,22 +1,21 @@
 <template>
-  <div class="p-6 space-y-6">
-    <div class="flex items-center justify-between mb-4">
-      <h2 class="text-lg font-semibold text-gray-700">{{ t("Business units") }}</h2>
+  <div class="business-unit-page">
+    <SectionHeader :title="t('Business units')">
       <BaseButton
         :label="t('Add business unit')"
         icon="plus"
         type="success"
         @click="openForm()"
       />
-    </div>
+    </SectionHeader>
 
     <BaseTable
-      :values="items"
       :is-loading="isLoading"
+      :values="items"
     >
       <Column
-        field="title"
         :header="t('Title')"
+        field="title"
         sortable
       />
       <Column :header="t('Description')">
@@ -58,95 +57,76 @@
       </Column>
     </BaseTable>
 
-    <Dialog
-      v-model:visible="dialog"
-      :header="editing ? t('Edit business unit') : t('Add business unit')"
-      :modal="true"
+    <BaseDialog
+      v-model:is-visible="dialog"
       :style="{ width: '480px' }"
+      :title="editing ? t('Edit business unit') : t('Add business unit')"
     >
-      <div class="space-y-4 pt-2">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Title") }}</label>
-          <input
-            v-model="form.title"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            type="text"
-            name="unit_title"
-          />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Description") }}</label>
-          <textarea
-            v-model="form.description"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            rows="2"
-            name="unit_description"
-          />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Parent unit") }}</label>
-          <select
-            v-model="form.parent"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            name="unit_parent"
-          >
-            <option :value="null">{{ t("None") }}</option>
-            <option
-              v-for="unit in parentOptions"
-              :key="unit['@id']"
-              :value="unit['@id']"
-            >
-              {{ unit.title }}
-            </option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Primary branch") }}</label>
-          <select
-            v-model="form.branch"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            name="unit_branch"
-          >
-            <option :value="null">{{ t("None") }}</option>
-            <option
-              v-for="branch in branches"
-              :key="branch['@id']"
-              :value="branch['@id']"
-            >
-              {{ branch.title }}
-            </option>
-          </select>
-        </div>
-      </div>
+      <BaseInputText
+        id="unit-title"
+        v-model="form.title"
+        :label="t('Title')"
+        name="unit_title"
+      />
+      <BaseTextArea
+        id="unit-description"
+        v-model="form.description"
+        label="Description"
+        name="unit_description"
+        rows="2"
+      />
+      <BaseSelect
+        id="unit-parent"
+        v-model="form.parent"
+        :label="t('Parent unit')"
+        :options="parentOptions"
+        allow-cleared
+        name="unit_parent"
+      />
+      <BaseSelect
+        id="unit-branch"
+        v-model="form.branch"
+        :label="t('Primary branch')"
+        :options="branchOptions"
+        allow-cleared
+        name="unit_branch"
+      />
+
       <template #footer>
         <BaseButton
           :label="t('Cancel')"
+          icon="close"
           type="plain"
           @click="dialog = false"
         />
         <BaseButton
-          :label="t('Save')"
-          type="success"
           :disabled="!form.title"
+          :label="t('Save')"
+          icon="save"
+          type="success"
           @click="save"
         />
       </template>
-    </Dialog>
+    </BaseDialog>
   </div>
 </template>
 
 <script setup>
 import { computed, onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
-import { useToast } from "primevue/usetoast"
-import Dialog from "primevue/dialog"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
+import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
+import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
+import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
-import baseService from "../../services/baseService"
+import BaseTextArea from "../../components/basecomponents/BaseTextArea.vue"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
+import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
+import baseService from "../../services/baseService"
 
 const { t } = useI18n()
-const toast = useToast()
+const { showSuccessNotification, showErrorNotification } = useNotification()
 const { requireConfirmation } = useConfirmation()
 
 const items = ref([])
@@ -156,9 +136,12 @@ const dialog = ref(false)
 const editing = ref(null)
 const form = ref({ title: "", description: "", parent: null, branch: null })
 
-const parentOptions = computed(() =>
-  editing.value ? items.value.filter((u) => u["@id"] !== editing.value["@id"]) : items.value,
-)
+const parentOptions = computed(() => {
+  const filtered = editing.value ? items.value.filter((u) => u["@id"] !== editing.value["@id"]) : items.value
+  return filtered.map((u) => ({ label: u.title, value: u["@id"] }))
+})
+
+const branchOptions = computed(() => branches.value.map((b) => ({ label: b.title, value: b["@id"] })))
 
 async function load() {
   isLoading.value = true
@@ -201,10 +184,10 @@ async function save() {
       await baseService.post("/api/business_units", payload, true)
     }
     dialog.value = false
-    toast.add({ severity: "success", detail: t("Saved"), life: 3000 })
+    showSuccessNotification(t("Saved"))
     await load()
   } catch (e) {
-    toast.add({ severity: "error", detail: e.message, life: 5000 })
+    showErrorNotification(e)
   }
 }
 
@@ -214,10 +197,10 @@ function confirmDelete(item) {
     accept: async () => {
       try {
         await baseService.delete(item["@id"])
-        toast.add({ severity: "success", detail: t("Deleted"), life: 3000 })
+        showSuccessNotification(t("Deleted"))
         await load()
       } catch (e) {
-        toast.add({ severity: "error", detail: e.message, life: 5000 })
+        showErrorNotification(e)
       }
     },
   })

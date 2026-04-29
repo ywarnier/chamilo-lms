@@ -1,24 +1,23 @@
 <template>
-  <div class="p-6 space-y-8">
+  <div class="activity-page">
     <!-- Activity Categories -->
     <section>
-      <div class="flex items-center justify-between mb-4">
-        <h2 class="text-lg font-semibold text-gray-700">{{ t("Activity categories") }}</h2>
+      <SectionHeader :title="t('Activity categories')">
         <BaseButton
           :label="t('Add category')"
           icon="plus"
           type="success"
           @click="openCategoryForm()"
         />
-      </div>
+      </SectionHeader>
 
       <BaseTable
-        :values="categories"
         :is-loading="categoriesLoading"
+        :values="categories"
       >
         <Column
-          field="title"
           :header="t('Title')"
+          field="title"
           sortable
         />
         <Column :header="t('Description')">
@@ -30,7 +29,6 @@
           <template #body="{ data }">
             <div class="flex justify-end gap-2">
               <BaseButton
-                :label="t('Edit')"
                 icon="pencil"
                 only-icon
                 size="small"
@@ -38,7 +36,6 @@
                 @click="openCategoryForm(data)"
               />
               <BaseButton
-                :label="t('Delete')"
                 icon="delete"
                 only-icon
                 size="small"
@@ -53,23 +50,22 @@
 
     <!-- Activities -->
     <section>
-      <div class="flex items-center justify-between mb-4">
-        <h2 class="text-lg font-semibold text-gray-700">{{ t("Activities") }}</h2>
+      <SectionHeader :title="t('Activities')">
         <BaseButton
           :label="t('Add activity')"
           icon="plus"
           type="success"
           @click="openActivityForm()"
         />
-      </div>
+      </SectionHeader>
 
       <BaseTable
-        :values="activities"
         :is-loading="activitiesLoading"
+        :values="activities"
       >
         <Column
-          field="title"
           :header="t('Title')"
+          field="title"
           sortable
         />
         <Column :header="t('Description')">
@@ -86,7 +82,6 @@
           <template #body="{ data }">
             <div class="flex justify-end gap-2">
               <BaseButton
-                :label="t('Edit')"
                 icon="pencil"
                 only-icon
                 size="small"
@@ -94,7 +89,6 @@
                 @click="openActivityForm(data)"
               />
               <BaseButton
-                :label="t('Delete')"
                 icon="delete"
                 only-icon
                 size="small"
@@ -108,120 +102,102 @@
     </section>
 
     <!-- Category form dialog -->
-    <Dialog
-      v-model:visible="categoryDialog"
-      :header="editingCategory ? t('Edit category') : t('Add category')"
-      :modal="true"
+    <BaseDialog
+      v-model:is-visible="categoryDialog"
       :style="{ width: '420px' }"
+      :title="editingCategory ? t('Edit category') : t('Add category')"
     >
-      <div class="space-y-4 pt-2">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Title") }}</label>
-          <input
-            v-model="categoryForm.title"
-            name="category_title"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            type="text"
-          />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Description") }}</label>
-          <input
-            v-model="categoryForm.description"
-            name="category_description"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            type="text"
-          />
-        </div>
-      </div>
+      <BaseInputText
+        id="category-title"
+        v-model="categoryForm.title"
+        :label="t('Title')"
+        name="category_title"
+      />
+      <BaseInputText
+        id="category-description"
+        v-model="categoryForm.description"
+        :label="t('Description')"
+        name="category_description"
+      />
+
       <template #footer>
         <BaseButton
           :label="t('Cancel')"
+          icon="close"
           type="plain"
           @click="categoryDialog = false"
         />
         <BaseButton
-          :label="t('Save')"
-          type="success"
           :disabled="!categoryForm.title"
+          :label="t('Save')"
+          icon="save"
+          type="success"
           @click="saveCategory"
         />
       </template>
-    </Dialog>
+    </BaseDialog>
 
     <!-- Activity form dialog -->
-    <Dialog
-      v-model:visible="activityDialog"
-      :header="editingActivity ? t('Edit activity') : t('Add activity')"
-      :modal="true"
+    <BaseDialog
+      v-model:is-visible="activityDialog"
       :style="{ width: '480px' }"
+      :title="editingActivity ? t('Edit activity') : t('Add activity')"
     >
-      <div class="space-y-4 pt-2">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Title") }}</label>
-          <input
-            v-model="activityForm.title"
-            name="activity_title"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            type="text"
-          />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Description") }}</label>
-          <input
-            v-model="activityForm.description"
-            name="activity_description"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            type="text"
-          />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Category") }}</label>
-          <select
-            v-model="activityForm.category"
-            name="activity_category"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-          >
-            <option :value="null">{{ t("None") }}</option>
-            <option
-              v-for="cat in categories"
-              :key="cat['@id']"
-              :value="cat['@id']"
-            >
-              {{ cat.title }}
-            </option>
-          </select>
-        </div>
-      </div>
+      <BaseInputText
+        id="activity-title"
+        v-model="activityForm.title"
+        :label="t('Title')"
+        name="activity_title"
+      />
+      <BaseInputText
+        id="activity-description"
+        v-model="activityForm.description"
+        :label="t('Description')"
+        name="activity_description"
+      />
+      <BaseSelect
+        id="activity-category"
+        v-model="activityForm.category"
+        :label="t('Category')"
+        :options="categoryOptions"
+        allow-cleared
+        name="activity_category"
+      />
+
       <template #footer>
         <BaseButton
           :label="t('Cancel')"
+          icon="close"
           type="plain"
           @click="activityDialog = false"
         />
         <BaseButton
-          :label="t('Save')"
-          type="success"
           :disabled="!activityForm.title"
+          :label="t('Save')"
+          icon="save"
+          type="success"
           @click="saveActivity"
         />
       </template>
-    </Dialog>
+    </BaseDialog>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue"
+import { computed, onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
-import { useToast } from "primevue/usetoast"
-import Dialog from "primevue/dialog"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
+import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
+import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
+import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
-import baseService from "../../services/baseService"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
+import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
+import baseService from "../../services/baseService"
 
 const { t } = useI18n()
-const toast = useToast()
+const { showSuccessNotification, showErrorNotification } = useNotification()
 const { requireConfirmation } = useConfirmation()
 
 const categories = ref([])
@@ -237,6 +213,8 @@ const editingActivity = ref(null)
 
 const categoryForm = ref({ title: "", description: "" })
 const activityForm = ref({ title: "", description: "", category: null })
+
+const categoryOptions = computed(() => categories.value.map((cat) => ({ label: cat.title, value: cat["@id"] })))
 
 async function loadCategories() {
   categoriesLoading.value = true
@@ -287,10 +265,10 @@ async function saveCategory() {
       await baseService.post("/api/activity_categories", payload, true)
     }
     categoryDialog.value = false
-    toast.add({ severity: "success", detail: t("Saved"), life: 3000 })
+    showSuccessNotification(t("Saved"))
     await loadCategories()
   } catch (e) {
-    toast.add({ severity: "error", detail: e.message, life: 5000 })
+    showErrorNotification(e)
   }
 }
 
@@ -307,10 +285,10 @@ async function saveActivity() {
       await baseService.post("/api/activities", payload, true)
     }
     activityDialog.value = false
-    toast.add({ severity: "success", detail: t("Saved"), life: 3000 })
+    showSuccessNotification(t("Saved"))
     await loadActivities()
   } catch (e) {
-    toast.add({ severity: "error", detail: e.message, life: 5000 })
+    showErrorNotification(e)
   }
 }
 
@@ -320,10 +298,10 @@ function confirmDeleteCategory(item) {
     accept: async () => {
       try {
         await baseService.delete(item["@id"])
-        toast.add({ severity: "success", detail: t("Deleted"), life: 3000 })
+        showSuccessNotification(t("Deleted"))
         await loadCategories()
       } catch (e) {
-        toast.add({ severity: "error", detail: e.message, life: 5000 })
+        showErrorNotification(e)
       }
     },
   })
@@ -335,10 +313,10 @@ function confirmDeleteActivity(item) {
     accept: async () => {
       try {
         await baseService.delete(item["@id"])
-        toast.add({ severity: "success", detail: t("Deleted"), life: 3000 })
+        showSuccessNotification(t("Deleted"))
         await loadActivities()
       } catch (e) {
-        toast.add({ severity: "error", detail: e.message, life: 5000 })
+        showErrorNotification(e)
       }
     },
   })

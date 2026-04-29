@@ -1,9 +1,16 @@
 <template>
-  <div class="p-4">
-    <h1 class="text-xl font-semibold mb-4">{{ t("Unit function list") }}</h1>
-    <div v-if="isLoading" class="text-gray-500">{{ t("Loading…") }}</div>
-    <div v-else class="flex gap-6">
-      <!-- Left: tree -->
+  <div class="unit-function-list-page">
+    <SectionHeader :title="t('Unit function list')" />
+    <div
+      v-if="isLoading"
+      class="text-gray-500"
+    >
+      {{ t("Loading…") }}
+    </div>
+    <div
+      v-else
+      class="flex gap-6"
+    >
       <div class="w-1/2 overflow-auto">
         <ul class="space-y-1">
           <UnitTreeNode
@@ -16,22 +23,33 @@
         </ul>
       </div>
 
-      <!-- Right: doughnut chart -->
       <div class="w-1/2">
-        <div v-if="selectedUnit" class="mb-2 font-medium">
+        <div
+          v-if="selectedUnit"
+          class="mb-2 font-medium"
+        >
           {{ selectedUnit.title }} — {{ t("Headcount") }}: {{ selectedHeadcount }}
         </div>
-        <div v-else class="mb-2 text-gray-400 text-sm">{{ t("Select a unit to see headcount distribution") }}</div>
-        <canvas ref="chartCanvas" style="max-height: 320px" />
+        <div
+          v-else
+          class="mb-2 text-gray-400 text-sm"
+        >
+          {{ t("Select a unit to see headcount distribution") }}
+        </div>
+        <canvas
+          ref="chartCanvas"
+          style="max-height: 320px"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted, onActivated, defineComponent, h } from "vue"
+import { computed, defineComponent, h, onActivated, onMounted, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
-import { Chart, ArcElement, DoughnutController, Tooltip, Legend } from "chart.js"
+import { ArcElement, Chart, DoughnutController, Legend, Tooltip } from "chart.js"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 import axios from "axios"
 
 Chart.register(ArcElement, DoughnutController, Tooltip, Legend)
@@ -55,7 +73,9 @@ const UnitTreeNode = defineComponent({
                 {
                   type: "button",
                   class: "text-gray-400 hover:text-gray-700 text-xs w-4",
-                  onClick: () => { expanded.value = !expanded.value },
+                  onClick: () => {
+                    expanded.value = !expanded.value
+                  },
                 },
                 expanded.value ? "▾" : "▸",
               )
@@ -94,7 +114,7 @@ const selectedUnitId = ref(null)
 const chartCanvas = ref(null)
 let chartInstance = null
 
-const selectedUnit = computed(() => selectedUnitId.value ? findNode(tree.value, selectedUnitId.value) : null)
+const selectedUnit = computed(() => (selectedUnitId.value ? findNode(tree.value, selectedUnitId.value) : null))
 
 const selectedHeadcount = computed(() => {
   if (!selectedUnit.value) return 0
@@ -114,7 +134,7 @@ function findNode(nodes, id) {
 
 function countHeadcount(node) {
   let count = node.headcount ?? 0
-  for (const child of (node.children ?? [])) {
+  for (const child of node.children ?? []) {
     count += countHeadcount(child)
   }
   return count
@@ -122,11 +142,11 @@ function countHeadcount(node) {
 
 function gatherFunctionHeadcounts(node) {
   const result = {}
-  for (const fn of (node.functions ?? [])) {
-    const key = fn.professionalFunctionTitle + ' / ' + fn.title
+  for (const fn of node.functions ?? []) {
+    const key = fn.professionalFunctionTitle + " / " + fn.title
     result[key] = (result[key] ?? 0) + fn.headcount
   }
-  for (const child of (node.children ?? [])) {
+  for (const child of node.children ?? []) {
     const childData = gatherFunctionHeadcounts(child)
     for (const [k, v] of Object.entries(childData)) {
       result[k] = (result[k] ?? 0) + v

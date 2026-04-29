@@ -1,20 +1,37 @@
 <template>
-  <div class="p-4">
-    <div class="flex items-center justify-between mb-4">
-      <h1 class="text-xl font-semibold">{{ t("Positions") }}</h1>
+  <div class="positions-page">
+    <SectionHeader :title="t('Positions')">
       <BaseButton
-        type="success"
-        icon="plus-box"
         :label="t('Add position')"
+        icon="plus"
+        type="success"
         @click="openCreate"
       />
-    </div>
+    </SectionHeader>
 
-    <BaseTable :values="items" :is-loading="isLoading">
-      <Column field="userFullName" :header="t('Staff member')" sortable />
-      <Column field="userUsername" :header="t('Username')" />
-      <Column field="functionInUnitTitle" :header="t('Position title')" sortable />
-      <Column field="businessUnitTitle" :header="t('Business unit')" sortable />
+    <BaseTable
+      :is-loading="isLoading"
+      :values="items"
+    >
+      <Column
+        :header="t('Staff member')"
+        field="userFullName"
+        sortable
+      />
+      <Column
+        :header="t('Username')"
+        field="userUsername"
+      />
+      <Column
+        :header="t('Position title')"
+        field="functionInUnitTitle"
+        sortable
+      />
+      <Column
+        :header="t('Business unit')"
+        field="businessUnitTitle"
+        sortable
+      />
       <Column :header="t('Start date')">
         <template #body="{ data }">{{ data.startDate }}</template>
       </Column>
@@ -28,137 +45,133 @@
       </Column>
       <Column :header="t('Boss')">
         <template #body="{ data }">
-          <span v-if="data.isBoss" class="text-green-600 font-semibold">✓</span>
+          <span
+            v-if="data.isBoss"
+            class="text-green-600 font-semibold"
+            >✓</span
+          >
         </template>
       </Column>
-      <Column :header="t('Actions')" style="width: 100px">
+      <Column
+        :header="t('Actions')"
+        style="width: 100px"
+      >
         <template #body="{ data }">
           <div class="flex gap-1">
-            <BaseButton type="secondary-text" icon="pencil" only-icon size="small" @click="openEdit(data)" />
-            <BaseButton type="danger-text" icon="delete" only-icon size="small" @click="confirmDelete(data)" />
+            <BaseButton
+              icon="pencil"
+              only-icon
+              size="small"
+              type="secondary-text"
+              @click="openEdit(data)"
+            />
+            <BaseButton
+              icon="delete"
+              only-icon
+              size="small"
+              type="danger-text"
+              @click="confirmDelete(data)"
+            />
           </div>
         </template>
       </Column>
     </BaseTable>
 
-    <Dialog
-      v-model:visible="dialogVisible"
-      :header="editingItem ? t('Edit position') : t('Add position')"
-      modal
+    <BaseDialog
+      v-model:is-visible="dialogVisible"
       :style="{ width: '560px' }"
+      :title="editingItem ? t('Edit position') : t('Add position')"
     >
-      <div class="flex flex-col gap-3 pt-2">
-        <div>
-          <label class="block text-sm font-medium mb-1">{{ t("Staff member") }} *</label>
-          <select
-            v-model="form.user"
-            name="position_user"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-          >
-            <option value="">— {{ t("Select") }} —</option>
-            <option v-for="u in users" :key="u['@id']" :value="u['@id']">
-              {{ u.fullName }} ({{ u.username }})
-            </option>
-          </select>
+      <BaseSelect
+        id="position-user"
+        v-model="form.user"
+        :hast-empty-value="true"
+        :label="t('Staff member')"
+        :options="userOptions"
+        name="position_user"
+      />
+      <BaseSelect
+        id="position-function-in-unit"
+        v-model="form.functionInUnit"
+        :hast-empty-value="true"
+        :label="t('Function-unit association')"
+        :options="functionInUnitOptions"
+        name="position_function_in_unit"
+      />
+      <BaseCalendar
+        id="position-date-range"
+        v-model="dateRange"
+        :label="t('Period')"
+        type="range"
+      />
+      <BaseSelect
+        id="position-branch"
+        v-model="form.branch"
+        :label="t('Branch')"
+        :options="branchOptions"
+        allow-cleared
+        name="position_branch"
+      />
+      <BaseSelect
+        id="position-geographic-zone"
+        v-model="form.geographicZone"
+        :label="t('Geographic zone')"
+        :options="geographicZoneOptions"
+        allow-cleared
+        name="position_geographic_zone"
+      />
+      <div class="flex gap-4 items-end">
+        <div class="flex-1">
+          <BaseInputNumber
+            id="position-contract-etp"
+            v-model="form.contractEtp"
+            :label="t('FTE (0–1)')"
+            :max="1"
+            :min="0"
+            :step="0.01"
+            name="position_contract_etp"
+          />
         </div>
-        <div>
-          <label class="block text-sm font-medium mb-1">{{ t("Function-unit association") }} *</label>
-          <select
-            v-model="form.functionInUnit"
-            name="position_function_in_unit"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-          >
-            <option value="">— {{ t("Select") }} —</option>
-            <option v-for="fiu in functionInUnits" :key="fiu['@id']" :value="fiu['@id']">
-              {{ fiu.title }} — {{ fiu.businessUnitTitle }}
-            </option>
-          </select>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-1">
-            <label class="block text-sm font-medium mb-1">{{ t("Start date") }} *</label>
-            <input
-              v-model="form.startDate"
-              name="position_start_date"
-              type="date"
-              class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            />
-          </div>
-          <div class="flex-1">
-            <label class="block text-sm font-medium mb-1">{{ t("End date") }}</label>
-            <input
-              v-model="form.endDate"
-              name="position_end_date"
-              type="date"
-              class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            />
-          </div>
-        </div>
-        <div>
-          <label class="block text-sm font-medium mb-1">{{ t("Branch") }}</label>
-          <select
-            v-model="form.branch"
-            name="position_branch"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-          >
-            <option :value="null">— {{ t("None") }} —</option>
-            <option v-for="b in branches" :key="b['@id']" :value="b['@id']">{{ b.title }}</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-medium mb-1">{{ t("Geographic zone") }}</label>
-          <select
-            v-model="form.geographicZone"
-            name="position_geographic_zone"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-          >
-            <option :value="null">— {{ t("None") }} —</option>
-            <option v-for="gz in geographicZones" :key="gz['@id']" :value="gz['@id']">
-              {{ gz.title }}
-            </option>
-          </select>
-        </div>
-        <div class="flex gap-4 items-center">
-          <div class="flex-1">
-            <label class="block text-sm font-medium mb-1">{{ t("FTE (0–1)") }}</label>
-            <input
-              v-model="form.contractEtp"
-              name="position_contract_etp"
-              type="number"
-              min="0"
-              max="1"
-              step="0.01"
-              class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            />
-          </div>
-          <div class="flex items-center gap-2 mt-5">
-            <input
-              id="position_is_boss"
-              v-model="form.isBoss"
-              name="position_is_boss"
-              type="checkbox"
-              class="rounded"
-            />
-            <label for="position_is_boss" class="text-sm font-medium">{{ t("Is manager/boss") }}</label>
-          </div>
+        <div class="pb-1">
+          <BaseCheckbox
+            id="position-is-boss"
+            v-model="form.isBoss"
+            :label="t('Is manager/boss')"
+            name="position_is_boss"
+          />
         </div>
       </div>
+
       <template #footer>
-        <div class="flex gap-2 justify-end">
-          <BaseButton type="plain" :label="t('Cancel')" @click="dialogVisible = false" />
-          <BaseButton type="success" :label="t('Save')" :disabled="isSaving" @click="save" />
-        </div>
+        <BaseButton
+          :label="t('Cancel')"
+          icon="close"
+          type="plain"
+          @click="dialogVisible = false"
+        />
+        <BaseButton
+          :disabled="isSaving"
+          :label="t('Save')"
+          icon="save"
+          type="success"
+          @click="save"
+        />
       </template>
-    </Dialog>
+    </BaseDialog>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue"
+import { computed, onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
-import Dialog from "primevue/dialog"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
+import BaseCalendar from "../../components/basecomponents/BaseCalendar.vue"
+import BaseCheckbox from "../../components/basecomponents/BaseCheckbox.vue"
+import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
+import BaseInputNumber from "../../components/basecomponents/BaseInputNumber.vue"
+import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
 import axios from "axios"
 
@@ -174,12 +187,29 @@ const isLoading = ref(false)
 const isSaving = ref(false)
 const dialogVisible = ref(false)
 const editingItem = ref(null)
+const dateRange = ref(null)
 
 const emptyForm = () => ({
-  user: "", functionInUnit: "", startDate: "", endDate: "",
-  branch: null, geographicZone: null, contractEtp: 1, isBoss: false,
+  user: null,
+  functionInUnit: null,
+  branch: null,
+  geographicZone: null,
+  contractEtp: 1,
+  isBoss: false,
 })
 const form = ref(emptyForm())
+
+const userOptions = computed(() =>
+  users.value.map((u) => ({ label: `${u.fullName} (${u.username})`, value: u["@id"] })),
+)
+
+const functionInUnitOptions = computed(() =>
+  functionInUnits.value.map((fiu) => ({ label: `${fiu.title} — ${fiu.businessUnitTitle}`, value: fiu["@id"] })),
+)
+
+const branchOptions = computed(() => branches.value.map((b) => ({ label: b.title, value: b["@id"] })))
+
+const geographicZoneOptions = computed(() => geographicZones.value.map((gz) => ({ label: gz.title, value: gz["@id"] })))
 
 function endDateClass(date) {
   if (!date) return ""
@@ -212,36 +242,38 @@ async function load() {
 function openCreate() {
   editingItem.value = null
   form.value = emptyForm()
+  dateRange.value = null
   dialogVisible.value = true
 }
 
 function openEdit(item) {
   editingItem.value = item
   form.value = {
-    user: item.userIri ?? "",
-    functionInUnit: item.functionInUnitIri ?? "",
-    startDate: item.startDate,
-    endDate: item.endDate ?? "",
+    user: item.userIri ?? null,
+    functionInUnit: item.functionInUnitIri ?? null,
     branch: null,
     geographicZone: null,
     contractEtp: item.contractEtp ?? 1,
     isBoss: item.isBoss,
   }
+  const startDate = item.startDate ? new Date(item.startDate) : null
+  const endDate = item.endDate ? new Date(item.endDate) : null
+  dateRange.value = startDate ? [startDate, endDate] : null
   dialogVisible.value = true
 }
 
 async function save() {
-  if (!form.value.user || !form.value.functionInUnit || !form.value.startDate) return
+  if (!form.value.user || !form.value.functionInUnit || !dateRange.value?.[0]) return
   isSaving.value = true
   try {
     const payload = {
       user: form.value.user,
       functionInUnit: form.value.functionInUnit,
-      startDate: form.value.startDate ? new Date(form.value.startDate).toISOString() : null,
-      endDate: form.value.endDate ? new Date(form.value.endDate).toISOString() : null,
+      startDate: dateRange.value?.[0] ? new Date(dateRange.value[0]).toISOString() : null,
+      endDate: dateRange.value?.[1] ? new Date(dateRange.value[1]).toISOString() : null,
       branch: form.value.branch || null,
       geographicZone: form.value.geographicZone || null,
-      contractEtp: form.value.contractEtp ? String(parseFloat(form.value.contractEtp)) : null,
+      contractEtp: form.value.contractEtp != null ? String(form.value.contractEtp) : null,
       isBoss: form.value.isBoss,
     }
     if (editingItem.value) {

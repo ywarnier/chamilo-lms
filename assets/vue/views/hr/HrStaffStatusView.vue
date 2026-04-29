@@ -1,22 +1,21 @@
 <template>
-  <div class="p-6 space-y-6">
-    <div class="flex items-center justify-between mb-4">
-      <h2 class="text-lg font-semibold text-gray-700">{{ t("Staff statuses") }}</h2>
+  <div class="staff-status-page">
+    <SectionHeader :title="t('Staff statuses')">
       <BaseButton
         :label="t('Add staff status')"
         icon="plus"
         type="success"
         @click="openForm()"
       />
-    </div>
+    </SectionHeader>
 
     <BaseTable
-      :values="items"
       :is-loading="isLoading"
+      :values="items"
     >
       <Column
-        field="title"
         :header="t('Title')"
+        field="title"
         sortable
       />
       <Column :header="t('Description')">
@@ -48,61 +47,59 @@
       </Column>
     </BaseTable>
 
-    <Dialog
-      v-model:visible="dialog"
-      :header="editing ? t('Edit staff status') : t('Add staff status')"
-      :modal="true"
+    <BaseDialog
+      v-model:is-visible="dialog"
       :style="{ width: '440px' }"
+      :title="editing ? t('Edit staff status') : t('Add staff status')"
     >
-      <div class="space-y-4 pt-2">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Title") }}</label>
-          <input
-            v-model="form.title"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            type="text"
-            name="status_title"
-          />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Description") }}</label>
-          <textarea
-            v-model="form.description"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            rows="3"
-            name="status_description"
-          />
-        </div>
-      </div>
+      <BaseInputText
+        id="status-title"
+        v-model="form.title"
+        :label="t('Title')"
+        name="status_title"
+      />
+      <BaseTextArea
+        id="status-description"
+        v-model="form.description"
+        label="Description"
+        name="status_description"
+        rows="3"
+      />
+
       <template #footer>
         <BaseButton
           :label="t('Cancel')"
+          icon="close"
           type="plain"
           @click="dialog = false"
         />
         <BaseButton
-          :label="t('Save')"
-          type="success"
           :disabled="!form.title"
+          :label="t('Save')"
+          icon="content-save"
+          type="success"
           @click="save"
         />
       </template>
-    </Dialog>
+    </BaseDialog>
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
-import { useToast } from "primevue/usetoast"
-import Dialog from "primevue/dialog"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
+import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
+import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
-import baseService from "../../services/baseService"
+import BaseTextArea from "../../components/basecomponents/BaseTextArea.vue"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
+import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
+import baseService from "../../services/baseService"
 
 const { t } = useI18n()
-const toast = useToast()
+const { showSuccessNotification, showErrorNotification } = useNotification()
 const { requireConfirmation } = useConfirmation()
 
 const items = ref([])
@@ -138,10 +135,10 @@ async function save() {
       await baseService.post("/api/staff_statuses", payload, true)
     }
     dialog.value = false
-    toast.add({ severity: "success", detail: t("Saved"), life: 3000 })
+    showSuccessNotification(t("Saved"))
     await load()
   } catch (e) {
-    toast.add({ severity: "error", detail: e.message, life: 5000 })
+    showErrorNotification(e)
   }
 }
 
@@ -151,10 +148,10 @@ function confirmDelete(item) {
     accept: async () => {
       try {
         await baseService.delete(item["@id"])
-        toast.add({ severity: "success", detail: t("Deleted"), life: 3000 })
+        showSuccessNotification(t("Deleted"))
         await load()
       } catch (e) {
-        toast.add({ severity: "error", detail: e.message, life: 5000 })
+        showErrorNotification(e)
       }
     },
   })
