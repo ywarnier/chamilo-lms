@@ -231,20 +231,22 @@ the generated migration file unless column types or default values need explicit
 
 ## Step 5 — Implement data endpoints via API Platform state providers
 
-### Decision: state provider vs. plain controller
+### Decision tree: state provider type
 
-For every legacy data endpoint, **first ask**: does it return one or more instances of an entity
-that already has (or will have) an `#[ApiResource]` attribute?
+For every legacy data endpoint, choose one of three paths:
 
-- **Yes → use an API Platform `GetCollection` or `Get` operation with a state provider.**
-  Do NOT create a plain Symfony controller for this endpoint.
-- **No → use a plain Symfony controller** (e.g. actions that send messages, trigger side-effects,
-  or aggregate data from multiple unrelated entities into a custom shape).
+| What does the endpoint return?                                                          | Implementation                                                                   |
+|-----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| One or more instances of a **mapped entity** with `#[ApiResource]`                      | State provider added to the entity's existing `#[ApiResource]` block             |
+| A **custom projection / aggregation** that doesn't map to a single entity               | Standalone DTO class in `src/CoreBundle/ApiResource/` + dedicated state provider |
+| A **side-effect** action (send message, mark as read, file I/O) with no entity response | Plain Symfony controller (last resort — see Path C below)                        |
 
-This rule applies to both new endpoints and existing controllers being refactored. If a controller
-currently returns entity data, migrate it to a state provider.
+Never create a plain controller just because the response shape is complex. A DTO state provider
+handles any shape. Plain controllers are reserved for actions, not data reads.
 
-### Creating a state provider (preferred path)
+---
+
+### Path A — State provider for an existing entity
 
 1. Create `src/CoreBundle/State/{FeatureName}StateProvider.php`:
 
@@ -263,7 +265,7 @@ use Chamilo\CoreBundle\Repository\YourEntityRepository;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 /**
- * @template-implements ProviderInterface<YourEntity>
+ * @implements ProviderInterface<YourEntity>
  */
 final class YourFeatureStateProvider implements ProviderInterface
 {
@@ -275,7 +277,7 @@ final class YourFeatureStateProvider implements ProviderInterface
     public function provide(Operation $operation, array $uriVariables = [], array $context = []): array
     {
         $user = $this->userHelper->getCurrent();
-        if (!$user) {
+        if (null === $user) {
             throw new AccessDeniedHttpException();
         }
 
@@ -295,7 +297,7 @@ new GetCollection(
 ),
 ```
 
-Key rules for state provider operations:
+Key rules:
 - The `uriTemplate` lives under `/api/` automatically — no `-data` suffix needed (no clash with SPA routes).
 - Set `paginationEnabled: false` when the result set is always small and the client expects a plain array.
 - Use `normalizationContext: ['groups' => ['entity:read']]` on the operation if a subset of fields
@@ -306,12 +308,148 @@ Key rules for state provider operations:
   relevant property in the related entity class (e.g. add `'benefit_assignment:read'` to
   `Compensation::$description`).
 
-### When a plain controller is still appropriate
+---
+
+### Path B — Standalone DTO + state provider (custom shape, no single entity)
+
+Use this path when the response aggregates data from multiple entities or computes a projection
+that has no direct ORM mapping (e.g. a career plan overview, a user dashboard summary, a skill
+gap report).
+
+**Step B-1 — Create the DTO class** in `src/CoreBundle/ApiResource/{DtoName}.php`:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Chamilo\CoreBundle\ApiResource;
+
+// Chamilo HR extension
+
+use ApiPlatform\Metadata\ApiProperty;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;          // or GetCollection
+use Chamilo\CoreBundle\State\YourDtoStateProvider;
+use Symfony\Component\Serializer\Attribute\Groups;
+
+#[ApiResource(
+    shortName: 'YourDtoName',
+    operations: [
+        new Get(                          // use GetCollection if returning an array
+            uriTemplate: '/your_dto_endpoint',
+            security: "is_granted('ROLE_ADMIN')",
+            paginationEnabled: false,
+            normalizationContext: ['groups' => ['your_dto:read']],
+            provider: YourDtoStateProvider::class,
+        ),
+    ],
+)]
+final class YourDtoName
+{
+    // For a single-item Get, use a fixed identifier so API Platform can generate the IRI.
+    // For GetCollection, omit this and return an array from the provider.
+    #[ApiProperty(identifier: true, readable: false, writable: false)]
+    public function getId(): string
+    {
+        return 'your-dto-name';
+    }
+
+    /** @var array<int, array<string, mixed>> */
+    #[Groups(['your_dto:read'])]
+    public array $items = [];
+
+    #[Groups(['your_dto:read'])]
+    public ?string $someField = null;
+}
+```
+
+Key rules for DTO classes:
+- Place in `src/CoreBundle/ApiResource/` — never in `Entity/`.
+- Add `// Chamilo HR extension` after the `declare` line to mark HR-specific files.
+- For `GetCollection` operations the provider returns `YourDtoName[]`; for `Get` it returns
+  a single `YourDtoName` instance.
+- The `getId()` fixed-string trick (e.g. returning `'my-career-plan'`) gives API Platform a stable
+  IRI for singleton resources that have no database row.
+- All serialized properties must carry `#[Groups(['your_dto:read'])]`.
+- Do **not** add ORM attributes to DTO classes — they are not database entities.
+
+**Step B-2 — Create the state provider** in `src/CoreBundle/State/{DtoName}StateProvider.php`:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Chamilo\CoreBundle\State;
+
+// Chamilo HR extension
+
+use ApiPlatform\Metadata\Operation;
+use ApiPlatform\State\ProviderInterface;
+use Chamilo\CoreBundle\ApiResource\YourDtoName;
+use Chamilo\CoreBundle\Entity\SomeEntity;
+use Chamilo\CoreBundle\Helpers\UserHelper;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+
+/**
+ * @implements ProviderInterface<YourDtoName>
+ */
+final class YourDtoStateProvider implements ProviderInterface
+{
+    public function __construct(
+        private readonly EntityManagerInterface $em,
+        private readonly UserHelper $userHelper,   // inject only if user-scoped
+    ) {}
+
+    // Return type: YourDtoName for Get, YourDtoName[] for GetCollection
+    public function provide(Operation $operation, array $uriVariables = [], array $context = []): YourDtoName
+    {
+        $user = $this->userHelper->getCurrent();
+        if (null === $user) {
+            throw new AccessDeniedHttpException();
+        }
+
+        $dto = new YourDtoName();
+
+        // Build $dto->items, $dto->someField, etc. via DQL or QueryBuilder.
+        // Always pass Types::INTEGER (or appropriate constant) as 3rd arg of setParameter().
+        $rows = $this->em->createQueryBuilder()
+            ->select('e')
+            ->from(SomeEntity::class, 'e')
+            ->where('e.user = :userId')
+            ->setParameter('userId', $user->getId(), Types::INTEGER)
+            ->getQuery()
+            ->getResult()
+        ;
+
+        foreach ($rows as $row) {
+            $dto->items[] = ['id' => $row->getId(), 'title' => $row->getTitle()];
+        }
+
+        return $dto;
+    }
+}
+```
+
+Key rules for DTO state providers:
+- Use `@implements ProviderInterface<YourDtoName>` (not `@template-implements`).
+- Add `// Chamilo HR extension` after the `declare` line.
+- Use `UserHelper::getCurrent()` — never `$this->getUser()` (no controller context in providers).
+- All `setParameter()` calls must include an explicit type: `Types::INTEGER` for entity IDs,
+  `Types::DATETIME_MUTABLE` for DateTime, `ArrayParameterType::INTEGER` for int arrays.
+- For `GetCollection`, the return type is `array` and the body returns `YourDtoName[]`.
+- `paginationEnabled: false` on the operation when the client expects a plain Hydra member array.
+
+---
+
+### Path C — Plain controller (side-effect actions only)
 
 Create controllers in `src/CoreBundle/Controller/` (or `.../Admin/` for admin-only features)
 **only** for endpoints that:
 - Trigger side-effects without returning entity data (send a message, mark as read, etc.).
-- Aggregate data from multiple unrelated entities into a shape that does not map to any single entity.
 - Wrap legacy operations (`MessageManager`, file I/O) that have no API Platform equivalent.
 
 For these controllers, follow the rules below.
