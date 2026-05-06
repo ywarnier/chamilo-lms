@@ -443,6 +443,172 @@ Key rules for DTO state providers:
 - For `GetCollection`, the return type is `array` and the body returns `YourDtoName[]`.
 - `paginationEnabled: false` on the operation when the client expects a plain Hydra member array.
 
+**Step B-3 — Filtering: use API Platform's filter system, NEVER read from `$request` directly.**
+
+A state provider must **never** inject `RequestStack` to read query string parameters
+(`$request->query->get('dateStart')`). API Platform 3.4 has a complete filter system that must
+be used instead — for OpenAPI documentation, URL convention consistency, and correctness.
+
+> **Critical limitation: `#[ApiFilter]` does NOT work on DTOs.**
+> Doctrine ORM filters (`DateFilter`, `SearchFilter`, `OrderFilter`, etc.) need the resource
+> class to be a Doctrine entity backed by a database table. They use the resource's ORM
+> metadata (table name, column types, relations) to build SQL/DQL fragments. A plain DTO in
+> `src/CoreBundle/ApiResource/` is **not** an entity. Declaring `#[ApiFilter]` on a DTO:
+> - has no effect on actual filtering;
+> - generates no OpenAPI parameter documentation;
+> - cannot be "rescued" by passing the underlying entity class to
+>   `FilterExtension::applyToCollection` — that hack works at runtime but produces empty
+>   OpenAPI parameters and is non-idiomatic.
+
+**The canonical pattern (recommended): use `output:` on the underlying entity's `#[ApiResource]`.**
+
+When the underlying data IS a single Doctrine entity (e.g. one main DQL `FROM` clause), the
+right pattern is to add a new operation to that entity's existing `#[ApiResource]` block,
+declare `output: YourDtoName::class`, and reference filter services via `filters: [...]`:
+
+```php
+// src/CoreBundle/Entity/Session.php (upstream entity — the modification is acceptable
+// because the operation is the natural place for filters that target Session columns)
+use Chamilo\CoreBundle\ApiResource\HrRoiCourseItem;
+use Chamilo\CoreBundle\State\HrRoiCourseStateProvider;
+
+#[ApiResource(
+    operations: [
+        // ... existing operations ...
+
+        // Chamilo HR extension: ROI by course (Training ROI management).
+        new GetCollection(
+            uriTemplate: '/hr_roi/courses',
+            paginationEnabled: false,
+            normalizationContext: ['groups' => ['hr_roi_course:read']],
+            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
+            filters: ['hr.session.date_filter'],
+            output: HrRoiCourseItem::class,
+            name: 'hr_roi_courses',
+            provider: HrRoiCourseStateProvider::class,
+        ),
+    ],
+)]
+class Session { /* unchanged */ }
+```
+
+```yaml
+# src/CoreBundle/Resources/config/services.yml — register the filter service
+hr.session.date_filter:
+    parent: 'api_platform.doctrine.orm.date_filter'
+    arguments:
+        $properties: { accessStartDate: ~ }
+    tags: [ 'api_platform.filter' ]
+```
+
+```php
+// src/CoreBundle/ApiResource/HrRoiCourseItem.php — plain output DTO, NO #[ApiResource]
+final class HrRoiCourseItem
+{
+    #[Groups(['hr_roi_course:read'])]
+    public int $sessionId;
+    // ... other public typed fields with the same group ...
+}
+```
+
+```php
+// src/CoreBundle/State/HrRoiCourseStateProvider.php — inject FilterExtension, build QB on
+// the entity, apply filters, then transform results into DTOs.
+use ApiPlatform\Doctrine\Orm\Extension\FilterExtension;
+use ApiPlatform\Doctrine\Orm\Util\QueryNameGenerator;
+
+public function __construct(
+    private readonly EntityManagerInterface $em,
+    private readonly FilterExtension $filterExtension,
+) {}
+
+public function provide(Operation $operation, array $uriVariables = [], array $context = []): array
+{
+    $qb = $this->em->createQueryBuilder()
+        ->select('s')
+        ->from(Session::class, 's')
+        ->orderBy('s.accessStartDate', 'DESC')
+    ;
+
+    $this->filterExtension->applyToCollection(
+        $qb, new QueryNameGenerator(), Session::class, $operation, $context,
+    );
+
+    return array_map(fn (Session $s) => $this->toDto($s), $qb->getQuery()->getResult());
+}
+```
+
+URLs follow API Platform conventions automatically and OpenAPI parameters are generated:
+- `?accessStartDate[after]=YYYY-MM-DD&accessStartDate[before]=YYYY-MM-DD` (DateFilter — 4 OpenAPI parameters: `after`, `before`, `strictly_after`, `strictly_before`).
+- `?order[accessStartDate]=desc` (OrderFilter).
+- `?user=/api/users/42` or `?user=42` (SearchFilter on a relation — `exact` strategy).
+
+**Project rule on modifying upstream entities**: this project tries to keep changes to
+upstream Chamilo entities to a minimum (see `CLAUDE.md`). Adding an HR-specific operation
+to an entity's `#[ApiResource]` block IS acceptable when:
+- the operation is the natural place for filters that target real columns of that entity;
+- the change is annotated with a `// Chamilo HR extension:` comment so it's easy to spot
+  and rebase;
+- no entity properties or table mappings are altered.
+
+**Fallback pattern: read `$context['filters']` and apply manually.**
+
+When the underlying query does NOT fit a single entity — for example, the data goes through
+multi-step joins like `User → UserToFunctionInUnit → FunctionInUnit → BusinessUnit`, or the
+filter parameter (e.g. `unit`) is not a property of any entity reachable from the resource —
+`#[ApiFilter]` on the entity is awkward or impossible. In that case, keep the DTO as the
+resource (with `#[ApiResource]` on the DTO itself) and read parsed query parameters from
+`$context['filters']`:
+
+```php
+public function provide(Operation $operation, array $uriVariables = [], array $context = []): array
+{
+    // Required scalar filter that doesn't map to a single entity property.
+    $unitId = (int) ($context['filters']['unit'] ?? 0);
+    if ($unitId <= 0) {
+        return [];
+    }
+
+    // Standard API Platform DateFilter URL convention parses to a nested array.
+    $dateFilter = $context['filters']['accessStartDate'] ?? [];
+    $after  = \is_array($dateFilter) ? ($dateFilter['after']  ?? null) : null;
+    $before = \is_array($dateFilter) ? ($dateFilter['before'] ?? null) : null;
+
+    // Apply $unitId, $after, $before manually in your QueryBuilder.
+}
+```
+
+Stick to API Platform's standard URL conventions (`?accessStartDate[after]=...`, `?user=42`,
+`?unit=7`) so URLs stay consistent across canonical and fallback endpoints. Document the
+parameters via the operation's `openapiContext` (or `parameters: []`) when you use this
+fallback, since OpenAPI cannot infer them from `#[ApiFilter]`.
+
+**Reference examples in this codebase**:
+- `src/CoreBundle/State/PublicCatalogueCourseStateProvider.php` — entity-backed resource using
+  `FilterExtension` + `PaginationExtension`. Extends an entity's existing `#[ApiResource]`.
+- `src/CoreBundle/State/CourseRelUserCollectionStateProvider.php` — entity-backed resource
+  reading `$context['filters']['course']` for an access-control check, then delegating to the
+  default collection provider for the rest of the filtering.
+- `src/CoreBundle/State/HrRoiCourseStateProvider.php` + the `hr_roi_courses` operation in
+  `src/CoreBundle/Entity/Session.php` — **canonical pattern**: HR-specific operation on the
+  upstream entity, `output: HrRoiCourseItem::class`, `filters: ['hr.session.date_filter']`,
+  `FilterExtension` applied to a `Session` QueryBuilder.
+- `src/CoreBundle/State/HrRoiPersonStateProvider.php` and
+  `src/CoreBundle/State/HrRoiUnitStateProvider.php` — **fallback pattern** (multi-entity
+  joins): DTO-as-resource, reading `$context['filters']` for `user` / `unit` / `accessStartDate`
+  and applying manually in the QueryBuilder.
+
+**Anti-patterns to avoid**:
+- ❌ Injecting `RequestStack` and calling `$request->query->get('foo')` — bypasses the API
+  Platform filter system and produces inconsistent URL conventions.
+- ❌ Declaring `#[ApiFilter(DateFilter::class, …)]` on a DTO class — silently does nothing.
+  Tricking it via `FilterExtension::applyToCollection($qb, …, EntityClass::class, …)` works at
+  runtime but produces empty OpenAPI parameters.
+- ❌ Inventing custom URL parameter names (`?dateStart=...`, `?userId=...`) instead of using
+  API Platform's standard parsing (`?accessStartDate[after]=...`, `?user=42`).
+- ❌ Adding the canonical entity-based operation when the query needs joins through 2+ entities
+  with no single natural "main" entity — use the fallback pattern instead.
+
 ---
 
 ### Path C — Plain controller (side-effect actions only)
