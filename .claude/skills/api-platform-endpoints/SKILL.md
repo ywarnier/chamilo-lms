@@ -445,18 +445,16 @@ Run all three checks from the project root and fix every issue before considerin
 
 ```bash
 # 1. ECS / PHP code style
-docker compose -f /home/aquiroz/Dev/docker/skillms/docker-compose.yml exec webserver \
-    composer phpcs-fix -- src/CoreBundle/State/YourStateProvider.php \
-                          src/CoreBundle/ApiResource/YourDtoName.php
+composer phpcs-fix -- src/CoreBundle/State/YourStateProvider.php \
+                      src/CoreBundle/ApiResource/YourDtoName.php
 
 # 2. Psalm static analysis
-docker compose -f /home/aquiroz/Dev/docker/skillms/docker-compose.yml exec webserver \
-    composer psalm -- --no-cache src/CoreBundle/State/YourStateProvider.php \
-                                 src/CoreBundle/ApiResource/YourDtoName.php
+composer psalm -- --no-cache src/CoreBundle/State/YourStateProvider.php \
+                             src/CoreBundle/ApiResource/YourDtoName.php
 
 # 3. Container wiring (provider arguments and any new filter service)
-symfony console cache:clear --no-warmup
-symfony console debug:container 'Chamilo\CoreBundle\State\YourStateProvider' --show-arguments
+php bin/console cache:clear --no-warmup
+php bin/console debug:container 'Chamilo\CoreBundle\State\YourStateProvider' --show-arguments
 ```
 
 ## OpenAPI verification
@@ -464,7 +462,7 @@ symfony console debug:container 'Chamilo\CoreBundle\State\YourStateProvider' --s
 Always confirm the endpoint is actually exposed with the parameters you expect:
 
 ```bash
-symfony console api:openapi:export 2>&1 | python3 -c "
+php bin/console api:openapi:export 2>&1 | python3 -c "
 import sys, json
 d = json.load(sys.stdin)
 op = d['paths'].get('/api/your_endpoint', {}).get('get', {})
