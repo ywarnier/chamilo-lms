@@ -36143,6 +36143,15 @@ msgstr "Werkklimaatonderzoeken"
 msgid "Diversity criteria"
 msgstr "Diversiteitscriteria"
 
+msgid "Add diversity criterion"
+msgstr "Diversiteitscriterium toevoegen"
+
+msgid "Edit diversity criterion"
+msgstr "Diversiteitscriterium bewerken"
+
+msgid "Extra field"
+msgstr "Extra veld"
+
 msgid "Diversity guidelines"
 msgstr "Diversiteitsrichtlijnen"
 
@@ -36349,6 +36358,297 @@ msgstr "Vertaal met AI"
 msgid "Enter manually"
 msgstr "Handmatig invoeren"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Geen AI-tekstprovider geconfigureerd. Configureer er een in de AI-instellingen."
+msgid "Paste user URL or IRI…"
+msgstr "Plak gebruiker URL of IRI…"
+
+msgid "Add benefit"
+msgstr "Voordeel toevoegen"
+
+msgid "Edit benefit"
+msgstr "Voordeel bewerken"
+
+msgid "Add tag"
+msgstr "Tag toevoegen"
+
+msgid "Edit tag"
+msgstr "Tag bewerken"
+
+msgid "No tags available"
+msgstr "Geen tags beschikbaar"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Kan een voordeel met actieve toewijzingen niet verwijderen."
+
+msgid "Assign benefit"
+msgstr "Voordeel toewijzen"
+
+msgid "My benefits"
+msgstr "Mijn voordelen"
+
+msgid "Beneficiary"
+msgstr "Begunstigde"
+
+msgid "Economical equivalent"
+msgstr "Economisch equivalent"
+
+msgid "Assigned on"
+msgstr "Toegewezen op"
+
+msgid "Assigned until"
+msgstr "Toegewezen tot"
+
+msgid "Assigned by"
+msgstr "Toegewezen door"
+
+msgid "Notifications sent"
+msgstr "Meldingen verzonden"
+
+msgid "Send notification"
+msgstr "Melding verzenden"
+
+msgid "Notification sent"
+msgstr "Melding verzonden"
+
+msgid "Benefit notification"
+msgstr "Voordeelmelding"
+
+msgid "From date"
+msgstr "Van datum"
+
+msgid "Search by name..."
+msgstr "Zoeken op naam…"
+
+msgid "Filtering by"
+msgstr "Filteren op"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Geen diversiteitscriteria gevonden. Voeg eerst criteria toe."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Selecteer een criterium uit de lijst om de statistieken te bekijken."
+
+msgid "No data available for this criterion."
+msgstr "Geen gegevens beschikbaar voor dit criterium."
+
+msgid "Add periodicity"
+msgstr "Periodiek patroon toevoegen"
+
+msgid "Edit periodicity"
+msgstr "Periodiek patroon bewerken"
+
+msgid "Add stage"
+msgstr "Fase toevoegen"
+
+msgid "Edit stage"
+msgstr "Fase bewerken"
+
+msgid "Periodicities"
+msgstr "Periodieke patronen"
+
+msgid "Evaluation stages"
+msgstr "Evaluatiefasen"
+
+msgid "Evaluation templates"
+msgstr "Evaluatiesjablonen"
+
+msgid "Add evaluation template"
+msgstr "Evaluatiesjabloon toevoegen"
+
+msgid "Edit evaluation template"
+msgstr "Evaluatiesjabloon bewerken"
+
+msgid "Add template"
+msgstr "Sjabloon toevoegen"
+
+msgid "Scheduled evaluations"
+msgstr "Geplande evaluaties"
+
+msgid "Schedule evaluation"
+msgstr "Evaluatie plannen"
+
+msgid "Evaluation form"
+msgstr "Evaluatieformulier"
+
+msgid "My evaluations"
+msgstr "Mijn evaluaties"
+
+msgid "Evaluations of me"
+msgstr "Evaluaties van mij"
+
+msgid "Evaluations I must conduct"
+msgstr "Evaluaties die ik moet uitvoeren"
+
+msgid "Evaluatee"
+msgstr "Te evalueren"
+
+msgid "Evaluator"
+msgstr "Beoordelaar"
+
+msgid "Evaluator(s)"
+msgstr "Beoordelaar(s)"
+
+msgid "Scheduled date"
+msgstr "Geplande datum"
+
+msgid "Evaluation stage"
+msgstr "Beoordelingsfase"
+
+msgid "Save draft"
+msgstr "Concept opslaan"
+
+msgid "Send to evaluatee"
+msgstr "Verstuur naar geverifieerde"
+
+msgid "Submit feedback"
+msgstr "Feedback versturen"
+
+msgid "Close evaluation"
+msgstr "Beoordeling sluiten"
+
+msgid "Feedbacked"
+msgstr "Geverifieerd"
+
+msgid "Action plan for next period"
+msgstr "Actieplan voor volgende periode"
+
+msgid "Save action plan"
+msgstr "Actieplan opslaan"
+
+msgid "Next evaluation date"
+msgstr "Volgende beoordelingsdatum"
+
+msgid "History of evaluations"
+msgstr "Geschiedenis van beoordelingen"
+
+msgid "Evaluator comment"
+msgstr "Beoordelaar opmerking"
+
+msgid "Evaluatee comment"
+msgstr "Geverifieerde opmerking"
+
+msgid "Weight %"
+msgstr "Gewicht %"
+
+msgid "Must equal 100%"
+msgstr "Moet gelijk zijn aan 100%"
+
+msgid "No skills added yet."
+msgstr "Nog geen vaardigheden toegevoegd."
+
+msgid "No activities added yet."
+msgstr "Nog geen activiteiten toegevoegd."
+
+msgid "No objectives added yet."
+msgstr "Nog geen doelstellingen toegevoegd."
+
+msgid "No action plan defined."
+msgstr "Geen actieplan gedefinieerd."
+
+msgid "No comments yet."
+msgstr "Nog geen opmerkingen."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Houd Ctrl/Cmd ingedrukt om meerdere beoordelaars te selecteren."
+
+msgid "Scheduled"
+msgstr "Gepland"
+
+msgid "Items"
+msgstr "Items"
+
+msgid "Remove skill"
+msgstr "Vaardigheid verwijderen"
+
+msgid "Remove activity"
+msgstr "Activiteit verwijderen"
+
+msgid "Remove objective"
+msgstr "Doelstelling verwijderen"
+
+msgid "Could not load periodicities"
+msgstr "Periodes konden niet laden"
+
+msgid "Could not load evaluation stages"
+msgstr "Beoordelingsfasen konden niet laden"
+
+msgid "Could not load templates"
+msgstr "Sjablonen konden niet laden"
+
+msgid "Template saved"
+msgstr "Sjabloon opgeslagen"
+
+msgid "Could not save template"
+msgstr "Sjabloon kon niet opslaan"
+
+msgid "Could not load evaluations"
+msgstr "Beoordelingen konden niet laden"
+
+msgid "Could not save evaluation"
+msgstr "Beoordeling kon niet opslaan"
+
+msgid "Evaluation scheduled"
+msgstr "Beoordeling gepland"
+
+msgid "Evaluation updated"
+msgstr "Beoordeling bijgewerkt"
+
+msgid "Could not load evaluation"
+msgstr "Beoordeling kon niet laden"
+
+msgid "Draft saved"
+msgstr "Concept opgeslagen"
+
+msgid "Could not save draft"
+msgstr "Concept kon niet opslaan"
+
+msgid "Sent to evaluatee"
+msgstr "Verstuurd naar geverifieerde"
+
+msgid "Could not send"
+msgstr "Kon niet versturen"
+
+msgid "Feedback submitted"
+msgstr "Feedback verstuurd"
+
+msgid "Could not submit feedback"
+msgstr "Feedback kon niet verstuurd worden"
+
+msgid "Evaluation closed"
+msgstr "Beoordeling gesloten"
+
+msgid "Could not close evaluation"
+msgstr "Beoordeling kon niet sluiten"
+
+msgid "Action plan saved"
+msgstr "Actieplan opgeslagen"
+
+msgid "Could not save action plan"
+msgstr "Actieplan kon niet opslaan"
+
+msgid "Comment sent"
+msgstr "Opmerking verstuurd"
+
+msgid "Could not send comment"
+msgstr "Opmerking kon niet verstuurd worden"
+
+msgid "Reminders scheduled"
+msgstr "Herinneringen gepland"
+
+msgid "Search by evaluatee"
+msgstr "Zoeken op geëvalueerde"
+
+msgid "Overdue"
+msgstr "Achterstallig"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Weet u zeker dat u deze periodiciteit wilt verwijderen?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Weet u zeker dat u deze fase wilt verwijderen?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Weet u zeker dat u deze evaluatie wilt verwijderen?"
+
+msgid "Loading…"
+msgstr "Laden…"
 

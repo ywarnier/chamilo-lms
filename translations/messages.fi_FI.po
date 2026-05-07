@@ -34065,6 +34065,15 @@ msgstr "Työilmastokyselyt"
 msgid "Diversity criteria"
 msgstr "Monimuotoisuuskriteerit"
 
+msgid "Add diversity criterion"
+msgstr ""
+
+msgid "Edit diversity criterion"
+msgstr ""
+
+msgid "Extra field"
+msgstr ""
+
 msgid "Diversity guidelines"
 msgstr "Monimuotoisuusohjeet"
 
@@ -34271,6 +34280,297 @@ msgstr ""
 msgid "Enter manually"
 msgstr ""
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "AI-tekstipakettia ei ole määritetty. Ole hyvä ja määritä sellainen AI-asetuksissa."
+msgid "Paste user URL or IRI…"
+msgstr ""
+
+msgid "Add benefit"
+msgstr ""
+
+msgid "Edit benefit"
+msgstr ""
+
+msgid "Add tag"
+msgstr ""
+
+msgid "Edit tag"
+msgstr ""
+
+msgid "No tags available"
+msgstr ""
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr ""
+
+msgid "Assign benefit"
+msgstr ""
+
+msgid "My benefits"
+msgstr ""
+
+msgid "Beneficiary"
+msgstr ""
+
+msgid "Economical equivalent"
+msgstr ""
+
+msgid "Assigned on"
+msgstr ""
+
+msgid "Assigned until"
+msgstr ""
+
+msgid "Assigned by"
+msgstr ""
+
+msgid "Notifications sent"
+msgstr ""
+
+msgid "Send notification"
+msgstr ""
+
+msgid "Notification sent"
+msgstr ""
+
+msgid "Benefit notification"
+msgstr ""
+
+msgid "From date"
+msgstr ""
+
+msgid "Search by name..."
+msgstr ""
+
+msgid "Filtering by"
+msgstr ""
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr ""
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr ""
+
+msgid "No data available for this criterion."
+msgstr "Ei tietoja saatavilla tälle kriteerille."
+
+msgid "Add periodicity"
+msgstr "Lisää jaksollisuus"
+
+msgid "Edit periodicity"
+msgstr "Muokkaa jaksollisuutta"
+
+msgid "Add stage"
+msgstr "Lisää vaihe"
+
+msgid "Edit stage"
+msgstr "Muokkaa vaihetta"
+
+msgid "Periodicities"
+msgstr "Jaksollisuudet"
+
+msgid "Evaluation stages"
+msgstr "Arviointivaiheet"
+
+msgid "Evaluation templates"
+msgstr "Arviointipohjat"
+
+msgid "Add evaluation template"
+msgstr "Lisää arviointipohja"
+
+msgid "Edit evaluation template"
+msgstr "Muokkaa arviointipohjaa"
+
+msgid "Add template"
+msgstr "Lisää pohja"
+
+msgid "Scheduled evaluations"
+msgstr "Aikataulutetut arvioinnit"
+
+msgid "Schedule evaluation"
+msgstr "Aikatauluta arviointi"
+
+msgid "Evaluation form"
+msgstr "Arviointilomake"
+
+msgid "My evaluations"
+msgstr "Omat arvioinnit"
+
+msgid "Evaluations of me"
+msgstr "Minut koskevat arvioinnit"
+
+msgid "Evaluations I must conduct"
+msgstr "Arvioinnit, jotka minun täytyy suorittaa"
+
+msgid "Evaluatee"
+msgstr "Arvioitava"
+
+msgid "Evaluator"
+msgstr "Arvioija"
+
+msgid "Evaluator(s)"
+msgstr "Arvioijat"
+
+msgid "Scheduled date"
+msgstr "Aikataulutettu päivämäärä"
+
+msgid "Evaluation stage"
+msgstr "Arviointivaihe"
+
+msgid "Save draft"
+msgstr "Tallenna luonnos"
+
+msgid "Send to evaluatee"
+msgstr "Lähetä arvioitavalle"
+
+msgid "Submit feedback"
+msgstr "Lähetä palaute"
+
+msgid "Close evaluation"
+msgstr "Sulje arviointi"
+
+msgid "Feedbacked"
+msgstr "Palautettu"
+
+msgid "Action plan for next period"
+msgstr "Toimintasuunnitelma seuraavalle jaksolle"
+
+msgid "Save action plan"
+msgstr "Tallenna toimintasuunnitelma"
+
+msgid "Next evaluation date"
+msgstr "Seuraava arviointipäivämäärä"
+
+msgid "History of evaluations"
+msgstr "Arviointien historia"
+
+msgid "Evaluator comment"
+msgstr "Arvioijan kommentti"
+
+msgid "Evaluatee comment"
+msgstr "Arvioitavan kommentti"
+
+msgid "Weight %"
+msgstr "Paino %"
+
+msgid "Must equal 100%"
+msgstr "Täytyy olla 100 %"
+
+msgid "No skills added yet."
+msgstr "Ei taitoja lisätty vielä."
+
+msgid "No activities added yet."
+msgstr "Ei toimintoja lisätty vielä."
+
+msgid "No objectives added yet."
+msgstr "Ei tavoitteita lisätty vielä."
+
+msgid "No action plan defined."
+msgstr "Ei toimintasuunnitelmaa määritetty."
+
+msgid "No comments yet."
+msgstr "Ei kommentteja vielä."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Pidä Ctrl/Cmd pohjassa valitaksesi useita arvioijia."
+
+msgid "Scheduled"
+msgstr "Aikataulutettu"
+
+msgid "Items"
+msgstr "Kohteet"
+
+msgid "Remove skill"
+msgstr "Poista taito"
+
+msgid "Remove activity"
+msgstr "Poista toiminto"
+
+msgid "Remove objective"
+msgstr "Poista tavoite"
+
+msgid "Could not load periodicities"
+msgstr "Jaksollisuuksia ei voitu ladata"
+
+msgid "Could not load evaluation stages"
+msgstr "Arviointivaiheita ei voitu ladata"
+
+msgid "Could not load templates"
+msgstr "Pohjia ei voitu ladata"
+
+msgid "Template saved"
+msgstr "Pohja tallennettu"
+
+msgid "Could not save template"
+msgstr "Mallia ei voitu tallentaa"
+
+msgid "Could not load evaluations"
+msgstr "Arviointeja ei voitu ladata"
+
+msgid "Could not save evaluation"
+msgstr "Arviointia ei voitu tallentaa"
+
+msgid "Evaluation scheduled"
+msgstr "Arviointi aikataulutettu"
+
+msgid "Evaluation updated"
+msgstr "Arviointi päivitetty"
+
+msgid "Could not load evaluation"
+msgstr "Arviointia ei voitu ladata"
+
+msgid "Draft saved"
+msgstr "Luonnos tallennettu"
+
+msgid "Could not save draft"
+msgstr "Luonnosta ei voitu tallentaa"
+
+msgid "Sent to evaluatee"
+msgstr "Lähetetty arvioitavalle"
+
+msgid "Could not send"
+msgstr "Ei voitu lähettää"
+
+msgid "Feedback submitted"
+msgstr "Palaute lähetetty"
+
+msgid "Could not submit feedback"
+msgstr "Palautetta ei voitu lähettää"
+
+msgid "Evaluation closed"
+msgstr "Arviointi suljettu"
+
+msgid "Could not close evaluation"
+msgstr "Arviointia ei voitu sulkea"
+
+msgid "Action plan saved"
+msgstr "Toimintasuunnitelma tallennettu"
+
+msgid "Could not save action plan"
+msgstr "Toimintasuunnitelmaa ei voitu tallentaa"
+
+msgid "Comment sent"
+msgstr "Kommentti lähetetty"
+
+msgid "Could not send comment"
+msgstr "Kommenttia ei voitu lähettää"
+
+msgid "Reminders scheduled"
+msgstr "Muistutukset aikataulutettu"
+
+msgid "Search by evaluatee"
+msgstr "Hae arvioitavan mukaan"
+
+msgid "Overdue"
+msgstr "Myöhässä"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Oletko varma että haluat poistaa tämän jakson?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Oletko varma että haluat poistaa tämän vaiheen?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Oletko varma että haluat poistaa tämän arvioinnin?"
+
+msgid "Loading…"
+msgstr "Ladataan…"
 

@@ -34079,6 +34079,15 @@ msgstr "Sondaje privind clima de lucru"
 msgid "Diversity criteria"
 msgstr "Criterii de diversitate"
 
+msgid "Add diversity criterion"
+msgstr "Adăugați criteriu de diversitate"
+
+msgid "Edit diversity criterion"
+msgstr "Editați criteriu de diversitate"
+
+msgid "Extra field"
+msgstr "Câmp suplimentar"
+
 msgid "Diversity guidelines"
 msgstr "Ghiduri de diversitate"
 
@@ -34285,6 +34294,297 @@ msgstr "Traduceți cu AI"
 msgid "Enter manually"
 msgstr "Introduceți manual"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Niciun furnizor de text AI nu este configurat. Vă rugăm să configurați unul în setările AI."
+msgid "Paste user URL or IRI…"
+msgstr "Lipiți URL-ul sau IRI-ul utilizatorului…"
+
+msgid "Add benefit"
+msgstr "Adăugați beneficiu"
+
+msgid "Edit benefit"
+msgstr "Editați beneficiu"
+
+msgid "Add tag"
+msgstr "Adăugați etichetă"
+
+msgid "Edit tag"
+msgstr "Editați etichetă"
+
+msgid "No tags available"
+msgstr "Nicio etichetă disponibilă"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Nu se poate șterge un beneficiu care are atribuiri active."
+
+msgid "Assign benefit"
+msgstr "Atribuiți beneficiu"
+
+msgid "My benefits"
+msgstr "Beneficiile mele"
+
+msgid "Beneficiary"
+msgstr "Beneficiar"
+
+msgid "Economical equivalent"
+msgstr "Echivalent economic"
+
+msgid "Assigned on"
+msgstr "Atribuit la"
+
+msgid "Assigned until"
+msgstr "Atribuit până la"
+
+msgid "Assigned by"
+msgstr "Atribuit de"
+
+msgid "Notifications sent"
+msgstr "Notificări trimise"
+
+msgid "Send notification"
+msgstr "Trimiteți notificare"
+
+msgid "Notification sent"
+msgstr "Notificare trimisă"
+
+msgid "Benefit notification"
+msgstr "Notificare beneficiu"
+
+msgid "From date"
+msgstr "De la dată"
+
+msgid "Search by name..."
+msgstr "Căutați după nume…"
+
+msgid "Filtering by"
+msgstr "Filtrare după"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Niciun criteriu de diversitate găsit. Adăugați criterii mai întâi."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Selectați un criteriu din listă pentru a vizualiza statisticile sale."
+
+msgid "No data available for this criterion."
+msgstr "Niciun date disponibile pentru acest criteriu."
+
+msgid "Add periodicity"
+msgstr "Adăugare periodicitate"
+
+msgid "Edit periodicity"
+msgstr "Editare periodicitate"
+
+msgid "Add stage"
+msgstr "Adăugare etapă"
+
+msgid "Edit stage"
+msgstr "Editare etapă"
+
+msgid "Periodicities"
+msgstr "Periodicități"
+
+msgid "Evaluation stages"
+msgstr "Etape de evaluare"
+
+msgid "Evaluation templates"
+msgstr "Șabloane de evaluare"
+
+msgid "Add evaluation template"
+msgstr "Adăugare șablon de evaluare"
+
+msgid "Edit evaluation template"
+msgstr "Editare șablon de evaluare"
+
+msgid "Add template"
+msgstr "Adăugare șablon"
+
+msgid "Scheduled evaluations"
+msgstr "Evaluări programate"
+
+msgid "Schedule evaluation"
+msgstr "Programare evaluare"
+
+msgid "Evaluation form"
+msgstr "Formular de evaluare"
+
+msgid "My evaluations"
+msgstr "Evaluările mele"
+
+msgid "Evaluations of me"
+msgstr "Evaluări despre mine"
+
+msgid "Evaluations I must conduct"
+msgstr "Evaluări pe care trebuie să le efectuez"
+
+msgid "Evaluatee"
+msgstr "Evaluat"
+
+msgid "Evaluator"
+msgstr "Evaluator"
+
+msgid "Evaluator(s)"
+msgstr "Evaluator(i)"
+
+msgid "Scheduled date"
+msgstr "Dată programată"
+
+msgid "Evaluation stage"
+msgstr "Etapă de evaluare"
+
+msgid "Save draft"
+msgstr "Salvare schiță"
+
+msgid "Send to evaluatee"
+msgstr "Trimite către evaluat"
+
+msgid "Submit feedback"
+msgstr "Trimite feedback"
+
+msgid "Close evaluation"
+msgstr "Închide evaluarea"
+
+msgid "Feedbacked"
+msgstr "Feedback primit"
+
+msgid "Action plan for next period"
+msgstr "Plan de acțiune pentru perioada următoare"
+
+msgid "Save action plan"
+msgstr "Salvare plan de acțiune"
+
+msgid "Next evaluation date"
+msgstr "Data următoarei evaluări"
+
+msgid "History of evaluations"
+msgstr "Istoric evaluări"
+
+msgid "Evaluator comment"
+msgstr "Comentariu evaluator"
+
+msgid "Evaluatee comment"
+msgstr "Comentariu evaluat"
+
+msgid "Weight %"
+msgstr "Greutate %"
+
+msgid "Must equal 100%"
+msgstr "Trebuie să fie egal cu 100%"
+
+msgid "No skills added yet."
+msgstr "Nicio competență adăugată încă."
+
+msgid "No activities added yet."
+msgstr "Nicio activitate adăugată încă."
+
+msgid "No objectives added yet."
+msgstr "Niciun obiectiv adăugat încă."
+
+msgid "No action plan defined."
+msgstr "Niciun plan de acțiune definit."
+
+msgid "No comments yet."
+msgstr "Niciun comentariu încă."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Țineți apăsat Ctrl/Cmd pentru a selecta mai mulți evaluatori."
+
+msgid "Scheduled"
+msgstr "Programat"
+
+msgid "Items"
+msgstr "Elemente"
+
+msgid "Remove skill"
+msgstr "Eliminare competență"
+
+msgid "Remove activity"
+msgstr "Eliminare activitate"
+
+msgid "Remove objective"
+msgstr "Eliminare obiectiv"
+
+msgid "Could not load periodicities"
+msgstr "Nu s-au putut încărca periodicitățile"
+
+msgid "Could not load evaluation stages"
+msgstr "Nu s-au putut încărca etapele de evaluare"
+
+msgid "Could not load templates"
+msgstr "Nu s-au putut încărca șabloanele"
+
+msgid "Template saved"
+msgstr "Șablon salvat"
+
+msgid "Could not save template"
+msgstr "Nu s-a putut salva șablonul"
+
+msgid "Could not load evaluations"
+msgstr "Nu s-au putut încărca evaluările"
+
+msgid "Could not save evaluation"
+msgstr "Nu s-a putut salva evaluarea"
+
+msgid "Evaluation scheduled"
+msgstr "Evaluare programată"
+
+msgid "Evaluation updated"
+msgstr "Evaluare actualizată"
+
+msgid "Could not load evaluation"
+msgstr "Nu s-a putut încărca evaluarea"
+
+msgid "Draft saved"
+msgstr "Schiță salvată"
+
+msgid "Could not save draft"
+msgstr "Nu s-a putut salva schița"
+
+msgid "Sent to evaluatee"
+msgstr "Trimis către evaluat"
+
+msgid "Could not send"
+msgstr "Nu s-a putut trimite"
+
+msgid "Feedback submitted"
+msgstr "Feedback trimis"
+
+msgid "Could not submit feedback"
+msgstr "Nu s-a putut trimite feedback"
+
+msgid "Evaluation closed"
+msgstr "Evaluare închisă"
+
+msgid "Could not close evaluation"
+msgstr "Nu s-a putut închide evaluarea"
+
+msgid "Action plan saved"
+msgstr "Plan de acțiune salvat"
+
+msgid "Could not save action plan"
+msgstr "Nu s-a putut salva planul de acțiune"
+
+msgid "Comment sent"
+msgstr "Comentariu trimis"
+
+msgid "Could not send comment"
+msgstr "Nu s-a putut trimite comentariul"
+
+msgid "Reminders scheduled"
+msgstr "Memento-uri programate"
+
+msgid "Search by evaluatee"
+msgstr "Căutare după evaluat"
+
+msgid "Overdue"
+msgstr "Târziu"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Sigur doriți să ștergeți această periodicitate?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Sigur doriți să ștergeți această etapă?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Sigur doriți să ștergeți această evaluare?"
+
+msgid "Loading…"
+msgstr "Se încarcă…"
 

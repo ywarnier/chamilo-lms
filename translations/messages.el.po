@@ -34078,6 +34078,15 @@ msgstr "Έρευνες κλίματος εργασίας"
 msgid "Diversity criteria"
 msgstr "Κριτήρια διαφορετικότητας"
 
+msgid "Add diversity criterion"
+msgstr "Προσθήκη κριτηρίου ποικιλομορφίας"
+
+msgid "Edit diversity criterion"
+msgstr "Επεξεργασία κριτηρίου ποικιλομορφίας"
+
+msgid "Extra field"
+msgstr "Επιπλέον πεδίο"
+
 msgid "Diversity guidelines"
 msgstr "Οδηγίες διαφορετικότητας"
 
@@ -34284,6 +34293,297 @@ msgstr "Μετάφραση με ΤΝ"
 msgid "Enter manually"
 msgstr "Εισαγωγή χειροκίνητα"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Δεν έχει ρυθμιστεί πάροχος κειμένου AI. Παρακαλούμε ρυθμίστε έναν στις ρυθμίσεις AI."
+msgid "Paste user URL or IRI…"
+msgstr "Επικόλληση URL ή IRI χρήστη…"
+
+msgid "Add benefit"
+msgstr "Προσθήκη παροχής"
+
+msgid "Edit benefit"
+msgstr "Επεξεργασία παροχής"
+
+msgid "Add tag"
+msgstr "Προσθήκη ετικέτας"
+
+msgid "Edit tag"
+msgstr "Επεξεργασία ετικέτας"
+
+msgid "No tags available"
+msgstr "Δεν υπάρχουν διαθέσιμες ετικέτες"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Δεν μπορεί να διαγραφεί παροχή με ενεργές αναθέσεις."
+
+msgid "Assign benefit"
+msgstr "Ανάθεση παροχής"
+
+msgid "My benefits"
+msgstr "Οι παροχές μου"
+
+msgid "Beneficiary"
+msgstr "Δικαιούχος"
+
+msgid "Economical equivalent"
+msgstr "Οικονομικό ισοδύναμο"
+
+msgid "Assigned on"
+msgstr "Ανατεθήκε στις"
+
+msgid "Assigned until"
+msgstr "Ανατεθήκε μέχρι"
+
+msgid "Assigned by"
+msgstr "Ανέθεσε"
+
+msgid "Notifications sent"
+msgstr "Ειδοποιήσεις αποσταλμένες"
+
+msgid "Send notification"
+msgstr "Αποστολή ειδοποίησης"
+
+msgid "Notification sent"
+msgstr "Ειδοποίηση αποστάληκε"
+
+msgid "Benefit notification"
+msgstr "Ειδοποίηση παροχής"
+
+msgid "From date"
+msgstr "Από ημερομηνία"
+
+msgid "Search by name..."
+msgstr "Αναζήτηση κατά όνομα…"
+
+msgid "Filtering by"
+msgstr "Φιλτράρισμα κατά"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Δεν βρέθηκαν κριτήρια ποικιλομορφίας. Προσθέστε κριτήρια πρώτα."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Επιλέξτε ένα κριτήριο από τη λίστα για να δείτε τις στατιστικές του."
+
+msgid "No data available for this criterion."
+msgstr "Δεν υπάρχουν δεδομένα για αυτό το κριτήριο."
+
+msgid "Add periodicity"
+msgstr "Προσθήκη περιοδικότητας"
+
+msgid "Edit periodicity"
+msgstr "Επεξεργασία περιοδικότητας"
+
+msgid "Add stage"
+msgstr "Προσθήκη σταδίου"
+
+msgid "Edit stage"
+msgstr "Επεξεργασία φάσης"
+
+msgid "Periodicities"
+msgstr "Περιοδικότητες"
+
+msgid "Evaluation stages"
+msgstr "Φάσεις αξιολόγησης"
+
+msgid "Evaluation templates"
+msgstr "Πρότυπα αξιολόγησης"
+
+msgid "Add evaluation template"
+msgstr "Προσθήκη προτύπου αξιολόγησης"
+
+msgid "Edit evaluation template"
+msgstr "Επεξεργασία προτύπου αξιολόγησης"
+
+msgid "Add template"
+msgstr "Προσθήκη προτύπου"
+
+msgid "Scheduled evaluations"
+msgstr "Προγραμματισμένες αξιολογήσεις"
+
+msgid "Schedule evaluation"
+msgstr "Προγραμματισμός αξιολόγησης"
+
+msgid "Evaluation form"
+msgstr "Φόρμα αξιολόγησης"
+
+msgid "My evaluations"
+msgstr "Οι αξιολογήσεις μου"
+
+msgid "Evaluations of me"
+msgstr "Αξιολογήσεις για μένα"
+
+msgid "Evaluations I must conduct"
+msgstr "Αξιολογήσεις που πρέπει να διενεργήσω"
+
+msgid "Evaluatee"
+msgstr "Αξιολογούμενος"
+
+msgid "Evaluator"
+msgstr "Αξιολογητής"
+
+msgid "Evaluator(s)"
+msgstr "Αξιολογητές"
+
+msgid "Scheduled date"
+msgstr "Προγραμματισμένη ημερομηνία"
+
+msgid "Evaluation stage"
+msgstr "Φάση αξιολόγησης"
+
+msgid "Save draft"
+msgstr "Αποθήκευση προχειρίου"
+
+msgid "Send to evaluatee"
+msgstr "Αποστολή στον αξιολογούμενο"
+
+msgid "Submit feedback"
+msgstr "Υποβολή ανατροφοδότησης"
+
+msgid "Close evaluation"
+msgstr "Κλείσιμο αξιολόγησης"
+
+msgid "Feedbacked"
+msgstr "Ανατροφοδοτημένο"
+
+msgid "Action plan for next period"
+msgstr "Σχέδιο δράσης για την επόμενη περίοδο"
+
+msgid "Save action plan"
+msgstr "Αποθήκευση σχεδίου δράσης"
+
+msgid "Next evaluation date"
+msgstr "Ημερομηνία επόμενης αξιολόγησης"
+
+msgid "History of evaluations"
+msgstr "Ιστορικό αξιολογήσεων"
+
+msgid "Evaluator comment"
+msgstr "Σχόλιο αξιολογητή"
+
+msgid "Evaluatee comment"
+msgstr "Σχόλιο αξιολογούμενου"
+
+msgid "Weight %"
+msgstr "Βάρος %"
+
+msgid "Must equal 100%"
+msgstr "Πρέπει να ισούται με 100%"
+
+msgid "No skills added yet."
+msgstr "Δεν έχουν προστεθεί δεξιότητες ακόμα."
+
+msgid "No activities added yet."
+msgstr "Δεν έχουν προστεθεί δραστηριότητες ακόμα."
+
+msgid "No objectives added yet."
+msgstr "Δεν έχουν προστεθεί στόχοι ακόμα."
+
+msgid "No action plan defined."
+msgstr "Δεν έχει οριστεί σχέδιο δράσης."
+
+msgid "No comments yet."
+msgstr "Δεν υπάρχουν σχόλια ακόμα."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Κρατήστε Ctrl/Cmd για επιλογή πολλαπλών αξιολογητών."
+
+msgid "Scheduled"
+msgstr "Προγραμματισμένο"
+
+msgid "Items"
+msgstr "Αντικείμενα"
+
+msgid "Remove skill"
+msgstr "Κατάργηση δεξιότητας"
+
+msgid "Remove activity"
+msgstr "Κατάργηση δραστηριότητας"
+
+msgid "Remove objective"
+msgstr "Κατάργηση στόχου"
+
+msgid "Could not load periodicities"
+msgstr "Δεν ήταν δυνατή η φόρτωση περιοδικότητων"
+
+msgid "Could not load evaluation stages"
+msgstr "Δεν ήταν δυνατή η φόρτωση φάσεων αξιολόγησης"
+
+msgid "Could not load templates"
+msgstr "Δεν ήταν δυνατή η φόρτωση προτύπων"
+
+msgid "Template saved"
+msgstr "Το πρότυπο αποθηκεύτηκε"
+
+msgid "Could not save template"
+msgstr "Δεν ήταν δυνατή η αποθήκευση προτύπου"
+
+msgid "Could not load evaluations"
+msgstr "Δεν ήταν δυνατή η φόρτωση αξιολογήσεων"
+
+msgid "Could not save evaluation"
+msgstr "Δεν ήταν δυνατή η αποθήκευση αξιολόγησης"
+
+msgid "Evaluation scheduled"
+msgstr "Η αξιολόγηση προγραμματίστηκε"
+
+msgid "Evaluation updated"
+msgstr "Η αξιολόγηση ενημερώθηκε"
+
+msgid "Could not load evaluation"
+msgstr "Δεν ήταν δυνατή η φόρτωση της αξιολόγησης"
+
+msgid "Draft saved"
+msgstr "Πρόχειρο αποθηκεύτηκε"
+
+msgid "Could not save draft"
+msgstr "Δεν ήταν δυνατή η αποθήκευση του προχειρου"
+
+msgid "Sent to evaluatee"
+msgstr "Απεστάλη στον αξιολογούμενο"
+
+msgid "Could not send"
+msgstr "Δεν ήταν δυνατή η αποστολή"
+
+msgid "Feedback submitted"
+msgstr "Σχόλια υποβλήθηκαν"
+
+msgid "Could not submit feedback"
+msgstr "Δεν ήταν δυνατή η υποβολή σχολίων"
+
+msgid "Evaluation closed"
+msgstr "Η αξιολόγηση έκλεισε"
+
+msgid "Could not close evaluation"
+msgstr "Δεν ήταν δυνατό το κλείσιμο της αξιολόγησης"
+
+msgid "Action plan saved"
+msgstr "Σχέδιο δράσης αποθηκεύτηκε"
+
+msgid "Could not save action plan"
+msgstr "Δεν ήταν δυνατή η αποθήκευση του σχεδίου δράσης"
+
+msgid "Comment sent"
+msgstr "Σχόλιο απεστάλη"
+
+msgid "Could not send comment"
+msgstr "Δεν ήταν δυνατή η αποστολή σχολίου"
+
+msgid "Reminders scheduled"
+msgstr "Υπενθυμίσεις προγραμματίστηκαν"
+
+msgid "Search by evaluatee"
+msgstr "Αναζήτηση κατά αξιολογούμενο"
+
+msgid "Overdue"
+msgstr "Λήξη προθεσμίας"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτή την περιοδικότητα;"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το στάδιο;"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτή την αξιολόγηση;"
+
+msgid "Loading…"
+msgstr "Φόρτωση…"
 

@@ -87,7 +87,7 @@ const isAdmin = computed(() => securityStore.isAdmin)
 
 const staffItems = computed(() => {
   const items = [
-    { class: "item-hr-user-list", label: t("User list") },
+    { class: "item-hr-user-list", route: { name: "AdminUserList" }, label: t("User list") },
     { class: "item-hr-branches", route: { name: "HrBranches" }, label: t("Branches") },
     { class: "item-hr-staff-statuses", route: { name: "HrStaffStatuses" }, label: t("Staff statuses") },
     { class: "item-hr-contract-types", route: { name: "HrContractTypes" }, label: t("Contract types") },
@@ -134,9 +134,18 @@ const organizationItems = computed(() => [
 
 const performanceItems = computed(() => {
   const items = [
-    { class: "item-hr-appraisal-periods", label: t("Appraisal periods") },
-    { class: "item-hr-appraisal-templates", label: t("Appraisal templates") },
-    { class: "item-hr-performance-appraisals", label: t("Performance appraisals") },
+    { class: "item-hr-periodicities", route: { name: "HrPeriodicities" }, label: t("Periodicities") },
+    {
+      class: "item-hr-appraisal-templates",
+      route: { name: "HrAppraisalTemplates" },
+      label: t("Evaluation templates"),
+    },
+    { class: "item-hr-performance-appraisals", route: { name: "HrEvaluations" }, label: t("Scheduled evaluations") },
+    {
+      class: "item-hr-my-evaluations",
+      route: { name: "HrMyEvaluations" },
+      label: t("My evaluations"),
+    },
   ]
   if (isAdmin.value) {
     items.push(
@@ -152,7 +161,11 @@ const performanceItems = computed(() => {
 })
 
 const recruitmentItems = computed(() => [
-  { class: "item-hr-recruitment-stages", label: t("Recruitment stages") },
+  {
+    class: "item-hr-recruitment-stages",
+    route: { name: "HrEvaluationStages" },
+    label: t("Evaluation stages"),
+  },
   { class: "item-hr-recruitment-processes", label: t("Recruitment processes") },
   { class: "item-hr-job-offers", label: t("Job offers") },
 ])
@@ -179,8 +192,8 @@ const roiItems = computed(() => [
 ])
 
 const diversityItems = computed(() => [
-  { class: "item-hr-diversity-criteria", label: t("Diversity criteria") },
-  { class: "item-hr-diversity-guidelines", label: t("Diversity guidelines") },
+  { class: "item-hr-diversity-criteria", route: { name: "HrDiversityCriteria" }, label: t("Diversity criteria") },
+  { class: "item-hr-diversity-guidelines", route: { name: "HrDiversityGuidelines" }, label: t("Diversity guidelines") },
   { class: "item-hr-social-responsibility", route: { name: "HrSocialResponsibility" }, label: t("Social responsibility guidelines") },
 ])
 </script>

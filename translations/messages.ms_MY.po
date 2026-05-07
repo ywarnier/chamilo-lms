@@ -34063,6 +34063,15 @@ msgstr "Tinjauan iklim kerja"
 msgid "Diversity criteria"
 msgstr "Kriteria kepelbagaian"
 
+msgid "Add diversity criterion"
+msgstr "Tambah kriteria kepelbagaian"
+
+msgid "Edit diversity criterion"
+msgstr "Sunting kriteria kepelbagaian"
+
+msgid "Extra field"
+msgstr "Medan tambahan"
+
 msgid "Diversity guidelines"
 msgstr "Panduan kepelbagaian"
 
@@ -34269,6 +34278,297 @@ msgstr "Terjemah dengan AI"
 msgid "Enter manually"
 msgstr "Masukkan secara manual"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Tiada penyedia teks AI yang dikonfigurasi. Sila konfigurasi satu dalam tetapan AI."
+msgid "Paste user URL or IRI…"
+msgstr "Tampal URL atau IRI pengguna…"
+
+msgid "Add benefit"
+msgstr "Tambah faedah"
+
+msgid "Edit benefit"
+msgstr "Sunting faedah"
+
+msgid "Add tag"
+msgstr "Tambah tag"
+
+msgid "Edit tag"
+msgstr "Sunting tag"
+
+msgid "No tags available"
+msgstr "Tiada tag tersedia"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Tidak boleh memadam faedah yang mempunyai penugasan aktif."
+
+msgid "Assign benefit"
+msgstr "Tunjuk faedah"
+
+msgid "My benefits"
+msgstr "Faedah saya"
+
+msgid "Beneficiary"
+msgstr "Penerima faedah"
+
+msgid "Economical equivalent"
+msgstr "Setara ekonomi"
+
+msgid "Assigned on"
+msgstr "Dibenarkan pada"
+
+msgid "Assigned until"
+msgstr "Dibenarkan sehingga"
+
+msgid "Assigned by"
+msgstr "Dibenarkan oleh"
+
+msgid "Notifications sent"
+msgstr "Pemberitahuan dihantar"
+
+msgid "Send notification"
+msgstr "Hantar pemberitahuan"
+
+msgid "Notification sent"
+msgstr "Pemberitahuan dihantar"
+
+msgid "Benefit notification"
+msgstr "Pemberitahuan faedah"
+
+msgid "From date"
+msgstr "Dari tarikh"
+
+msgid "Search by name..."
+msgstr "Cari mengikut nama..."
+
+msgid "Filtering by"
+msgstr "Menapis mengikut"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Tiada kriteria kepelbagaian ditemui. Tambah kriteria dahulu."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Pilih kriteria dari senarai untuk melihat statistiknya."
+
+msgid "No data available for this criterion."
+msgstr "Tiada data untuk kriteria ini."
+
+msgid "Add periodicity"
+msgstr "Tambah kalaian"
+
+msgid "Edit periodicity"
+msgstr "Edit kalaian"
+
+msgid "Add stage"
+msgstr "Tambah peringkat"
+
+msgid "Edit stage"
+msgstr "Edit peringkat"
+
+msgid "Periodicities"
+msgstr "Kalaian"
+
+msgid "Evaluation stages"
+msgstr "Peringkat penilaian"
+
+msgid "Evaluation templates"
+msgstr "Templat penilaian"
+
+msgid "Add evaluation template"
+msgstr "Tambah templat penilaian"
+
+msgid "Edit evaluation template"
+msgstr "Edit templat penilaian"
+
+msgid "Add template"
+msgstr "Tambah templat"
+
+msgid "Scheduled evaluations"
+msgstr "Penilaian yang dijadualkan"
+
+msgid "Schedule evaluation"
+msgstr "Jadualkan penilaian"
+
+msgid "Evaluation form"
+msgstr "Borang penilaian"
+
+msgid "My evaluations"
+msgstr "Penilaian saya"
+
+msgid "Evaluations of me"
+msgstr "Penilaian terhadap saya"
+
+msgid "Evaluations I must conduct"
+msgstr "Penilaian yang perlu saya lakukan"
+
+msgid "Evaluatee"
+msgstr "Dilaporkan"
+
+msgid "Evaluator"
+msgstr "Penilai"
+
+msgid "Evaluator(s)"
+msgstr "Penilai"
+
+msgid "Scheduled date"
+msgstr "Tarikh dijadualkan"
+
+msgid "Evaluation stage"
+msgstr "Peringkat penilaian"
+
+msgid "Save draft"
+msgstr "Simpan draf"
+
+msgid "Send to evaluatee"
+msgstr "Hantar kepada dilaporkan"
+
+msgid "Submit feedback"
+msgstr "Hantar maklum balas"
+
+msgid "Close evaluation"
+msgstr "Tutup penilaian"
+
+msgid "Feedbacked"
+msgstr "Diberi maklum balas"
+
+msgid "Action plan for next period"
+msgstr "Pelan tindakan untuk tempoh seterusnya"
+
+msgid "Save action plan"
+msgstr "Simpan pelan tindakan"
+
+msgid "Next evaluation date"
+msgstr "Tarikh penilaian seterusnya"
+
+msgid "History of evaluations"
+msgstr "Sejarah penilaian"
+
+msgid "Evaluator comment"
+msgstr "Komen penilai"
+
+msgid "Evaluatee comment"
+msgstr "Komen dilaporkan"
+
+msgid "Weight %"
+msgstr "Berat %"
+
+msgid "Must equal 100%"
+msgstr "Hanya boleh 100%"
+
+msgid "No skills added yet."
+msgstr "Belum ada kemahiran ditambah."
+
+msgid "No activities added yet."
+msgstr "Belum ada aktiviti ditambah."
+
+msgid "No objectives added yet."
+msgstr "Belum ada objektif ditambah."
+
+msgid "No action plan defined."
+msgstr "Tiada pelan tindakan ditetapkan."
+
+msgid "No comments yet."
+msgstr "Belum ada komen."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Tekan Ctrl/Cmd untuk pilih pelbagai penilai."
+
+msgid "Scheduled"
+msgstr "Dijadualkan"
+
+msgid "Items"
+msgstr "Item"
+
+msgid "Remove skill"
+msgstr "Alih keluar kemahiran"
+
+msgid "Remove activity"
+msgstr "Alih keluar aktiviti"
+
+msgid "Remove objective"
+msgstr "Alih keluar objektif"
+
+msgid "Could not load periodicities"
+msgstr "Tidak dapat memuat kekerapan"
+
+msgid "Could not load evaluation stages"
+msgstr "Tidak dapat memuat peringkat penilaian"
+
+msgid "Could not load templates"
+msgstr "Tidak dapat memuat templat"
+
+msgid "Template saved"
+msgstr "Templat disimpan"
+
+msgid "Could not save template"
+msgstr "Tidak dapat menyimpan templat"
+
+msgid "Could not load evaluations"
+msgstr "Tidak dapat memuat penilaian"
+
+msgid "Could not save evaluation"
+msgstr "Tidak dapat menyimpan penilaian"
+
+msgid "Evaluation scheduled"
+msgstr "Penilaian dijadualkan"
+
+msgid "Evaluation updated"
+msgstr "Penilaian dikemas kini"
+
+msgid "Could not load evaluation"
+msgstr "Tidak dapat memuat penilaian"
+
+msgid "Draft saved"
+msgstr "Draf disimpan"
+
+msgid "Could not save draft"
+msgstr "Tidak dapat menyimpan draf"
+
+msgid "Sent to evaluatee"
+msgstr "Dihantar kepada yang dinilai"
+
+msgid "Could not send"
+msgstr "Tidak dapat hantar"
+
+msgid "Feedback submitted"
+msgstr "Maklum balas dihantar"
+
+msgid "Could not submit feedback"
+msgstr "Tidak dapat menghantar maklum balas"
+
+msgid "Evaluation closed"
+msgstr "Penilaian ditutup"
+
+msgid "Could not close evaluation"
+msgstr "Tidak dapat menutup penilaian"
+
+msgid "Action plan saved"
+msgstr "Pelan tindakan disimpan"
+
+msgid "Could not save action plan"
+msgstr "Tidak dapat menyimpan pelan tindakan"
+
+msgid "Comment sent"
+msgstr "Ulasan dihantar"
+
+msgid "Could not send comment"
+msgstr "Tidak dapat menghantar ulasan"
+
+msgid "Reminders scheduled"
+msgstr "Peringatan dijadualkan"
+
+msgid "Search by evaluatee"
+msgstr "Cari mengikut yang dinilai"
+
+msgid "Overdue"
+msgstr "Lewat"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Adakah anda pasti ingin memadam kekerapan ini?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Adakah anda pasti ingin memadam peringkat ini?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Adakah anda pasti ingin memadam penilaian ini?"
+
+msgid "Loading…"
+msgstr "Memuatkan…"
 

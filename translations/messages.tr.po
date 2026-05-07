@@ -34065,6 +34065,15 @@ msgstr "İş iklimi anketleri"
 msgid "Diversity criteria"
 msgstr "Çeşitlilik kriterleri"
 
+msgid "Add diversity criterion"
+msgstr "Çeşitlilik kriteri ekle"
+
+msgid "Edit diversity criterion"
+msgstr "Çeşitlilik kriterini düzenle"
+
+msgid "Extra field"
+msgstr "Ek alan"
+
 msgid "Diversity guidelines"
 msgstr "Çeşitlilik yönergeleri"
 
@@ -34123,7 +34132,7 @@ msgid "FTE"
 msgstr "FTE"
 
 msgid "FTE (0–1)"
-msgstr "FTE (0–1)"
+msgstr "TTE (0–1)"
 
 msgid "Boss"
 msgstr "Patron"
@@ -34271,6 +34280,297 @@ msgstr "Yapay zeka ile çevir"
 msgid "Enter manually"
 msgstr "Manuel gir"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Yapılandırılmış AI metin sağlayıcısı yok. Lütfen AI ayarlarında bir tane yapılandırın."
+msgid "Paste user URL or IRI…"
+msgstr "Kullanıcı URL’si veya IRI’sini yapıştırın…"
+
+msgid "Add benefit"
+msgstr "Yarar ekle"
+
+msgid "Edit benefit"
+msgstr "Yararı düzenle"
+
+msgid "Add tag"
+msgstr "Etiket ekle"
+
+msgid "Edit tag"
+msgstr "Etiketi düzenle"
+
+msgid "No tags available"
+msgstr "Kullanılabilir etiket yok"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Aktif atamaları olan bir yarar silinemez."
+
+msgid "Assign benefit"
+msgstr "Yarar ata"
+
+msgid "My benefits"
+msgstr "Yararlarım"
+
+msgid "Beneficiary"
+msgstr "Yararlanıcı"
+
+msgid "Economical equivalent"
+msgstr "Ekonomik eşdeğer"
+
+msgid "Assigned on"
+msgstr "Atanma tarihi"
+
+msgid "Assigned until"
+msgstr "Atanma bitiş tarihi"
+
+msgid "Assigned by"
+msgstr "Atayan"
+
+msgid "Notifications sent"
+msgstr "Gönderilen bildirimler"
+
+msgid "Send notification"
+msgstr "Bildirim gönder"
+
+msgid "Notification sent"
+msgstr "Bildirim gönderildi"
+
+msgid "Benefit notification"
+msgstr "Yarar bildirimi"
+
+msgid "From date"
+msgstr "Başlangıç tarihi"
+
+msgid "Search by name..."
+msgstr "İsimle ara..."
+
+msgid "Filtering by"
+msgstr "Filtreleme"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Çeşitlilik kriteri bulunamadı. Önce kriter ekleyin."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "İstatistiklerini görmek için listeden bir kriter seçin."
+
+msgid "No data available for this criterion."
+msgstr "Bu kriter için veri yok."
+
+msgid "Add periodicity"
+msgstr "Periyod ekle"
+
+msgid "Edit periodicity"
+msgstr "Periyodu düzenle"
+
+msgid "Add stage"
+msgstr "Aşama ekle"
+
+msgid "Edit stage"
+msgstr "Aşamayı düzenle"
+
+msgid "Periodicities"
+msgstr "Periyodlar"
+
+msgid "Evaluation stages"
+msgstr "Değerlendirme aşamaları"
+
+msgid "Evaluation templates"
+msgstr "Değerlendirme şablonları"
+
+msgid "Add evaluation template"
+msgstr "Değerlendirme şablonu ekle"
+
+msgid "Edit evaluation template"
+msgstr "Değerlendirme şablonunu düzenle"
+
+msgid "Add template"
+msgstr "Şablon ekle"
+
+msgid "Scheduled evaluations"
+msgstr "Planlanmış değerlendirmeler"
+
+msgid "Schedule evaluation"
+msgstr "Değerlendirme planla"
+
+msgid "Evaluation form"
+msgstr "Değerlendirme formu"
+
+msgid "My evaluations"
+msgstr "Değerlendirmelerim"
+
+msgid "Evaluations of me"
+msgstr "Hakkımdaki değerlendirmeler"
+
+msgid "Evaluations I must conduct"
+msgstr "Yapmam gereken değerlendirmeler"
+
+msgid "Evaluatee"
+msgstr "Değerlendirilen"
+
+msgid "Evaluator"
+msgstr "Değerlendirici"
+
+msgid "Evaluator(s)"
+msgstr "Değerlendirici(ler)"
+
+msgid "Scheduled date"
+msgstr "Planlanmış tarih"
+
+msgid "Evaluation stage"
+msgstr "Değerlendirme aşaması"
+
+msgid "Save draft"
+msgstr "Taslağı kaydet"
+
+msgid "Send to evaluatee"
+msgstr "Değerlendirilene gönder"
+
+msgid "Submit feedback"
+msgstr "Geri bildirimi gönder"
+
+msgid "Close evaluation"
+msgstr "Değerlendirmeyi kapat"
+
+msgid "Feedbacked"
+msgstr "Geri bildirim verildi"
+
+msgid "Action plan for next period"
+msgstr "Gelecek dönem için eylem planı"
+
+msgid "Save action plan"
+msgstr "Eylem planını kaydet"
+
+msgid "Next evaluation date"
+msgstr "Sonraki değerlendirme tarihi"
+
+msgid "History of evaluations"
+msgstr "Değerlendirme geçmişi"
+
+msgid "Evaluator comment"
+msgstr "Değerlendirici yorumu"
+
+msgid "Evaluatee comment"
+msgstr "Değerlendirilen yorumu"
+
+msgid "Weight %"
+msgstr "Ağırlık %"
+
+msgid "Must equal 100%"
+msgstr "%100'e eşit olmalı"
+
+msgid "No skills added yet."
+msgstr "Henüz beceri eklenmedi."
+
+msgid "No activities added yet."
+msgstr "Henüz etkinlik eklenmedi."
+
+msgid "No objectives added yet."
+msgstr "Henüz hedef eklenmedi."
+
+msgid "No action plan defined."
+msgstr "Eylem planı tanımlanmadı."
+
+msgid "No comments yet."
+msgstr "Henüz yorum yok."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Birden fazla değerlendirici seçmek için Ctrl/Cmd tuşuna basılı tutun."
+
+msgid "Scheduled"
+msgstr "Planlanmış"
+
+msgid "Items"
+msgstr "Öğeler"
+
+msgid "Remove skill"
+msgstr "Beceriyi kaldır"
+
+msgid "Remove activity"
+msgstr "Etkinliği kaldır"
+
+msgid "Remove objective"
+msgstr "Hedefi kaldır"
+
+msgid "Could not load periodicities"
+msgstr "Periyotlar yüklenemedi"
+
+msgid "Could not load evaluation stages"
+msgstr "Değerlendirme aşamaları yüklenemedi"
+
+msgid "Could not load templates"
+msgstr "Şablonlar yüklenemedi"
+
+msgid "Template saved"
+msgstr "Şablon kaydedildi"
+
+msgid "Could not save template"
+msgstr "Şablon kaydedilemedi"
+
+msgid "Could not load evaluations"
+msgstr "Değerlendirmeler yüklenemedi"
+
+msgid "Could not save evaluation"
+msgstr "Değerlendirme kaydedilemedi"
+
+msgid "Evaluation scheduled"
+msgstr "Değerlendirme planlandı"
+
+msgid "Evaluation updated"
+msgstr "Değerlendirme güncellendi"
+
+msgid "Could not load evaluation"
+msgstr "Değerlendirme yüklenemedi"
+
+msgid "Draft saved"
+msgstr "Taslak kaydedildi"
+
+msgid "Could not save draft"
+msgstr "Taslak kaydedilemedi"
+
+msgid "Sent to evaluatee"
+msgstr "Değerlendirilene gönderildi"
+
+msgid "Could not send"
+msgstr "Gönderilemedi"
+
+msgid "Feedback submitted"
+msgstr "Geri bildirim gönderildi"
+
+msgid "Could not submit feedback"
+msgstr "Geri bildirim gönderilemedi"
+
+msgid "Evaluation closed"
+msgstr "Değerlendirme kapatıldı"
+
+msgid "Could not close evaluation"
+msgstr "Değerlendirme kapatılamadı"
+
+msgid "Action plan saved"
+msgstr "Eylem planı kaydedildi"
+
+msgid "Could not save action plan"
+msgstr "Eylem planı kaydedilemedi"
+
+msgid "Comment sent"
+msgstr "Yorum gönderildi"
+
+msgid "Could not send comment"
+msgstr "Yorum gönderilemedi"
+
+msgid "Reminders scheduled"
+msgstr "Hatırlatmalar planlandı"
+
+msgid "Search by evaluatee"
+msgstr "Değerlendirilene göre ara"
+
+msgid "Overdue"
+msgstr "Gecikmiş"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Bu periyodikliği silmek istediğinizden emin misiniz?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Bu aşamayı silmek istediğinizden emin misiniz?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Bu değerlendirmeyi silmek istediğinizden emin misiniz?"
+
+msgid "Loading…"
+msgstr "Yükleniyor…"
 

@@ -36410,6 +36410,15 @@ msgstr "ການສຳຫຼວດສະພາບບໃດບ້ານການ
 msgid "Diversity criteria"
 msgstr "ເງື່ອນໄຂຄວາມຫຼາກຫຼາຍ"
 
+msgid "Add diversity criterion"
+msgstr "ເພີ່ມມາດຕະຖານຄວາມຫຼາກຫຼາຍ"
+
+msgid "Edit diversity criterion"
+msgstr "ແກ້ໄຂມາດຕະຖານຄວາມຫຼາກຫຼາຍ"
+
+msgid "Extra field"
+msgstr "ຊ່ອງຂໍ້ມູນເພີ່ມເຕີມ"
+
 msgid "Diversity guidelines"
 msgstr "ຄຳແນະນຳກ່ຽວກັບຄວາມຫຼາກຫຼາຍ"
 
@@ -36616,6 +36625,297 @@ msgstr "ແປດ້ວຍ AI"
 msgid "Enter manually"
 msgstr "ປ້ອນດ້ວຍມື"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "ບໍ່ມີຜູ້ສະໜອງຂໍ້ຄວາມ AI ທີ່ກຳນົດ. ກະລຸນາກຳນົດໜຶ່ງໃນການຕັ້ງຄ່າ AI."
+msgid "Paste user URL or IRI…"
+msgstr "ໃສ່ URL ຫຼື IRI ຂອງຜູ້ໃຊ້…"
+
+msgid "Add benefit"
+msgstr "ເພີ່ມຜົນປະໂຫຍດ"
+
+msgid "Edit benefit"
+msgstr "ແກ້ໄຂຜົນປະໂຫຍດ"
+
+msgid "Add tag"
+msgstr "ເພີ່ມແທັກ"
+
+msgid "Edit tag"
+msgstr "ແກ້ໄຂແທັກ"
+
+msgid "No tags available"
+msgstr "ບໍ່ມີແທັກທີ່ພ້ອມໃຊ້"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "ບໍ່ສາມາດລຶບຜົນປະໂຫຍດທີ່ມີການກຳນົດງານຢູ່."
+
+msgid "Assign benefit"
+msgstr "ກຳນົດຜົນປະໂຫຍດ"
+
+msgid "My benefits"
+msgstr "ຜົນປະໂຫຍດຂອງຂ້ອຍ"
+
+msgid "Beneficiary"
+msgstr "ຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
+
+msgid "Economical equivalent"
+msgstr "ມູນຄ່າເທົ່າທຽມເສດຖະກິດ"
+
+msgid "Assigned on"
+msgstr "ກຳນົດໃນວັນ"
+
+msgid "Assigned until"
+msgstr "ກຳນົດຈົນເຖິງ"
+
+msgid "Assigned by"
+msgstr "ກຳນົດໂດຍ"
+
+msgid "Notifications sent"
+msgstr "ການແຈ້ງເຕືອນທີ່ສົ່ງໄປ"
+
+msgid "Send notification"
+msgstr "ສົ່ງການແຈ້ງເຕືອນ"
+
+msgid "Notification sent"
+msgstr "ການແຈ້ງເຕືອນທີ່ສົ່ງໄປແລ້ວ"
+
+msgid "Benefit notification"
+msgstr "ການແຈ້ງເຕືອນກ່ຽວກັບຜົນປະໂຫຍດ"
+
+msgid "From date"
+msgstr "ຈາກວັນ"
+
+msgid "Search by name..."
+msgstr "ຄົ້ນຫາຕາມຊື່…"
+
+msgid "Filtering by"
+msgstr "ການຟິລເຕີ້ຕາມ"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "ບໍ່ພົບມາດຕະຖານຄວາມຫຼາກຫຼາຍ. ເພີ່ມມາດຕະຖານກ່ອນ."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "ເລືອກມາດຕະຖານຈາກລາຍການເພື່ອເບິ່ງສະຖິຕິ."
+
+msgid "No data available for this criterion."
+msgstr "ບໍ່ມີຂໍ້ມູນສຳລັບມາດຕະຖານນີ້."
+
+msgid "Add periodicity"
+msgstr "ເພີ່ມຄວາມປະຈຳ"
+
+msgid "Edit periodicity"
+msgstr "ແກ້ໄຂຄວາມປະຈຳ"
+
+msgid "Add stage"
+msgstr "ເພີ່ມຂັ້ນຕອນ"
+
+msgid "Edit stage"
+msgstr "ແກ້ໄຂຂັ້ນຕອນ"
+
+msgid "Periodicities"
+msgstr "ຄວາມປະຈຳ"
+
+msgid "Evaluation stages"
+msgstr "ຂັ້ນຕອນປະເມີນ"
+
+msgid "Evaluation templates"
+msgstr "ແມ່ນປະພັນການປະເມີນ"
+
+msgid "Add evaluation template"
+msgstr "ເພີ່ມແມ່ນປະພັນການປະເມີນ"
+
+msgid "Edit evaluation template"
+msgstr "ແກ້ໄຂແມ່ນປະພັນການປະເມີນ"
+
+msgid "Add template"
+msgstr "ເພີ່ມແມ່ນປະພັນ"
+
+msgid "Scheduled evaluations"
+msgstr "ການປະເມີນທີ່ຈັດກຽດໄວ້"
+
+msgid "Schedule evaluation"
+msgstr "ຈັດກຽດການປະເມີນ"
+
+msgid "Evaluation form"
+msgstr "ແບບຟອມການປະເມີນ"
+
+msgid "My evaluations"
+msgstr "ການປະເມີນຂອງຂ້ອຍ"
+
+msgid "Evaluations of me"
+msgstr "ການປະເມີນທີ່ຂ້ອຍເປັນຕົວຮັບ"
+
+msgid "Evaluations I must conduct"
+msgstr "ການປະເມີນທີ່ຂ້ອຍຕ້ອງດຳເນີນ"
+
+msgid "Evaluatee"
+msgstr "ຜູ້ຖືກປະເມີນ"
+
+msgid "Evaluator"
+msgstr "ຜູ້ປະເມີນ"
+
+msgid "Evaluator(s)"
+msgstr "ຜູ້ປະເມີນ"
+
+msgid "Scheduled date"
+msgstr "ວັນທີຈັດກຽດ"
+
+msgid "Evaluation stage"
+msgstr "ຂັ້ນຕອນປະເມີນ"
+
+msgid "Save draft"
+msgstr "ບັນທຶກຮ່າງ"
+
+msgid "Send to evaluatee"
+msgstr "ສົ່ງໃຫ້ຜູ້ຖືກປະເມີນ"
+
+msgid "Submit feedback"
+msgstr "ສົ່ງຄຳເຫັນ"
+
+msgid "Close evaluation"
+msgstr "ປິດການປະເມີນ"
+
+msgid "Feedbacked"
+msgstr "ມີຄຳເຫັນແລ້ວ"
+
+msgid "Action plan for next period"
+msgstr "ແຜນການເຮັດວຽກສຳລັບລະບົບຕໍ່ໄປ"
+
+msgid "Save action plan"
+msgstr "ບັນທຶກແຜນການເຮັດວຽກ"
+
+msgid "Next evaluation date"
+msgstr "ວັນທີປະເມີນຄັ້ງຕໍ່ໄປ"
+
+msgid "History of evaluations"
+msgstr "ປະຫວັດການປະເມີນ"
+
+msgid "Evaluator comment"
+msgstr "ຄຳເຫັນຂອງຜູ້ປະເມີນ"
+
+msgid "Evaluatee comment"
+msgstr "ຄຳເຫັນຂອງຜູ້ຖືກປະເມີນ"
+
+msgid "Weight %"
+msgstr "ນ້ຳໜັກ %"
+
+msgid "Must equal 100%"
+msgstr "ຕ້ອງທັ່ງ 100%"
+
+msgid "No skills added yet."
+msgstr "ຍັງບໍ່ມີຄວາມຊຳນານທີ່ເພີ່ມເຂົ້າມາ."
+
+msgid "No activities added yet."
+msgstr "ຍັງບໍ່ມີກິດຈະກຳທີ່ເພີ່ມເຂົ້າມາ."
+
+msgid "No objectives added yet."
+msgstr "ຍັງບໍ່ມີເປົ້າໝາຍທີ່ເພີ່ມເຂົ້າມາ."
+
+msgid "No action plan defined."
+msgstr "ຍັງບໍ່ມີແຜນການເຮັດວຽກ."
+
+msgid "No comments yet."
+msgstr "ຍັງບໍ່ມີຄຳເຫັນ."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "ກົດ Ctrl/Cmd ເພື່ອເລືອກຜູ້ປະເມີນຫຼາຍຄົນ."
+
+msgid "Scheduled"
+msgstr "ຈັດກຽດໄວ້"
+
+msgid "Items"
+msgstr "ລາຍການ"
+
+msgid "Remove skill"
+msgstr "ລຶບຄວາມຊຳນານ"
+
+msgid "Remove activity"
+msgstr "ລຶບກິດຈະກຳ"
+
+msgid "Remove objective"
+msgstr "ລຶບເປົ້າໝາຍ"
+
+msgid "Could not load periodicities"
+msgstr "ບໍ່ສາມາດໂຫຼດຄວາມປະຈຳໄດ້"
+
+msgid "Could not load evaluation stages"
+msgstr "ບໍ່ສາມາດໂຫຼດຂັ້ນຕອນປະເມີນໄດ້"
+
+msgid "Could not load templates"
+msgstr "ບໍ່ສາມາດໂຫຼດແມ່ນປະພັນໄດ້"
+
+msgid "Template saved"
+msgstr "ບັນທຶກແມ່ນປະພັນແລ້ວ"
+
+msgid "Could not save template"
+msgstr "ບໍ່ສາມາດບັນທຶກແມ່ນປະພັນໄດ້"
+
+msgid "Could not load evaluations"
+msgstr "ບໍ່ສາມາດໂຫຼດການປະເມີນໄດ້"
+
+msgid "Could not save evaluation"
+msgstr "ບໍ່ສາມາດບັນທຶກການປະເມິນໄດ້"
+
+msgid "Evaluation scheduled"
+msgstr "ການປະເມິນຖືກກຳນົດລຳດັບ"
+
+msgid "Evaluation updated"
+msgstr "ການປະເມິນຖືກອັບເດດ"
+
+msgid "Could not load evaluation"
+msgstr "ບໍ່ສາມາດໂຫຼດການປະເມິນໄດ້"
+
+msgid "Draft saved"
+msgstr "ຮ່າງບັນທຶກໄວ້"
+
+msgid "Could not save draft"
+msgstr "ບໍ່ສາມາດບັນທຶກຮ່າງໄດ້"
+
+msgid "Sent to evaluatee"
+msgstr "ສົ່ງໄປກ່ຽວກັບຜູ້ຖືກປະເມິນ"
+
+msgid "Could not send"
+msgstr "ບໍ່ສາມາດສົ່ງ"
+
+msgid "Feedback submitted"
+msgstr "ຄຳເຫັນຕໍ່ຜົນການປະເມິນຖືກສົ່ງ"
+
+msgid "Could not submit feedback"
+msgstr "ບໍ່ສາມາດສົ່ງຄຳເຫັນຕໍ່ຜົນການປະເມິນໄດ້"
+
+msgid "Evaluation closed"
+msgstr "ການປະເມິນປິດ"
+
+msgid "Could not close evaluation"
+msgstr "ບໍ່ສາມາດປິດການປະເມິນໄດ້"
+
+msgid "Action plan saved"
+msgstr "ແຜນການດໃນງານບັນທຶກໄວ້"
+
+msgid "Could not save action plan"
+msgstr "ບໍ່ສາມາດບັນທຶກແຜນການດໃນງານໄດ້"
+
+msgid "Comment sent"
+msgstr "ຄຳເຫັນຖືກສົ່ງ"
+
+msgid "Could not send comment"
+msgstr "ບໍ່ສາມາດສົ່ງຄຳເຫັນໄດ້"
+
+msgid "Reminders scheduled"
+msgstr "ການເຕືອນລະລຶກກຳນົດລຳດັບ"
+
+msgid "Search by evaluatee"
+msgstr "ຄົ້ນຫາຕາມຜູ້ຖືກປະເມິນ"
+
+msgid "Overdue"
+msgstr "ເກີນກຳນົດ"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "ເຈົ້າຫມັ້ນຫົວບໍ່ວ່າຈະລຶບຄວາມຊ່ຳກັນນີ້?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "ເຈົ້າຫມັ້ນຫົວບໍ່ວ່າຈະລຶບຂັ້ນຕອນນີ້?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "ເຈົ້າຫມັ້ນຫົວບໍ່ວ່າຈະລຶບການປະເມິນນີ້?"
+
+msgid "Loading…"
+msgstr "ກຳລັງໂຫຼດ…"
 

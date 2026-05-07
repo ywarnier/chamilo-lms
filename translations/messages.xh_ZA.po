@@ -7669,7 +7669,7 @@ msgid "Please type your text below"
 msgstr "Nceda uchwethezele isicatshulwa sakho apha ezantsi"
 
 msgid "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Example fill the form activity : calculate the Body Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Age</strong></td>            <td width=\"75%\" style=\"\">[25] years old</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Sex</strong></td>            <td style=\"\" text-align:=\"\">[M] (M or F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Weight</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Height</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Weight/Size<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
-msgstr "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Umzekelo wokugcwalisa ifomu lomsebenzi : bala iBody Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubudala</strong></td>            <td width=\"75%\" style=\"\">[25] iminyaka</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Isini</strong></td>            <td style=\"\" text-align:=\"\">[M] (M okanye F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubunzima</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong Ubude</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Ubunzima/Ubude<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
+msgstr "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Umzekelo wokuzalisa ifomu lomsebenzi : bala iBody Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubudala</strong></td>            <td width=\"75%\" style=\"\">[25] iminyaka</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Isini</strong></td>            <td style=\"\" text-align:=\"\">[M] (M okanye F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Ubunzima</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong Ubude</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Ubunzima/Ubude<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
 
 msgid "Note down the address"
 msgstr "Bhala idilesi"
@@ -34059,6 +34059,15 @@ msgstr "Uhlolisiso lwemozulu yokusebenza"
 msgid "Diversity criteria"
 msgstr "Iikhrayitheriya zokwahluka"
 
+msgid "Add diversity criterion"
+msgstr "Faka i-diversity criterion"
+
+msgid "Edit diversity criterion"
+msgstr "Hlela i-diversity criterion"
+
+msgid "Extra field"
+msgstr "Intsimi eyongezelelweyo"
+
 msgid "Diversity guidelines"
 msgstr "Izikhokelo zokwahluka"
 
@@ -34265,6 +34274,297 @@ msgstr "Guqula nge-AI"
 msgid "Enter manually"
 msgstr "Faka ngokwaziso"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Akukho mnikezeli we-AI text oqwalaselweyo. Nceda uqwalasele enye kwizicwangqiso ze-AI."
+msgid "Paste user URL or IRI…"
+msgstr "Ncamathelisa i-URL okanye IRI yomsebenzisi…"
+
+msgid "Add benefit"
+msgstr "Faka inzuzo"
+
+msgid "Edit benefit"
+msgstr "Hlela inzuzo"
+
+msgid "Add tag"
+msgstr "Faka itheyigi"
+
+msgid "Edit tag"
+msgstr "Hlela itheyigi"
+
+msgid "No tags available"
+msgstr "Akukho zitegesi zisifumanekayo"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Ayinakucima isinzuzo esinamaqela asebenzayo."
+
+msgid "Assign benefit"
+msgstr "Yabela isinzuzo"
+
+msgid "My benefits"
+msgstr "Izinsuzo zam"
+
+msgid "Beneficiary"
+msgstr "Umamkeli"
+
+msgid "Economical equivalent"
+msgstr "Ulinganiso lwezoqoqosho"
+
+msgid "Assigned on"
+msgstr "Yabelwe ngomhla"
+
+msgid "Assigned until"
+msgstr "Yabelwe kude kube"
+
+msgid "Assigned by"
+msgstr "Yabelwe ngu"
+
+msgid "Notifications sent"
+msgstr "Izaziso ezithunyelweyo"
+
+msgid "Send notification"
+msgstr "Thumela isaziso"
+
+msgid "Notification sent"
+msgstr "Isaziso sithunyelwe"
+
+msgid "Benefit notification"
+msgstr "Isaziso sesinzuzo"
+
+msgid "From date"
+msgstr "Ukususela kumhla"
+
+msgid "Search by name..."
+msgstr "Gqiba ngegama..."
+
+msgid "Filtering by"
+msgstr "Uhlunga ngokwe"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Akukho midiliya yobuhlukani ifunyanweyo. Yongeza imilinganiselo kuqala."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Khetha imilinganiselo kuluhlu ukuze ubone iinkcukacha-manani zayo."
+
+msgid "No data available for this criterion."
+msgstr "Akukho data elifumanekayo kule midiliya."
+
+msgid "Add periodicity"
+msgstr "Yongeza ixesha eliqhelekileyo"
+
+msgid "Edit periodicity"
+msgstr "Hlela ixesha eliqhelekileyo"
+
+msgid "Add stage"
+msgstr "Yongeza inqanaba"
+
+msgid "Edit stage"
+msgstr "Hlela inqanaba"
+
+msgid "Periodicities"
+msgstr "Ixesha eliqhelekileyo"
+
+msgid "Evaluation stages"
+msgstr "Izinqanaba zovavanyo"
+
+msgid "Evaluation templates"
+msgstr "Iitemplate zovavanyo"
+
+msgid "Add evaluation template"
+msgstr "Yongeza itemplate yovavanyo"
+
+msgid "Edit evaluation template"
+msgstr "Hlela itemplate yovavanyo"
+
+msgid "Add template"
+msgstr "Yongeza itemplate"
+
+msgid "Scheduled evaluations"
+msgstr "Uovavanyo olucwangciswe"
+
+msgid "Schedule evaluation"
+msgstr "Cwangcisa uovavanyo"
+
+msgid "Evaluation form"
+msgstr "Ifomu yovavanyo"
+
+msgid "My evaluations"
+msgstr "Uovavanyo lwam"
+
+msgid "Evaluations of me"
+msgstr "Uovavanyo lwam"
+
+msgid "Evaluations I must conduct"
+msgstr "Uovavanyo endifuna ukulwenza"
+
+msgid "Evaluatee"
+msgstr "Lowo uya kuvavanywa"
+
+msgid "Evaluator"
+msgstr "Umvavanyi"
+
+msgid "Evaluator(s)"
+msgstr "Abavavanyi"
+
+msgid "Scheduled date"
+msgstr "Umhla ocwangciswe"
+
+msgid "Evaluation stage"
+msgstr "Inqanaba lovavanyo"
+
+msgid "Save draft"
+msgstr "Gcina idrafti"
+
+msgid "Send to evaluatee"
+msgstr "Thumela kulo uya kuvavanywa"
+
+msgid "Submit feedback"
+msgstr "Genisa ing feedback"
+
+msgid "Close evaluation"
+msgstr "Vala uovavanyo"
+
+msgid "Feedbacked"
+msgstr "Ing feedback inikwe"
+
+msgid "Action plan for next period"
+msgstr "Isicwangciso senyathelo sexesha elizayo"
+
+msgid "Save action plan"
+msgstr "Gcina isicwangciso senyathelo"
+
+msgid "Next evaluation date"
+msgstr "Umhla wovavanyo olulandelayo"
+
+msgid "History of evaluations"
+msgstr "Imbali yovavanyo"
+
+msgid "Evaluator comment"
+msgstr "Igqabantaba lomvavanyi"
+
+msgid "Evaluatee comment"
+msgstr "Ihlaziyo lomlinganiselo"
+
+msgid "Weight %"
+msgstr "Ubunzima %"
+
+msgid "Must equal 100%"
+msgstr "Kufuneka lilingane ne-100%"
+
+msgid "No skills added yet."
+msgstr "Akukho zakhono zongezwanga okwangoku."
+
+msgid "No activities added yet."
+msgstr "Akukho zinto ezisebenzayo zongezwanga okwangoku."
+
+msgid "No objectives added yet."
+msgstr "Akukho zinto ezilawulayo zongezwanga okwangoku."
+
+msgid "No action plan defined."
+msgstr "Akukho isicwangqiso senyathelo esichaziweyo."
+
+msgid "No comments yet."
+msgstr "Akukho mazwi okuxoxa okwangoku."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Bamba uCtrl/Cmd ukuze ukhethe abalinganiseli abaninzi."
+
+msgid "Scheduled"
+msgstr "Icwangciswe"
+
+msgid "Items"
+msgstr "Izinto"
+
+msgid "Remove skill"
+msgstr "Susa isakhono"
+
+msgid "Remove activity"
+msgstr "Susa umsebenzi"
+
+msgid "Remove objective"
+msgstr "Susa injongo"
+
+msgid "Could not load periodicities"
+msgstr "Ayiphindi ukulayisha amaxesha okuphindaphinda"
+
+msgid "Could not load evaluation stages"
+msgstr "Ayiphindi ukulayisha amanqanaba olinganiso"
+
+msgid "Could not load templates"
+msgstr "Ayiphindi ukulayisha iithemplethi"
+
+msgid "Template saved"
+msgstr "Ithemplethi igciniwe"
+
+msgid "Could not save template"
+msgstr "Ayiphindi ukugcina ithemplethi"
+
+msgid "Could not load evaluations"
+msgstr "Ayiphindi ukulayisha uhlolo"
+
+msgid "Could not save evaluation"
+msgstr "Ayiphindi ukugcina uhlolo"
+
+msgid "Evaluation scheduled"
+msgstr "Uhlolo lucwangciswe"
+
+msgid "Evaluation updated"
+msgstr "Uhlolo luhlaziywe"
+
+msgid "Could not load evaluation"
+msgstr "Ayiphindi ukulayisha uhlolo"
+
+msgid "Draft saved"
+msgstr "Idrafti igciniwe"
+
+msgid "Could not save draft"
+msgstr "Ayiphindi ukugcina idrafti"
+
+msgid "Sent to evaluatee"
+msgstr "Ithunyelwe kumlinganiswa"
+
+msgid "Could not send"
+msgstr "Ayiphindi ukuthumela"
+
+msgid "Feedback submitted"
+msgstr "Ingxelo-mbulelo ingeniswe"
+
+msgid "Could not submit feedback"
+msgstr "Ayiphindi ukungenisa ingxelo-mbulelo"
+
+msgid "Evaluation closed"
+msgstr "Uhlolo lufakiwe"
+
+msgid "Could not close evaluation"
+msgstr "Ayiphindi ukuvala uhlolo"
+
+msgid "Action plan saved"
+msgstr "Isicwangqiso senyathelo sigciniwe"
+
+msgid "Could not save action plan"
+msgstr "Ayiphindi ukugcina isicwangqiso senyathelo"
+
+msgid "Comment sent"
+msgstr "Ihlaziyo lothunyelwe"
+
+msgid "Could not send comment"
+msgstr "Ayiphindi ukuthumela ihlaziyo"
+
+msgid "Reminders scheduled"
+msgstr "Izikhumbuzo zicwangciswe"
+
+msgid "Search by evaluatee"
+msgstr "Gqiba ngomlinganiswa"
+
+msgid "Overdue"
+msgstr "Idlulile ixesha layo"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Uqinisekile ukuba ufuna ukususa esi sixa sokuphindaphinda?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Uqinisekile ukuba ufuna ukususa esi nqanaba?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Uqinisekile ukuba ufuna ukususa olu hlolo?"
+
+msgid "Loading…"
+msgstr "Kulayishwa…"
 

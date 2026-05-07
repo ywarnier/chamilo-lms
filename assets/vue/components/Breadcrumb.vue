@@ -45,6 +45,7 @@ import { useRoute, useRouter } from "vue-router"
 import { useI18n } from "vue-i18n"
 import Breadcrumb from "primevue/breadcrumb"
 import { useCidReqStore } from "../store/cidReq"
+import { useSecurityStore } from "../store/securityStore"
 import { storeToRefs } from "pinia"
 import { useStore } from "vuex"
 import BaseIcon from "./basecomponents/BaseIcon.vue"
@@ -52,11 +53,13 @@ import BaseIcon from "./basecomponents/BaseIcon.vue"
 const legacyItems = ref([])
 
 const cidReqStore = useCidReqStore()
+const securityStore = useSecurityStore()
 const route = useRoute()
 const router = useRouter()
 const { t, te } = useI18n()
 
 const { course, session } = storeToRefs(cidReqStore)
+const { isAdmin, isHRM } = storeToRefs(securityStore)
 const store = useStore()
 const resourceNode = computed(() => store.getters["resourcenode/getResourceNode"])
 
@@ -609,16 +612,19 @@ function buildManualBreadcrumbIfNeeded() {
   // /hr/* — admin-scoped HR pages
   const isHr = baseSegment === "hr"
   if (isHr) {
-    calculatedList.value.push({
-      label: t("Administration"),
-      route: { name: "AdminIndex" },
-    })
-    // Add HR index crumb as intermediate step on all sub-pages
-    if (route.name !== "HrIndex") {
+    const isPrivileged = isAdmin.value || isHRM.value
+    if (isPrivileged) {
       calculatedList.value.push({
-        label: t("Human Resources"),
-        route: { name: "HrIndex" },
+        label: t("Administration"),
+        route: { name: "AdminIndex" },
       })
+      // Add HR index crumb as intermediate step on all sub-pages
+      if (route.name !== "HrIndex") {
+        calculatedList.value.push({
+          label: t("Human Resources"),
+          route: { name: "HrIndex" },
+        })
+      }
     }
     const pageLabel = route.matched[route.matched.length - 1]?.meta?.breadcrumb
     if (pageLabel) {

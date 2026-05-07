@@ -34059,6 +34059,15 @@ msgstr "Průzkumy pracovního klimatu"
 msgid "Diversity criteria"
 msgstr "Kritéria diverzity"
 
+msgid "Add diversity criterion"
+msgstr "Přidat kritérium diverzity"
+
+msgid "Edit diversity criterion"
+msgstr "Upravit kritérium diverzity"
+
+msgid "Extra field"
+msgstr "Extra pole"
+
 msgid "Diversity guidelines"
 msgstr "Směrnice pro diverzitu"
 
@@ -34265,6 +34274,297 @@ msgstr "Přeložit s AI"
 msgid "Enter manually"
 msgstr "Zadat ručně"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Není nakonfigurován žádný poskytovatel AI textu. Prosím, nakonfigurujte jeden v nastavení AI."
+msgid "Paste user URL or IRI…"
+msgstr "Vložit URL nebo IRI uživatele…"
+
+msgid "Add benefit"
+msgstr "Přidat výhodu"
+
+msgid "Edit benefit"
+msgstr "Upravit výhodu"
+
+msgid "Add tag"
+msgstr "Přidat štítek"
+
+msgid "Edit tag"
+msgstr "Upravit štítek"
+
+msgid "No tags available"
+msgstr "Žádné štítky nejsou k dispozici"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Nelze smazat výhodu, která má aktivní přiřazení."
+
+msgid "Assign benefit"
+msgstr "Přiřadit výhodu"
+
+msgid "My benefits"
+msgstr "Moje výhody"
+
+msgid "Beneficiary"
+msgstr "Příjemce"
+
+msgid "Economical equivalent"
+msgstr "Ekonomický ekvivalent"
+
+msgid "Assigned on"
+msgstr "Přiděleno dne"
+
+msgid "Assigned until"
+msgstr "Přiděleno do"
+
+msgid "Assigned by"
+msgstr "Přidělil"
+
+msgid "Notifications sent"
+msgstr "Odeslaná oznámení"
+
+msgid "Send notification"
+msgstr "Odeslat oznámení"
+
+msgid "Notification sent"
+msgstr "Oznámení odesláno"
+
+msgid "Benefit notification"
+msgstr "Oznámení o výhodě"
+
+msgid "From date"
+msgstr "Od data"
+
+msgid "Search by name..."
+msgstr "Hledat podle názvu..."
+
+msgid "Filtering by"
+msgstr "Filtrování podle"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nebyly nalezeny žádné kritéria diverzity. Nejprve přidejte kritéria."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Vyberte kritérium ze seznamu pro zobrazení jeho statistik."
+
+msgid "No data available for this criterion."
+msgstr "Pro toto kritérium nejsou k dispozici žádná data."
+
+msgid "Add periodicity"
+msgstr "Přidat periodičnost"
+
+msgid "Edit periodicity"
+msgstr "Upravit periodičnost"
+
+msgid "Add stage"
+msgstr "Přidat etapu"
+
+msgid "Edit stage"
+msgstr "Upravit etapu"
+
+msgid "Periodicities"
+msgstr "Periodičnosti"
+
+msgid "Evaluation stages"
+msgstr "Etapy hodnocení"
+
+msgid "Evaluation templates"
+msgstr "Šablony hodnocení"
+
+msgid "Add evaluation template"
+msgstr "Přidat šablonu hodnocení"
+
+msgid "Edit evaluation template"
+msgstr "Upravit šablonu hodnocení"
+
+msgid "Add template"
+msgstr "Přidat šablonu"
+
+msgid "Scheduled evaluations"
+msgstr "Plánovaná hodnocení"
+
+msgid "Schedule evaluation"
+msgstr "Plánovat hodnocení"
+
+msgid "Evaluation form"
+msgstr "Formulář hodnocení"
+
+msgid "My evaluations"
+msgstr "Moje hodnocení"
+
+msgid "Evaluations of me"
+msgstr "Hodnocení mě"
+
+msgid "Evaluations I must conduct"
+msgstr "Hodnocení, která musím provést"
+
+msgid "Evaluatee"
+msgstr "Hodnocovaný"
+
+msgid "Evaluator"
+msgstr "Hodnotitel"
+
+msgid "Evaluator(s)"
+msgstr "Hodnotitelé"
+
+msgid "Scheduled date"
+msgstr "Plánované datum"
+
+msgid "Evaluation stage"
+msgstr "Etapa hodnocení"
+
+msgid "Save draft"
+msgstr "Uložit návrh"
+
+msgid "Send to evaluatee"
+msgstr "Odeslat hodnocenému"
+
+msgid "Submit feedback"
+msgstr "Odeslat zpětnou vazbu"
+
+msgid "Close evaluation"
+msgstr "Zavřít hodnocení"
+
+msgid "Feedbacked"
+msgstr "S zpětnou vazbou"
+
+msgid "Action plan for next period"
+msgstr "Akční plán pro další období"
+
+msgid "Save action plan"
+msgstr "Uložit akční plán"
+
+msgid "Next evaluation date"
+msgstr "Datum dalšího hodnocení"
+
+msgid "History of evaluations"
+msgstr "Historie hodnocení"
+
+msgid "Evaluator comment"
+msgstr "Komentář hodnotitele"
+
+msgid "Evaluatee comment"
+msgstr "Komentář hodnocovaného"
+
+msgid "Weight %"
+msgstr "Váha %"
+
+msgid "Must equal 100%"
+msgstr "Musí se rovnat 100%"
+
+msgid "No skills added yet."
+msgstr "Zatím nebyly přidány žádné dovednosti."
+
+msgid "No activities added yet."
+msgstr "Zatím nebyly přidány žádné aktivity."
+
+msgid "No objectives added yet."
+msgstr "Zatím nebyly přidány žádné cíle."
+
+msgid "No action plan defined."
+msgstr "Žádný akční plán není definován."
+
+msgid "No comments yet."
+msgstr "Zatím žádné komentáře."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Podržte Ctrl/Cmd pro výběr více hodnotitelů."
+
+msgid "Scheduled"
+msgstr "Naplánováno"
+
+msgid "Items"
+msgstr "Položky"
+
+msgid "Remove skill"
+msgstr "Odstranit dovednost"
+
+msgid "Remove activity"
+msgstr "Odstranit aktivitu"
+
+msgid "Remove objective"
+msgstr "Odstranit cíl"
+
+msgid "Could not load periodicities"
+msgstr "Nelze načíst periodičnosti"
+
+msgid "Could not load evaluation stages"
+msgstr "Nelze načíst hodnocené etapy"
+
+msgid "Could not load templates"
+msgstr "Nelze načíst šablony"
+
+msgid "Template saved"
+msgstr "Šablona uložena"
+
+msgid "Could not save template"
+msgstr "Nelze uložit šablonu"
+
+msgid "Could not load evaluations"
+msgstr "Nelze načíst hodnocení"
+
+msgid "Could not save evaluation"
+msgstr "Nelze uložit hodnocení"
+
+msgid "Evaluation scheduled"
+msgstr "Hodnocení naplánováno"
+
+msgid "Evaluation updated"
+msgstr "Hodnocení aktualizováno"
+
+msgid "Could not load evaluation"
+msgstr "Nelze načíst hodnocení"
+
+msgid "Draft saved"
+msgstr "Návrh uložen"
+
+msgid "Could not save draft"
+msgstr "Nelze uložit návrh"
+
+msgid "Sent to evaluatee"
+msgstr "Odesláno hodnocenému"
+
+msgid "Could not send"
+msgstr "Nelze odeslat"
+
+msgid "Feedback submitted"
+msgstr "Zpětná vazba odeslána"
+
+msgid "Could not submit feedback"
+msgstr "Nelze odeslat zpětnou vazbu"
+
+msgid "Evaluation closed"
+msgstr "Hodnocení uzavřeno"
+
+msgid "Could not close evaluation"
+msgstr "Nelze uzavřít hodnocení"
+
+msgid "Action plan saved"
+msgstr "Akční plán uložen"
+
+msgid "Could not save action plan"
+msgstr "Nelze uložit akční plán"
+
+msgid "Comment sent"
+msgstr "Komentář odeslán"
+
+msgid "Could not send comment"
+msgstr "Nelze odeslat komentář"
+
+msgid "Reminders scheduled"
+msgstr "Připomínky naplánovány"
+
+msgid "Search by evaluatee"
+msgstr "Hledat podle hodnoceného"
+
+msgid "Overdue"
+msgstr "Po splatnosti"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Jste si jisti, že chcete smazat tuto periodicitu?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Jste si jisti, že chcete smazat tento etap?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Jste si jisti, že chcete smazat toto hodnocení?"
+
+msgid "Loading…"
+msgstr "Načítání…"
 

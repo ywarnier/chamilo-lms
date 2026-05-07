@@ -2021,7 +2021,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:cóipcheart,, no:gan cóipcheart"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Fillteán,, application/msword:MsWord,, application/octet-stream:Sruth octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Fillteán,, application/msword:MsWord,, application/octet-stream:Sruth Octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:cleachtadh,,      simulation:insamhal,,      questionnaire:fiosrúchán,,      diagram:léaráid,,      figure:figiúr,,      graph:graf,,      index:innéacs,,      slide:sleamhnán,,      table:tábla,,      narrative text:téacs insinte,,      exam:scrúdú,,      experiment:turgnamh,,      problem statement:ráiteas fadhb,,      self assessment:féimmeasúnú,,      lecture:léacht"
@@ -34063,6 +34063,15 @@ msgstr "Suirbhéanna aeráide oibre"
 msgid "Diversity criteria"
 msgstr "Critéir éagsúlachta"
 
+msgid "Add diversity criterion"
+msgstr "Cuir inbhun meastóireacht éagsúlachta leis"
+
+msgid "Edit diversity criterion"
+msgstr "Cuir meastóireacht éagsúlachta in eagar"
+
+msgid "Extra field"
+msgstr "Réimse breise"
+
 msgid "Diversity guidelines"
 msgstr "Treoirlínte éagsúlachta"
 
@@ -34269,6 +34278,297 @@ msgstr "Aistrigh le AI"
 msgid "Enter manually"
 msgstr "Iontráil de láimh"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Níl aon soláthraí téacs AI cumraichte. Cumraigh ceann sna socruithe AI le do thoil."
+msgid "Paste user URL or IRI…"
+msgstr "Greamaigh URL nó IRI úsáideora…"
+
+msgid "Add benefit"
+msgstr "Cuir sochar leis"
+
+msgid "Edit benefit"
+msgstr "Cuir sochar in eagar"
+
+msgid "Add tag"
+msgstr "Cuir clib leis"
+
+msgid "Edit tag"
+msgstr "Cuir clib in eagar"
+
+msgid "No tags available"
+msgstr "Gan clib ar fáil"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Ní féidir sochar a bhfuil sannadh gníomhach aige a scriosadh."
+
+msgid "Assign benefit"
+msgstr "Sannaigh sochar"
+
+msgid "My benefits"
+msgstr "Mo shochair"
+
+msgid "Beneficiary"
+msgstr "Tairbheach"
+
+msgid "Economical equivalent"
+msgstr "Coibhéis eacnamaíoch"
+
+msgid "Assigned on"
+msgstr "Sanntha ar"
+
+msgid "Assigned until"
+msgstr "Sanntha go dtí"
+
+msgid "Assigned by"
+msgstr "Sanntha le"
+
+msgid "Notifications sent"
+msgstr "Fógraí seolta"
+
+msgid "Send notification"
+msgstr "Seol fógra"
+
+msgid "Notification sent"
+msgstr "Fógra seolta"
+
+msgid "Benefit notification"
+msgstr "Fógra sochair"
+
+msgid "From date"
+msgstr "Ó dháta"
+
+msgid "Search by name..."
+msgstr "Cuardaigh de réir ainm..."
+
+msgid "Filtering by"
+msgstr "Ag scagadh de réir"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Gan meastóireachtaí éagsúlachta aimsithe. Cuir meastóireachtaí leis ar dtús."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Roghnaigh meastóireacht ón liosta chun a staitisticí a fheiceáil."
+
+msgid "No data available for this criterion."
+msgstr "Gan sonraí ar fáil don mheastóireacht seo."
+
+msgid "Add periodicity"
+msgstr "Cuir tréimhseachtaí leis"
+
+msgid "Edit periodicity"
+msgstr "Cuir tréimhseachtaí in eagar"
+
+msgid "Add stage"
+msgstr "Cuir céim leis"
+
+msgid "Edit stage"
+msgstr "Cuir céim in eagar"
+
+msgid "Periodicities"
+msgstr "Tréimhsí"
+
+msgid "Evaluation stages"
+msgstr "Stáitseanna meastóireachta"
+
+msgid "Evaluation templates"
+msgstr "Teimpléid meastóireachta"
+
+msgid "Add evaluation template"
+msgstr "Cuir teimpléad meastóireachta leis"
+
+msgid "Edit evaluation template"
+msgstr "Cuir teimpléad meastóireachta in eagar"
+
+msgid "Add template"
+msgstr "Cuir teimpléad leis"
+
+msgid "Scheduled evaluations"
+msgstr "Meastóireachtaí sceidealta"
+
+msgid "Schedule evaluation"
+msgstr "Sceideal meastóireachta"
+
+msgid "Evaluation form"
+msgstr "Foirm mheastóireachta"
+
+msgid "My evaluations"
+msgstr "Mo mheastóireachtaí"
+
+msgid "Evaluations of me"
+msgstr "Meastóireachtaí orm"
+
+msgid "Evaluations I must conduct"
+msgstr "Meastóireachtaí a chaithfidh mé a dhéanamh"
+
+msgid "Evaluatee"
+msgstr "Duine á mheas"
+
+msgid "Evaluator"
+msgstr "Meastóir"
+
+msgid "Evaluator(s)"
+msgstr "Meastóirí"
+
+msgid "Scheduled date"
+msgstr "Dáta sceidealta"
+
+msgid "Evaluation stage"
+msgstr "Stág meastóireachta"
+
+msgid "Save draft"
+msgstr "Sábháil dréacht"
+
+msgid "Send to evaluatee"
+msgstr "Seol chuig duine á mheas"
+
+msgid "Submit feedback"
+msgstr "Cuir aiseolas isteach"
+
+msgid "Close evaluation"
+msgstr "Dún meastóireacht"
+
+msgid "Feedbacked"
+msgstr "Aiseolas tugtha"
+
+msgid "Action plan for next period"
+msgstr "Plean gníomhaíochta don chéad tréimhse eile"
+
+msgid "Save action plan"
+msgstr "Sábháil plean gníomhaíochta"
+
+msgid "Next evaluation date"
+msgstr "Dáta na chéad mheastóireachta eile"
+
+msgid "History of evaluations"
+msgstr "Stair na meastóireachtaí"
+
+msgid "Evaluator comment"
+msgstr "Nod meastóra"
+
+msgid "Evaluatee comment"
+msgstr "Nod an duine á mheas"
+
+msgid "Weight %"
+msgstr "Meáchan %"
+
+msgid "Must equal 100%"
+msgstr "Caithfidh a bheith cothrom le 100%"
+
+msgid "No skills added yet."
+msgstr "Gan scileanna curtha leis go fóill."
+
+msgid "No activities added yet."
+msgstr "Gan gníomhaíochtaí curtha leis go fóill."
+
+msgid "No objectives added yet."
+msgstr "Gan cuspóirí curtha leis go fóill."
+
+msgid "No action plan defined."
+msgstr "Gan plean gníomhaíochta sainithe."
+
+msgid "No comments yet."
+msgstr "Gan aon nodanna go fóill."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Coinnigh Ctrl/Cmd chun il-mheastóirí a roghnú."
+
+msgid "Scheduled"
+msgstr "Sceidealta"
+
+msgid "Items"
+msgstr "Míreanna"
+
+msgid "Remove skill"
+msgstr "Bain scil"
+
+msgid "Remove activity"
+msgstr "Bain gníomhaíocht"
+
+msgid "Remove objective"
+msgstr "Bain cuspóir"
+
+msgid "Could not load periodicities"
+msgstr "Níorbh fhéidir tréimhsí a luchtú"
+
+msgid "Could not load evaluation stages"
+msgstr "Níorbh fhéidir stáitseanna meastóireachta a luchtú"
+
+msgid "Could not load templates"
+msgstr "Níorbh fhéidir teimpléid a luchtú"
+
+msgid "Template saved"
+msgstr "Teimpléad sábháilte"
+
+msgid "Could not save template"
+msgstr "Níorbh fhéidir teimpléad a shábháil"
+
+msgid "Could not load evaluations"
+msgstr "Níorbh fhéidir meastóireachtaí a luchtú"
+
+msgid "Could not save evaluation"
+msgstr "Níorbh fhéidir meastóireacht a shábháil"
+
+msgid "Evaluation scheduled"
+msgstr "Meastóireacht sceidealta"
+
+msgid "Evaluation updated"
+msgstr "Meastóireacht nuashonraithe"
+
+msgid "Could not load evaluation"
+msgstr "Níorbh fhéidir an meastóireacht a luchtú"
+
+msgid "Draft saved"
+msgstr "Dréacht sábháilte"
+
+msgid "Could not save draft"
+msgstr "Níorbh fhéidir an dréacht a shábháil"
+
+msgid "Sent to evaluatee"
+msgstr "Seolta chuig an measúnaithe"
+
+msgid "Could not send"
+msgstr "Níorbh fhéidir a sheoladh"
+
+msgid "Feedback submitted"
+msgstr "Aiseolas curtha isteach"
+
+msgid "Could not submit feedback"
+msgstr "Níorbh fhéidir an aiseolas a chur isteach"
+
+msgid "Evaluation closed"
+msgstr "Meastóireacht dúnta"
+
+msgid "Could not close evaluation"
+msgstr "Níorbh fhéidir an meastóireacht a dhúnadh"
+
+msgid "Action plan saved"
+msgstr "Plean gníomhaíochta sábháilte"
+
+msgid "Could not save action plan"
+msgstr "Níorbh fhéidir an plean gníomhaíochta a shábháil"
+
+msgid "Comment sent"
+msgstr "Nod seolta"
+
+msgid "Could not send comment"
+msgstr "Níorbh fhéidir an nod a sheoladh"
+
+msgid "Reminders scheduled"
+msgstr "Meabhróga sceidealta"
+
+msgid "Search by evaluatee"
+msgstr "Cuardaigh de réir measúnaithe"
+
+msgid "Overdue"
+msgstr "Thar téarma"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "An bhfuil tú cinnte gur mhaith leat an tréimhsúlacht seo a scriosadh?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "An bhfuil tú cinnte gur mhaith leat an chéim seo a scriosadh?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "An bhfuil tú cinnte gur mhaith leat an meastóireacht seo a scriosadh?"
+
+msgid "Loading…"
+msgstr "Ag luchtú…"
 

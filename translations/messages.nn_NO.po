@@ -34063,6 +34063,15 @@ msgstr "Spørreundersøkingar om arbeidsklima"
 msgid "Diversity criteria"
 msgstr "Mangefaldskriteria"
 
+msgid "Add diversity criterion"
+msgstr "Legg til mangfaldskriterium"
+
+msgid "Edit diversity criterion"
+msgstr "Rediger mangfaldskriterium"
+
+msgid "Extra field"
+msgstr "Ekstra felt"
+
 msgid "Diversity guidelines"
 msgstr "Retningslinjer for mangfold"
 
@@ -34269,6 +34278,297 @@ msgstr "Oversett med KI"
 msgid "Enter manually"
 msgstr "Skriv inn manuelt"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Ingen AI-tekstleverandør er konfigurert. Vennleg sett opp ein i AI-innstillingane."
+msgid "Paste user URL or IRI…"
+msgstr "Lim inn brukar-URL eller IRI…"
+
+msgid "Add benefit"
+msgstr "Legg til fordel"
+
+msgid "Edit benefit"
+msgstr "Rediger fordel"
+
+msgid "Add tag"
+msgstr "Legg til etikett"
+
+msgid "Edit tag"
+msgstr "Rediger etikett"
+
+msgid "No tags available"
+msgstr "Ingen etikettar tilgjengelege"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Kan ikkje slette ein fordel som har aktive tildelingar."
+
+msgid "Assign benefit"
+msgstr "Tildel fordel"
+
+msgid "My benefits"
+msgstr "Mine fordeler"
+
+msgid "Beneficiary"
+msgstr "Mottakar"
+
+msgid "Economical equivalent"
+msgstr "Økonomisk ekvivalent"
+
+msgid "Assigned on"
+msgstr "Tildelt"
+
+msgid "Assigned until"
+msgstr "Tildelt til"
+
+msgid "Assigned by"
+msgstr "Tildelt av"
+
+msgid "Notifications sent"
+msgstr "Varsler sendt"
+
+msgid "Send notification"
+msgstr "Send varsel"
+
+msgid "Notification sent"
+msgstr "Varsel sendt"
+
+msgid "Benefit notification"
+msgstr "Fordelsvarsel"
+
+msgid "From date"
+msgstr "Frå dato"
+
+msgid "Search by name..."
+msgstr "Søk etter namn..."
+
+msgid "Filtering by"
+msgstr "Filtrerer etter"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Ingen mangfaldskriteria funne. Legg til kriterium først."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Vel ein kriterium frå lista for å sjå statistikk."
+
+msgid "No data available for this criterion."
+msgstr "Ingen data tilgjengeleg for dette kriteriet."
+
+msgid "Add periodicity"
+msgstr "Legg til periodisitet"
+
+msgid "Edit periodicity"
+msgstr "Rediger periodisitet"
+
+msgid "Add stage"
+msgstr "Legg til etappe"
+
+msgid "Edit stage"
+msgstr "Rediger etappe"
+
+msgid "Periodicities"
+msgstr "Periodisitetar"
+
+msgid "Evaluation stages"
+msgstr "Evalueringetappar"
+
+msgid "Evaluation templates"
+msgstr "Evalueringsskilmal"
+
+msgid "Add evaluation template"
+msgstr "Legg til evalueringsskil"
+
+msgid "Edit evaluation template"
+msgstr "Rediger evalueringsskil"
+
+msgid "Add template"
+msgstr "Legg til skjemal"
+
+msgid "Scheduled evaluations"
+msgstr "Planlagde evalueringar"
+
+msgid "Schedule evaluation"
+msgstr "Planlegg evaluering"
+
+msgid "Evaluation form"
+msgstr "Evalueringsskjema"
+
+msgid "My evaluations"
+msgstr "Mine evalueringar"
+
+msgid "Evaluations of me"
+msgstr "Evalueringar av meg"
+
+msgid "Evaluations I must conduct"
+msgstr "Evalueringar eg må utføre"
+
+msgid "Evaluatee"
+msgstr "Evaluert"
+
+msgid "Evaluator"
+msgstr "Evaluator"
+
+msgid "Evaluator(s)"
+msgstr "Evaluatorar"
+
+msgid "Scheduled date"
+msgstr "Planlagt dato"
+
+msgid "Evaluation stage"
+msgstr "Evalueringetappe"
+
+msgid "Save draft"
+msgstr "Lagre utkast"
+
+msgid "Send to evaluatee"
+msgstr "Send til evaluert"
+
+msgid "Submit feedback"
+msgstr "Send inn tilbakemelding"
+
+msgid "Close evaluation"
+msgstr "Lukk evaluering"
+
+msgid "Feedbacked"
+msgstr "Tilbakemelding sendt"
+
+msgid "Action plan for next period"
+msgstr "Handlingsplan for neste periode"
+
+msgid "Save action plan"
+msgstr "Lagre handlingsplan"
+
+msgid "Next evaluation date"
+msgstr "Neste evalueringdato"
+
+msgid "History of evaluations"
+msgstr "Historikk over evalueringar"
+
+msgid "Evaluator comment"
+msgstr "Evaluator-kommentar"
+
+msgid "Evaluatee comment"
+msgstr "Evaluert-kommentar"
+
+msgid "Weight %"
+msgstr "Vekt %"
+
+msgid "Must equal 100%"
+msgstr "Må vere 100%"
+
+msgid "No skills added yet."
+msgstr "Ingen ferdigheiter lagt til enno."
+
+msgid "No activities added yet."
+msgstr "Ingen aktiviteter lagt til enno."
+
+msgid "No objectives added yet."
+msgstr "Ingen mål lagt til enno."
+
+msgid "No action plan defined."
+msgstr "Ingen handlingsplan definert."
+
+msgid "No comments yet."
+msgstr "Ingen kommentarar enno."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Hold Ctrl/Cmd for å velje fleire evaluatorar."
+
+msgid "Scheduled"
+msgstr "Planlagd"
+
+msgid "Items"
+msgstr "Element"
+
+msgid "Remove skill"
+msgstr "Fjern ferdighet"
+
+msgid "Remove activity"
+msgstr "Fjern aktivitet"
+
+msgid "Remove objective"
+msgstr "Fjern mål"
+
+msgid "Could not load periodicities"
+msgstr "Kunne ikkje last inn periodisar"
+
+msgid "Could not load evaluation stages"
+msgstr "Kunne ikkje last inn evalueringstrinn"
+
+msgid "Could not load templates"
+msgstr "Kunne ikkje last inn malar"
+
+msgid "Template saved"
+msgstr "Mal lagra"
+
+msgid "Could not save template"
+msgstr "Kunne ikkje lagre mal"
+
+msgid "Could not load evaluations"
+msgstr "Kunne ikkje last inn evalueringar"
+
+msgid "Could not save evaluation"
+msgstr "Kunne ikkje lagre evaluering"
+
+msgid "Evaluation scheduled"
+msgstr "Evaluering planlagd"
+
+msgid "Evaluation updated"
+msgstr "Evaluering oppdatert"
+
+msgid "Could not load evaluation"
+msgstr "Kunne ikkje last inn evaluering"
+
+msgid "Draft saved"
+msgstr "Utkast lagra"
+
+msgid "Could not save draft"
+msgstr "Kunne ikkje lagre utkast"
+
+msgid "Sent to evaluatee"
+msgstr "Sendt til evaluert"
+
+msgid "Could not send"
+msgstr "Kunne ikkje sende"
+
+msgid "Feedback submitted"
+msgstr "Tilbakemelding innsendt"
+
+msgid "Could not submit feedback"
+msgstr "Kunne ikkje sende inn tilbakemelding"
+
+msgid "Evaluation closed"
+msgstr "Evaluering lukka"
+
+msgid "Could not close evaluation"
+msgstr "Kunne ikkje lukke evaluering"
+
+msgid "Action plan saved"
+msgstr "Handlingsplan lagra"
+
+msgid "Could not save action plan"
+msgstr "Kunne ikkje lagre handlingsplan"
+
+msgid "Comment sent"
+msgstr "Kommentar sendt"
+
+msgid "Could not send comment"
+msgstr "Kunne ikkje sende kommentar"
+
+msgid "Reminders scheduled"
+msgstr "Påminningar planlagde"
+
+msgid "Search by evaluatee"
+msgstr "Søk etter evaluert"
+
+msgid "Overdue"
+msgstr "Over tid"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Er du sikker på at du vil slette denne perioden?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Er du sikker på at du vil slette dette trinn?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Er du sikker på at du vil slette denne evalueringa?"
+
+msgid "Loading…"
+msgstr "Lastar inn…"
 

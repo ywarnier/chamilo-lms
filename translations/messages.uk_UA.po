@@ -34059,6 +34059,15 @@ msgstr "Опитування робочого клімату"
 msgid "Diversity criteria"
 msgstr "Критерії різноманітності"
 
+msgid "Add diversity criterion"
+msgstr "Додати критерій різноманітності"
+
+msgid "Edit diversity criterion"
+msgstr "Редагувати критерій різноманітності"
+
+msgid "Extra field"
+msgstr "Додаткове поле"
+
 msgid "Diversity guidelines"
 msgstr "Рекомендації щодо різноманітності"
 
@@ -34265,6 +34274,297 @@ msgstr "Перекласти за допомогою ШІ"
 msgid "Enter manually"
 msgstr "Ввести вручну"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Постачальник текстового ШІ не налаштовано. Будь ласка, налаштуйте його в параметрах ШІ."
+msgid "Paste user URL or IRI…"
+msgstr "Вставте URL або IRI користувача…"
+
+msgid "Add benefit"
+msgstr "Додати пільгу"
+
+msgid "Edit benefit"
+msgstr "Редагувати пільгу"
+
+msgid "Add tag"
+msgstr "Додати тег"
+
+msgid "Edit tag"
+msgstr "Редагувати тег"
+
+msgid "No tags available"
+msgstr "Теги недоступні"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Не можна видалити пільгу, яка має активні призначення."
+
+msgid "Assign benefit"
+msgstr "Призначити пільгу"
+
+msgid "My benefits"
+msgstr "Мої пільги"
+
+msgid "Beneficiary"
+msgstr "Одержувач"
+
+msgid "Economical equivalent"
+msgstr "Економічний еквівалент"
+
+msgid "Assigned on"
+msgstr "Призначено"
+
+msgid "Assigned until"
+msgstr "Призначено до"
+
+msgid "Assigned by"
+msgstr "Призначено ким"
+
+msgid "Notifications sent"
+msgstr "Повідомлення надіслано"
+
+msgid "Send notification"
+msgstr "Надіслати повідомлення"
+
+msgid "Notification sent"
+msgstr "Повідомлення надіслано"
+
+msgid "Benefit notification"
+msgstr "Повідомлення про пільгу"
+
+msgid "From date"
+msgstr "Від дати"
+
+msgid "Search by name..."
+msgstr "Пошук за назвою…"
+
+msgid "Filtering by"
+msgstr "Фільтрувати за"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Критерії різноманітності не знайдено. Спочатку додайте критерії."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Виберіть критерій зі списку, щоб переглянути його статистику."
+
+msgid "No data available for this criterion."
+msgstr "Дані для цього критерію недоступні."
+
+msgid "Add periodicity"
+msgstr "Додати періодичність"
+
+msgid "Edit periodicity"
+msgstr "Редагувати періодичність"
+
+msgid "Add stage"
+msgstr "Додати етап"
+
+msgid "Edit stage"
+msgstr "Редагувати етап"
+
+msgid "Periodicities"
+msgstr "Періодичності"
+
+msgid "Evaluation stages"
+msgstr "Етапи оцінювання"
+
+msgid "Evaluation templates"
+msgstr "Шаблони оцінювання"
+
+msgid "Add evaluation template"
+msgstr "Додати шаблон оцінювання"
+
+msgid "Edit evaluation template"
+msgstr "Редагувати шаблон оцінювання"
+
+msgid "Add template"
+msgstr "Додати шаблон"
+
+msgid "Scheduled evaluations"
+msgstr "Заплановані оцінювання"
+
+msgid "Schedule evaluation"
+msgstr "Запланувати оцінювання"
+
+msgid "Evaluation form"
+msgstr "Форма оцінювання"
+
+msgid "My evaluations"
+msgstr "Мої оцінювання"
+
+msgid "Evaluations of me"
+msgstr "Оцінювання мене"
+
+msgid "Evaluations I must conduct"
+msgstr "Оцінювання, які я маю провести"
+
+msgid "Evaluatee"
+msgstr "Оцінюваний"
+
+msgid "Evaluator"
+msgstr "Оцінювач"
+
+msgid "Evaluator(s)"
+msgstr "Оцінювачі"
+
+msgid "Scheduled date"
+msgstr "Запланована дата"
+
+msgid "Evaluation stage"
+msgstr "Етап оцінювання"
+
+msgid "Save draft"
+msgstr "Зберегти чернетку"
+
+msgid "Send to evaluatee"
+msgstr "Надіслати оцінюваному"
+
+msgid "Submit feedback"
+msgstr "Надати зворотний зв’язок"
+
+msgid "Close evaluation"
+msgstr "Завершити оцінювання"
+
+msgid "Feedbacked"
+msgstr "Зворотний зв’язок надано"
+
+msgid "Action plan for next period"
+msgstr "План дій на наступний період"
+
+msgid "Save action plan"
+msgstr "Зберегти план дій"
+
+msgid "Next evaluation date"
+msgstr "Дата наступного оцінювання"
+
+msgid "History of evaluations"
+msgstr "Історія оцінювань"
+
+msgid "Evaluator comment"
+msgstr "Коментар оцінювача"
+
+msgid "Evaluatee comment"
+msgstr "Коментар оцінюваного"
+
+msgid "Weight %"
+msgstr "Вага %"
+
+msgid "Must equal 100%"
+msgstr "Має дорівнювати 100%"
+
+msgid "No skills added yet."
+msgstr "Навички ще не додано."
+
+msgid "No activities added yet."
+msgstr "Діяльності ще не додано."
+
+msgid "No objectives added yet."
+msgstr "Цілі ще не додано."
+
+msgid "No action plan defined."
+msgstr "План дій не визначено."
+
+msgid "No comments yet."
+msgstr "Коментарів ще немає."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Тримайте Ctrl/Cmd для вибору кількох оцінювачів."
+
+msgid "Scheduled"
+msgstr "Заплановано"
+
+msgid "Items"
+msgstr "Елементи"
+
+msgid "Remove skill"
+msgstr "Видалити навичку"
+
+msgid "Remove activity"
+msgstr "Видалити діяльність"
+
+msgid "Remove objective"
+msgstr "Видалити ціль"
+
+msgid "Could not load periodicities"
+msgstr "Не вдалося завантажити періодичності"
+
+msgid "Could not load evaluation stages"
+msgstr "Не вдалося завантажити етапи оцінювання"
+
+msgid "Could not load templates"
+msgstr "Не вдалося завантажити шаблони"
+
+msgid "Template saved"
+msgstr "Шаблон збережено"
+
+msgid "Could not save template"
+msgstr "Не вдалося зберегти шаблон"
+
+msgid "Could not load evaluations"
+msgstr "Не вдалося завантажити оцінювання"
+
+msgid "Could not save evaluation"
+msgstr "Не вдалося зберегти оцінку"
+
+msgid "Evaluation scheduled"
+msgstr "Оцінку заплановано"
+
+msgid "Evaluation updated"
+msgstr "Оцінку оновлено"
+
+msgid "Could not load evaluation"
+msgstr "Не вдалося завантажити оцінку"
+
+msgid "Draft saved"
+msgstr "Чернетку збережено"
+
+msgid "Could not save draft"
+msgstr "Не вдалося зберегти чернетку"
+
+msgid "Sent to evaluatee"
+msgstr "Надіслано оцінюваному"
+
+msgid "Could not send"
+msgstr "Не вдалося надіслати"
+
+msgid "Feedback submitted"
+msgstr "Зворотний зв’язок надіслано"
+
+msgid "Could not submit feedback"
+msgstr "Не вдалося надіслати зворотний зв’язок"
+
+msgid "Evaluation closed"
+msgstr "Оцінку закрито"
+
+msgid "Could not close evaluation"
+msgstr "Не вдалося закрити оцінку"
+
+msgid "Action plan saved"
+msgstr "План дій збережено"
+
+msgid "Could not save action plan"
+msgstr "Не вдалося зберегти план дій"
+
+msgid "Comment sent"
+msgstr "Коментар надіслано"
+
+msgid "Could not send comment"
+msgstr "Не вдалося надіслати коментар"
+
+msgid "Reminders scheduled"
+msgstr "Нагадування заплановано"
+
+msgid "Search by evaluatee"
+msgstr "Пошук за оцінюваним"
+
+msgid "Overdue"
+msgstr "Прострочено"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Ви впевнені, що хочете видалити цю періодичність?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Ви впевнені, що хочете видалити цей етап?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Ви впевнені, що хочете видалити цю оцінку?"
+
+msgid "Loading…"
+msgstr "Завантаження…"
 

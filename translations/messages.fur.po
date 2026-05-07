@@ -34059,6 +34059,15 @@ msgstr "Sondagis sul climat di lavôr"
 msgid "Diversity criteria"
 msgstr "Critiris di diversitât"
 
+msgid "Add diversity criterion"
+msgstr ""
+
+msgid "Edit diversity criterion"
+msgstr ""
+
+msgid "Extra field"
+msgstr ""
+
 msgid "Diversity guidelines"
 msgstr "Linieis giduâtis pe diversitât"
 
@@ -34227,13 +34236,13 @@ msgid "Target language"
 msgstr ""
 
 msgid "Translate SDG %s"
-msgstr ""
+msgstr "Traduzi SDG %s"
 
 msgid "Translate the description and enforcement from"
-msgstr ""
+msgstr "Traduzi la descrizion e l'aplicazion de"
 
 msgid "This will be saved as a new %s version of SDG %s."
-msgstr ""
+msgstr "Cheste sarà salvade come gnove version %s di SDG %s."
 
 msgid "Confirm and save"
 msgstr "Conferme e salva"
@@ -34265,6 +34274,297 @@ msgstr "Traduis cun IA"
 msgid "Enter manually"
 msgstr "Inserîs manualment"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Nissun fornidor di test AI jè configurât. Ples configurâ un in lis impostazions AI."
+msgid "Paste user URL or IRI…"
+msgstr "Incolle URL o IRI utent…"
+
+msgid "Add benefit"
+msgstr "Zonte beneficjo"
+
+msgid "Edit benefit"
+msgstr "Modifiche beneficjo"
+
+msgid "Add tag"
+msgstr "Zonte etichete"
+
+msgid "Edit tag"
+msgstr "Modifiche etichete"
+
+msgid "No tags available"
+msgstr "Nissune etichete disponibis"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "No si pues jetâ un beneficjo che al ave assignazions ativis."
+
+msgid "Assign benefit"
+msgstr "Asigne beneficjo"
+
+msgid "My benefits"
+msgstr "Miei beneficjos"
+
+msgid "Beneficiary"
+msgstr "Beneficiari"
+
+msgid "Economical equivalent"
+msgstr "Equivalint economic"
+
+msgid "Assigned on"
+msgstr "Asignât il"
+
+msgid "Assigned until"
+msgstr "Asignât fin al"
+
+msgid "Assigned by"
+msgstr "Asignât da"
+
+msgid "Notifications sent"
+msgstr "Notifichez inviatis"
+
+msgid "Send notification"
+msgstr "Invie notifiche"
+
+msgid "Notification sent"
+msgstr "Notifiche inviade"
+
+msgid "Benefit notification"
+msgstr "Notifiche beneficjo"
+
+msgid "From date"
+msgstr "Da date"
+
+msgid "Search by name..."
+msgstr "Çerca par non…"
+
+msgid "Filtering by"
+msgstr "Filtre par"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nissun criteris di diversitât jetât. Zonte i criteris primieri."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Sleze un criteris de liste par viodi lis so statistichis."
+
+msgid "No data available for this criterion."
+msgstr "Nissun dât disponibi par chest criteris."
+
+msgid "Add periodicity"
+msgstr "Zonte periodicitât"
+
+msgid "Edit periodicity"
+msgstr "Modifiche periodicitât"
+
+msgid "Add stage"
+msgstr "Zonte steade"
+
+msgid "Edit stage"
+msgstr "Modifiche steade"
+
+msgid "Periodicities"
+msgstr "Periodicitàs"
+
+msgid "Evaluation stages"
+msgstr "Stèdis di valuatation"
+
+msgid "Evaluation templates"
+msgstr "Modeli di valuatation"
+
+msgid "Add evaluation template"
+msgstr "Zonte model di valuatation"
+
+msgid "Edit evaluation template"
+msgstr "Modifiche model di valuatation"
+
+msgid "Add template"
+msgstr "Zonte model"
+
+msgid "Scheduled evaluations"
+msgstr "Valuatons programadis"
+
+msgid "Schedule evaluation"
+msgstr "Programa valuatation"
+
+msgid "Evaluation form"
+msgstr "Formolari di valuatation"
+
+msgid "My evaluations"
+msgstr "Mieis valuatons"
+
+msgid "Evaluations of me"
+msgstr "Valuatons su di me"
+
+msgid "Evaluations I must conduct"
+msgstr "Valuatons che devi fâ"
+
+msgid "Evaluatee"
+msgstr "Valuat"
+
+msgid "Evaluator"
+msgstr "Valuatôr"
+
+msgid "Evaluator(s)"
+msgstr "Valuatôrs"
+
+msgid "Scheduled date"
+msgstr "Date programade"
+
+msgid "Evaluation stage"
+msgstr "Steade di valuatation"
+
+msgid "Save draft"
+msgstr "Salve minût"
+
+msgid "Send to evaluatee"
+msgstr "Invie al valuat"
+
+msgid "Submit feedback"
+msgstr "Inviâ feedback"
+
+msgid "Close evaluation"
+msgstr "Siere la valuatîon"
+
+msgid "Feedbacked"
+msgstr "Feedback inviât"
+
+msgid "Action plan for next period"
+msgstr "Plan di azion pe il perîod sucritîf"
+
+msgid "Save action plan"
+msgstr "Salve il plan di azion"
+
+msgid "Next evaluation date"
+msgstr "Data de la valuatîon sucritîve"
+
+msgid "History of evaluations"
+msgstr "Storie des valuatîons"
+
+msgid "Evaluator comment"
+msgstr "Commentari dal valutadôr"
+
+msgid "Evaluatee comment"
+msgstr "Commentari dal valutât"
+
+msgid "Weight %"
+msgstr "Pês %"
+
+msgid "Must equal 100%"
+msgstr "Dê jessî il 100%"
+
+msgid "No skills added yet."
+msgstr "Nissune abilitât agiuntade ancó."
+
+msgid "No activities added yet."
+msgstr "Nissune ativitât agiuntade ancó."
+
+msgid "No objectives added yet."
+msgstr "Nissun obietîf agiuntât ancó."
+
+msgid "No action plan defined."
+msgstr "Nissun plan di azion definît."
+
+msgid "No comments yet."
+msgstr "Nissun commentari ancó."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Tene Ctrl/Cmd pe seleccionar plui valutadôrs."
+
+msgid "Scheduled"
+msgstr "Programât"
+
+msgid "Items"
+msgstr "Vôs"
+
+msgid "Remove skill"
+msgstr "Scancele abilitât"
+
+msgid "Remove activity"
+msgstr "Scancele ativitât"
+
+msgid "Remove objective"
+msgstr "Scancele obietîf"
+
+msgid "Could not load periodicities"
+msgstr "Impussibil cjarjelâ lis perîodicitât"
+
+msgid "Could not load evaluation stages"
+msgstr "Impussibil cjarjelâ lis fazis di valuatîon"
+
+msgid "Could not load templates"
+msgstr "Impussibil cjarjelâ ij templates"
+
+msgid "Template saved"
+msgstr "Template salvât"
+
+msgid "Could not save template"
+msgstr "Impussibil salvâ il template"
+
+msgid "Could not load evaluations"
+msgstr "Impussibil cjarjelâ lis valuatîons"
+
+msgid "Could not save evaluation"
+msgstr "Impussibil salvâ la valuatîon"
+
+msgid "Evaluation scheduled"
+msgstr "Valuatîon programade"
+
+msgid "Evaluation updated"
+msgstr "Valuatîon agiornade"
+
+msgid "Could not load evaluation"
+msgstr "Impussibil cjarjelâ la valuatîon"
+
+msgid "Draft saved"
+msgstr "Bozze salvade"
+
+msgid "Could not save draft"
+msgstr "Impussibil salvâ la bozze"
+
+msgid "Sent to evaluatee"
+msgstr "Inviât al valutât"
+
+msgid "Could not send"
+msgstr "Impussibil inviâ"
+
+msgid "Feedback submitted"
+msgstr "Feedback inviât"
+
+msgid "Could not submit feedback"
+msgstr "Impussibil inviâ il feedback"
+
+msgid "Evaluation closed"
+msgstr "Valuatîon sierade"
+
+msgid "Could not close evaluation"
+msgstr "Impussibil sierâ la valuatîon"
+
+msgid "Action plan saved"
+msgstr "Plan di azion salvât"
+
+msgid "Could not save action plan"
+msgstr "Impussibil salvâ il plan di azion"
+
+msgid "Comment sent"
+msgstr "Commentari inviât"
+
+msgid "Could not send comment"
+msgstr "Impussibil inviâ il commentari"
+
+msgid "Reminders scheduled"
+msgstr "Promemoris programadis"
+
+msgid "Search by evaluatee"
+msgstr "Kerce pe valutât"
+
+msgid "Overdue"
+msgstr "Scumparît"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Si jê sigur che vuêi scancelelâ cheste perîodicitât?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Si jê sigur che vuêi scancelelâ cheste fazi?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Si jê sigur che vuêi scancelelâ cheste valuatîon?"
+
+msgid "Loading…"
+msgstr "Carighe…"
 

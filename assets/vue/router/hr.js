@@ -18,7 +18,7 @@ export default {
       path: "activities",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Activities",
       },
@@ -29,7 +29,7 @@ export default {
       path: "objectives",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Performance objectives",
       },
@@ -40,7 +40,7 @@ export default {
       path: "geographic-zones",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Geographic zones",
       },
@@ -95,7 +95,7 @@ export default {
       path: "professional-functions",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Professional functions",
       },
@@ -106,7 +106,7 @@ export default {
       path: "function-in-unit",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Function-unit associations",
       },
@@ -117,7 +117,7 @@ export default {
       path: "unit-function-list",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Unit function list",
       },
@@ -128,7 +128,7 @@ export default {
       path: "positions",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Positions",
       },
@@ -139,7 +139,7 @@ export default {
       path: "competency-search",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Competency search",
       },
@@ -161,7 +161,7 @@ export default {
       path: "benefits",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Benefits",
       },
@@ -172,7 +172,7 @@ export default {
       path: "benefit-assignments",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Assigned benefits",
       },
@@ -187,6 +187,103 @@ export default {
         breadcrumb: "My benefits",
       },
       component: () => import("../views/hr/HrMyBenefitsView.vue"),
+    },
+    {
+      name: "HrDiversityGuidelines",
+      path: "diversity-guidelines",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Diversity guidelines",
+      },
+      component: () => import("../views/hr/HrDiversityGuidelinesView.vue"),
+    },
+    {
+      name: "HrDiversityCriteria",
+      path: "diversity-criteria",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Diversity criteria",
+      },
+      component: () => import("../views/hr/HrDiversityCriteriaView.vue"),
+    },
+    {
+      name: "HrPeriodicities",
+      path: "periodicities",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Periodicities",
+      },
+      component: () => import("../views/hr/HrPeriodicityView.vue"),
+    },
+    {
+      name: "HrEvaluationStages",
+      path: "evaluation-stages",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Evaluation stages",
+      },
+      component: () => import("../views/hr/HrEvaluationStageView.vue"),
+    },
+    {
+      name: "HrAppraisalTemplates",
+      path: "appraisal-templates",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Evaluation templates",
+      },
+      component: () => import("../views/hr/HrAppraisalTemplateView.vue"),
+    },
+    {
+      name: "HrAppraisalTemplateEdit",
+      path: "appraisal-templates/edit/:id?",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Edit evaluation template",
+      },
+      component: () => import("../views/hr/HrAppraisalTemplateEditView.vue"),
+    },
+    {
+      name: "HrEvaluations",
+      path: "evaluations",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Scheduled evaluations",
+      },
+      component: () => import("../views/hr/HrEvaluationView.vue"),
+    },
+    {
+      name: "HrEvaluationExecute",
+      path: "evaluations/:id/execute",
+      meta: {
+        requiresAuth: true,
+        showBreadcrumb: true,
+        breadcrumb: "Evaluation form",
+      },
+      component: () => import("../views/hr/HrEvaluationExecuteView.vue"),
+    },
+    {
+      name: "HrMyEvaluations",
+      path: "my-evaluations",
+      meta: {
+        requiresAuth: true,
+        showBreadcrumb: true,
+        breadcrumb: "My evaluations",
+      },
+      component: () => import("../views/hr/HrMyEvaluationsView.vue"),
     },
   ],
 }

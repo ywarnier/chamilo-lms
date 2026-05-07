@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:запазени права,, no:свободен"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Папка,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Папка,, application/msword:MsWord,, application/octet-stream:Поток от октети,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:тест (упражнение),,      simulation:симулация,,      questionnaire:въпросник,,      diagram:диаграма,,      figure:фигура,,      graph:графика,,      index:индекс,,      slide:слайд,,      table:таблица,,      narrative text:обзор,,      exam:изпит,,      experiment:експеримент,,      problem statement:постановка на проблем,,      self assessment:самостоятелно оценяване,,      lecture:лекция"
@@ -34065,6 +34065,15 @@ msgstr "Анкети за работната атмосфера"
 msgid "Diversity criteria"
 msgstr "Критерии за разнообразие"
 
+msgid "Add diversity criterion"
+msgstr "Добавяне на критерий за разнообразие"
+
+msgid "Edit diversity criterion"
+msgstr "Редактиране на критерий за разнообразие"
+
+msgid "Extra field"
+msgstr "Допълнително поле"
+
 msgid "Diversity guidelines"
 msgstr "Напътствия за разнообразие"
 
@@ -34271,6 +34280,297 @@ msgstr "Преведи с ИИ"
 msgid "Enter manually"
 msgstr "Въведи ръчно"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Няма конфигуриран доставчик на текст от ИИ. Моля, конфигурирайте един в настройките за ИИ."
+msgid "Paste user URL or IRI…"
+msgstr "Поставяне на URL или IRI на потребител…"
+
+msgid "Add benefit"
+msgstr "Добавяне на придобивка"
+
+msgid "Edit benefit"
+msgstr "Редактиране на придобивка"
+
+msgid "Add tag"
+msgstr "Добавяне на етикет"
+
+msgid "Edit tag"
+msgstr "Редактиране на етикет"
+
+msgid "No tags available"
+msgstr "Няма налични етикети"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Не може да се изтрие придобивка с активни назначения."
+
+msgid "Assign benefit"
+msgstr "Назначаване на придобивка"
+
+msgid "My benefits"
+msgstr "Моите придобивки"
+
+msgid "Beneficiary"
+msgstr "Получател"
+
+msgid "Economical equivalent"
+msgstr "Икономически еквивалент"
+
+msgid "Assigned on"
+msgstr "Назначена на"
+
+msgid "Assigned until"
+msgstr "Назначена до"
+
+msgid "Assigned by"
+msgstr "Назначена от"
+
+msgid "Notifications sent"
+msgstr "Изпратени известия"
+
+msgid "Send notification"
+msgstr "Изпращане на известие"
+
+msgid "Notification sent"
+msgstr "Известие изпратено"
+
+msgid "Benefit notification"
+msgstr "Известие за придобивка"
+
+msgid "From date"
+msgstr "От дата"
+
+msgid "Search by name..."
+msgstr "Търсене по име…"
+
+msgid "Filtering by"
+msgstr "Филтриране по"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Няма намерени критерии за разнообразие. Първо добавете критерии."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Изберете критерий от списъка, за да видите неговата статистика."
+
+msgid "No data available for this criterion."
+msgstr "Няма налични данни за този критерий."
+
+msgid "Add periodicity"
+msgstr "Добавяне на периодичност"
+
+msgid "Edit periodicity"
+msgstr "Редактиране на периодичност"
+
+msgid "Add stage"
+msgstr "Добавяне на етап"
+
+msgid "Edit stage"
+msgstr "Редактирай етап"
+
+msgid "Periodicities"
+msgstr "Периодичности"
+
+msgid "Evaluation stages"
+msgstr "Етапи на оценка"
+
+msgid "Evaluation templates"
+msgstr "Шаблони за оценка"
+
+msgid "Add evaluation template"
+msgstr "Добави шаблон за оценка"
+
+msgid "Edit evaluation template"
+msgstr "Редактирай шаблон за оценка"
+
+msgid "Add template"
+msgstr "Добави шаблон"
+
+msgid "Scheduled evaluations"
+msgstr "Планирани оценки"
+
+msgid "Schedule evaluation"
+msgstr "Планирай оценка"
+
+msgid "Evaluation form"
+msgstr "Формуляр за оценка"
+
+msgid "My evaluations"
+msgstr "Моите оценки"
+
+msgid "Evaluations of me"
+msgstr "Оценки за мен"
+
+msgid "Evaluations I must conduct"
+msgstr "Оценки, които трябва да извърша"
+
+msgid "Evaluatee"
+msgstr "Оценяван"
+
+msgid "Evaluator"
+msgstr "Оценител"
+
+msgid "Evaluator(s)"
+msgstr "Оценител(и)"
+
+msgid "Scheduled date"
+msgstr "Планирана дата"
+
+msgid "Evaluation stage"
+msgstr "Етап на оценка"
+
+msgid "Save draft"
+msgstr "Съхрани чернова"
+
+msgid "Send to evaluatee"
+msgstr "Изпрати на оценяван"
+
+msgid "Submit feedback"
+msgstr "Изпрати обратна връзка"
+
+msgid "Close evaluation"
+msgstr "Затвори оценка"
+
+msgid "Feedbacked"
+msgstr "С обратна връзка"
+
+msgid "Action plan for next period"
+msgstr "План за действие за следващия период"
+
+msgid "Save action plan"
+msgstr "Съхрани план за действие"
+
+msgid "Next evaluation date"
+msgstr "Дата на следваща оценка"
+
+msgid "History of evaluations"
+msgstr "История на оценки"
+
+msgid "Evaluator comment"
+msgstr "Коментар на оценител"
+
+msgid "Evaluatee comment"
+msgstr "Коментар на оценяван"
+
+msgid "Weight %"
+msgstr "Тегло %"
+
+msgid "Must equal 100%"
+msgstr "Трябва да е равно на 100%"
+
+msgid "No skills added yet."
+msgstr "Още няма добавени умения."
+
+msgid "No activities added yet."
+msgstr "Още няма добавени дейности."
+
+msgid "No objectives added yet."
+msgstr "Още няма добавени цели."
+
+msgid "No action plan defined."
+msgstr "Още няма дефиниран план за действие."
+
+msgid "No comments yet."
+msgstr "Още няма коментари."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Задръжте Ctrl/Cmd за избор на множество оценители."
+
+msgid "Scheduled"
+msgstr "Планирани"
+
+msgid "Items"
+msgstr "Елементи"
+
+msgid "Remove skill"
+msgstr "Премахни умение"
+
+msgid "Remove activity"
+msgstr "Премахни дейност"
+
+msgid "Remove objective"
+msgstr "Премахни цел"
+
+msgid "Could not load periodicities"
+msgstr "Не може да се заредят периодичностите"
+
+msgid "Could not load evaluation stages"
+msgstr "Не може да се заредят етапите на оценка"
+
+msgid "Could not load templates"
+msgstr "Не може да се заредят шаблоните"
+
+msgid "Template saved"
+msgstr "Шаблонът е съхранен"
+
+msgid "Could not save template"
+msgstr "Не може да се съхрани шаблонът"
+
+msgid "Could not load evaluations"
+msgstr "Не може да се заредят оценките"
+
+msgid "Could not save evaluation"
+msgstr "Не може да се съхрани оценката"
+
+msgid "Evaluation scheduled"
+msgstr "Оценката е планирана"
+
+msgid "Evaluation updated"
+msgstr "Оценката е обновена"
+
+msgid "Could not load evaluation"
+msgstr "Не може да се зареди оценката"
+
+msgid "Draft saved"
+msgstr "Черновата е запазена"
+
+msgid "Could not save draft"
+msgstr "Не може да се запази черновата"
+
+msgid "Sent to evaluatee"
+msgstr "Изпратено до оценяван"
+
+msgid "Could not send"
+msgstr "Не може да се изпрати"
+
+msgid "Feedback submitted"
+msgstr "Обратната връзка е изпратена"
+
+msgid "Could not submit feedback"
+msgstr "Не може да се изпрати обратна връзка"
+
+msgid "Evaluation closed"
+msgstr "Оценката е затворена"
+
+msgid "Could not close evaluation"
+msgstr "Не може да се затвори оценката"
+
+msgid "Action plan saved"
+msgstr "Планът за дейност е запазен"
+
+msgid "Could not save action plan"
+msgstr "Не може да се запази планът за дейност"
+
+msgid "Comment sent"
+msgstr "Коментарът е изпратен"
+
+msgid "Could not send comment"
+msgstr "Не може да се изпрати коментар"
+
+msgid "Reminders scheduled"
+msgstr "Напомнянията са насрочени"
+
+msgid "Search by evaluatee"
+msgstr "Търсене по оценяван"
+
+msgid "Overdue"
+msgstr "Просрочено"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Сигурни ли сте, че искате да изтриете тази периодичност?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Сигурни ли сте, че искате да изтриете този етап?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Сигурни ли сте, че искате да изтриете тази оценка?"
+
+msgid "Loading…"
+msgstr "Зареждане…"
 

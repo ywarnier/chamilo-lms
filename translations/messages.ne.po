@@ -34063,6 +34063,15 @@ msgstr "कार्य वातावरण सर्वेक्षणहर�
 msgid "Diversity criteria"
 msgstr "विविधता मापदण्ड"
 
+msgid "Add diversity criterion"
+msgstr "विविधता मापदण्ड थप्नुहोस्"
+
+msgid "Edit diversity criterion"
+msgstr "विविधता मापदण्ड सम्पादन गर्नुहोस्"
+
+msgid "Extra field"
+msgstr "अतिरिक्त क्षेत्र"
+
 msgid "Diversity guidelines"
 msgstr "विविधता दिशानिर्देश"
 
@@ -34269,6 +34278,297 @@ msgstr "AI द्वारा अनुवाद गर्नुहोस्"
 msgid "Enter manually"
 msgstr "म्यानुअल रूपमा प्रविष्ट गर्नुहोस्"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "कुनै AI पाठ प्रदायक कन्फिगर गरिएको छैन। कृपया AI सेटिङहरूमा एउटा कन्फिगर गर्नुहोस्।"
+msgid "Paste user URL or IRI…"
+msgstr "प्रयोगकर्ता URL वा IRI टाँस्नुहोस्…"
+
+msgid "Add benefit"
+msgstr "लाभ थप्नुहोस्"
+
+msgid "Edit benefit"
+msgstr "लाभ सम्पादन गर्नुहोस्"
+
+msgid "Add tag"
+msgstr "ट्याग थप्नुहोस्"
+
+msgid "Edit tag"
+msgstr "ट्याग सम्पादन गर्नुहोस्"
+
+msgid "No tags available"
+msgstr "कुनै ट्याग उपलब्ध छैन"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "सक्रिय नियुक्ति भएको लाभ हटाउन सकिँदैन।"
+
+msgid "Assign benefit"
+msgstr "लाभ नियुक्त गर्नुहोस्"
+
+msgid "My benefits"
+msgstr "मेरा लाभहरू"
+
+msgid "Beneficiary"
+msgstr "लाभग्राही"
+
+msgid "Economical equivalent"
+msgstr "आर्थिक समकक्ष"
+
+msgid "Assigned on"
+msgstr "नियुक्त मिति"
+
+msgid "Assigned until"
+msgstr "नियुक्त सम्म"
+
+msgid "Assigned by"
+msgstr "नियुक्त गर्ने"
+
+msgid "Notifications sent"
+msgstr "प्रेषित सूचनाहरू"
+
+msgid "Send notification"
+msgstr "सूचना पठाउनुहोस्"
+
+msgid "Notification sent"
+msgstr "सूचना पठाइयो"
+
+msgid "Benefit notification"
+msgstr "लाभ सूचना"
+
+msgid "From date"
+msgstr "मिति देखि"
+
+msgid "Search by name..."
+msgstr "नाम अनुसार खोज्नुहोस्..."
+
+msgid "Filtering by"
+msgstr "फिल्टर गर्दै"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "कुनै विविधता मापदण्ड फेला परेन। पहिले मापदण्ड थप्नुहोस्।"
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "तथ्याङ्क हेर्न सूचीबाट मापदण्ड चयन गर्नुहोस्।"
+
+msgid "No data available for this criterion."
+msgstr "यो मापदण्डका लागि कुनै डाटा उपलब्ध छैन।"
+
+msgid "Add periodicity"
+msgstr "पुनरावृत्ति थप्नुहोस्"
+
+msgid "Edit periodicity"
+msgstr "आवधिकता सम्पादन गर्नुहोस्"
+
+msgid "Add stage"
+msgstr "चरण थप्नुहोस्"
+
+msgid "Edit stage"
+msgstr "चरण सम्पादन गर्नुहोस्"
+
+msgid "Periodicities"
+msgstr "आवधिकताहरू"
+
+msgid "Evaluation stages"
+msgstr "मूल्यांकन चरणहरू"
+
+msgid "Evaluation templates"
+msgstr "मूल्यांकन टेम्प्लेटहरू"
+
+msgid "Add evaluation template"
+msgstr "मूल्यांकन टेम्प्लेट थप्नुहोस्"
+
+msgid "Edit evaluation template"
+msgstr "मूल्यांकन टेम्प्लेट सम्पादन गर्नुहोस्"
+
+msgid "Add template"
+msgstr "टेम्प्लेट थप्नुहोस्"
+
+msgid "Scheduled evaluations"
+msgstr "निर्धारित मूल्यांकनहरू"
+
+msgid "Schedule evaluation"
+msgstr "मूल्यांकन तालिका बनाउनुहोस्"
+
+msgid "Evaluation form"
+msgstr "मूल्यांकन फारम"
+
+msgid "My evaluations"
+msgstr "मेरा मूल्यांकनहरू"
+
+msgid "Evaluations of me"
+msgstr "मेरो बारेका मूल्यांकनहरू"
+
+msgid "Evaluations I must conduct"
+msgstr "मलाई गर्नुपर्ने मूल्यांकनहरू"
+
+msgid "Evaluatee"
+msgstr "मूल्यांकन हुने व्यक्ति"
+
+msgid "Evaluator"
+msgstr "मूल्यांकनकर्ता"
+
+msgid "Evaluator(s)"
+msgstr "मूल्यांकनकर्ता(हरू)"
+
+msgid "Scheduled date"
+msgstr "निर्धारित मिति"
+
+msgid "Evaluation stage"
+msgstr "मूल्यांकन चरण"
+
+msgid "Save draft"
+msgstr "ड्राफ्ट बचत गर्नुहोस्"
+
+msgid "Send to evaluatee"
+msgstr "मूल्यांकन हुने व्यक्तिलाई पठाउनुहोस्"
+
+msgid "Submit feedback"
+msgstr "प्रतिक्रिया पेश गर्नुहोस्"
+
+msgid "Close evaluation"
+msgstr "मूल्यांकन बन्द गर्नुहोस्"
+
+msgid "Feedbacked"
+msgstr "प्रतिक्रिया दिइएको"
+
+msgid "Action plan for next period"
+msgstr "अर्को अवधिको कार्य योजना"
+
+msgid "Save action plan"
+msgstr "कार्य योजना बचत गर्नुहोस्"
+
+msgid "Next evaluation date"
+msgstr "अर्को मूल्यांकन मिति"
+
+msgid "History of evaluations"
+msgstr "मूल्यांकनहरूको इतिहास"
+
+msgid "Evaluator comment"
+msgstr "मूल्यांकनकर्ताको टिप्पणी"
+
+msgid "Evaluatee comment"
+msgstr "मूल्यांकन हुने व्यक्तिको टिप्पणी"
+
+msgid "Weight %"
+msgstr "भार %"
+
+msgid "Must equal 100%"
+msgstr "१००% बराबर हुनुपर्छ"
+
+msgid "No skills added yet."
+msgstr "अझै कुनै कौशल थपिएको छैन।"
+
+msgid "No activities added yet."
+msgstr "अझै कुनै क्रियाकलाप थपिएको छैन।"
+
+msgid "No objectives added yet."
+msgstr "अझै कुनै उद्देश्य थपिएको छैन।"
+
+msgid "No action plan defined."
+msgstr "कुनै कार्य योजना परिभाषित गरिएको छैन।"
+
+msgid "No comments yet."
+msgstr "अझै कुनै टिप्पणी छैन।"
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "एकभन्दा बढी मूल्यांकनकर्ता छान्न Ctrl/Cmd थिचेर राख्नुहोस्।"
+
+msgid "Scheduled"
+msgstr "निर्धारित"
+
+msgid "Items"
+msgstr "वस्तुहरू"
+
+msgid "Remove skill"
+msgstr "कौशल हटाउनुहोस्"
+
+msgid "Remove activity"
+msgstr "क्रियाकलाप हटाउनुहोस्"
+
+msgid "Remove objective"
+msgstr "उद्देश्य हटाउनुहोस्"
+
+msgid "Could not load periodicities"
+msgstr "आवधिकता लोड गर्न सकिएन"
+
+msgid "Could not load evaluation stages"
+msgstr "मूल्यांकन चरणहरू लोड गर्न सकिएन"
+
+msgid "Could not load templates"
+msgstr "टेम्प्लेटहरू लोड गर्न सकिएन"
+
+msgid "Template saved"
+msgstr "टेम्प्लेट बचत भयो"
+
+msgid "Could not save template"
+msgstr "टेम्प्लेट बचत गर्न सकिएन"
+
+msgid "Could not load evaluations"
+msgstr "मूल्यांकनहरू लोड गर्न सकिएन"
+
+msgid "Could not save evaluation"
+msgstr "मूल्यांकन बचत गर्न सकिएन"
+
+msgid "Evaluation scheduled"
+msgstr "मूल्यांकन तालिकाबद्ध गरियो"
+
+msgid "Evaluation updated"
+msgstr "मूल्यांकन अद्यावधिक भयो"
+
+msgid "Could not load evaluation"
+msgstr "मूल्यांकन लोड गर्न सकिएन"
+
+msgid "Draft saved"
+msgstr "ड्राफ्ट बचत भयो"
+
+msgid "Could not save draft"
+msgstr "ड्राफ्ट बचत गर्न सकिएन"
+
+msgid "Sent to evaluatee"
+msgstr "मूल्यांकनकर्तालाई पठाइयो"
+
+msgid "Could not send"
+msgstr "पठाउन सकिएन"
+
+msgid "Feedback submitted"
+msgstr "प्रतिपुष्टि पेस भयो"
+
+msgid "Could not submit feedback"
+msgstr "प्रतिपुष्टि पेस गर्न सकिएन"
+
+msgid "Evaluation closed"
+msgstr "मूल्यांकन बन्द भयो"
+
+msgid "Could not close evaluation"
+msgstr "मूल्यांकन बन्द गर्न सकिएन"
+
+msgid "Action plan saved"
+msgstr "कार्य योजना बचत भयो"
+
+msgid "Could not save action plan"
+msgstr "कार्य योजना बचत गर्न सकिएन"
+
+msgid "Comment sent"
+msgstr "टिप्पणी पठाइयो"
+
+msgid "Could not send comment"
+msgstr "टिप्पणी पठाउन सकिएन"
+
+msgid "Reminders scheduled"
+msgstr "स्मरण तालिकाबद्ध गरियो"
+
+msgid "Search by evaluatee"
+msgstr "मूल्यांकनकर्ताबाट खोज्नुहोस्"
+
+msgid "Overdue"
+msgstr "म्याद सकियो"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "के तपाईं यो आवधिकता मेटाउन चाहनुहुन्छ?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "के तपाईं यो चरण मेटाउन चाहनुहुन्छ?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "के तपाईं यो मूल्यांकन मेटाउन चाहनुहुन्छ?"
+
+msgid "Loading…"
+msgstr "लोड हुँदै…"
 

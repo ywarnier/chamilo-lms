@@ -34063,6 +34063,15 @@ msgstr "نظرسنجی‌های فضای کاری"
 msgid "Diversity criteria"
 msgstr "معیارهای تنوع"
 
+msgid "Add diversity criterion"
+msgstr "افزودن معیار تنوع"
+
+msgid "Edit diversity criterion"
+msgstr "ویرایش معیار تنوع"
+
+msgid "Extra field"
+msgstr "فیلد اضافی"
+
 msgid "Diversity guidelines"
 msgstr "راهنماهای تنوع"
 
@@ -34269,6 +34278,297 @@ msgstr "ترجمه با هوش مصنوعی"
 msgid "Enter manually"
 msgstr "وارد کردن دستی"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "هیچ ارائه‌دهنده متن هوش مصنوعی پیکربندی نشده است. لطفاً یکی را در تنظیمات هوش مصنوعی پیکربندی کنید."
+msgid "Paste user URL or IRI…"
+msgstr "پیست کردن URL یا IRI کاربر…"
+
+msgid "Add benefit"
+msgstr "افزودن مزیت"
+
+msgid "Edit benefit"
+msgstr "ویرایش مزیت"
+
+msgid "Add tag"
+msgstr "افزودن برچسب"
+
+msgid "Edit tag"
+msgstr "ویرایش برچسب"
+
+msgid "No tags available"
+msgstr "هیچ برچسبی موجود نیست"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "نمی‌توان مزیتی که تخصیص‌های فعال دارد را حذف کرد."
+
+msgid "Assign benefit"
+msgstr "تخصیص مزیت"
+
+msgid "My benefits"
+msgstr "مزایای من"
+
+msgid "Beneficiary"
+msgstr "ذینفع"
+
+msgid "Economical equivalent"
+msgstr "معادل اقتصادی"
+
+msgid "Assigned on"
+msgstr "تخصیص یافته در"
+
+msgid "Assigned until"
+msgstr "تخصیص یافته تا"
+
+msgid "Assigned by"
+msgstr "تخصیص یافته توسط"
+
+msgid "Notifications sent"
+msgstr "اعلان‌های ارسال شده"
+
+msgid "Send notification"
+msgstr "ارسال اعلان"
+
+msgid "Notification sent"
+msgstr "اعلان ارسال شد"
+
+msgid "Benefit notification"
+msgstr "اعلان مزیت"
+
+msgid "From date"
+msgstr "از تاریخ"
+
+msgid "Search by name..."
+msgstr "جستجو بر اساس نام…"
+
+msgid "Filtering by"
+msgstr "فیلتر بر اساس"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "هیچ معیار تنوعی یافت نشد. ابتدا معیارها را اضافه کنید."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "یک معیار از لیست انتخاب کنید تا آمار آن را ببینید."
+
+msgid "No data available for this criterion."
+msgstr "هیچ داده‌ای برای این معیار موجود نیست."
+
+msgid "Add periodicity"
+msgstr "افزودن دوره‌ای"
+
+msgid "Edit periodicity"
+msgstr "ویرایش دوره‌ای"
+
+msgid "Add stage"
+msgstr "افزودن مرحله"
+
+msgid "Edit stage"
+msgstr "ویرایش مرحله"
+
+msgid "Periodicities"
+msgstr "دوره‌ای‌ها"
+
+msgid "Evaluation stages"
+msgstr "مراحل ارزیابی"
+
+msgid "Evaluation templates"
+msgstr "قالب‌های ارزیابی"
+
+msgid "Add evaluation template"
+msgstr "افزودن قالب ارزیابی"
+
+msgid "Edit evaluation template"
+msgstr "ویرایش قالب ارزیابی"
+
+msgid "Add template"
+msgstr "افزودن قالب"
+
+msgid "Scheduled evaluations"
+msgstr "ارزیابی‌های زمان‌بندی شده"
+
+msgid "Schedule evaluation"
+msgstr "زمان‌بندی ارزیابی"
+
+msgid "Evaluation form"
+msgstr "فرم ارزیابی"
+
+msgid "My evaluations"
+msgstr "ارزیابی‌های من"
+
+msgid "Evaluations of me"
+msgstr "ارزیابی‌های انجام شده از من"
+
+msgid "Evaluations I must conduct"
+msgstr "ارزیابی‌هایی که باید انجام دهم"
+
+msgid "Evaluatee"
+msgstr "ارزیابی‌شونده"
+
+msgid "Evaluator"
+msgstr "ارزیابی‌کننده"
+
+msgid "Evaluator(s)"
+msgstr "ارزیاب(ها)"
+
+msgid "Scheduled date"
+msgstr "تاریخ زمان‌بندی شده"
+
+msgid "Evaluation stage"
+msgstr "مرحله ارزیابی"
+
+msgid "Save draft"
+msgstr "ذخیره پیش‌نویس"
+
+msgid "Send to evaluatee"
+msgstr "ارسال به ارزیابی‌شونده"
+
+msgid "Submit feedback"
+msgstr "ارسال بازخورد"
+
+msgid "Close evaluation"
+msgstr "بستن ارزیابی"
+
+msgid "Feedbacked"
+msgstr "بازخورد داده شده"
+
+msgid "Action plan for next period"
+msgstr "طرح اقدام برای دوره بعدی"
+
+msgid "Save action plan"
+msgstr "ذخیره طرح اقدام"
+
+msgid "Next evaluation date"
+msgstr "تاریخ ارزیابی بعدی"
+
+msgid "History of evaluations"
+msgstr "تاریخچه ارزیابی‌ها"
+
+msgid "Evaluator comment"
+msgstr "نظر ارزیاب"
+
+msgid "Evaluatee comment"
+msgstr "نظر ارزیابی‌شونده"
+
+msgid "Weight %"
+msgstr "وزن %"
+
+msgid "Must equal 100%"
+msgstr "باید برابر ۱۰۰٪ باشد"
+
+msgid "No skills added yet."
+msgstr "هنوز مهارتی اضافه نشده است."
+
+msgid "No activities added yet."
+msgstr "هنوز فعالیتی اضافه نشده است."
+
+msgid "No objectives added yet."
+msgstr "هنوز هدفی اضافه نشده است."
+
+msgid "No action plan defined."
+msgstr "هیچ طرح اقدامی تعریف نشده است."
+
+msgid "No comments yet."
+msgstr "هنوز نظری ثبت نشده است."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Ctrl/Cmd را نگه دارید تا چندین ارزیاب انتخاب کنید."
+
+msgid "Scheduled"
+msgstr "زمان‌بندی شده"
+
+msgid "Items"
+msgstr "مورد(ها)"
+
+msgid "Remove skill"
+msgstr "حذف مهارت"
+
+msgid "Remove activity"
+msgstr "حذف فعالیت"
+
+msgid "Remove objective"
+msgstr "حذف هدف"
+
+msgid "Could not load periodicities"
+msgstr "نتوانست دوره‌های تکرار را بارگیری کند"
+
+msgid "Could not load evaluation stages"
+msgstr "نتوانست مراحل ارزیابی را بارگیری کند"
+
+msgid "Could not load templates"
+msgstr "نتوانست الگوها را بارگیری کند"
+
+msgid "Template saved"
+msgstr "الگو ذخیره شد"
+
+msgid "Could not save template"
+msgstr "نتوانست الگو را ذخیره کند"
+
+msgid "Could not load evaluations"
+msgstr "نتوانست ارزیابی‌ها را بارگیری کند"
+
+msgid "Could not save evaluation"
+msgstr "نتوانست ارزیابی را ذخیره کند"
+
+msgid "Evaluation scheduled"
+msgstr "ارزیابی زمان‌بندی شد"
+
+msgid "Evaluation updated"
+msgstr "ارزیابی به‌روزرسانی شد"
+
+msgid "Could not load evaluation"
+msgstr "نتوانست ارزیابی را بارگیری کند"
+
+msgid "Draft saved"
+msgstr "پیش‌نویس ذخیره شد"
+
+msgid "Could not save draft"
+msgstr "نتوانست پیش‌نویس را ذخیره کند"
+
+msgid "Sent to evaluatee"
+msgstr "به ارزیابی‌شونده ارسال شد"
+
+msgid "Could not send"
+msgstr "نتوانست ارسال کند"
+
+msgid "Feedback submitted"
+msgstr "بازخورد ارسال شد"
+
+msgid "Could not submit feedback"
+msgstr "نتوانست بازخورد را ارسال کند"
+
+msgid "Evaluation closed"
+msgstr "ارزیابی بسته شد"
+
+msgid "Could not close evaluation"
+msgstr "نتوانست ارزیابی را ببندد"
+
+msgid "Action plan saved"
+msgstr "طرح اقدام ذخیره شد"
+
+msgid "Could not save action plan"
+msgstr "نتوانست طرح اقدام را ذخیره کند"
+
+msgid "Comment sent"
+msgstr "نظر ارسال شد"
+
+msgid "Could not send comment"
+msgstr "نتوانست نظر را ارسال کند"
+
+msgid "Reminders scheduled"
+msgstr "یادآوری‌ها زمان‌بندی شد"
+
+msgid "Search by evaluatee"
+msgstr "جستجو بر اساس ارزیابی‌شونده"
+
+msgid "Overdue"
+msgstr "معوق"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "آیا مطمئن هستید که می‌خواهید این دوره‌ای را حذف کنید؟"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "آیا مطمئن هستید که می‌خواهید این مرحله را حذف کنید؟"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "آیا مطمئن هستید که می‌خواهید این ارزیابی را حذف کنید؟"
+
+msgid "Loading…"
+msgstr "در حال بارگذاری…"
 

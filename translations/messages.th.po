@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "ด้วยความเคารพ"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "ตัวอย่างสูตร: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "ตัวอย่างสูตร: sqrt( [x] / [ย] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "ช่วงตัวแปร"
@@ -34065,6 +34065,15 @@ msgstr "แบบสำรวจสภาพการทำงาน"
 msgid "Diversity criteria"
 msgstr "เกณฑ์ความหลากหลาย"
 
+msgid "Add diversity criterion"
+msgstr "เพิ่มเกณฑ์ความหลากหลาย"
+
+msgid "Edit diversity criterion"
+msgstr "แก้ไขเกณฑ์ความหลากหลาย"
+
+msgid "Extra field"
+msgstr "ฟิลด์พิเศษ"
+
 msgid "Diversity guidelines"
 msgstr "แนวทางปฏิบัติความหลากหลาย"
 
@@ -34271,6 +34280,297 @@ msgstr "แปลด้วย AI"
 msgid "Enter manually"
 msgstr "ป้อนด้วยตนเอง"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "ยังไม่ได้กำหนดค่า AI text provider กรุณากำหนดค่าในการตั้งค่า AI"
+msgid "Paste user URL or IRI…"
+msgstr "วาง URL หรือ IRI ของผู้ใช้…"
+
+msgid "Add benefit"
+msgstr "เพิ่มสิทธิประโยชน์"
+
+msgid "Edit benefit"
+msgstr "แก้ไขสิทธิประโยชน์"
+
+msgid "Add tag"
+msgstr "เพิ่มป้ายกำกับ"
+
+msgid "Edit tag"
+msgstr "แก้ไขป้ายกำกับ"
+
+msgid "No tags available"
+msgstr "ไม่มีป้ายกำกับที่ใช้ได้"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "ไม่สามารถลบสิทธิประโยชน์ที่มีการมอบหมายที่ใช้งานอยู่ได้"
+
+msgid "Assign benefit"
+msgstr "มอบหมายสิทธิประโยชน์"
+
+msgid "My benefits"
+msgstr "สิทธิประโยชน์ของฉัน"
+
+msgid "Beneficiary"
+msgstr "ผู้รับสิทธิประโยชน์"
+
+msgid "Economical equivalent"
+msgstr "มูลค่าเทียบเท่าเศรษฐกิจ"
+
+msgid "Assigned on"
+msgstr "มอบหมายเมื่อ"
+
+msgid "Assigned until"
+msgstr "มอบหมายจนถึง"
+
+msgid "Assigned by"
+msgstr "มอบหมายโดย"
+
+msgid "Notifications sent"
+msgstr "แจ้งเตือนที่ส่งแล้ว"
+
+msgid "Send notification"
+msgstr "ส่งการแจ้งเตือน"
+
+msgid "Notification sent"
+msgstr "ส่งการแจ้งเตือนแล้ว"
+
+msgid "Benefit notification"
+msgstr "การแจ้งเตือนสิทธิประโยชน์"
+
+msgid "From date"
+msgstr "ตั้งแต่วันที่"
+
+msgid "Search by name..."
+msgstr "ค้นหาตามชื่อ…"
+
+msgid "Filtering by"
+msgstr "กรองตาม"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "ไม่พบเกณฑ์ความหลากหลาย เพิ่มเกณฑ์ก่อน"
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "เลือกเกณฑ์จากรายการเพื่อดูสถิติ"
+
+msgid "No data available for this criterion."
+msgstr "ไม่มีข้อมูลสำหรับเกณฑ์นี้"
+
+msgid "Add periodicity"
+msgstr "เพิ่มรอบระยะเวลา"
+
+msgid "Edit periodicity"
+msgstr "แก้ไขรอบระยะเวลา"
+
+msgid "Add stage"
+msgstr "เพิ่มขั้นตอน"
+
+msgid "Edit stage"
+msgstr "แก้ไขขั้นตอน"
+
+msgid "Periodicities"
+msgstr "รอบระยะเวลา"
+
+msgid "Evaluation stages"
+msgstr "ขั้นตอนการประเมิน"
+
+msgid "Evaluation templates"
+msgstr "เทมเพลตการประเมิน"
+
+msgid "Add evaluation template"
+msgstr "เพิ่มเทมเพลตการประเมิน"
+
+msgid "Edit evaluation template"
+msgstr "แก้ไขเทมเพลตการประเมิน"
+
+msgid "Add template"
+msgstr "เพิ่มเทมเพลต"
+
+msgid "Scheduled evaluations"
+msgstr "การประเมินที่กำหนดเวลา"
+
+msgid "Schedule evaluation"
+msgstr "กำหนดเวลาการประเมิน"
+
+msgid "Evaluation form"
+msgstr "แบบฟอร์มการประเมิน"
+
+msgid "My evaluations"
+msgstr "การประเมินของฉัน"
+
+msgid "Evaluations of me"
+msgstr "การประเมินที่ฉันได้รับ"
+
+msgid "Evaluations I must conduct"
+msgstr "การประเมินที่ฉันต้องทำ"
+
+msgid "Evaluatee"
+msgstr "ผู้รับการประเมิน"
+
+msgid "Evaluator"
+msgstr "ผู้ประเมิน"
+
+msgid "Evaluator(s)"
+msgstr "ผู้ประเมิน"
+
+msgid "Scheduled date"
+msgstr "วันที่กำหนด"
+
+msgid "Evaluation stage"
+msgstr "ขั้นตอนการประเมิน"
+
+msgid "Save draft"
+msgstr "บันทึกแบบร่าง"
+
+msgid "Send to evaluatee"
+msgstr "ส่งไปยังผู้รับการประเมิน"
+
+msgid "Submit feedback"
+msgstr "ส่งข้อเสนอแนะ"
+
+msgid "Close evaluation"
+msgstr "ปิดการประเมิน"
+
+msgid "Feedbacked"
+msgstr "ส่งข้อเสนอแนะแล้ว"
+
+msgid "Action plan for next period"
+msgstr "แผนปฏิบัติการสำหรับรอบถัดไป"
+
+msgid "Save action plan"
+msgstr "บันทึกแผนปฏิบัติการ"
+
+msgid "Next evaluation date"
+msgstr "วันที่ประเมินครั้งถัดไป"
+
+msgid "History of evaluations"
+msgstr "ประวัติการประเมิน"
+
+msgid "Evaluator comment"
+msgstr "ความคิดเห็นผู้ประเมิน"
+
+msgid "Evaluatee comment"
+msgstr "ความคิดเห็นผู้รับการประเมิน"
+
+msgid "Weight %"
+msgstr "น้ำหนัก %"
+
+msgid "Must equal 100%"
+msgstr "ต้องเท่ากับ 100%"
+
+msgid "No skills added yet."
+msgstr "ยังไม่เพิ่มทักษะ"
+
+msgid "No activities added yet."
+msgstr "ยังไม่เพิ่มกิจกรรม"
+
+msgid "No objectives added yet."
+msgstr "ยังไม่เพิ่มวัตถุประสงค์"
+
+msgid "No action plan defined."
+msgstr "ยังไม่กำหนดแผนปฏิบัติการ"
+
+msgid "No comments yet."
+msgstr "ยังไม่มีคำวิจารณ์"
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "กด Ctrl/Cmd เพื่อเลือกผู้ประเมินหลายคน"
+
+msgid "Scheduled"
+msgstr "กำหนดแล้ว"
+
+msgid "Items"
+msgstr "รายการ"
+
+msgid "Remove skill"
+msgstr "ลบทักษะ"
+
+msgid "Remove activity"
+msgstr "ลบกิจกรรม"
+
+msgid "Remove objective"
+msgstr "ลบวัตถุประสงค์"
+
+msgid "Could not load periodicities"
+msgstr "ไม่สามารถโหลดรอบระยะเวลาได้"
+
+msgid "Could not load evaluation stages"
+msgstr "ไม่สามารถโหลดขั้นตอนการประเมินได้"
+
+msgid "Could not load templates"
+msgstr "ไม่สามารถโหลดเทมเพลตได้"
+
+msgid "Template saved"
+msgstr "บันทึกเทมเพลตแล้ว"
+
+msgid "Could not save template"
+msgstr "ไม่สามารถบันทึกเทมเพลตได้"
+
+msgid "Could not load evaluations"
+msgstr "ไม่สามารถโหลดการประเมินได้"
+
+msgid "Could not save evaluation"
+msgstr "ไม่สามารถบันทึกการประเมินได้"
+
+msgid "Evaluation scheduled"
+msgstr "การประเมินถูกกำหนดเวลาแล้ว"
+
+msgid "Evaluation updated"
+msgstr "การประเมินถูกอัปเดตแล้ว"
+
+msgid "Could not load evaluation"
+msgstr "ไม่สามารถโหลดการประเมินได้"
+
+msgid "Draft saved"
+msgstr "บันทึกฉบับร่างแล้ว"
+
+msgid "Could not save draft"
+msgstr "ไม่สามารถบันทึกฉบับร่างได้"
+
+msgid "Sent to evaluatee"
+msgstr "ส่งไปยังผู้รับการประเมินแล้ว"
+
+msgid "Could not send"
+msgstr "ไม่สามารถส่งได้"
+
+msgid "Feedback submitted"
+msgstr "ส่งข้อเสนอแนะแล้ว"
+
+msgid "Could not submit feedback"
+msgstr "ไม่สามารถส่งข้อเสนอแนะได้"
+
+msgid "Evaluation closed"
+msgstr "การประเมินปิดแล้ว"
+
+msgid "Could not close evaluation"
+msgstr "ไม่สามารถปิดการประเมินได้"
+
+msgid "Action plan saved"
+msgstr "บันทึกแผนปฏิบัติการแล้ว"
+
+msgid "Could not save action plan"
+msgstr "ไม่สามารถบันทึกแผนปฏิบัติการได้"
+
+msgid "Comment sent"
+msgstr "ส่งความคิดเห็นแล้ว"
+
+msgid "Could not send comment"
+msgstr "ไม่สามารถส่งความคิดเห็นได้"
+
+msgid "Reminders scheduled"
+msgstr "กำหนดเวลาการแจ้งเตือนแล้ว"
+
+msgid "Search by evaluatee"
+msgstr "ค้นหาตามผู้รับการประเมิน"
+
+msgid "Overdue"
+msgstr "เลยกำหนด"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบรอบความถี่นี้?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบขั้นตอนนี้?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบการประเมินนี้?"
+
+msgid "Loading…"
+msgstr "กำลังโหลด…"
 

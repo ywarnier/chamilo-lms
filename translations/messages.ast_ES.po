@@ -34065,6 +34065,15 @@ msgstr "Encuestes de clima laboral"
 msgid "Diversity criteria"
 msgstr "Criterios de diversidá"
 
+msgid "Add diversity criterion"
+msgstr "Amestar criteriu de diversidad"
+
+msgid "Edit diversity criterion"
+msgstr "Editar criteriu de diversidad"
+
+msgid "Extra field"
+msgstr "Cam puestu extra"
+
 msgid "Diversity guidelines"
 msgstr "Guíes de diversidá"
 
@@ -34271,6 +34280,297 @@ msgstr "Traducir con IA"
 msgid "Enter manually"
 msgstr "Introducir manualmente"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Nun hai provedor de testu d'IA configuráu. Configure uno nes axustes d'IA."
+msgid "Paste user URL or IRI…"
+msgstr "Pegar URL o IRI d'usuariu…"
+
+msgid "Add benefit"
+msgstr "Amestar prestación"
+
+msgid "Edit benefit"
+msgstr "Editar prestación"
+
+msgid "Add tag"
+msgstr "Amestar etiqueta"
+
+msgid "Edit tag"
+msgstr "Editar etiqueta"
+
+msgid "No tags available"
+msgstr "Delles etiquetes disponibles"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Ye imposible desaniciar una prestación que tien asignaciones actives."
+
+msgid "Assign benefit"
+msgstr "Asignar prestación"
+
+msgid "My benefits"
+msgstr "Les míes prestaciones"
+
+msgid "Beneficiary"
+msgstr "Beneficiariu"
+
+msgid "Economical equivalent"
+msgstr "Equivalent económicu"
+
+msgid "Assigned on"
+msgstr "Asignada el"
+
+msgid "Assigned until"
+msgstr "Asignada fasta"
+
+msgid "Assigned by"
+msgstr "Asignada por"
+
+msgid "Notifications sent"
+msgstr "Notificaciones enviáes"
+
+msgid "Send notification"
+msgstr "Unviar notificación"
+
+msgid "Notification sent"
+msgstr "Notificación enviada"
+
+msgid "Benefit notification"
+msgstr "Notificación de prestación"
+
+msgid "From date"
+msgstr "Dende la fecha"
+
+msgid "Search by name..."
+msgstr "Guetar por nome..."
+
+msgid "Filtering by"
+msgstr "Filtrando por"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nun se atoparon criterios de diversidad. Amesta criterios primero."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Seleiciona un criteriu de la llista pa ver les sos estadístiques."
+
+msgid "No data available for this criterion."
+msgstr "Nun hai datos disponibles pa esti criteriu."
+
+msgid "Add periodicity"
+msgstr "Amestar periodicidá"
+
+msgid "Edit periodicity"
+msgstr "Editar periodicidá"
+
+msgid "Add stage"
+msgstr "Amestar etapa"
+
+msgid "Edit stage"
+msgstr "Editar etapa"
+
+msgid "Periodicities"
+msgstr "Periodicidáes"
+
+msgid "Evaluation stages"
+msgstr "Etapes d'evaluación"
+
+msgid "Evaluation templates"
+msgstr "Plantíes d'evaluación"
+
+msgid "Add evaluation template"
+msgstr "Amestar plantía d'evaluación"
+
+msgid "Edit evaluation template"
+msgstr "Editar plantía d'evaluación"
+
+msgid "Add template"
+msgstr "Amestar plantía"
+
+msgid "Scheduled evaluations"
+msgstr "Evaluaciones programades"
+
+msgid "Schedule evaluation"
+msgstr "Programar evaluación"
+
+msgid "Evaluation form"
+msgstr "Formulariu d'evaluación"
+
+msgid "My evaluations"
+msgstr "Mies evaluaciones"
+
+msgid "Evaluations of me"
+msgstr "Evaluaciones de mí"
+
+msgid "Evaluations I must conduct"
+msgstr "Evaluaciones que tengo que facer"
+
+msgid "Evaluatee"
+msgstr "Evaluáu"
+
+msgid "Evaluator"
+msgstr "Evaluador"
+
+msgid "Evaluator(s)"
+msgstr "Evaluador(es)"
+
+msgid "Scheduled date"
+msgstr "Fecha programada"
+
+msgid "Evaluation stage"
+msgstr "Etapa d'evaluación"
+
+msgid "Save draft"
+msgstr "Guardar borrador"
+
+msgid "Send to evaluatee"
+msgstr "Unviar al evaluáu"
+
+msgid "Submit feedback"
+msgstr "Unviar retroalimentación"
+
+msgid "Close evaluation"
+msgstr "Zarrar evaluación"
+
+msgid "Feedbacked"
+msgstr "Retroalimentáu"
+
+msgid "Action plan for next period"
+msgstr "Plan d'acción pa'l periodu próximu"
+
+msgid "Save action plan"
+msgstr "Guardar plan d'acción"
+
+msgid "Next evaluation date"
+msgstr "Fecha de la próxima evaluación"
+
+msgid "History of evaluations"
+msgstr "Historial d'evaluaciones"
+
+msgid "Evaluator comment"
+msgstr "Comentariu del evaluador"
+
+msgid "Evaluatee comment"
+msgstr "Comentariu del evaluáu"
+
+msgid "Weight %"
+msgstr "Pesu %"
+
+msgid "Must equal 100%"
+msgstr "Debe ser igual al 100%"
+
+msgid "No skills added yet."
+msgstr "Encami nun s'amenutaron competencies."
+
+msgid "No activities added yet."
+msgstr "Encami nun s'amenutaron actividáes."
+
+msgid "No objectives added yet."
+msgstr "Encami nun s'amenutaron objetivos."
+
+msgid "No action plan defined."
+msgstr "Nun se definió plan d'acción."
+
+msgid "No comments yet."
+msgstr "Encami nun hai comentarios."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Manten Ctrl/Cmd pa seleicionar múltiples evaluadores."
+
+msgid "Scheduled"
+msgstr "Programáu"
+
+msgid "Items"
+msgstr "Elementos"
+
+msgid "Remove skill"
+msgstr "Desaniciar competencia"
+
+msgid "Remove activity"
+msgstr "Desaniciar actividá"
+
+msgid "Remove objective"
+msgstr "Desaniciar objetivu"
+
+msgid "Could not load periodicities"
+msgstr "Nun se pudieron cargar les periodicidáes"
+
+msgid "Could not load evaluation stages"
+msgstr "Nun se pudieron cargar les etapes d'evaluación"
+
+msgid "Could not load templates"
+msgstr "Nun se pudieron cargar les plantíes"
+
+msgid "Template saved"
+msgstr "Plantía guardada"
+
+msgid "Could not save template"
+msgstr "Nun se pudo guardar la plantía"
+
+msgid "Could not load evaluations"
+msgstr "Nun se pudieron cargar les evaluaciones"
+
+msgid "Could not save evaluation"
+msgstr "Nun se pudo guardar l'evaluación"
+
+msgid "Evaluation scheduled"
+msgstr "Evaluación programada"
+
+msgid "Evaluation updated"
+msgstr "Evaluación actualizada"
+
+msgid "Could not load evaluation"
+msgstr "Nun se pudo cargar l'evaluación"
+
+msgid "Draft saved"
+msgstr "Borrador guardáu"
+
+msgid "Could not save draft"
+msgstr "Nun ye posible guardar el borrador"
+
+msgid "Sent to evaluatee"
+msgstr "Enviáu al evaluatee"
+
+msgid "Could not send"
+msgstr "Nun ye posible enviar"
+
+msgid "Feedback submitted"
+msgstr "Comentariu enviáu"
+
+msgid "Could not submit feedback"
+msgstr "Nun ye posible enviar el comentariu"
+
+msgid "Evaluation closed"
+msgstr "Avaliación zarrada"
+
+msgid "Could not close evaluation"
+msgstr "Nun ye posible zarrar l'avaliación"
+
+msgid "Action plan saved"
+msgstr "Plan d'acción guardáu"
+
+msgid "Could not save action plan"
+msgstr "Nun ye posible guardar el plan d'acción"
+
+msgid "Comment sent"
+msgstr "Comentariu enviáu"
+
+msgid "Could not send comment"
+msgstr "Nun ye posible enviar el comentariu"
+
+msgid "Reminders scheduled"
+msgstr "Recordatorios programados"
+
+msgid "Search by evaluatee"
+msgstr "Guetar por evaluatee"
+
+msgid "Overdue"
+msgstr "Atrasáu"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "¿Tas seguru de que quies desaniciar esta periodicidá?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "¿Tas seguru de que quies desaniciar esta etapa?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "¿Tas seguru de que quies desaniciar esta avaliación?"
+
+msgid "Loading…"
+msgstr "Cargando…"
 

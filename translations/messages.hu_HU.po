@@ -34063,6 +34063,15 @@ msgstr "Munkahelyi klíma felmérések"
 msgid "Diversity criteria"
 msgstr "Sokszínűségi kritériumok"
 
+msgid "Add diversity criterion"
+msgstr "Sokszínűségi kritérium hozzáadása"
+
+msgid "Edit diversity criterion"
+msgstr "Sokszínűségi kritérium szerkesztése"
+
+msgid "Extra field"
+msgstr "Extra mező"
+
 msgid "Diversity guidelines"
 msgstr "Sokszínűségi irányelvek"
 
@@ -34269,6 +34278,297 @@ msgstr "Fordítás AI-val"
 msgid "Enter manually"
 msgstr "Kézi bevitel"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Nincs AI szövegszolgáltató beállítva. Kérjük, állítson be egyet az AI beállításokban."
+msgid "Paste user URL or IRI…"
+msgstr "Felhasználói URL vagy IRI beillesztése…"
+
+msgid "Add benefit"
+msgstr "Jutalom hozzáadása"
+
+msgid "Edit benefit"
+msgstr "Jutalom szerkesztése"
+
+msgid "Add tag"
+msgstr "Címke hozzáadása"
+
+msgid "Edit tag"
+msgstr "Címke szerkesztése"
+
+msgid "No tags available"
+msgstr "Nincsenek elérhető címkék"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Nem törölhető olyan jutalom, amelyhez aktív hozzárendelések tartoznak."
+
+msgid "Assign benefit"
+msgstr "Jutalom hozzárendelése"
+
+msgid "My benefits"
+msgstr "Saját juttatások"
+
+msgid "Beneficiary"
+msgstr "Jogosult"
+
+msgid "Economical equivalent"
+msgstr "Gazdasági ekvivalens"
+
+msgid "Assigned on"
+msgstr "Hozzárendelve"
+
+msgid "Assigned until"
+msgstr "Hozzárendelés vége"
+
+msgid "Assigned by"
+msgstr "Hozzárendelő"
+
+msgid "Notifications sent"
+msgstr "Értesítések elküldve"
+
+msgid "Send notification"
+msgstr "Értesítés küldése"
+
+msgid "Notification sent"
+msgstr "Értesítés elküldve"
+
+msgid "Benefit notification"
+msgstr "Jutalom értesítés"
+
+msgid "From date"
+msgstr "Kezdő dátum"
+
+msgid "Search by name..."
+msgstr "Keresés név alapján…"
+
+msgid "Filtering by"
+msgstr "Szűrés szerint"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nincs sokszínűségi kritérium található. Először adjon hozzá kritériumot."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Válasszon egy kritériumot a listából annak statisztikái megtekintéséhez."
+
+msgid "No data available for this criterion."
+msgstr "Nincs adat ehhez a kritériumhoz."
+
+msgid "Add periodicity"
+msgstr "Periódus hozzáadása"
+
+msgid "Edit periodicity"
+msgstr "Periódus szerkesztése"
+
+msgid "Add stage"
+msgstr "Szakasz hozzáadása"
+
+msgid "Edit stage"
+msgstr "Szakasz szerkesztése"
+
+msgid "Periodicities"
+msgstr "Periódusok"
+
+msgid "Evaluation stages"
+msgstr "Értékelési szakaszok"
+
+msgid "Evaluation templates"
+msgstr "Értékelési sablonok"
+
+msgid "Add evaluation template"
+msgstr "Értékelési sablon hozzáadása"
+
+msgid "Edit evaluation template"
+msgstr "Értékelési sablon szerkesztése"
+
+msgid "Add template"
+msgstr "Sablon hozzáadása"
+
+msgid "Scheduled evaluations"
+msgstr "Tervezett értékelések"
+
+msgid "Schedule evaluation"
+msgstr "Értékelés ütemezése"
+
+msgid "Evaluation form"
+msgstr "Értékelési űrlap"
+
+msgid "My evaluations"
+msgstr "Értékeléseim"
+
+msgid "Evaluations of me"
+msgstr "Rólam készült értékelések"
+
+msgid "Evaluations I must conduct"
+msgstr "Végezendő értékeléseim"
+
+msgid "Evaluatee"
+msgstr "Értékelendő"
+
+msgid "Evaluator"
+msgstr "Értékelő"
+
+msgid "Evaluator(s)"
+msgstr "Értékelő(k)"
+
+msgid "Scheduled date"
+msgstr "Tervezett dátum"
+
+msgid "Evaluation stage"
+msgstr "Értékelési szakasz"
+
+msgid "Save draft"
+msgstr "Piszkozat mentése"
+
+msgid "Send to evaluatee"
+msgstr "Küldés az értékelendőnek"
+
+msgid "Submit feedback"
+msgstr "Visszajelzés elküldése"
+
+msgid "Close evaluation"
+msgstr "Értékelés lezárása"
+
+msgid "Feedbacked"
+msgstr "Visszajelzéssel ellátott"
+
+msgid "Action plan for next period"
+msgstr "Cselekvési terv a következő időszakra"
+
+msgid "Save action plan"
+msgstr "Cselekvési terv mentése"
+
+msgid "Next evaluation date"
+msgstr "Következő értékelési dátum"
+
+msgid "History of evaluations"
+msgstr "Értékelések előzménye"
+
+msgid "Evaluator comment"
+msgstr "Értékelő megjegyzése"
+
+msgid "Evaluatee comment"
+msgstr "Értékelendő megjegyzése"
+
+msgid "Weight %"
+msgstr "Súly %"
+
+msgid "Must equal 100%"
+msgstr "100%-nak kell lennie"
+
+msgid "No skills added yet."
+msgstr "Még nincs készség hozzáadva."
+
+msgid "No activities added yet."
+msgstr "Még nincs tevékenység hozzáadva."
+
+msgid "No objectives added yet."
+msgstr "Még nincs cél hozzáadva."
+
+msgid "No action plan defined."
+msgstr "Nincs cselekvési terv meghatározva."
+
+msgid "No comments yet."
+msgstr "Még nincs hozzászólás."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Tartsa lenyomva a Ctrl/Cmd billentyűt több értékelő kiválasztásához."
+
+msgid "Scheduled"
+msgstr "Ütemezett"
+
+msgid "Items"
+msgstr "Tételek"
+
+msgid "Remove skill"
+msgstr "Készség eltávolítása"
+
+msgid "Remove activity"
+msgstr "Tevékenység eltávolítása"
+
+msgid "Remove objective"
+msgstr "Cél eltávolítása"
+
+msgid "Could not load periodicities"
+msgstr "A periódusok betöltése sikertelen"
+
+msgid "Could not load evaluation stages"
+msgstr "Az értékelési szakaszok betöltése sikertelen"
+
+msgid "Could not load templates"
+msgstr "Sablonok betöltése sikertelen"
+
+msgid "Template saved"
+msgstr "Sablon mentve"
+
+msgid "Could not save template"
+msgstr "Sablon mentése sikertelen"
+
+msgid "Could not load evaluations"
+msgstr "Értékelések betöltése sikertelen"
+
+msgid "Could not save evaluation"
+msgstr "Értékelés mentése sikertelen"
+
+msgid "Evaluation scheduled"
+msgstr "Értékelés ütemezve"
+
+msgid "Evaluation updated"
+msgstr "Értékelés frissítve"
+
+msgid "Could not load evaluation"
+msgstr "Értékelés betöltése sikertelen"
+
+msgid "Draft saved"
+msgstr "Piszkozat mentve"
+
+msgid "Could not save draft"
+msgstr "Piszkozat mentése sikertelen"
+
+msgid "Sent to evaluatee"
+msgstr "Elküldve az értékelendőnek"
+
+msgid "Could not send"
+msgstr "Küldés sikertelen"
+
+msgid "Feedback submitted"
+msgstr "Visszajelzés elküldve"
+
+msgid "Could not submit feedback"
+msgstr "Visszajelzés elküldése sikertelen"
+
+msgid "Evaluation closed"
+msgstr "Értékelés lezárva"
+
+msgid "Could not close evaluation"
+msgstr "Értékelés lezárása sikertelen"
+
+msgid "Action plan saved"
+msgstr "Akcióterv mentve"
+
+msgid "Could not save action plan"
+msgstr "Akcióterv mentése sikertelen"
+
+msgid "Comment sent"
+msgstr "Megjegyzés elküldve"
+
+msgid "Could not send comment"
+msgstr "Megjegyzés küldése sikertelen"
+
+msgid "Reminders scheduled"
+msgstr "Emlékeztetők ütemezve"
+
+msgid "Search by evaluatee"
+msgstr "Keresés értékelendő szerint"
+
+msgid "Overdue"
+msgstr "Lejárt"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Biztosan törölni szeretné ezt a periódust?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Biztosan törölni szeretné ezt a szakaszt?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Biztosan törölni szeretné ezt az értékelést?"
+
+msgid "Loading…"
+msgstr "Betöltés…"
 

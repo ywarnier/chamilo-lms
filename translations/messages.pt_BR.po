@@ -34078,6 +34078,15 @@ msgstr "Pesquisas de clima organizacional"
 msgid "Diversity criteria"
 msgstr "Critérios de diversidade"
 
+msgid "Add diversity criterion"
+msgstr "Adicionar critério de diversidade"
+
+msgid "Edit diversity criterion"
+msgstr "Editar critério de diversidade"
+
+msgid "Extra field"
+msgstr "Campo extra"
+
 msgid "Diversity guidelines"
 msgstr "Diretrizes de diversidade"
 
@@ -34136,7 +34145,7 @@ msgid "FTE"
 msgstr "FTE"
 
 msgid "FTE (0–1)"
-msgstr "FTE (0–1)"
+msgstr "ETP (0–1)"
 
 msgid "Boss"
 msgstr "Chefe"
@@ -34284,6 +34293,297 @@ msgstr "Traduzir com IA"
 msgid "Enter manually"
 msgstr "Inserir manualmente"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Nenhum provedor de texto de IA está configurado. Configure um nas configurações de IA."
+msgid "Paste user URL or IRI…"
+msgstr "Colar URL ou IRI do usuário…"
+
+msgid "Add benefit"
+msgstr "Adicionar benefício"
+
+msgid "Edit benefit"
+msgstr "Editar benefício"
+
+msgid "Add tag"
+msgstr "Adicionar etiqueta"
+
+msgid "Edit tag"
+msgstr "Editar etiqueta"
+
+msgid "No tags available"
+msgstr "Nenhuma etiqueta disponível"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Não é possível excluir um benefício que possui atribuições ativas."
+
+msgid "Assign benefit"
+msgstr "Atribuir benefício"
+
+msgid "My benefits"
+msgstr "Meus benefícios"
+
+msgid "Beneficiary"
+msgstr "Beneficiário"
+
+msgid "Economical equivalent"
+msgstr "Equivalente econômico"
+
+msgid "Assigned on"
+msgstr "Atribuído em"
+
+msgid "Assigned until"
+msgstr "Atribuído até"
+
+msgid "Assigned by"
+msgstr "Atribuído por"
+
+msgid "Notifications sent"
+msgstr "Notificações enviadas"
+
+msgid "Send notification"
+msgstr "Enviar notificação"
+
+msgid "Notification sent"
+msgstr "Notificação enviada"
+
+msgid "Benefit notification"
+msgstr "Notificação de benefício"
+
+msgid "From date"
+msgstr "A partir da data"
+
+msgid "Search by name..."
+msgstr "Pesquisar por nome..."
+
+msgid "Filtering by"
+msgstr "Filtrando por"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nenhum critério de diversidade encontrado. Adicione critérios primeiro."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Selecione um critério da lista para ver suas estatísticas."
+
+msgid "No data available for this criterion."
+msgstr "Nenhum dado disponível para este critério."
+
+msgid "Add periodicity"
+msgstr "Adicionar periodicidade"
+
+msgid "Edit periodicity"
+msgstr "Editar periodicidade"
+
+msgid "Add stage"
+msgstr "Adicionar etapa"
+
+msgid "Edit stage"
+msgstr "Editar etapa"
+
+msgid "Periodicities"
+msgstr "Periodicidades"
+
+msgid "Evaluation stages"
+msgstr "Etapas de avaliação"
+
+msgid "Evaluation templates"
+msgstr "Modelos de avaliação"
+
+msgid "Add evaluation template"
+msgstr "Adicionar modelo de avaliação"
+
+msgid "Edit evaluation template"
+msgstr "Editar modelo de avaliação"
+
+msgid "Add template"
+msgstr "Adicionar modelo"
+
+msgid "Scheduled evaluations"
+msgstr "Avaliações agendadas"
+
+msgid "Schedule evaluation"
+msgstr "Agendar avaliação"
+
+msgid "Evaluation form"
+msgstr "Formulário de avaliação"
+
+msgid "My evaluations"
+msgstr "Minhas avaliações"
+
+msgid "Evaluations of me"
+msgstr "Avaliações de mim"
+
+msgid "Evaluations I must conduct"
+msgstr "Avaliações que devo realizar"
+
+msgid "Evaluatee"
+msgstr "Avaliado"
+
+msgid "Evaluator"
+msgstr "Avaliador"
+
+msgid "Evaluator(s)"
+msgstr "Avaliador(es)"
+
+msgid "Scheduled date"
+msgstr "Data agendada"
+
+msgid "Evaluation stage"
+msgstr "Etapa de avaliação"
+
+msgid "Save draft"
+msgstr "Salvar rascunho"
+
+msgid "Send to evaluatee"
+msgstr "Enviar ao avaliado"
+
+msgid "Submit feedback"
+msgstr "Enviar feedback"
+
+msgid "Close evaluation"
+msgstr "Fechar avaliação"
+
+msgid "Feedbacked"
+msgstr "Feedback enviado"
+
+msgid "Action plan for next period"
+msgstr "Plano de ação para o próximo período"
+
+msgid "Save action plan"
+msgstr "Salvar plano de ação"
+
+msgid "Next evaluation date"
+msgstr "Data da próxima avaliação"
+
+msgid "History of evaluations"
+msgstr "Histórico de avaliações"
+
+msgid "Evaluator comment"
+msgstr "Comentário do avaliador"
+
+msgid "Evaluatee comment"
+msgstr "Comentário do avaliado"
+
+msgid "Weight %"
+msgstr "Peso %"
+
+msgid "Must equal 100%"
+msgstr "Deve ser igual a 100%"
+
+msgid "No skills added yet."
+msgstr "Nenhuma competência adicionada ainda."
+
+msgid "No activities added yet."
+msgstr "Nenhuma atividade adicionada ainda."
+
+msgid "No objectives added yet."
+msgstr "Nenhum objetivo adicionado ainda."
+
+msgid "No action plan defined."
+msgstr "Nenhum plano de ação definido."
+
+msgid "No comments yet."
+msgstr "Nenhum comentário ainda."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Mantenha Ctrl/Cmd pressionado para selecionar múltiplos avaliadores."
+
+msgid "Scheduled"
+msgstr "Agendado"
+
+msgid "Items"
+msgstr "Itens"
+
+msgid "Remove skill"
+msgstr "Remover habilidade"
+
+msgid "Remove activity"
+msgstr "Remover atividade"
+
+msgid "Remove objective"
+msgstr "Remover objetivo"
+
+msgid "Could not load periodicities"
+msgstr "Não foi possível carregar periodicidades"
+
+msgid "Could not load evaluation stages"
+msgstr "Não foi possível carregar etapas de avaliação"
+
+msgid "Could not load templates"
+msgstr "Não foi possível carregar modelos"
+
+msgid "Template saved"
+msgstr "Modelo salvo"
+
+msgid "Could not save template"
+msgstr "Não foi possível salvar modelo"
+
+msgid "Could not load evaluations"
+msgstr "Não foi possível carregar avaliações"
+
+msgid "Could not save evaluation"
+msgstr "Não foi possível salvar avaliação"
+
+msgid "Evaluation scheduled"
+msgstr "Avaliação agendada"
+
+msgid "Evaluation updated"
+msgstr "Avaliação atualizada"
+
+msgid "Could not load evaluation"
+msgstr "Não foi possível carregar avaliação"
+
+msgid "Draft saved"
+msgstr "Rascunho salvo"
+
+msgid "Could not save draft"
+msgstr "Não foi possível salvar rascunho"
+
+msgid "Sent to evaluatee"
+msgstr "Enviado ao avaliado"
+
+msgid "Could not send"
+msgstr "Não foi possível enviar"
+
+msgid "Feedback submitted"
+msgstr "Feedback enviado"
+
+msgid "Could not submit feedback"
+msgstr "Não foi possível enviar feedback"
+
+msgid "Evaluation closed"
+msgstr "Avaliação fechada"
+
+msgid "Could not close evaluation"
+msgstr "Não foi possível fechar avaliação"
+
+msgid "Action plan saved"
+msgstr "Plano de ação salvo"
+
+msgid "Could not save action plan"
+msgstr "Não foi possível salvar plano de ação"
+
+msgid "Comment sent"
+msgstr "Comentário enviado"
+
+msgid "Could not send comment"
+msgstr "Não foi possível enviar comentário"
+
+msgid "Reminders scheduled"
+msgstr "Lembretes agendados"
+
+msgid "Search by evaluatee"
+msgstr "Pesquisar por avaliado"
+
+msgid "Overdue"
+msgstr "Atrasado"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Tem certeza de que deseja excluir esta periodicidade?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Tem certeza de que deseja excluir esta etapa?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Tem certeza de que deseja excluir esta avaliação?"
+
+msgid "Loading…"
+msgstr "Carregando…"
 

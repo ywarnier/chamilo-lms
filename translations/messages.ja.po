@@ -34129,6 +34129,15 @@ msgstr "職場環境調査"
 msgid "Diversity criteria"
 msgstr "多様性基準"
 
+msgid "Add diversity criterion"
+msgstr "多様性基準を追加"
+
+msgid "Edit diversity criterion"
+msgstr "多様性基準を編集"
+
+msgid "Extra field"
+msgstr "追加フィールド"
+
 msgid "Diversity guidelines"
 msgstr "多様性ガイドライン"
 
@@ -34335,6 +34344,297 @@ msgstr "AIで翻訳"
 msgid "Enter manually"
 msgstr "手動入力"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "AIテキストプロバイダーが設定されていません。AI設定で設定してください。"
+msgid "Paste user URL or IRI…"
+msgstr "ユーザーURLまたはIRIを貼り付け…"
+
+msgid "Add benefit"
+msgstr "福利厚生を追加"
+
+msgid "Edit benefit"
+msgstr "福利厚生を編集"
+
+msgid "Add tag"
+msgstr "タグを追加"
+
+msgid "Edit tag"
+msgstr "タグを編集"
+
+msgid "No tags available"
+msgstr "利用可能なタグがありません"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "アクティブな割り当てがある福利厚生は削除できません。"
+
+msgid "Assign benefit"
+msgstr "福利厚生を割り当て"
+
+msgid "My benefits"
+msgstr "私の福利厚生"
+
+msgid "Beneficiary"
+msgstr "受益者"
+
+msgid "Economical equivalent"
+msgstr "経済的等価額"
+
+msgid "Assigned on"
+msgstr "割り当て日"
+
+msgid "Assigned until"
+msgstr "割り当て終了日"
+
+msgid "Assigned by"
+msgstr "割り当て者"
+
+msgid "Notifications sent"
+msgstr "通知送信済み"
+
+msgid "Send notification"
+msgstr "通知を送信"
+
+msgid "Notification sent"
+msgstr "通知が送信されました"
+
+msgid "Benefit notification"
+msgstr "福利厚生通知"
+
+msgid "From date"
+msgstr "開始日"
+
+msgid "Search by name..."
+msgstr "名前で検索…"
+
+msgid "Filtering by"
+msgstr "フィルタリング中"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "多様性基準が見つかりません。まず基準を追加してください。"
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "統計を表示するにはリストから基準を選択してください。"
+
+msgid "No data available for this criterion."
+msgstr "この基準にデータがありません。"
+
+msgid "Add periodicity"
+msgstr "定期性を追加"
+
+msgid "Edit periodicity"
+msgstr "定期性を編集"
+
+msgid "Add stage"
+msgstr "ステージを追加"
+
+msgid "Edit stage"
+msgstr "ステージを編集"
+
+msgid "Periodicities"
+msgstr "定期性"
+
+msgid "Evaluation stages"
+msgstr "評価ステージ"
+
+msgid "Evaluation templates"
+msgstr "評価テンプレート"
+
+msgid "Add evaluation template"
+msgstr "評価テンプレートを追加"
+
+msgid "Edit evaluation template"
+msgstr "評価テンプレートを編集"
+
+msgid "Add template"
+msgstr "テンプレートを追加"
+
+msgid "Scheduled evaluations"
+msgstr "スケジュールされた評価"
+
+msgid "Schedule evaluation"
+msgstr "評価をスケジュール"
+
+msgid "Evaluation form"
+msgstr "評価フォーム"
+
+msgid "My evaluations"
+msgstr "私の評価"
+
+msgid "Evaluations of me"
+msgstr "私に対する評価"
+
+msgid "Evaluations I must conduct"
+msgstr "実施すべき評価"
+
+msgid "Evaluatee"
+msgstr "評価対象者"
+
+msgid "Evaluator"
+msgstr "評価者"
+
+msgid "Evaluator(s)"
+msgstr "評価者"
+
+msgid "Scheduled date"
+msgstr "スケジュール日"
+
+msgid "Evaluation stage"
+msgstr "評価ステージ"
+
+msgid "Save draft"
+msgstr "下書きを保存"
+
+msgid "Send to evaluatee"
+msgstr "評価対象者に送信"
+
+msgid "Submit feedback"
+msgstr "フィードバックを送信"
+
+msgid "Close evaluation"
+msgstr "評価を終了"
+
+msgid "Feedbacked"
+msgstr "フィードバック済み"
+
+msgid "Action plan for next period"
+msgstr "次期行動計画"
+
+msgid "Save action plan"
+msgstr "行動計画を保存"
+
+msgid "Next evaluation date"
+msgstr "次回評価日"
+
+msgid "History of evaluations"
+msgstr "評価履歴"
+
+msgid "Evaluator comment"
+msgstr "評価者コメント"
+
+msgid "Evaluatee comment"
+msgstr "評価対象者コメント"
+
+msgid "Weight %"
+msgstr "重み %"
+
+msgid "Must equal 100%"
+msgstr "100% に等しくする必要があります"
+
+msgid "No skills added yet."
+msgstr "スキルがまだ追加されていません。"
+
+msgid "No activities added yet."
+msgstr "アクティビティがまだ追加されていません。"
+
+msgid "No objectives added yet."
+msgstr "目標がまだ追加されていません。"
+
+msgid "No action plan defined."
+msgstr "行動計画が定義されていません。"
+
+msgid "No comments yet."
+msgstr "コメントがまだありません。"
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "複数の評価者を選択するには Ctrl/Cmd を押したままにしてください。"
+
+msgid "Scheduled"
+msgstr "スケジュール済み"
+
+msgid "Items"
+msgstr "項目"
+
+msgid "Remove skill"
+msgstr "スキルを削除"
+
+msgid "Remove activity"
+msgstr "アクティビティを削除"
+
+msgid "Remove objective"
+msgstr "目標を削除"
+
+msgid "Could not load periodicities"
+msgstr "定期性を読み込めませんでした"
+
+msgid "Could not load evaluation stages"
+msgstr "評価ステージを読み込めませんでした"
+
+msgid "Could not load templates"
+msgstr "テンプレートを読み込めませんでした"
+
+msgid "Template saved"
+msgstr "テンプレートを保存しました"
+
+msgid "Could not save template"
+msgstr "テンプレートを保存できませんでした"
+
+msgid "Could not load evaluations"
+msgstr "評価を読み込めませんでした"
+
+msgid "Could not save evaluation"
+msgstr "評価を保存できませんでした"
+
+msgid "Evaluation scheduled"
+msgstr "評価がスケジュールされました"
+
+msgid "Evaluation updated"
+msgstr "評価が更新されました"
+
+msgid "Could not load evaluation"
+msgstr "評価を読み込めませんでした"
+
+msgid "Draft saved"
+msgstr "下書きが保存されました"
+
+msgid "Could not save draft"
+msgstr "下書きを保存できませんでした"
+
+msgid "Sent to evaluatee"
+msgstr "評価対象者に送信されました"
+
+msgid "Could not send"
+msgstr "送信できませんでした"
+
+msgid "Feedback submitted"
+msgstr "フィードバックが送信されました"
+
+msgid "Could not submit feedback"
+msgstr "フィードバックを送信できませんでした"
+
+msgid "Evaluation closed"
+msgstr "評価が終了されました"
+
+msgid "Could not close evaluation"
+msgstr "評価を終了できませんでした"
+
+msgid "Action plan saved"
+msgstr "アクションプランが保存されました"
+
+msgid "Could not save action plan"
+msgstr "アクションプランを保存できませんでした"
+
+msgid "Comment sent"
+msgstr "コメントが送信されました"
+
+msgid "Could not send comment"
+msgstr "コメントを送信できませんでした"
+
+msgid "Reminders scheduled"
+msgstr "リマインダーがスケジュールされました"
+
+msgid "Search by evaluatee"
+msgstr "評価対象者で検索"
+
+msgid "Overdue"
+msgstr "期限超過"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "この定期性を削除してもよろしいですか？"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "このステージを削除してもよろしいですか？"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "この評価を削除してもよろしいですか？"
+
+msgid "Loading…"
+msgstr "読み込み中…"
 

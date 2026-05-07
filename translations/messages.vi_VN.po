@@ -34065,6 +34065,15 @@ msgstr "Khảo sát khí hậu làm việc"
 msgid "Diversity criteria"
 msgstr "Tiêu chí đa dạng"
 
+msgid "Add diversity criterion"
+msgstr "Thêm tiêu chí đa dạng"
+
+msgid "Edit diversity criterion"
+msgstr "Sửa tiêu chí đa dạng"
+
+msgid "Extra field"
+msgstr "Trường bổ sung"
+
 msgid "Diversity guidelines"
 msgstr "Hướng dẫn đa dạng"
 
@@ -34271,6 +34280,297 @@ msgstr "Dịch bằng AI"
 msgid "Enter manually"
 msgstr "Nhập thủ công"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Chưa cấu hình nhà cung cấp văn bản AI. Vui lòng cấu hình một cái trong cài đặt AI."
+msgid "Paste user URL or IRI…"
+msgstr "Dán URL hoặc IRI của người dùng…"
+
+msgid "Add benefit"
+msgstr "Thêm lợi ích"
+
+msgid "Edit benefit"
+msgstr "Sửa lợi ích"
+
+msgid "Add tag"
+msgstr "Thêm thẻ"
+
+msgid "Edit tag"
+msgstr "Sửa thẻ"
+
+msgid "No tags available"
+msgstr "Không có thẻ nào khả dụng"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Không thể xóa lợi ích đang có phân công hoạt động."
+
+msgid "Assign benefit"
+msgstr "Phân công lợi ích"
+
+msgid "My benefits"
+msgstr "Lợi ích của tôi"
+
+msgid "Beneficiary"
+msgstr "Người hưởng lợi"
+
+msgid "Economical equivalent"
+msgstr "Tương đương kinh tế"
+
+msgid "Assigned on"
+msgstr "Phân công vào"
+
+msgid "Assigned until"
+msgstr "Phân công đến"
+
+msgid "Assigned by"
+msgstr "Phân công bởi"
+
+msgid "Notifications sent"
+msgstr "Thông báo đã gửi"
+
+msgid "Send notification"
+msgstr "Gửi thông báo"
+
+msgid "Notification sent"
+msgstr "Thông báo đã gửi"
+
+msgid "Benefit notification"
+msgstr "Thông báo lợi ích"
+
+msgid "From date"
+msgstr "Từ ngày"
+
+msgid "Search by name..."
+msgstr "Tìm kiếm theo tên..."
+
+msgid "Filtering by"
+msgstr "Lọc theo"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Không tìm thấy tiêu chí đa dạng. Thêm tiêu chí trước."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Chọn một tiêu chí từ danh sách để xem thống kê."
+
+msgid "No data available for this criterion."
+msgstr "Không có dữ liệu cho tiêu chí này."
+
+msgid "Add periodicity"
+msgstr "Thêm chu kỳ"
+
+msgid "Edit periodicity"
+msgstr "Sửa chu kỳ"
+
+msgid "Add stage"
+msgstr "Thêm giai đoạn"
+
+msgid "Edit stage"
+msgstr "Sửa giai đoạn"
+
+msgid "Periodicities"
+msgstr "Chu kỳ"
+
+msgid "Evaluation stages"
+msgstr "Giai đoạn đánh giá"
+
+msgid "Evaluation templates"
+msgstr "Mẫu đánh giá"
+
+msgid "Add evaluation template"
+msgstr "Thêm mẫu đánh giá"
+
+msgid "Edit evaluation template"
+msgstr "Sửa mẫu đánh giá"
+
+msgid "Add template"
+msgstr "Thêm mẫu"
+
+msgid "Scheduled evaluations"
+msgstr "Đánh giá đã lập lịch"
+
+msgid "Schedule evaluation"
+msgstr "Lập lịch đánh giá"
+
+msgid "Evaluation form"
+msgstr "Biểu mẫu đánh giá"
+
+msgid "My evaluations"
+msgstr "Đánh giá của tôi"
+
+msgid "Evaluations of me"
+msgstr "Đánh giá về tôi"
+
+msgid "Evaluations I must conduct"
+msgstr "Đánh giá tôi phải thực hiện"
+
+msgid "Evaluatee"
+msgstr "Người được đánh giá"
+
+msgid "Evaluator"
+msgstr "Người đánh giá"
+
+msgid "Evaluator(s)"
+msgstr "Người đánh giá"
+
+msgid "Scheduled date"
+msgstr "Ngày lập lịch"
+
+msgid "Evaluation stage"
+msgstr "Giai đoạn đánh giá"
+
+msgid "Save draft"
+msgstr "Lưu nháp"
+
+msgid "Send to evaluatee"
+msgstr "Gửi cho người được đánh giá"
+
+msgid "Submit feedback"
+msgstr "Gửi phản hồi"
+
+msgid "Close evaluation"
+msgstr "Đóng đánh giá"
+
+msgid "Feedbacked"
+msgstr "Đã phản hồi"
+
+msgid "Action plan for next period"
+msgstr "Kế hoạch hành động cho kỳ tiếp theo"
+
+msgid "Save action plan"
+msgstr "Lưu kế hoạch hành động"
+
+msgid "Next evaluation date"
+msgstr "Ngày đánh giá tiếp theo"
+
+msgid "History of evaluations"
+msgstr "Lịch sử đánh giá"
+
+msgid "Evaluator comment"
+msgstr "Bình luận của người đánh giá"
+
+msgid "Evaluatee comment"
+msgstr "Bình luận của người được đánh giá"
+
+msgid "Weight %"
+msgstr "Trọng số %"
+
+msgid "Must equal 100%"
+msgstr "Phải bằng 100%"
+
+msgid "No skills added yet."
+msgstr "Chưa có kỹ năng nào được thêm."
+
+msgid "No activities added yet."
+msgstr "Chưa có hoạt động nào được thêm."
+
+msgid "No objectives added yet."
+msgstr "Chưa có mục tiêu nào được thêm."
+
+msgid "No action plan defined."
+msgstr "Chưa có kế hoạch hành động nào được định nghĩa."
+
+msgid "No comments yet."
+msgstr "Chưa có bình luận nào."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Giữ Ctrl/Cmd để chọn nhiều người đánh giá."
+
+msgid "Scheduled"
+msgstr "Đã lập lịch"
+
+msgid "Items"
+msgstr "Mục"
+
+msgid "Remove skill"
+msgstr "Xóa kỹ năng"
+
+msgid "Remove activity"
+msgstr "Xóa hoạt động"
+
+msgid "Remove objective"
+msgstr "Xóa mục tiêu"
+
+msgid "Could not load periodicities"
+msgstr "Không thể tải chu kỳ"
+
+msgid "Could not load evaluation stages"
+msgstr "Không thể tải giai đoạn đánh giá"
+
+msgid "Could not load templates"
+msgstr "Không thể tải mẫu"
+
+msgid "Template saved"
+msgstr "Mẫu đã được lưu"
+
+msgid "Could not save template"
+msgstr "Không thể lưu mẫu"
+
+msgid "Could not load evaluations"
+msgstr "Không thể tải đánh giá"
+
+msgid "Could not save evaluation"
+msgstr "Không thể lưu đánh giá"
+
+msgid "Evaluation scheduled"
+msgstr "Đánh giá đã được lên lịch"
+
+msgid "Evaluation updated"
+msgstr "Đánh giá đã được cập nhật"
+
+msgid "Could not load evaluation"
+msgstr "Không thể tải đánh giá"
+
+msgid "Draft saved"
+msgstr "Bản nháp đã được lưu"
+
+msgid "Could not save draft"
+msgstr "Không thể lưu bản nháp"
+
+msgid "Sent to evaluatee"
+msgstr "Đã gửi đến người được đánh giá"
+
+msgid "Could not send"
+msgstr "Không thể gửi"
+
+msgid "Feedback submitted"
+msgstr "Phản hồi đã được gửi"
+
+msgid "Could not submit feedback"
+msgstr "Không thể gửi phản hồi"
+
+msgid "Evaluation closed"
+msgstr "Đánh giá đã đóng"
+
+msgid "Could not close evaluation"
+msgstr "Không thể đóng đánh giá"
+
+msgid "Action plan saved"
+msgstr "Kế hoạch hành động đã được lưu"
+
+msgid "Could not save action plan"
+msgstr "Không thể lưu kế hoạch hành động"
+
+msgid "Comment sent"
+msgstr "Bình luận đã được gửi"
+
+msgid "Could not send comment"
+msgstr "Không thể gửi bình luận"
+
+msgid "Reminders scheduled"
+msgstr "Nhắc nhở đã được lên lịch"
+
+msgid "Search by evaluatee"
+msgstr "Tìm kiếm theo người được đánh giá"
+
+msgid "Overdue"
+msgstr "Quá hạn"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Bạn có chắc chắn muốn xóa kỳ hạn này không?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Bạn có chắc chắn muốn xóa giai đoạn này không?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Bạn có chắc chắn muốn xóa đánh giá này không?"
+
+msgid "Loading…"
+msgstr "Đang tải…"
 

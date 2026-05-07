@@ -34063,6 +34063,15 @@ msgstr "Anketat e klimës së punës"
 msgid "Diversity criteria"
 msgstr "Kriteret e diversitetit"
 
+msgid "Add diversity criterion"
+msgstr "Shto kriter diversiteti"
+
+msgid "Edit diversity criterion"
+msgstr "Ndrysho kriter diversiteti"
+
+msgid "Extra field"
+msgstr "Fushë shtesë"
+
 msgid "Diversity guidelines"
 msgstr "Udhëzimet e diversitetit"
 
@@ -34269,6 +34278,297 @@ msgstr "Përkthe me AI"
 msgid "Enter manually"
 msgstr "Fut manualisht"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Asnjë ofrues teksti AI nuk është konfiguruar. Ju lutemi konfiguroni një në cilësimet e AI."
+msgid "Paste user URL or IRI…"
+msgstr "Ngjit URL ose IRI të përdoruesit…"
+
+msgid "Add benefit"
+msgstr "Shto përfitim"
+
+msgid "Edit benefit"
+msgstr "Ndrysho përfitim"
+
+msgid "Add tag"
+msgstr "Shto etiketë"
+
+msgid "Edit tag"
+msgstr "Ndrysho etiketë"
+
+msgid "No tags available"
+msgstr "Asnjë etiketë e disponueshme"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Nuk mund të fshihet një përfitim që ka detyrime aktive."
+
+msgid "Assign benefit"
+msgstr "Cakto përfitim"
+
+msgid "My benefits"
+msgstr "Përfitimet e mia"
+
+msgid "Beneficiary"
+msgstr "Përfitues"
+
+msgid "Economical equivalent"
+msgstr "Ekuivalent ekonomik"
+
+msgid "Assigned on"
+msgstr "Caktuar më"
+
+msgid "Assigned until"
+msgstr "Caktuar deri më"
+
+msgid "Assigned by"
+msgstr "Caktuar nga"
+
+msgid "Notifications sent"
+msgstr "Njoftimet e dërguara"
+
+msgid "Send notification"
+msgstr ""
+
+msgid "Notification sent"
+msgstr ""
+
+msgid "Benefit notification"
+msgstr ""
+
+msgid "From date"
+msgstr ""
+
+msgid "Search by name..."
+msgstr ""
+
+msgid "Filtering by"
+msgstr ""
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr ""
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr ""
+
+msgid "No data available for this criterion."
+msgstr ""
+
+msgid "Add periodicity"
+msgstr ""
+
+msgid "Edit periodicity"
+msgstr ""
+
+msgid "Add stage"
+msgstr ""
+
+msgid "Edit stage"
+msgstr ""
+
+msgid "Periodicities"
+msgstr ""
+
+msgid "Evaluation stages"
+msgstr ""
+
+msgid "Evaluation templates"
+msgstr ""
+
+msgid "Add evaluation template"
+msgstr ""
+
+msgid "Edit evaluation template"
+msgstr ""
+
+msgid "Add template"
+msgstr ""
+
+msgid "Scheduled evaluations"
+msgstr ""
+
+msgid "Schedule evaluation"
+msgstr ""
+
+msgid "Evaluation form"
+msgstr ""
+
+msgid "My evaluations"
+msgstr ""
+
+msgid "Evaluations of me"
+msgstr ""
+
+msgid "Evaluations I must conduct"
+msgstr ""
+
+msgid "Evaluatee"
+msgstr ""
+
+msgid "Evaluator"
+msgstr ""
+
+msgid "Evaluator(s)"
+msgstr ""
+
+msgid "Scheduled date"
+msgstr ""
+
+msgid "Evaluation stage"
+msgstr ""
+
+msgid "Save draft"
+msgstr ""
+
+msgid "Send to evaluatee"
+msgstr ""
+
+msgid "Submit feedback"
+msgstr ""
+
+msgid "Close evaluation"
+msgstr ""
+
+msgid "Feedbacked"
+msgstr ""
+
+msgid "Action plan for next period"
+msgstr ""
+
+msgid "Save action plan"
+msgstr ""
+
+msgid "Next evaluation date"
+msgstr ""
+
+msgid "History of evaluations"
+msgstr ""
+
+msgid "Evaluator comment"
+msgstr ""
+
+msgid "Evaluatee comment"
+msgstr ""
+
+msgid "Weight %"
+msgstr ""
+
+msgid "Must equal 100%"
+msgstr ""
+
+msgid "No skills added yet."
+msgstr ""
+
+msgid "No activities added yet."
+msgstr ""
+
+msgid "No objectives added yet."
+msgstr ""
+
+msgid "No action plan defined."
+msgstr ""
+
+msgid "No comments yet."
+msgstr ""
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
+msgid "Items"
+msgstr "Artikuj"
+
+msgid "Remove skill"
+msgstr "Hiq aftësinë"
+
+msgid "Remove activity"
+msgstr "Hiq aktivitetin"
+
+msgid "Remove objective"
+msgstr "Hiq objektivin"
+
+msgid "Could not load periodicities"
+msgstr "Nuk mund të ngarkohen periudhitë"
+
+msgid "Could not load evaluation stages"
+msgstr "Nuk mund të ngarkohen fazat e vlerësimit"
+
+msgid "Could not load templates"
+msgstr "Nuk mund të ngarkohen modelet"
+
+msgid "Template saved"
+msgstr "Modeli u ruajt"
+
+msgid "Could not save template"
+msgstr "Nuk mund të ruhet modeli"
+
+msgid "Could not load evaluations"
+msgstr "Nuk mund të ngarkohen vlerësimet"
+
+msgid "Could not save evaluation"
+msgstr "Nuk mund të ruhet vlerësimi"
+
+msgid "Evaluation scheduled"
+msgstr "Vlerësimi u planifikua"
+
+msgid "Evaluation updated"
+msgstr "Vlerësimi u përditësua"
+
+msgid "Could not load evaluation"
+msgstr "Nuk mund të ngarkohet vlerësimi"
+
+msgid "Draft saved"
+msgstr "Drafti u ruajt"
+
+msgid "Could not save draft"
+msgstr "Nuk mund të ruhet drafti"
+
+msgid "Sent to evaluatee"
+msgstr "Dërguar te i vlerësuari"
+
+msgid "Could not send"
+msgstr "Nuk mund të dërgohet"
+
+msgid "Feedback submitted"
+msgstr "Përshtypja u dorëzua"
+
+msgid "Could not submit feedback"
+msgstr "Nuk mund të dorëzohet përshtypja"
+
+msgid "Evaluation closed"
+msgstr "Vlerësimi u mbyll"
+
+msgid "Could not close evaluation"
+msgstr "Nuk mund të mbyllet vlerësimi"
+
+msgid "Action plan saved"
+msgstr "Plani i veprimit u ruajt"
+
+msgid "Could not save action plan"
+msgstr "Nuk mund të ruhet plani i veprimit"
+
+msgid "Comment sent"
+msgstr "Komenti u dërgua"
+
+msgid "Could not send comment"
+msgstr "Nuk mund të dërgohet komenti"
+
+msgid "Reminders scheduled"
+msgstr "Kujtesat u planifikuan"
+
+msgid "Search by evaluatee"
+msgstr "Kërko sipas të vlerësuarit"
+
+msgid "Overdue"
+msgstr "I vonuar"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "A jeni të sigurt që dëshironi të fshini këtë periudhi?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "A jeni të sigurt që dëshironi të fshini këtë fazë?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "A jeni të sigurt që dëshironi të fshini këtë vlerësim?"
+
+msgid "Loading…"
+msgstr "Duke ngarkuar…"
 

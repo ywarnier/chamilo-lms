@@ -14431,7 +14431,7 @@ msgid "Blue lagoon"
 msgstr "Blue lagoon"
 
 msgid "Cool blue"
-msgstr "Cool blue"
+msgstr "Blue baridi"
 
 msgid "Corporate"
 msgstr "Shirika"
@@ -14689,10 +14689,10 @@ msgid "Chamilo extensions"
 msgstr "Upanuzi wa Chamilo"
 
 msgid "Chamilo Green"
-msgstr "Chamilo Green"
+msgstr "Chamilo Kijani"
 
 msgid "Chamilo red"
-msgstr "Chamilo red"
+msgstr "Chamilo nyekundu"
 
 msgid "Number of messages sent"
 msgstr "Idadi ya ujumbe uliotumwa"
@@ -34059,6 +34059,15 @@ msgstr "Utafiti wa hali ya kazi"
 msgid "Diversity criteria"
 msgstr "Viainisho vya utofauti"
 
+msgid "Add diversity criterion"
+msgstr "Ongeza kigezo cha utofauti"
+
+msgid "Edit diversity criterion"
+msgstr "Hariri kigezo cha utofauti"
+
+msgid "Extra field"
+msgstr "Sehemu ya ziada"
+
 msgid "Diversity guidelines"
 msgstr "Miongozo ya utofauti"
 
@@ -34265,6 +34274,297 @@ msgstr "Tafsiri na AI"
 msgid "Enter manually"
 msgstr "Ingiza kwa mkono"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Hakuna mtoa huduma wa maandishi ya AI uliowekwa. Tafadhali uweke moja katika mipangilio ya AI."
+msgid "Paste user URL or IRI…"
+msgstr "Bandika URL au IRI ya mtumiaji…"
+
+msgid "Add benefit"
+msgstr "Ongeza faida"
+
+msgid "Edit benefit"
+msgstr "Hariri faida"
+
+msgid "Add tag"
+msgstr "Ongeza lebo"
+
+msgid "Edit tag"
+msgstr "Hariri lebo"
+
+msgid "No tags available"
+msgstr "Hakuna lebo zinazopatikana"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Haiwezi kufuta faida ambayo ina migawo hai."
+
+msgid "Assign benefit"
+msgstr "Patia faida"
+
+msgid "My benefits"
+msgstr "Faida zangu"
+
+msgid "Beneficiary"
+msgstr "Mstahiki"
+
+msgid "Economical equivalent"
+msgstr "Samohevu kiuchumi"
+
+msgid "Assigned on"
+msgstr "Iliyopatiwa tarehe"
+
+msgid "Assigned until"
+msgstr "Iliyopatiwa hadi"
+
+msgid "Assigned by"
+msgstr "Iliyopatiwa na"
+
+msgid "Notifications sent"
+msgstr "Arifa zimetumwa"
+
+msgid "Send notification"
+msgstr "Tuma arifa"
+
+msgid "Notification sent"
+msgstr "Arifa imetumwa"
+
+msgid "Benefit notification"
+msgstr "Arifa ya faida"
+
+msgid "From date"
+msgstr "Kutoka tarehe"
+
+msgid "Search by name..."
+msgstr "Tafuta kwa jina..."
+
+msgid "Filtering by"
+msgstr "Inachuja kwa"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Hakuna viainisho vya utofauti vilivyopatikana. Ongeza viainisho kwanza."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Chagua kiainishi kutoka orodha ili kuona takwimu zake."
+
+msgid "No data available for this criterion."
+msgstr "Hakuna data inayopatikana kwa kiainishi hiki."
+
+msgid "Add periodicity"
+msgstr "Ongeza kipindi"
+
+msgid "Edit periodicity"
+msgstr "Hariri kipindi"
+
+msgid "Add stage"
+msgstr "Ongeza hatua"
+
+msgid "Edit stage"
+msgstr "Hariri hatua"
+
+msgid "Periodicities"
+msgstr "Vipindi"
+
+msgid "Evaluation stages"
+msgstr "Hatua za tathmini"
+
+msgid "Evaluation templates"
+msgstr "Vigezo vya tathmini"
+
+msgid "Add evaluation template"
+msgstr "Ongeza kigezo cha tathmini"
+
+msgid "Edit evaluation template"
+msgstr "Hariri kigezo cha tathmini"
+
+msgid "Add template"
+msgstr "Ongeza kigezo"
+
+msgid "Scheduled evaluations"
+msgstr "Tathmini zilizopangwa"
+
+msgid "Schedule evaluation"
+msgstr "Panga tathmini"
+
+msgid "Evaluation form"
+msgstr "Fomu ya tathmini"
+
+msgid "My evaluations"
+msgstr "Tathmini zangu"
+
+msgid "Evaluations of me"
+msgstr "Tathmini zangu"
+
+msgid "Evaluations I must conduct"
+msgstr "Tathmini ninazopaswa kufanya"
+
+msgid "Evaluatee"
+msgstr "Yeye anayethminiwa"
+
+msgid "Evaluator"
+msgstr "Mthimu"
+
+msgid "Evaluator(s)"
+msgstr "Wathimu"
+
+msgid "Scheduled date"
+msgstr "Tarehe iliyopangwa"
+
+msgid "Evaluation stage"
+msgstr "Hatua ya tathmini"
+
+msgid "Save draft"
+msgstr "Hifadhi rasimu"
+
+msgid "Send to evaluatee"
+msgstr "Tuma kwa yule anayethminiwa"
+
+msgid "Submit feedback"
+msgstr "Wasilisha maoni"
+
+msgid "Close evaluation"
+msgstr "Funga tathmini"
+
+msgid "Feedbacked"
+msgstr "Maoni yametolewa"
+
+msgid "Action plan for next period"
+msgstr "Mpango wa hatua wa kipindi kinachofuata"
+
+msgid "Save action plan"
+msgstr "Hifadhi mpango wa hatua"
+
+msgid "Next evaluation date"
+msgstr "Tarehe ya tathmini ijayo"
+
+msgid "History of evaluations"
+msgstr "Historia ya tathmini"
+
+msgid "Evaluator comment"
+msgstr "Maoni ya mtathmini"
+
+msgid "Evaluatee comment"
+msgstr "Maoni ya mtathmindiwa"
+
+msgid "Weight %"
+msgstr "Uzito %"
+
+msgid "Must equal 100%"
+msgstr "Lazima iwe sawa na 100%"
+
+msgid "No skills added yet."
+msgstr "Hakuna ustadi ulioongezwa bado."
+
+msgid "No activities added yet."
+msgstr "Hakuna shughuli zilizongezwa bado."
+
+msgid "No objectives added yet."
+msgstr "Hakuna malengo yaliyoongezwa bado."
+
+msgid "No action plan defined."
+msgstr "Hakuna mpango wa hatua uliofafanuliwa."
+
+msgid "No comments yet."
+msgstr "Hakuna maoni bado."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Bana Ctrl/Cmd ili kuchagua watathmini wengi."
+
+msgid "Scheduled"
+msgstr "Imepangwa"
+
+msgid "Items"
+msgstr "Vipengele"
+
+msgid "Remove skill"
+msgstr "Ondoa ustadi"
+
+msgid "Remove activity"
+msgstr "Ondoa shughuli"
+
+msgid "Remove objective"
+msgstr "Ondoa lengo"
+
+msgid "Could not load periodicities"
+msgstr "Haikuweza kupakia vipindi"
+
+msgid "Could not load evaluation stages"
+msgstr "Haikuweza kupakia hatua za tathmini"
+
+msgid "Could not load templates"
+msgstr "Haikuweza kupakia templeti"
+
+msgid "Template saved"
+msgstr "Templeti imehifadhiwa"
+
+msgid "Could not save template"
+msgstr "Haikuweza kuhifadhi templeti"
+
+msgid "Could not load evaluations"
+msgstr "Haikuweza kupakia tathmini"
+
+msgid "Could not save evaluation"
+msgstr "Haikuweza kuhifadhi tathmini"
+
+msgid "Evaluation scheduled"
+msgstr "Tathmini imepangwa"
+
+msgid "Evaluation updated"
+msgstr "Tathmini imesasishwa"
+
+msgid "Could not load evaluation"
+msgstr "Haikuweza kupakia tathmini"
+
+msgid "Draft saved"
+msgstr "Rasimu imehifadhiwa"
+
+msgid "Could not save draft"
+msgstr "Haikuweza kuhifadhi rasimu"
+
+msgid "Sent to evaluatee"
+msgstr "Imetumwa kwa mtathmindiwa"
+
+msgid "Could not send"
+msgstr "Haikuweza kutuma"
+
+msgid "Feedback submitted"
+msgstr "Maoni yamewasilishwa"
+
+msgid "Could not submit feedback"
+msgstr "Haikuweza kuwasilisha maoni"
+
+msgid "Evaluation closed"
+msgstr "Tathmini imefungwa"
+
+msgid "Could not close evaluation"
+msgstr "Haikuweza kufunga tathmini"
+
+msgid "Action plan saved"
+msgstr "Mpango wa hatua umehifadhiwa"
+
+msgid "Could not save action plan"
+msgstr "Haikuweza kuhifadhi mpango wa hatua"
+
+msgid "Comment sent"
+msgstr "Maoni yametumwa"
+
+msgid "Could not send comment"
+msgstr "Haikuweza kutuma maoni"
+
+msgid "Reminders scheduled"
+msgstr " Vikumbusho vimepangwa"
+
+msgid "Search by evaluatee"
+msgstr "Tafuta kwa mtathmindiwa"
+
+msgid "Overdue"
+msgstr "Imecheleweshwa"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Je, una uhakika unataka kufuta kipindi hiki?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Je, una uhakika unataka kufuta hatua hii?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Je, una uhakika unataka kufuta tathmini hii?"
+
+msgid "Loading…"
+msgstr "Inapakia…"
 

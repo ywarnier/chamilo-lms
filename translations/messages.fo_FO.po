@@ -34059,6 +34059,15 @@ msgstr "Arbaðsumhvørvisspurningar"
 msgid "Diversity criteria"
 msgstr "Fjölbreytniskriterium"
 
+msgid "Add diversity criterion"
+msgstr "Legg afturat fjølgaðarviðgerð"
+
+msgid "Edit diversity criterion"
+msgstr "Broyt fjølgaðarviðgerð"
+
+msgid "Extra field"
+msgstr "Ískoyta reipi"
+
 msgid "Diversity guidelines"
 msgstr "Fjölbreytnislóanir"
 
@@ -34265,6 +34274,297 @@ msgstr "Týð við AI"
 msgid "Enter manually"
 msgstr "Skriva inn manuelt"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Ongin AI tekstaleverandur er settur upp. Venlig sett ein upp í AI-instillingunum."
+msgid "Paste user URL or IRI…"
+msgstr "Innsetið brúkara URL ella IRI…"
+
+msgid "Add benefit"
+msgstr "Legg afturat avbjóðing"
+
+msgid "Edit benefit"
+msgstr "Broyt avbjóðing"
+
+msgid "Add tag"
+msgstr "Legg afturat merki"
+
+msgid "Edit tag"
+msgstr "Broyt merki"
+
+msgid "No tags available"
+msgstr "Ongir teigar tøkktir"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Finnst ikki sletta eina avbjóðing sum hevur virknar útdelingar."
+
+msgid "Assign benefit"
+msgstr "Útdel avbjóðing"
+
+msgid "My benefits"
+msgstr "Mínar avbjóðingar"
+
+msgid "Beneficiary"
+msgstr "Avbjóðari"
+
+msgid "Economical equivalent"
+msgstr "Eknónisk javnstøða"
+
+msgid "Assigned on"
+msgstr "Útdaelt dagin"
+
+msgid "Assigned until"
+msgstr "Útdaelt til"
+
+msgid "Assigned by"
+msgstr "Útdaelt av"
+
+msgid "Notifications sent"
+msgstr "Tilkunningar sendar"
+
+msgid "Send notification"
+msgstr "Send tilkunning"
+
+msgid "Notification sent"
+msgstr "Tilkunning send"
+
+msgid "Benefit notification"
+msgstr "Avbjóðingartilkunning"
+
+msgid "From date"
+msgstr "Frá dag"
+
+msgid "Search by name..."
+msgstr "Leita eftir navni..."
+
+msgid "Filtering by"
+msgstr "Filturir eftir"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Ongar fjølgaðarviðgerðir funnar. Legg viðgerðir afturat fyrst."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Vel eina viðgerð av listanum fyri at síggja hennara tal."
+
+msgid "No data available for this criterion."
+msgstr "Ongar dữir tøkktar fyri hesa viðgerð."
+
+msgid "Add periodicity"
+msgstr "Legg afturat tíðarsløk"
+
+msgid "Edit periodicity"
+msgstr "Broyt tíðarsløk"
+
+msgid "Add stage"
+msgstr "Legg afturat stig"
+
+msgid "Edit stage"
+msgstr "Broyt stig"
+
+msgid "Periodicities"
+msgstr "Tíðarsløkir"
+
+msgid "Evaluation stages"
+msgstr "Metastig"
+
+msgid "Evaluation templates"
+msgstr "Metamálbøkur"
+
+msgid "Add evaluation template"
+msgstr "Legg afturat metamálbók"
+
+msgid "Edit evaluation template"
+msgstr "Broyt metamálbók"
+
+msgid "Add template"
+msgstr "Legg afturat málbók"
+
+msgid "Scheduled evaluations"
+msgstr "Ætlaðar metingar"
+
+msgid "Schedule evaluation"
+msgstr "Ætla meting"
+
+msgid "Evaluation form"
+msgstr "Metformur"
+
+msgid "My evaluations"
+msgstr "Mínar metingar"
+
+msgid "Evaluations of me"
+msgstr "Metanir av mær"
+
+msgid "Evaluations I must conduct"
+msgstr "Metanir eg má gera"
+
+msgid "Evaluatee"
+msgstr "Tann sum metur verður"
+
+msgid "Evaluator"
+msgstr "Metari"
+
+msgid "Evaluator(s)"
+msgstr "Metarar"
+
+msgid "Scheduled date"
+msgstr "Ætlaður dagur"
+
+msgid "Evaluation stage"
+msgstr "Metastig"
+
+msgid "Save draft"
+msgstr "Goym drógv"
+
+msgid "Send to evaluatee"
+msgstr "Send til viðkomandi"
+
+msgid "Submit feedback"
+msgstr "Send inn viðmerking"
+
+msgid "Close evaluation"
+msgstr "Lukka meting"
+
+msgid "Feedbacked"
+msgstr "Viðmerkt"
+
+msgid "Action plan for next period"
+msgstr "Aðburðsætlan fyri næsta tíðarskeið"
+
+msgid "Save action plan"
+msgstr "Goym aðburðsætlan"
+
+msgid "Next evaluation date"
+msgstr "Næsta metingar dag"
+
+msgid "History of evaluations"
+msgstr "Søga um metingar"
+
+msgid "Evaluator comment"
+msgstr "Metarans viðmerking"
+
+msgid "Evaluatee comment"
+msgstr "Viðkomandi viðmerking"
+
+msgid "Weight %"
+msgstr "Vekt %"
+
+msgid "Must equal 100%"
+msgstr "Róttir vera 100%"
+
+msgid "No skills added yet."
+msgstr "Ongar evnir báðar enn."
+
+msgid "No activities added yet."
+msgstr "Ongar aktivitiir báðar enn."
+
+msgid "No objectives added yet."
+msgstr "Ongir málsætnir báðir enn."
+
+msgid "No action plan defined."
+msgstr "Onkga aðburðsætlan skilgreind."
+
+msgid "No comments yet."
+msgstr "Ongar viðmerkingar enn."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Hald Ctrl/Cmd fyri at velja fleiri metarar."
+
+msgid "Scheduled"
+msgstr "Ætlað"
+
+msgid "Items"
+msgstr "Loyvir"
+
+msgid "Remove skill"
+msgstr "Strika evnu"
+
+msgid "Remove activity"
+msgstr "Strika aktiviti"
+
+msgid "Remove objective"
+msgstr "Strika málsætna"
+
+msgid "Could not load periodicities"
+msgstr "Kundi ikki lesa tíðarligar"
+
+msgid "Could not load evaluation stages"
+msgstr "Kundi ikki lesa metingarstig"
+
+msgid "Could not load templates"
+msgstr "Kundi ikki lesa sniðmát"
+
+msgid "Template saved"
+msgstr "Sniðmát goymt"
+
+msgid "Could not save template"
+msgstr "Kundi ikki goyma sniðmát"
+
+msgid "Could not load evaluations"
+msgstr "Kundi ikki lesa metingar"
+
+msgid "Could not save evaluation"
+msgstr "Kundi ikki goyma meting"
+
+msgid "Evaluation scheduled"
+msgstr "Meting ætlað"
+
+msgid "Evaluation updated"
+msgstr "Meting dagførd"
+
+msgid "Could not load evaluation"
+msgstr "Kundi ikki lesa meting"
+
+msgid "Draft saved"
+msgstr "Drógv goymt"
+
+msgid "Could not save draft"
+msgstr "Kundi ikki goyma drógv"
+
+msgid "Sent to evaluatee"
+msgstr "Send til viðkomandi"
+
+msgid "Could not send"
+msgstr "Kundi ikki senda"
+
+msgid "Feedback submitted"
+msgstr "Viðmerking send inn"
+
+msgid "Could not submit feedback"
+msgstr "Kundi ikki senda viðmerking inn"
+
+msgid "Evaluation closed"
+msgstr "Meting lukkað"
+
+msgid "Could not close evaluation"
+msgstr "Kundi ikki lukka meting"
+
+msgid "Action plan saved"
+msgstr "Aðburðsætlan goymt"
+
+msgid "Could not save action plan"
+msgstr "Kundi ikki goyma aðburðsætlan"
+
+msgid "Comment sent"
+msgstr "Viðmerking send"
+
+msgid "Could not send comment"
+msgstr "Kundi ikki senda viðmerking"
+
+msgid "Reminders scheduled"
+msgstr "Minningar ætlaðar"
+
+msgid "Search by evaluatee"
+msgstr "Leita eftir viðkomandi"
+
+msgid "Overdue"
+msgstr "Útsett"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Er tú vís í, at tú ynskir at strika hesa tíðarligu?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Er tú vís í at tú ynskir at sletta hesum stiginum?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Er tú vís í at tú ynskir at sletta hesi metingini?"
+
+msgid "Loading…"
+msgstr "Innlesur…"
 

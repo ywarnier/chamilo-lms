@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":ja:copyright,, nej:ingen copyright"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapp,, application/msword:MsWord,, application/octet-stream:Okettströmmar,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapp,, application/msword:MsWord,, application/octet-stream:Okettströmm,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:övning,, simulation:simulering,, questionnaire:frågeställningar,, diagram:diagram,, figure:figur,, graph:graf,, index:index,, slide:slide,, table:bordläggning,, narrative text:berättartext,, exam:examen,, experiment:experiment,, problem statement:problemställning,, self assessment:självbedömning,, lecture:föreläsning"
@@ -34066,6 +34066,15 @@ msgstr "Arbetsklimatundersökningar"
 msgid "Diversity criteria"
 msgstr "Mångfaldskriterier"
 
+msgid "Add diversity criterion"
+msgstr "Lägg till mångfaldskriterium"
+
+msgid "Edit diversity criterion"
+msgstr "Redigera mångfaldskriterium"
+
+msgid "Extra field"
+msgstr "Extra fält"
+
 msgid "Diversity guidelines"
 msgstr "Mångfaldsriktlinjer"
 
@@ -34272,6 +34281,297 @@ msgstr "Översätt med KI"
 msgid "Enter manually"
 msgstr "Ange manuellt"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Ingen AI-textleverantör är konfigurerad. Konfigurera en i AI-inställningarna."
+msgid "Paste user URL or IRI…"
+msgstr "Klistra in användar-URL eller IRI…"
+
+msgid "Add benefit"
+msgstr "Lägg till förmån"
+
+msgid "Edit benefit"
+msgstr "Redigera förmån"
+
+msgid "Add tag"
+msgstr "Lägg till tagg"
+
+msgid "Edit tag"
+msgstr "Redigera tagg"
+
+msgid "No tags available"
+msgstr "Inga taggar tillgängliga"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Kan inte radera en förmån som har aktiva tilldelningar."
+
+msgid "Assign benefit"
+msgstr "Tilldela förmån"
+
+msgid "My benefits"
+msgstr "Mina förmåner"
+
+msgid "Beneficiary"
+msgstr "Mottagare"
+
+msgid "Economical equivalent"
+msgstr "Ekonomiskt värde"
+
+msgid "Assigned on"
+msgstr "Tilldelad den"
+
+msgid "Assigned until"
+msgstr "Tilldelad till"
+
+msgid "Assigned by"
+msgstr "Tilldelad av"
+
+msgid "Notifications sent"
+msgstr "Meddelanden skickade"
+
+msgid "Send notification"
+msgstr "Skicka meddelande"
+
+msgid "Notification sent"
+msgstr "Meddelande skickat"
+
+msgid "Benefit notification"
+msgstr "Fördelmeddelande"
+
+msgid "From date"
+msgstr "Från datum"
+
+msgid "Search by name..."
+msgstr "Sök efter namn..."
+
+msgid "Filtering by"
+msgstr "Filtrerar efter"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Inga mångfaldskriterier hittades. Lägg till kriterier först."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Välj ett kriterium från listan för att visa dess statistik."
+
+msgid "No data available for this criterion."
+msgstr "Ingen data tillgänglig för detta kriterium."
+
+msgid "Add periodicity"
+msgstr "Lägg till periodicitet"
+
+msgid "Edit periodicity"
+msgstr "Redigera periodicitet"
+
+msgid "Add stage"
+msgstr "Lägg till steg"
+
+msgid "Edit stage"
+msgstr "Redigera steg"
+
+msgid "Periodicities"
+msgstr "Periodiciter"
+
+msgid "Evaluation stages"
+msgstr "Utvärderingssteg"
+
+msgid "Evaluation templates"
+msgstr "Utvärderingmallar"
+
+msgid "Add evaluation template"
+msgstr "Lägg till utvärderingsmall"
+
+msgid "Edit evaluation template"
+msgstr "Redigera utvärderingsmall"
+
+msgid "Add template"
+msgstr "Lägg till mall"
+
+msgid "Scheduled evaluations"
+msgstr "Planerade utvärderingar"
+
+msgid "Schedule evaluation"
+msgstr "Schema för utvärdering"
+
+msgid "Evaluation form"
+msgstr "Utvärderingsformulär"
+
+msgid "My evaluations"
+msgstr "Mina utvärderingar"
+
+msgid "Evaluations of me"
+msgstr "Utvärderingar av mig"
+
+msgid "Evaluations I must conduct"
+msgstr "Utvärderingar jag ska genomföra"
+
+msgid "Evaluatee"
+msgstr "Utvärderad"
+
+msgid "Evaluator"
+msgstr "Utvärderare"
+
+msgid "Evaluator(s)"
+msgstr "Utvärderare"
+
+msgid "Scheduled date"
+msgstr "Planerat datum"
+
+msgid "Evaluation stage"
+msgstr "Utvärderingssteg"
+
+msgid "Save draft"
+msgstr "Spara utkast"
+
+msgid "Send to evaluatee"
+msgstr "Skicka till utvärderad"
+
+msgid "Submit feedback"
+msgstr "Skicka feedback"
+
+msgid "Close evaluation"
+msgstr "Stäng utvärdering"
+
+msgid "Feedbacked"
+msgstr "Feedback given"
+
+msgid "Action plan for next period"
+msgstr "Åtgärdsplan för nästa period"
+
+msgid "Save action plan"
+msgstr "Spara åtgärdsplan"
+
+msgid "Next evaluation date"
+msgstr "Nästa utvärderingsdatum"
+
+msgid "History of evaluations"
+msgstr "Historik för utvärderingar"
+
+msgid "Evaluator comment"
+msgstr "Utvärdarens kommentar"
+
+msgid "Evaluatee comment"
+msgstr "Utvärderads kommentar"
+
+msgid "Weight %"
+msgstr "Vikt %"
+
+msgid "Must equal 100%"
+msgstr "Måste vara 100%"
+
+msgid "No skills added yet."
+msgstr "Inga färdigheter tillagda än."
+
+msgid "No activities added yet."
+msgstr "Inga aktiviteter tillagda än."
+
+msgid "No objectives added yet."
+msgstr "Inga mål tillagda än."
+
+msgid "No action plan defined."
+msgstr "Ingen åtgärdsplan definierad."
+
+msgid "No comments yet."
+msgstr "Inga kommentarer än."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Håll Ctrl/Cmd för att välja flera utvärderare."
+
+msgid "Scheduled"
+msgstr "Planerad"
+
+msgid "Items"
+msgstr "Poster"
+
+msgid "Remove skill"
+msgstr "Ta bort färdighet"
+
+msgid "Remove activity"
+msgstr "Ta bort aktivitet"
+
+msgid "Remove objective"
+msgstr "Ta bort mål"
+
+msgid "Could not load periodicities"
+msgstr "Kunde inte ladda periodicitet"
+
+msgid "Could not load evaluation stages"
+msgstr "Kunde inte ladda utvärderingssteg"
+
+msgid "Could not load templates"
+msgstr "Kunde inte ladda mallar"
+
+msgid "Template saved"
+msgstr "Mall sparad"
+
+msgid "Could not save template"
+msgstr "Kunde inte spara mall"
+
+msgid "Could not load evaluations"
+msgstr "Kunde inte ladda utvärderingar"
+
+msgid "Could not save evaluation"
+msgstr "Kunde inte spara utvärdering"
+
+msgid "Evaluation scheduled"
+msgstr "Utvärdering schemalagd"
+
+msgid "Evaluation updated"
+msgstr "Utvärdering uppdaterad"
+
+msgid "Could not load evaluation"
+msgstr "Kunde inte ladda utvärdering"
+
+msgid "Draft saved"
+msgstr "Utkast sparat"
+
+msgid "Could not save draft"
+msgstr "Kunde inte spara utkast"
+
+msgid "Sent to evaluatee"
+msgstr "Skickat till utvärderad"
+
+msgid "Could not send"
+msgstr "Kunde inte skicka"
+
+msgid "Feedback submitted"
+msgstr "Feedback inlämnad"
+
+msgid "Could not submit feedback"
+msgstr "Kunde inte lämna in feedback"
+
+msgid "Evaluation closed"
+msgstr "Utvärdering stängd"
+
+msgid "Could not close evaluation"
+msgstr "Kunde inte stänga utvärdering"
+
+msgid "Action plan saved"
+msgstr "Aktionsplan sparad"
+
+msgid "Could not save action plan"
+msgstr "Kunde inte spara aktionsplan"
+
+msgid "Comment sent"
+msgstr "Kommentar skickad"
+
+msgid "Could not send comment"
+msgstr "Kunde inte skicka kommentar"
+
+msgid "Reminders scheduled"
+msgstr "Påminnelser schemalagda"
+
+msgid "Search by evaluatee"
+msgstr "Sök efter utvärderad"
+
+msgid "Overdue"
+msgstr "Försenad"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Är du säker på att du vill ta bort denna periodicitet?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Är du säker på att du vill ta bort detta steg?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Är du säker på att du vill ta bort denna utvärdering?"
+
+msgid "Loading…"
+msgstr "Laddar…"
 

@@ -34065,6 +34065,15 @@ msgstr "Arbejdsklimaundersøgelser"
 msgid "Diversity criteria"
 msgstr "Mangfoldighedskriterier"
 
+msgid "Add diversity criterion"
+msgstr "Tilføj diversitetskriterium"
+
+msgid "Edit diversity criterion"
+msgstr "Redigér diversitetskriterium"
+
+msgid "Extra field"
+msgstr "Ekstra felt"
+
 msgid "Diversity guidelines"
 msgstr "Mangfoldighedsretningslinjer"
 
@@ -34271,6 +34280,297 @@ msgstr "Oversæt med KI"
 msgid "Enter manually"
 msgstr "Indtast manuelt"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Ingen AI-tekstudbyder er konfigureret. Konfigurer venligst en i AI-indstillingerne."
+msgid "Paste user URL or IRI…"
+msgstr "Indsæt bruger-URL eller IRI…"
+
+msgid "Add benefit"
+msgstr "Tilføj fordel"
+
+msgid "Edit benefit"
+msgstr "Redigér fordel"
+
+msgid "Add tag"
+msgstr "Tilføj mærke"
+
+msgid "Edit tag"
+msgstr "Redigér mærke"
+
+msgid "No tags available"
+msgstr "Ingen mærker tilgængelige"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Kan ikke slette en fordel med aktive tildelinger."
+
+msgid "Assign benefit"
+msgstr "Tildel fordel"
+
+msgid "My benefits"
+msgstr "Mine fordele"
+
+msgid "Beneficiary"
+msgstr "Modtager"
+
+msgid "Economical equivalent"
+msgstr "Økonomisk ækvivalent"
+
+msgid "Assigned on"
+msgstr "Tildelt den"
+
+msgid "Assigned until"
+msgstr "Tildelt indtil"
+
+msgid "Assigned by"
+msgstr "Tildelt af"
+
+msgid "Notifications sent"
+msgstr "Notifikationer sendt"
+
+msgid "Send notification"
+msgstr "Send notifikation"
+
+msgid "Notification sent"
+msgstr "Notifikation sendt"
+
+msgid "Benefit notification"
+msgstr "Fordelsnotifikation"
+
+msgid "From date"
+msgstr "Fra dato"
+
+msgid "Search by name..."
+msgstr "Søg efter navn…"
+
+msgid "Filtering by"
+msgstr "Filtrerer efter"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Ingen diversitetskriterier fundet. Tilføj kriterier først."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Vælg et kriterium fra listen for at se dets statistik."
+
+msgid "No data available for this criterion."
+msgstr "Ingen data tilgængelige for dette kriterium."
+
+msgid "Add periodicity"
+msgstr "Tilføj periodicitet"
+
+msgid "Edit periodicity"
+msgstr "Redigér periodicitet"
+
+msgid "Add stage"
+msgstr "Tilføj fase"
+
+msgid "Edit stage"
+msgstr "Redigér fase"
+
+msgid "Periodicities"
+msgstr "Periodiciter"
+
+msgid "Evaluation stages"
+msgstr "Evalueringstrin"
+
+msgid "Evaluation templates"
+msgstr "Evalueringsskabeloner"
+
+msgid "Add evaluation template"
+msgstr "Tilføj evalueringsskabelon"
+
+msgid "Edit evaluation template"
+msgstr "Redigér evalueringsskabelon"
+
+msgid "Add template"
+msgstr "Tilføj skabelon"
+
+msgid "Scheduled evaluations"
+msgstr "Planlagte evalueringer"
+
+msgid "Schedule evaluation"
+msgstr "Planlæg evaluering"
+
+msgid "Evaluation form"
+msgstr "Evalueringsskjema"
+
+msgid "My evaluations"
+msgstr "Mine evalueringer"
+
+msgid "Evaluations of me"
+msgstr "Evalueringer af mig"
+
+msgid "Evaluations I must conduct"
+msgstr "Evalueringer jeg skal udføre"
+
+msgid "Evaluatee"
+msgstr "Evaluerede"
+
+msgid "Evaluator"
+msgstr "Evaluator"
+
+msgid "Evaluator(s)"
+msgstr "Evaluatore(r)"
+
+msgid "Scheduled date"
+msgstr "Planlagt dato"
+
+msgid "Evaluation stage"
+msgstr "Evalueringstrin"
+
+msgid "Save draft"
+msgstr "Gem udkast"
+
+msgid "Send to evaluatee"
+msgstr "Send til evalueret"
+
+msgid "Submit feedback"
+msgstr "Indsend feedback"
+
+msgid "Close evaluation"
+msgstr "Luk evaluering"
+
+msgid "Feedbacked"
+msgstr "Feedback givet"
+
+msgid "Action plan for next period"
+msgstr "Handlingsplan for næste periode"
+
+msgid "Save action plan"
+msgstr "Gem handlingsplan"
+
+msgid "Next evaluation date"
+msgstr "Næste evalueringdato"
+
+msgid "History of evaluations"
+msgstr "Historik over evalueringer"
+
+msgid "Evaluator comment"
+msgstr "Evaluators kommentar"
+
+msgid "Evaluatee comment"
+msgstr "Evaluerets kommentar"
+
+msgid "Weight %"
+msgstr "Vægt %"
+
+msgid "Must equal 100%"
+msgstr "Skal være lig med 100%"
+
+msgid "No skills added yet."
+msgstr "Ingen kompetencer tilføjet endnu."
+
+msgid "No activities added yet."
+msgstr "Ingen aktiviteter tilføjet endnu."
+
+msgid "No objectives added yet."
+msgstr "Ingen mål tilføjet endnu."
+
+msgid "No action plan defined."
+msgstr "Ingen handlingsplan defineret."
+
+msgid "No comments yet."
+msgstr "Ingen kommentarer endnu."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Hold Ctrl/Cmd for at vælge flere evaluater."
+
+msgid "Scheduled"
+msgstr "Planlagt"
+
+msgid "Items"
+msgstr "Elementer"
+
+msgid "Remove skill"
+msgstr "Fjern kompetence"
+
+msgid "Remove activity"
+msgstr "Fjern aktivitet"
+
+msgid "Remove objective"
+msgstr "Fjern mål"
+
+msgid "Could not load periodicities"
+msgstr "Kunne ikke indlæse periodiciteter"
+
+msgid "Could not load evaluation stages"
+msgstr "Kunne ikke indlæse evalueringstrin"
+
+msgid "Could not load templates"
+msgstr "Kunne ikke indlæse skabeloner"
+
+msgid "Template saved"
+msgstr "Skabelon gemt"
+
+msgid "Could not save template"
+msgstr "Kunne ikke gemme skabelon"
+
+msgid "Could not load evaluations"
+msgstr "Kunne ikke indlæse evalueringer"
+
+msgid "Could not save evaluation"
+msgstr "Kunne ikke gemme evaluering"
+
+msgid "Evaluation scheduled"
+msgstr "Evaluering planlagt"
+
+msgid "Evaluation updated"
+msgstr "Evaluering opdateret"
+
+msgid "Could not load evaluation"
+msgstr "Kunne ikke indlæse evaluering"
+
+msgid "Draft saved"
+msgstr "Udkast gemt"
+
+msgid "Could not save draft"
+msgstr "Kunne ikke gemme udkast"
+
+msgid "Sent to evaluatee"
+msgstr "Sendt til evalueret"
+
+msgid "Could not send"
+msgstr "Kunne ikke sende"
+
+msgid "Feedback submitted"
+msgstr "Feedback indsendt"
+
+msgid "Could not submit feedback"
+msgstr "Kunne ikke indsende feedback"
+
+msgid "Evaluation closed"
+msgstr "Evaluering lukket"
+
+msgid "Could not close evaluation"
+msgstr "Kunne ikke lukke evaluering"
+
+msgid "Action plan saved"
+msgstr "Handlingsplan gemt"
+
+msgid "Could not save action plan"
+msgstr "Kunne ikke gemme handlingsplan"
+
+msgid "Comment sent"
+msgstr "Kommentar sendt"
+
+msgid "Could not send comment"
+msgstr "Kunne ikke sende kommentar"
+
+msgid "Reminders scheduled"
+msgstr "Påmindelser planlagt"
+
+msgid "Search by evaluatee"
+msgstr "Søg efter evalueret"
+
+msgid "Overdue"
+msgstr "Overtiden"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Er du sikker på, at du vil slette denne periodicitet?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Er du sikker på, at du vil slette dette trin?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Er du sikker på, at du vil slette denne evaluering?"
+
+msgid "Loading…"
+msgstr "Indlæser…"
 

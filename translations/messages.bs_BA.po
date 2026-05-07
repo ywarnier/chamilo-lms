@@ -4138,7 +4138,7 @@ msgid "MySql Client"
 msgstr "MySql Klijent"
 
 msgid "MySql Server"
-msgstr "MySql Server"
+msgstr "MySQL Server"
 
 msgid "Owner"
 msgstr "Vlasnik"
@@ -34059,6 +34059,15 @@ msgstr "Ankete o radnom okruženju"
 msgid "Diversity criteria"
 msgstr "Kriteriji raznolikosti"
 
+msgid "Add diversity criterion"
+msgstr "Dodaj kriterij raznolikosti"
+
+msgid "Edit diversity criterion"
+msgstr "Uredi kriterij raznolikosti"
+
+msgid "Extra field"
+msgstr "Dodatno polje"
+
 msgid "Diversity guidelines"
 msgstr "Smjernice za raznolikost"
 
@@ -34265,6 +34274,297 @@ msgstr "Prevedi s AI"
 msgid "Enter manually"
 msgstr "Unesi ručno"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Nema konfiguriranog AI pružatelja teksta. Molimo konfigurirajte jednog u AI postavkama."
+msgid "Paste user URL or IRI…"
+msgstr "Zalijepi URL ili IRI korisnika…"
+
+msgid "Add benefit"
+msgstr "Dodaj benefit"
+
+msgid "Edit benefit"
+msgstr "Uredi benefit"
+
+msgid "Add tag"
+msgstr "Dodaj oznaku"
+
+msgid "Edit tag"
+msgstr "Uredi oznaku"
+
+msgid "No tags available"
+msgstr "Nema dostupnih oznaka"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Ne možete obrisati benefit koji ima aktivne dodjele."
+
+msgid "Assign benefit"
+msgstr "Dodijeli benefit"
+
+msgid "My benefits"
+msgstr "Moji benefiti"
+
+msgid "Beneficiary"
+msgstr "Beneficijar"
+
+msgid "Economical equivalent"
+msgstr "Ekonomski ekvivalent"
+
+msgid "Assigned on"
+msgstr "Dodijeljeno dana"
+
+msgid "Assigned until"
+msgstr "Dodijeljeno do"
+
+msgid "Assigned by"
+msgstr "Dodijelio"
+
+msgid "Notifications sent"
+msgstr "Notifikacije poslane"
+
+msgid "Send notification"
+msgstr "Pošalji notifikaciju"
+
+msgid "Notification sent"
+msgstr "Notifikacija poslana"
+
+msgid "Benefit notification"
+msgstr "Notifikacija benefita"
+
+msgid "From date"
+msgstr "Od datuma"
+
+msgid "Search by name..."
+msgstr "Pretraži po nazivu..."
+
+msgid "Filtering by"
+msgstr "Filtriranje po"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nema pronađenih kriterija raznolikosti. Prvo dodajte kriterije."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Odaberite kriterij sa liste da biste vidjeli njegovu statistiku."
+
+msgid "No data available for this criterion."
+msgstr "Nema dostupnih podataka za ovaj kriterij."
+
+msgid "Add periodicity"
+msgstr "Dodaj periodicnost"
+
+msgid "Edit periodicity"
+msgstr "Uredi periodicnost"
+
+msgid "Add stage"
+msgstr "Dodaj fazu"
+
+msgid "Edit stage"
+msgstr "Uredi fazu"
+
+msgid "Periodicities"
+msgstr "Periodicnosti"
+
+msgid "Evaluation stages"
+msgstr "Faze evaluacije"
+
+msgid "Evaluation templates"
+msgstr "Predlošci evaluacije"
+
+msgid "Add evaluation template"
+msgstr "Dodaj predložak evaluacije"
+
+msgid "Edit evaluation template"
+msgstr "Uredi predložak evaluacije"
+
+msgid "Add template"
+msgstr "Dodaj predložak"
+
+msgid "Scheduled evaluations"
+msgstr "Zakažane evaluacije"
+
+msgid "Schedule evaluation"
+msgstr "Zakaži evaluaciju"
+
+msgid "Evaluation form"
+msgstr "Obrazac evaluacije"
+
+msgid "My evaluations"
+msgstr "Moje evaluacije"
+
+msgid "Evaluations of me"
+msgstr "Evaluacije mene"
+
+msgid "Evaluations I must conduct"
+msgstr "Evaluacije koje moram sprovesti"
+
+msgid "Evaluatee"
+msgstr "Evaluirani"
+
+msgid "Evaluator"
+msgstr "Evaluater"
+
+msgid "Evaluator(s)"
+msgstr "Evaluateri"
+
+msgid "Scheduled date"
+msgstr "Zakazani datum"
+
+msgid "Evaluation stage"
+msgstr "Faza evaluacije"
+
+msgid "Save draft"
+msgstr "Spremi nacrt"
+
+msgid "Send to evaluatee"
+msgstr "Pošalji evaluiranom"
+
+msgid "Submit feedback"
+msgstr "Pošalji povratne informacije"
+
+msgid "Close evaluation"
+msgstr "Zatvori evaluaciju"
+
+msgid "Feedbacked"
+msgstr "Povratne informacije poslane"
+
+msgid "Action plan for next period"
+msgstr "Plan aktivnosti za sljedeći period"
+
+msgid "Save action plan"
+msgstr "Spremi plan aktivnosti"
+
+msgid "Next evaluation date"
+msgstr "Datum sljedeće evaluacije"
+
+msgid "History of evaluations"
+msgstr "Povijest evaluacija"
+
+msgid "Evaluator comment"
+msgstr "Komentar evaluirača"
+
+msgid "Evaluatee comment"
+msgstr "Komentar evaluiranog"
+
+msgid "Weight %"
+msgstr "Težina %"
+
+msgid "Must equal 100%"
+msgstr "Mora biti 100%"
+
+msgid "No skills added yet."
+msgstr "Još nema dodanih vještina."
+
+msgid "No activities added yet."
+msgstr "Još nema dodanih aktivnosti."
+
+msgid "No objectives added yet."
+msgstr "Još nema dodanih ciljeva."
+
+msgid "No action plan defined."
+msgstr "Plan aktivnosti nije definiran."
+
+msgid "No comments yet."
+msgstr "Još nema komentara."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Držite Ctrl/Cmd za odabir više evaluirača."
+
+msgid "Scheduled"
+msgstr "Zakazano"
+
+msgid "Items"
+msgstr "Stavke"
+
+msgid "Remove skill"
+msgstr "Ukloni vještinu"
+
+msgid "Remove activity"
+msgstr "Ukloni aktivnost"
+
+msgid "Remove objective"
+msgstr "Ukloni cilj"
+
+msgid "Could not load periodicities"
+msgstr "Nije moguće učitati periodicnosti"
+
+msgid "Could not load evaluation stages"
+msgstr "Nije moguće učitati faze evaluacije"
+
+msgid "Could not load templates"
+msgstr "Nije moguće učitati predloške"
+
+msgid "Template saved"
+msgstr "Predložak spremljen"
+
+msgid "Could not save template"
+msgstr "Nije moguće spremiti predložak"
+
+msgid "Could not load evaluations"
+msgstr "Nije moguće učitati evaluacije"
+
+msgid "Could not save evaluation"
+msgstr "Nije moguće spremiti evaluaciju"
+
+msgid "Evaluation scheduled"
+msgstr "Evaluacija zakazana"
+
+msgid "Evaluation updated"
+msgstr "Evaluacija ažurirana"
+
+msgid "Could not load evaluation"
+msgstr "Nije moguće učitati evaluaciju"
+
+msgid "Draft saved"
+msgstr "Nacrt spremljen"
+
+msgid "Could not save draft"
+msgstr "Nije moguće spremiti nacrt"
+
+msgid "Sent to evaluatee"
+msgstr "Poslano evaluiranom"
+
+msgid "Could not send"
+msgstr "Nije moguće poslati"
+
+msgid "Feedback submitted"
+msgstr "Povratne informacije poslane"
+
+msgid "Could not submit feedback"
+msgstr "Nije moguće poslati povratne informacije"
+
+msgid "Evaluation closed"
+msgstr "Evaluacija zatvorena"
+
+msgid "Could not close evaluation"
+msgstr "Nije moguće zatvoriti evaluaciju"
+
+msgid "Action plan saved"
+msgstr "Plan aktivnosti spremljen"
+
+msgid "Could not save action plan"
+msgstr "Nije moguće spremiti plan aktivnosti"
+
+msgid "Comment sent"
+msgstr "Komentar poslan"
+
+msgid "Could not send comment"
+msgstr "Nije moguće poslati komentar"
+
+msgid "Reminders scheduled"
+msgstr "Podsjetnici zakazani"
+
+msgid "Search by evaluatee"
+msgstr "Pretraga po evaluiranom"
+
+msgid "Overdue"
+msgstr "Prošlo"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Jeste li sigurni da želite obrisati ovu periodičnost?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Jeste li sigurni da želite obrisati ovu fazu?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Jeste li sigurni da želite obrisati ovu procjenu?"
+
+msgid "Loading…"
+msgstr "Učitavanje…"
 

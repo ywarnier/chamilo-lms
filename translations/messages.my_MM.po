@@ -34063,6 +34063,15 @@ msgstr "အလုပ်ပတ်ဝန်းကျင်စစ်တမ်းမ
 msgid "Diversity criteria"
 msgstr "မတူကွဲပြားမှုစံနှုန်းများ"
 
+msgid "Add diversity criterion"
+msgstr "မတူကွဲပြားမှု စံနှုန်း ထပ်မံထည့်ရန်"
+
+msgid "Edit diversity criterion"
+msgstr "မတူကွဲပြားမှု စံနှုန်း တည်းဖြတ်ရန်"
+
+msgid "Extra field"
+msgstr "အပိုဖွဲ့စည်းပုံ"
+
 msgid "Diversity guidelines"
 msgstr "မတူကွဲပြားမှုလမ်းညွှန်ချက်များ"
 
@@ -34269,6 +34278,297 @@ msgstr "AI ဖြင့်ဘာသာပြန်ရန်"
 msgid "Enter manually"
 msgstr "လက်စွဲရေးရန်"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "AI စာသားပေးသူ မထောက်ပံ့ထားပါ။ AI ဆက်တင်များတွင် တစ်ခုကို ထောက်ပံ့ပါ။"
+msgid "Paste user URL or IRI…"
+msgstr "အသုံးပြုသူ URL သို့မဟုတ် IRI ကို ကူးထည့်ပါ…"
+
+msgid "Add benefit"
+msgstr "အကျိုးခံစားခွင့် ထပ်မံထည့်ရန်"
+
+msgid "Edit benefit"
+msgstr "အကျိုးခံစားခွင့် တည်းဖြတ်ရန်"
+
+msgid "Add tag"
+msgstr "တံဆိပ် ထပ်မံထည့်ရန်"
+
+msgid "Edit tag"
+msgstr "တံဆိပ် တည်းဖြတ်ရန်"
+
+msgid "No tags available"
+msgstr "ရရှိနိုင်သော တံဆိပ်များ မရှိပါ"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "လက်ရှိ တာဝန်ပေးထားသော အကျိုးခံစားခွင့်ကို ဖျက်လို့ မရပါ။"
+
+msgid "Assign benefit"
+msgstr "အကျိုးခံစားခွင့် တာဝန်ပေးရန်"
+
+msgid "My benefits"
+msgstr "ကျွန်ုပ်၏ အကျိုးခံစားခွင့်များ"
+
+msgid "Beneficiary"
+msgstr "အကျိုးခံစားရသူ"
+
+msgid "Economical equivalent"
+msgstr "စီးပွားရေး တန်ဖိုး ညီမျှမှု"
+
+msgid "Assigned on"
+msgstr "တာဝန်ပေးထားသည့်နေ့"
+
+msgid "Assigned until"
+msgstr "တာဝန်ပေးထားသည်အထိ"
+
+msgid "Assigned by"
+msgstr "တာဝန်ပေးသူ"
+
+msgid "Notifications sent"
+msgstr "ပေးပို့ထားသော အသိပေးချက်များ"
+
+msgid "Send notification"
+msgstr "အသိပေးချက် ပေးပို့ရန်"
+
+msgid "Notification sent"
+msgstr "အသိပေးချက် ပေးပို့ပြီး"
+
+msgid "Benefit notification"
+msgstr "အကျိုးခံစားခွင့် အသိပေးချက်"
+
+msgid "From date"
+msgstr "ရက်စွဲမှ"
+
+msgid "Search by name..."
+msgstr "အမည်ဖြင့် ရှာဖွေရန်…"
+
+msgid "Filtering by"
+msgstr "စစ်ထုတ်နေသည်"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "မတူကွဲပြားမှု စံနှုန်း မတွေ့ရပါ။ စံနှုန်းများ ဦးစွာ ထည့်ပါ။"
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "စာရင်းမှ စံနှုန်းတစ်ခု ရွေးချယ်ပြီး ၎င်း၏ စာရင်းအရေအတွက်ကို ကြည့်ရှုပါ။"
+
+msgid "No data available for this criterion."
+msgstr "ဤစံနှုန်းအတွက် ဒေတာ မရှိပါ။"
+
+msgid "Add periodicity"
+msgstr "ထပ်ခါတလဲလဲ ထည့်ရန်"
+
+msgid "Edit periodicity"
+msgstr "ထပ်ခါတလဲလဲ တည်းဖြတ်ရန်"
+
+msgid "Add stage"
+msgstr "အဆင့် ထပ်မံထည့်ရန်"
+
+msgid "Edit stage"
+msgstr "အဆင့် တည်းဖြတ်ရန်"
+
+msgid "Periodicities"
+msgstr "ထပ်ခါတလဲလဲများ"
+
+msgid "Evaluation stages"
+msgstr "အကဲဖြတ်ရေး အဆင့်များ"
+
+msgid "Evaluation templates"
+msgstr "အကဲဖြတ်ရေး ပုံစံများ"
+
+msgid "Add evaluation template"
+msgstr "အကဲဖြတ်ရေး ပုံစံ ထပ်မံထည့်ရန်"
+
+msgid "Edit evaluation template"
+msgstr "အကဲဖြတ်ရေး ပုံစံ တည်းဖြတ်ရန်"
+
+msgid "Add template"
+msgstr "ပုံစံ ထပ်မံထည့်ရန်"
+
+msgid "Scheduled evaluations"
+msgstr "စီစဉ်ထားသော အကဲဖြတ်မှုများ"
+
+msgid "Schedule evaluation"
+msgstr "အကဲဖြတ်မှု စီစဉ်ရန်"
+
+msgid "Evaluation form"
+msgstr "အကဲဖြတ်ရေး ဖောင်"
+
+msgid "My evaluations"
+msgstr "ကျွန်ုပ်၏ အကဲဖြတ်မှုများ"
+
+msgid "Evaluations of me"
+msgstr "ကျွန်ုပ်ကို အကဲဖြတ်မှုများ"
+
+msgid "Evaluations I must conduct"
+msgstr "ကျွန်ုပ်ပြုလုပ်ရမည့် အကဲဖြတ်မှုများ"
+
+msgid "Evaluatee"
+msgstr "အကဲဖြတ်ခံရသူ"
+
+msgid "Evaluator"
+msgstr "အကဲဖြတ်သူ"
+
+msgid "Evaluator(s)"
+msgstr "အကဲဖြတ်သူ(များ)"
+
+msgid "Scheduled date"
+msgstr "စီစဉ်ထားသော ရက်စွဲ"
+
+msgid "Evaluation stage"
+msgstr "အကဲဖြတ်ရေး အဆင့်"
+
+msgid "Save draft"
+msgstr "မူကြမ်းသိမ်း"
+
+msgid "Send to evaluatee"
+msgstr "အကဲဖြတ်ခံရသူထံ ပို့ပါ"
+
+msgid "Submit feedback"
+msgstr "တုံ့ပြန်ချက်တင်ပါ"
+
+msgid "Close evaluation"
+msgstr "အကဲဖြတ်မှုပိတ်ပါ"
+
+msgid "Feedbacked"
+msgstr "တုံ့ပြန်ချက်ပေးပြီး"
+
+msgid "Action plan for next period"
+msgstr "နောက်ကာလအတွက် လုပ်ဆောင်ချက်အစီအစဉ်"
+
+msgid "Save action plan"
+msgstr "လုပ်ဆောင်ချက်အစီအစဉ်သိမ်း"
+
+msgid "Next evaluation date"
+msgstr "နောက်အကဲဖြတ်မှုရက်စွဲ"
+
+msgid "History of evaluations"
+msgstr "အကဲဖြတ်မှုမှတ်တမ်း"
+
+msgid "Evaluator comment"
+msgstr "အကဲဖြတ်သူမှတ်ချက်"
+
+msgid "Evaluatee comment"
+msgstr "အကဲဖြတ်ခံရသူမှတ်ချက်"
+
+msgid "Weight %"
+msgstr "အလေးချိန် %"
+
+msgid "Must equal 100%"
+msgstr "100% နှင့်ညီရမည်"
+
+msgid "No skills added yet."
+msgstr "စွမ်းရည်များ မထည့်ရသေးပါ။"
+
+msgid "No activities added yet."
+msgstr "လှုပ်ရှားမှုများ မထည့်ရသေးပါ။"
+
+msgid "No objectives added yet."
+msgstr "ရည်မှန်းချက်များ မထည့်ရသေးပါ။"
+
+msgid "No action plan defined."
+msgstr "လုပ်ဆောင်ချက်အစီအစဉ် မသတ်မှတ်ရသေးပါ။"
+
+msgid "No comments yet."
+msgstr "မှတ်ချက်များ မရှိသေးပါ။"
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "အကဲဖြတ်သူများစွာရွေးရန် Ctrl/Cmd ကို ဖိထားပါ။"
+
+msgid "Scheduled"
+msgstr "အချိန်ဇယားထည့်ထားသည်"
+
+msgid "Items"
+msgstr "အရာများ"
+
+msgid "Remove skill"
+msgstr "စွမ်းရည်ဖယ်ရှားပါ"
+
+msgid "Remove activity"
+msgstr "လှုပ်ရှားမှုဖယ်ရှားပါ"
+
+msgid "Remove objective"
+msgstr "ရည်မှန်းချက်ဖယ်ရှားပါ"
+
+msgid "Could not load periodicities"
+msgstr "ကာလများများ မဖွင့်လှစ်နိုင်ပါ"
+
+msgid "Could not load evaluation stages"
+msgstr "အကဲဖြတ်မှုအဆင့်များ မဖွင့်လှစ်နိုင်ပါ"
+
+msgid "Could not load templates"
+msgstr "ပုံစံများ မဖွင့်လှစ်နိုင်ပါ"
+
+msgid "Template saved"
+msgstr "ပုံစံသိမ်းဆည်းပြီး"
+
+msgid "Could not save template"
+msgstr "ပုံစံမသိမ်းနိုင်ပါ"
+
+msgid "Could not load evaluations"
+msgstr "အကဲဖြတ်မှုများ မဖွင့်လှစ်နိုင်ပါ"
+
+msgid "Could not save evaluation"
+msgstr "အကဲဖြတ်မှုမသိမ်းနိုင်ပါ"
+
+msgid "Evaluation scheduled"
+msgstr "အကဲဖြတ်မှု အချိန်ဇယားထည့်ပြီး"
+
+msgid "Evaluation updated"
+msgstr "အကဲဖြတ်မှု အပ်ဒိတ်လုပ်ပြီး"
+
+msgid "Could not load evaluation"
+msgstr "အကဲဖြတ်မှု မဖွင့်လှစ်နိုင်ပါ"
+
+msgid "Draft saved"
+msgstr "မူကြမ်း သိမ်းဆည်းပြီး"
+
+msgid "Could not save draft"
+msgstr "မူကြမ်း မသိမ်းနိုင်ပါ"
+
+msgid "Sent to evaluatee"
+msgstr "အကဲဖြတ်ခံရသူထံ ပို့ပြီး"
+
+msgid "Could not send"
+msgstr "ပို့မပို့နိုင်ပါ"
+
+msgid "Feedback submitted"
+msgstr "တုံ့ပြန်ချက်တင်ပြီး"
+
+msgid "Could not submit feedback"
+msgstr "တုံ့ပြန်ချက်မတင်နိုင်ပါ"
+
+msgid "Evaluation closed"
+msgstr "အကဲဖြတ်မှု ပိတ်ပြီး"
+
+msgid "Could not close evaluation"
+msgstr "အကဲဖြတ်မှု မပိတ်နိုင်ပါ"
+
+msgid "Action plan saved"
+msgstr "လုပ်ဆောင်ချက်အစီအစဉ် သိမ်းဆည်းပြီး"
+
+msgid "Could not save action plan"
+msgstr "လုပ်ဆောင်ချက်အစီအစဉ် မသိမ်းနိုင်ပါ"
+
+msgid "Comment sent"
+msgstr "မှတ်ချက်ပို့ပြီး"
+
+msgid "Could not send comment"
+msgstr "မှတ်ချက်မပို့နိုင်ပါ"
+
+msgid "Reminders scheduled"
+msgstr "သတိပေးချက်များ အချိန်ဇယားထည့်ပြီး"
+
+msgid "Search by evaluatee"
+msgstr "အကဲဖြတ်ခံရသူအလိုရှာဖွေပါ"
+
+msgid "Overdue"
+msgstr "သက်တမ်းကုန်ပြီး"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "ဤကာလများများကို ဖျက်မည်မှာ သေချာပါသလား?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "ဤအဆင့်ကို ဖျက်မှာလား သေချာပါသလား။"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "ဤအကဲဖြတ်မှုကို ဖျက်မှာလား သေချာပါသလား။"
+
+msgid "Loading…"
+msgstr "လုပ်နေပါသည်…"
 

@@ -34065,6 +34065,15 @@ msgstr "工作氛围调查"
 msgid "Diversity criteria"
 msgstr "多样性标准"
 
+msgid "Add diversity criterion"
+msgstr "添加多样性标准"
+
+msgid "Edit diversity criterion"
+msgstr "编辑多样性标准"
+
+msgid "Extra field"
+msgstr "额外字段"
+
 msgid "Diversity guidelines"
 msgstr "多样性指南"
 
@@ -34271,6 +34280,297 @@ msgstr "使用 AI 翻译"
 msgid "Enter manually"
 msgstr "手动输入"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "未配置 AI 文本提供商。请在 AI 设置中配置一个。"
+msgid "Paste user URL or IRI…"
+msgstr "粘贴用户 URL 或 IRI…"
+
+msgid "Add benefit"
+msgstr "添加福利"
+
+msgid "Edit benefit"
+msgstr "编辑福利"
+
+msgid "Add tag"
+msgstr "添加标签"
+
+msgid "Edit tag"
+msgstr "编辑标签"
+
+msgid "No tags available"
+msgstr "没有可用标签"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "无法删除有活跃分配的福利。"
+
+msgid "Assign benefit"
+msgstr "分配福利"
+
+msgid "My benefits"
+msgstr "我的福利"
+
+msgid "Beneficiary"
+msgstr "受益人"
+
+msgid "Economical equivalent"
+msgstr "经济等值"
+
+msgid "Assigned on"
+msgstr "分配于"
+
+msgid "Assigned until"
+msgstr "分配至"
+
+msgid "Assigned by"
+msgstr "分配者"
+
+msgid "Notifications sent"
+msgstr "已发送通知"
+
+msgid "Send notification"
+msgstr "发送通知"
+
+msgid "Notification sent"
+msgstr "通知已发送"
+
+msgid "Benefit notification"
+msgstr "福利通知"
+
+msgid "From date"
+msgstr "起始日期"
+
+msgid "Search by name..."
+msgstr "按名称搜索…"
+
+msgid "Filtering by"
+msgstr "筛选依据"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "未找到多样性标准。请先添加标准。"
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "从列表中选择一个标准以查看其统计信息。"
+
+msgid "No data available for this criterion."
+msgstr "此标准无可用数据。"
+
+msgid "Add periodicity"
+msgstr "添加周期性"
+
+msgid "Edit periodicity"
+msgstr "编辑周期性"
+
+msgid "Add stage"
+msgstr "添加阶段"
+
+msgid "Edit stage"
+msgstr "编辑阶段"
+
+msgid "Periodicities"
+msgstr "周期性"
+
+msgid "Evaluation stages"
+msgstr "评估阶段"
+
+msgid "Evaluation templates"
+msgstr "评估模板"
+
+msgid "Add evaluation template"
+msgstr "添加评估模板"
+
+msgid "Edit evaluation template"
+msgstr "编辑评估模板"
+
+msgid "Add template"
+msgstr "添加模板"
+
+msgid "Scheduled evaluations"
+msgstr "计划评估"
+
+msgid "Schedule evaluation"
+msgstr "安排评估"
+
+msgid "Evaluation form"
+msgstr "评估表单"
+
+msgid "My evaluations"
+msgstr "我的评估"
+
+msgid "Evaluations of me"
+msgstr "对我的评估"
+
+msgid "Evaluations I must conduct"
+msgstr "我必须进行的评估"
+
+msgid "Evaluatee"
+msgstr "被评估者"
+
+msgid "Evaluator"
+msgstr "评估者"
+
+msgid "Evaluator(s)"
+msgstr "评估者"
+
+msgid "Scheduled date"
+msgstr "计划日期"
+
+msgid "Evaluation stage"
+msgstr "评估阶段"
+
+msgid "Save draft"
+msgstr "保存草稿"
+
+msgid "Send to evaluatee"
+msgstr "发送给被评估者"
+
+msgid "Submit feedback"
+msgstr "提交反馈"
+
+msgid "Close evaluation"
+msgstr "关闭评估"
+
+msgid "Feedbacked"
+msgstr "已反馈"
+
+msgid "Action plan for next period"
+msgstr "下一周期行动计划"
+
+msgid "Save action plan"
+msgstr "保存行动计划"
+
+msgid "Next evaluation date"
+msgstr "下次评估日期"
+
+msgid "History of evaluations"
+msgstr "评估历史"
+
+msgid "Evaluator comment"
+msgstr "评估者评论"
+
+msgid "Evaluatee comment"
+msgstr "被评估者评论"
+
+msgid "Weight %"
+msgstr "权重 %"
+
+msgid "Must equal 100%"
+msgstr "必须等于 100%"
+
+msgid "No skills added yet."
+msgstr "尚未添加技能。"
+
+msgid "No activities added yet."
+msgstr "尚未添加活动。"
+
+msgid "No objectives added yet."
+msgstr "尚未添加目标。"
+
+msgid "No action plan defined."
+msgstr "尚未定义行动计划。"
+
+msgid "No comments yet."
+msgstr "暂无评论。"
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "按住 Ctrl/Cmd 选择多个评估者。"
+
+msgid "Scheduled"
+msgstr "已计划"
+
+msgid "Items"
+msgstr "项目"
+
+msgid "Remove skill"
+msgstr "移除技能"
+
+msgid "Remove activity"
+msgstr "移除活动"
+
+msgid "Remove objective"
+msgstr "移除目标"
+
+msgid "Could not load periodicities"
+msgstr "无法加载周期性"
+
+msgid "Could not load evaluation stages"
+msgstr "无法加载评估阶段"
+
+msgid "Could not load templates"
+msgstr "无法加载模板"
+
+msgid "Template saved"
+msgstr "模板已保存"
+
+msgid "Could not save template"
+msgstr "无法保存模板"
+
+msgid "Could not load evaluations"
+msgstr "无法加载评估"
+
+msgid "Could not save evaluation"
+msgstr "无法保存评估"
+
+msgid "Evaluation scheduled"
+msgstr "评估已调度"
+
+msgid "Evaluation updated"
+msgstr "评估已更新"
+
+msgid "Could not load evaluation"
+msgstr "无法加载评估"
+
+msgid "Draft saved"
+msgstr "草稿已保存"
+
+msgid "Could not save draft"
+msgstr "无法保存草稿"
+
+msgid "Sent to evaluatee"
+msgstr "已发送给被评估者"
+
+msgid "Could not send"
+msgstr "无法发送"
+
+msgid "Feedback submitted"
+msgstr "反馈已提交"
+
+msgid "Could not submit feedback"
+msgstr "无法提交反馈"
+
+msgid "Evaluation closed"
+msgstr "评估已关闭"
+
+msgid "Could not close evaluation"
+msgstr "无法关闭评估"
+
+msgid "Action plan saved"
+msgstr "行动计划已保存"
+
+msgid "Could not save action plan"
+msgstr "无法保存行动计划"
+
+msgid "Comment sent"
+msgstr "评论已发送"
+
+msgid "Could not send comment"
+msgstr "无法发送评论"
+
+msgid "Reminders scheduled"
+msgstr "提醒已调度"
+
+msgid "Search by evaluatee"
+msgstr "按被评估者搜索"
+
+msgid "Overdue"
+msgstr "逾期"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "您确定要删除此周期性吗？"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "您确定要删除此阶段吗？"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "您确定要删除此评估吗？"
+
+msgid "Loading…"
+msgstr "加载中…"
 

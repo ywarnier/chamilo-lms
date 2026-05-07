@@ -34059,6 +34059,15 @@ msgstr "د کار چاپیریال سروې"
 msgid "Diversity criteria"
 msgstr "د تنوع معیارونه"
 
+msgid "Add diversity criterion"
+msgstr "د تنوع معیار اضافه کړئ"
+
+msgid "Edit diversity criterion"
+msgstr "د تنوع معیار سمول"
+
+msgid "Extra field"
+msgstr "اضافي فیلډ"
+
 msgid "Diversity guidelines"
 msgstr "د تنوع لارښوونې"
 
@@ -34265,6 +34274,297 @@ msgstr "د مصنوعي ذکاوت سره ژباړه کول"
 msgid "Enter manually"
 msgstr "لاسي ډول کول"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "هیڅ AI متن چمتو کونکی تنظیم شوی نه دی. مهرباني وکړئ یو یې په AI ایښودو کې تنظیم کړئ."
+msgid "Paste user URL or IRI…"
+msgstr "د کارن URL یا IRI کاپي کړئ…"
+
+msgid "Add benefit"
+msgstr "ګټه اضافه کړئ"
+
+msgid "Edit benefit"
+msgstr "ګټه سم کړئ"
+
+msgid "Add tag"
+msgstr "ټاګ اضافه کړئ"
+
+msgid "Edit tag"
+msgstr "ټاګ سم کړئ"
+
+msgid "No tags available"
+msgstr "هیڅ ټاګونه شتون نلري"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "نمی کیدی شي هغه ګټه چې فعال ټاکل شوي لري له منځه یوسئ."
+
+msgid "Assign benefit"
+msgstr "ګټه ټاکئ"
+
+msgid "My benefits"
+msgstr "زما ګټې"
+
+msgid "Beneficiary"
+msgstr "ګټه اخیستونکی"
+
+msgid "Economical equivalent"
+msgstr "اقتصادي برابر"
+
+msgid "Assigned on"
+msgstr "په %s کې ټاکل شوی"
+
+msgid "Assigned until"
+msgstr "تر %s پورې ټاکل شوی"
+
+msgid "Assigned by"
+msgstr "د %s لخوا ټاکل شوی"
+
+msgid "Notifications sent"
+msgstr "پیغامونه لیږل شوي"
+
+msgid "Send notification"
+msgstr "خبرتیا واستوئ"
+
+msgid "Notification sent"
+msgstr "خبرتیا لیږل شوې"
+
+msgid "Benefit notification"
+msgstr "د ګټې خبرتیا"
+
+msgid "From date"
+msgstr "د نیټې څخه"
+
+msgid "Search by name..."
+msgstr "د نوم په اساس لټون وکړئ..."
+
+msgid "Filtering by"
+msgstr "د %s له مخې فلټر کول"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "هیڅ تنوع معیارونه ونه موندل شول. لومړی معیارونه اضافه کړئ."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "د آمارونو لیدلو لپاره له فهرست څخه یو معیار غوره کړئ."
+
+msgid "No data available for this criterion."
+msgstr "د دې معیار لپاره هیڅ ډاټا شتون نلري."
+
+msgid "Add periodicity"
+msgstr "د مودې اضافه کړئ"
+
+msgid "Edit periodicity"
+msgstr "د مودې سمول"
+
+msgid "Add stage"
+msgstr "پړاو اضافه کړئ"
+
+msgid "Edit stage"
+msgstr "پړاو سم کړئ"
+
+msgid "Periodicities"
+msgstr "مودې"
+
+msgid "Evaluation stages"
+msgstr "ارزونې پړاوونه"
+
+msgid "Evaluation templates"
+msgstr "ارزونې نمونې"
+
+msgid "Add evaluation template"
+msgstr "ارزونې نمونې اضافه کړئ"
+
+msgid "Edit evaluation template"
+msgstr "ارزونې نمونې سم کړئ"
+
+msgid "Add template"
+msgstr "نمونه اضافه کړئ"
+
+msgid "Scheduled evaluations"
+msgstr "موندل شوي ارزونښتونه"
+
+msgid "Schedule evaluation"
+msgstr "ارزونښت وټول"
+
+msgid "Evaluation form"
+msgstr "ارزونښت فورمه"
+
+msgid "My evaluations"
+msgstr "زما ارزونښتونه"
+
+msgid "Evaluations of me"
+msgstr "زما په اړه ارزونښتونه"
+
+msgid "Evaluations I must conduct"
+msgstr "ارزونښتونه چې زه یې ترسره کوم"
+
+msgid "Evaluatee"
+msgstr "ارزونکی"
+
+msgid "Evaluator"
+msgstr "ارزونونکی"
+
+msgid "Evaluator(s)"
+msgstr "ارزونونکي"
+
+msgid "Scheduled date"
+msgstr "موندل شوی نیټه"
+
+msgid "Evaluation stage"
+msgstr "ارزونښت پړاو"
+
+msgid "Save draft"
+msgstr "مسوده خوندي کړئ"
+
+msgid "Send to evaluatee"
+msgstr "ارزونکي ته واستوئ"
+
+msgid "Submit feedback"
+msgstr "خپلواکي وړاندې کړئ"
+
+msgid "Close evaluation"
+msgstr "ارزونښت بند کړئ"
+
+msgid "Feedbacked"
+msgstr "خپلواکي ورکړل شوی"
+
+msgid "Action plan for next period"
+msgstr "راقبي دورې لپاره عملي پلان"
+
+msgid "Save action plan"
+msgstr "عملي پلان خوندي کړئ"
+
+msgid "Next evaluation date"
+msgstr "راقبي ارزونې نیټه"
+
+msgid "History of evaluations"
+msgstr "ارزونښت تاریخچه"
+
+msgid "Evaluator comment"
+msgstr "ارزونونکي تبصره"
+
+msgid "Evaluatee comment"
+msgstr "ارزونکي تبصره"
+
+msgid "Weight %"
+msgstr "وزن %"
+
+msgid "Must equal 100%"
+msgstr "په ۱۰۰٪ برابر کېږي"
+
+msgid "No skills added yet."
+msgstr "په اوس کې هیڅ مهارت اضافه شوی نه دی."
+
+msgid "No activities added yet."
+msgstr "په اوس کې هیڅ فعالیت اضافه شوی نه دی."
+
+msgid "No objectives added yet."
+msgstr "په اوس کې هیڅ موخې اضافه شوې نه دي."
+
+msgid "No action plan defined."
+msgstr "هیڅ عملي پلان تعریف شوی نه دی."
+
+msgid "No comments yet."
+msgstr "په اوس کې هیڅ تبصرې نشته."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "د څو ارزونونکو انتخاب لپاره Ctrl/Cmd وساتئ."
+
+msgid "Scheduled"
+msgstr "موندل شوی"
+
+msgid "Items"
+msgstr "توکي"
+
+msgid "Remove skill"
+msgstr "مهارت لرې کړئ"
+
+msgid "Remove activity"
+msgstr "فعالیت لرې کړئ"
+
+msgid "Remove objective"
+msgstr "موخه لرې کړئ"
+
+msgid "Could not load periodicities"
+msgstr "د مودې نشي بار کولای"
+
+msgid "Could not load evaluation stages"
+msgstr "ارزونښت پړاوونه نشي بار کولای"
+
+msgid "Could not load templates"
+msgstr "ټیمپلیټونه نشي بار کولای"
+
+msgid "Template saved"
+msgstr "ټیمپلیټ خوندي شو"
+
+msgid "Could not save template"
+msgstr "ټیمپلیټ نشي خوندي کولای"
+
+msgid "Could not load evaluations"
+msgstr "ارزونښتونه نشي بار کولای"
+
+msgid "Could not save evaluation"
+msgstr "ارزونښت نشي خوندي کولای"
+
+msgid "Evaluation scheduled"
+msgstr "ارزونښت وټول شو"
+
+msgid "Evaluation updated"
+msgstr "ارزونښت تازه شو"
+
+msgid "Could not load evaluation"
+msgstr "ارزونښت نشي بار کولای"
+
+msgid "Draft saved"
+msgstr "مسوده خوندي شوه"
+
+msgid "Could not save draft"
+msgstr "مسوده نشي خوندي کولای"
+
+msgid "Sent to evaluatee"
+msgstr "ارزونکي ته واستول شو"
+
+msgid "Could not send"
+msgstr "نشي لیږلای"
+
+msgid "Feedback submitted"
+msgstr "خپلواکي وړاندې شوه"
+
+msgid "Could not submit feedback"
+msgstr "نږدې یې نشو رسولی"
+
+msgid "Evaluation closed"
+msgstr "ارزونه بند شوې"
+
+msgid "Could not close evaluation"
+msgstr "نږدې یې نشو بندولی"
+
+msgid "Action plan saved"
+msgstr "عملي پلان خوندار شو"
+
+msgid "Could not save action plan"
+msgstr "نږدې یې نشو خوندارولی"
+
+msgid "Comment sent"
+msgstr "تبصره واستول شوې"
+
+msgid "Could not send comment"
+msgstr "نږدې یې نشو تبصره واستول"
+
+msgid "Reminders scheduled"
+msgstr "یادونه ګاڼه شوې"
+
+msgid "Search by evaluatee"
+msgstr "د ارزونې شوي له مخې لټون"
+
+msgid "Overdue"
+msgstr "ځنډېدلې"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "آیا تاسو ډاډه یاست چې دا مودي حذف کول غواړئ؟"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "آیا تاسو ډاډه یاست چې دا پړاو حذف کول غواړئ؟"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "آیا تاسو ډاډه یاست چې دا ارزونه حذف کول غواړئ؟"
+
+msgid "Loading…"
+msgstr "بار کېدلي…"
 

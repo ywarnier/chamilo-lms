@@ -34064,6 +34064,15 @@ msgstr "Work climate surveys"
 msgid "Diversity criteria"
 msgstr "Diversity criteria"
 
+msgid "Add diversity criterion"
+msgstr "Add diversity criterion"
+
+msgid "Edit diversity criterion"
+msgstr "Edit diversity criterion"
+
+msgid "Extra field"
+msgstr "Extra field"
+
 msgid "Diversity guidelines"
 msgstr "Diversity guidelines"
 
@@ -34337,3 +34346,239 @@ msgstr "Filtering by"
 
 msgid "Select a benefit"
 msgstr "Select a benefit"
+msgid "No diversity criteria found. Add criteria first."
+msgstr "No diversity criteria found. Add criteria first."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Select a criterion from the list to view its statistics."
+
+msgid "No data available for this criterion."
+msgstr "No data available for this criterion."
+
+msgid "Add periodicity"
+msgstr "Add periodicity"
+
+msgid "Edit periodicity"
+msgstr "Edit periodicity"
+
+msgid "Add stage"
+msgstr "Add stage"
+
+msgid "Edit stage"
+msgstr "Edit stage"
+
+msgid "Periodicities"
+msgstr "Periodicities"
+
+msgid "Evaluation stages"
+msgstr "Evaluation stages"
+
+msgid "Evaluation templates"
+msgstr "Evaluation templates"
+
+msgid "Add evaluation template"
+msgstr "Add evaluation template"
+
+msgid "Edit evaluation template"
+msgstr "Edit evaluation template"
+
+msgid "Add template"
+msgstr "Add template"
+
+msgid "Scheduled evaluations"
+msgstr "Scheduled evaluations"
+
+msgid "Schedule evaluation"
+msgstr "Schedule evaluation"
+
+msgid "Evaluation form"
+msgstr "Evaluation form"
+
+msgid "My evaluations"
+msgstr "My evaluations"
+
+msgid "Evaluations of me"
+msgstr "Evaluations of me"
+
+msgid "Evaluations I must conduct"
+msgstr "Evaluations I must conduct"
+
+msgid "Evaluatee"
+msgstr "Evaluatee"
+
+msgid "Evaluator"
+msgstr "Evaluator"
+
+msgid "Evaluator(s)"
+msgstr "Evaluator(s)"
+
+msgid "Scheduled date"
+msgstr "Scheduled date"
+
+msgid "Evaluation stage"
+msgstr "Evaluation stage"
+
+msgid "Save draft"
+msgstr "Save draft"
+
+msgid "Send to evaluatee"
+msgstr "Send to evaluatee"
+
+msgid "Submit feedback"
+msgstr "Submit feedback"
+
+msgid "Close evaluation"
+msgstr "Close evaluation"
+
+msgid "Feedbacked"
+msgstr "Feedbacked"
+
+msgid "Action plan for next period"
+msgstr "Action plan for next period"
+
+msgid "Save action plan"
+msgstr "Save action plan"
+
+msgid "Next evaluation date"
+msgstr "Next evaluation date"
+
+msgid "History of evaluations"
+msgstr "History of evaluations"
+
+msgid "Evaluator comment"
+msgstr "Evaluator comment"
+
+msgid "Evaluatee comment"
+msgstr "Evaluatee comment"
+
+msgid "Weight %"
+msgstr "Weight %"
+
+msgid "Must equal 100%"
+msgstr "Must equal 100%"
+
+msgid "No skills added yet."
+msgstr "No skills added yet."
+
+msgid "No activities added yet."
+msgstr "No activities added yet."
+
+msgid "No objectives added yet."
+msgstr "No objectives added yet."
+
+msgid "No action plan defined."
+msgstr "No action plan defined."
+
+msgid "No comments yet."
+msgstr "No comments yet."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Hold Ctrl/Cmd to select multiple evaluators."
+
+msgid "Scheduled"
+msgstr "Scheduled"
+
+msgid "Items"
+msgstr "Items"
+
+msgid "Remove skill"
+msgstr "Remove skill"
+
+msgid "Remove activity"
+msgstr "Remove activity"
+
+msgid "Remove objective"
+msgstr "Remove objective"
+
+msgid "Could not load periodicities"
+msgstr "Could not load periodicities"
+
+msgid "Could not load evaluation stages"
+msgstr "Could not load evaluation stages"
+
+msgid "Could not load templates"
+msgstr "Could not load templates"
+
+msgid "Template saved"
+msgstr "Template saved"
+
+msgid "Could not save template"
+msgstr "Could not save template"
+
+msgid "Could not load evaluations"
+msgstr "Could not load evaluations"
+
+msgid "Could not save evaluation"
+msgstr "Could not save evaluation"
+
+msgid "Evaluation scheduled"
+msgstr "Evaluation scheduled"
+
+msgid "Evaluation updated"
+msgstr "Evaluation updated"
+
+msgid "Could not load evaluation"
+msgstr "Could not load evaluation"
+
+msgid "Draft saved"
+msgstr "Draft saved"
+
+msgid "Could not save draft"
+msgstr "Could not save draft"
+
+msgid "Sent to evaluatee"
+msgstr "Sent to evaluatee"
+
+msgid "Could not send"
+msgstr "Could not send"
+
+msgid "Feedback submitted"
+msgstr "Feedback submitted"
+
+msgid "Could not submit feedback"
+msgstr "Could not submit feedback"
+
+msgid "Evaluation closed"
+msgstr "Evaluation closed"
+
+msgid "Could not close evaluation"
+msgstr "Could not close evaluation"
+
+msgid "Action plan saved"
+msgstr "Action plan saved"
+
+msgid "Could not save action plan"
+msgstr "Could not save action plan"
+
+msgid "Comment sent"
+msgstr "Comment sent"
+
+msgid "Could not send comment"
+msgstr "Could not send comment"
+
+msgid "Reminders scheduled"
+msgstr "Reminders scheduled"
+
+msgid "Search by evaluatee"
+msgstr "Search by evaluatee"
+
+msgid "Overdue"
+msgstr "Overdue"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Are you sure you want to delete this periodicity?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Are you sure you want to delete this stage?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Are you sure you want to delete this evaluation?"
+
+msgid "Loading…"
+msgstr "Loading…"
+
+msgid "Periodicity"
+msgstr "Periodicity"
+
+msgid "Suggest from periodicity"
+msgstr "Suggest from periodicity"

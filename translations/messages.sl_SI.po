@@ -2031,7 +2031,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":da:avtorske pravice,, ne:brez avtorskih pravic"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapa,, application/msword:MsWord,, application/octet-stream:Octetni tok,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapa,, application/msword:MsWord,, application/octet-stream:Okteetni tok,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":vaja:vaja,,      simulacija:simulacija,,      vprašalnik:vprašalnik,,      diagram:diagram,,      slika:slika,,      graf:graf,,      kazalo:kazalo,,      diapozitiv:diapozitiv,,      tabela:tabela,,      pripovedno besedilo:narrativno besedilo,,      izpit:izpit,,      poskus:poskus,,      izjava problema:izjava problema,,      samopredstavitev:samopredstavitev,,      predavanje:predavanje"
@@ -34079,6 +34079,15 @@ msgstr "Ankete o delovnem podnebju"
 msgid "Diversity criteria"
 msgstr "Kriteriji raznolikosti"
 
+msgid "Add diversity criterion"
+msgstr "Dodaj kriterij raznolikosti"
+
+msgid "Edit diversity criterion"
+msgstr "Uredi kriterij raznolikosti"
+
+msgid "Extra field"
+msgstr "Dodatno polje"
+
 msgid "Diversity guidelines"
 msgstr "Smernice za raznolikost"
 
@@ -34285,6 +34294,297 @@ msgstr "Prevedi z AI"
 msgid "Enter manually"
 msgstr "Vnesi ročno"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Ni konfiguriranega ponudnika besedila AI. Prosimo, konfigurirajte enega v nastavitvah AI."
+msgid "Paste user URL or IRI…"
+msgstr "Prilepi uporabniški URL ali IRI…"
+
+msgid "Add benefit"
+msgstr "Dodaj ugodnost"
+
+msgid "Edit benefit"
+msgstr "Uredi ugodnost"
+
+msgid "Add tag"
+msgstr "Dodaj oznako"
+
+msgid "Edit tag"
+msgstr "Uredi oznako"
+
+msgid "No tags available"
+msgstr "Ni na voljo oznak"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Ni mogoče izbrisati ugodnosti z aktivnimi dodelitvami."
+
+msgid "Assign benefit"
+msgstr "Dodeli ugodnost"
+
+msgid "My benefits"
+msgstr "Moje ugodnosti"
+
+msgid "Beneficiary"
+msgstr "Prejemnik"
+
+msgid "Economical equivalent"
+msgstr "Gospodarska ekvivalentna vrednost"
+
+msgid "Assigned on"
+msgstr "Dodeljeno"
+
+msgid "Assigned until"
+msgstr "Dodeljeno do"
+
+msgid "Assigned by"
+msgstr "Dodelil"
+
+msgid "Notifications sent"
+msgstr "Poslana obvestila"
+
+msgid "Send notification"
+msgstr "Pošlji obvestilo"
+
+msgid "Notification sent"
+msgstr "Obvestilo poslano"
+
+msgid "Benefit notification"
+msgstr "Obvestilo o ugodnosti"
+
+msgid "From date"
+msgstr "Od datuma"
+
+msgid "Search by name..."
+msgstr "Išči po imenu..."
+
+msgid "Filtering by"
+msgstr "Filtriranje po"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Noben kriterij raznolikosti ni najden. Najprej dodajte kriterije."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Izberite kriterij iz seznama za ogled njegove statistike."
+
+msgid "No data available for this criterion."
+msgstr "Za ta kriterij ni na voljo podatkov."
+
+msgid "Add periodicity"
+msgstr "Dodaj periodičnost"
+
+msgid "Edit periodicity"
+msgstr "Uredi periodičnost"
+
+msgid "Add stage"
+msgstr "Dodaj stopnjo"
+
+msgid "Edit stage"
+msgstr "Uredi stopnjo"
+
+msgid "Periodicities"
+msgstr "Periodičnosti"
+
+msgid "Evaluation stages"
+msgstr "Stopnje ocenjevanja"
+
+msgid "Evaluation templates"
+msgstr "Predloge ocenjevanja"
+
+msgid "Add evaluation template"
+msgstr "Dodaj predlogo ocenjevanja"
+
+msgid "Edit evaluation template"
+msgstr "Uredi predlogo ocenjevanja"
+
+msgid "Add template"
+msgstr "Dodaj predlogo"
+
+msgid "Scheduled evaluations"
+msgstr "Načrtovana ocenjevanja"
+
+msgid "Schedule evaluation"
+msgstr "Načrtuj ocenjevanje"
+
+msgid "Evaluation form"
+msgstr "Obrazec ocenjevanja"
+
+msgid "My evaluations"
+msgstr "Moja ocenjevanja"
+
+msgid "Evaluations of me"
+msgstr "Ocenjevanja mene"
+
+msgid "Evaluations I must conduct"
+msgstr "Ocenjevanja, ki jih moram izvesti"
+
+msgid "Evaluatee"
+msgstr "Ocenjevanec"
+
+msgid "Evaluator"
+msgstr "Ocenjevalec"
+
+msgid "Evaluator(s)"
+msgstr "Ocenjevalec(-i)"
+
+msgid "Scheduled date"
+msgstr "Načrtovan datum"
+
+msgid "Evaluation stage"
+msgstr "Stopnja ocenjevanja"
+
+msgid "Save draft"
+msgstr "Shrani osnutek"
+
+msgid "Send to evaluatee"
+msgstr "Pošlji ocenjevancu"
+
+msgid "Submit feedback"
+msgstr "Pošlji povratne informacije"
+
+msgid "Close evaluation"
+msgstr "Zapri ocenjevanje"
+
+msgid "Feedbacked"
+msgstr "Povratne informacije poslano"
+
+msgid "Action plan for next period"
+msgstr "Načrt ukrepov za naslednje obdobje"
+
+msgid "Save action plan"
+msgstr "Shrani načrt ukrepov"
+
+msgid "Next evaluation date"
+msgstr "Datum naslednjega ocenjevanja"
+
+msgid "History of evaluations"
+msgstr "Zgodovina ocenjevanj"
+
+msgid "Evaluator comment"
+msgstr "Komentar ocenjevalca"
+
+msgid "Evaluatee comment"
+msgstr "Komentar ocenjevanca"
+
+msgid "Weight %"
+msgstr "Teža %"
+
+msgid "Must equal 100%"
+msgstr "Mora biti enako 100%"
+
+msgid "No skills added yet."
+msgstr "Še ni dodanih spretnosti."
+
+msgid "No activities added yet."
+msgstr "Še ni dodanih aktivnosti."
+
+msgid "No objectives added yet."
+msgstr "Še ni dodanih ciljev."
+
+msgid "No action plan defined."
+msgstr "Načrt ukrepov ni definiran."
+
+msgid "No comments yet."
+msgstr "Še ni komentarjev."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Držite Ctrl/Cmd za izbor več ocenjevalcev."
+
+msgid "Scheduled"
+msgstr "Načrtovano"
+
+msgid "Items"
+msgstr "Predmeti"
+
+msgid "Remove skill"
+msgstr "Odstrani spretnost"
+
+msgid "Remove activity"
+msgstr "Odstrani dejavnost"
+
+msgid "Remove objective"
+msgstr "Odstrani cilj"
+
+msgid "Could not load periodicities"
+msgstr "Ni mogoče naložiti periodičnosti"
+
+msgid "Could not load evaluation stages"
+msgstr "Ni mogoče naložiti stopenj ocenjevanja"
+
+msgid "Could not load templates"
+msgstr "Ni mogoče naložiti predlog"
+
+msgid "Template saved"
+msgstr "Predloga shranjena"
+
+msgid "Could not save template"
+msgstr "Ni mogoče shraniti predloge"
+
+msgid "Could not load evaluations"
+msgstr "Ni mogoče naložiti ocenjevanj"
+
+msgid "Could not save evaluation"
+msgstr "Ni mogoče shraniti ocenjevanja"
+
+msgid "Evaluation scheduled"
+msgstr "Ocenjevanje načrtovano"
+
+msgid "Evaluation updated"
+msgstr "Ocenjevanje posodobljeno"
+
+msgid "Could not load evaluation"
+msgstr "Ni mogoče naložiti ocenjevanja"
+
+msgid "Draft saved"
+msgstr "Osnutek shranjen"
+
+msgid "Could not save draft"
+msgstr "Ni mogoče shraniti osnutka"
+
+msgid "Sent to evaluatee"
+msgstr "Poslano ocenjevalcu"
+
+msgid "Could not send"
+msgstr "Ni mogoče poslati"
+
+msgid "Feedback submitted"
+msgstr "Povratne informacije poslane"
+
+msgid "Could not submit feedback"
+msgstr "Ni mogoče poslati povratnih informacij"
+
+msgid "Evaluation closed"
+msgstr "Ocenjevanje zaprto"
+
+msgid "Could not close evaluation"
+msgstr "Ni mogoče zapreti ocenjevanja"
+
+msgid "Action plan saved"
+msgstr "Načrt ukrepov shranjen"
+
+msgid "Could not save action plan"
+msgstr "Ni mogoče shraniti načrta ukrepov"
+
+msgid "Comment sent"
+msgstr "Komentar poslan"
+
+msgid "Could not send comment"
+msgstr "Ni mogoče poslati komentarja"
+
+msgid "Reminders scheduled"
+msgstr "Opomniki načrtovani"
+
+msgid "Search by evaluatee"
+msgstr "Išči po ocenjevalcu"
+
+msgid "Overdue"
+msgstr "Prekoračeno"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Ste prepričani, da želite izbrisati to periodičnost?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Ste prepričani, da želite izbrisati to stopnjo?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Ste prepričani, da želite izbrisati to ocenjevanje?"
+
+msgid "Loading…"
+msgstr "Nalagam…"
 

@@ -34070,6 +34070,15 @@ msgstr "Lan-ingurunearen inkestak"
 msgid "Diversity criteria"
 msgstr "Aniztasun irizpideak"
 
+msgid "Add diversity criterion"
+msgstr "Aniztasun irizpidea gehitu"
+
+msgid "Edit diversity criterion"
+msgstr "Aniztasun irizpidea editatu"
+
+msgid "Extra field"
+msgstr "Eremu gehigarria"
+
 msgid "Diversity guidelines"
 msgstr "Aniztasun gidalerroak"
 
@@ -34276,6 +34285,297 @@ msgstr "AIrekin itzuli"
 msgid "Enter manually"
 msgstr "Eskuz sartu"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Ez dago AI testu hornitzailerik konfiguraturik. Mesedez, konfiguratu bat AI ezarpenetan."
+msgid "Paste user URL or IRI…"
+msgstr "Itsatsi erabiltzailearen URL edo IRI…"
+
+msgid "Add benefit"
+msgstr "Onura gehitu"
+
+msgid "Edit benefit"
+msgstr "Onura editatu"
+
+msgid "Add tag"
+msgstr "Etiketa gehitu"
+
+msgid "Edit tag"
+msgstr "Etiketa editatu"
+
+msgid "No tags available"
+msgstr "Ez dago etiketarik eskuragarri"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Ezin da onura aktiboa duen esleipen bat duen onura ezabatu."
+
+msgid "Assign benefit"
+msgstr "Onura esleitu"
+
+msgid "My benefits"
+msgstr "Nire onurak"
+
+msgid "Beneficiary"
+msgstr "Onuraduna"
+
+msgid "Economical equivalent"
+msgstr "Baliokide ekonomikoa"
+
+msgid "Assigned on"
+msgstr "Esleitua"
+
+msgid "Assigned until"
+msgstr "Esleitua arte"
+
+msgid "Assigned by"
+msgstr "Esleitu duena"
+
+msgid "Notifications sent"
+msgstr "Jakinarazpenak bidalita"
+
+msgid "Send notification"
+msgstr "Jakinarazpena bidali"
+
+msgid "Notification sent"
+msgstr "Jakinarazpena bidalia"
+
+msgid "Benefit notification"
+msgstr "Onura jakinarazpena"
+
+msgid "From date"
+msgstr "Hasierako data"
+
+msgid "Search by name..."
+msgstr "Izenaz bilatu..."
+
+msgid "Filtering by"
+msgstr "Irudikatzen"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Ez da aniztasun irizpiderik aurkitu. Lehenengo gehitu irizpideak."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Zerrendatik irizpide bat hautatu estatistikak ikusteko."
+
+msgid "No data available for this criterion."
+msgstr "Ez dago daturik irizpide honetarako."
+
+msgid "Add periodicity"
+msgstr "Periodicitatea gehitu"
+
+msgid "Edit periodicity"
+msgstr "Periodicitatea editatu"
+
+msgid "Add stage"
+msgstr "Etapa gehitu"
+
+msgid "Edit stage"
+msgstr "Etapa editatu"
+
+msgid "Periodicities"
+msgstr "Periodicitateak"
+
+msgid "Evaluation stages"
+msgstr "Ebaluazio etapak"
+
+msgid "Evaluation templates"
+msgstr "Ebaluazio txantiloiak"
+
+msgid "Add evaluation template"
+msgstr "Ebaluazio txantiloia gehitu"
+
+msgid "Edit evaluation template"
+msgstr "Ebaluazio txantiloia editatu"
+
+msgid "Add template"
+msgstr "Txantiloia gehitu"
+
+msgid "Scheduled evaluations"
+msgstr "Programatutako ebaluazioak"
+
+msgid "Schedule evaluation"
+msgstr "Ebaluazioa programatu"
+
+msgid "Evaluation form"
+msgstr "Ebaluazio inprimakia"
+
+msgid "My evaluations"
+msgstr "Nire ebaluazioak"
+
+msgid "Evaluations of me"
+msgstr "Nire gaineko ebaluazioak"
+
+msgid "Evaluations I must conduct"
+msgstr "Egin behar ditudan ebaluazioak"
+
+msgid "Evaluatee"
+msgstr "Ebaluatua"
+
+msgid "Evaluator"
+msgstr "Ebaluatzailea"
+
+msgid "Evaluator(s)"
+msgstr "Ebaluatzaileak"
+
+msgid "Scheduled date"
+msgstr "Programatutako data"
+
+msgid "Evaluation stage"
+msgstr "Ebaluazio etapa"
+
+msgid "Save draft"
+msgstr "Zirriborroa gorde"
+
+msgid "Send to evaluatee"
+msgstr "Ebaluatuari bidali"
+
+msgid "Submit feedback"
+msgstr "Feedback bidali"
+
+msgid "Close evaluation"
+msgstr "Ebaluazioa itxi"
+
+msgid "Feedbacked"
+msgstr "Feedback-ua emana"
+
+msgid "Action plan for next period"
+msgstr "Hurrengo periodeko ekintza plana"
+
+msgid "Save action plan"
+msgstr "Ekintza plana gorde"
+
+msgid "Next evaluation date"
+msgstr "Hurrengo ebaluazio data"
+
+msgid "History of evaluations"
+msgstr "Ebaluazioen historia"
+
+msgid "Evaluator comment"
+msgstr "Ebaluatzailearen iruzkina"
+
+msgid "Evaluatee comment"
+msgstr "Ebaluatuaren iruzkina"
+
+msgid "Weight %"
+msgstr "Pisu %"
+
+msgid "Must equal 100%"
+msgstr "100%-koa izan behar du"
+
+msgid "No skills added yet."
+msgstr "Ez da gaitasunik gehitu oraindik."
+
+msgid "No activities added yet."
+msgstr "Ez da jardikerarik gehitu oraindik."
+
+msgid "No objectives added yet."
+msgstr "Ez da xedebururik gehitu oraindik."
+
+msgid "No action plan defined."
+msgstr "Ez dago ekintza planik definitua."
+
+msgid "No comments yet."
+msgstr "Ez dago iruzkinik oraindik."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Ctrl/Cmd sakatu ebaluatzaile anitz hautatzeko."
+
+msgid "Scheduled"
+msgstr "Programatua"
+
+msgid "Items"
+msgstr "Elementuak"
+
+msgid "Remove skill"
+msgstr "Gaitasuna kendu"
+
+msgid "Remove activity"
+msgstr "Jarduera ezabatu"
+
+msgid "Remove objective"
+msgstr "Helburua ezabatu"
+
+msgid "Could not load periodicities"
+msgstr "Ezin da periodizitateak kargatu"
+
+msgid "Could not load evaluation stages"
+msgstr "Ezin dira ebaluatze etapak kargatu"
+
+msgid "Could not load templates"
+msgstr "Ezin dira txantiloiak kargatu"
+
+msgid "Template saved"
+msgstr "Txantiloia gorde da"
+
+msgid "Could not save template"
+msgstr "Ezin da txantiloia gorde"
+
+msgid "Could not load evaluations"
+msgstr "Ezin dira ebaluazioak kargatu"
+
+msgid "Could not save evaluation"
+msgstr "Ezin da ebaluazioa gorde"
+
+msgid "Evaluation scheduled"
+msgstr "Ebaluazioa programatua"
+
+msgid "Evaluation updated"
+msgstr "Ebaluazioa eguneratua"
+
+msgid "Could not load evaluation"
+msgstr "Ezin da ebaluazioa kargatu"
+
+msgid "Draft saved"
+msgstr "Zirriborroa gorde da"
+
+msgid "Could not save draft"
+msgstr "Ezin da zirriborroa gorde"
+
+msgid "Sent to evaluatee"
+msgstr "Ebaluatua(r)ri bidalia"
+
+msgid "Could not send"
+msgstr "Ezin da bidali"
+
+msgid "Feedback submitted"
+msgstr "Feedback-a bidalia"
+
+msgid "Could not submit feedback"
+msgstr "Ezin da feedback-a bidali"
+
+msgid "Evaluation closed"
+msgstr "Ebaluazioa itxita"
+
+msgid "Could not close evaluation"
+msgstr "Ezin da ebaluazioa itxi"
+
+msgid "Action plan saved"
+msgstr "Ekintza plana gorde da"
+
+msgid "Could not save action plan"
+msgstr "Ezin da ekintza plana gorde"
+
+msgid "Comment sent"
+msgstr "Iruzkina bidalia"
+
+msgid "Could not send comment"
+msgstr "Ezin da iruzkina bidali"
+
+msgid "Reminders scheduled"
+msgstr "Ordezkatzeak programatuta"
+
+msgid "Search by evaluatee"
+msgstr "Ebaluatua(r)ren arabera bilatu"
+
+msgid "Overdue"
+msgstr "Atzeratua"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Ziur zaude periodizitate hau ezabatu nahi duzula?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Ziur zaude etapa hau ezabatu nahi duzula?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Ziur zaude ebaluazio hau ezabatu nahi duzula?"
+
+msgid "Loading…"
+msgstr "Kargatzen…"
 

@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "Allin kuyaywan"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Ñawpaq ruray: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Rurasqa rakiy: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Sutikuna umu"
@@ -34065,6 +34065,15 @@ msgstr "Kamay clima enquistakuna"
 msgid "Diversity criteria"
 msgstr "Qhananchakuy yatiqakuna"
 
+msgid "Add diversity criterion"
+msgstr "Diversidat yachayniyta yapay"
+
+msgid "Edit diversity criterion"
+msgstr "Diversidat yachayniyta llamk'ay"
+
+msgid "Extra field"
+msgstr "Yapa kampu"
+
 msgid "Diversity guidelines"
 msgstr "Qhananchakuy ruraykuna"
 
@@ -34271,6 +34280,297 @@ msgstr "AIwan yapasachiy"
 msgid "Enter manually"
 msgstr "Yantaq qillqay"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Manam AI willakuy provisor kanchu. AI kuyanakunapi hukninta kuyanakuy."
+msgid "Paste user URL or IRI…"
+msgstr "Runa URL o IRI yarpay…"
+
+msgid "Add benefit"
+msgstr "Suyana yapay"
+
+msgid "Edit benefit"
+msgstr "Suyana llamk'ay"
+
+msgid "Add tag"
+msgstr "Huwllay yapay"
+
+msgid "Edit tag"
+msgstr "Huwllay llamk'ay"
+
+msgid "No tags available"
+msgstr "Mana huwllaykuna kanman"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Suyana kanchaykuq llamk'apunaqaqa manam hichikunataqa manam."
+
+msgid "Assign benefit"
+msgstr "Suyana qatuy"
+
+msgid "My benefits"
+msgstr "Ñoqap suyanaq"
+
+msgid "Beneficiary"
+msgstr "Suyanaq"
+
+msgid "Economical equivalent"
+msgstr "Yurak rakin"
+
+msgid "Assigned on"
+msgstr "Qatuykuptin"
+
+msgid "Assigned until"
+msgstr "Qatuykunata"
+
+msgid "Assigned by"
+msgstr "Qatuyqanpaq"
+
+msgid "Notifications sent"
+msgstr "Pampasqakuna willakusqa"
+
+msgid "Send notification"
+msgstr "Willakuy yapasqa"
+
+msgid "Notification sent"
+msgstr "Willakuy yachakusqa"
+
+msgid "Benefit notification"
+msgstr "Suyana willakuy"
+
+msgid "From date"
+msgstr "Paskantinpaq"
+
+msgid "Search by name..."
+msgstr "Sutiwan maskhay…"
+
+msgid "Filtering by"
+msgstr "Maskhaywan"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Mana diversidat yachayniykuna tarikun. Yachayniykunaq munaykama."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Rakinmanta huk kriteryoni rispaq yachaynin ruray."
+
+msgid "No data available for this criterion."
+msgstr "Kay kriteryonpaq manam yachay kayku."
+
+msgid "Add periodicity"
+msgstr "Pasaq yukuytam yapas"
+
+msgid "Edit periodicity"
+msgstr "Pasaq yukuytam llamk'ay"
+
+msgid "Add stage"
+msgstr "Etapan yapas"
+
+msgid "Edit stage"
+msgstr "Etapan llamk'ay"
+
+msgid "Periodicities"
+msgstr "Pasaq yukuykuna"
+
+msgid "Evaluation stages"
+msgstr "Yachachisqa etapanakuna"
+
+msgid "Evaluation templates"
+msgstr "Yachachisqa plantillakuna"
+
+msgid "Add evaluation template"
+msgstr "Yachachisqa plantillatam yapas"
+
+msgid "Edit evaluation template"
+msgstr "Yachachisqa plantillatam llamk'ay"
+
+msgid "Add template"
+msgstr "Plantillatam yapas"
+
+msgid "Scheduled evaluations"
+msgstr "Yachachisqa yachachisqakuna"
+
+msgid "Schedule evaluation"
+msgstr "Yachachisqatam yukuychiy"
+
+msgid "Evaluation form"
+msgstr "Yachachisqa ruruchakuynin"
+
+msgid "My evaluations"
+msgstr "Ñoqap yachachisqakuna"
+
+msgid "Evaluations of me"
+msgstr "Ñoqamanta yachachisqakuna"
+
+msgid "Evaluations I must conduct"
+msgstr "Ñoqap rurakunay yachachisqakuna"
+
+msgid "Evaluatee"
+msgstr "Yachachisqa"
+
+msgid "Evaluator"
+msgstr "Yachachiq"
+
+msgid "Evaluator(s)"
+msgstr "Yachachiqkuna"
+
+msgid "Scheduled date"
+msgstr "Yukuytam p'akisqa pacha"
+
+msgid "Evaluation stage"
+msgstr "Yachachisqa etapa"
+
+msgid "Save draft"
+msgstr "Qillqamanta qhaway"
+
+msgid "Send to evaluatee"
+msgstr "Yachachisqaman kachay"
+
+msgid "Submit feedback"
+msgstr "Willakuyta qhatuy"
+
+msgid "Close evaluation"
+msgstr "Yachachisqatam huch'uy"
+
+msgid "Feedbacked"
+msgstr "Willakusqa"
+
+msgid "Action plan for next period"
+msgstr "Huk pasaq yukuypaq rurakuy willakuynin"
+
+msgid "Save action plan"
+msgstr "Rurakuy willakuytam qhaway"
+
+msgid "Next evaluation date"
+msgstr "Huk yachachisqa pacha"
+
+msgid "History of evaluations"
+msgstr "Yachachisqakuna historiam"
+
+msgid "Evaluator comment"
+msgstr "Yachachiq willakuy"
+
+msgid "Evaluatee comment"
+msgstr "Yachachisqa willakuy"
+
+msgid "Weight %"
+msgstr "Pisaq %"
+
+msgid "Must equal 100%"
+msgstr "100% hina kay"
+
+msgid "No skills added yet."
+msgstr "Manam yapasqachu raykuqkuna."
+
+msgid "No activities added yet."
+msgstr "Manam yapasqachu llamk'akuna."
+
+msgid "No objectives added yet."
+msgstr "Manam yapasqachu musuqkunakuna."
+
+msgid "No action plan defined."
+msgstr "Manam kichasqachu rurakuy willakuynin."
+
+msgid "No comments yet."
+msgstr "Manam willakuykuna kayku."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Chupi Ctrl/Cmd ch'ayarispayki askiyta yachachiqkuna."
+
+msgid "Scheduled"
+msgstr "Yukuytam p'akirqan"
+
+msgid "Items"
+msgstr "Rakinakuna"
+
+msgid "Remove skill"
+msgstr "Raykuytam q'ichuy"
+
+msgid "Remove activity"
+msgstr "Llamk'atam q'ichuy"
+
+msgid "Remove objective"
+msgstr "Musuqtam q'ichuy"
+
+msgid "Could not load periodicities"
+msgstr "Manam lluqllanichu pasaq yukuyninkuna"
+
+msgid "Could not load evaluation stages"
+msgstr "Manam lluqllanichu yachachisqa etapanakuna"
+
+msgid "Could not load templates"
+msgstr "Manam lluqllanichu plantillakuna"
+
+msgid "Template saved"
+msgstr "Plantilla yupasqañam"
+
+msgid "Could not save template"
+msgstr "Mana plantillata yachakusqachu"
+
+msgid "Could not load evaluations"
+msgstr "Mana timaskuykunata cargakusqachu"
+
+msgid "Could not save evaluation"
+msgstr "Mana timaskuyta yachakusqachu"
+
+msgid "Evaluation scheduled"
+msgstr "Timaskuy ñawpaqchisqam"
+
+msgid "Evaluation updated"
+msgstr "Timaskuy musuqchisqam"
+
+msgid "Could not load evaluation"
+msgstr "Mana timaskuyta cargakusqachu"
+
+msgid "Draft saved"
+msgstr "Rakikuna yupasqañam"
+
+msgid "Could not save draft"
+msgstr "Mana rakikunata yachakusqachu"
+
+msgid "Sent to evaluatee"
+msgstr "Timaskusqaman kachasqam"
+
+msgid "Could not send"
+msgstr "Mana kachakusqachu"
+
+msgid "Feedback submitted"
+msgstr "Willakuy qillqasqam"
+
+msgid "Could not submit feedback"
+msgstr "Mana willakuyta qillqakusqachu"
+
+msgid "Evaluation closed"
+msgstr "Timaskuy kunkasqam"
+
+msgid "Could not close evaluation"
+msgstr "Mana timaskuyta kunkakusqachu"
+
+msgid "Action plan saved"
+msgstr "Rurakuy ñawpaqchisqam"
+
+msgid "Could not save action plan"
+msgstr "Mana rurakuy ñawpaqchita yachakusqachu"
+
+msgid "Comment sent"
+msgstr "Willakuy kachasqam"
+
+msgid "Could not send comment"
+msgstr "Mana willakuyta kachakusqachu"
+
+msgid "Reminders scheduled"
+msgstr "Paqarichikuna ñawpaqchisqam"
+
+msgid "Search by evaluatee"
+msgstr "Timaskusqaypi rimanakuy"
+
+msgid "Overdue"
+msgstr "Kutiq"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "¿Ima kashanki kay periódicuyta saqiriykupaq?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "¿Ima kashanki kay etapata saqiriykupaq?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "¿Ima kashanki kay timaskuyta saqiriykupaq?"
+
+msgid "Loading…"
+msgstr "Cargakuy…"
 

@@ -1031,12 +1031,16 @@ class CourseController extends ToolBaseController
     }
 
     #[Route('/check-enrollments', name: 'chamilo_core_check_enrollments', methods: ['GET'])]
-    public function checkEnrollments(EntityManagerInterface $em, SettingsManager $settingsManager): JsonResponse
+    public function checkEnrollments(Request $request, EntityManagerInterface $em, SettingsManager $settingsManager): JsonResponse
     {
         $user = $this->userHelper->getCurrent();
 
         if (!$user) {
             return new JsonResponse(['error' => 'User not found'], Response::HTTP_UNAUTHORIZED);
+        }
+
+        if ($request->hasSession() && $request->getSession()->isStarted()) {
+            $request->getSession()->save();
         }
 
         $isEnrolledInCourses = $this->isUserEnrolledInAnyCourse($user, $em);

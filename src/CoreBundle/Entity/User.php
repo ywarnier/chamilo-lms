@@ -193,6 +193,7 @@ class User implements UserInterface, EquatableInterface, ResourceInterface, Reso
         'session:item:read',
         'course_catalogue:read',
         'student_publication_comment:read',
+        'performance_appraisal:read',
     ])]
     #[ORM\Column(name: 'id', type: 'integer')]
     #[ORM\Id]
@@ -768,6 +769,7 @@ class User implements UserInterface, EquatableInterface, ResourceInterface, Reso
         'student_publication_comment:read',
         'course_catalogue:read',
         'benefit_assignment:read',
+        'performance_appraisal:read',
     ])]
     protected string $fullName;
 

@@ -34059,6 +34059,15 @@ msgstr "სამუშაო კლიმატის გამოკითხ�
 msgid "Diversity criteria"
 msgstr "მრავალფეროვნების კრიტერიუმები"
 
+msgid "Add diversity criterion"
+msgstr "დივერსიტეტის კრიტერიუმის დამატება"
+
+msgid "Edit diversity criterion"
+msgstr "დივერსიტეტის კრიტერიუმის რედაქტირება"
+
+msgid "Extra field"
+msgstr "დამატებითი ველი"
+
 msgid "Diversity guidelines"
 msgstr "მრავალფეროვნების მითითებები"
 
@@ -34265,6 +34274,297 @@ msgstr "თარგმნობა AI-ით"
 msgid "Enter manually"
 msgstr "შეყვანა ხელით"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "AI ტექსტის მიმწოდებელი არ არის კონფიგურირებული. გთხოვთ, დააკონფიგურიროთ ერთი AI პარამეტრებში."
+msgid "Paste user URL or IRI…"
+msgstr "მользователის URL ან IRI ჩამოჭერე…"
+
+msgid "Add benefit"
+msgstr "სარგებლის დამატება"
+
+msgid "Edit benefit"
+msgstr "სარგებლის რედაქტირება"
+
+msgid "Add tag"
+msgstr "ტეგის დამატება"
+
+msgid "Edit tag"
+msgstr "ტეგის რედაქტირება"
+
+msgid "No tags available"
+msgstr "ტეგები არ არის ხელმისაწვდომი"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "სარგებელი რომელსაც აქტიური მინიჭებები აქვს ვერ შეიძლება წაშლა."
+
+msgid "Assign benefit"
+msgstr "სარგებლის მინიჭება"
+
+msgid "My benefits"
+msgstr "ჩემი სარგებლები"
+
+msgid "Beneficiary"
+msgstr "სარგებლის მიმღები"
+
+msgid "Economical equivalent"
+msgstr "ეკონომიკური ეკვივალენტი"
+
+msgid "Assigned on"
+msgstr "მინიჭებულია"
+
+msgid "Assigned until"
+msgstr "მინიჭებულია ყოველთვის"
+
+msgid "Assigned by"
+msgstr "მინიჭებულია მიერ"
+
+msgid "Notifications sent"
+msgstr "გაგზავნილი შეტყობინებები"
+
+msgid "Send notification"
+msgstr "შეტყობინების გაგზავნა"
+
+msgid "Notification sent"
+msgstr "შეტყობინება გაგზავნილია"
+
+msgid "Benefit notification"
+msgstr "სარგებლის შეტყობინება"
+
+msgid "From date"
+msgstr "თარიღიდან"
+
+msgid "Search by name..."
+msgstr "ძებნა სახელით…"
+
+msgid "Filtering by"
+msgstr "ფილტრაცია მიერ"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "დივერსიტეტის კრიტერიუმები არ მოიძებნა. ჯერ კრიტერიუმების დამატება."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "კრიტერიუმის შესატყობინების ნახვისთვის სიიდან აირჩიეთ კრიტერიუმი."
+
+msgid "No data available for this criterion."
+msgstr "ამ კრიტერიუმისთვის მონაცემები არ არის ხელმისაწვდომი."
+
+msgid "Add periodicity"
+msgstr "პერიოდულობის დამატება"
+
+msgid "Edit periodicity"
+msgstr "პერიოდულობის რედაქტირება"
+
+msgid "Add stage"
+msgstr "ეტაპის დამატება"
+
+msgid "Edit stage"
+msgstr "ეტაპის რედაქტირება"
+
+msgid "Periodicities"
+msgstr "პერიოდულობები"
+
+msgid "Evaluation stages"
+msgstr "შეფასების ეტაპები"
+
+msgid "Evaluation templates"
+msgstr "შეფასების შაბლონები"
+
+msgid "Add evaluation template"
+msgstr "შეფასების შაბლონის დამატება"
+
+msgid "Edit evaluation template"
+msgstr "შეფასების შაბლონის რედაქტირება"
+
+msgid "Add template"
+msgstr "შაბლონის დამატება"
+
+msgid "Scheduled evaluations"
+msgstr "გეგმიური შეფასებები"
+
+msgid "Schedule evaluation"
+msgstr "შეფასების განრიგი"
+
+msgid "Evaluation form"
+msgstr "შეფასების ფორმა"
+
+msgid "My evaluations"
+msgstr "ჩემი შეფასებები"
+
+msgid "Evaluations of me"
+msgstr "ჩემი შეფასებები"
+
+msgid "Evaluations I must conduct"
+msgstr "შეფასებები რომლებიც უნდა ჩავატარო"
+
+msgid "Evaluatee"
+msgstr "შეფასებული"
+
+msgid "Evaluator"
+msgstr "შემფასებელი"
+
+msgid "Evaluator(s)"
+msgstr "შემფასებლები"
+
+msgid "Scheduled date"
+msgstr "გეგმიური თარიღი"
+
+msgid "Evaluation stage"
+msgstr "შეფასების ეტაპი"
+
+msgid "Save draft"
+msgstr "ნაკადის შენახვა"
+
+msgid "Send to evaluatee"
+msgstr "გაგზავნა შეფასებულზე"
+
+msgid "Submit feedback"
+msgstr " უკუკავშირის გაგზავნა"
+
+msgid "Close evaluation"
+msgstr "შეფასების დახურვა"
+
+msgid "Feedbacked"
+msgstr "უკუკავშირი გაგზავნილი"
+
+msgid "Action plan for next period"
+msgstr "მოქმედების გეგმა მომდევნო პერიოდისთვის"
+
+msgid "Save action plan"
+msgstr "მოქმედების გეგმის შენახვა"
+
+msgid "Next evaluation date"
+msgstr "შემდეგი შეფასების თარიღი"
+
+msgid "History of evaluations"
+msgstr "შეფასებების ისტორია"
+
+msgid "Evaluator comment"
+msgstr "შემფასებლის კომენტარი"
+
+msgid "Evaluatee comment"
+msgstr "შეფასებულის კომენტარი"
+
+msgid "Weight %"
+msgstr "წონა %"
+
+msgid "Must equal 100%"
+msgstr "უნდა უდრიდეს 100%-ს"
+
+msgid "No skills added yet."
+msgstr "კომპეტენციები ჯერ არ დაამატებია."
+
+msgid "No activities added yet."
+msgstr "აქტივობები ჯერ არ დაამატებია."
+
+msgid "No objectives added yet."
+msgstr "მიზნები ჯერ არ დაამატებია."
+
+msgid "No action plan defined."
+msgstr "მოქმედების გეგმა არ არის განსაზღვრული."
+
+msgid "No comments yet."
+msgstr "კომენტარები ჯერ არ არის."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Ctrl/Cmd ღილაკის დამართვა მრავალ შემფასებლის შესარჩევად."
+
+msgid "Scheduled"
+msgstr "გეგმიური"
+
+msgid "Items"
+msgstr "პოზენტები"
+
+msgid "Remove skill"
+msgstr "კომპეტენციის ამოშლა"
+
+msgid "Remove activity"
+msgstr "აქტივობის ამოშლა"
+
+msgid "Remove objective"
+msgstr "მიზნის ამოშლა"
+
+msgid "Could not load periodicities"
+msgstr "პერიოდულობების ჩატვირთვა ვერ მოხერხდა"
+
+msgid "Could not load evaluation stages"
+msgstr "შეფასების ეტაპების ჩატვირთვა ვერ მოხერხდა"
+
+msgid "Could not load templates"
+msgstr "შაბლონების ჩატვირთვა ვერ მოხერხდა"
+
+msgid "Template saved"
+msgstr "შაბლონი შენახულია"
+
+msgid "Could not save template"
+msgstr "შაბლონის შენახვა ვერ მოხერხდა"
+
+msgid "Could not load evaluations"
+msgstr "შეუძლებელია შეფასებების ჩატვირთვა"
+
+msgid "Could not save evaluation"
+msgstr "შეუძლებელია შეფასების შენახვა"
+
+msgid "Evaluation scheduled"
+msgstr "შეფასება დაგეგმილია"
+
+msgid "Evaluation updated"
+msgstr "შეფასება განახლდა"
+
+msgid "Could not load evaluation"
+msgstr "შეუძლებელია შეფასების ჩატვირთვა"
+
+msgid "Draft saved"
+msgstr "ნაკადი შენახულია"
+
+msgid "Could not save draft"
+msgstr "შეუძლებელია ნაკადის შენახვა"
+
+msgid "Sent to evaluatee"
+msgstr "გაგზავნილია შეფასებულზე"
+
+msgid "Could not send"
+msgstr "შეუძლებელია გაგზავნა"
+
+msgid "Feedback submitted"
+msgstr " უკუკავშირი გაგზავნილია"
+
+msgid "Could not submit feedback"
+msgstr "შეუძლებელია უკუკავშირის გაგზავნა"
+
+msgid "Evaluation closed"
+msgstr "შეფასება დახურულია"
+
+msgid "Could not close evaluation"
+msgstr "შეუძლებელია შეფასების დახურვა"
+
+msgid "Action plan saved"
+msgstr "ქმედების გეგმა შენახულია"
+
+msgid "Could not save action plan"
+msgstr "შეუძლებელია ქმედების გეგმის შენახვა"
+
+msgid "Comment sent"
+msgstr "კომენტარი გაგზავნილია"
+
+msgid "Could not send comment"
+msgstr "შეუძლებელია კომენტარის გაგზავნა"
+
+msgid "Reminders scheduled"
+msgstr "შეხსენებები დაგეგმილია"
+
+msgid "Search by evaluatee"
+msgstr "ძიება შეფასებულით"
+
+msgid "Overdue"
+msgstr "გადაუხვეული"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ პერიოდულობის წაშლა?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ ეტაპის წაშლა?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ შეფასების წაშლა?"
+
+msgid "Loading…"
+msgstr "ჩატვირთვა…"
 

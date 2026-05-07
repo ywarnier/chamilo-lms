@@ -34059,6 +34059,15 @@ msgstr "Sahannada jawiga shaqada"
 msgid "Diversity criteria"
 msgstr "Shuruudaha kala duwanaanshaha"
 
+msgid "Add diversity criterion"
+msgstr "Ku dar shuruudda kala duwanaanshaha"
+
+msgid "Edit diversity criterion"
+msgstr "Tafatiraha shuruudda kala duwanaanshaha"
+
+msgid "Extra field"
+msgstr "Goob dheeraad ah"
+
 msgid "Diversity guidelines"
 msgstr "Tilmaamaha kala duwanaanshaha"
 
@@ -34265,6 +34274,297 @@ msgstr "Tarjumay AI"
 msgid "Enter manually"
 msgstr "Gali gacanta"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Ma jiro bixiye qoraal AI la sameeyay. Fadlan mid ka mid ah ku samee goobaha AI-da."
+msgid "Paste user URL or IRI…"
+msgstr "Ku dheji URL ama IRI ee isticmaale…"
+
+msgid "Add benefit"
+msgstr "Ku dar faa'iido"
+
+msgid "Edit benefit"
+msgstr "Tafatiraha faa'iidada"
+
+msgid "Add tag"
+msgstr "Ku dar calaamad"
+
+msgid "Edit tag"
+msgstr "Tafatiraha calaamadda"
+
+msgid "No tags available"
+msgstr "Ma jiraan calaamado la heli karo"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Ma tirtiri karo faa'iido leh hawlo firfircoon."
+
+msgid "Assign benefit"
+msgstr "Meel mar faa'iido"
+
+msgid "My benefits"
+msgstr "Faa'iidooyinkayga"
+
+msgid "Beneficiary"
+msgstr ""
+
+msgid "Economical equivalent"
+msgstr ""
+
+msgid "Assigned on"
+msgstr ""
+
+msgid "Assigned until"
+msgstr ""
+
+msgid "Assigned by"
+msgstr ""
+
+msgid "Notifications sent"
+msgstr ""
+
+msgid "Send notification"
+msgstr ""
+
+msgid "Notification sent"
+msgstr ""
+
+msgid "Benefit notification"
+msgstr ""
+
+msgid "From date"
+msgstr ""
+
+msgid "Search by name..."
+msgstr ""
+
+msgid "Filtering by"
+msgstr ""
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr ""
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr ""
+
+msgid "No data available for this criterion."
+msgstr ""
+
+msgid "Add periodicity"
+msgstr ""
+
+msgid "Edit periodicity"
+msgstr ""
+
+msgid "Add stage"
+msgstr ""
+
+msgid "Edit stage"
+msgstr ""
+
+msgid "Periodicities"
+msgstr ""
+
+msgid "Evaluation stages"
+msgstr ""
+
+msgid "Evaluation templates"
+msgstr ""
+
+msgid "Add evaluation template"
+msgstr ""
+
+msgid "Edit evaluation template"
+msgstr ""
+
+msgid "Add template"
+msgstr ""
+
+msgid "Scheduled evaluations"
+msgstr ""
+
+msgid "Schedule evaluation"
+msgstr ""
+
+msgid "Evaluation form"
+msgstr ""
+
+msgid "My evaluations"
+msgstr ""
+
+msgid "Evaluations of me"
+msgstr ""
+
+msgid "Evaluations I must conduct"
+msgstr ""
+
+msgid "Evaluatee"
+msgstr ""
+
+msgid "Evaluator"
+msgstr ""
+
+msgid "Evaluator(s)"
+msgstr ""
+
+msgid "Scheduled date"
+msgstr ""
+
+msgid "Evaluation stage"
+msgstr ""
+
+msgid "Save draft"
+msgstr ""
+
+msgid "Send to evaluatee"
+msgstr ""
+
+msgid "Submit feedback"
+msgstr ""
+
+msgid "Close evaluation"
+msgstr ""
+
+msgid "Feedbacked"
+msgstr ""
+
+msgid "Action plan for next period"
+msgstr ""
+
+msgid "Save action plan"
+msgstr ""
+
+msgid "Next evaluation date"
+msgstr ""
+
+msgid "History of evaluations"
+msgstr ""
+
+msgid "Evaluator comment"
+msgstr ""
+
+msgid "Evaluatee comment"
+msgstr ""
+
+msgid "Weight %"
+msgstr ""
+
+msgid "Must equal 100%"
+msgstr ""
+
+msgid "No skills added yet."
+msgstr ""
+
+msgid "No activities added yet."
+msgstr "Wali wax dhaqdhaqaaq ah lama darin."
+
+msgid "No objectives added yet."
+msgstr "Wali wax himilooyin ah lama darin."
+
+msgid "No action plan defined."
+msgstr "Qorshaha waxqabadka lama qeexin."
+
+msgid "No comments yet."
+msgstr "Wali ma jiraan faallooyin."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Qabo Ctrl/Cmd si aad u doorato qiimeeyayaal badan."
+
+msgid "Scheduled"
+msgstr "La qorsheeyay"
+
+msgid "Items"
+msgstr "Walxaha"
+
+msgid "Remove skill"
+msgstr "Ka saar xirfadda"
+
+msgid "Remove activity"
+msgstr "Ka saar dhaqdhaqaaqa"
+
+msgid "Remove objective"
+msgstr "Ka saar himilada"
+
+msgid "Could not load periodicities"
+msgstr "Ma la heli karo xilliyihiisa"
+
+msgid "Could not load evaluation stages"
+msgstr "Ma la heli karo marxaladaha qiimeynta"
+
+msgid "Could not load templates"
+msgstr "Ma la heli karo jaangooyooyinka"
+
+msgid "Template saved"
+msgstr "Jaangooyinka la keydiyay"
+
+msgid "Could not save template"
+msgstr "Ma keydin karo jaangooyinka"
+
+msgid "Could not load evaluations"
+msgstr "Ma la heli karo qiimeynta"
+
+msgid "Could not save evaluation"
+msgstr "Ma keydin karo qiimeynta"
+
+msgid "Evaluation scheduled"
+msgstr "Qiimeynta la qorsheeyay"
+
+msgid "Evaluation updated"
+msgstr "Qiimeynta la cusboonaysiiyay"
+
+msgid "Could not load evaluation"
+msgstr "Ma la heli karo qiimeynta"
+
+msgid "Draft saved"
+msgstr "Qoraalka la keydiyay"
+
+msgid "Could not save draft"
+msgstr "Ma keydin karo qoraalka"
+
+msgid "Sent to evaluatee"
+msgstr "Loo diray qiimeeyaha"
+
+msgid "Could not send"
+msgstr "Ma dirin karo"
+
+msgid "Feedback submitted"
+msgstr "Ra'yiga la gudbiyay"
+
+msgid "Could not submit feedback"
+msgstr "Ma gudbin karo ra'yiga"
+
+msgid "Evaluation closed"
+msgstr "Qiimeynta la xiray"
+
+msgid "Could not close evaluation"
+msgstr "Ma xiri karo qiimeynta"
+
+msgid "Action plan saved"
+msgstr "Qorshaha waxqabadka la keydiyay"
+
+msgid "Could not save action plan"
+msgstr "Ma keydin karo qorshaha waxqabadka"
+
+msgid "Comment sent"
+msgstr "Faallada la diray"
+
+msgid "Could not send comment"
+msgstr "Ma dirin karo faallada"
+
+msgid "Reminders scheduled"
+msgstr "Xusuusiinta la qorsheeyay"
+
+msgid "Search by evaluatee"
+msgstr "Raadi qiimeeyaha"
+
+msgid "Overdue"
+msgstr "Ka dib"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Ma hubinaysaa in aad rabto in aad tirtirto xilliyahan?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Ma hubinaysaa in aad rabto in aad tirtirto marxaladahan?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Ma hubinaysaa in aad rabto in aad tirtirto qiimeyntan?"
+
+msgid "Loading…"
+msgstr "La raro…"
 

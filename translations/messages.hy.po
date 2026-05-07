@@ -34063,6 +34063,15 @@ msgstr "Աշխատանքային միջավայրի հարցումներ"
 msgid "Diversity criteria"
 msgstr "Բազմազավթության չափանիշներ"
 
+msgid "Add diversity criterion"
+msgstr "Ավելացնել բազմազանության չափանիշ"
+
+msgid "Edit diversity criterion"
+msgstr "Խմբագրել բազմազանության չափանիշ"
+
+msgid "Extra field"
+msgstr "Լրացուցիչ դաշտ"
+
 msgid "Diversity guidelines"
 msgstr "Բազմազավթության ուղեցույցներ"
 
@@ -34269,6 +34278,297 @@ msgstr "Թարգմանել AI-ով"
 msgid "Enter manually"
 msgstr "Մուտքագրել ձեռքով"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Չի կարգավորված ոչ մի AI տեքստային մատակարար: Խնդրում ենք կարգավորել մեկը AI կարգավորումներում:"
+msgid "Paste user URL or IRI…"
+msgstr "Պատհանել օգտատիրոջ URL-ը կամ IRI-ն…"
+
+msgid "Add benefit"
+msgstr "Ավելացնել օգուտ"
+
+msgid "Edit benefit"
+msgstr "Խմբագրել օգուտ"
+
+msgid "Add tag"
+msgstr "Ավելացնել պիտակ"
+
+msgid "Edit tag"
+msgstr "Խմբագրել պիտակ"
+
+msgid "No tags available"
+msgstr "Պիտակներ չկան"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Հնարավոր չէ ջնջել օգուտ, որն ունի ակտիվ նշանակումներ։"
+
+msgid "Assign benefit"
+msgstr "Նշանակել օգուտ"
+
+msgid "My benefits"
+msgstr "Իմ օգուտները"
+
+msgid "Beneficiary"
+msgstr "Օգուտառու"
+
+msgid "Economical equivalent"
+msgstr "Տնտեսական համարժեք"
+
+msgid "Assigned on"
+msgstr "Նշանակված է"
+
+msgid "Assigned until"
+msgstr "Նշանակված մինչև"
+
+msgid "Assigned by"
+msgstr "Նշանակել է"
+
+msgid "Notifications sent"
+msgstr "Ուղարկված ծանուցումներ"
+
+msgid "Send notification"
+msgstr "Ուղարկել ծանուցում"
+
+msgid "Notification sent"
+msgstr "Ծանուցում ուղարկված է"
+
+msgid "Benefit notification"
+msgstr "Օգուտի ծանուցում"
+
+msgid "From date"
+msgstr "Սկսվել է"
+
+msgid "Search by name..."
+msgstr "Որոնել անվանումով..."
+
+msgid "Filtering by"
+msgstr "Ֆիլտրելով"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Չեն գտնվել բազմազանության չափանիշներ: Ավելացրեք չափանիշներ նախ."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Ընտրեք չափանիշ ցուցակից՝ դրա վիճակագրությունը տեսնելու համար:"
+
+msgid "No data available for this criterion."
+msgstr "Այս չափանիշի համար տվյալներ չկան:"
+
+msgid "Add periodicity"
+msgstr "Ավելացնել պարբերականություն"
+
+msgid "Edit periodicity"
+msgstr "Խմբագրել պարբերականությունը"
+
+msgid "Add stage"
+msgstr "Ավելացնել փուլ"
+
+msgid "Edit stage"
+msgstr "Խմբագրել փուլը"
+
+msgid "Periodicities"
+msgstr "Պարբերականություններ"
+
+msgid "Evaluation stages"
+msgstr "Գնահատման փուլեր"
+
+msgid "Evaluation templates"
+msgstr "Գնահատման ձևանմուշներ"
+
+msgid "Add evaluation template"
+msgstr "Ավելացնել գնահատման ձևանմուշ"
+
+msgid "Edit evaluation template"
+msgstr "Խմբագրել գնահատման ձևանմուշը"
+
+msgid "Add template"
+msgstr "Ավելացնել ձևանմուշ"
+
+msgid "Scheduled evaluations"
+msgstr "Պլանավորված գնահատումներ"
+
+msgid "Schedule evaluation"
+msgstr "Պլանավորել գնահատում"
+
+msgid "Evaluation form"
+msgstr "Գնահատման ձև"
+
+msgid "My evaluations"
+msgstr "Իմ գնահատումները"
+
+msgid "Evaluations of me"
+msgstr "Ինձ վերաբերող գնահատումներ"
+
+msgid "Evaluations I must conduct"
+msgstr "Գնահատումներ, որոնք ես պետք է իրականացնեմ"
+
+msgid "Evaluatee"
+msgstr "Գնահատվող"
+
+msgid "Evaluator"
+msgstr "Գնահատող"
+
+msgid "Evaluator(s)"
+msgstr "Գնահատող(ներ)"
+
+msgid "Scheduled date"
+msgstr "Պլանավորված ամսաթիվ"
+
+msgid "Evaluation stage"
+msgstr "Գնահատման փուլ"
+
+msgid "Save draft"
+msgstr "Պահպանել նախագիծ"
+
+msgid "Send to evaluatee"
+msgstr "Ուղարկել գնահատվողին"
+
+msgid "Submit feedback"
+msgstr "Ուղարկել արձագանք"
+
+msgid "Close evaluation"
+msgstr "Փակել գնահատումը"
+
+msgid "Feedbacked"
+msgstr "Արձագանքված"
+
+msgid "Action plan for next period"
+msgstr "Մեծացման գործողությունների պլան"
+
+msgid "Save action plan"
+msgstr "Պահպանել գործողությունների պլանը"
+
+msgid "Next evaluation date"
+msgstr "Հաջորդ գնահատման ամսաթիվ"
+
+msgid "History of evaluations"
+msgstr "Գնահատումների պատմություն"
+
+msgid "Evaluator comment"
+msgstr "Գնահատողի մեկնաբանություն"
+
+msgid "Evaluatee comment"
+msgstr "Գնահատվողի մեկնաբանություն"
+
+msgid "Weight %"
+msgstr "Քաշ %"
+
+msgid "Must equal 100%"
+msgstr "Պետք է հավասար լինի 100%-ին"
+
+msgid "No skills added yet."
+msgstr "Չեն ավելացվել հմտություններ:"
+
+msgid "No activities added yet."
+msgstr "Չեն ավելացվել գործունեություններ:"
+
+msgid "No objectives added yet."
+msgstr "Չեն ավելացվել նպատակներ:"
+
+msgid "No action plan defined."
+msgstr "Գործողությունների պլան չի սահմանվել:"
+
+msgid "No comments yet."
+msgstr "Մեկնաբանություններ չկան:"
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Պահեք Ctrl/Cmd՝ մի քանի գնահատող ընտրելու համար:"
+
+msgid "Scheduled"
+msgstr "Պլանավորված"
+
+msgid "Items"
+msgstr "Տարրեր"
+
+msgid "Remove skill"
+msgstr "Հեռացնել հմտությունը"
+
+msgid "Remove activity"
+msgstr "Հեռացնել գործունեությունը"
+
+msgid "Remove objective"
+msgstr "Հեռացնել նպատակը"
+
+msgid "Could not load periodicities"
+msgstr "Պարբերականությունները չհաջողվեց բեռնել"
+
+msgid "Could not load evaluation stages"
+msgstr "Վերլուծության փուլերը չհաջողվեց բեռնել"
+
+msgid "Could not load templates"
+msgstr "Գաղափարներ չհաջողվեց բեռնել"
+
+msgid "Template saved"
+msgstr "Գաղափարը պահպանվեց"
+
+msgid "Could not save template"
+msgstr "Գաղափարը չհաջողվեց պահպանել"
+
+msgid "Could not load evaluations"
+msgstr "Վերլուծությունները չհաջողվեց բեռնել"
+
+msgid "Could not save evaluation"
+msgstr "Վերլուծությունը չհաջողվեց պահպանել"
+
+msgid "Evaluation scheduled"
+msgstr "Վերլուծությունը պլանավորվեց"
+
+msgid "Evaluation updated"
+msgstr "Վերլուծությունը թարմացվեց"
+
+msgid "Could not load evaluation"
+msgstr "Վերլուծությունը չհաջողվեց բեռնել"
+
+msgid "Draft saved"
+msgstr "Նախագիծը պահպանվեց"
+
+msgid "Could not save draft"
+msgstr "Նախագիծը չհաջողվեց պահպանել"
+
+msgid "Sent to evaluatee"
+msgstr "Ուղարկվեց գնահատվողին"
+
+msgid "Could not send"
+msgstr "Չհաջողվեց ուղարկել"
+
+msgid "Feedback submitted"
+msgstr "Արձագանքը ներկայացվեց"
+
+msgid "Could not submit feedback"
+msgstr "Արձագանքը չհաջողվեց ներկայացնել"
+
+msgid "Evaluation closed"
+msgstr "Վերլուծությունը փակվեց"
+
+msgid "Could not close evaluation"
+msgstr "Վերլուծությունը չհաջողվեց փակել"
+
+msgid "Action plan saved"
+msgstr "Միջոցառումների պլանը պահպանվեց"
+
+msgid "Could not save action plan"
+msgstr "Միջոցառումների պլանը չհաջողվեց պահպանել"
+
+msgid "Comment sent"
+msgstr "Մեկնաբանությունը ուղարկվեց"
+
+msgid "Could not send comment"
+msgstr "Մեկնաբանությունը չհաջողվեց ուղարկել"
+
+msgid "Reminders scheduled"
+msgstr "Հիշեցումները պլանավորվեցին"
+
+msgid "Search by evaluatee"
+msgstr "Որոնել գնահատվողով"
+
+msgid "Overdue"
+msgstr "Վաղաժամ"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Հաստատու՞ն եք, որ ցանկանում եք ջնջել այս պարբերականությունը"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Հաստատու՞ն եք, որ ցանկանում եք ջնջել այս փուլը"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Հաստատու՞ն եք, որ ցանկանում եք ջնջել այս վերլուծությունը"
+
+msgid "Loading…"
+msgstr "Բեռնվում է…"
 

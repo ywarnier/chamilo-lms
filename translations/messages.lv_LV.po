@@ -34064,6 +34064,15 @@ msgstr "Darba klimata aptaujas"
 msgid "Diversity criteria"
 msgstr "Dažādības kritēriji"
 
+msgid "Add diversity criterion"
+msgstr "Pievienot dažādības kritēriju"
+
+msgid "Edit diversity criterion"
+msgstr "Rediģēt dažādības kritēriju"
+
+msgid "Extra field"
+msgstr "Papildu lauks"
+
 msgid "Diversity guidelines"
 msgstr "Dažādības vadlīnijas"
 
@@ -34268,6 +34277,297 @@ msgstr "Tulkot ar AI"
 msgid "Enter manually"
 msgstr "Ievadīt manuāli"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Nav konfigurēts neviens AI teksta nodrošinātājs. Lūdzu, konfigurējiet vienu AI iestatījumos."
+msgid "Paste user URL or IRI…"
+msgstr "Ielīmēt lietotāja URL vai IRI…"
+
+msgid "Add benefit"
+msgstr "Pievienot labumu"
+
+msgid "Edit benefit"
+msgstr "Rediģēt labumu"
+
+msgid "Add tag"
+msgstr "Pievienot birku"
+
+msgid "Edit tag"
+msgstr "Rediģēt birku"
+
+msgid "No tags available"
+msgstr "Nav pieejamu birku"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Nevar dzēst labumu, kam ir aktīvi uzdevumi."
+
+msgid "Assign benefit"
+msgstr "Piešķirt labumu"
+
+msgid "My benefits"
+msgstr "Mani labumi"
+
+msgid "Beneficiary"
+msgstr "Labuma saņēmējs"
+
+msgid "Economical equivalent"
+msgstr "Ekonomiskais ekvivalents"
+
+msgid "Assigned on"
+msgstr "Piešķirts"
+
+msgid "Assigned until"
+msgstr "Piešķirts līdz"
+
+msgid "Assigned by"
+msgstr "Piešķīris"
+
+msgid "Notifications sent"
+msgstr "Nosūtītie paziņojumi"
+
+msgid "Send notification"
+msgstr "Nosūtīt paziņojumu"
+
+msgid "Notification sent"
+msgstr "Paziņojums nosūtīts"
+
+msgid "Benefit notification"
+msgstr "Priekšrocību paziņojums"
+
+msgid "From date"
+msgstr "No datuma"
+
+msgid "Search by name..."
+msgstr "Meklēt pēc nosaukuma..."
+
+msgid "Filtering by"
+msgstr "Filtrēšana pēc"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Dažādības kritēriji nav atrasti. Vispirms pievienojiet kritērijus."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Izvēlieties kritēriju no saraksta, lai skatītu tā statistiku."
+
+msgid "No data available for this criterion."
+msgstr "Šim kritērijam nav pieejamu datu."
+
+msgid "Add periodicity"
+msgstr "Pievienot periodiskumu"
+
+msgid "Edit periodicity"
+msgstr "Rediģēt periodiskumu"
+
+msgid "Add stage"
+msgstr "Pievienot posmu"
+
+msgid "Edit stage"
+msgstr "Rediģēt posmu"
+
+msgid "Periodicities"
+msgstr "Periodiskumi"
+
+msgid "Evaluation stages"
+msgstr "Vērtēšanas posmi"
+
+msgid "Evaluation templates"
+msgstr "Vērtēšanas veidnes"
+
+msgid "Add evaluation template"
+msgstr "Pievienot vērtēšanas veidni"
+
+msgid "Edit evaluation template"
+msgstr "Rediģēt vērtēšanas veidni"
+
+msgid "Add template"
+msgstr "Pievienot veidni"
+
+msgid "Scheduled evaluations"
+msgstr "Ieplānotās vērtēšanas"
+
+msgid "Schedule evaluation"
+msgstr "Ieplānot vērtēšanu"
+
+msgid "Evaluation form"
+msgstr "Vērtēšanas forma"
+
+msgid "My evaluations"
+msgstr "Manas vērtēšanas"
+
+msgid "Evaluations of me"
+msgstr "Vērtēšanas par mani"
+
+msgid "Evaluations I must conduct"
+msgstr "Vērtēšanas, kuras man jāveic"
+
+msgid "Evaluatee"
+msgstr "Vērtējamais"
+
+msgid "Evaluator"
+msgstr "Vērtētājs"
+
+msgid "Evaluator(s)"
+msgstr "Vērtētāji"
+
+msgid "Scheduled date"
+msgstr "Ieplānotais datums"
+
+msgid "Evaluation stage"
+msgstr "Vērtēšanas posms"
+
+msgid "Save draft"
+msgstr "Saglabāt melnrakstu"
+
+msgid "Send to evaluatee"
+msgstr "Nosūtīt vērtējamajam"
+
+msgid "Submit feedback"
+msgstr "Iesniegt atsauksmi"
+
+msgid "Close evaluation"
+msgstr "Aizvērt vērtēšanu"
+
+msgid "Feedbacked"
+msgstr "Atsauksme sniegta"
+
+msgid "Action plan for next period"
+msgstr "Rīcības plāns nākamajam periodam"
+
+msgid "Save action plan"
+msgstr "Saglabāt rīcības plānu"
+
+msgid "Next evaluation date"
+msgstr "Nākamās vērtēšanas datums"
+
+msgid "History of evaluations"
+msgstr "Vērtēšanas vēsture"
+
+msgid "Evaluator comment"
+msgstr "Vērtētāja komentārs"
+
+msgid "Evaluatee comment"
+msgstr "Vērtējamā komentārs"
+
+msgid "Weight %"
+msgstr "Svars %"
+
+msgid "Must equal 100%"
+msgstr "Jābūt vienādam ar 100%"
+
+msgid "No skills added yet."
+msgstr "Vēl nav pievienotas prasmes."
+
+msgid "No activities added yet."
+msgstr "Vēl nav pievienotas aktivitātes."
+
+msgid "No objectives added yet."
+msgstr "Vēl nav pievienoti mērķi."
+
+msgid "No action plan defined."
+msgstr "Rīcības plāns nav definēts."
+
+msgid "No comments yet."
+msgstr "Vēl nav komentāru."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Turiet Ctrl/Cmd, lai izvēlētos vairākus vērtētājus."
+
+msgid "Scheduled"
+msgstr "Ieplānots"
+
+msgid "Items"
+msgstr "Vienības"
+
+msgid "Remove skill"
+msgstr "Dzēst prasmi"
+
+msgid "Remove activity"
+msgstr "Dzēst darbību"
+
+msgid "Remove objective"
+msgstr "Dzēst mērķi"
+
+msgid "Could not load periodicities"
+msgstr "Nevar ielādēt periodiskumus"
+
+msgid "Could not load evaluation stages"
+msgstr "Nevar ielādēt novērtēšanas posmus"
+
+msgid "Could not load templates"
+msgstr "Nevar ielādēt veidnēs"
+
+msgid "Template saved"
+msgstr "Veidne saglabāta"
+
+msgid "Could not save template"
+msgstr "Nevar saglabāt veidni"
+
+msgid "Could not load evaluations"
+msgstr "Nevar ielādēt novērtējumus"
+
+msgid "Could not save evaluation"
+msgstr "Nevar saglabāt novērtējumu"
+
+msgid "Evaluation scheduled"
+msgstr "Novērtējums plānots"
+
+msgid "Evaluation updated"
+msgstr "Novērtējums atjaunināts"
+
+msgid "Could not load evaluation"
+msgstr "Nevar ielādēt novērtējumu"
+
+msgid "Draft saved"
+msgstr "Mēģinājums saglabāts"
+
+msgid "Could not save draft"
+msgstr "Nevar saglabāt mēģinājumu"
+
+msgid "Sent to evaluatee"
+msgstr "Nosūtīts novērtējamajam"
+
+msgid "Could not send"
+msgstr "Nevar nosūtīt"
+
+msgid "Feedback submitted"
+msgstr "Atsauksme iesniegta"
+
+msgid "Could not submit feedback"
+msgstr "Nevar iesniegt atsauksmi"
+
+msgid "Evaluation closed"
+msgstr "Novērtējums aizvērts"
+
+msgid "Could not close evaluation"
+msgstr "Nevar aizvērt novērtējumu"
+
+msgid "Action plan saved"
+msgstr "Rīcības plāns saglabāts"
+
+msgid "Could not save action plan"
+msgstr "Nevar saglabāt rīcības plānu"
+
+msgid "Comment sent"
+msgstr "Komentārs nosūtīts"
+
+msgid "Could not send comment"
+msgstr "Nevar nosūtīt komentāru"
+
+msgid "Reminders scheduled"
+msgstr "Atgādinājumi plānoti"
+
+msgid "Search by evaluatee"
+msgstr "Meklēt pēc novērtējamā"
+
+msgid "Overdue"
+msgstr "Pārsniegts termiņš"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Vai tiešām vēlaties dzēst šo periodiskumu?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Vai tiešām vēlaties dzēst šo posmu?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Vai tiešām vēlaties dzēst šo novērtējumu?"
+
+msgid "Loading…"
+msgstr "Ielāde…"
 

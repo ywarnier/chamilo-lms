@@ -21,11 +21,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ApiResource(
     operations: [
-        new GetCollection(security: "is_granted('ROLE_ADMIN')"),
-        new Get(security: "is_granted('ROLE_ADMIN')"),
-        new Post(security: "is_granted('ROLE_ADMIN')"),
-        new Put(security: "is_granted('ROLE_ADMIN')"),
-        new Delete(security: "is_granted('ROLE_ADMIN')"),
+        new GetCollection(security: "is_granted('IS_AUTHENTICATED_FULLY')"),
+        new Get(security: "is_granted('IS_AUTHENTICATED_FULLY')"),
+        new Post(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')"),
+        new Put(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')"),
+        new Delete(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')"),
     ],
     normalizationContext: ['groups' => ['performance_objective:read']],
     denormalizationContext: ['groups' => ['performance_objective:write']],

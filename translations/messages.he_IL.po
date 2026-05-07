@@ -34076,6 +34076,15 @@ msgstr "סקרי אקלים עבודה"
 msgid "Diversity criteria"
 msgstr "קריטריונים לגיוון"
 
+msgid "Add diversity criterion"
+msgstr "הוסף קריטריון גיוון"
+
+msgid "Edit diversity criterion"
+msgstr "ערוך קריטריון גיוון"
+
+msgid "Extra field"
+msgstr "שדה נוסף"
+
 msgid "Diversity guidelines"
 msgstr "הנחיות גיוון"
 
@@ -34282,6 +34291,297 @@ msgstr "תרגם עם AI"
 msgid "Enter manually"
 msgstr "הזן ידנית"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "אין ספק טקסט AI מוגדר. נא להגדיר אחד בהגדרות AI."
+msgid "Paste user URL or IRI…"
+msgstr "הדבק כתובת URL או IRI של משתמש…"
+
+msgid "Add benefit"
+msgstr "הוסף הטבה"
+
+msgid "Edit benefit"
+msgstr "ערוך הטבה"
+
+msgid "Add tag"
+msgstr "הוסף תג"
+
+msgid "Edit tag"
+msgstr "ערוך תג"
+
+msgid "No tags available"
+msgstr "אין תגיות זמינות"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "לא ניתן למחוק הטבה שיש לה הקצאות פעילות."
+
+msgid "Assign benefit"
+msgstr "הקצה הטבה"
+
+msgid "My benefits"
+msgstr "הטבות שלי"
+
+msgid "Beneficiary"
+msgstr "מוטב"
+
+msgid "Economical equivalent"
+msgstr "שווה ערך כלכלי"
+
+msgid "Assigned on"
+msgstr "הוקצה בתאריך"
+
+msgid "Assigned until"
+msgstr "הוקצה עד"
+
+msgid "Assigned by"
+msgstr "הוקצה על ידי"
+
+msgid "Notifications sent"
+msgstr "התראות נשלחו"
+
+msgid "Send notification"
+msgstr "שלח התראה"
+
+msgid "Notification sent"
+msgstr "התראה נשלחה"
+
+msgid "Benefit notification"
+msgstr "התראת הטבה"
+
+msgid "From date"
+msgstr "מתאריך"
+
+msgid "Search by name..."
+msgstr "חפש לפי שם…"
+
+msgid "Filtering by"
+msgstr "מסנן לפי"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "לא נמצאו קריטריוני גיוון. הוסף קריטריונים תחילה."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "בחר קריטריון מהרשימה כדי לראות את הסטטיסטיקות שלו."
+
+msgid "No data available for this criterion."
+msgstr "אין נתונים זמינים עבור קריטריון זה."
+
+msgid "Add periodicity"
+msgstr "הוסף מחזוריות"
+
+msgid "Edit periodicity"
+msgstr "ערוך מחזוריות"
+
+msgid "Add stage"
+msgstr "הוסף שלב"
+
+msgid "Edit stage"
+msgstr "ערוך שלב"
+
+msgid "Periodicities"
+msgstr "מחזוריות"
+
+msgid "Evaluation stages"
+msgstr "שלבי הערכה"
+
+msgid "Evaluation templates"
+msgstr "תבניות הערכה"
+
+msgid "Add evaluation template"
+msgstr "הוסף תבנית הערכה"
+
+msgid "Edit evaluation template"
+msgstr "ערוך תבנית הערכה"
+
+msgid "Add template"
+msgstr "הוסף תבנית"
+
+msgid "Scheduled evaluations"
+msgstr "הערכות מתוזמנות"
+
+msgid "Schedule evaluation"
+msgstr "תזמן הערכה"
+
+msgid "Evaluation form"
+msgstr "טופס הערכה"
+
+msgid "My evaluations"
+msgstr "הערכות שלי"
+
+msgid "Evaluations of me"
+msgstr "הערכות עליי"
+
+msgid "Evaluations I must conduct"
+msgstr "הערכות שאני חייב לבצע"
+
+msgid "Evaluatee"
+msgstr "מוערך"
+
+msgid "Evaluator"
+msgstr "מעריך"
+
+msgid "Evaluator(s)"
+msgstr "מעריכים"
+
+msgid "Scheduled date"
+msgstr "תאריך מתוזמן"
+
+msgid "Evaluation stage"
+msgstr "שלב הערכה"
+
+msgid "Save draft"
+msgstr "שמור טיוטה"
+
+msgid "Send to evaluatee"
+msgstr "שלח למוערך"
+
+msgid "Submit feedback"
+msgstr "שלח משוב"
+
+msgid "Close evaluation"
+msgstr "סגור הערכה"
+
+msgid "Feedbacked"
+msgstr "משוב נשלח"
+
+msgid "Action plan for next period"
+msgstr "תוכנית פעולה לתקופה הבאה"
+
+msgid "Save action plan"
+msgstr "שמור תוכנית פעולה"
+
+msgid "Next evaluation date"
+msgstr "תאריך הערכה הבאה"
+
+msgid "History of evaluations"
+msgstr "היסטוריית הערכות"
+
+msgid "Evaluator comment"
+msgstr "הערות המעריך"
+
+msgid "Evaluatee comment"
+msgstr "הערות המוערך"
+
+msgid "Weight %"
+msgstr "משקל %"
+
+msgid "Must equal 100%"
+msgstr "חייב להיות שווה 100%"
+
+msgid "No skills added yet."
+msgstr "לא נוספו כישורים עדיין."
+
+msgid "No activities added yet."
+msgstr "לא נוספו פעילויות עדיין."
+
+msgid "No objectives added yet."
+msgstr "לא נוספו יעדים עדיין."
+
+msgid "No action plan defined."
+msgstr "לא הוגדרה תוכנית פעולה."
+
+msgid "No comments yet."
+msgstr "אין הערות עדיין."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "החזק Ctrl/Cmd לבחירת מעריכים מרובים."
+
+msgid "Scheduled"
+msgstr "מתוזמן"
+
+msgid "Items"
+msgstr "פריטים"
+
+msgid "Remove skill"
+msgstr "הסר כישור"
+
+msgid "Remove activity"
+msgstr "הסר פעילות"
+
+msgid "Remove objective"
+msgstr "הסר יעד"
+
+msgid "Could not load periodicities"
+msgstr "לא ניתן לטעון תקופות"
+
+msgid "Could not load evaluation stages"
+msgstr "לא ניתן לטעון שלבי הערכה"
+
+msgid "Could not load templates"
+msgstr "לא ניתן לטעון תבניות"
+
+msgid "Template saved"
+msgstr "תבנית נשמרה"
+
+msgid "Could not save template"
+msgstr "לא ניתן לשמור תבנית"
+
+msgid "Could not load evaluations"
+msgstr "לא ניתן לטעון הערכות"
+
+msgid "Could not save evaluation"
+msgstr "לא ניתן לשמור הערכה"
+
+msgid "Evaluation scheduled"
+msgstr "הערכה תוזמנה"
+
+msgid "Evaluation updated"
+msgstr "הערכה עודכנה"
+
+msgid "Could not load evaluation"
+msgstr "לא ניתן לטעון הערכה"
+
+msgid "Draft saved"
+msgstr "הטיוט נשמרה"
+
+msgid "Could not save draft"
+msgstr "לא ניתן לשמור טיוט"
+
+msgid "Sent to evaluatee"
+msgstr "נשלח למוערך"
+
+msgid "Could not send"
+msgstr "לא ניתן לשלוח"
+
+msgid "Feedback submitted"
+msgstr "משוב הוגש"
+
+msgid "Could not submit feedback"
+msgstr "לא ניתן להגיש משוב"
+
+msgid "Evaluation closed"
+msgstr "הערכה נסגרה"
+
+msgid "Could not close evaluation"
+msgstr "לא ניתן לסגור הערכה"
+
+msgid "Action plan saved"
+msgstr "תכנית פעולה נשמרה"
+
+msgid "Could not save action plan"
+msgstr "לא ניתן לשמור תכנית פעולה"
+
+msgid "Comment sent"
+msgstr "הערה נשלחה"
+
+msgid "Could not send comment"
+msgstr "לא ניתן לשלוח הערה"
+
+msgid "Reminders scheduled"
+msgstr "תזכורות מתוזמנות"
+
+msgid "Search by evaluatee"
+msgstr "חיפוש לפי מוערך"
+
+msgid "Overdue"
+msgstr "פג תוקף"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "האם אתה בטוח שברצונך למחוק את התקופתיות הזו?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "האם אתה בטוח שברצונך למחוק את השלב הזה?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "האם אתה בטוח שברצונך למחוק את ההערכה הזו?"
+
+msgid "Loading…"
+msgstr "טוען…"
 

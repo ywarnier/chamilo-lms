@@ -34059,6 +34059,15 @@ msgstr " Ìwádìí ìjìnlẹ̀ ìpò iṣẹ́"
 msgid "Diversity criteria"
 msgstr "Àwòrán ìyàwòran"
 
+msgid "Add diversity criterion"
+msgstr "Ṣe ìfiwọsi ìdùpẹ́ ìdàpọ̀"
+
+msgid "Edit diversity criterion"
+msgstr "Ṣàtúnṣe ìdùpẹ́ ìdàpọ̀"
+
+msgid "Extra field"
+msgstr "Aaye afikun"
+
 msgid "Diversity guidelines"
 msgstr "Ìlànà ìyàwòran"
 
@@ -34265,6 +34274,297 @@ msgstr "Tumọ pẹlu AI"
 msgid "Enter manually"
 msgstr "Tẹwọle pẹlu ọwọ"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Ko si ìpèsè ọrọ̀ AI tí a ṣe ìdàpọ̀. Jọ̀wọ́ ṣe ìdàpọ̀ ọkan nínú ìṣètò AI."
+msgid "Paste user URL or IRI…"
+msgstr "Lẹ́kọ̀ọ́ URL tàbí IRI olùpẹ̀…"
+
+msgid "Add benefit"
+msgstr "Ṣe ìfiwọsi ànfàní"
+
+msgid "Edit benefit"
+msgstr "Ṣàtúnṣe ànfàní"
+
+msgid "Add tag"
+msgstr "Ṣe ìfiwọsi àmì"
+
+msgid "Edit tag"
+msgstr "Ṣàtúnṣe àmì"
+
+msgid "No tags available"
+msgstr "Kò sí àmì kankan tí ó ṣeé lò"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Kò ṣeé pa ànfàní tí ó ti ni ìpínnìlẹ̀ ìṣiṣẹ́ kúrò."
+
+msgid "Assign benefit"
+msgstr "Pín ànfàní"
+
+msgid "My benefits"
+msgstr "Ànfàní mi"
+
+msgid "Beneficiary"
+msgstr "Olùgbàànfàní"
+
+msgid "Economical equivalent"
+msgstr "Ìdọwọ́ ìṣúnṣe-owó"
+
+msgid "Assigned on"
+msgstr "Pín lórí"
+
+msgid "Assigned until"
+msgstr "Pín títí"
+
+msgid "Assigned by"
+msgstr "Pín nipasẹ̀"
+
+msgid "Notifications sent"
+msgstr "Ìfọwọ́sowọ́pọ̀ tí a ti rán"
+
+msgid "Send notification"
+msgstr "Ràn ìfọwọ́sowọ́pọ̀ rẹ́"
+
+msgid "Notification sent"
+msgstr "Ìfọwọ́sowọ́pọ̀ tí a ti rán"
+
+msgid "Benefit notification"
+msgstr "Ìfọwọ́sowọ́pọ̀ ànfàní"
+
+msgid "From date"
+msgstr "Láti ọjọ́"
+
+msgid "Search by name..."
+msgstr "Ṣàwárí nipasẹ orúkọ…"
+
+msgid "Filtering by"
+msgstr "Ṣí ìdíbọ̀ nipasẹ̀"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Kò sí ìdùpẹ́ ìdàpọ̀ tí a rí. Ṣe ìfiwọsi ìdùpẹ́ kọ́kọ́."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Yan ìdùpẹ́ kan láti inú àtòjọ lati wo ìṣirò rẹ̀."
+
+msgid "No data available for this criterion."
+msgstr "Kò sí ìròyìn kankan tí ó ṣeé lò fún ìdùpẹ́ yìí."
+
+msgid "Add periodicity"
+msgstr "Ṣe ìfiwọsi ìdàgbàsókè"
+
+msgid "Edit periodicity"
+msgstr "Ṣàtúnṣe ìdàgbàsókè"
+
+msgid "Add stage"
+msgstr "Ṣe ìfiwọsi ìpele"
+
+msgid "Edit stage"
+msgstr "Ṣàtúnṣe ìpele"
+
+msgid "Periodicities"
+msgstr "Ìdàgbàsókè"
+
+msgid "Evaluation stages"
+msgstr "Ìpele ìdíwò"
+
+msgid "Evaluation templates"
+msgstr "Àwòrán ìdíwò"
+
+msgid "Add evaluation template"
+msgstr "Ṣe ìfiwọsi àwòrán ìdíwò"
+
+msgid "Edit evaluation template"
+msgstr "Ṣàtúnṣe àwòrán ìdíwò"
+
+msgid "Add template"
+msgstr "Ṣe ìfiwọsi àwòrán"
+
+msgid "Scheduled evaluations"
+msgstr "Àwò ìdíwò tí a ṣètò"
+
+msgid "Schedule evaluation"
+msgstr "Ṣètò ìdíwò"
+
+msgid "Evaluation form"
+msgstr "Fọ́ọ̀mù ìdíwò"
+
+msgid "My evaluations"
+msgstr "Àwò ìdíwò mi"
+
+msgid "Evaluations of me"
+msgstr "Àwò ìdíwò mi"
+
+msgid "Evaluations I must conduct"
+msgstr "Àwò ìdíwò tí mo gbọ́dọ̀ ṣe"
+
+msgid "Evaluatee"
+msgstr "Olùdíwò"
+
+msgid "Evaluator"
+msgstr "Olùdáwò"
+
+msgid "Evaluator(s)"
+msgstr "Olùdáwò (àwùjọ)"
+
+msgid "Scheduled date"
+msgstr "Ọjọ́ ìpinnu"
+
+msgid "Evaluation stage"
+msgstr "Ìpele ìdáwò"
+
+msgid "Save draft"
+msgstr "Fipamọ́ ìpamọ́"
+
+msgid "Send to evaluatee"
+msgstr "Fi ranṣẹ́ sí olùdáwò"
+
+msgid "Submit feedback"
+msgstr "Fi ìdáhùn silẹ̀"
+
+msgid "Close evaluation"
+msgstr "Pa ìdáwò"
+
+msgid "Feedbacked"
+msgstr "Ìdáhùn tí a fi sílẹ̀"
+
+msgid "Action plan for next period"
+msgstr "Ètò ìṣe ìdáwò fún ìgbà ìdépò"
+
+msgid "Save action plan"
+msgstr "Fipamọ́ ètò ìṣe"
+
+msgid "Next evaluation date"
+msgstr "Ọjọ́ ìdáwò ìkọ̀kọ̀"
+
+msgid "History of evaluations"
+msgstr "Ìtàn ìdáwò"
+
+msgid "Evaluator comment"
+msgstr "Ìròyìn Olùdáwò"
+
+msgid "Evaluatee comment"
+msgstr "Ìròyìn Olùdáwò"
+
+msgid "Weight %"
+msgstr "Ìwọ̀n %"
+
+msgid "Must equal 100%"
+msgstr "Gbọ́dọ̀ jẹ́ 100%"
+
+msgid "No skills added yet."
+msgstr "Kò sí ìmọ̀ tí a ṣàfikún sí ìsinsìnyí."
+
+msgid "No activities added yet."
+msgstr "Kò sí ìṣẹ́ tí a ṣàfikún sí ìsinsìnyí."
+
+msgid "No objectives added yet."
+msgstr "Kò sí àwùjọ ìdí tí a ṣàfikún sí ìsinsìnyí."
+
+msgid "No action plan defined."
+msgstr "Kò sí ètò ìṣe tí a ṣàpèrẹ."
+
+msgid "No comments yet."
+msgstr "Kò sí ìròyìn sí ìsinsìnyí."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Mú Ctrl/Cmd mu láti yan ọpọlọpọ olùdáwò."
+
+msgid "Scheduled"
+msgstr "Ìpinnu"
+
+msgid "Items"
+msgstr "Àwùjọ"
+
+msgid "Remove skill"
+msgstr "Yọ ìmọ̀ kúrò"
+
+msgid "Remove activity"
+msgstr "Yọ ìṣẹ́ kúrò"
+
+msgid "Remove objective"
+msgstr "Yọ àwùjọ ìdí kúrò"
+
+msgid "Could not load periodicities"
+msgstr "Kò le ṣe ìdọ̀wọ̀ ìgbà ìdàrúdàpọ̀"
+
+msgid "Could not load evaluation stages"
+msgstr "Kò le ṣe ìdọ̀wọ̀ ìpele ìdáwò"
+
+msgid "Could not load templates"
+msgstr "Kò le ṣe ìdọ̀wọ̀ àwòǹkọ"
+
+msgid "Template saved"
+msgstr "Àwòǹkọ ti fipamọ́"
+
+msgid "Could not save template"
+msgstr "Kò le fipamọ́ àwòǹkọ"
+
+msgid "Could not load evaluations"
+msgstr "Kò le ṣe ìdọ̀wọ̀ ìdáwò"
+
+msgid "Could not save evaluation"
+msgstr "Kò le fipamọ́ ìdáwò"
+
+msgid "Evaluation scheduled"
+msgstr "Ìdáwò tí a ṣe ìpinnu"
+
+msgid "Evaluation updated"
+msgstr "Ìdáwò tí a ṣe ìmú ìdàrúdàpọ̀"
+
+msgid "Could not load evaluation"
+msgstr "Kò le ṣe ìdọ̀wọ̀ ìdáwò"
+
+msgid "Draft saved"
+msgstr "Ìpamọ́ ti fipamọ́"
+
+msgid "Could not save draft"
+msgstr "Kò le fipamọ́ ìpamọ́"
+
+msgid "Sent to evaluatee"
+msgstr "A ti fi ránṣẹ́ sí olùdáwò"
+
+msgid "Could not send"
+msgstr "Kò le fi ránṣẹ́"
+
+msgid "Feedback submitted"
+msgstr "Ìdáhùn tí a fi sílẹ̀"
+
+msgid "Could not submit feedback"
+msgstr "Kò le fi ìdáhùn sílẹ̀"
+
+msgid "Evaluation closed"
+msgstr "Ìdáwò tí a pa"
+
+msgid "Could not close evaluation"
+msgstr "Kò le pa ìdáwò"
+
+msgid "Action plan saved"
+msgstr "Ètò ìṣe ti fipamọ́"
+
+msgid "Could not save action plan"
+msgstr "Kò le fipamọ́ ètò ìṣe"
+
+msgid "Comment sent"
+msgstr "Ìròyìn tí a fi ránṣẹ́"
+
+msgid "Could not send comment"
+msgstr "Kò le fi ìròyìn ránṣẹ́"
+
+msgid "Reminders scheduled"
+msgstr "Ìdáríjò ìdáríjò"
+
+msgid "Search by evaluatee"
+msgstr "Ṣàwárí pẹ̀lú ìdàwòdàwò"
+
+msgid "Overdue"
+msgstr "Tí kò ti pẹ́"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Ṣe o dájú pé o fẹ́ pa ìdàdúró yìí rẹ́?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Ṣe o dájú pé o fẹ́ pa ìpele yìí rẹ́?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Ṣe o dájú pé o fẹ́ pa ìdàwòdàwò yìí rẹ́?"
+
+msgid "Loading…"
+msgstr "Ṣe ìkójọpọ̀…"
 

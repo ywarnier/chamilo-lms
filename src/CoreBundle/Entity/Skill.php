@@ -43,8 +43,8 @@ use Symfony\Component\Validator\Constraints as Assert;
             output: SkillTreeNode::class,
             provider: SkillTreeStateProvider::class
         ),
-        new GetCollection(),
-        new Get(),
+        new GetCollection(paginationClientEnabled: true, security: "is_granted('IS_AUTHENTICATED_FULLY')"),
+        new Get(security: "is_granted('IS_AUTHENTICATED_FULLY')"),
     ],
     normalizationContext: [
         'groups' => ['skill:read'],

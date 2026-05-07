@@ -34063,6 +34063,15 @@ msgstr "Анкети за работната клима"
 msgid "Diversity criteria"
 msgstr "Критериуми за разновидност"
 
+msgid "Add diversity criterion"
+msgstr "Додади критериум за разновидност"
+
+msgid "Edit diversity criterion"
+msgstr "Уреди критериум за разновидност"
+
+msgid "Extra field"
+msgstr "Дополнително поле"
+
 msgid "Diversity guidelines"
 msgstr "Насоки за разновидност"
 
@@ -34269,6 +34278,297 @@ msgstr "Преведи со ИИ"
 msgid "Enter manually"
 msgstr "Внеси рачно"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Нема конфигуриран добавувач на ИИ текст. Ве молиме конфигурирајте еден во поставките за ИИ."
+msgid "Paste user URL or IRI…"
+msgstr "Залепи кориснички URL или IRI…"
+
+msgid "Add benefit"
+msgstr "Додади бенефиција"
+
+msgid "Edit benefit"
+msgstr "Уреди бенефиција"
+
+msgid "Add tag"
+msgstr "Додади ознака"
+
+msgid "Edit tag"
+msgstr "Уреди ознака"
+
+msgid "No tags available"
+msgstr "Нема достапни ознаки"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Не може да се избрише бенефиција што има активни доделби."
+
+msgid "Assign benefit"
+msgstr "Додели бенефиција"
+
+msgid "My benefits"
+msgstr "Мои бенефиции"
+
+msgid "Beneficiary"
+msgstr "Бенефициент"
+
+msgid "Economical equivalent"
+msgstr "Економски еквивалент"
+
+msgid "Assigned on"
+msgstr "Доделено на"
+
+msgid "Assigned until"
+msgstr "Доделено до"
+
+msgid "Assigned by"
+msgstr "Доделено од"
+
+msgid "Notifications sent"
+msgstr "Испратени известувања"
+
+msgid "Send notification"
+msgstr "Испрати известување"
+
+msgid "Notification sent"
+msgstr "Известување испратено"
+
+msgid "Benefit notification"
+msgstr "Известување за бенефиција"
+
+msgid "From date"
+msgstr "Од датум"
+
+msgid "Search by name..."
+msgstr "Пребарај по име..."
+
+msgid "Filtering by"
+msgstr "Филтрирање по"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Нема пронајдени критериуми за разновидност. Додадете критериуми прво."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Изберете критериум од листата за да ги видите неговите статистики."
+
+msgid "No data available for this criterion."
+msgstr "Нема достапни податоци за овој критериум."
+
+msgid "Add periodicity"
+msgstr "Додај периодичност"
+
+msgid "Edit periodicity"
+msgstr "Уреди периодичност"
+
+msgid "Add stage"
+msgstr "Додај фаза"
+
+msgid "Edit stage"
+msgstr "Уреди фаза"
+
+msgid "Periodicities"
+msgstr "Периодичности"
+
+msgid "Evaluation stages"
+msgstr "Фази на евалуација"
+
+msgid "Evaluation templates"
+msgstr "Шаблони за евалуација"
+
+msgid "Add evaluation template"
+msgstr "Додај шаблон за евалуација"
+
+msgid "Edit evaluation template"
+msgstr "Уреди шаблон за евалуација"
+
+msgid "Add template"
+msgstr "Додај шаблон"
+
+msgid "Scheduled evaluations"
+msgstr "Закажани евалуации"
+
+msgid "Schedule evaluation"
+msgstr "Закажи евалуација"
+
+msgid "Evaluation form"
+msgstr "Формулар за евалуација"
+
+msgid "My evaluations"
+msgstr "Мои евалуации"
+
+msgid "Evaluations of me"
+msgstr "Евалуации за мене"
+
+msgid "Evaluations I must conduct"
+msgstr "Евалуации што морам да ги спроведам"
+
+msgid "Evaluatee"
+msgstr "Евалуиран"
+
+msgid "Evaluator"
+msgstr "Евалуатор"
+
+msgid "Evaluator(s)"
+msgstr "Евалуатори"
+
+msgid "Scheduled date"
+msgstr "Закажан датум"
+
+msgid "Evaluation stage"
+msgstr "Фаза на евалуација"
+
+msgid "Save draft"
+msgstr "Зачувај чернова"
+
+msgid "Send to evaluatee"
+msgstr "Испрати до евалуиран"
+
+msgid "Submit feedback"
+msgstr "Поднеси повратни информации"
+
+msgid "Close evaluation"
+msgstr "Затвори евалуација"
+
+msgid "Feedbacked"
+msgstr "Со повратни информации"
+
+msgid "Action plan for next period"
+msgstr "План за дејување за следниот период"
+
+msgid "Save action plan"
+msgstr "Зачувај план за дејување"
+
+msgid "Next evaluation date"
+msgstr "Датум на следна евалуација"
+
+msgid "History of evaluations"
+msgstr "Историја на евалуации"
+
+msgid "Evaluator comment"
+msgstr "Коментар на евалуаторот"
+
+msgid "Evaluatee comment"
+msgstr "Коментар на евалуираниот"
+
+msgid "Weight %"
+msgstr "Тежина %"
+
+msgid "Must equal 100%"
+msgstr "Мора да биде еднакво на 100%"
+
+msgid "No skills added yet."
+msgstr "Уште нема додадени вештини."
+
+msgid "No activities added yet."
+msgstr "Уште нема додадени активности."
+
+msgid "No objectives added yet."
+msgstr "Уште нема додадени цели."
+
+msgid "No action plan defined."
+msgstr "Нема дефиниран план за дејување."
+
+msgid "No comments yet."
+msgstr "Уште нема коментари."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Држете Ctrl/Cmd за да изберете повеќе евалуатори."
+
+msgid "Scheduled"
+msgstr "Закажано"
+
+msgid "Items"
+msgstr "Ставки"
+
+msgid "Remove skill"
+msgstr "Отстрани вештина"
+
+msgid "Remove activity"
+msgstr "Отстрани активност"
+
+msgid "Remove objective"
+msgstr "Отстрани цел"
+
+msgid "Could not load periodicities"
+msgstr "Не можев да ги вчитам периодичностите"
+
+msgid "Could not load evaluation stages"
+msgstr "Не можев да ги вчитам фазите на евалуација"
+
+msgid "Could not load templates"
+msgstr "Не можев да ги вчитам шаблоните"
+
+msgid "Template saved"
+msgstr "Шаблонот е зачуван"
+
+msgid "Could not save template"
+msgstr "Не може да се зачува шаблонот"
+
+msgid "Could not load evaluations"
+msgstr "Не може да се вчитаат евалуациите"
+
+msgid "Could not save evaluation"
+msgstr "Не може да се зачува евалуацијата"
+
+msgid "Evaluation scheduled"
+msgstr "Евалуацијата е закажана"
+
+msgid "Evaluation updated"
+msgstr "Евалуацијата е ажурирана"
+
+msgid "Could not load evaluation"
+msgstr "Не може да се вчита евалуацијата"
+
+msgid "Draft saved"
+msgstr "Нацртот е зачуван"
+
+msgid "Could not save draft"
+msgstr "Не може да се зачува нацртот"
+
+msgid "Sent to evaluatee"
+msgstr "Испратено до оценуваниот"
+
+msgid "Could not send"
+msgstr "Не може да се испрати"
+
+msgid "Feedback submitted"
+msgstr "Пишан коментар е испратен"
+
+msgid "Could not submit feedback"
+msgstr "Не може да се испрати пишаниот коментар"
+
+msgid "Evaluation closed"
+msgstr "Евалуацијата е затворена"
+
+msgid "Could not close evaluation"
+msgstr "Не може да се затвори евалуацијата"
+
+msgid "Action plan saved"
+msgstr "Планот за дејство е зачуван"
+
+msgid "Could not save action plan"
+msgstr "Не може да се зачува планот за дејство"
+
+msgid "Comment sent"
+msgstr "Коментарот е испратен"
+
+msgid "Could not send comment"
+msgstr "Не може да се испрати коментарот"
+
+msgid "Reminders scheduled"
+msgstr "Потсетниците се закажани"
+
+msgid "Search by evaluatee"
+msgstr "Пребарај по оценуван"
+
+msgid "Overdue"
+msgstr "Истекло"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Дали сте сигурни дека сакате да го избришете овој периодичност?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Дали сте сигурни дека сакате да го избришете овој степен?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Дали сте сигурни дека сакате да ја избришете оваа евалуација?"
+
+msgid "Loading…"
+msgstr "Вчитување…"
 

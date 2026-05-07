@@ -2021,7 +2021,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:பதிப்புரிமை,, no:பதிப்புரிமை இல்லை"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:பாக்கெட்,, application/msword:MsWord,, application/octet-stream:அக்டெட் ஸ்ட்ரீம்,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:பாக்கெடு,, application/msword:MsWord,, application/octet-stream:அக்டெட் ஸ்ட்ரீம்,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:பயிற்சி,,      simulation:மெய்யப்படுத்தல்,,      questionnaire:கேள்வித்தாள்,,      diagram:சித்திரம்,,      figure:உருவம்,,      graph:படம்,,      index:அட்டவணை,,      slide:இன்னுசைடு,,      table:அட்டவணை,,      narrative text:கதை உரை,,      exam:தேர்வு,,      experiment:பரிசோதனை,,      problem statement:பிரச்சினை அறிக்கை,,      self assessment:சுய மதிப்பீடு,,      lecture:உபதேசம்"
@@ -34063,6 +34063,15 @@ msgstr "வேலை சூழல் ஆய்வுகள்"
 msgid "Diversity criteria"
 msgstr "பன்முகத்தன்மை அளவுகோல்கள்"
 
+msgid "Add diversity criterion"
+msgstr "பன்முகத்தன்மை அளவுகோலை சேர்க்கவும்"
+
+msgid "Edit diversity criterion"
+msgstr "பன்முகத்தன்மை அளவுகோலைத் திருத்தவும்"
+
+msgid "Extra field"
+msgstr "கூடுதல் புலம்"
+
 msgid "Diversity guidelines"
 msgstr "பன்முகத்தன்மை வழிகாட்டிகள்"
 
@@ -34269,6 +34278,297 @@ msgstr "AI மூலம் மொழிபெயர்க்கவும்"
 msgid "Enter manually"
 msgstr "கைமுறையாக உள்ளிடவும்"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "AI உரை வழங்கி எதுவும் அமைக்கப்படவில்லை. AI அமைப்புகளில் ஒன்றை அமைக்கவும்."
+msgid "Paste user URL or IRI…"
+msgstr "பயனரின் URL அல்லது IRI ஐ ஒட்டவும்…"
+
+msgid "Add benefit"
+msgstr "நன்மையைச் சேர்க்கவும்"
+
+msgid "Edit benefit"
+msgstr "நன்மையைத் திருத்தவும்"
+
+msgid "Add tag"
+msgstr "பரிச்சேர்த்தலைச் சேர்க்கவும்"
+
+msgid "Edit tag"
+msgstr "பரிச்சேர்த்தலைத் திருத்தவும்"
+
+msgid "No tags available"
+msgstr "பரிச்சேர்த்தல்கள் கிடைக்கவில்லை"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "செயல்படும் ஒதுக்கீடுகள் உள்ள நன்மையை நீக்க முடியாது."
+
+msgid "Assign benefit"
+msgstr "நன்மையை ஒதுக்கவும்"
+
+msgid "My benefits"
+msgstr "எனது நன்மைகள்"
+
+msgid "Beneficiary"
+msgstr "பயனாளி"
+
+msgid "Economical equivalent"
+msgstr "பொருளாதார சமமானது"
+
+msgid "Assigned on"
+msgstr "ஒதுக்கப்பட்டது"
+
+msgid "Assigned until"
+msgstr "ஒதுக்கப்பட்டது வரை"
+
+msgid "Assigned by"
+msgstr "ஒதுக்கியவர்"
+
+msgid "Notifications sent"
+msgstr "அறிவிப்புகள் அனுப்பப்பட்டன"
+
+msgid "Send notification"
+msgstr "அறிவிப்பை அனுப்பவும்"
+
+msgid "Notification sent"
+msgstr "அறிவிப்பு அனுப்பப்பட்டது"
+
+msgid "Benefit notification"
+msgstr "நன்மை அறிவிப்பு"
+
+msgid "From date"
+msgstr "தேதியிலிருந்து"
+
+msgid "Search by name..."
+msgstr "பெயரால் தேடவும்..."
+
+msgid "Filtering by"
+msgstr "வடிகட்டல்"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "பன்முகத்தன்மை அளவுகோல்கள் கிடைக்கவில்லை. முதலில் அளவுகோல்களைச் சேர்க்கவும்."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "புள்ளிவிவரங்களைக் காண பட்டியலில் இருந்து ஒரு அளவுகோலைத் தேர்ந்தெடுக்கவும்."
+
+msgid "No data available for this criterion."
+msgstr "இந்த அளவுகோலைக்கு தரவு கிடைக்கவில்லை."
+
+msgid "Add periodicity"
+msgstr "周期性を追加"
+
+msgid "Edit periodicity"
+msgstr "周期性を編集"
+
+msgid "Add stage"
+msgstr "நிலையைச் சேர்க்கவும்"
+
+msgid "Edit stage"
+msgstr "நிலையைத் திருத்தவும்"
+
+msgid "Periodicities"
+msgstr "காலாண்டுகள்"
+
+msgid "Evaluation stages"
+msgstr "மதிப்பீட்டு நிலைகள்"
+
+msgid "Evaluation templates"
+msgstr "மதிப்பீட்டு டெம்ப்ளேட்டுகள்"
+
+msgid "Add evaluation template"
+msgstr "மதிப்பீட்டு டெம்ப்ளேட்டைச் சேர்க்கவும்"
+
+msgid "Edit evaluation template"
+msgstr "மதிப்பீட்டு டெம்ப்ளேட்டைத் திருத்தவும்"
+
+msgid "Add template"
+msgstr "டெம்ப்ளேட்டைச் சேர்க்கவும்"
+
+msgid "Scheduled evaluations"
+msgstr "அனுபவம்செய்யப்பட்ட மதிப்பீடுகள்"
+
+msgid "Schedule evaluation"
+msgstr "மதிப்பீட்டை அனுபவம்செய்யவும்"
+
+msgid "Evaluation form"
+msgstr "மதிப்பீட்டு படிவம்"
+
+msgid "My evaluations"
+msgstr "எனது மதிப்பீடுகள்"
+
+msgid "Evaluations of me"
+msgstr "என்னைப் பற்றிய மதிப்பீடுகள்"
+
+msgid "Evaluations I must conduct"
+msgstr "நான் நடத்த வேண்டிய மதிப்பீடுகள்"
+
+msgid "Evaluatee"
+msgstr "மதிப்பீடு செய்யப்படுபவர்"
+
+msgid "Evaluator"
+msgstr "மதிப்பீட்டாளர்"
+
+msgid "Evaluator(s)"
+msgstr "மதிப்பீட்டாளர்கள்"
+
+msgid "Scheduled date"
+msgstr "அனுபவம்செய்யப்பட்ட தேதி"
+
+msgid "Evaluation stage"
+msgstr "மதிப்பீட்டு நிலை"
+
+msgid "Save draft"
+msgstr "வரைவைச் சேமிக்கவும்"
+
+msgid "Send to evaluatee"
+msgstr "மதிப்பீடு செய்யப்படுபவருக்கு அனுப்பவும்"
+
+msgid "Submit feedback"
+msgstr "பின்னூட்டத்தை சமர்ப்பிக்கவும்"
+
+msgid "Close evaluation"
+msgstr "மதிப்பீட்டை மூடவும்"
+
+msgid "Feedbacked"
+msgstr "பின்னூட்டம் அனுப்பப்பட்டது"
+
+msgid "Action plan for next period"
+msgstr "அடுத்த காலத்திற்கான செயல் திட்டம்"
+
+msgid "Save action plan"
+msgstr "செயல் திட்டத்தைச் சேமிக்கவும்"
+
+msgid "Next evaluation date"
+msgstr "அடுத்த மதிப்பீட்டு தேதி"
+
+msgid "History of evaluations"
+msgstr "மதிப்பீடுகளின் வரலாறு"
+
+msgid "Evaluator comment"
+msgstr "மதிப்பீட்டாளரின் கருத்து"
+
+msgid "Evaluatee comment"
+msgstr "மதிப்பீடு செய்யப்படுபவரின் கருத்து"
+
+msgid "Weight %"
+msgstr "எடை %"
+
+msgid "Must equal 100%"
+msgstr "100% ஆக இருக்க வேண்டும்"
+
+msgid "No skills added yet."
+msgstr "இதுவரை திறன்கள் சேர்க்கப்படவில்லை."
+
+msgid "No activities added yet."
+msgstr "இதுவரை செயல்பாடுகள் சேர்க்கப்படவில்லை."
+
+msgid "No objectives added yet."
+msgstr "இதுவரை இலக்குகள் சேர்க்கப்படவில்லை."
+
+msgid "No action plan defined."
+msgstr "செயல் திட்டம் வரையறுக்கப்படவில்லை."
+
+msgid "No comments yet."
+msgstr "இதுவரை கருத்துகள் இல்லை."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "பல மதிப்பீட்டாளர்களைத் தேர்ந்தெடுக்க Ctrl/Cmd ஐ அழுத்திப் பிடிக்கவும்."
+
+msgid "Scheduled"
+msgstr "அனுபவம்செய்யப்பட்டது"
+
+msgid "Items"
+msgstr "பொருட்கள்"
+
+msgid "Remove skill"
+msgstr "திறனை அகற்றவும்"
+
+msgid "Remove activity"
+msgstr "செயல்பாட்டை அகற்றவும்"
+
+msgid "Remove objective"
+msgstr "இலக்கை அகற்றவும்"
+
+msgid "Could not load periodicities"
+msgstr "காலாண்டுகளை ஏற்ற முடியவில்லை"
+
+msgid "Could not load evaluation stages"
+msgstr "மதிப்பீட்டு நிலைகளை ஏற்ற முடியவில்லை"
+
+msgid "Could not load templates"
+msgstr "டெம்ப்ளேட்டுகளை ஏற்ற முடியவில்லை"
+
+msgid "Template saved"
+msgstr "டெம்ப்ளேட் சேமிக்கப்பட்டது"
+
+msgid "Could not save template"
+msgstr "டெம்ப்ளேட்டை சேமிக்க முடியவில்லை"
+
+msgid "Could not load evaluations"
+msgstr "மதிப்பீடுகளை ஏற்ற முடியவில்லை"
+
+msgid "Could not save evaluation"
+msgstr "மதிப்பீட்டை சேமிக்க முடியவில்லை"
+
+msgid "Evaluation scheduled"
+msgstr "மதிப்பீடு திட்டமிடப்பட்டது"
+
+msgid "Evaluation updated"
+msgstr "மதிப்பீடு புதுப்பிக்கப்பட்டது"
+
+msgid "Could not load evaluation"
+msgstr "மதிப்பீட்டை ஏற்ற முடியவில்லை"
+
+msgid "Draft saved"
+msgstr "கருப்பொருள் சேமிக்கப்பட்டது"
+
+msgid "Could not save draft"
+msgstr "கருப்பொருளை சேமிக்க முடியவில்லை"
+
+msgid "Sent to evaluatee"
+msgstr "மதிப்பீட்டிற்கு அனுப்பப்பட்டது"
+
+msgid "Could not send"
+msgstr "அனுப்ப முடியவில்லை"
+
+msgid "Feedback submitted"
+msgstr "பின்னூட்டம் சமர்ப்பிக்கப்பட்டது"
+
+msgid "Could not submit feedback"
+msgstr "பின்னூட்டத்தை சமர்ப்பிக்க முடியவில்லை"
+
+msgid "Evaluation closed"
+msgstr "மதிப்பீடு மூடப்பட்டது"
+
+msgid "Could not close evaluation"
+msgstr "மதிப்பீட்டை மூட முடியவில்லை"
+
+msgid "Action plan saved"
+msgstr "செயல் திட்டம் சேமிக்கப்பட்டது"
+
+msgid "Could not save action plan"
+msgstr "செயல் திட்டத்தை சேமிக்க முடியவில்லை"
+
+msgid "Comment sent"
+msgstr "கருத்து அனுப்பப்பட்டது"
+
+msgid "Could not send comment"
+msgstr "கருத்தை அனுப்ப முடியவில்லை"
+
+msgid "Reminders scheduled"
+msgstr "நினைவூட்டல்கள் திட்டமிடப்பட்டன"
+
+msgid "Search by evaluatee"
+msgstr "மதிப்பீட்டால் தேடல்"
+
+msgid "Overdue"
+msgstr "காலதாமதமானது"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "இந்த காலாண்டியை நீக்க விரும்புகிறீர்களா?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "இந்த கட்டத்தை நீக்க விரும்புகிறீர்களா?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "இந்த மதிப்பீட்டை நீக்க விரும்புகிறீர்களா?"
+
+msgid "Loading…"
+msgstr "ஏற்றுகிறது…"
 

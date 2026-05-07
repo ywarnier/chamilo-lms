@@ -34064,6 +34064,15 @@ msgstr "Darbo klimato apklausos"
 msgid "Diversity criteria"
 msgstr "Įvairovės kriterijai"
 
+msgid "Add diversity criterion"
+msgstr "Pridėti įvairovės kriterijų"
+
+msgid "Edit diversity criterion"
+msgstr "Redaguoti įvairovės kriterijų"
+
+msgid "Extra field"
+msgstr "Papildomas laukas"
+
 msgid "Diversity guidelines"
 msgstr "Įvairovės gairės"
 
@@ -34270,6 +34279,297 @@ msgstr "Vertimas su DI"
 msgid "Enter manually"
 msgstr "Įvesti rankiniu būdu"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Nėra sukonfigūruoto DI teksto tiekėjo. Sukonfigūruokite jį DI nustatymuose."
+msgid "Paste user URL or IRI…"
+msgstr "Įklijuokite vartotojo URL arba IRI…"
+
+msgid "Add benefit"
+msgstr "Pridėti naudą"
+
+msgid "Edit benefit"
+msgstr "Redaguoti naudą"
+
+msgid "Add tag"
+msgstr "Pridėti žymę"
+
+msgid "Edit tag"
+msgstr "Redaguoti žymę"
+
+msgid "No tags available"
+msgstr "Žymės nepasiekiamos"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Negalima ištrinti naudos, kuri turi aktyvius priskyrimus."
+
+msgid "Assign benefit"
+msgstr "Priskirti naudą"
+
+msgid "My benefits"
+msgstr "Mano naudos"
+
+msgid "Beneficiary"
+msgstr "Naudos gavėjas"
+
+msgid "Economical equivalent"
+msgstr "Ekonominis ekvivalentas"
+
+msgid "Assigned on"
+msgstr "Priskirta"
+
+msgid "Assigned until"
+msgstr "Priskirta iki"
+
+msgid "Assigned by"
+msgstr "Priskyrė"
+
+msgid "Notifications sent"
+msgstr "Išsiųstos pranešimai"
+
+msgid "Send notification"
+msgstr "Siųsti pranešimą"
+
+msgid "Notification sent"
+msgstr "Pranešimas išsiųstas"
+
+msgid "Benefit notification"
+msgstr "Naudos pranešimas"
+
+msgid "From date"
+msgstr "Nuo datos"
+
+msgid "Search by name..."
+msgstr "Ieškoti pagal vardą…"
+
+msgid "Filtering by"
+msgstr "Filtruojama pagal"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Įvairovės kriterijų nerasta. Pirmiausia pridėkite kriterijus."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Pasirinkite kriterijų iš sąrašo, kad pamatytumėte jo statistiką."
+
+msgid "No data available for this criterion."
+msgstr "Šiam kriterijui duomenų nėra."
+
+msgid "Add periodicity"
+msgstr "Pridėti periodinį"
+
+msgid "Edit periodicity"
+msgstr "Redaguoti periodinį"
+
+msgid "Add stage"
+msgstr "Pridėti etapą"
+
+msgid "Edit stage"
+msgstr "Redaguoti etapą"
+
+msgid "Periodicities"
+msgstr "Periodiniai"
+
+msgid "Evaluation stages"
+msgstr "Vertinimo etapai"
+
+msgid "Evaluation templates"
+msgstr "Vertinimo šablonai"
+
+msgid "Add evaluation template"
+msgstr "Pridėti vertinimo šabloną"
+
+msgid "Edit evaluation template"
+msgstr "Redaguoti vertinimo šabloną"
+
+msgid "Add template"
+msgstr "Pridėti šabloną"
+
+msgid "Scheduled evaluations"
+msgstr "Suplanuoti vertinimai"
+
+msgid "Schedule evaluation"
+msgstr "Suplanuoti vertinimą"
+
+msgid "Evaluation form"
+msgstr "Vertinimo forma"
+
+msgid "My evaluations"
+msgstr "Mano vertinimai"
+
+msgid "Evaluations of me"
+msgstr "Vertinimai apie mane"
+
+msgid "Evaluations I must conduct"
+msgstr "Vertinimai, kuriuos turiu atlikti"
+
+msgid "Evaluatee"
+msgstr "Vertinamasis"
+
+msgid "Evaluator"
+msgstr "Vertintojas"
+
+msgid "Evaluator(s)"
+msgstr "Vertintojai"
+
+msgid "Scheduled date"
+msgstr "Suplanuota data"
+
+msgid "Evaluation stage"
+msgstr "Vertinimo etapas"
+
+msgid "Save draft"
+msgstr "Išsaugoti juodraštį"
+
+msgid "Send to evaluatee"
+msgstr "Siųsti vertinamajam"
+
+msgid "Submit feedback"
+msgstr "Pateikti atsiliepimą"
+
+msgid "Close evaluation"
+msgstr "Uždaryti vertinimą"
+
+msgid "Feedbacked"
+msgstr "Atsiliepimas pateiktas"
+
+msgid "Action plan for next period"
+msgstr "Veiksmų planas kitam periodui"
+
+msgid "Save action plan"
+msgstr "Išsaugoti veiksmų planą"
+
+msgid "Next evaluation date"
+msgstr "Kito vertinimo data"
+
+msgid "History of evaluations"
+msgstr "Vertinimų istorija"
+
+msgid "Evaluator comment"
+msgstr "Vertintojo komentaras"
+
+msgid "Evaluatee comment"
+msgstr "Vertinamojo komentaras"
+
+msgid "Weight %"
+msgstr "Svoris %"
+
+msgid "Must equal 100%"
+msgstr "Turi būti lygus 100%"
+
+msgid "No skills added yet."
+msgstr "Dar nepridėta jokių įgūdžių."
+
+msgid "No activities added yet."
+msgstr "Dar nepridėta jokių veiklų."
+
+msgid "No objectives added yet."
+msgstr "Dar nepridėta jokių tikslų."
+
+msgid "No action plan defined."
+msgstr "Veiksmų planas neapibrėžtas."
+
+msgid "No comments yet."
+msgstr "Dar nėra komentarų."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Laikykite Ctrl/Cmd norėdami pasirinkti kelis vertintojus."
+
+msgid "Scheduled"
+msgstr "Suplanuotas"
+
+msgid "Items"
+msgstr "Elementai"
+
+msgid "Remove skill"
+msgstr "Pašalinti įgūdį"
+
+msgid "Remove activity"
+msgstr "Pašalinti veiklą"
+
+msgid "Remove objective"
+msgstr "Pašalinti tikslą"
+
+msgid "Could not load periodicities"
+msgstr "Nepavyko įkelti periodinių"
+
+msgid "Could not load evaluation stages"
+msgstr "Nepavyko įkelti vertinimo etapų"
+
+msgid "Could not load templates"
+msgstr "Nepavyko įkelti šablonų"
+
+msgid "Template saved"
+msgstr "Šablonas išsaugotas"
+
+msgid "Could not save template"
+msgstr "Nepavyko išsaugoti šablono"
+
+msgid "Could not load evaluations"
+msgstr "Nepavyko įkelti vertinimų"
+
+msgid "Could not save evaluation"
+msgstr "Nepavyko išsaugoti vertinimo"
+
+msgid "Evaluation scheduled"
+msgstr "Vertinimas suplanuotas"
+
+msgid "Evaluation updated"
+msgstr "Vertinimas atnaujintas"
+
+msgid "Could not load evaluation"
+msgstr "Nepavyko įkelti vertinimo"
+
+msgid "Draft saved"
+msgstr "Juodraštis išsaugotas"
+
+msgid "Could not save draft"
+msgstr "Nepavyko išsaugoti juodraščio"
+
+msgid "Sent to evaluatee"
+msgstr "Išsiųsta vertinamajam"
+
+msgid "Could not send"
+msgstr "Nepavyko išsiųsti"
+
+msgid "Feedback submitted"
+msgstr "Atsiliepimas pateiktas"
+
+msgid "Could not submit feedback"
+msgstr "Nepavyko pateikti atsiliepimo"
+
+msgid "Evaluation closed"
+msgstr "Vertinimas uždarytas"
+
+msgid "Could not close evaluation"
+msgstr "Nepavyko uždaryti vertinimo"
+
+msgid "Action plan saved"
+msgstr "Veiksmų planas išsaugotas"
+
+msgid "Could not save action plan"
+msgstr "Nepavyko išsaugoti veiksmų plano"
+
+msgid "Comment sent"
+msgstr "Komentaras išsiųstas"
+
+msgid "Could not send comment"
+msgstr "Nepavyko išsiųsti komentaro"
+
+msgid "Reminders scheduled"
+msgstr "Priminti suplanuoti"
+
+msgid "Search by evaluatee"
+msgstr "Ieškoti pagal vertinamąjį"
+
+msgid "Overdue"
+msgstr "Pasibaigęs"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Ar tikrai norite ištrinti šį periodą?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Ar tikrai norite ištrinti šį etapą?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Ar tikrai norite ištrinti šį vertinimą?"
+
+msgid "Loading…"
+msgstr "Įkeliama…"
 

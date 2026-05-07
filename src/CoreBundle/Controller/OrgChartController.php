@@ -29,8 +29,9 @@ class OrgChartController extends AbstractController
         $unitPublic = 'true' === $this->settingsManager->getSetting('hr.skills_orga_unit_public');
         $peoplePublic = 'true' === $this->settingsManager->getSetting('hr.skills_orga_people_public');
         $isAdmin = $this->isGranted('ROLE_ADMIN');
+        $isHr = $this->isGranted('ROLE_HR');
 
-        if (!$unitPublic && !$peoplePublic && !$isAdmin) {
+        if (!$unitPublic && !$peoplePublic && !$isAdmin && !$isHr) {
             return $this->json(['error' => 'Forbidden'], 403);
         }
 
@@ -98,8 +99,8 @@ class OrgChartController extends AbstractController
         return $this->json([
             'nodes' => $nodes,
             'settings' => [
-                'unitPublic' => $unitPublic || $isAdmin,
-                'peoplePublic' => $peoplePublic || $isAdmin,
+                'unitPublic' => $unitPublic || $isAdmin || $isHr,
+                'peoplePublic' => $peoplePublic || $isAdmin || $isHr,
             ],
         ]);
     }

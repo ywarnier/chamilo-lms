@@ -346,7 +346,7 @@ msgid "Sincerely"
 msgstr "مع التقدير"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "مثال على الصيغة: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "نموذج صيغة: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "مدى المتغير"
@@ -34077,6 +34077,15 @@ msgstr "استطلاعات مناخ العمل"
 msgid "Diversity criteria"
 msgstr "معايير التنوع"
 
+msgid "Add diversity criterion"
+msgstr "إضافة معيار التنوع"
+
+msgid "Edit diversity criterion"
+msgstr "تعديل معيار التنوع"
+
+msgid "Extra field"
+msgstr "حقل إضافي"
+
 msgid "Diversity guidelines"
 msgstr "إرشادات التنوع"
 
@@ -34283,6 +34292,297 @@ msgstr "ترجمة باستخدام الذكاء الاصطناعي"
 msgid "Enter manually"
 msgstr "إدخال يدوي"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "لم يتم تكوين مزود نصوص ذكاء اصطناعي. يرجى تكوين واحد في إعدادات الذكاء الاصطناعي."
+msgid "Paste user URL or IRI…"
+msgstr "لصق رابط المستخدم أو IRI…"
+
+msgid "Add benefit"
+msgstr "إضافة امتياز"
+
+msgid "Edit benefit"
+msgstr "تعديل امتياز"
+
+msgid "Add tag"
+msgstr "إضافة وسم"
+
+msgid "Edit tag"
+msgstr "تعديل وسم"
+
+msgid "No tags available"
+msgstr "لا توجد أوسمة متاحة"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "لا يمكن حذف امتياز له مهام مفعلة."
+
+msgid "Assign benefit"
+msgstr "تعيين امتياز"
+
+msgid "My benefits"
+msgstr "امتيازاتي"
+
+msgid "Beneficiary"
+msgstr "المستفيد"
+
+msgid "Economical equivalent"
+msgstr "المعادل الاقتصادي"
+
+msgid "Assigned on"
+msgstr "تم التعيين في"
+
+msgid "Assigned until"
+msgstr "تم التعيين حتى"
+
+msgid "Assigned by"
+msgstr "تم التعيين بواسطة"
+
+msgid "Notifications sent"
+msgstr "الإشعارات المرسلة"
+
+msgid "Send notification"
+msgstr "إرسال إشعار"
+
+msgid "Notification sent"
+msgstr "تم إرسال الإشعار"
+
+msgid "Benefit notification"
+msgstr "إشعار الامتياز"
+
+msgid "From date"
+msgstr "من تاريخ"
+
+msgid "Search by name..."
+msgstr "البحث بالاسم..."
+
+msgid "Filtering by"
+msgstr "التصفية حسب"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "لم يتم العثور على معايير تنوع. أضف معايير أولاً."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "اختر معياراً من القائمة لعرض إحصائياته."
+
+msgid "No data available for this criterion."
+msgstr "لا توجد بيانات متاحة لهذا المعيار."
+
+msgid "Add periodicity"
+msgstr "إضافة دورية"
+
+msgid "Edit periodicity"
+msgstr "تعديل دورية"
+
+msgid "Add stage"
+msgstr "إضافة مرحلة"
+
+msgid "Edit stage"
+msgstr "تعديل مرحلة"
+
+msgid "Periodicities"
+msgstr "الدوريات"
+
+msgid "Evaluation stages"
+msgstr "مراحل التقييم"
+
+msgid "Evaluation templates"
+msgstr "نماذج التقييم"
+
+msgid "Add evaluation template"
+msgstr "إضافة نموذج تقييم"
+
+msgid "Edit evaluation template"
+msgstr "تعديل نموذج تقييم"
+
+msgid "Add template"
+msgstr "إضافة نموذج"
+
+msgid "Scheduled evaluations"
+msgstr "التقييمات المجدولة"
+
+msgid "Schedule evaluation"
+msgstr "جدولة التقييم"
+
+msgid "Evaluation form"
+msgstr "نموذج التقييم"
+
+msgid "My evaluations"
+msgstr "تقييماتي"
+
+msgid "Evaluations of me"
+msgstr "تقييماتي"
+
+msgid "Evaluations I must conduct"
+msgstr "التقييمات التي يجب إجراؤها"
+
+msgid "Evaluatee"
+msgstr "المعاقب"
+
+msgid "Evaluator"
+msgstr "المعاقب"
+
+msgid "Evaluator(s)"
+msgstr "المعاقبون"
+
+msgid "Scheduled date"
+msgstr "التاريخ المجدول"
+
+msgid "Evaluation stage"
+msgstr "مرحلة التقييم"
+
+msgid "Save draft"
+msgstr "حفظ المسودة"
+
+msgid "Send to evaluatee"
+msgstr "إرسال إلى المعاقب"
+
+msgid "Submit feedback"
+msgstr "إرسال الملاحظات"
+
+msgid "Close evaluation"
+msgstr "إغلاق التقييم"
+
+msgid "Feedbacked"
+msgstr "تم الرد بالملاحظات"
+
+msgid "Action plan for next period"
+msgstr "خطة العمل للفترة القادمة"
+
+msgid "Save action plan"
+msgstr "حفظ خطة العمل"
+
+msgid "Next evaluation date"
+msgstr "تاريخ التقييم القادم"
+
+msgid "History of evaluations"
+msgstr "سجل التقييمات"
+
+msgid "Evaluator comment"
+msgstr "تعليق المقيم"
+
+msgid "Evaluatee comment"
+msgstr "تعليق المعاقب"
+
+msgid "Weight %"
+msgstr "الوزن %"
+
+msgid "Must equal 100%"
+msgstr "يجب أن يساوي 100%"
+
+msgid "No skills added yet."
+msgstr "لم يتم إضافة مهارات بعد."
+
+msgid "No activities added yet."
+msgstr "لم يتم إضافة أنشطة بعد."
+
+msgid "No objectives added yet."
+msgstr "لم يتم إضافة أهداف بعد."
+
+msgid "No action plan defined."
+msgstr "لم يتم تحديد خطة عمل."
+
+msgid "No comments yet."
+msgstr "لا توجد تعليقات بعد."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "اضغط Ctrl/Cmd لتحديد عدة مقيمين."
+
+msgid "Scheduled"
+msgstr "مجدول"
+
+msgid "Items"
+msgstr "العناصر"
+
+msgid "Remove skill"
+msgstr "إزالة المهارة"
+
+msgid "Remove activity"
+msgstr "إزالة النشاط"
+
+msgid "Remove objective"
+msgstr "إزالة الهدف"
+
+msgid "Could not load periodicities"
+msgstr "تعذر تحميل الدورات الزمنية"
+
+msgid "Could not load evaluation stages"
+msgstr "تعذر تحميل مراحل التقييم"
+
+msgid "Could not load templates"
+msgstr "تعذر تحميل النماذج"
+
+msgid "Template saved"
+msgstr "تم حفظ النموذج"
+
+msgid "Could not save template"
+msgstr "تعذر حفظ النموذج"
+
+msgid "Could not load evaluations"
+msgstr "تعذر تحميل التقييمات"
+
+msgid "Could not save evaluation"
+msgstr "تعذر حفظ التقييم"
+
+msgid "Evaluation scheduled"
+msgstr "تم جدولة التقييم"
+
+msgid "Evaluation updated"
+msgstr "تم تحديث التقييم"
+
+msgid "Could not load evaluation"
+msgstr "تعذر تحميل التقييم"
+
+msgid "Draft saved"
+msgstr "تم حفظ المسودة"
+
+msgid "Could not save draft"
+msgstr "تعذر حفظ المسودة"
+
+msgid "Sent to evaluatee"
+msgstr "تم الإرسال إلى المعاقب"
+
+msgid "Could not send"
+msgstr "تعذر الإرسال"
+
+msgid "Feedback submitted"
+msgstr "تم إرسال الملاحظات"
+
+msgid "Could not submit feedback"
+msgstr "تعذر إرسال الملاحظات"
+
+msgid "Evaluation closed"
+msgstr "تم إغلاق التقييم"
+
+msgid "Could not close evaluation"
+msgstr "تعذر إغلاق التقييم"
+
+msgid "Action plan saved"
+msgstr "تم حفظ خطة العمل"
+
+msgid "Could not save action plan"
+msgstr "تعذر حفظ خطة العمل"
+
+msgid "Comment sent"
+msgstr "تم إرسال التعليق"
+
+msgid "Could not send comment"
+msgstr "تعذر إرسال التعليق"
+
+msgid "Reminders scheduled"
+msgstr "تم جدولة التذكيرات"
+
+msgid "Search by evaluatee"
+msgstr "البحث حسب المقيّم"
+
+msgid "Overdue"
+msgstr "متأخر"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "هل أنت متأكد من رغبتك في حذف هذه الدورية؟"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "هل أنت متأكد من رغبتك في حذف هذه المرحلة؟"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "هل أنت متأكد من رغبتك في حذف هذا التقييم؟"
+
+msgid "Loading…"
+msgstr "جارٍ التحميل…"
 

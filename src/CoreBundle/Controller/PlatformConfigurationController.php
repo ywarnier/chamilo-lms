@@ -73,6 +73,10 @@ class PlatformConfigurationController extends AbstractController
             'forced_login_method' => $forcedLoginMethod,
         ];
 
+        if ($requestSession->isStarted()) {
+            $requestSession->save();
+        }
+
         $ldapConfig = $authenticationConfigHelper->getLdapConfig();
 
         if ($ldapConfig['enabled'] && \in_array($forcedLoginMethod, ['ldap', null], true)) {

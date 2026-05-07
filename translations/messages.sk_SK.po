@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "Úprimne"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Vzorkový vzorec: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Vzorková formula: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Rozsahy premennej"
@@ -34078,6 +34078,15 @@ msgstr "Prieskumy pracovného prostredia"
 msgid "Diversity criteria"
 msgstr "Kritériá diverzity"
 
+msgid "Add diversity criterion"
+msgstr "Pridať kritérium diverzity"
+
+msgid "Edit diversity criterion"
+msgstr "Upraviť kritérium diverzity"
+
+msgid "Extra field"
+msgstr "Extra pole"
+
 msgid "Diversity guidelines"
 msgstr "Pokyny pre diverzitu"
 
@@ -34284,6 +34293,297 @@ msgstr "Preložiť s AI"
 msgid "Enter manually"
 msgstr "Zadať manuálne"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Nie je nakonfigurovaný žiadny poskytovateľ AI textu. Prosím, nakonfigurujte jeden v nastaveniach AI."
+msgid "Paste user URL or IRI…"
+msgstr "Vložiť URL alebo IRI používateľa…"
+
+msgid "Add benefit"
+msgstr "Pridať benefit"
+
+msgid "Edit benefit"
+msgstr "Upraviť benefit"
+
+msgid "Add tag"
+msgstr "Pridať značku"
+
+msgid "Edit tag"
+msgstr "Upraviť značku"
+
+msgid "No tags available"
+msgstr "Žiadne značky nie sú k dispozícii"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Nie je možné zmazať benefit, ktorý má aktívne priradenia."
+
+msgid "Assign benefit"
+msgstr "Priradiť benefit"
+
+msgid "My benefits"
+msgstr "Moje benefity"
+
+msgid "Beneficiary"
+msgstr "Príjemca"
+
+msgid "Economical equivalent"
+msgstr "Ekonomický ekvivalent"
+
+msgid "Assigned on"
+msgstr "Priradené dňa"
+
+msgid "Assigned until"
+msgstr "Priradené do"
+
+msgid "Assigned by"
+msgstr "Priradené od"
+
+msgid "Notifications sent"
+msgstr "Odoslané notifikácie"
+
+msgid "Send notification"
+msgstr "Odoslať notifikáciu"
+
+msgid "Notification sent"
+msgstr "Notifikácia odoslaná"
+
+msgid "Benefit notification"
+msgstr "Notifikácia o príspevku"
+
+msgid "From date"
+msgstr "Od dátumu"
+
+msgid "Search by name..."
+msgstr "Vyhľadávanie podľa mena..."
+
+msgid "Filtering by"
+msgstr "Filtrované podľa"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Žiadne kritériá diverzity nenájdené. Najprv pridajte kritériá."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Vyberte kritérium zo zoznamu na zobrazenie jeho štatistík."
+
+msgid "No data available for this criterion."
+msgstr "Žiadne údaje pre toto kritérium nie sú k dispozícii."
+
+msgid "Add periodicity"
+msgstr "Pridať periodicitu"
+
+msgid "Edit periodicity"
+msgstr "Upraviť periodicitu"
+
+msgid "Add stage"
+msgstr "Pridať etapu"
+
+msgid "Edit stage"
+msgstr "Upraviť etapu"
+
+msgid "Periodicities"
+msgstr "Periodicita"
+
+msgid "Evaluation stages"
+msgstr "Etapy hodnotenia"
+
+msgid "Evaluation templates"
+msgstr "Šablóny hodnotenia"
+
+msgid "Add evaluation template"
+msgstr "Pridať šablónu hodnotenia"
+
+msgid "Edit evaluation template"
+msgstr "Upraviť šablónu hodnotenia"
+
+msgid "Add template"
+msgstr "Pridať šablónu"
+
+msgid "Scheduled evaluations"
+msgstr "Naplánované hodnotenia"
+
+msgid "Schedule evaluation"
+msgstr "Naplánovať hodnotenie"
+
+msgid "Evaluation form"
+msgstr "Formulár hodnotenia"
+
+msgid "My evaluations"
+msgstr "Moje hodnotenia"
+
+msgid "Evaluations of me"
+msgstr "Hodnotenia mňa"
+
+msgid "Evaluations I must conduct"
+msgstr "Hodnotenia, ktoré musím vykonať"
+
+msgid "Evaluatee"
+msgstr "Hodnotený"
+
+msgid "Evaluator"
+msgstr "Hodnotiteľ"
+
+msgid "Evaluator(s)"
+msgstr "Hodnotiteľ(i)"
+
+msgid "Scheduled date"
+msgstr "Naplánovaný dátum"
+
+msgid "Evaluation stage"
+msgstr "Etapa hodnotenia"
+
+msgid "Save draft"
+msgstr "Uložiť návrh"
+
+msgid "Send to evaluatee"
+msgstr "Odoslať hodnotenému"
+
+msgid "Submit feedback"
+msgstr "Odoslať spätnú väzbu"
+
+msgid "Close evaluation"
+msgstr "Zatvoriť hodnotenie"
+
+msgid "Feedbacked"
+msgstr "S spätnou väzbou"
+
+msgid "Action plan for next period"
+msgstr "Akčný plán pre nasledujúce obdobie"
+
+msgid "Save action plan"
+msgstr "Uložiť akčný plán"
+
+msgid "Next evaluation date"
+msgstr "Dátum ďalšieho hodnotenia"
+
+msgid "History of evaluations"
+msgstr "História hodnotení"
+
+msgid "Evaluator comment"
+msgstr "Komentár hodnotiteľa"
+
+msgid "Evaluatee comment"
+msgstr "Komentár hodnoteného"
+
+msgid "Weight %"
+msgstr "Váha %"
+
+msgid "Must equal 100%"
+msgstr "Musí byť 100%"
+
+msgid "No skills added yet."
+msgstr "Žiadne zručnosti ešte nepridané."
+
+msgid "No activities added yet."
+msgstr "Zatiaľ neboli pridané žiadne aktivity."
+
+msgid "No objectives added yet."
+msgstr "Zatiaľ neboli pridané žiadne ciele."
+
+msgid "No action plan defined."
+msgstr "Nie je definovaný žiadny akčný plán."
+
+msgid "No comments yet."
+msgstr "Zatiaľ žiadne komentáre."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Stlačte Ctrl/Cmd pre výber viacerých hodnotiteľov."
+
+msgid "Scheduled"
+msgstr "Naplánované"
+
+msgid "Items"
+msgstr "Položky"
+
+msgid "Remove skill"
+msgstr "Odstrániť zručnosť"
+
+msgid "Remove activity"
+msgstr "Odstrániť aktivitu"
+
+msgid "Remove objective"
+msgstr "Odstrániť cieľ"
+
+msgid "Could not load periodicities"
+msgstr "Nepodarilo sa načítať periodicitu"
+
+msgid "Could not load evaluation stages"
+msgstr "Nepodarilo sa načítať etapy hodnotenia"
+
+msgid "Could not load templates"
+msgstr "Nepodarilo sa načítať šablóny"
+
+msgid "Template saved"
+msgstr "Šablóna uložená"
+
+msgid "Could not save template"
+msgstr "Nepodarilo sa uložiť šablónu"
+
+msgid "Could not load evaluations"
+msgstr "Nepodarilo sa načítať hodnotenia"
+
+msgid "Could not save evaluation"
+msgstr "Nepodarilo sa uložiť hodnotenie"
+
+msgid "Evaluation scheduled"
+msgstr "Hodnotenie naplánované"
+
+msgid "Evaluation updated"
+msgstr "Hodnotenie aktualizované"
+
+msgid "Could not load evaluation"
+msgstr "Nepodarilo sa načítať hodnotenie"
+
+msgid "Draft saved"
+msgstr "Náčrt uložený"
+
+msgid "Could not save draft"
+msgstr "Nepodarilo sa uložiť náčrt"
+
+msgid "Sent to evaluatee"
+msgstr "Odoslané hodnotenému"
+
+msgid "Could not send"
+msgstr "Nepodarilo sa odoslať"
+
+msgid "Feedback submitted"
+msgstr "Spätná väzba odoslaná"
+
+msgid "Could not submit feedback"
+msgstr "Nepodarilo sa odoslať spätnú väzbu"
+
+msgid "Evaluation closed"
+msgstr "Hodnotenie uzavreté"
+
+msgid "Could not close evaluation"
+msgstr "Nepodarilo sa uzavrieť hodnotenie"
+
+msgid "Action plan saved"
+msgstr "Akčný plán uložený"
+
+msgid "Could not save action plan"
+msgstr "Nepodarilo sa uložiť akčný plán"
+
+msgid "Comment sent"
+msgstr "Komentár odoslaný"
+
+msgid "Could not send comment"
+msgstr "Nepodarilo sa odoslať komentár"
+
+msgid "Reminders scheduled"
+msgstr "Pripomienky naplánované"
+
+msgid "Search by evaluatee"
+msgstr "Hľadať podľa hodnoteného"
+
+msgid "Overdue"
+msgstr "Po splatnosti"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Naozaj chcete odstrániť túto periodicitu?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Naozaj chcete odstrániť túto etapu?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Naozaj chcete odstrániť toto hodnotenie?"
+
+msgid "Loading…"
+msgstr "Načítavam…"
 

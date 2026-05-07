@@ -34065,6 +34065,15 @@ msgstr "Enketoj pri laborlaborambiente"
 msgid "Diversity criteria"
 msgstr "Kriterioj de diverseco"
 
+msgid "Add diversity criterion"
+msgstr "Aldoni diversecan kriteriumon"
+
+msgid "Edit diversity criterion"
+msgstr "Redakti diversecan kriteriumon"
+
+msgid "Extra field"
+msgstr "Ekstra kampo"
+
 msgid "Diversity guidelines"
 msgstr "Gvidlinioj de diverseco"
 
@@ -34271,6 +34280,297 @@ msgstr "Traduki per IA"
 msgid "Enter manually"
 msgstr "Enigi mane"
 
-msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgstr "Neniu AI-tekstprovizanto estas agordita. Bonvolu agordi unu en la AI-agordoj."
+msgid "Paste user URL or IRI…"
+msgstr "Alglui uzantan URL aŭ IRI…"
+
+msgid "Add benefit"
+msgstr "Aldoni avantaĝon"
+
+msgid "Edit benefit"
+msgstr "Redakti avantaĝon"
+
+msgid "Add tag"
+msgstr "Aldoni etikedon"
+
+msgid "Edit tag"
+msgstr "Redakti etikedon"
+
+msgid "No tags available"
+msgstr "Neniu etikedo havebla"
+
+msgid "Cannot delete a benefit that has active assignments."
+msgstr "Ne povas forigi avantaĝon kiu havas aktivan asignaĵon."
+
+msgid "Assign benefit"
+msgstr "Asigni avantaĝon"
+
+msgid "My benefits"
+msgstr "Miaj avantaĝoj"
+
+msgid "Beneficiary"
+msgstr "Ricevanto"
+
+msgid "Economical equivalent"
+msgstr "Ekonomia ekvivalento"
+
+msgid "Assigned on"
+msgstr "Asignita je"
+
+msgid "Assigned until"
+msgstr "Asignita ĝis"
+
+msgid "Assigned by"
+msgstr "Asignita de"
+
+msgid "Notifications sent"
+msgstr "Senditaj sciigoj"
+
+msgid "Send notification"
+msgstr "Sendi sciigon"
+
+msgid "Notification sent"
+msgstr "Sciigo sendita"
+
+msgid "Benefit notification"
+msgstr "Sciigo pri avantaĝo"
+
+msgid "From date"
+msgstr "De dato"
+
+msgid "Search by name..."
+msgstr "Serĉi laŭ nomo..."
+
+msgid "Filtering by"
+msgstr "Filtrado laŭ"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Neniu kriterio de diverseco trovita. Alingu kriteriojn unue."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Elektu kriterion el la listo por vidi ĝiajn statistikojn."
+
+msgid "No data available for this criterion."
+msgstr "Neniu datenoj haveblaj por tiu kriterio."
+
+msgid "Add periodicity"
+msgstr "Aldoni periodon"
+
+msgid "Edit periodicity"
+msgstr "Redakti periodon"
+
+msgid "Add stage"
+msgstr "Aldoni etapon"
+
+msgid "Edit stage"
+msgstr "Redakti etapon"
+
+msgid "Periodicities"
+msgstr "Periodoj"
+
+msgid "Evaluation stages"
+msgstr "Etapoj de taksado"
+
+msgid "Evaluation templates"
+msgstr "Ŝablonoj de taksado"
+
+msgid "Add evaluation template"
+msgstr "Aldoni ŝablonon de taksado"
+
+msgid "Edit evaluation template"
+msgstr "Redakti ŝablonon de taksado"
+
+msgid "Add template"
+msgstr "Aldoni ŝablonon"
+
+msgid "Scheduled evaluations"
+msgstr "Planitaj taksadoj"
+
+msgid "Schedule evaluation"
+msgstr "Planigi taksadon"
+
+msgid "Evaluation form"
+msgstr "Formularo de taksado"
+
+msgid "My evaluations"
+msgstr "Miaj taksadoj"
+
+msgid "Evaluations of me"
+msgstr "Taksadoj pri mi"
+
+msgid "Evaluations I must conduct"
+msgstr "Taksadoj kiujn mi devas efektivigi"
+
+msgid "Evaluatee"
+msgstr "Taksata"
+
+msgid "Evaluator"
+msgstr "Taksanto"
+
+msgid "Evaluator(s)"
+msgstr "Taksantoj"
+
+msgid "Scheduled date"
+msgstr "Planita dato"
+
+msgid "Evaluation stage"
+msgstr "Etapo de taksado"
+
+msgid "Save draft"
+msgstr "Konservi kajeron"
+
+msgid "Send to evaluatee"
+msgstr "Sendi al taksata"
+
+msgid "Submit feedback"
+msgstr "Sendi retpoŝton"
+
+msgid "Close evaluation"
+msgstr "Fermi taksadon"
+
+msgid "Feedbacked"
+msgstr "Retpoŝtita"
+
+msgid "Action plan for next period"
+msgstr "Plana agado por la venonta periodo"
+
+msgid "Save action plan"
+msgstr "Konservi planon de agado"
+
+msgid "Next evaluation date"
+msgstr "Dato de la venonta taksado"
+
+msgid "History of evaluations"
+msgstr "Historio de taksadoj"
+
+msgid "Evaluator comment"
+msgstr "Komento de taksanto"
+
+msgid "Evaluatee comment"
+msgstr "Komento de taksata"
+
+msgid "Weight %"
+msgstr "Pezo %"
+
+msgid "Must equal 100%"
+msgstr "Devas esti 100%"
+
+msgid "No skills added yet."
+msgstr "Neniuj kompetencoj aldonitaj ankoraŭ."
+
+msgid "No activities added yet."
+msgstr "Neniuj agadoj aldonitaj ankoraŭ."
+
+msgid "No objectives added yet."
+msgstr "Neniuj celoj aldonitaj ankoraŭ."
+
+msgid "No action plan defined."
+msgstr "Neniu plano de agado difinita."
+
+msgid "No comments yet."
+msgstr "Neniuj komentoj ankoraŭ."
+
+msgid "Hold Ctrl/Cmd to select multiple evaluators."
+msgstr "Tenu Ctrl/Cmd por selekti plurajn taksantojn."
+
+msgid "Scheduled"
+msgstr "Planita"
+
+msgid "Items"
+msgstr "Elementoj"
+
+msgid "Remove skill"
+msgstr "Forigi kompetencon"
+
+msgid "Remove activity"
+msgstr "Forigi agadon"
+
+msgid "Remove objective"
+msgstr "Forigi celon"
+
+msgid "Could not load periodicities"
+msgstr "Ne eblis ŝargi periodojn"
+
+msgid "Could not load evaluation stages"
+msgstr "Ne eblis ŝargi etapojejn de taksado"
+
+msgid "Could not load templates"
+msgstr "Ne eblis ŝargi ŝablonojn"
+
+msgid "Template saved"
+msgstr "Ŝablono konservita"
+
+msgid "Could not save template"
+msgstr "Ne eblis konservi ŝablonon"
+
+msgid "Could not load evaluations"
+msgstr "Ne eblis ŝargi taksadojn"
+
+msgid "Could not save evaluation"
+msgstr "Ne eblis konservi taksado"
+
+msgid "Evaluation scheduled"
+msgstr "Taksado planita"
+
+msgid "Evaluation updated"
+msgstr "Taksado ĝisdatigita"
+
+msgid "Could not load evaluation"
+msgstr "Ne eblis ŝargi taksado"
+
+msgid "Draft saved"
+msgstr "Paŭso konservita"
+
+msgid "Could not save draft"
+msgstr "Ne eblis konservi paŭson"
+
+msgid "Sent to evaluatee"
+msgstr "Sendita al taksendo"
+
+msgid "Could not send"
+msgstr "Ne eblis sendi"
+
+msgid "Feedback submitted"
+msgstr "Rekomendo submetita"
+
+msgid "Could not submit feedback"
+msgstr "Ne eblis submeti rekomendon"
+
+msgid "Evaluation closed"
+msgstr "Taksado fermita"
+
+msgid "Could not close evaluation"
+msgstr "Ne eblis fermi taksado"
+
+msgid "Action plan saved"
+msgstr "Plana de ago konservita"
+
+msgid "Could not save action plan"
+msgstr "Ne eblis konservi planon de ago"
+
+msgid "Comment sent"
+msgstr "Komento sendita"
+
+msgid "Could not send comment"
+msgstr "Ne eblis sendi komenon"
+
+msgid "Reminders scheduled"
+msgstr "Atentigoj planitaj"
+
+msgid "Search by evaluatee"
+msgstr "Serĉi laŭ taksendo"
+
+msgid "Overdue"
+msgstr "Malfrua"
+
+msgid "Are you sure you want to delete this periodicity?"
+msgstr "Ĉu vi certas, ke vi volas forigi tiun ĉi periodon?"
+
+msgid "Are you sure you want to delete this stage?"
+msgstr "Ĉu vi certas, ke vi volas forigi tiun ĉi etapon?"
+
+msgid "Are you sure you want to delete this evaluation?"
+msgstr "Ĉu vi certas, ke vi volas forigi tiun ĉi taksado?"
+
+msgid "Loading…"
+msgstr "Ŝargado…"
 

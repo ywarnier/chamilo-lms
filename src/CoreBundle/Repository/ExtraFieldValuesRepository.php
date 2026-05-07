@@ -11,6 +11,7 @@ use Chamilo\CoreBundle\Entity\ExtraFieldItemInterface;
 use Chamilo\CoreBundle\Entity\ExtraFieldValues;
 use Chamilo\CourseBundle\Entity\CLp;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
@@ -217,6 +218,19 @@ class ExtraFieldValuesRepository extends ServiceEntityRepository
         ;
 
         return $qb->getQuery()->getOneOrNullResult();
+    }
+
+    public function countByFieldAndValue(ExtraField $field, string $value): int
+    {
+        return (int) $this->createQueryBuilder('efv')
+            ->select('COUNT(efv.id)')
+            ->where('efv.field = :field')
+            ->andWhere('efv.fieldValue = :value')
+            ->setParameter('field', $field->getId(), Types::INTEGER)
+            ->setParameter('value', $value)
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
     }
 
     public function getByHandlerAndFieldId(int $itemId, int $fieldId, int $itemType, bool $transform = false): array
