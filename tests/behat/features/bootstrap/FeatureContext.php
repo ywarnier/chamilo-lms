@@ -1000,6 +1000,51 @@ JS;
         $element->click();
     }
 
+    /**
+     * @Then /^I should see an element with id "([^"]*)"$/
+     */
+    public function iShouldSeeAnElementWithId(string $id): void
+    {
+        $element = $this->getSession()->getPage()->find('css', '#'.$id);
+        if (null === $element) {
+            throw new \RuntimeException(sprintf('No element with id "%s" found on the page.', $id));
+        }
+    }
+
+    /**
+     * Create a CSurvey via the legacy survey creation flow. Requires the course (cid) to exist.
+     *
+     * @Given /^a CSurvey titled "([^"]*)" exists in course "([^"]*)"$/
+     */
+    public function aCSurveyExistsInCourse(string $title, string $courseCode): void
+    {
+        $this->iAmAPlatformAdministrator();
+        $this->visit('/main/survey/create_new_survey.php?cid='.$courseCode);
+        $this->waitForThePageToBeLoaded();
+        $this->fillField('survey_code', strtoupper(preg_replace('/[^A-Z0-9]/i', '_', $title)));
+        $this->fillField('survey_title', $title);
+        $this->pressButton('Save');
+        $this->waitForThePageToBeLoaded();
+    }
+
+    /**
+     * Create a BusinessUnit via the Vue admin UI at /hr/business-units.
+     *
+     * @Given /^a business unit titled "([^"]*)" exists$/
+     */
+    public function aBusinessUnitTitledExists(string $title): void
+    {
+        $this->iAmAPlatformAdministrator();
+        $this->visit('/hr/business-units');
+        $this->waitForThePageToBeLoaded();
+        $this->pressButton('Add business unit');
+        $this->waitForThePageToBeLoaded();
+        $this->fillField('unit_title', $title);
+        $this->pressButton('Save');
+        $this->waitForThePageToBeLoaded();
+        $this->assertPageContainsText($title);
+    }
+
     public function visit($page): void
     {
         parent::visit($page);

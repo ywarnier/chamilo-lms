@@ -597,7 +597,7 @@ function buildManualBreadcrumbIfNeeded() {
     return true
   }
 
-  const whitelist = ["admin", "hr"]
+  const whitelist = ["admin", "hr", "surveys-list"]
   const overrides = {
     admin: "AdminIndex",
     gdpr: null,
@@ -609,8 +609,8 @@ function buildManualBreadcrumbIfNeeded() {
     return false
   }
 
-  // /hr/* — admin-scoped HR pages
-  const isHr = baseSegment === "hr"
+  // /hr/* and /surveys-list/* — admin-scoped HR pages
+  const isHr = baseSegment === "hr" || baseSegment === "surveys-list"
   if (isHr) {
     const isPrivileged = isAdmin.value || isHRM.value
     if (isPrivileged) {

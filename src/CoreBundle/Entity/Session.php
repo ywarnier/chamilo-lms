@@ -13,12 +13,14 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Link;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
+use Chamilo\CoreBundle\ApiResource\HrRoiCourseItem;
 use Chamilo\CoreBundle\ApiResource\SessionPlanItem;
 use Chamilo\CoreBundle\Controller\Api\CalendarMyStudentsScheduleAction;
 use Chamilo\CoreBundle\Controller\Api\CreateSessionWithUsersAndCoursesAction;
 use Chamilo\CoreBundle\Dto\CreateSessionWithUsersAndCoursesInput;
 use Chamilo\CoreBundle\Entity\Listener\SessionListener;
 use Chamilo\CoreBundle\Repository\SessionRepository;
+use Chamilo\CoreBundle\State\HrRoiCourseStateProvider;
 use Chamilo\CoreBundle\State\SessionPlanStateProvider;
 use Chamilo\CoreBundle\State\UserSessionSubscriptionsStateProvider;
 use DateTime;
@@ -114,6 +116,19 @@ use Symfony\Component\Validator\Constraints as Assert;
             output: SessionPlanItem::class,
             name: 'calendar_sessions_plan',
             provider: SessionPlanStateProvider::class,
+        ),
+        // Chamilo HR extension: ROI by course (Training ROI management).
+        new GetCollection(
+            uriTemplate: '/hr_roi/courses',
+            paginationEnabled: false,
+            normalizationContext: [
+                'groups' => ['hr_roi_course:read'],
+            ],
+            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
+            filters: ['hr.session.date_filter'],
+            output: HrRoiCourseItem::class,
+            name: 'hr_roi_courses',
+            provider: HrRoiCourseStateProvider::class,
         ),
         new GetCollection(
             uriTemplate: '/calendar/my-students-schedule.{_format}',

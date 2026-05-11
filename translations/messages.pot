@@ -33976,6 +33976,63 @@ msgstr ""
 msgid "Work climate surveys"
 msgstr ""
 
+msgid "Unit"
+msgstr ""
+
+msgid "Total cost"
+msgstr ""
+
+msgid "Cost per learner"
+msgstr ""
+
+msgid "Average cost by session"
+msgstr ""
+
+msgid "Total investment"
+msgstr ""
+
+msgid "Set cost"
+msgstr ""
+
+msgid "Filter by date range"
+msgstr ""
+
+msgid "Add distribution"
+msgstr ""
+
+msgid "User share"
+msgstr ""
+
+msgid "Select a unit"
+msgstr ""
+
+msgid "Select a survey"
+msgstr ""
+
+msgid "Distribution added"
+msgstr ""
+
+msgid "Distribution removed"
+msgstr ""
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr ""
+
+msgid "Cost updated"
+msgstr ""
+
+msgid "Total invited"
+msgstr ""
+
+msgid "Total answered"
+msgstr ""
+
+msgid "Total responses"
+msgstr ""
+
+msgid "No responses yet"
+msgstr ""
+
 msgid "Diversity criteria"
 msgstr ""
 

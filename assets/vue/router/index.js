@@ -353,6 +353,28 @@ const router = createRouter({
       meta: { showBreadcrumb: false },
       component: () => import("../views/hr/OrgChartView.vue"),
     },
+    {
+      path: "/surveys-list/training-need-assessments",
+      name: "HrTrainingNeedSurveys",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Training needs assessment",
+      },
+      component: () => import("../views/hr/surveys/HrTrainingNeedSurveysView.vue"),
+    },
+    {
+      path: "/surveys-list/work-climate",
+      name: "HrWorkClimateSurveys",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Work climate surveys",
+      },
+      component: () => import("../views/hr/surveys/HrWorkClimateSurveysView.vue"),
+    },
     sdgRoutes,
   ],
 })

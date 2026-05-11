@@ -6,6 +6,8 @@ declare(strict_types=1);
 
 namespace Chamilo\CourseBundle\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\GetCollection;
 use Chamilo\CoreBundle\Entity\AbstractResource;
 use Chamilo\CoreBundle\Entity\ResourceInterface;
 use Chamilo\CoreBundle\Entity\ResourceShowCourseResourcesInSessionInterface;
@@ -16,15 +18,23 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Stringable;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Uid\Uuid;
 use Symfony\Component\Validator\Constraints as Assert;
 
+#[ApiResource(
+    operations: [
+        new GetCollection(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')"),
+    ],
+    normalizationContext: ['groups' => ['c_survey:read']],
+)]
 #[ORM\Table(name: 'c_survey')]
 #[ORM\Index(columns: ['code'], name: 'idx_survey_code')]
 #[Gedmo\Tree(type: 'nested')]
 #[ORM\Entity(repositoryClass: CSurveyRepository::class)]
 class CSurvey extends AbstractResource implements ResourceInterface, ResourceShowCourseResourcesInSessionInterface, Stringable
 {
+    #[Groups(['c_survey:read'])]
     #[ORM\Column(name: 'iid', type: 'integer')]
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -35,6 +45,7 @@ class CSurvey extends AbstractResource implements ResourceInterface, ResourceSho
     protected ?string $code = null;
 
     #[Assert\NotBlank]
+    #[Groups(['c_survey:read'])]
     #[ORM\Column(name: 'title', type: 'text', nullable: false)]
     protected string $title;
 

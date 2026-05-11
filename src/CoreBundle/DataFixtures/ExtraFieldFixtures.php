@@ -612,6 +612,12 @@ class ExtraFieldFixtures extends Fixture implements FixtureGroupInterface
                 'item_type' => ExtraField::USER_FIELD_TYPE,
                 'value_type' => ExtraField::FIELD_TYPE_TEXT,
             ],
+            [
+                'variable' => 'cost',
+                'display_text' => 'Training cost',
+                'item_type' => ExtraField::SESSION_FIELD_TYPE,
+                'value_type' => ExtraField::FIELD_TYPE_FLOAT,
+            ],
         ];
     }
 

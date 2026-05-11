@@ -34061,6 +34061,63 @@ msgstr "Training needs assessment"
 msgid "Work climate surveys"
 msgstr "Work climate surveys"
 
+msgid "Unit"
+msgstr "Unit"
+
+msgid "Total cost"
+msgstr "Total cost"
+
+msgid "Cost per learner"
+msgstr "Cost per learner"
+
+msgid "Average cost by session"
+msgstr "Average cost by session"
+
+msgid "Total investment"
+msgstr "Total investment"
+
+msgid "Set cost"
+msgstr "Set cost"
+
+msgid "Filter by date range"
+msgstr "Filter by date range"
+
+msgid "Add distribution"
+msgstr "Add distribution"
+
+msgid "User share"
+msgstr "User share"
+
+msgid "Select a unit"
+msgstr "Select a unit"
+
+msgid "Select a survey"
+msgstr "Select a survey"
+
+msgid "Distribution added"
+msgstr "Distribution added"
+
+msgid "Distribution removed"
+msgstr "Distribution removed"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Are you sure you want to remove this distribution?"
+
+msgid "Cost updated"
+msgstr "Cost updated"
+
+msgid "Total invited"
+msgstr "Total invited"
+
+msgid "Total answered"
+msgstr "Total answered"
+
+msgid "Total responses"
+msgstr "Total responses"
+
+msgid "No responses yet"
+msgstr "No responses yet"
+
 msgid "Diversity criteria"
 msgstr "Diversity criteria"
 

@@ -188,11 +188,11 @@ const benefitsItems = computed(() => [
 ])
 
 const roiItems = computed(() => [
-  { class: "item-hr-roi-course", label: t("ROI by course") },
-  { class: "item-hr-roi-person", label: t("ROI by person") },
-  { class: "item-hr-roi-unit", label: t("ROI by organizational unit") },
-  { class: "item-hr-training-needs", label: t("Training needs assessment") },
-  { class: "item-hr-work-climate", label: t("Work climate surveys") },
+  { class: "item-hr-roi-course", route: { name: "HrRoiCourse" }, label: t("ROI by course") },
+  { class: "item-hr-roi-person", route: { name: "HrRoiPerson" }, label: t("ROI by person") },
+  { class: "item-hr-roi-unit", route: { name: "HrRoiUnit" }, label: t("ROI by organizational unit") },
+  { class: "item-hr-training-needs", route: { name: "HrTrainingNeedSurveys" }, label: t("Training needs assessment") },
+  { class: "item-hr-work-climate", route: { name: "HrWorkClimateSurveys" }, label: t("Work climate surveys") },
 ])
 
 const diversityItems = computed(() => [

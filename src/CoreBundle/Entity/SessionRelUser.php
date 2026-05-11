@@ -14,6 +14,8 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Post;
+use Chamilo\CoreBundle\ApiResource\HrRoiPersonItem;
+use Chamilo\CoreBundle\State\HrRoiPersonStateProvider;
 use DateTime;
 use DateTimeZone;
 use Doctrine\Common\Collections\Collection;
@@ -31,6 +33,22 @@ use Symfony\Component\Validator\Constraints as Assert;
         new Get(security: "is_granted('ROLE_ADMIN') or object.user == user"),
         new GetCollection(security: "is_granted('ROLE_USER')"),
         new Post(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')"),
+        // Chamilo HR extension: ROI by person (Training ROI management).
+        // The class-level #[ApiFilter] declarations on SessionRelUser (SearchFilter on
+        // session/user/relationType, DateFilter on session.* dates) are inherited by this
+        // operation. The provider hardcodes relationType = STUDENT before applying
+        // FilterExtension, so passing ?relationType=N for N != 0 results in an empty list
+        // (the two WHEREs are AND-combined). Frontend should use only ?user= and
+        // ?session.accessStartDate[after|before]=.
+        new GetCollection(
+            uriTemplate: '/hr_roi/person',
+            paginationEnabled: false,
+            normalizationContext: ['groups' => ['hr_roi_person:read']],
+            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
+            output: HrRoiPersonItem::class,
+            name: 'hr_roi_person',
+            provider: HrRoiPersonStateProvider::class,
+        ),
     ],
     normalizationContext: [
         'groups' => [

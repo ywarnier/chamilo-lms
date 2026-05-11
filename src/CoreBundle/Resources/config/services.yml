@@ -118,6 +118,12 @@ services:
         parent: 'api_platform.serializer.group_filter'
         tags: [ 'api_platform.filter' ]
 
+    hr.session.date_filter:
+        parent: 'api_platform.doctrine.orm.date_filter'
+        arguments:
+            $properties: { accessStartDate: ~ }
+        tags: [ 'api_platform.filter' ]
+
     _instanceof:
         Chamilo\CoreBundle\Tool\ToolInterface:
             tags: ['chamilo_core.tool_handler']

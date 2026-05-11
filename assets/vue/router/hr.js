@@ -351,5 +351,38 @@ export default {
       },
       component: () => import("../views/hr/HrRecruitmentProcessDetailView.vue"),
     },
+    {
+      name: "HrRoiCourse",
+      path: "roi/courses",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "ROI by course",
+      },
+      component: () => import("../views/hr/roi/HrRoiCourseView.vue"),
+    },
+    {
+      name: "HrRoiPerson",
+      path: "roi/person",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "ROI by person",
+      },
+      component: () => import("../views/hr/roi/HrRoiPersonView.vue"),
+    },
+    {
+      name: "HrRoiUnit",
+      path: "roi/unit",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "ROI by organizational unit",
+      },
+      component: () => import("../views/hr/roi/HrRoiUnitView.vue"),
+    },
   ],
 }

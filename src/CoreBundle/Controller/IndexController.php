@@ -42,6 +42,8 @@ class IndexController extends BaseController
     #[Route('/job-offers', name: 'job_offers_entrypoint', options: ['expose' => true])]
     #[Route('/job-offers/{vueRouting}', name: 'job_offers_vue_entrypoint', requirements: ['vueRouting' => '.+'])]
     #[Route('/organizational-chart', name: 'org_chart_entrypoint', options: ['expose' => true])]
+    #[Route('/surveys-list/training-need-assessments', name: 'hr_training_need_surveys_entrypoint', options: ['expose' => true])]
+    #[Route('/surveys-list/work-climate', name: 'hr_work_climate_surveys_entrypoint', options: ['expose' => true])]
     #[Route('/sdg', name: 'sdg_public', options: ['expose' => true])]
     #[Route('/access-url/auth-sources', methods: ['GET'])]
     public function index(): Response
