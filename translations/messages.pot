@@ -34554,3 +34554,141 @@ msgstr ""
 
 msgid "Suggest from periodicity"
 msgstr ""
+
+msgid "Add job offer"
+msgstr ""
+
+msgid "Edit job offer"
+msgstr ""
+
+msgid "Function / Unit"
+msgstr ""
+
+msgid "Vacancies"
+msgstr ""
+
+msgid "Expected start date"
+msgstr ""
+
+msgid "Contract duration (days)"
+msgstr ""
+
+msgid "Public offer"
+msgstr ""
+
+msgid "Publication start date"
+msgstr ""
+
+msgid "Publication end date"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid "Selection exams"
+msgstr ""
+
+msgid "Add exam"
+msgstr ""
+
+msgid "Applicant"
+msgstr ""
+
+msgid "Applied on"
+msgstr ""
+
+msgid "Salary expectations"
+msgstr ""
+
+msgid "Pending evaluation"
+msgstr ""
+
+msgid "Hired"
+msgstr ""
+
+msgid "Not hired"
+msgstr ""
+
+msgid "Evaluate"
+msgstr ""
+
+msgid "Evaluate candidate"
+msgstr ""
+
+msgid "Decision"
+msgstr ""
+
+msgid "Save evaluation"
+msgstr ""
+
+msgid "Back to job offers"
+msgstr ""
+
+msgid "No job offers available at this time."
+msgstr ""
+
+msgid "See details"
+msgstr ""
+
+msgid "Apply now"
+msgstr ""
+
+msgid "Already applied"
+msgstr ""
+
+msgid "Log in to apply"
+msgstr ""
+
+msgid "Apply to job offer"
+msgstr ""
+
+msgid "Availability date"
+msgstr ""
+
+msgid "CV (Personal file)"
+msgstr ""
+
+msgid "Select your CV from your personal files"
+msgstr ""
+
+msgid "Submit application"
+msgstr ""
+
+msgid "Application submitted successfully."
+msgstr ""
+
+msgid "Private observations"
+msgstr ""
+
+msgid "My applications"
+msgstr ""
+
+msgid "View job offers"
+msgstr ""
+
+msgid "You have not submitted any applications yet."
+msgstr ""
+
+msgid "Under review"
+msgstr ""
+
+msgid "Not selected"
+msgstr ""
+
+msgid "HR feedback"
+msgstr ""
+
+msgid "Withdraw application"
+msgstr ""
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr ""
+
+msgid "Application withdrawn."
+msgstr ""
+
+msgid "Calculate quiz scores"
+msgstr ""
+
+msgid "Scores calculated."
+msgstr ""

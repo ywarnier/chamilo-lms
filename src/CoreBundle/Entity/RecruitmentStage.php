@@ -50,6 +50,10 @@ class RecruitmentStage implements Stringable
     #[ORM\Column(name: 'description', type: 'text', nullable: true)]
     protected ?string $description = null;
 
+    #[Groups(['recruitment_stage:read', 'recruitment_stage:write'])]
+    #[ORM\Column(name: 'display_order', type: 'integer', options: ['default' => 0])]
+    protected int $displayOrder = 0;
+
     public function __toString(): string
     {
         return $this->title;
@@ -65,7 +69,7 @@ class RecruitmentStage implements Stringable
         return $this->title;
     }
 
-    public function setTitle(string $title): self
+    public function setTitle(string $title): static
     {
         $this->title = $title;
 
@@ -77,9 +81,21 @@ class RecruitmentStage implements Stringable
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDisplayOrder(): int
+    {
+        return $this->displayOrder;
+    }
+
+    public function setDisplayOrder(int $displayOrder): static
+    {
+        $this->displayOrder = $displayOrder;
 
         return $this;
     }

@@ -20,6 +20,7 @@ import accessUrlRoutes from "./accessurl"
 import branchRoutes from "./branch"
 import roomRoutes from "./room"
 import hrRoutes from "./hr"
+import jobOffersRoutes from "./job-offers"
 import sdgRoutes from "./sdg"
 
 //import courseCategoryRoutes from './coursecategory';
@@ -345,6 +346,7 @@ const router = createRouter({
     branchRoutes,
     roomRoutes,
     hrRoutes,
+    jobOffersRoutes,
     {
       path: "/organizational-chart",
       name: "OrganizationalChart",

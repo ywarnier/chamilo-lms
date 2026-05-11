@@ -19,13 +19,13 @@ final class Version20260415130000 extends AbstractMigrationChamilo
     public function up(Schema $schema): void
     {
         $this->connection->executeStatement(
-            "CREATE TABLE compensation_tag (
+            'CREATE TABLE compensation_tag (
                 id INT AUTO_INCREMENT NOT NULL,
                 title VARCHAR(255) NOT NULL,
                 description LONGTEXT DEFAULT NULL,
                 color VARCHAR(10) NOT NULL,
                 PRIMARY KEY(id)
-            ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB ROW_FORMAT = DYNAMIC"
+            ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB ROW_FORMAT = DYNAMIC'
         );
 
         $this->connection->executeStatement(

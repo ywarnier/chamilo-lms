@@ -910,6 +910,96 @@ JS;
         $this->getSession()->executeScript("document.querySelector('.p-confirmdialog-accept-button').click();");
     }
 
+    /**
+     * Clicks the first unit title button in the HrUnitFunctionListView tree.
+     * The tree renders each unit as a <button class="rounded ..."> inside a <li class="pl-2">.
+     *
+     * @When I click on the first tree node button
+     */
+    public function iClickOnTheFirstTreeNodeButton(): void
+    {
+        $button = $this->getSession()->getPage()->find('css', 'li.pl-2 button.rounded');
+        if (null === $button) {
+            throw new \Exception('No tree node button found. The unit tree appears to be empty.');
+        }
+        $button->click();
+        $this->waitForThePageToBeLoaded();
+    }
+
+    /**
+     * Click the delete icon button inside a card/block that contains the given text.
+     * Works for card-based layouts (tracking timelines, etc.) that do not use <table> rows.
+     *
+     * @When /^I click the delete button near "([^"]*)"$/
+     */
+    public function iClickDeleteButtonNear(string $text): void
+    {
+        $xpath = sprintf(
+            '//div[.//span[normalize-space(.)="%s"]]//span[contains(@class,"mdi-delete")]',
+            $text
+        );
+        $element = $this->getSession()->getPage()->find('xpath', $xpath);
+        if (null === $element) {
+            throw new \Exception(sprintf('Could not find delete button near "%s"', $text));
+        }
+        $element->click();
+    }
+
+    /**
+     * Click any MDI icon button in the DataTable row whose first text cell matches $label.
+     *
+     * @When /^I click the "([^"]*)" icon button in the row containing "([^"]*)"$/
+     */
+    public function iClickIconButtonInRowContaining(string $iconClass, string $label): void
+    {
+        $xpath = sprintf(
+            '//tr[td[normalize-space(.)="%s"]]//span[contains(@class,"mdi-%s")]',
+            $label,
+            $iconClass
+        );
+        $element = $this->getSession()->getPage()->find('xpath', $xpath);
+        if (null === $element) {
+            throw new \Exception(sprintf('Could not find "%s" icon button in row containing "%s"', $iconClass, $label));
+        }
+        $element->click();
+    }
+
+    /**
+     * Click the first icon button matching an MDI class anywhere in the table.
+     *
+     * @When /^I click the first "([^"]*)" icon button in the table$/
+     */
+    public function iClickFirstIconButtonInTable(string $iconClass): void
+    {
+        $xpath = sprintf('//tr//span[contains(@class,"mdi-%s")]', $iconClass);
+        $element = $this->getSession()->getPage()->find('xpath', $xpath);
+        if (null === $element) {
+            throw new \Exception(sprintf('No "%s" icon button found in the table', $iconClass));
+        }
+        $element->click();
+    }
+
+    /**
+     * Click a link or button by its title attribute inside a DataTable row.
+     *
+     * @When /^I click the button with title "([^"]*)" in the row containing "([^"]*)"$/
+     */
+    public function iClickButtonWithTitleInRowContaining(string $title, string $label): void
+    {
+        $xpath = sprintf(
+            '//tr[td[normalize-space(.)="%s"]]//a[@title="%s"]|//tr[td[normalize-space(.)="%s"]]//*[@aria-label="%s"]',
+            $label,
+            $title,
+            $label,
+            $title
+        );
+        $element = $this->getSession()->getPage()->find('xpath', $xpath);
+        if (null === $element) {
+            throw new \Exception(sprintf('Could not find button with title "%s" in row containing "%s"', $title, $label));
+        }
+        $element->click();
+    }
+
     public function visit($page): void
     {
         parent::visit($page);

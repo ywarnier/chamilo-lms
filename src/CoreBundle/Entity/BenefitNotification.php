@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\Entity;
 // Chamilo HR extension
 
 use Chamilo\CoreBundle\Repository\BenefitNotificationRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Attribute\Groups;
 
@@ -40,7 +41,7 @@ class BenefitNotification
 
     #[Groups(['benefit_assignment:read'])]
     #[ORM\Column(name: 'sent_on', type: 'datetime')]
-    protected \DateTime $sentOn;
+    protected DateTime $sentOn;
 
     public function getId(): ?int
     {
@@ -95,12 +96,12 @@ class BenefitNotification
         return $this;
     }
 
-    public function getSentOn(): \DateTime
+    public function getSentOn(): DateTime
     {
         return $this->sentOn;
     }
 
-    public function setSentOn(\DateTime $sentOn): self
+    public function setSentOn(DateTime $sentOn): self
     {
         $this->sentOn = $sentOn;
 

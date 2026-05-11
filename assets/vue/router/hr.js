@@ -285,5 +285,71 @@ export default {
       },
       component: () => import("../views/hr/HrMyEvaluationsView.vue"),
     },
+    {
+      name: "HrJobOffers",
+      path: "job-offers",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Job offers",
+      },
+      component: () => import("../views/hr/HrJobOfferView.vue"),
+    },
+    {
+      name: "HrJobOfferApplications",
+      path: "job-offers/:id/applications",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Applications",
+      },
+      component: () => import("../views/hr/HrJobOfferApplicationsView.vue"),
+    },
+    {
+      name: "HrJobOfferCandidate",
+      path: "job-offers/:id/applications/:applicationId",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Candidate",
+      },
+      component: () => import("../views/hr/HrJobOfferCandidateView.vue"),
+    },
+    {
+      name: "HrRecruitmentStages",
+      path: "recruitment-stages",
+      meta: {
+        requiresAuth: true,
+        requiresAdmin: true,
+        showBreadcrumb: true,
+        breadcrumb: "Recruitment stages",
+      },
+      component: () => import("../views/hr/HrRecruitmentStageView.vue"),
+    },
+    {
+      name: "HrRecruitmentProcesses",
+      path: "recruitment-processes",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Recruitment processes",
+      },
+      component: () => import("../views/hr/HrRecruitmentProcessView.vue"),
+    },
+    {
+      name: "HrRecruitmentProcessDetail",
+      path: "recruitment-processes/:id",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Process detail",
+      },
+      component: () => import("../views/hr/HrRecruitmentProcessDetailView.vue"),
+    },
   ],
 }

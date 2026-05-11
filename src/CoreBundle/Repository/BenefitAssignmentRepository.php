@@ -11,6 +11,7 @@ namespace Chamilo\CoreBundle\Repository;
 use Chamilo\CoreBundle\Entity\BenefitAssignment;
 use Chamilo\CoreBundle\Entity\Compensation;
 use Chamilo\CoreBundle\Entity\User;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\Persistence\ManagerRegistry;
@@ -56,7 +57,7 @@ class BenefitAssignmentRepository extends ServiceEntityRepository
     /**
      * @return BenefitAssignment[]
      */
-    public function findFromDate(\DateTime $date): array
+    public function findFromDate(DateTime $date): array
     {
         return $this->createQueryBuilder('ba')
             ->where('ba.assignmentDatetime >= :date')

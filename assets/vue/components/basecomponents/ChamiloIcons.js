@@ -179,4 +179,7 @@ export const chamiloIconToClass = {
   "learning-paths": "mdi mdi-map-marker-path",
   "visible": "mdi mdi-eye",
   "menu": "mdi mdi-menu",
+  "quiz": "mdi mdi-order-bool-ascending-variant",
+  "view-candidate": "mdi mdi-account-details",
+  "format-list-checks": "mdi mdi-format-list-checks",
 }

@@ -5,8 +5,8 @@
       :description="t('Manage staff signaletics: branches, statuses, contract types and organisational structure')"
       :items="staffItems"
       :title="t('Staff')"
-      icon="account"
       bg-image="images/bg-block-admin-users.png"
+      icon="account"
     />
 
     <AdminBlock
@@ -14,8 +14,8 @@
       :description="t('Manage professional functions, positions and the organisational chart')"
       :items="organizationItems"
       :title="t('Organization')"
-      icon="list"
       bg-image="images/bg-block-admin-platform.png"
+      icon="list"
     />
 
     <AdminBlock
@@ -23,8 +23,8 @@
       :description="t('Manage appraisal periods, templates, evaluations, activities and objectives')"
       :items="performanceItems"
       :title="t('Performance Management')"
-      icon="tracking"
       bg-image="images/bg-block-admin-tracking.png"
+      icon="tracking"
     />
 
     <AdminBlock
@@ -32,8 +32,8 @@
       :description="t('Manage recruitment stages, processes and job offers')"
       :items="recruitmentItems"
       :title="t('Recruitment')"
-      icon="account-multiple-plus"
       bg-image="images/bg-block-admin-users.png"
+      icon="account-multiple-plus"
     />
 
     <AdminBlock
@@ -41,8 +41,8 @@
       :description="t('Manage skill profiles, levels and team skill goals')"
       :items="skillsItems"
       :title="t('Skills')"
-      icon="wheel"
       bg-image="images/bg-block-admin-skills.png"
+      icon="wheel"
     />
 
     <AdminBlock
@@ -50,8 +50,8 @@
       :description="t('Manage benefit categories and assignments to staff')"
       :items="benefitsItems"
       :title="t('Benefits')"
-      icon="package"
       bg-image="images/bg-block-admin-gradebook.png"
+      icon="package"
     />
 
     <AdminBlock
@@ -59,8 +59,8 @@
       :description="t('Track training return on investment and identify training needs')"
       :items="roiItems"
       :title="t('ROI and training')"
-      icon="usage"
       bg-image="images/bg-block-admin-tracking.png"
+      icon="usage"
     />
 
     <AdminBlock
@@ -68,8 +68,8 @@
       :description="t('Manage diversity criteria, guidelines and social responsibility policies')"
       :items="diversityItems"
       :title="t('Diversity and social responsibility')"
-      icon="globe"
       bg-image="images/bg-block-admin-settings.png"
+      icon="globe"
     />
   </div>
 </template>
@@ -163,11 +163,15 @@ const performanceItems = computed(() => {
 const recruitmentItems = computed(() => [
   {
     class: "item-hr-recruitment-stages",
-    route: { name: "HrEvaluationStages" },
+    route: { name: "HrRecruitmentStages" },
     label: t("Evaluation stages"),
   },
-  { class: "item-hr-recruitment-processes", label: t("Recruitment processes") },
-  { class: "item-hr-job-offers", label: t("Job offers") },
+  {
+    class: "item-hr-recruitment-processes",
+    route: { name: "HrRecruitmentProcesses" },
+    label: t("Recruitment processes"),
+  },
+  { class: "item-hr-job-offers", route: { name: "HrJobOffers" }, label: t("Job offers") },
 ])
 
 const skillsItems = computed(() => [
@@ -194,6 +198,10 @@ const roiItems = computed(() => [
 const diversityItems = computed(() => [
   { class: "item-hr-diversity-criteria", route: { name: "HrDiversityCriteria" }, label: t("Diversity criteria") },
   { class: "item-hr-diversity-guidelines", route: { name: "HrDiversityGuidelines" }, label: t("Diversity guidelines") },
-  { class: "item-hr-social-responsibility", route: { name: "HrSocialResponsibility" }, label: t("Social responsibility guidelines") },
+  {
+    class: "item-hr-social-responsibility",
+    route: { name: "HrSocialResponsibility" },
+    label: t("Social responsibility guidelines"),
+  },
 ])
 </script>

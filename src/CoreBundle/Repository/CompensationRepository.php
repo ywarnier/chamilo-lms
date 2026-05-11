@@ -9,7 +9,6 @@ namespace Chamilo\CoreBundle\Repository;
 // Chamilo HR extension
 
 use Chamilo\CoreBundle\Entity\Compensation;
-use Chamilo\CoreBundle\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Types\Types;
 use Doctrine\Persistence\ManagerRegistry;

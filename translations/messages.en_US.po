@@ -34582,3 +34582,141 @@ msgstr "Periodicity"
 
 msgid "Suggest from periodicity"
 msgstr "Suggest from periodicity"
+
+msgid "Add job offer"
+msgstr "Add job offer"
+
+msgid "Edit job offer"
+msgstr "Edit job offer"
+
+msgid "Function / Unit"
+msgstr "Function / Unit"
+
+msgid "Vacancies"
+msgstr "Vacancies"
+
+msgid "Expected start date"
+msgstr "Expected start date"
+
+msgid "Contract duration (days)"
+msgstr "Contract duration (days)"
+
+msgid "Public offer"
+msgstr "Public offer"
+
+msgid "Publication start date"
+msgstr "Publication start date"
+
+msgid "Publication end date"
+msgstr "Publication end date"
+
+msgid "Applications"
+msgstr "Applications"
+
+msgid "Selection exams"
+msgstr "Selection exams"
+
+msgid "Add exam"
+msgstr "Add exam"
+
+msgid "Applicant"
+msgstr "Applicant"
+
+msgid "Applied on"
+msgstr "Applied on"
+
+msgid "Salary expectations"
+msgstr "Salary expectations"
+
+msgid "Pending evaluation"
+msgstr "Pending evaluation"
+
+msgid "Hired"
+msgstr "Hired"
+
+msgid "Not hired"
+msgstr "Not hired"
+
+msgid "Evaluate"
+msgstr "Evaluate"
+
+msgid "Evaluate candidate"
+msgstr "Evaluate candidate"
+
+msgid "Decision"
+msgstr "Decision"
+
+msgid "Save evaluation"
+msgstr "Save evaluation"
+
+msgid "Back to job offers"
+msgstr "Back to job offers"
+
+msgid "No job offers available at this time."
+msgstr "No job offers available at this time."
+
+msgid "See details"
+msgstr "See details"
+
+msgid "Apply now"
+msgstr "Apply now"
+
+msgid "Already applied"
+msgstr "Already applied"
+
+msgid "Log in to apply"
+msgstr "Log in to apply"
+
+msgid "Apply to job offer"
+msgstr "Apply to job offer"
+
+msgid "Availability date"
+msgstr "Availability date"
+
+msgid "CV (Personal file)"
+msgstr "CV (Personal file)"
+
+msgid "Select your CV from your personal files"
+msgstr "Select your CV from your personal files"
+
+msgid "Submit application"
+msgstr "Submit application"
+
+msgid "Application submitted successfully."
+msgstr "Application submitted successfully."
+
+msgid "Private observations"
+msgstr "Private observations"
+
+msgid "My applications"
+msgstr "My applications"
+
+msgid "View job offers"
+msgstr "View job offers"
+
+msgid "You have not submitted any applications yet."
+msgstr "You have not submitted any applications yet."
+
+msgid "Under review"
+msgstr "Under review"
+
+msgid "Not selected"
+msgstr "Not selected"
+
+msgid "HR feedback"
+msgstr "HR feedback"
+
+msgid "Withdraw application"
+msgstr "Withdraw application"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Are you sure you want to withdraw this application?"
+
+msgid "Application withdrawn."
+msgstr "Application withdrawn."
+
+msgid "Calculate quiz scores"
+msgstr "Calculate quiz scores"
+
+msgid "Scores calculated."
+msgstr "Scores calculated."
