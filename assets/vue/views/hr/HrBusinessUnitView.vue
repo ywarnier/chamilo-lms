@@ -124,6 +124,7 @@ import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
 import baseService from "../../services/baseService"
+import * as branchService from "../../services/hr/branchService"
 
 const { t } = useI18n()
 const { showSuccessNotification, showErrorNotification } = useNotification()
@@ -146,12 +147,12 @@ const branchOptions = computed(() => branches.value.map((b) => ({ label: b.title
 async function load() {
   isLoading.value = true
   try {
-    const [unitResult, branchResult] = await Promise.all([
+    const [unitResult, branchItems] = await Promise.all([
       baseService.getCollection("/api/business_units", { pagination: false }),
-      baseService.getCollection("/api/hr_branches", { pagination: false }),
+      branchService.getAll(),
     ])
     items.value = unitResult.items
-    branches.value = branchResult.items
+    branches.value = branchItems
   } catch (e) {
     console.error(e)
   } finally {

@@ -137,6 +137,7 @@ import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
 import baseService from "../../services/baseService"
+import * as branchService from "../../services/hr/branchService"
 
 const { t } = useI18n()
 const { showSuccessNotification, showErrorNotification } = useNotification()
@@ -154,11 +155,11 @@ const zoneOptions = computed(() => zones.value.map((z) => ({ label: z.title, val
 async function load() {
   isLoading.value = true
   try {
-    const [branchResult, zoneResult] = await Promise.all([
-      baseService.getCollection("/api/hr_branches", { pagination: false }),
+    const [branchItems, zoneResult] = await Promise.all([
+      branchService.getAll(),
       baseService.getCollection("/api/geographic_zones", { pagination: false }),
     ])
-    branches.value = branchResult.items
+    branches.value = branchItems
     zones.value = zoneResult.items
   } catch (e) {
     console.error(e)
@@ -189,9 +190,9 @@ async function save() {
   }
   try {
     if (editing.value) {
-      await baseService.put("/api/hr_branches/" + editing.value.id, payload)
+      await branchService.update(editing.value["@id"], payload)
     } else {
-      await baseService.post("/api/hr_branches", payload, true)
+      await branchService.create(payload)
     }
     dialog.value = false
     showSuccessNotification(t("Saved"))
@@ -206,7 +207,7 @@ function confirmDelete(item) {
     message: t("Are you sure you want to delete this item?"),
     accept: async () => {
       try {
-        await baseService.delete("/api/hr_branches/" + item.id)
+        await branchService.remove(item["@id"])
         showSuccessNotification(t("Deleted"))
         await load()
       } catch (e) {
