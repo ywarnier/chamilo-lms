@@ -233,6 +233,20 @@ class ExtraFieldValuesRepository extends ServiceEntityRepository
         ;
     }
 
+    public function countFilledUsersForField(ExtraField $field): int
+    {
+        return (int) $this->createQueryBuilder('efv')
+            ->select('COUNT(DISTINCT efv.itemId)')
+            ->where('efv.field = :field')
+            ->andWhere('efv.fieldValue IS NOT NULL')
+            ->andWhere('efv.fieldValue != :empty')
+            ->setParameter('field', $field->getId(), Types::INTEGER)
+            ->setParameter('empty', '')
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
+
     public function getByHandlerAndFieldId(int $itemId, int $fieldId, int $itemType, bool $transform = false): array
     {
         $qb = $this->createQueryBuilder('efv');

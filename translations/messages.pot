@@ -34794,3 +34794,15 @@ msgstr ""
 
 msgid "Scores calculated."
 msgstr ""
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr ""
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr ""
+
+msgid "No data available for this criterion."
+msgstr ""
+
+msgid "%s of staff have not filled in this criterion."
+msgstr ""

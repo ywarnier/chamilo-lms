@@ -34816,3 +34816,15 @@ msgstr "Required:"
 
 msgid "Max"
 msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "No diversity criteria found. Add criteria first."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Select a criterion from the list to view its statistics."
+
+msgid "No data available for this criterion."
+msgstr "No data available for this criterion."
+
+msgid "%s of staff have not filled in this criterion."
+msgstr "%s of staff have not filled in this criterion."

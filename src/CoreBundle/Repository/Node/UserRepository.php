@@ -1435,4 +1435,15 @@ class UserRepository extends ResourceRepository implements PasswordUpgraderInter
             'email' => 'admin@example.com',
         ];
     }
+
+    public function countActiveStaff(): int
+    {
+        return (int) $this->createQueryBuilder('u')
+            ->select('COUNT(u.id)')
+            ->where('u.status >= :minStatus')
+            ->setParameter('minStatus', User::INACTIVE, Types::INTEGER)
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
 }

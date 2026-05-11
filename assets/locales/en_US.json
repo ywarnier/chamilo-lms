@@ -2144,5 +2144,8 @@
     "Acquired:": "Acquired:",
     "Required:": "Required:",
     "Any": "Any",
-    "Max": "Max"
+    "Max": "Max",
+    "Add profile field": "Add profile field",
+    "%s %": "{0} %",
+    "%s of staff have not filled in this criterion.": "{0} of staff have not filled in this criterion."
 }

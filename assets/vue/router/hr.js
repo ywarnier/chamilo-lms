@@ -211,6 +211,28 @@ export default {
       component: () => import("../views/hr/HrDiversityCriteriaView.vue"),
     },
     {
+      name: "HrDiversityGuidelines",
+      path: "diversity-guidelines",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Diversity guidelines",
+      },
+      component: () => import("../views/hr/HrDiversityGuidelinesView.vue"),
+    },
+    {
+      name: "HrDiversityCriteria",
+      path: "diversity-criteria",
+      meta: {
+        requiresAuth: true,
+        requiresHr: true,
+        showBreadcrumb: true,
+        breadcrumb: "Diversity criteria",
+      },
+      component: () => import("../views/hr/HrDiversityCriteriaView.vue"),
+    },
+    {
       name: "HrPeriodicities",
       path: "periodicities",
       meta: {

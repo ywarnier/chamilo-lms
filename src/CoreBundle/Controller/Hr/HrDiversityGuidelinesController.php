@@ -12,6 +12,7 @@ use Chamilo\CoreBundle\Controller\BaseController;
 use Chamilo\CoreBundle\Entity\DiversityCriteria;
 use Chamilo\CoreBundle\Entity\ExtraFieldOptions;
 use Chamilo\CoreBundle\Repository\ExtraFieldValuesRepository;
+use Chamilo\CoreBundle\Repository\Node\UserRepository;
 use Symfony\Component\ExpressionLanguage\Expression;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
@@ -22,6 +23,7 @@ class HrDiversityGuidelinesController extends BaseController
 {
     public function __construct(
         private readonly ExtraFieldValuesRepository $extraFieldValuesRepository,
+        private readonly UserRepository $userRepository,
     ) {}
 
     #[Route('/hr/diversity-guidelines-data/{id}', requirements: ['id' => '\d+'], methods: ['GET'])]
@@ -49,6 +51,14 @@ class HrDiversityGuidelinesController extends BaseController
                 : 0.0;
         }
 
+        $totalStaff = $this->userRepository->countActiveStaff();
+
+        $filledCount = $this->extraFieldValuesRepository->countFilledUsersForField($extraField);
+
+        $unfilledPercent = $totalStaff > 0
+            ? (float) number_format(($totalStaff - $filledCount) / $totalStaff * 100, 1)
+            : 0.0;
+
         return $this->json([
             'title' => $criteria->getTitle(),
             'description' => $criteria->getDescription(),
@@ -56,6 +66,9 @@ class HrDiversityGuidelinesController extends BaseController
             'labels' => $dataLabels,
             'values' => $dataValues,
             'percentages' => $dataPercentages,
+            'staffTotal' => $totalStaff,
+            'filledCount' => $filledCount,
+            'unfilledPercent' => $unfilledPercent,
         ]);
     }
 }

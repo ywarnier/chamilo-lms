@@ -78,6 +78,15 @@
           option-label="label"
           option-value="value"
         />
+        <div class="flex justify-end -mt-2">
+          <BaseButton
+            :label="t('Add profile field')"
+            icon="file-add"
+            size="small"
+            to-url="/main/admin/extra_fields.php?type=user&action=add"
+            type="secondary-text"
+          />
+        </div>
         <BaseTextArea
           id="diversity-criteria-description"
           v-model="form.description"

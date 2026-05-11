@@ -188,6 +188,7 @@ const skillsItems = computed(() => [
 ])
 
 const benefitsItems = computed(() => [
+  { class: "item-hr-benefit-tags", label: t("Benefit tags") },
   { class: "item-hr-benefits", route: { name: "HrBenefits" }, label: t("Benefits") },
   { class: "item-hr-assign-benefits", route: { name: "HrBenefitAssignments" }, label: t("Assign benefits") },
   { class: "item-hr-my-benefits", route: { name: "HrMyBenefits" }, label: t("My benefits") },

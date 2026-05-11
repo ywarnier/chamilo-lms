@@ -42,6 +42,9 @@ final class DiversityCriteriaStateProcessor implements ProcessorInterface
         $data->setUpdatedBy($user);
         $data->setUpdatedOn($now);
 
+        // Protect sensitive diversity data: extra field values must not be visible to other users.
+        $data->getExtraField()->setVisibleToOthers(false);
+
         return $this->persistProcessor->process($data, $operation, $uriVariables, $context);
     }
 }

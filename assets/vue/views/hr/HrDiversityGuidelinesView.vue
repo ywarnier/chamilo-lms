@@ -56,6 +56,14 @@
           </p>
 
           <div
+            v-if="stats && stats.unfilledPercent > 0"
+            :class="stats.unfilledPercent >= 50 ? 'text-danger' : 'text-warning'"
+            class="text-body-2 px-3 py-2 rounded"
+          >
+            {{ t("%s of staff have not filled in this criterion.", [t("%s %", [stats.unfilledPercent])]) }}
+          </div>
+
+          <div
             v-if="stats && stats.labels.length > 0"
             class="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
