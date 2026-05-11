@@ -36,26 +36,6 @@ class SocialResponsibilityController extends BaseController
         private readonly AiProviderFactory $aiProviderFactory,
     ) {}
 
-    #[Route('/sdg-data', name: 'sdg_public_data', methods: ['GET'])]
-    public function publicData(Request $request): JsonResponse
-    {
-        $language = str_replace('-', '_', (string) $request->query->get('lang', 'en_US'));
-        $goals = $this->goalRepository->findPublished($language);
-        if ([] === $goals) {
-            $base = (string) preg_replace('/_.*$/', '', $language);
-            if ($base !== $language) {
-                $goals = $this->goalRepository->findPublished($base);
-            }
-        }
-
-        $members = array_map(fn (SocialResponsibilityGoal $g) => $this->serializePublic($g), $goals);
-
-        return $this->json([
-            'hydra:member' => $members,
-            'hydra:totalItems' => \count($members),
-        ]);
-    }
-
     #[IsGranted(new Expression('is_granted("ROLE_ADMIN") or is_granted("ROLE_HR")'))]
     #[Route('/hr/social-responsibility/languages', name: 'hr_sdg_languages', methods: ['GET'])]
     public function languages(): JsonResponse
@@ -228,20 +208,5 @@ class SocialResponsibilityController extends BaseController
             'language' => $goal->getLanguage(),
             'title' => $goal->getTitle(),
         ], Response::HTTP_CREATED);
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    private function serializePublic(SocialResponsibilityGoal $g): array
-    {
-        return [
-            'id' => $g->getId(),
-            'sdgNumber' => $g->getSdgNumber(),
-            'language' => $g->getLanguage(),
-            'title' => $g->getTitle(),
-            'description' => $g->getDescription(),
-            'enforcement' => $g->getEnforcement(),
-        ];
     }
 }

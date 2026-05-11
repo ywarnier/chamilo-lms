@@ -336,6 +336,7 @@ import { useI18n } from "vue-i18n"
 import axios from "axios"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
+import * as goalService from "../../services/hr/socialResponsibilityGoalService"
 
 const { t } = useI18n()
 

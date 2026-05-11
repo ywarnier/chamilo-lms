@@ -54,7 +54,7 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import { useI18n } from "vue-i18n"
-import axios from "axios"
+import * as goalService from "../../services/hr/socialResponsibilityGoalService"
 
 const { t } = useI18n()
 
@@ -64,8 +64,7 @@ const isLoading = ref(true)
 onMounted(async () => {
   try {
     const lang = document.documentElement.lang || "en"
-    const response = await axios.get("/sdg-data", { params: { lang } })
-    goals.value = response.data["hydra:member"] ?? []
+    goals.value = await goalService.getPublic(lang)
   } catch {
     goals.value = []
   } finally {
