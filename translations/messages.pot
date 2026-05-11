@@ -34612,6 +34612,51 @@ msgstr ""
 msgid "Suggest from periodicity"
 msgstr ""
 
+msgid "Career plan overview"
+msgstr ""
+
+msgid "My career plan"
+msgstr ""
+
+msgid "No function-unit associations configured yet."
+msgstr ""
+
+msgid "No required skills defined."
+msgstr ""
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr ""
+
+msgid "Your current position"
+msgstr ""
+
+msgid "No career targets found for your current position."
+msgstr ""
+
+msgid "No required skills defined for this position."
+msgstr ""
+
+msgid "Met"
+msgstr ""
+
+msgid "Gap"
+msgstr ""
+
+msgid "Acquired:"
+msgstr ""
+
+msgid "Required:"
+msgstr ""
+
+msgid "Any"
+msgstr ""
+
+msgid "Max"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
 msgid "Add job offer"
 msgstr ""
 

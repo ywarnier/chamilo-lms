@@ -399,6 +399,11 @@ export function useTopbarLoggedIn(props) {
       route: { name: "HrMyEvaluations" },
     })
 
+    items[0].items.push({
+      label: t("My career plan"),
+      route: { name: "HrMyCareerPlan" },
+    })
+
     if (!hideLogoutButton.value) {
       items[0].items.push(
         { separator: true },

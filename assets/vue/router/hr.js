@@ -384,5 +384,26 @@ export default {
       },
       component: () => import("../views/hr/roi/HrRoiUnitView.vue"),
     },
+    {
+      name: "HrCareerPlan",
+      path: "career-plan",
+      meta: {
+        requiresAuth: true,
+        requiresAdmin: true,
+        showBreadcrumb: true,
+        breadcrumb: "Career plan overview",
+      },
+      component: () => import("../views/hr/HrCareerPlanView.vue"),
+    },
+    {
+      name: "HrMyCareerPlan",
+      path: "my-career-plan",
+      meta: {
+        requiresAuth: true,
+        showBreadcrumb: true,
+        breadcrumb: "My career plan",
+      },
+      component: () => import("../views/hr/HrMyCareerPlanView.vue"),
+    },
   ],
 }

@@ -2130,5 +2130,19 @@
     "Are you sure you want to withdraw this application?": "Are you sure you want to withdraw this application?",
     "Application withdrawn.": "Application withdrawn.",
     "Calculate quiz scores": "Calculate quiz scores",
-    "Scores calculated.": "Scores calculated."
+    "Scores calculated.": "Scores calculated.",
+    "Career plan overview": "Career plan overview",
+    "My career plan": "My career plan",
+    "No function-unit associations configured yet.": "No function-unit associations configured yet.",
+    "No required skills defined.": "No required skills defined.",
+    "You must be assigned to a position to see your career plan.": "You must be assigned to a position to see your career plan.",
+    "Your current position": "Your current position",
+    "No career targets found for your current position.": "No career targets found for your current position.",
+    "No required skills defined for this position.": "No required skills defined for this position.",
+    "Met": "Met",
+    "Gap": "Gap",
+    "Acquired:": "Acquired:",
+    "Required:": "Required:",
+    "Any": "Any",
+    "Max": "Max"
 }

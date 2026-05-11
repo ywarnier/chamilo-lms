@@ -130,6 +130,11 @@ const organizationItems = computed(() => [
     route: { name: "HrCompetencySearch" },
     label: t("Competency search"),
   },
+  {
+    class: "item-hr-career-plan",
+    route: { name: "HrCareerPlan" },
+    label: t("Career plan overview"),
+  },
 ])
 
 const performanceItems = computed(() => {
@@ -161,6 +166,7 @@ const performanceItems = computed(() => {
 })
 
 const recruitmentItems = computed(() => [
+  { class: "item-hr-recruitment-stages", label: t("Recruitment stages") },
   {
     class: "item-hr-recruitment-stages",
     route: { name: "HrRecruitmentStages" },
@@ -185,6 +191,7 @@ const benefitsItems = computed(() => [
   { class: "item-hr-benefits", route: { name: "HrBenefits" }, label: t("Benefits") },
   { class: "item-hr-assign-benefits", route: { name: "HrBenefitAssignments" }, label: t("Assign benefits") },
   { class: "item-hr-my-benefits", route: { name: "HrMyBenefits" }, label: t("My benefits") },
+  { class: "item-hr-my-career-plan", route: { name: "HrMyCareerPlan" }, label: t("My career plan") },
 ])
 
 const roiItems = computed(() => [

@@ -34777,3 +34777,42 @@ msgstr "Calculate quiz scores"
 
 msgid "Scores calculated."
 msgstr "Scores calculated."
+
+msgid "Career plan overview"
+msgstr "Career plan overview"
+
+msgid "My career plan"
+msgstr "My career plan"
+
+msgid "No function-unit associations configured yet."
+msgstr "No function-unit associations configured yet."
+
+msgid "No required skills defined."
+msgstr "No required skills defined."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "You must be assigned to a position to see your career plan."
+
+msgid "Your current position"
+msgstr "Your current position"
+
+msgid "No career targets found for your current position."
+msgstr "No career targets found for your current position."
+
+msgid "No required skills defined for this position."
+msgstr "No required skills defined for this position."
+
+msgid "Met"
+msgstr "Met"
+
+msgid "Gap"
+msgstr "Gap"
+
+msgid "Acquired:"
+msgstr "Acquired:"
+
+msgid "Required:"
+msgstr "Required:"
+
+msgid "Max"
+msgstr "Max"
