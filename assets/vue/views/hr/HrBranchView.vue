@@ -20,7 +20,7 @@
       />
       <Column :header="t('Address')">
         <template #body="{ data }">
-          {{ data.address || "—" }}
+          {{ data.description || "—" }}
         </template>
       </Column>
       <Column :header="t('Geographic zone')">
@@ -71,7 +71,7 @@
       />
       <BaseTextArea
         id="branch-address"
-        v-model="form.address"
+        v-model="form.description"
         label="Address"
         name="branch_address"
         rows="2"
@@ -147,7 +147,7 @@ const zones = ref([])
 const isLoading = ref(true)
 const dialog = ref(false)
 const editing = ref(null)
-const form = ref({ title: "", address: "", geographicZone: null, latitude: null, longitude: null })
+const form = ref({ title: "", description: "", geographicZone: null, latitude: null, longitude: null })
 
 const zoneOptions = computed(() => zones.value.map((z) => ({ label: z.title, value: z["@id"] })))
 
@@ -155,7 +155,7 @@ async function load() {
   isLoading.value = true
   try {
     const [branchResult, zoneResult] = await Promise.all([
-      baseService.getCollection("/hr/branches-data", { pagination: false }),
+      baseService.getCollection("/api/hr_branches", { pagination: false }),
       baseService.getCollection("/api/geographic_zones", { pagination: false }),
     ])
     branches.value = branchResult.items
@@ -171,7 +171,7 @@ function openForm(item = null) {
   editing.value = item
   form.value = {
     title: item ? item.title : "",
-    address: item ? (item.address ?? "") : "",
+    description: item ? (item.description ?? "") : "",
     geographicZone: item && item.geographicZone ? item.geographicZone["@id"] : null,
     latitude: item?.latitude ?? null,
     longitude: item?.longitude ?? null,
@@ -182,16 +182,16 @@ function openForm(item = null) {
 async function save() {
   const payload = {
     title: form.value.title,
-    address: form.value.address || "",
+    description: form.value.description || "",
     geographicZone: form.value.geographicZone,
     latitude: form.value.latitude ?? null,
     longitude: form.value.longitude ?? null,
   }
   try {
     if (editing.value) {
-      await baseService.put("/hr/branches-data/" + editing.value.id, payload)
+      await baseService.put("/api/hr_branches/" + editing.value.id, payload)
     } else {
-      await baseService.post("/hr/branches-data", payload, true)
+      await baseService.post("/api/hr_branches", payload, true)
     }
     dialog.value = false
     showSuccessNotification(t("Saved"))
@@ -206,7 +206,7 @@ function confirmDelete(item) {
     message: t("Are you sure you want to delete this item?"),
     accept: async () => {
       try {
-        await baseService.delete("/hr/branches-data/" + item.id)
+        await baseService.delete("/api/hr_branches/" + item.id)
         showSuccessNotification(t("Deleted"))
         await load()
       } catch (e) {

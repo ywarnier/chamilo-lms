@@ -226,7 +226,7 @@ async function load() {
       axios.get("/hr/positions-data"),
       axios.get("/api/users?pagination=false&properties[]=id&properties[]=fullName&properties[]=username"),
       axios.get("/api/function_in_units?pagination=false"),
-      axios.get("/hr/hr-branches-data"),
+      axios.get("/api/hr_branches?pagination=false"),
       axios.get("/api/geographic_zones?pagination=false"),
     ])
     items.value = posRes.data

@@ -148,7 +148,7 @@ async function load() {
   try {
     const [unitResult, branchResult] = await Promise.all([
       baseService.getCollection("/api/business_units", { pagination: false }),
-      baseService.getCollection("/hr/branches-data", { pagination: false }),
+      baseService.getCollection("/api/hr_branches", { pagination: false }),
     ])
     items.value = unitResult.items
     branches.value = branchResult.items

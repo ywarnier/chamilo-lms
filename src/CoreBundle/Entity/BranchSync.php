@@ -16,6 +16,8 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
 use Chamilo\CoreBundle\Repository\BranchSyncRepository;
+use Chamilo\CoreBundle\State\HrBranchStateProcessor;
+use Chamilo\CoreBundle\State\HrBranchStateProvider;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -47,6 +49,38 @@ use Symfony\Component\Validator\Constraints as Assert;
         ),
         new Delete(
             security: "is_granted('ROLE_ADMIN')",
+        ),
+        // Chamilo HR extension: HR branches only (branchType = 'hr')
+        new GetCollection(
+            uriTemplate: '/hr_branches',
+            paginationClientEnabled: true,
+            normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
+            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
+            name: 'hr_branches_get_collection',
+            provider: HrBranchStateProvider::class,
+        ),
+        new Post(
+            uriTemplate: '/hr_branches',
+            normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
+            denormalizationContext: ['groups' => ['branch:write']],
+            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
+            name: 'hr_branches_post',
+            processor: HrBranchStateProcessor::class,
+        ),
+        new Put(
+            uriTemplate: '/hr_branches/{id}',
+            normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
+            denormalizationContext: ['groups' => ['branch:write']],
+            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
+            name: 'hr_branches_put',
+            provider: HrBranchStateProvider::class,
+            processor: HrBranchStateProcessor::class,
+        ),
+        new Delete(
+            uriTemplate: '/hr_branches/{id}',
+            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
+            name: 'hr_branches_delete',
+            provider: HrBranchStateProvider::class,
         ),
     ],
 )]
