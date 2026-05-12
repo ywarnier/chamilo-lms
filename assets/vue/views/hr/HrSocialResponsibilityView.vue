@@ -429,11 +429,11 @@ function isAnySdgPublished(sdgNum) {
 
 onMounted(async () => {
   try {
-    const [goalsRes, langsRes] = await Promise.all([
-      axios.get("/api/social_responsibility_goals", { params: { pagination: false } }),
+    const [goals, langsRes] = await Promise.all([
+      goalService.getAll(),
       axios.get("/hr/social-responsibility/languages").catch(() => ({ data: [] })),
     ])
-    allGoals.value = goalsRes.data["hydra:member"] ?? []
+    allGoals.value = goals
     platformLanguages.value = langsRes.data ?? []
 
     // Default active language: prefer en_US, else first available
@@ -482,20 +482,16 @@ async function save() {
   if (!selected.value) return
   isSaving.value = true
   try {
-    const response = await axios.put(
-      `/api/social_responsibility_goals/${selected.value.id}`,
-      {
-        title: form.title,
-        description: form.description || null,
-        enforcement: form.enforcement || null,
-        isPublished: form.isPublished,
-      },
-      { headers: { "Content-Type": "application/ld+json" } },
-    )
+    const updated = await goalService.update(selected.value["@id"], {
+      title: form.title,
+      description: form.description || null,
+      enforcement: form.enforcement || null,
+      isPublished: form.isPublished,
+    })
     // Update in allGoals
     const idx = allGoals.value.findIndex((g) => g.id === selected.value.id)
     if (idx !== -1) {
-      allGoals.value[idx] = { ...allGoals.value[idx], ...response.data }
+      allGoals.value[idx] = { ...allGoals.value[idx], ...updated }
     }
   } finally {
     isSaving.value = false
@@ -560,16 +556,12 @@ async function confirmTranslation() {
     const existing = langMap?.get(targetLang)
 
     if (existing) {
-      await axios.put(
-        `/api/social_responsibility_goals/${existing.id}`,
-        {
-          title: translateDialog.title || existing.title,
-          description: translateDialog.description || null,
-          enforcement: translateDialog.enforcement || null,
-          isPublished: false,
-        },
-        { headers: { "Content-Type": "application/ld+json" } },
-      )
+      await goalService.update(existing["@id"], {
+        title: translateDialog.title || existing.title,
+        description: translateDialog.description || null,
+        enforcement: translateDialog.enforcement || null,
+        isPublished: false,
+      })
     } else {
       await axios.post("/hr/social-responsibility/save-translation", {
         sdgNumber: selected.value.sdgNumber,
@@ -581,10 +573,7 @@ async function confirmTranslation() {
     }
 
     // Refresh goal list and switch to new language
-    const response = await axios.get("/api/social_responsibility_goals", {
-      params: { pagination: false },
-    })
-    allGoals.value = response.data["hydra:member"] ?? []
+    allGoals.value = await goalService.getAll()
     activeLanguage.value = targetLang
 
     translateDialog.open = false
