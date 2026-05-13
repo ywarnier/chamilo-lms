@@ -9,7 +9,6 @@ namespace Chamilo\CoreBundle\Entity;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
-// Chamilo HR extension — geographic zone link
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
@@ -33,53 +32,30 @@ use Symfony\Component\Validator\Constraints as Assert;
     shortName: 'Branch',
     operations: [
         new GetCollection(
-            normalizationContext: ['groups' => ['branch:list']],
+            paginationClientEnabled: true,
+            normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
+            provider: HrBranchStateProvider::class,
         ),
         new Get(
             security: "is_granted('IS_AUTHENTICATED_FULLY')",
-            normalizationContext: ['groups' => ['branch:read']],
-        ),
-        new Post(
-            security: "is_granted('ROLE_ADMIN')",
-            denormalizationContext: ['groups' => ['branch:write']],
-        ),
-        new Put(
-            security: "is_granted('ROLE_ADMIN')",
-            denormalizationContext: ['groups' => ['branch:write']],
-        ),
-        new Delete(
-            security: "is_granted('ROLE_ADMIN')",
-        ),
-        // Chamilo HR extension: HR branches only (branchType = 'hr')
-        new GetCollection(
-            uriTemplate: '/hr_branches',
-            paginationClientEnabled: true,
             normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
-            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
-            name: 'hr_branches_get_collection',
             provider: HrBranchStateProvider::class,
         ),
         new Post(
-            uriTemplate: '/hr_branches',
+            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
             normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
             denormalizationContext: ['groups' => ['branch:write']],
-            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
-            name: 'hr_branches_post',
             processor: HrBranchStateProcessor::class,
         ),
         new Put(
-            uriTemplate: '/hr_branches/{id}',
+            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
             normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
             denormalizationContext: ['groups' => ['branch:write']],
-            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
-            name: 'hr_branches_put',
             provider: HrBranchStateProvider::class,
             processor: HrBranchStateProcessor::class,
         ),
         new Delete(
-            uriTemplate: '/hr_branches/{id}',
             security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
-            name: 'hr_branches_delete',
             provider: HrBranchStateProvider::class,
         ),
     ],

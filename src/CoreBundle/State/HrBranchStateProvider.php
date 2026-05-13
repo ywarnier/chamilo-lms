@@ -22,7 +22,7 @@ use Doctrine\ORM\EntityManagerInterface;
  *
  * - Collection: returns BranchSync rows where branchType = 'hr', sorted by title ASC.
  *   Applies API Platform FilterExtension (so the existing SearchFilter on `title` keeps
- *   working on /api/hr_branches) and PaginationExtension (so `?page=`, `?itemsPerPage=`
+ *   working on /api/branches) and PaginationExtension (so `?page=`, `?itemsPerPage=`
  *   and `?pagination=false` are handled automatically and the response carries the
  *   Hydra pagination metadata).
  * - Item (Put/Delete): returns the entity only if it exists AND its branchType is 'hr';
