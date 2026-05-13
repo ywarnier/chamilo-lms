@@ -124,7 +124,7 @@ import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
 import baseService from "../../services/baseService"
-import * as branchService from "../../services/hr/branchService"
+import * as branchService from "../../services/branchService"
 
 const { t } = useI18n()
 const { showSuccessNotification, showErrorNotification } = useNotification()
@@ -149,7 +149,7 @@ async function load() {
   try {
     const [unitResult, branchItems] = await Promise.all([
       baseService.getCollection("/api/business_units", { pagination: false }),
-      branchService.getAll(),
+      branchService.getAll({ branchType: "hr" }),
     ])
     items.value = unitResult.items
     branches.value = branchItems

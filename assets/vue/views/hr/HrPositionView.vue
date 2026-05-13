@@ -173,7 +173,7 @@ import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
-import * as branchService from "../../services/hr/branchService"
+import * as branchService from "../../services/branchService"
 import axios from "axios"
 
 const { t } = useI18n()
@@ -227,7 +227,7 @@ async function load() {
       axios.get("/hr/positions-data"),
       axios.get("/api/users?pagination=false&properties[]=id&properties[]=fullName&properties[]=username"),
       axios.get("/api/function_in_units?pagination=false"),
-      branchService.getAll(),
+      branchService.getAll({ branchType: "hr" }),
       axios.get("/api/geographic_zones?pagination=false"),
     ])
     items.value = posRes.data

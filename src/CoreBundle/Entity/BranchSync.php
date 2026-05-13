@@ -16,7 +16,6 @@ use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
 use Chamilo\CoreBundle\Repository\BranchSyncRepository;
 use Chamilo\CoreBundle\State\HrBranchStateProcessor;
-use Chamilo\CoreBundle\State\HrBranchStateProvider;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -34,12 +33,10 @@ use Symfony\Component\Validator\Constraints as Assert;
         new GetCollection(
             paginationClientEnabled: true,
             normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
-            provider: HrBranchStateProvider::class,
         ),
         new Get(
             security: "is_granted('IS_AUTHENTICATED_FULLY')",
             normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
-            provider: HrBranchStateProvider::class,
         ),
         new Post(
             security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
@@ -51,16 +48,14 @@ use Symfony\Component\Validator\Constraints as Assert;
             security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
             normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
             denormalizationContext: ['groups' => ['branch:write']],
-            provider: HrBranchStateProvider::class,
             processor: HrBranchStateProcessor::class,
         ),
         new Delete(
             security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
-            provider: HrBranchStateProvider::class,
         ),
     ],
 )]
-#[ApiFilter(SearchFilter::class, properties: ['title' => 'partial'])]
+#[ApiFilter(SearchFilter::class, properties: ['title' => 'partial', 'branchType' => 'exact'])]
 #[ORM\Table(name: 'branch_sync')]
 #[ORM\Entity(repositoryClass: BranchSyncRepository::class)]
 #[Gedmo\Tree(type: 'nested')]
