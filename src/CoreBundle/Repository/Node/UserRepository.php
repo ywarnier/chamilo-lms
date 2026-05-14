@@ -27,6 +27,7 @@ use Chamilo\CoreBundle\Entity\UserRelUser;
 use Chamilo\CoreBundle\Helpers\QueryCacheHelper;
 use Chamilo\CoreBundle\Repository\ResourceRepository;
 use Chamilo\CourseBundle\Entity\CGroupRelUser;
+use Chamilo\CourseBundle\Entity\CStudentPublication;
 use Datetime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\DBAL\Types\Types;
@@ -174,6 +175,10 @@ class UserRepository extends ResourceRepository implements PasswordUpgraderInter
 
         try {
             if ($destroy) {
+                // Remove student assignment submissions through their resource nodes so
+                // ResourceFile entities are removed by Doctrine/Vich before the user row is deleted.
+                $this->deleteUserStudentPublicationFiles($user);
+
                 // Call method to delete messages and attachments
                 $this->deleteUserMessagesAndAttachments($user);
 
@@ -384,6 +389,99 @@ class UserRepository extends ResourceRepository implements PasswordUpgraderInter
     }
 
     /**
+     * Delete assignment submission resource trees owned by the user before the raw user deletion.
+     *
+     * Student submissions are course resources. Removing only c_student_publication rows would
+     * leave ResourceFile storage objects orphaned, so we remove the ResourceNode tree instead.
+     * Root assignment folders are kept, because they usually belong to the course activity itself.
+     */
+    private function deleteUserStudentPublicationFiles(User $user): void
+    {
+        $userId = $user->getId();
+        if (null === $userId) {
+            return;
+        }
+
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $rows = $qb
+            ->select('DISTINCT resourceNode.id AS id')
+            ->from(CStudentPublication::class, 'publication')
+            ->innerJoin('publication.resourceNode', 'resourceNode')
+            ->where('IDENTITY(publication.user) = :userId')
+            ->andWhere(
+                $qb->expr()->orX(
+                    'publication.publicationParent IS NOT NULL',
+                    'publication.filetype = :filetype'
+                )
+            )
+            ->setParameter('userId', $userId, Types::INTEGER)
+            ->setParameter('filetype', 'file')
+            ->getQuery()
+            ->getScalarResult()
+        ;
+
+        if ([] === $rows) {
+            return;
+        }
+
+        $visitedNodeIds = [];
+
+        foreach ($rows as $row) {
+            $resourceNodeId = (int) ($row['id'] ?? 0);
+            if (0 === $resourceNodeId || isset($visitedNodeIds[$resourceNodeId])) {
+                continue;
+            }
+
+            $resourceNode = $em->find(ResourceNode::class, $resourceNodeId);
+            if (!$resourceNode instanceof ResourceNode) {
+                continue;
+            }
+
+            $this->removeResourceNodeTree($resourceNode, $visitedNodeIds);
+        }
+
+        $em->flush();
+    }
+
+    /**
+     * Remove a resource node tree through Doctrine so ResourceFile preRemove handlers
+     * delete the physical files from storage.
+     *
+     * @param array<int, bool> $visitedNodeIds
+     */
+    private function removeResourceNodeTree(ResourceNode $resourceNode, array &$visitedNodeIds): void
+    {
+        $resourceNodeId = $resourceNode->getId();
+        if (null !== $resourceNodeId) {
+            if (isset($visitedNodeIds[$resourceNodeId])) {
+                return;
+            }
+
+            $visitedNodeIds[$resourceNodeId] = true;
+        }
+
+        $em = $this->getEntityManager();
+
+        foreach (iterator_to_array($resourceNode->getChildren()) as $childNode) {
+            if ($childNode instanceof ResourceNode) {
+                $this->removeResourceNodeTree($childNode, $visitedNodeIds);
+            }
+        }
+
+        foreach (iterator_to_array($resourceNode->getResourceFiles()) as $resourceFile) {
+            $em->remove($resourceFile);
+        }
+
+        foreach (iterator_to_array($resourceNode->getResourceLinks()) as $resourceLink) {
+            $em->remove($resourceLink);
+        }
+
+        $em->remove($resourceNode);
+    }
+
+    /**
      * Deletes a user's messages and their attachments, updates the message content,
      * and detaches the user as the sender.
      */
@@ -473,6 +571,28 @@ class UserRepository extends ResourceRepository implements PasswordUpgraderInter
         }
 
         return $user;
+    }
+
+    public function findByEmailCaseInsensitive(string $email): ?User
+    {
+        return $this->createQueryBuilder('u')
+            ->where('LOWER(u.email) = LOWER(:email)')
+            ->setParameter('email', $email)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    public function findByUsernameCaseInsensitive(string $username): ?User
+    {
+        return $this->createQueryBuilder('u')
+            ->where('LOWER(u.username) = LOWER(:username)')
+            ->setParameter('username', $username)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
     }
 
     public function findAllUsers(bool $useCache = false): array

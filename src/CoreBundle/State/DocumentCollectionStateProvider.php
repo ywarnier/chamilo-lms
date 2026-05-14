@@ -123,10 +123,14 @@ final class DocumentCollectionStateProvider implements ProviderInterface
         // Normalize & unique
         $requestedFiletypes = array_values(array_unique(array_filter(array_map('strval', $filetypes))));
 
-        // Compatibility: treat "html" as a subtype of "file"
+        // Compatibility: treat "html" and cloud links as subtypes of "file".
         $effectiveFiletypes = $requestedFiletypes;
-        if (\in_array('file', $effectiveFiletypes, true) && !\in_array('html', $effectiveFiletypes, true)) {
-            $effectiveFiletypes[] = 'html';
+        if (\in_array('file', $effectiveFiletypes, true)) {
+            foreach (['html', 'link'] as $fileSubtype) {
+                if (!\in_array($fileSubtype, $effectiveFiletypes, true)) {
+                    $effectiveFiletypes[] = $fileSubtype;
+                }
+            }
         }
 
         // System folder subtypes
@@ -479,6 +483,8 @@ final class DocumentCollectionStateProvider implements ProviderInterface
 
         $results = $fetchQb->getQuery()->getResult();
 
+        $this->translateSystemFolderTitles($results);
+
         // Restore the sort order from the cached IID list (SQL IN has no guaranteed order).
         $posMap = array_flip($iids);
         usort(
@@ -492,6 +498,39 @@ final class DocumentCollectionStateProvider implements ProviderInterface
             $itemsPerPage,
             $cached['total']
         );
+    }
+
+    /**
+     * Translate canonical system folder titles for display without changing persisted values.
+     *
+     * @param array<int, mixed> $documents
+     */
+    private function translateSystemFolderTitles(array $documents): void
+    {
+        foreach ($documents as $document) {
+            if (!$document instanceof CDocument) {
+                continue;
+            }
+
+            if ('folder' !== $document->getFiletype()) {
+                continue;
+            }
+
+            if ('learning_path' !== $document->getTitle()) {
+                continue;
+            }
+
+            $translatedTitle = get_lang('Learning paths');
+
+            $document->setTitle($translatedTitle);
+
+            $resourceNode = $document->getResourceNode();
+            if (null === $resourceNode) {
+                continue;
+            }
+
+            $resourceNode->setTitle($translatedTitle);
+        }
     }
 
     /**

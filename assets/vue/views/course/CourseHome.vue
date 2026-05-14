@@ -257,7 +257,6 @@
 import { computed, onMounted, provide, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
 import axios from "axios"
-import { ENTRYPOINT } from "../../config/entrypoint"
 import CourseTool from "../../components/course/CourseTool"
 import ShortCutList from "../../components/course/ShortCutList.vue"
 import Skeleton from "primevue/skeleton"
@@ -312,14 +311,28 @@ function getToolVisibility(tool) {
   return tool?.resourceNode?.resourceLinks?.[0]?.visibility
 }
 
+function isLearningPathTool(tool) {
+  return tool?.title === "learnpath" || tool?.tool?.title === "learnpath"
+}
+
+function shouldShowInvisibleLearningPathTool(tool) {
+  return isLearningPathTool(tool) && "true" === getSetting.value("lp.show_invisible_lp_in_course_home")
+}
+
 const toolsForDisplay = computed(() => {
   // Teachers/admins can see all tools (even hidden) to manage them.
   if (isAllowedToEdit.value) {
     return tools.value
   }
 
-  // Learners must not see hidden tools.
-  return tools.value.filter((tool) => getToolVisibility(tool) === TOOL_VISIBILITY_VISIBLE)
+  // Learners must not see hidden tools, except the learning path tool when enabled by platform setting.
+  return tools.value.filter((tool) => {
+    if (getToolVisibility(tool) === TOOL_VISIBILITY_VISIBLE) {
+      return true
+    }
+
+    return shouldShowInvisibleLearningPathTool(tool)
+  })
 })
 
 const reportingUrl = computed(() => {
@@ -350,7 +363,8 @@ async function loadCourseTools(showSkeleton = true) {
       }
 
       // Convenience flag for UI states (e.g. customize mode)
-      tool.isEnabled = tool.resourceNode?.resourceLinks?.[0]?.visibility === 2
+      tool.isEnabled =
+        tool.resourceNode?.resourceLinks?.[0]?.visibility === 2 || shouldShowInvisibleLearningPathTool(tool)
 
       return tool
     })
@@ -422,8 +436,7 @@ const setToolVisibility = (tool, visibility) => {
 function changeVisibility(tool) {
   axios
     .post(
-      ENTRYPOINT +
-        "../r/course_tool/links/" +
+      "/r/course_tool/links/" +
         tool.resourceNode.id +
         "/change_visibility?cid=" +
         course.value.id +
@@ -436,7 +449,7 @@ function changeVisibility(tool) {
 
 function onClickShowAll() {
   axios
-    .post(ENTRYPOINT + `../r/course_tool/links/change_visibility/show?cid=${course.value.id}&sid=${session.value?.id}`)
+    .post(`/r/course_tool/links/change_visibility/show?cid=${course.value.id}&sid=${session.value?.id}`)
     .then(() => {
       tools.value.forEach((tool) => setToolVisibility(tool, 2))
     })
@@ -445,7 +458,7 @@ function onClickShowAll() {
 
 function onClickHideAll() {
   axios
-    .post(ENTRYPOINT + `../r/course_tool/links/change_visibility/hide?cid=${course.value.id}&sid=${session.value?.id}`)
+    .post(`/r/course_tool/links/change_visibility/hide?cid=${course.value.id}&sid=${session.value?.id}`)
     .then(() => {
       tools.value.forEach((tool) => setToolVisibility(tool, 0))
     })
@@ -490,8 +503,7 @@ const showCourseSequence = computed(() => {
   return platformConfigStore.getSetting("course.resource_sequence_show_dependency_in_course_intro") === "true"
 })
 
-onMounted(async () => {
-  await courseSettingsStore.loadCourseSettings(course.value.id, session.value?.id)
+onMounted(() => {
   documentAutoLaunch.value = parseInt(courseSettingsStore.getSetting("enable_document_auto_launch"), 10) || 0
   exerciseAutoLaunch.value = parseInt(courseSettingsStore.getSetting("enable_exercise_auto_launch"), 10) || 0
   lpAutoLaunch.value = parseInt(courseSettingsStore.getSetting("enable_lp_auto_launch"), 10) || 0

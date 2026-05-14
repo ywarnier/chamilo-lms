@@ -947,7 +947,7 @@ switch ($action) {
         $objQuestion = Question::read($questionId);
         $id = '';
         if ('true' === api_get_setting('exercise.show_question_id')) {
-            $id = '<h4>#'.$objQuestion->course['code'].'-'.$objQuestion->iid.'</h4>';
+            $id = '<small class="text-muted">#'.$objQuestion->course['code'].'-'.$objQuestion->iid.'</small><br>';
         }
         echo $id;
         echo '<p class="lead">'.$objQuestion->get_question_type_name().'</p>';
@@ -1079,7 +1079,7 @@ switch ($action) {
         // Close the session as we don't need it any further
         session_write_close();
 
-        if (!Container::getPluginHelper()->isPluginEnabled('ExerciseSignature')) {
+        if (!ExerciseSignaturePlugin::create()->isEnabled()) {
             exit;
         }
 

@@ -10,8 +10,10 @@ final class Events
 {
     public const USER_CREATED = 'chamilo.event.user_created';
     public const USER_UPDATED = 'chamilo.event.user_updated';
+    public const USER_DELETED = 'chamilo.event.user_deleted';
 
     public const COURSE_CREATED = 'chamilo.event.course_created';
+    public const COURSE_USER_SUBSCRIPTION_CHECK = 'chamilo.event.course_user_subscription_check';
 
     public const LOGIN_CREDENTIALS_CHECKED = 'chamilo.event.login_credentials_checked';
 
@@ -49,4 +51,5 @@ final class Events
     public const NOTIFICATION_TITLE_FORMATTED = 'chamilo_hook_event.notification_title_formatted';
 
     public const ADMIN_BLOCK_DISPLAYED = 'chamilo.event.admin_block_displayed';
+    public const COURSE_ACCESS_CHECK = 'chamilo.course_access_check';
 }

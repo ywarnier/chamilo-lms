@@ -2,6 +2,7 @@
 
 /* For licensing terms, see /license.txt */
 
+use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Framework\Container;
 use Chamilo\CourseBundle\Entity\CCourseDescription;
 
@@ -22,6 +23,48 @@ class CourseDescriptionController
     public function __construct()
     {
         $this->toolname = 'course_description';
+    }
+
+    /**
+     * Returns optional language choices for resource language selectors.
+     *
+     * @return array<string, string>
+     */
+    private function getResourceLanguageOptions(): array
+    {
+        $options = [
+            '' => get_lang('No specific language'),
+        ];
+
+        $languages = Database::getManager()
+            ->getRepository(Language::class)
+            ->findBy(['available' => true], ['englishName' => 'ASC'])
+        ;
+
+        foreach ($languages as $language) {
+            if (!$language instanceof Language) {
+                continue;
+            }
+
+            $options[$language->getIsocode()] = $language->getOriginalName() ?: $language->getEnglishName();
+        }
+
+        return $options;
+    }
+
+    private function getResourceLanguageIsoCode(?CCourseDescription $courseDescription): string
+    {
+        if (!$courseDescription instanceof CCourseDescription || null === $courseDescription->getResourceNode()) {
+            return '';
+        }
+
+        $language = $courseDescription->getResourceNode()->getLanguage();
+
+        if (!$language instanceof Language) {
+            return '';
+        }
+
+        return $language->getIsocode();
     }
 
     public function getToolbar()
@@ -119,7 +162,13 @@ class CourseDescriptionController
         $tpl->assign('actions', $actions);
         $tpl->assign('session_id', $session_id);
         $templateName = $tpl->get_template('course_description/index.tpl');
-        $content = $tpl->fetch($templateName);
+        $content = '';
+
+        if (!$history) {
+            $content .= Display::return_introduction_section(TOOL_COURSE_DESCRIPTION);
+        }
+
+        $content .= $tpl->fetch($templateName);
         $tpl->assign('content', $content);
         $tpl->display_one_col_template();
     }
@@ -137,6 +186,7 @@ class CourseDescriptionController
         $session_id = api_get_session_id();
         $course_description->set_session_id($session_id);
         $data = [];
+        $courseDescriptionEntity = null;
         $affected_rows = null;
         if ('POST' === strtoupper($_SERVER['REQUEST_METHOD'])) {
             if (!empty($_POST['title']) && !empty($_POST['contentDescription'])) {
@@ -222,6 +272,7 @@ class CourseDescriptionController
                 $description_title = $course_description_data['description_title'];
                 $description_content = $course_description_data['description_content'];
                 $progress = $course_description_data['progress'];
+                $courseDescriptionEntity = Container::getCourseDescriptionRepository()->find($id);
                 $descriptions = $course_description->get_data_by_description_type(
                     $description_type,
                     null,
@@ -267,6 +318,7 @@ class CourseDescriptionController
             $form->addElement('hidden', 'id', $original_id);
             $form->addElement('hidden', 'description_type', $description_type);
             //$form->addElement('hidden', 'sec_token', $token);
+            $default = [];
 
             if ('true' === api_get_setting('editor.save_titles_as_html')) {
                 $form->addHtmlEditor(
@@ -289,6 +341,14 @@ class CourseDescriptionController
                     'ToolbarSet' => 'Basic',
                     'Width' => '100%',
                     'Height' => '200',
+                ]
+            );
+            $form->addSelect(
+                'language',
+                get_lang('Language'),
+                $this->getResourceLanguageOptions(),
+                [
+                    'id' => 'resource_language',
                 ]
             );
 
@@ -314,6 +374,7 @@ class CourseDescriptionController
                 $default['contentDescription'] = Security::remove_XSS($description_content, COURSEMANAGERLOWSECURITY);
             }
             $default['description_type'] = $description_type;
+            $default['language'] = $this->getResourceLanguageIsoCode($courseDescriptionEntity);
 
             $form->setDefaults($default);
 
@@ -399,6 +460,18 @@ class CourseDescriptionController
                     'Height' => '200',
                 ]
             );
+            $form->addSelect(
+                'language',
+                get_lang('Language'),
+                $this->getResourceLanguageOptions(),
+                [
+                    'id' => 'resource_language',
+                ]
+            );
+
+            $defaults = [
+                'language' => '',
+            ];
 
             if ('true' === api_get_setting('search.search_enabled')) {
                 $form->addCheckBox(
@@ -407,11 +480,10 @@ class CourseDescriptionController
                     get_lang('Index this description for the global search')
                 );
 
-                $form->setDefaults([
-                    'enable_search' => 1,
-                ]);
+                $defaults['enable_search'] = 1;
             }
 
+            $form->setDefaults($defaults);
             $form->addButtonCreate(get_lang('Save'));
 
             $tpl = new Template(get_lang('Description'));

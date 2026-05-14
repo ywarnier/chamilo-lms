@@ -6,7 +6,17 @@
       :label="$t('Title')"
       :vuelidate-property="v$.item.title"
     />
-
+    <BaseTextArea
+      id="item_comment"
+      v-model="item.comment"
+      label="Description"
+      rows="4"
+      auto-resize
+    />
+    <ResourceLanguageSelector
+      v-model="item.language"
+      class="mt-3"
+    />
     <BaseTinyEditor
       v-if="
         (item.resourceNode && item.resourceNode.firstResourceFile && item.resourceNode.firstResourceFile.text) ||
@@ -18,6 +28,54 @@
       :editor-config="tinyEditorConfig"
       required
     />
+
+    <div
+      v-if="editorDrafts.length > 0"
+      class="mt-3 rounded-lg border border-gray-25 bg-gray-10 p-4"
+    >
+      <div class="mb-3 flex items-center justify-between gap-3">
+        <div class="text-sm font-semibold text-gray-90">
+          {{ t("Draft") }}
+        </div>
+        <div class="text-xs text-gray-50">
+          {{ editorDrafts.length }}/{{ maxEditorDrafts }}
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div
+          v-for="draft in editorDrafts"
+          :key="draft.id"
+          class="flex flex-col gap-2 rounded-md border border-gray-25 bg-white p-3 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div class="min-w-0">
+            <div class="truncate text-sm font-medium text-gray-90">
+              {{ draft.title || t("Untitled") }}
+            </div>
+            <div class="text-xs text-gray-50">
+              {{ t("Saved") }}: {{ formatEditorDraftDate(draft.savedAt) }}
+            </div>
+          </div>
+
+          <div class="flex shrink-0 gap-2">
+            <BaseButton
+              icon="restore"
+              size="small"
+              type="secondary"
+              :label="t('Restore')"
+              @click.prevent="restoreEditorDraft(draft)"
+            />
+            <BaseButton
+              icon="delete"
+              size="small"
+              type="danger"
+              :label="t('Remove')"
+              @click.prevent="removeEditorDraft(draft.id)"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div
       v-if="aiEditorMessage"
@@ -101,23 +159,27 @@ import axios from "axios"
 import { useI18n } from "vue-i18n"
 import { usePlatformConfig } from "../../store/platformConfig"
 import { useCourseSettings } from "../../store/courseSettingStore"
-import { ENTRYPOINT } from "../../config/entrypoint"
+import { useSecurityStore } from "../../store/securityStore"
 import BaseButton from "../basecomponents/BaseButton.vue"
 import BaseCheckbox from "../basecomponents/BaseCheckbox.vue"
 import BaseTinyEditor from "../basecomponents/BaseTinyEditor.vue"
 import BaseAdvancedSettingsButton from "../basecomponents/BaseAdvancedSettingsButton.vue"
 import BaseInputTextWithVuelidate from "../basecomponents/BaseInputTextWithVuelidate.vue"
 import DocumentAiMediaDialog from "./DocumentAiMediaDialog.vue"
+import BaseTextArea from "../basecomponents/BaseTextArea.vue"
+import ResourceLanguageSelector from "../resources/ResourceLanguageSelector.vue"
 
 export default {
   name: "DocumentsForm",
   components: {
+    BaseTextArea,
     BaseButton,
     BaseCheckbox,
     BaseTinyEditor,
     BaseAdvancedSettingsButton,
     BaseInputTextWithVuelidate,
     DocumentAiMediaDialog,
+    ResourceLanguageSelector,
   },
   props: {
     values: { type: Object, required: true },
@@ -128,6 +190,7 @@ export default {
   setup() {
     const platformConfigStore = usePlatformConfig()
     const courseSettingsStore = useCourseSettings()
+    const securityStore = useSecurityStore()
     const extraPlugins = ref("")
     const { t, locale } = useI18n()
 
@@ -142,6 +205,7 @@ export default {
       locale,
       platformConfigStore,
       courseSettingsStore,
+      securityStore,
     }
   },
   data() {
@@ -156,12 +220,17 @@ export default {
       aiEditorMessage: "",
       courseContextTitle: "",
       courseContextLanguage: "",
+      editorDrafts: [],
+      editorDraftIntervalId: null,
+      lastEditorDraftContent: "",
+      maxEditorDrafts: 5,
     }
   },
   validations() {
     return {
       item: {
         title: { required },
+        comment: {},
       },
     }
   },
@@ -231,6 +300,10 @@ export default {
     },
   },
   async created() {
+    if (undefined === this.item.comment || null === this.item.comment) {
+      this.item.comment = ""
+    }
+
     if (!this.item.searchFieldValues || typeof this.item.searchFieldValues !== "object") {
       this.item.searchFieldValues = {}
     }
@@ -239,8 +312,9 @@ export default {
       this.item.indexDocumentContent = true
     }
 
+    this.ensureResourceLanguage()
+
     await this.loadCourseContext()
-    await this.loadCourseSettingsIfPossible()
 
     if (!this.searchEnabled) {
       return
@@ -249,7 +323,224 @@ export default {
     await this.loadSearchEngineFields()
     await this.loadSearchEngineFieldValuesForEdit()
   },
+  mounted() {
+    this.refreshEditorDrafts()
+    this.lastEditorDraftContent = this.normalizeEditorDraftContent(this.item.contentFile)
+    this.editorDraftIntervalId = window.setInterval(this.saveEditorDraft, 30000)
+    window.addEventListener("beforeunload", this.saveEditorDraftOnUnload)
+  },
+  beforeUnmount() {
+    if (this.editorDraftIntervalId) {
+      window.clearInterval(this.editorDraftIntervalId)
+      this.editorDraftIntervalId = null
+    }
+
+    window.removeEventListener("beforeunload", this.saveEditorDraftOnUnload)
+  },
+  watch: {
+    item: {
+      immediate: true,
+      handler() {
+        this.ensureResourceLanguage()
+      },
+    },
+  },
   methods: {
+    extractResourceLanguageIso(language) {
+      if (!language) {
+        return ""
+      }
+
+      if ("string" === typeof language) {
+        const iriMatch = language.match(/\/api\/languages\/(\d+)/)
+        if (!iriMatch) {
+          return language
+        }
+
+        const languages = Array.isArray(window.languages) ? window.languages : []
+        const found = languages.find((item) => String(item?.id || "") === iriMatch[1])
+
+        return String(found?.isocode || "")
+      }
+
+      return String(language.isocode || language.isoCode || "")
+    },
+    ensureResourceLanguage() {
+      if (!this.item || undefined !== this.item.language) {
+        return
+      }
+
+      this.item.language = this.extractResourceLanguageIso(
+        this.item?.resourceNode?.language ||
+          this.item?.resourceNode?.firstResourceFile?.language ||
+          this.item?.firstResourceFile?.language,
+      )
+    },
+    getEditorDraftUserId() {
+      const user = this.securityStore?.user || {}
+
+      if (user.id) {
+        return String(user.id)
+      }
+
+      if (user["@id"]) {
+        return String(user["@id"]).replace(/[^a-zA-Z0-9_-]/g, "_")
+      }
+
+      return "anonymous"
+    },
+    getEditorDraftRouteKey() {
+      const route = this.$route || {}
+      const query = route.query || {}
+      const params = route.params || {}
+
+      const parts = [
+        route.name || "document",
+        params.node || params.id || "0",
+        query.id || query.node || "new",
+        query.cid || "0",
+        query.sid || "0",
+        query.gid || "0",
+        query.filetype || this.item.filetype || "file",
+      ]
+
+      return parts.map((part) => String(part ?? "").replace(/[^a-zA-Z0-9_-]/g, "_")).join(":")
+    },
+    getEditorDraftStorageKey() {
+      return `chamilo:document-editor-drafts:${this.getEditorDraftUserId()}:${this.getEditorDraftRouteKey()}`
+    },
+    normalizeEditorDraftContent(content) {
+      return String(content ?? "").trim()
+    },
+    getCurrentEditorContent() {
+      try {
+        const editor = window.tinymce?.get("item_content")
+
+        if (editor) {
+          return editor.getContent()
+        }
+      } catch {
+        // Ignore TinyMCE access errors.
+      }
+
+      return this.item.contentFile
+    },
+    setCurrentEditorContent(content) {
+      this.item.contentFile = content
+
+      try {
+        const editor = window.tinymce?.get("item_content")
+
+        if (editor) {
+          editor.setContent(content)
+        }
+      } catch {
+        // Ignore TinyMCE access errors.
+      }
+    },
+    readEditorDrafts() {
+      try {
+        const raw = window.localStorage.getItem(this.getEditorDraftStorageKey())
+        const drafts = raw ? JSON.parse(raw) : []
+
+        if (!Array.isArray(drafts)) {
+          return []
+        }
+
+        return drafts
+          .filter((draft) => draft && typeof draft === "object" && this.normalizeEditorDraftContent(draft.content))
+          .sort((a, b) => Number(b.savedAt || 0) - Number(a.savedAt || 0))
+          .slice(0, this.maxEditorDrafts)
+      } catch {
+        return []
+      }
+    },
+    writeEditorDrafts(drafts) {
+      const safeDrafts = Array.isArray(drafts) ? drafts.slice(0, this.maxEditorDrafts) : []
+
+      try {
+        window.localStorage.setItem(this.getEditorDraftStorageKey(), JSON.stringify(safeDrafts))
+      } catch {
+        try {
+          window.localStorage.setItem(
+            this.getEditorDraftStorageKey(),
+            JSON.stringify(safeDrafts.slice(0, Math.max(this.maxEditorDrafts - 1, 1))),
+          )
+        } catch {
+          // Ignore localStorage quota errors.
+        }
+      }
+    },
+    refreshEditorDrafts() {
+      this.editorDrafts = this.readEditorDrafts()
+    },
+    formatEditorDraftDate(savedAt) {
+      const timestamp = Number(savedAt || 0)
+
+      if (!timestamp) {
+        return ""
+      }
+
+      try {
+        return new Date(timestamp).toLocaleString()
+      } catch {
+        return ""
+      }
+    },
+    saveEditorDraftOnUnload() {
+      this.saveEditorDraft()
+    },
+    saveEditorDraft() {
+      const content = this.normalizeEditorDraftContent(this.getCurrentEditorContent())
+
+      if (!content || content === this.lastEditorDraftContent) {
+        return
+      }
+
+      const drafts = this.readEditorDrafts().filter(
+        (draft) => this.normalizeEditorDraftContent(draft.content) !== content,
+      )
+      const draft = {
+        id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        title: String(this.item.title || "").trim(),
+        content,
+        savedAt: Date.now(),
+      }
+
+      drafts.unshift(draft)
+      this.writeEditorDrafts(drafts.slice(0, this.maxEditorDrafts))
+      this.lastEditorDraftContent = content
+      this.refreshEditorDrafts()
+    },
+    restoreEditorDraft(draft) {
+      const content = this.normalizeEditorDraftContent(draft?.content)
+
+      if (!content) {
+        return
+      }
+
+      this.setCurrentEditorContent(content)
+      this.lastEditorDraftContent = content
+
+      if (!this.item.title && draft.title) {
+        this.item.title = draft.title
+      }
+    },
+    removeEditorDraft(draftId) {
+      const drafts = this.readEditorDrafts().filter((draft) => draft.id !== draftId)
+      this.writeEditorDrafts(drafts)
+      this.refreshEditorDrafts()
+    },
+    clearEditorDrafts() {
+      try {
+        window.localStorage.removeItem(this.getEditorDraftStorageKey())
+      } catch {
+        // Ignore localStorage errors.
+      }
+
+      this.editorDrafts = []
+      this.lastEditorDraftContent = this.normalizeEditorDraftContent(this.getCurrentEditorContent())
+    },
     setAiEditorMessage(message) {
       this.aiEditorMessage = String(message || "").trim()
 
@@ -338,20 +629,6 @@ export default {
         }
       } catch (error) {
         console.warn("[DocumentsForm] Failed to load course context.", error)
-      }
-    },
-    async loadCourseSettingsIfPossible() {
-      const cid = Number(this.$route?.query?.cid || 0)
-      const sid = Number(this.$route?.query?.sid || 0)
-
-      if (!cid) {
-        return
-      }
-
-      try {
-        await this.courseSettingsStore.loadCourseSettings(cid, sid)
-      } catch (error) {
-        console.warn("[DocumentsForm] Failed to load course settings.", error)
       }
     },
     getTinyEditor() {
@@ -452,7 +729,7 @@ export default {
     },
     async loadSearchEngineFields() {
       try {
-        const response = await fetch(ENTRYPOINT + "search_engine_fields", {
+        const response = await fetch("/api/search_engine_fields", {
           credentials: "same-origin",
         })
 
@@ -497,8 +774,8 @@ export default {
       const iri = `/api/resource_nodes/${resourceNodeId}`
 
       const tryUrls = [
-        `${ENTRYPOINT}search_engine_field_values?resourceNode=${encodeURIComponent(iri)}&pagination=false`,
-        `${ENTRYPOINT}search_engine_field_values?resourceNodeId=${encodeURIComponent(resourceNodeId)}&pagination=false`,
+        `/api/search_engine_field_values?resourceNode=${encodeURIComponent(iri)}&pagination=false`,
+        `/api/search_engine_field_values?resourceNodeId=${encodeURIComponent(resourceNodeId)}&pagination=false`,
       ]
 
       for (const url of tryUrls) {
@@ -598,7 +875,7 @@ export default {
       try {
         window.tinymce?.activeEditor?.windowManager.openUrl({
           url,
-          title: "File Manager",
+          title: t("File manager"),
           onClose: () => {
             window.removeEventListener("message", onMessage)
           },

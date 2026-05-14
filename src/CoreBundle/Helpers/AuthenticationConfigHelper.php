@@ -119,6 +119,7 @@ readonly class AuthenticationConfigHelper
                 $ldapConfig['data_correspondence'] ?? []
             ),
             'object_class' => $ldapConfig['object_class'] ?? 'inetOrgPerson',
+            'tls_options' => $ldapConfig['tls_options'] ?? [],
         ];
     }
 

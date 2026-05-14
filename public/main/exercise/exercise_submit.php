@@ -258,8 +258,8 @@ if (!is_object($objExercise)) {
     exit;
 }
 
-if (Container::getPluginHelper()->isPluginEnabled('Positioning')) {
-    $plugin = Positioning::create();
+$plugin = Positioning::create();
+if ($plugin->isEnabled()) {
     if ($plugin->blockFinalExercise(api_get_user_id(), $objExercise->iId, api_get_course_int_id(), $sessionId)) {
         api_not_allowed(true);
     }
@@ -1781,6 +1781,12 @@ echo '<script>
             // Save attempt duration
             addExerciseEvent(window, \'unload\', updateDuration , false);
             addExerciseEvent(window, \'beforeunload\', updateDuration , false);
+
+            // Fix: restore visual checked state on page reload
+            $("input[type=\'radio\']:checked").each(function () {
+                $(this).closest(".p-radiobutton").addClass("p-radiobutton-checked");
+            });
+
         });
 
         function previous_question(question_num) {
@@ -2274,6 +2280,29 @@ if (ALL_ON_ONE_PAGE == $objExercise->type || $forceGrouped) {
     echo '</div>';
 }
 echo '</form>';
+
+$keepAliveInterval = (int) api_get_setting('exercise.quiz_keep_alive_ping_interval');
+if ($keepAliveInterval > 0) {
+    $keepAliveInterval = max(60, $keepAliveInterval);
+    $keepAliveIntervalMs = $keepAliveInterval * 1000;
+    ?>
+    <script>
+        (function () {
+            const interval = <?php echo (int) $keepAliveIntervalMs; ?>;
+
+            function sendExerciseKeepAlive() {
+                fetch("<?php echo api_get_path(WEB_AJAX_PATH); ?>keepalive.ajax.php", {
+                    method: "GET",
+                    credentials: "same-origin",
+                    cache: "no-store"
+                }).catch(function () {});
+            }
+
+            window.setInterval(sendExerciseKeepAlive, interval);
+        })();
+    </script>
+    <?php
+}
 if (!in_array($origin, ['learnpath', 'embeddable', 'mobileapp'])) {
     echo '</div>'; // End glossary div
     Display::display_footer();

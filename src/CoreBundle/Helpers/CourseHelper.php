@@ -10,8 +10,10 @@ use Agenda;
 use AnnouncementManager;
 use Answer;
 use AppPlugin;
+use BuyCoursesPlugin;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\CourseRelUser;
+use Chamilo\CoreBundle\Entity\ExtraField;
 use Chamilo\CoreBundle\Entity\GradebookCategory;
 use Chamilo\CoreBundle\Entity\GradebookLink;
 use Chamilo\CoreBundle\Entity\ResourceFile;
@@ -32,6 +34,7 @@ use Chamilo\CoreBundle\Entity\TrackEUploads;
 use Chamilo\CoreBundle\Entity\User;
 use Chamilo\CoreBundle\Entity\UsergroupRelCourse;
 use Chamilo\CoreBundle\Repository\CourseCategoryRepository;
+use Chamilo\CoreBundle\Repository\ExtraFieldValuesRepository;
 use Chamilo\CoreBundle\Repository\Node\CourseRepository;
 use Chamilo\CoreBundle\Repository\Node\IllustrationRepository;
 use Chamilo\CoreBundle\Repository\Node\UserRepository;
@@ -70,6 +73,10 @@ use Symfony\Component\Mime\Email;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Throwable;
 use UrlManager;
+use Chamilo\CoreBundle\Event\AbstractEvent;
+use Chamilo\CoreBundle\Event\CourseCreatedEvent;
+use Chamilo\CoreBundle\Event\Events;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 use const JSON_UNESCAPED_SLASHES;
 use const JSON_UNESCAPED_UNICODE;
@@ -95,7 +102,9 @@ class CourseHelper
         private readonly IllustrationRepository $illustrationRepository,
         private readonly XapianIndexService $xapianIndexService,
         private readonly ResourceNodeRepository $resourceNodeRepository,
-        private readonly CDocumentRepository $documentRepository
+        private readonly CDocumentRepository $documentRepository,
+        private readonly ExtraFieldValuesRepository $extraFieldValuesRepository,
+        private readonly EventDispatcherInterface $eventDispatcher,
     ) {}
 
     public function createCourse(array $params): ?Course
@@ -110,6 +119,62 @@ class CourseHelper
             throw new InvalidArgumentException('The course title cannot be empty.');
         }
 
+        $normalizeCategoryValues = static function (mixed $value): array {
+            if (null === $value || '' === $value) {
+                return [];
+            }
+
+            if (\is_scalar($value)) {
+                $intValue = (int) $value;
+
+                return $intValue > 0 ? [$intValue] : [];
+            }
+
+            if (!\is_array($value)) {
+                return [];
+            }
+
+            $normalized = [];
+
+            foreach ($value as $item) {
+                if (\is_scalar($item)) {
+                    $intValue = (int) $item;
+
+                    if ($intValue > 0) {
+                        $normalized[] = $intValue;
+                    }
+
+                    continue;
+                }
+
+                if (\is_array($item)) {
+                    foreach (['id', 'value', 'code'] as $key) {
+                        if (isset($item[$key]) && \is_scalar($item[$key])) {
+                            $intValue = (int) $item[$key];
+
+                            if ($intValue > 0) {
+                                $normalized[] = $intValue;
+                            }
+
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return array_values(array_unique($normalized));
+        };
+
+        if (\array_key_exists('course_categories', $params)) {
+            $params['course_categories'] = $normalizeCategoryValues($params['course_categories']);
+        }
+
+        if (\array_key_exists('categories', $params)) {
+            $params['categories'] = $normalizeCategoryValues($params['categories']);
+        }
+
+        $this->assertCanCreateCourse($params);
+
         if (empty($params['wanted_code'])) {
             $params['wanted_code'] = $this->generateCourseCode($params['title']);
             $this->debugLog('createCourse:generatedWantedCode', ['wanted_code' => $params['wanted_code']]);
@@ -122,15 +187,32 @@ class CourseHelper
         }
 
         $keys = $this->defineCourseKeys($params['wanted_code']);
-        $this->debugLog('createCourse:keys', $keys);
-
         $params = array_merge($params, $keys);
-        $course = $this->registerCourse($params);
-        if ($course) {
-            $this->debugLog('createCourse:registered', ['courseId' => $course->getId()]);
-            $this->handlePostCourseCreation($course, $params);
-            $this->debugLog('createCourse:done', ['courseId' => $course->getId()]);
+
+        $courseCreationEventData = [];
+        if (!empty($params['buycourses_service_sale_id'])) {
+            $courseCreationEventData['buycourses_service_sale_id'] = (int) $params['buycourses_service_sale_id'];
         }
+
+        $this->eventDispatcher->dispatch(
+            new CourseCreatedEvent($courseCreationEventData, AbstractEvent::TYPE_PRE),
+            Events::COURSE_CREATED
+        );
+
+        $course = $this->registerCourse($params);
+
+        if (!$course) {
+            return null;
+        }
+
+        $this->handlePostCourseCreation($course, $params);
+
+        $courseCreationEventData['course'] = $course;
+
+        $this->eventDispatcher->dispatch(
+            new CourseCreatedEvent($courseCreationEventData, AbstractEvent::TYPE_POST),
+            Events::COURSE_CREATED
+        );
 
         return $course;
     }
@@ -177,15 +259,16 @@ class CourseHelper
             ;
             $course->addAccessUrl($accessUrl);
 
-            if (!empty($params['categories'])) {
-                $this->debugLog('registerCourse:categoriesAttach', ['count' => \count($params['categories'])]);
-                foreach ($params['categories'] as $categoryId) {
-                    $category = $this->courseCategoryRepository->find($categoryId);
-                    if ($category) {
-                        $course->addCategory($category);
-                    }
-                }
+            if (isset($params['categories']) && !\is_array($params['categories'])) {
+                $params['categories'] = [(int) $params['categories']];
             }
+
+            $params['categories'] = array_values(
+                array_filter(
+                    array_map(static fn ($value): int => (int) $value, $params['categories'] ?? []),
+                    static fn (int $value): bool => $value > 0
+                )
+            );
 
             $addTeacher = $params['add_user_as_teacher'] ?? true;
             $user = $currentUser ?? $this->getFallbackAdminUser();
@@ -369,7 +452,7 @@ class CourseHelper
         $gradebook = $this->createRootGradebook($course);
         $this->debugLog('fillCourse:createRootGradebook:ok', ['gradebookId' => $gradebook->getId()]);
 
-        $setting = $this->settingsManager->getSetting('course.example_material_course_creation');
+        $setting = $this->settingsManager->getSetting('course.example_material_course_creation', true);
         $this->debugLog('fillCourse:setting.example_material_course_creation', ['value' => $setting]);
 
         if ('true' === $setting) {
@@ -387,7 +470,7 @@ class CourseHelper
     private function insertCourseSettings(Course $course): void
     {
         $defaultEmailExerciseAlert = 0;
-        if ('true' === $this->settingsManager->getSetting('exercise.email_alert_manager_on_new_quiz')) {
+        if ('true' === $this->settingsManager->getSetting('exercise.email_alert_manager_on_new_quiz', true)) {
             $defaultEmailExerciseAlert = 1;
         }
 
@@ -410,7 +493,7 @@ class CourseHelper
             'enable_document_auto_launch' => ['default' => 0, 'category' => 'document'],
             'pdf_export_watermark_text' => ['default' => '', 'category' => 'learning_path'],
             'allow_public_certificates' => [
-                'default' => 'true' === $this->settingsManager->getSetting('certificate.allow_public_certificates') ? 1 : '',
+                'default' => 'true' === $this->settingsManager->getSetting('certificate.allow_public_certificates', true) ? 1 : '',
                 'category' => 'certificates',
             ],
             'documents_default_visibility' => ['default' => 'visible', 'category' => 'document'],
@@ -889,8 +972,8 @@ class CourseHelper
 
     public function useTemplateAsBasisIfRequired($courseCode, $courseTemplate): void
     {
-        $templateSetting = $this->settingsManager->getSetting('course.course_creation_use_template');
-        $teacherCanSelectCourseTemplate = 'true' === $this->settingsManager->getSetting('workflows.teacher_can_select_course_template');
+        $templateSetting = $this->settingsManager->getSetting('course.course_creation_use_template', true);
+        $teacherCanSelectCourseTemplate = 'true' === $this->settingsManager->getSetting('workflows.teacher_can_select_course_template', true);
         $courseTemplate = isset($courseTemplate) ? (int) $courseTemplate : 0;
 
         $useTemplate = false;
@@ -928,7 +1011,6 @@ class CourseHelper
         $courseLanguage = !empty($params['course_language']) ? $params['course_language'] : $this->getDefaultSetting('language.platform_language');
         $departmentName = $params['department_name'] ?? null;
         $departmentUrl = $this->fixDepartmentUrl($params['department_url'] ?? '');
-        $diskQuota = $params['disk_quota'] ?? $this->getDefaultSetting('document.default_document_quotum');
         $visibility = $params['visibility'] ?? $this->getDefaultSetting('course.courses_default_creation_visibility', Course::OPEN_PLATFORM);
         $subscribe = $params['subscribe'] ?? (Course::OPEN_PLATFORM == $visibility);
         $unsubscribe = $params['unsubscribe'] ?? false;
@@ -936,6 +1018,25 @@ class CourseHelper
         $teachers = $params['teachers'] ?? [];
         $categories = $params['course_categories'] ?? [];
         $notifyAdmins = $this->getDefaultSetting('course.send_email_to_admin_when_create_course');
+
+        /** @var User|null $ownerUser */
+        $ownerUser = $this->security->getUser();
+        if (!$ownerUser instanceof User) {
+            $ownerUser = $this->getFallbackAdminUser();
+        }
+
+        if (!empty($params['user_id'])) {
+            $explicitOwner = $this->userRepository->find((int) $params['user_id']);
+            if ($explicitOwner instanceof User) {
+                $ownerUser = $explicitOwner;
+            }
+        }
+
+        if (\array_key_exists('disk_quota', $params)) {
+            $diskQuota = $this->parseQuotaRawToMb((string) $params['disk_quota']);
+        } else {
+            $diskQuota = $this->resolveEffectiveDocumentQuotaMbForUser($ownerUser);
+        }
 
         $errors = [];
         if (empty($code)) {
@@ -980,7 +1081,7 @@ class CourseHelper
 
     private function getDefaultSetting(string $name, $default = null)
     {
-        $settingValue = $this->settingsManager->getSetting($name);
+        $settingValue = $this->settingsManager->getSetting($name, true);
 
         return null !== $settingValue ? $settingValue : $default;
     }
@@ -1099,8 +1200,8 @@ class CourseHelper
             ]);
         }
 
-        // Documents tool quota (Documents-only usage, excluding groups if requested by policy)
-        $docsQuotaMb = $this->resolveDocumentsToolQuotaMb();
+        // Documents tool quota with BuyCourses benefit fallback
+        $docsQuotaMb = $this->resolveDocumentsToolQuotaMbForCourse($course);
         $docUsedBytes = $this->getCourseDocumentUsedBytes($course);
 
         if ($docsQuotaMb > 0) {
@@ -1154,13 +1255,11 @@ class CourseHelper
 
     private function resolveDefaultDocumentQuotaMb(): int
     {
-        // Prefer canonical keys first (avoid accidental overrides).
         $preferred = [
             'document.default_document_quotum',
-            'default_document_quotum', // legacy / DB variable
+            'default_document_quotum',
         ];
 
-        // Keep old compatibility candidates as fallback (do not break existing installs).
         $compat = [
             'document.default_document_quota',
             'document.default_course_quota',
@@ -1180,6 +1279,45 @@ class CourseHelper
         }
 
         return 0;
+    }
+
+    private function resolveDefaultGroupDocumentQuotaMb(): int
+    {
+        $candidates = [
+            'document.default_group_quotum',
+            'default_group_quotum',
+        ];
+
+        foreach ($candidates as $key) {
+            $raw = $this->settingsManager->getSetting($key, true);
+
+            if (null !== $raw && '' !== (string) $raw) {
+                $mb = $this->parseQuotaRawToMb((string) $raw);
+
+                if ($mb > 0) {
+                    return $mb;
+                }
+            }
+        }
+
+        return 0;
+    }
+
+    private function isGroupDocumentContext(): bool
+    {
+        $request = $this->requestStack->getCurrentRequest();
+
+        if (null === $request) {
+            return api_get_group_id() > 0;
+        }
+
+        $groupId = $request->query->getInt('gid');
+
+        if ($groupId <= 0) {
+            $groupId = $request->request->getInt('gid');
+        }
+
+        return $groupId > 0 || api_get_group_id() > 0;
     }
 
     /**
@@ -1210,15 +1348,12 @@ class CourseHelper
     {
         $s = strtolower(trim($raw));
 
-        // Pure integer?
         if (preg_match('/^\d+$/', $s)) {
             $num = (int) $s;
 
-            // Heuristic: if it looks like bytes (>= 1MB in bytes), convert to MB
             return ($num >= 1048576) ? (int) ceil($num / 1048576) : $num;
         }
 
-        // <number><unit> where unit is m/mb or g/gb
         if (preg_match('/^\s*(\d+)\s*([mg])(?:b)?\s*$/i', $s, $m)) {
             $num = (int) $m[1];
             $unit = strtolower($m[2]);
@@ -1226,7 +1361,6 @@ class CourseHelper
             return 'g' === $unit ? $num * 1024 : $num;
         }
 
-        // Extract digits from noisy strings
         if (preg_match('/(\d+)/', $s, $m)) {
             $num = (int) $m[1];
 
@@ -1336,41 +1470,47 @@ class CourseHelper
             return [];
         }
 
-        $limitInfo = $this->getGlobalUsersPerCourseLimitDebugInfo();
-        $limit = (int) $limitInfo['limit'];
-        $rawSettingKey = $limitInfo['rawSettingKey'];
-        $rawSettingValue = $limitInfo['rawSettingValue'];
+        $globalLimitInfo = $this->getGlobalUsersPerCourseLimitDebugInfo();
+        $globalLimit = (int) $globalLimitInfo['limit'];
+        $globalRawSettingKey = $globalLimitInfo['rawSettingKey'];
+        $globalRawSettingValue = $globalLimitInfo['rawSettingValue'];
 
         $courseIds = array_map(
             static fn (Course $course): int => (int) $course->getId(),
             $courses
         );
 
-        if ($limit <= 0) {
-            $infoMap = [];
+        $buyCoursesLimits = $this->getBuyCoursesHostingLimitsByCourseIds($courseIds);
+        $counts = $this->getCourseSubscriptionCountsByCourseIds($courseIds);
+        $infoMap = [];
 
-            foreach ($courseIds as $courseId) {
+        foreach ($courses as $course) {
+            $courseId = (int) $course->getId();
+            $courseSpecificLimit = (int) ($buyCoursesLimits[$courseId] ?? 0);
+            $limit = $courseSpecificLimit > 0 ? $courseSpecificLimit : $globalLimit;
+            $rawSettingKey = $courseSpecificLimit > 0
+                ? 'buycourses.subscription_course.hosting_limit'
+                : $globalRawSettingKey;
+            $rawSettingValue = $courseSpecificLimit > 0
+                ? (string) $courseSpecificLimit
+                : $globalRawSettingValue;
+            $current = (int) ($counts[$courseId] ?? 0);
+
+            if ($limit <= 0) {
                 $infoMap[$courseId] = [
                     'subscriptionLimitEnabled' => false,
                     'subscriptionLimit' => 0,
-                    'subscriptionCount' => 0,
+                    'subscriptionCount' => $current,
                     'subscriptionLimitReached' => false,
                     'canSubscribe' => true,
                     'subscriptionLimitTooltip' => '',
                     'rawSettingKey' => $rawSettingKey,
                     'rawSettingValue' => $rawSettingValue,
                 ];
+
+                continue;
             }
 
-            return $infoMap;
-        }
-
-        $counts = $this->getCourseSubscriptionCountsByCourseIds($courseIds);
-        $infoMap = [];
-
-        foreach ($courses as $course) {
-            $courseId = (int) $course->getId();
-            $current = (int) ($counts[$courseId] ?? 0);
             $reached = $current >= $limit;
             $canSubscribe = ($current + $nbNewUsers) <= $limit;
 
@@ -1395,6 +1535,87 @@ class CourseHelper
         }
 
         return $infoMap;
+    }
+
+    /**
+     * Returns active BuyCourses hosting limits indexed by course id.
+     *
+     * The plugin table is optional, so missing tables or disabled plugin state must never break
+     * standard course subscription checks.
+     *
+     * @param int[] $courseIds
+     *
+     * @return array<int, int>
+     */
+    private function getBuyCoursesHostingLimitsByCourseIds(array $courseIds): array
+    {
+        $courseIds = array_values(array_filter(array_map('intval', $courseIds)));
+
+        if ([] === $courseIds) {
+            return [];
+        }
+
+        $connection = $this->entityManager->getConnection();
+
+        try {
+            $schemaManager = $connection->createSchemaManager();
+
+            if (!$schemaManager->tablesExist([
+                'plugin_buycourses_subscription_course',
+                'plugin_buycourses_service_sale',
+            ])) {
+                return [];
+            }
+
+            $placeholders = [];
+            $parameters = [
+                'activeStatus' => 'active',
+                'completedStatus' => 1,
+                'now' => api_get_utc_datetime(),
+            ];
+
+            foreach ($courseIds as $index => $courseId) {
+                $parameterName = 'courseId'.$index;
+                $placeholders[] = ':'.$parameterName;
+                $parameters[$parameterName] = $courseId;
+            }
+
+            $sql = 'SELECT
+                    sc.course_id AS course_id,
+                    JSON_UNQUOTE(JSON_EXTRACT(sc.context_json, "$.hosting_limit")) AS hosting_limit
+                FROM plugin_buycourses_subscription_course sc
+                INNER JOIN plugin_buycourses_service_sale ss
+                    ON ss.id = sc.service_sale_id
+                WHERE sc.course_id IN ('.implode(', ', $placeholders).')
+                  AND sc.status = :activeStatus
+                  AND ss.status = :completedStatus
+                  AND ss.date_end IS NOT NULL
+                  AND ss.date_end >= :now
+                ORDER BY ss.date_end DESC, sc.id DESC';
+
+            $rows = $connection->executeQuery($sql, $parameters)->fetchAllAssociative();
+        } catch (Throwable $exception) {
+            $this->debugLog('buycourses:hostingLimitLookupFailed', [
+                'error' => $exception->getMessage(),
+            ]);
+
+            return [];
+        }
+
+        $limits = [];
+
+        foreach ($rows as $row) {
+            $courseId = (int) ($row['course_id'] ?? 0);
+            $limit = (int) ($row['hosting_limit'] ?? 0);
+
+            if ($courseId <= 0 || $limit <= 0 || isset($limits[$courseId])) {
+                continue;
+            }
+
+            $limits[$courseId] = $limit;
+        }
+
+        return $limits;
     }
 
     public function deleteCourse(Course $course, bool $deleteExclusiveDocuments = false): void
@@ -1628,5 +1849,260 @@ class CourseHelper
         }
 
         $this->entityManager->flush();
+    }
+
+    public function assertCanCreateCourse(array $params = []): void
+    {
+        /** @var User|null $ownerUser */
+        $ownerUser = $this->security->getUser();
+        if (!$ownerUser instanceof User) {
+            $ownerUser = $this->getFallbackAdminUser();
+        }
+
+        if (!empty($params['user_id'])) {
+            $explicitOwner = $this->userRepository->find((int) $params['user_id']);
+            if ($explicitOwner instanceof User) {
+                $ownerUser = $explicitOwner;
+            }
+        }
+
+        if ($this->security->isGranted('ROLE_ADMIN') && empty($params['user_id'])) {
+            $this->debugLog('createCourse:limit:adminBypass', [
+                'userId' => $ownerUser->getId(),
+            ]);
+
+            return;
+        }
+
+        $buyCoursesServiceSaleId = isset($params['buycourses_service_sale_id']) ? (int) $params['buycourses_service_sale_id'] : 0;
+        if ($buyCoursesServiceSaleId > 0) {
+            $selectionStatus = $this->resolveBuyCoursesServiceSaleCourseCreationSelection(
+                $ownerUser,
+                $buyCoursesServiceSaleId
+            );
+
+            if (!empty($selectionStatus['valid'])) {
+                return;
+            }
+
+            throw new RuntimeException(
+                (string) ($selectionStatus['message'] ?? $this->translator->trans('The selected BuyCourses service cannot be used to create this course.'))
+            );
+        }
+
+        $status = $this->resolveCourseCreationCapabilityForUser($ownerUser);
+
+        if (true === (bool) $status['canCreate']) {
+            return;
+        }
+
+        throw new RuntimeException(\sprintf($this->translator->trans('You have reached the maximum number of courses allowed (%d).'), (int) $status['effectiveLimit']));
+    }
+
+    public function resolveCourseCreationCapabilityForUser(User $user): array
+    {
+        $globalLimit = $this->resolveBaseMaxCoursesPerUser();
+        $serviceLimit = $this->resolveValidBuyCoursesMaxCoursesForUser($user);
+
+        $effectiveLimit = $serviceLimit ?? $globalLimit;
+        $currentCount = $this->countTeacherCoursesForUser($user);
+
+        $limitSource = 'unlimited';
+        if (null !== $serviceLimit) {
+            $limitSource = 'service';
+        } elseif ($globalLimit > 0) {
+            $limitSource = 'global';
+        }
+
+        return [
+            'canCreate' => $effectiveLimit <= 0 || $currentCount < $effectiveLimit,
+            'currentCount' => $currentCount,
+            'effectiveLimit' => $effectiveLimit,
+            'serviceLimit' => $serviceLimit,
+            'globalLimit' => $globalLimit,
+            'limitSource' => $limitSource,
+        ];
+    }
+
+    public function resolveMaxCoursesForUser(User $user): int
+    {
+        $status = $this->resolveCourseCreationCapabilityForUser($user);
+
+        return (int) $status['effectiveLimit'];
+    }
+
+    public function countTeacherCoursesForUser(User $user): int
+    {
+        $qb = $this->entityManager->createQueryBuilder();
+
+        $qb
+            ->select('COUNT(cru.id)')
+            ->from(CourseRelUser::class, 'cru')
+            ->andWhere('IDENTITY(cru.user) = :userId')
+            ->andWhere('cru.status = :status')
+            ->setParameter('userId', $user->getId())
+            ->setParameter('status', CourseRelUser::TEACHER)
+        ;
+
+        return (int) $qb->getQuery()->getSingleScalarResult();
+    }
+
+    private function resolveBuyCoursesServiceSaleCourseCreationSelection(User $user, int $serviceSaleId): array
+    {
+        if ($serviceSaleId <= 0) {
+            return [
+                'valid' => false,
+                'message' => $this->translator->trans('The selected BuyCourses service is invalid.'),
+            ];
+        }
+
+        if (!$this->isBuyCoursesPluginEnabled()) {
+            return [
+                'valid' => false,
+                'message' => $this->translator->trans('BuyCourses is not available right now.'),
+            ];
+        }
+
+        try {
+            $plugin = \BuyCoursesPlugin::create();
+
+            if (!method_exists($plugin, 'getCourseCreationServiceSaleSelectionStatus')) {
+                return [
+                    'valid' => false,
+                    'message' => $this->translator->trans('BuyCourses cannot validate the selected service right now.'),
+                ];
+            }
+
+            $status = $plugin->getCourseCreationServiceSaleSelectionStatus((int) $user->getId(), $serviceSaleId);
+
+            return \is_array($status) ? $status : [
+                'valid' => false,
+                'message' => $this->translator->trans('The selected BuyCourses service cannot be used to create this course.'),
+            ];
+        } catch (Throwable $exception) {
+            $this->debugLog('createCourse:buyCoursesServiceSelectionFailed', [
+                'userId' => $user->getId(),
+                'serviceSaleId' => $serviceSaleId,
+                'message' => $exception->getMessage(),
+            ]);
+
+            return [
+                'valid' => false,
+                'message' => $this->translator->trans('Unable to validate the selected BuyCourses service right now.'),
+            ];
+        }
+    }
+
+    private function resolveBaseMaxCoursesPerUser(): int
+    {
+        $raw = $this->settingsManager->getSetting('platform.max_courses_per_user', true);
+
+        return max(0, (int) ($raw ?? 0));
+    }
+
+    private function resolveValidBuyCoursesMaxCoursesForUser(User $user): ?int
+    {
+        if (!$this->isBuyCoursesPluginEnabled()) {
+            return null;
+        }
+
+        $payload = $this->getUserExtraFieldJson($user, 'buycourses_max_courses');
+        if (!\is_array($payload)) {
+            return null;
+        }
+
+        $expiry = (string) ($payload['expiry'] ?? '');
+        $limit = isset($payload['limit']) ? (int) $payload['limit'] : 0;
+
+        if ($limit <= 0 || '' === $expiry || date('Y-m-d') > $expiry) {
+            return null;
+        }
+
+        return $limit;
+    }
+
+    private function isBuyCoursesPluginEnabled(): bool
+    {
+        try {
+            return BuyCoursesPlugin::create()->isEnabled();
+        } catch (Throwable $exception) {
+            $this->debugLog('createCourse:buyCoursesPluginCheckFailed', [
+                'message' => $exception->getMessage(),
+            ]);
+
+            return false;
+        }
+    }
+
+    public function resolveDocumentsToolQuotaMbForCourse(Course $course): int
+    {
+        if ($this->isGroupDocumentContext()) {
+            $groupQuotaMb = $this->resolveDefaultGroupDocumentQuotaMb();
+
+            if ($groupQuotaMb > 0) {
+                return $groupQuotaMb;
+            }
+        }
+
+        $owner = $this->getCourseOwnerForQuota($course);
+        if ($owner instanceof User) {
+            return $this->resolveEffectiveDocumentQuotaMbForUser($owner);
+        }
+
+        return $this->resolveDefaultDocumentQuotaMb();
+    }
+
+    public function resolveEffectiveDocumentQuotaMbForUser(?User $user): int
+    {
+        if ($user instanceof User) {
+            $payload = $this->getUserExtraFieldJson($user, 'buycourses_document_quota');
+
+            if (\is_array($payload)) {
+                $expiry = (string) ($payload['expiry'] ?? '');
+                $quotaMb = isset($payload['quota_mb']) ? (int) $payload['quota_mb'] : 0;
+
+                if ($quotaMb <= 0 && isset($payload['limit'])) {
+                    $quotaMb = (int) $payload['limit'];
+                }
+
+                if ($quotaMb > 0 && '' !== $expiry && date('Y-m-d') <= $expiry) {
+                    return $quotaMb;
+                }
+            }
+        }
+
+        return $this->resolveDefaultDocumentQuotaMb();
+    }
+
+    private function getCourseOwnerForQuota(Course $course): ?User
+    {
+        $creator = $course->getCreator();
+        if ($creator instanceof User) {
+            return $creator;
+        }
+
+        $teachers = $course->getTeachersSubscriptions();
+        if ($teachers->isEmpty()) {
+            return null;
+        }
+
+        /** @var CourseRelUser|false $firstTeacherSubscription */
+        $firstTeacherSubscription = $teachers->first();
+        if (!$firstTeacherSubscription instanceof CourseRelUser) {
+            return null;
+        }
+
+        $teacher = $firstTeacherSubscription->getUser();
+
+        return $teacher instanceof User ? $teacher : null;
+    }
+
+    private function getUserExtraFieldJson(User $user, string $variable): ?array
+    {
+        return $this->extraFieldValuesRepository->getJsonValueByVariableAndItem(
+            $variable,
+            $user->getId(),
+            ExtraField::USER_FIELD_TYPE
+        );
     }
 }

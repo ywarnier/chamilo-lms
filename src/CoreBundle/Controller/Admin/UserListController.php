@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[IsGranted(new Expression('is_granted("ROLE_ADMIN") or is_granted("ROLE_SESSION_MANAGER")'))]
 #[Route('/admin/user-list-data')]
@@ -50,6 +51,7 @@ class UserListController extends AbstractController
         private readonly EntityManagerInterface $em,
         private readonly UserRepository $userRepository,
         private readonly CsrfTokenManagerInterface $csrfTokenManager,
+        private readonly TranslatorInterface $translator,
     ) {}
 
     #[Route('', name: 'admin_user_list_data', methods: ['GET'])]
@@ -98,9 +100,13 @@ class UserListController extends AbstractController
         }
 
         if ('' !== $keyword) {
-            $qb->andWhere('(u.firstname LIKE :kw OR u.lastname LIKE :kw OR u.username LIKE :kw OR u.email LIKE :kw OR u.officialCode LIKE :kw)')
-                ->setParameter('kw', '%'.$keyword.'%')
-            ;
+            $terms = array_values(array_filter(array_map('trim', preg_split('/\s+/', $keyword))));
+            foreach ($terms as $i => $term) {
+                $param = 'kw'.$i;
+                $qb->andWhere("(u.firstname LIKE :{$param} OR u.lastname LIKE :{$param} OR u.username LIKE :{$param} OR u.email LIKE :{$param} OR u.officialCode LIKE :{$param})")
+                    ->setParameter($param, '%'.$term.'%')
+                ;
+            }
         } else {
             if ('' !== $keywordFirstname) {
                 $qb->andWhere('u.firstname LIKE :kwfn')->setParameter('kwfn', '%'.$keywordFirstname.'%');
@@ -233,7 +239,7 @@ class UserListController extends AbstractController
                 'isPlatformAdmin' => $isPlatformAdmin,
                 'isSessionAdmin' => $isSessionAdmin,
             ],
-            'roleLabels' => self::ROLE_LABELS,
+            'roleLabels' => array_map(fn (string $label): string => $this->translator->trans($label), self::ROLE_LABELS),
             'csrfToken' => $this->csrfTokenManager->getToken('user_list_action')->getValue(),
             'loginAsToken' => $this->csrfTokenManager->getToken('login_as')->getValue(),
         ]);

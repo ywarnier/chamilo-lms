@@ -126,9 +126,13 @@ use Symfony\Component\Validator\Constraints as Assert;
                                     'title' => ['type' => 'string'],
                                     'filetype' => [
                                         'type' => 'string',
-                                        'enum' => ['folder', 'file'],
+                                        'enum' => ['folder', 'file', 'link'],
                                     ],
                                     'comment' => ['type' => 'string'],
+                                    'language' => [
+                                        'type' => 'string',
+                                        'nullable' => true,
+                                    ],
                                     'contentFile' => ['type' => 'string'],
                                     'uploadFile' => [
                                         'type' => 'string',
@@ -164,7 +168,10 @@ use Symfony\Component\Validator\Constraints as Assert;
         ),
         new Post(
             uriTemplate: '/documents/download-selected',
-            outputFormats: ['zip' => DownloadSelectedDocumentsAction::CONTENT_TYPE],
+            outputFormats: [
+                'zip' => DownloadSelectedDocumentsAction::CONTENT_TYPE,
+                'bin' => 'application/octet-stream',
+            ],
             controller: DownloadSelectedDocumentsAction::class,
             parameters: [
                 'cid' => new QueryParameter(
@@ -177,20 +184,26 @@ use Symfony\Component\Validator\Constraints as Assert;
                 ),
                 'gid' => new QueryParameter(
                     schema: ['type' => 'integer'],
-                    description: 'Course grou identifier',
+                    description: 'Course group identifier',
                 ),
             ],
             openapi: new Operation(
-                summary: 'Download selected documents as a ZIP file.',
+                summary: 'Download selected documents as a ZIP file or a single original file.',
                 requestBody: new RequestBody(
                     content: new ArrayObject([
                         'application/json' => [
                             'schema' => [
                                 'type' => 'object',
+                                'required' => ['ids'],
                                 'properties' => [
                                     'ids' => [
                                         'type' => 'array',
                                         'items' => ['type' => 'integer'],
+                                    ],
+                                    'compressed' => [
+                                        'type' => 'boolean',
+                                        'default' => true,
+                                        'description' => 'When false, exactly one document ID is required and the original file is returned.',
                                     ],
                                 ],
                             ],
@@ -306,7 +319,7 @@ class CDocument extends AbstractResource implements ResourceInterface, ResourceS
     protected ?string $comment;
 
     #[Groups(['document:read', 'document:write'])]
-    #[Assert\Choice(['folder', 'file', 'certificate', 'video'], message: 'Choose a valid filetype.')]
+    #[Assert\Choice(['folder', 'file', 'certificate', 'video', 'link'], message: 'Choose a valid filetype.')]
     #[ORM\Column(name: 'filetype', type: 'string', length: 15, nullable: false)]
     protected string $filetype;
 

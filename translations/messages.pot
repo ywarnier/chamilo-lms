@@ -9727,6 +9727,9 @@ msgstr ""
 msgid "Select a file"
 msgstr ""
 
+msgid "Select a file to insert into the editor."
+msgstr ""
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr ""
 
@@ -9739,7 +9742,7 @@ msgstr ""
 msgid "Result"
 msgstr ""
 
-msgid "Attempting to login as %s %s (id %s)"
+msgid "Attempting to login as %s (id %d)"
 msgstr ""
 
 msgid "Login successful. Go to %s"
@@ -12295,7 +12298,7 @@ msgstr ""
 msgid "delete"
 msgstr ""
 
-msgid "Space available"
+msgid "Space Available"
 msgstr ""
 
 msgid "This course currently uses"
@@ -17153,6 +17156,18 @@ msgid "Sessions in group"
 msgstr ""
 
 msgid "Courses in group"
+msgstr ""
+
+msgid "Courses on the platform"
+msgstr ""
+
+msgid "%s courses"
+msgstr ""
+
+msgid "%s sessions"
+msgstr ""
+
+msgid "Search by title or code"
 msgstr ""
 
 msgid "Users in group"
@@ -32112,6 +32127,9 @@ msgstr ""
 msgid "Allowed file formats: %s"
 msgstr ""
 
+msgid "File manager"
+msgstr ""
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr ""
 
@@ -33795,6 +33813,9 @@ msgstr ""
 msgid "Welcome to Chamilo"
 msgstr ""
 
+msgid "Check all unanswered questions below"
+msgstr ""
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr ""
 
@@ -34496,6 +34517,85 @@ msgid "No objectives added yet."
 msgstr ""
 
 msgid "No action plan defined."
+msgid "Change password"
+msgstr ""
+
+msgid "Goto current location"
+msgstr ""
+
+msgid "Find address"
+msgstr ""
+
+msgid "Newest first"
+msgstr ""
+
+msgid "Oldest first"
+msgstr ""
+
+msgid "Title A–Z"
+msgstr ""
+
+msgid "Title Z–A"
+msgstr ""
+
+msgid "Send test email"
+msgstr ""
+
+msgid "Show teachers"
+msgstr ""
+
+msgid "Hide teachers"
+msgstr ""
+
+msgid "Delete exercise attempts"
+msgstr ""
+
+msgid "Message sent successfully."
+msgstr ""
+
+msgid "You cannot create a new course right now."
+msgstr ""
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr ""
+
+msgid "Please try again later or contact the administrator."
+msgstr ""
+
+msgid "You cannot create more courses at this time."
+msgstr ""
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr ""
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr ""
+
+msgid "Add a class"
+msgstr ""
+
+msgid "Search classes"
+msgstr ""
+
+msgid "No classes found"
+msgstr ""
+
+msgid "Import classes"
+msgstr ""
+
+msgid "Class users"
+msgstr ""
+
+msgid "%s classes imported"
+msgstr ""
+
+msgid "%s user-class links imported"
+msgstr ""
+
+msgid "Hide comments"
+msgstr ""
+
+msgid "Loading comments..."
 msgstr ""
 
 msgid "No comments yet."

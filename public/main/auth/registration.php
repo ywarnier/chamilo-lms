@@ -204,8 +204,7 @@ foreach ($forcedVisibleFields as $f) {
     }
 }
 
-$pluginTccDirectoryPath = api_get_path(SYS_PLUGIN_PATH) . 'logintcc';
-$isTccEnabled = (is_dir($pluginTccDirectoryPath) && Container::getPluginHelper()->isPluginEnabled('logintcc'));
+$isTccEnabled = false; //(is_dir(api_get_path(SYS_PLUGIN_PATH).'logintcc') && Container::getPluginHelper()->isPluginEnabled('logintcc'));
 $webserviceUrl = '';
 $hash = '';
 
@@ -1705,15 +1704,39 @@ if ($form->validate()) {
         if (false !== $termActivated) {
             $inscriptionHeader = Display::page_header($toolName);
         }
+
         $em = Container::getEntityManager();
         $categoryRepo = $em->getRepository(PageCategory::class);
         $pageRepo = $em->getRepository(Page::class);
         $accessUrl = api_get_url_entity();
-        $locale = api_get_language_isocode();
+
+        $autoDetectCustomPageLanguage = 'true' === (string) api_get_setting('language.auto_detect_language_custom_pages');
+
+        $defaultCustomPageLocale = api_get_setting('platformLanguage');
+
+        if (!is_string($defaultCustomPageLocale) || '' === trim($defaultCustomPageLocale)) {
+            $defaultCustomPageLocale = function_exists('api_get_language_isocode')
+                ? api_get_language_isocode()
+                : 'en';
+        }
+
+        $currentCustomPageLocale = $autoDetectCustomPageLanguage
+            ? (function_exists('api_get_language_isocode') ? api_get_language_isocode() : $defaultCustomPageLocale)
+            : $defaultCustomPageLocale;
 
         $category = $categoryRepo->findOneBy(['title' => 'introduction']);
         $introPage = null;
-        if ($category) {
+
+        if ($category && method_exists($pageRepo, 'findEnabledPageByCategoryWithLocaleFallback')) {
+            $introPage = $pageRepo->findEnabledPageByCategoryWithLocaleFallback(
+                $accessUrl,
+                'introduction',
+                $currentCustomPageLocale,
+                $defaultCustomPageLocale
+            );
+        }
+
+        if (!$introPage && $category) {
             $introPage = $pageRepo->findOneBy([
                 'category' => $category,
                 'url' => $accessUrl,

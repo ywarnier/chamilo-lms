@@ -9754,8 +9754,8 @@ msgstr "Lo sentimos, no le está permitido acceder a esta página o su conexión
 msgid "Result"
 msgstr "Resultado"
 
-msgid "Attempting to login as %s %s (id %s)"
-msgstr "Intentar identificarse como %s %s (id %s)"
+msgid "Attempting to login as %s (id %d)"
+msgstr "Intentar identificarse como %s (id %d)"
 
 msgid "Login successful. Go to %s"
 msgstr "Identificación realizada. Vaya a %s"
@@ -28523,7 +28523,7 @@ msgid "External tools (LTI)"
 msgstr "Herramientas externas (LTI)"
 
 msgid "Add course"
-msgstr "Añadir lección"
+msgstr "Añadir curso"
 
 msgid "Add a user to a course"
 msgstr "Añadir un usuario en un curso"

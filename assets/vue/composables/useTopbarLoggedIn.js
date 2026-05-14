@@ -207,6 +207,22 @@ function resolveDisplayTabsConfig(platformConfigStore, securityStore) {
   return defaultCfg
 }
 
+function isSettingEnabled(platformConfigStore, key) {
+  return platformConfigStore.getSetting(key) === "true"
+}
+
+function normalizeBooleanFlag(value) {
+  if (typeof value === "boolean") {
+    return value
+  }
+
+  if (typeof value === "string") {
+    return value === "true"
+  }
+
+  return false
+}
+
 export function useTopbarLoggedIn(props) {
   const { t } = useI18n()
   const router = useRouter()
@@ -217,16 +233,16 @@ export function useTopbarLoggedIn(props) {
   const notification = useNotification()
   const cidReqStore = useCidReqStore()
   const securityStore = useSecurityStore()
-  const { isTeacher } = storeToRefs(securityStore)
+  const { isTeacher, isAdmin, isHRM } = storeToRefs(securityStore)
 
   const loginUrl = "/login"
   const elUserSubmenu = ref(null)
 
-  const allowUsersToCreateCourses = computed(
-    () => platformConfigStore.getSetting("workflows.allow_users_to_create_courses") === "true",
+  const allowUsersToCreateCourses = computed(() =>
+    isSettingEnabled(platformConfigStore, "workflows.allow_users_to_create_courses"),
   )
 
-  const hideLogoutButton = computed(() => platformConfigStore.getSetting("display.hide_logout_button") === "true")
+  const hideLogoutButton = computed(() => isSettingEnabled(platformConfigStore, "display.hide_logout_button"))
 
   const showTicketLink = computed(
     () => platformConfigStore.getSetting("ticket.show_link_ticket_notification") !== "false",
@@ -238,9 +254,7 @@ export function useTopbarLoggedIn(props) {
     return displayTabs.value?.topbar?.[key] === true
   }
 
-  const showPendingSurveys = computed(
-    () => platformConfigStore.getSetting("survey.show_pending_survey_in_menu") === "true",
-  )
+  const showPendingSurveys = computed(() => isSettingEnabled(platformConfigStore, "survey.show_pending_survey_in_menu"))
 
   const pendingSurveysUrl = computed(() => {
     try {
@@ -251,6 +265,17 @@ export function useTopbarLoggedIn(props) {
       }
     } catch {}
     return "/main/survey/pending.php"
+  })
+
+  const myServicesUrl = computed(() => {
+    try {
+      const resolvedRoute = router.resolve({ name: "MyServices" })
+
+      if (resolvedRoute?.href) {
+        return resolvedRoute.href
+      }
+    } catch {}
+    return "/my-services"
   })
 
   const isAnonymous = computed(() => {
@@ -271,7 +296,7 @@ export function useTopbarLoggedIn(props) {
   })
 
   const messagingEnabled = computed(
-    () => platformConfigStore.getSetting("message.allow_message_tool") === "true" && !isAnonymous.value,
+    () => isSettingEnabled(platformConfigStore, "message.allow_message_tool") && !isAnonymous.value,
   )
 
   const ticketUrl = computed(() => {
@@ -285,26 +310,26 @@ export function useTopbarLoggedIn(props) {
     return "/main/ticket/tickets.php?" + searchParams.toString()
   })
 
-  function isSettingTrue(keys, defaultValue = false) {
-    for (const key of keys) {
-      const value = platformConfigStore.getSetting(key)
+  const buyCoursesConfig = computed(() => platformConfigStore.plugins?.buycourses || {})
 
-      if (value === "true") {
-        return true
-      }
+  const showMyServicesLink = computed(() => normalizeBooleanFlag(buyCoursesConfig.value?.enabled))
 
-      if (value === "false") {
-        return false
-      }
-    }
+  const skillsToolAllowed = computed(() => isSettingEnabled(platformConfigStore, "skill.allow_skills_tool"))
 
-    return defaultValue
-  }
+  const certificatesSearchAllowed = computed(() =>
+    isSettingEnabled(platformConfigStore, "certificate.allow_certificates_search"),
+  )
 
-  const skillsToolAllowed = computed(() => isSettingTrue(["skill.allow_skills_tool", "allow_skills_tool"], true))
+  const skillsManagementAllowed = computed(() =>
+    isSettingEnabled(platformConfigStore, "skill.allow_hr_skills_management"),
+  )
+
+  const canManageSkills = computed(
+    () => skillsToolAllowed.value && skillsManagementAllowed.value && (isAdmin.value || isHRM.value),
+  )
 
   const generalCertificateAllowed = computed(() =>
-    isSettingTrue(["certificate.allow_general_certificate", "allow_general_certificate"], false),
+    isSettingEnabled(platformConfigStore, "certificate.allow_general_certificate"),
   )
 
   const hasCustomCertificate = ref(null)
@@ -366,10 +391,24 @@ export function useTopbarLoggedIn(props) {
       })
     }
 
+    if (!isAnonymous.value && showMyServicesLink.value) {
+      items[0].items.push({
+        label: t("My services"),
+        url: myServicesUrl.value,
+      })
+    }
+
     if (isTopbarEnabled("topbar_my_certificates")) {
       items[0].items.push({
         label: t("My certificates"),
         url: "/main/gradebook/my_certificates.php",
+      })
+    }
+
+    if (certificatesSearchAllowed.value) {
+      items[0].items.push({
+        label: t("Search certificates"),
+        url: "/main/gradebook/search.php",
       })
     }
 
@@ -403,6 +442,13 @@ export function useTopbarLoggedIn(props) {
       label: t("My career plan"),
       route: { name: "HrMyCareerPlan" },
     })
+
+    if (canManageSkills.value) {
+      items[0].items.push({
+        label: t("Manage skills"),
+        url: "/main/skills/skill_list.php",
+      })
+    }
 
     if (!hideLogoutButton.value) {
       items[0].items.push(

@@ -8,16 +8,29 @@
           :class="{ 'p-invalid': v$.item.title.$invalid }"
         />
         <label
-          v-text="t('Title')"
           for="item_title"
+          v-text="t('Title')"
         />
       </FloatLabel>
       <small
         v-if="v$.item.title.$invalid || v$.item.title.$pending.$response"
-        v-text="v$.item.title.required.$message"
         class="p-error"
+        v-text="v$.item.title.required.$message"
       />
     </div>
+
+    <BaseTextArea
+      id="item_comment"
+      v-model="commentModel"
+      label="Description"
+      rows="4"
+      auto-resize
+    />
+
+    <ResourceLanguageSelector
+      v-model="languageModel"
+      class="mb-4"
+    />
 
     <slot />
 
@@ -35,20 +48,22 @@
 </template>
 
 <script setup>
-import FloatLabel from "primevue/floatlabel"
-import InputText from "primevue/inputtext"
-import Button from "primevue/button"
 import useVuelidate from "@vuelidate/core"
 import { required } from "@vuelidate/validators"
-import { useI18n } from "vue-i18n"
+import Button from "primevue/button"
+import FloatLabel from "primevue/floatlabel"
+import InputText from "primevue/inputtext"
 import { computed } from "vue"
+import { useI18n } from "vue-i18n"
+import BaseTextArea from "../basecomponents/BaseTextArea.vue"
+import ResourceLanguageSelector from "../resources/ResourceLanguageSelector.vue"
 
 const { t } = useI18n()
 
 const props = defineProps({
   modelValue: {
     type: Object,
-    default: () => {},
+    default: () => ({}),
   },
 })
 
@@ -60,6 +75,8 @@ const v$ = useVuelidate(
       title: {
         required,
       },
+      comment: {},
+      language: {},
       parentResourceNodeId: {},
     },
   },
@@ -68,11 +85,59 @@ const v$ = useVuelidate(
   },
 )
 
+const commentModel = computed({
+  get() {
+    return v$.value.item.comment.$model ?? ""
+  },
+  set(value) {
+    v$.value.item.comment.$model = value ?? ""
+  },
+})
+
+function extractResourceLanguageIso(language) {
+  if (!language) {
+    return ""
+  }
+
+  if ("string" === typeof language) {
+    const iriMatch = language.match(/\/api\/languages\/(\d+)/)
+    if (!iriMatch) {
+      return language
+    }
+
+    const languages = Array.isArray(window.languages) ? window.languages : []
+    const found = languages.find((item) => String(item?.id || "") === iriMatch[1])
+
+    return String(found?.isocode || "")
+  }
+
+  return String(language.isocode || language.isoCode || "")
+}
+
+const languageModel = computed({
+  get() {
+    return (
+      v$.value.item.language.$model ??
+      extractResourceLanguageIso(
+        props.modelValue?.resourceNode?.language ||
+          props.modelValue?.resourceNode?.firstResourceFile?.language ||
+          props.modelValue?.firstResourceFile?.language,
+      )
+    )
+  },
+  set(value) {
+    v$.value.item.language.$model = value ?? ""
+  },
+})
+
 function btnSaveOnClick() {
-  const item = { ...props.modelValue, ...v$.value.item.$model }
+  const item = {
+    ...props.modelValue,
+    ...v$.value.item.$model,
+    comment: v$.value.item.comment.$model ?? "",
+  }
 
   emit("update:modelValue", item)
-
   emit("submit", item)
 }
 </script>

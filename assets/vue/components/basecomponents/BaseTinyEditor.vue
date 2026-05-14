@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { computed, ref, onBeforeUnmount } from "vue"
+import { computed, onBeforeUnmount, ref } from "vue"
 import TinyEditor from "../../components/Editor"
 import api from "../../config/api"
 import { useRoute, useRouter } from "vue-router"
@@ -42,6 +42,9 @@ import { useSecurityStore } from "../../store/securityStore"
 import { usePlatformConfig } from "../../store/platformConfig"
 import FloatLabel from "primevue/floatlabel"
 import { useLocale } from "../../composables/locale"
+import { useI18n } from "vue-i18n"
+
+const { t } = useI18n()
 
 const modelValue = defineModel({ type: String, required: true })
 
@@ -600,9 +603,12 @@ function unregisterTinyPickerCallback(cbId) {
 }
 
 function appendParams(rawUrl, params) {
-  const u = new URL(rawUrl, window.location.origin)
-  Object.entries(params).forEach(([k, v]) => u.searchParams.set(k, String(v)))
-  return u.toString()
+  const [path, existingQuery] = rawUrl.split("?")
+  const sp = new URLSearchParams(existingQuery || "")
+  Object.entries(params).forEach(([k, v]) => sp.set(k, String(v)))
+  const qs = sp.toString()
+
+  return qs ? `${path}?${qs}` : path
 }
 
 function buildManagerUrl(meta) {
@@ -716,7 +722,7 @@ async function filePickerCallback(callback, _value, meta) {
   try {
     window.tinymce?.activeEditor?.windowManager.openUrl({
       url,
-      title: "File Manager",
+      title: t("File manager"),
       onMessage: (api, message) => {
         const picked = message?.content?.url || message?.url || message?.data?.url
 

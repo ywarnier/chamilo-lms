@@ -107,6 +107,17 @@ export default {
     return await baseService.get(`/course/${courseId}/checkLegal.json`, { sid: sessionId })
   },
 
+
+  /**
+   * Loads BuyCourses course creation options for the current user.
+   * @returns {Promise<Object>}
+   */
+  getBuyCoursesCourseCreationOptions: async () => {
+    const { data } = await api.get(`/plugin/BuyCourses/src/course_creation_options.php`)
+
+    return data
+  },
+
   /**
    * Creates a new course with the provided data.
    * @param {Object} courseData - The data for the course to be created.
@@ -297,6 +308,11 @@ export default {
         dependents: dependents ? 1 : 0,
       },
     })
+    return data
+  },
+
+  getCreateCourseCapability: async (config = {}) => {
+    const { data } = await api.get("/course/create-capability", config)
     return data
   },
 }

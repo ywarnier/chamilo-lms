@@ -47,6 +47,7 @@ use Chamilo\CourseBundle\Entity\CQuizAnswer;
 use Chamilo\CourseBundle\Entity\CQuizQuestion;
 use Chamilo\CourseBundle\Entity\CQuizQuestionOption;
 use Chamilo\CourseBundle\Entity\CQuizRelQuestion;
+use Chamilo\CourseBundle\Entity\CQuizRelQuestionCategory;
 use Chamilo\CourseBundle\Entity\CStudentPublication;
 use Chamilo\CourseBundle\Entity\CStudentPublicationAssignment;
 use Chamilo\CourseBundle\Entity\CSurvey;
@@ -541,8 +542,31 @@ class CourseBuilder
 
                 if ('quizzes' === $toolKey || 'quiz' === $toolKey) {
                     $ids = $this->specific_id_list['quizzes'] ?? $this->specific_id_list['quiz'] ?? [];
-                    $neededQuestionIds = $this->build_quizzes($legacyCourse, $courseEntity, $sessionEntity, $ids);
-                    $this->build_quiz_questions($legacyCourse, $courseEntity, $sessionEntity, $neededQuestionIds);
+
+                    $discardOrphanQuestions = 'true' === api_get_setting('exercise.quiz_discard_orphan_in_course_export');
+
+                    $neededQuestionIds = $this->build_quizzes(
+                        $legacyCourse,
+                        $courseEntity,
+                        $sessionEntity,
+                        $ids
+                    );
+
+                    if ($discardOrphanQuestions) {
+                        $this->build_quiz_questions(
+                            $legacyCourse,
+                            $courseEntity,
+                            $sessionEntity,
+                            $neededQuestionIds
+                        );
+                    } else {
+                        $this->build_quiz_questions(
+                            $legacyCourse,
+                            $courseEntity,
+                            $sessionEntity,
+                            $this->getAllQuizQuestionIds($courseEntity, $sessionEntity)
+                        );
+                    }
                 }
 
                 if ('quiz_questions' === $toolKey) {
@@ -2254,6 +2278,7 @@ class CourseBuilder
 
                 'question_ids' => [],
                 'question_orders' => [],
+                'question_category_counts' => [],
             ];
 
             // Collect referenced documents in quiz HTML fields.
@@ -2281,11 +2306,26 @@ class CourseBuilder
                 $neededQuestionIds[$qid] = true;
             }
 
+            foreach ($quiz->getQuestionsCategories() as $relCategory) {
+                if (!$relCategory instanceof CQuizRelQuestionCategory) {
+                    continue;
+                }
+
+                $category = $relCategory->getCategory();
+
+                $payload['question_category_counts'][] = [
+                    'category_id' => (int) $category->getIid(),
+                    'title' => (string) $category->getTitle(),
+                    'description' => (string) ($category->getDescription() ?? ''),
+                    'count_questions' => (int) $relCategory->getCountQuestions(),
+                ];
+            }
+
             $legacyCourse->resources[RESOURCE_QUIZ][$iid] = $this->mkLegacyItem(
                 RESOURCE_QUIZ,
                 $iid,
                 $payload,
-                ['question_ids', 'question_orders']
+                ['question_ids', 'question_orders', 'question_category_counts']
             );
         }
 
@@ -2390,6 +2430,7 @@ class CourseBuilder
                 'parent_media_id' => $q->getParentMediaId(),
                 'answers' => [],
                 'question_options' => [],
+                'categories' => [],
             ];
 
             // Collect referenced documents in question HTML fields.
@@ -2397,6 +2438,14 @@ class CourseBuilder
             $this->findAndSetDocumentsInText((string) ($payload['description'] ?? ''));
             $this->findAndSetDocumentsInText((string) ($payload['feedback'] ?? ''));
             $this->findAndSetDocumentsInText((string) ($payload['extra'] ?? ''));
+
+            foreach ($q->getCategories() as $category) {
+                $payload['categories'][] = [
+                    'id' => (int) $category->getIid(),
+                    'title' => (string) $category->getTitle(),
+                    'description' => (string) ($category->getDescription() ?? ''),
+                ];
+            }
 
             $ans = $this->em->createQueryBuilder()
                 ->select('a')
@@ -2449,7 +2498,7 @@ class CourseBuilder
                 RESOURCE_QUIZQUESTION,
                 $qid,
                 $payload,
-                ['answers', 'question_options']
+                ['answers', 'question_options', 'categories']
             );
 
             $this->trace('COURSE_BUILD: QQ exported qid='.$qid.' answers='.\count($payload['answers']));
@@ -3878,5 +3927,34 @@ class CourseBuilder
         }
 
         return '';
+    }
+
+    private function getAllQuizQuestionIds(
+        ?CourseEntity $courseEntity,
+        ?SessionEntity $sessionEntity
+    ): array {
+        if (!$courseEntity) {
+            return [];
+        }
+
+        $qb = $this->createContextQb(
+            CQuizQuestion::class,
+            $courseEntity,
+            $sessionEntity,
+            'qq'
+        );
+
+        /** @var CQuizQuestion[] $questions */
+        $questions = $qb->getQuery()->getResult();
+
+        $ids = [];
+        foreach ($questions as $question) {
+            $qid = (int) $question->getIid();
+            if ($qid > 0) {
+                $ids[$qid] = true;
+            }
+        }
+
+        return array_keys($ids);
     }
 }

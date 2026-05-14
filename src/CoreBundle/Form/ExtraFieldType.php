@@ -8,7 +8,6 @@ namespace Chamilo\CoreBundle\Form;
 
 use Chamilo\CoreBundle\Entity\ExtraField;
 use Chamilo\CoreBundle\Entity\User;
-use Chamilo\CoreBundle\Helpers\PluginHelper;
 use Chamilo\CoreBundle\Repository\ExtraFieldRepository;
 use Chamilo\CoreBundle\Repository\ExtraFieldValuesRepository;
 use Chamilo\CoreBundle\Repository\TagRepository;
@@ -57,7 +56,6 @@ class ExtraFieldType extends AbstractType
         private readonly ExtraFieldRepository $extraFieldRepository,
         private readonly TagRepository $tagRepository,
         private readonly Security $security,
-        private readonly PluginHelper $pluginHelper
     ) {}
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -107,8 +105,8 @@ class ExtraFieldType extends AbstractType
             }
         }
 
-        $pluginEnabled = $this->pluginHelper->isPluginEnabled('google_maps');
         $gMapsPlugin = GoogleMapsPlugin::create();
+        $pluginEnabled = $gMapsPlugin->isEnabled();
         $apiEnabled = 'true' === $gMapsPlugin->get('enable_api');
 
         $existingVariables = array_map(
@@ -392,6 +390,10 @@ class ExtraFieldType extends AbstractType
                 }
 
                 foreach (['pause_formation', 'disable_emails'] as $checkboxVariable) {
+                    if (!$event->getForm()->has($checkboxVariable)) {
+                        continue;
+                    }
+
                     if (!\array_key_exists($checkboxVariable, $submittedData)) {
                         $submittedData[$checkboxVariable] = '0';
                     } else {

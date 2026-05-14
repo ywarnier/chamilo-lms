@@ -10,11 +10,9 @@ use ApiPlatform\Doctrine\Orm\State\CollectionProvider;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\Pagination\PartialPaginatorInterface;
 use ApiPlatform\State\ProviderInterface;
-use AppPlugin;
 use Chamilo\CoreBundle\DataTransformer\CourseToolDataTranformer;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\User;
-use Chamilo\CoreBundle\Framework\Container;
 use Chamilo\CoreBundle\Helpers\PluginHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CoreBundle\Tool\AbstractPlugin;
@@ -26,6 +24,7 @@ use Chamilo\CourseBundle\Entity\CTool;
 use Doctrine\ORM\EntityManagerInterface;
 use Event;
 use Plugin;
+use Positioning;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Throwable;
@@ -138,7 +137,12 @@ final class CToolStateProvider implements ProviderInterface
                     continue;
                 }
 
-                if (ResourceLink::VISIBILITY_PUBLISHED !== $firstLink->getVisibility()) {
+                $isHiddenLearningPathAllowed = $this->isHiddenLearningPathAllowedInCourseHome($resolvedName);
+
+                if (
+                    ResourceLink::VISIBILITY_PUBLISHED !== $firstLink->getVisibility()
+                    && !$isHiddenLearningPathAllowed
+                ) {
                     continue;
                 }
             }
@@ -186,77 +190,30 @@ final class CToolStateProvider implements ProviderInterface
 
     private function resolveLegacyPluginTool(string $rawTitle, string $courseToolTitle): ?AbstractTool
     {
-        $appPlugin = new AppPlugin();
-        $pluginRepository = Container::getPluginRepository();
-        $currentAccessUrl = Container::getAccessUrlUtil()->getCurrent();
-
-        foreach ($this->buildLegacyPluginCandidates($rawTitle, $courseToolTitle) as $pluginName) {
-            try {
-                $pluginEntity = $pluginRepository->findOneByTitle($pluginName)
-                    ?: $pluginRepository->findOneByTitle(ucfirst(strtolower($pluginName)));
-
-                if (!$pluginEntity || !$pluginEntity->isInstalled()) {
-                    continue;
-                }
-
-                $pluginConfiguration = $pluginEntity->getConfigurationsByAccessUrl($currentAccessUrl);
-
-                if (!$pluginConfiguration || !$pluginConfiguration->isActive()) {
-                    continue;
-                }
-
-                $pluginInfo = $appPlugin->getPluginInfo($pluginName, true);
-                $pluginClass = $pluginInfo['plugin_class'] ?? null;
-
-                if (!$pluginClass || !class_exists($pluginClass, false)) {
-                    continue;
-                }
-
-                $plugin = method_exists($pluginClass, 'create')
-                    ? $pluginClass::create()
-                    : new $pluginClass();
-
-                if (!$plugin instanceof Plugin) {
-                    continue;
-                }
-
-                if (!$plugin->isCoursePlugin || !$plugin->addCourseTool) {
-                    continue;
-                }
-
-                return LegacyPluginCourseTool::fromLegacyPlugin($plugin, $courseToolTitle);
-            } catch (Throwable) {
-                // Try next candidate
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * @return string[]
-     */
-    private function buildLegacyPluginCandidates(string ...$values): array
-    {
-        $candidates = [];
-
-        foreach ($values as $value) {
-            $value = trim($value);
-            if ('' === $value) {
+        foreach ([$rawTitle, $courseToolTitle] as $candidate) {
+            $candidate = trim($candidate);
+            if ('' === $candidate) {
                 continue;
             }
 
-            $candidates[] = $value;
-            $candidates[] = ucfirst(strtolower($value));
-
-            $normalized = preg_replace('/[^a-z0-9]+/i', '', $value) ?? $value;
-            if ('' !== $normalized) {
-                $candidates[] = $normalized;
-                $candidates[] = ucfirst(strtolower($normalized));
+            try {
+                $plugin = $this->pluginHelper->loadLegacyPlugin($candidate);
+            } catch (Throwable) {
+                continue;
             }
+
+            if (!$plugin instanceof Plugin
+                || !$plugin->isEnabled()
+                || !$plugin->isCoursePlugin
+                || !$plugin->addCourseTool
+            ) {
+                continue;
+            }
+
+            return LegacyPluginCourseTool::fromLegacyPlugin($plugin, $courseToolTitle);
         }
 
-        return array_values(array_unique(array_filter($candidates, static fn ($v) => \is_string($v) && '' !== trim($v))));
+        return null;
     }
 
     /**
@@ -312,13 +269,13 @@ final class CToolStateProvider implements ProviderInterface
             return [false, null];
         }
 
-        if (!$this->pluginHelper->isPluginEnabled('positioning')) {
+        $pluginInstance = Positioning::create();
+
+        if (!$pluginInstance->isEnabled()) {
             return [false, null];
         }
 
-        $pluginInstance = $this->pluginHelper->loadLegacyPlugin('Positioning');
-
-        if (!$pluginInstance || 'true' !== $pluginInstance->get('block_course_if_initial_exercise_not_attempted')) {
+        if ('true' !== $pluginInstance->get('block_course_if_initial_exercise_not_attempted')) {
             return [false, null];
         }
 
@@ -340,5 +297,17 @@ final class CToolStateProvider implements ProviderInterface
         }
 
         return [false, null];
+    }
+
+    private function isHiddenLearningPathAllowedInCourseHome(string $toolName): bool
+    {
+        if ('learnpath' !== $toolName) {
+            return false;
+        }
+
+        return 'true' === $this->settingsManager->getSetting(
+            'lp.show_invisible_lp_in_course_home',
+            true
+        );
     }
 }

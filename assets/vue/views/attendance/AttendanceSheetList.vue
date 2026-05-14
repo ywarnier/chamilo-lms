@@ -114,7 +114,8 @@
                 type="checkbox"
                 class="mr-2"
                 :checked="attendanceData[`${currentUserId}-${date.id}`] === 1"
-                disabled
+                :disabled="!studentCanValidateOwnAttendance"
+                @change="(e) => onStudentAttendanceChange(date.id, e.target.checked)"
               />
             </template>
             <span>{{ formatAttendanceDate(date.dateTime) }}</span>
@@ -137,6 +138,19 @@
               @click="openSignatureDialog(currentUserId, date.id)"
             />
           </div>
+        </div>
+
+        <div
+          v-if="studentCanValidateOwnAttendance && filteredDates.length > 0"
+          class="mt-4"
+        >
+          <BaseButton
+            :label="t('Save')"
+            icon="save"
+            type="success"
+            :disabled="isSavingStudentAttendance"
+            @click="saveStudentOwnAttendance"
+          />
         </div>
       </div>
 
@@ -175,6 +189,12 @@
                 <tr class="bg-gray-15 h-28">
                   <th class="p-3 border border-gray-25 text-left">#</th>
                   <th class="p-3 border border-gray-25 text-left">{{ t("Photo") }}</th>
+                  <th
+                    v-if="showOfficialCode"
+                    class="p-3 border border-gray-25 text-left"
+                  >
+                    {{ t("Official code") }}
+                  </th>
                   <th class="p-3 border border-gray-25 text-left">{{ t("Last name") }}</th>
                   <th class="p-3 border border-gray-25 text-left w-32">{{ t("First name") }}</th>
                   <th class="p-3 border border-gray-25 text-left">{{ t("Not attended") }}</th>
@@ -193,6 +213,13 @@
                       alt="User photo"
                       class="w-10 h-10 rounded-full"
                     />
+                  </td>
+                  <td
+                    v-if="showOfficialCode"
+                    class="p-3 border border-gray-25 truncate"
+                    :title="user.officialCode"
+                  >
+                    {{ user.officialCode }}
                   </td>
                   <td
                     class="p-3 border border-gray-25 truncate"
@@ -474,11 +501,10 @@
       >
         <div class="relative w-full h-48">
           <canvas
-            ref="signaturePad"
+            ref="signaturePadCanvas"
             class="border border-gray-300 rounded w-full h-full"
           ></canvas>
           <button
-            v-if="isTeacherUI && canEdit"
             @click="clearSignature"
             class="mt-2 text-primary"
           >
@@ -487,7 +513,6 @@
         </div>
         <template #footer>
           <BaseButton
-            v-if="isTeacherUI && canEdit"
             :label="t('Save')"
             icon="save"
             type="success"
@@ -539,6 +564,7 @@ import attendanceService, { ATTENDANCE_STATES } from "../../services/attendanceS
 import { useCidReq } from "../../composables/cidReq"
 import { useSecurityStore } from "../../store/securityStore"
 import { usePlatformConfig } from "../../store/platformConfig"
+import { useCourseSettings } from "../../store/courseSettingStore"
 import { storeToRefs } from "pinia"
 import { useCidReqStore } from "../../store/cidReq"
 import { useFormatDate } from "../../composables/formatDate"
@@ -555,6 +581,7 @@ const isLoading = ref(true)
 const attendanceTitle = ref("")
 const securityStore = useSecurityStore()
 const platformConfigStore = usePlatformConfig()
+const courseSettingsStore = useCourseSettings()
 
 const isTeacherUser = computed(
   () => securityStore.isAdmin || securityStore.isTeacher || securityStore.isCourseAdmin || securityStore.isHRM,
@@ -584,12 +611,19 @@ const allowComments = computed(() => platformConfigStore.getSetting("attendance.
 const allowMultilevelGrading = computed(
   () => platformConfigStore.getSetting("attendance.multilevel_grading") === "true",
 )
+const showOfficialCode = computed(
+  () => platformConfigStore.getSetting("attendance.attendance_add_official_code") === "true",
+)
 const canEdit = computed(() => {
   const readonly = route.query.readonly === "1"
   return !readonly && isTeacherUI.value
 })
 
 const canManageLocks = computed(() => canEdit.value)
+
+const studentCanValidateOwnAttendance = computed(
+  () => isStudentUI.value && courseSettingsStore.getSetting("student_validate_own_attendance") === "1",
+)
 
 const signedCount = computed(
   () => filteredDates.value.filter((d) => attendanceData.value[`${currentUserId.value}-${d.id}`] === 1).length,
@@ -636,6 +670,7 @@ const filteredAttendanceSheets = computed(() => {
 })
 
 const isSaving = ref(false)
+const isSavingStudentAttendance = ref(false)
 const attendanceData = ref({})
 
 /**
@@ -698,9 +733,37 @@ const saveAttendanceSheet = async () => {
   }
 }
 
+const onStudentAttendanceChange = (dateId, checked) => {
+  const key = `${currentUserId.value}-${dateId}`
+  attendanceData.value[key] = checked ? 1 : 0
+}
+
+const saveStudentOwnAttendance = async () => {
+  isSavingStudentAttendance.value = true
+  try {
+    const entries = filteredDates.value.map((date) => ({
+      calendarId: date.id,
+      presence: attendanceData.value[`${currentUserId.value}-${date.id}`] ?? 0,
+    }))
+
+    await attendanceService.saveStudentOwnAttendance({
+      courseId: parseInt(cid, 10),
+      entries,
+    })
+
+    alert(t("Attendance saved successfully"))
+  } catch (error) {
+    console.error("Error saving student attendance:", error)
+    alert(t("Failed to save attendance. Please try again."))
+  } finally {
+    isSavingStudentAttendance.value = false
+  }
+}
+
 const showCommentDialog = ref(false)
 const showSignatureDialog = ref(false)
 const currentComment = ref("")
+const signaturePadCanvas = ref(null)
 const signaturePad = ref(null)
 
 const fetchAttendanceSheetUsers = async (attendanceId) => {
@@ -714,6 +777,7 @@ const fetchAttendanceSheetUsers = async (attendanceId) => {
       photo: user.photo || "/img/default-avatar.png",
       lastName: user.lastname,
       firstName: user.firstname,
+      officialCode: user.officialCode || "",
       notAttended: user.notAttended,
     }))
   } catch (error) {
@@ -963,7 +1027,7 @@ const openSignatureDialog = (userId, dateId) => {
   showSignatureDialog.value = true
 
   nextTick(() => {
-    const canvas = document.querySelector("canvas")
+    const canvas = signaturePadCanvas.value
     if (canvas) {
       canvas.width = canvas.offsetWidth
       canvas.height = canvas.offsetHeight
@@ -988,12 +1052,24 @@ const saveComment = () => {
   closeCommentDialog()
 }
 
-const saveSignature = () => {
-  if (!canEdit.value) return
-  if (signaturePad.value) {
-    const key = `${dialogUserId.value}-${dialogDateId.value}`
-    signatures.value[key] = signaturePad.value.toDataURL()
+const saveSignature = async () => {
+  if (!signaturePad.value) return
+  const key = `${dialogUserId.value}-${dialogDateId.value}`
+  signatures.value[key] = signaturePad.value.toDataURL()
+
+  if (isStudentUI.value) {
+    try {
+      await attendanceService.saveStudentSignature({
+        calendarId: dialogDateId.value,
+        signature: signatures.value[key],
+      })
+    } catch (error) {
+      console.error("Error saving student signature:", error)
+      alert(t("Failed to save signature. Please try again."))
+      return
+    }
   }
+
   closeSignatureDialog()
 }
 

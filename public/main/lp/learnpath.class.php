@@ -446,6 +446,14 @@ class learnpath
             $exercise->disable();
             $exercise->save();
             $title = $exercise->get_formated_title();
+
+            // Update the ResourceLink visibility to DRAFT so students cannot access the quiz directly
+            $quizRepo = Container::getQuizRepository();
+            $quizEntity = $quizRepo->find($id);
+            if (null !== $quizEntity) {
+                $courseEntity = api_get_course_entity($course_id);
+                $quizRepo->setVisibilityDraft($quizEntity, $courseEntity);
+            }
         }
 
         $lpItem = (new CLpItem())
@@ -1239,7 +1247,7 @@ class learnpath
 
             $this->last = $this->current;
             // current is
-            $this->current = isset($this->ordered_items[$index]) ? $this->ordered_items[$index] : null;
+            $this->current = $this->ordered_items[$index] ?? null;
             $this->index = $index;
             if ($this->debug > 2) {
                 error_log('$index '.$index);
@@ -1318,6 +1326,69 @@ class learnpath
         } catch (Exception $exception) {
             return 0;
         }
+    }
+
+    public static function getFlowNextLpOptions(int $lpId): array
+    {
+        $lpId = (int) $lpId;
+
+        if ($lpId <= 0) {
+            return [];
+        }
+
+        $lpTable = Database::get_course_table(TABLE_LP_MAIN);
+        $resourceNodeTable = 'resource_node';
+
+        $sql = "
+            SELECT DISTINCT candidate_lp.iid, candidate_lp.title
+            FROM $lpTable current_lp
+            INNER JOIN $resourceNodeTable current_rn
+                ON current_rn.id = current_lp.resource_node_id
+            INNER JOIN $resourceNodeTable candidate_rn
+                ON candidate_rn.parent_id = current_rn.parent_id
+            INNER JOIN $lpTable candidate_lp
+                ON candidate_lp.resource_node_id = candidate_rn.id
+            WHERE current_lp.iid = $lpId
+                AND candidate_lp.iid <> $lpId
+            ORDER BY candidate_lp.title ASC
+        ";
+
+        $result = Database::query($sql);
+        $options = [];
+
+        while ($row = Database::fetch_assoc($result)) {
+            $options[(int) $row['iid']] = $row['title'];
+        }
+
+        return $options;
+    }
+
+    public static function isValidFlowNextLp(int $currentLpId, int $nextLpId): bool
+    {
+        $currentLpId = (int) $currentLpId;
+        $nextLpId = (int) $nextLpId;
+
+        if ($currentLpId <= 0 || $nextLpId <= 0 || $currentLpId === $nextLpId) {
+            return false;
+        }
+
+        $options = self::getFlowNextLpOptions($currentLpId);
+
+        return isset($options[$nextLpId]);
+    }
+
+    public static function getFlowNextLpInfo(int $currentLpId, int $nextLpId): array
+    {
+        if (!self::isValidFlowNextLp($currentLpId, $nextLpId)) {
+            return [];
+        }
+
+        $options = self::getFlowNextLpOptions($currentLpId);
+
+        return [
+            'iid' => $nextLpId,
+            'title' => $options[$nextLpId],
+        ];
     }
 
     /**
@@ -2807,7 +2878,7 @@ class learnpath
      *
      * @return string $provided_toc Link to the lp_item resource
      */
-    public function get_link($type = 'http', $item_id = 0, $provided_toc = false)
+    public function get_link(string $type = 'http', $item_id = 0, $provided_toc = false)
     {
         $course_id = $this->get_course_int_id();
         $item_id = (int) $item_id;
@@ -2849,7 +2920,7 @@ class learnpath
             $lp_item_type = $row['litype'];
             $lp_item_path = $row['lipath'];
             $lp_item_params = $row['liparams'];
-            if (empty($lp_item_params) && false !== strpos($lp_item_path, '?')) {
+            if (empty($lp_item_params) && str_contains($lp_item_path, '?')) {
                 [$lp_item_path, $lp_item_params] = explode('?', $lp_item_path);
             }
             //$sys_course_path = api_get_path(SYS_COURSE_PATH).api_get_course_path();
@@ -2965,14 +3036,10 @@ class learnpath
                             if (class_exists('OnlyofficePlugin')) {
                                 $plugin = OnlyofficePlugin::create();
 
-                                if ($plugin) {
-                                    if (method_exists($plugin, 'isEnabled')) {
-                                        $isOnlyofficeEnabled = (bool) $plugin->isEnabled();
-                                    }
+                                $isOnlyofficeEnabled = $plugin->isEnabled();
 
-                                    if (!$isOnlyofficeEnabled && method_exists($plugin, 'get')) {
-                                        $isOnlyofficeEnabled = 'true' === (string) $plugin->get('enable_onlyoffice_plugin');
-                                    }
+                                if (!$isOnlyofficeEnabled) {
+                                    $isOnlyofficeEnabled = 'true' === (string) $plugin->get('enable_onlyoffice_plugin');
                                 }
                             }
 
@@ -3180,9 +3247,9 @@ class learnpath
                         }
 
                         // We want to use parameters if they were defined in the imsmanifest
-                        if (false === strpos($file, 'blank.php')) {
+                        if (!str_contains($file, 'blank.php')) {
                             $lp_item_params = ltrim($lp_item_params, '?');
-                            $file .= (false === strstr($file, '?') ? '?' : '').$lp_item_params;
+                            $file .= (!str_contains($file, '?') ? '?' : '').$lp_item_params;
                         }
                     } else {
                         $file = 'lp_content.php?type=dir';
@@ -3813,7 +3880,7 @@ class learnpath
     /**
      * Saves the last item seen's ID only in case.
      */
-    public function save_last()
+    public function save_last($score = null)
     {
         $course_id = api_get_course_int_id();
         $debug = $this->debug;
@@ -3856,7 +3923,7 @@ class learnpath
             [$progress] = $this->get_progress_bar_text('%');
             $scoreAsProgressSetting = ('true' === api_get_setting('lp.lp_score_as_progress_enable'));
             $scoreAsProgress = $this->getUseScoreAsProgress();
-            if ($scoreAsProgress && $scoreAsProgressSetting && (null === $score || empty($score) || -1 == $score)) {
+            if ($scoreAsProgress && $scoreAsProgressSetting && (null === $score || '' === $score || -1 == $score)) {
                 if ($debug) {
                     error_log("Return false: Dont save score: $score");
                     error_log("progress: $progress");
@@ -4910,7 +4977,7 @@ class learnpath
                 href="javascript:void(0);"
                 onclick="return deleteItem(this);"
                 class="">';
-                $deleteIcon .= Display::getMdiIcon('delete', 'ch-tool-icon', '', 16, get_lang('Delete section'));
+                $deleteIcon .= Display::getMdiIcon('delete', 'ch-tool-icon', '', 16, get_lang('Delete'));
                 $deleteIcon .= '</a>';
                 $extra = '';
                 if ('dir' === $type && empty($node['__children'])) {
@@ -5120,9 +5187,32 @@ class learnpath
      */
     public static function generate_learning_path_folder($course, $creatorId = 0)
     {
-        // Creating learning_path folder
-        $dir = 'learning_path';
         $creatorId = empty($creatorId) ? api_get_user_id() : $creatorId;
+
+        $courseEntity = api_get_course_entity($course['real_id']);
+        $courseNode = $courseEntity ? $courseEntity->getResourceNode() : null;
+
+        if ($courseNode) {
+            $em = Database::getManager();
+            $qb = $em
+                ->createQueryBuilder()
+                ->select('doc')
+                ->from(Chamilo\CourseBundle\Entity\CDocument::class, 'doc')
+                ->innerJoin('doc.resourceNode', 'node')
+                ->where('doc.filetype = :filetype')
+                ->andWhere('doc.title = :title')
+                ->andWhere('node.parent = :parent')
+                ->setParameter('filetype', 'folder')
+                ->setParameter('title', 'learning_path')
+                ->setParameter('parent', $courseNode)
+                ->setMaxResults(1);
+
+            $document = $qb->getQuery()->getOneOrNullResult();
+
+            if ($document) {
+                return $document;
+            }
+        }
 
         return create_unexisting_directory(
             $course,
@@ -5131,8 +5221,8 @@ class learnpath
             null,
             0,
             '',
-            $dir,
-            get_lang('Learning paths'),
+            'learning_path',
+            'learning_path',
             0
         );
     }
@@ -5590,6 +5680,135 @@ class learnpath
         return $currentUrl;
     }
 
+    private static function isCloudLinkDocument(CDocument $document): bool
+    {
+        return 'link' === strtolower((string) $document->getFiletype());
+    }
+
+    private static function getCloudLinkOriginalUrlFromDocument(CDocument $document): string
+    {
+        if (!method_exists($document, 'getComment')) {
+            return '';
+        }
+
+        return self::normalizeCloudLinkUrl((string) $document->getComment());
+    }
+
+    private static function getCloudLinkEmbedUrlFromDocument(CDocument $document): string
+    {
+        $url = self::getCloudLinkOriginalUrlFromDocument($document);
+
+        if ('' === $url) {
+            return '';
+        }
+
+        return self::getCloudLinkEmbedUrlFromUrl($url);
+    }
+
+    private static function normalizeCloudLinkUrl(string $url): string
+    {
+        $url = trim($url);
+
+        if ('' === $url) {
+            return '';
+        }
+
+        $parts = parse_url($url);
+
+        if (!is_array($parts)) {
+            return '';
+        }
+
+        $scheme = strtolower((string) ($parts['scheme'] ?? ''));
+        if (!in_array($scheme, ['http', 'https'], true)) {
+            return '';
+        }
+
+        $host = strtolower((string) ($parts['host'] ?? ''));
+        if ('' === $host) {
+            return '';
+        }
+
+        return $url;
+    }
+
+    private static function getCloudLinkEmbedUrlFromUrl(string $url): string
+    {
+        $url = self::normalizeCloudLinkUrl($url);
+
+        if ('' === $url) {
+            return '';
+        }
+
+        $parts = parse_url($url);
+        if (!is_array($parts)) {
+            return '';
+        }
+
+        $scheme = strtolower((string) ($parts['scheme'] ?? 'https'));
+        $host = strtolower((string) ($parts['host'] ?? ''));
+        $path = (string) ($parts['path'] ?? '');
+
+        if ('drive.google.com' === $host && preg_match('#/file/d/([^/]+)#', $path, $matches)) {
+            return $scheme.'://drive.google.com/file/d/'.$matches[1].'/preview';
+        }
+
+        if ('docs.google.com' === $host && preg_match('#^/(document|spreadsheets|presentation)/d/([^/]+)#', $path, $matches)) {
+            return $scheme.'://docs.google.com/'.$matches[1].'/d/'.$matches[2].'/preview';
+        }
+
+        return $url;
+    }
+
+    private static function escapeCloudLinkAttribute(string $value): string
+    {
+        return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+    }
+
+    private static function renderCloudLinkDocument(CDocument $document): string
+    {
+        $originalUrl = self::getCloudLinkOriginalUrlFromDocument($document);
+        $embedUrl = self::getCloudLinkEmbedUrlFromDocument($document);
+
+        if ('' === $originalUrl) {
+            return Display::return_message(get_lang('Invalid URL.'), 'warning', false);
+        }
+
+        $title = self::escapeCloudLinkAttribute((string) $document->getTitle());
+        $safeOriginalUrl = self::escapeCloudLinkAttribute($originalUrl);
+        $safeEmbedUrl = self::escapeCloudLinkAttribute($embedUrl);
+
+        $html = '<div class="lp-cloud-link">';
+        $html .= '<div class="mb-3 d-flex justify-content-between align-items-center gap-2">';
+        $html .= '<div class="fw-semibold">';
+        $html .= Display::getMdiIcon('cloud-outline', 'ch-tool-icon', null, 22, get_lang('Cloud link'));
+        $html .= ' '.$title;
+        $html .= '</div>';
+        $html .= '<a class="btn btn--plain btn-sm" href="'.$safeOriginalUrl.'" target="_blank" rel="noopener noreferrer">';
+        $html .= get_lang('Open in a new tab');
+        $html .= '</a>';
+        $html .= '</div>';
+
+        if ('' !== $embedUrl) {
+            $html .= '<div class="ratio ratio-16x9 border rounded bg-white">';
+            $html .= '<iframe';
+            $html .= ' src="'.$safeEmbedUrl.'"';
+            $html .= ' title="'.$title.'"';
+            $html .= ' class="w-100 h-100 border-0"';
+            $html .= ' referrerpolicy="no-referrer-when-downgrade"';
+            $html .= ' allow="autoplay; fullscreen; encrypted-media"';
+            $html .= ' allowfullscreen';
+            $html .= '></iframe>';
+            $html .= '</div>';
+        } else {
+            $html .= Display::return_message(get_lang('This cloud document cannot be embedded.'), 'warning', false);
+        }
+
+        $html .= '</div>';
+
+        return $html;
+    }
+
     /**
      * Displays a document by id.
      *
@@ -5602,24 +5821,32 @@ class learnpath
      */
     public function display_document($document, $show_title = false, $iframe = true, $edit_link = false)
     {
-        $return = '';
         if (!$document) {
             return '';
         }
 
+        if ($document instanceof CDocument && self::isCloudLinkDocument($document)) {
+            return self::renderCloudLinkDocument($document);
+        }
+
+        $return = '';
         $repo = Container::getDocumentRepository();
 
-        // TODO: Add a path filter.
         if ($iframe) {
             $url = $repo->getResourceFileUrl($document);
+            $safeUrl = self::escapeCloudLinkAttribute((string) $url);
 
-            $return .= '<iframe
-                id="learnpath_preview_frame"
-                frameborder="0"
-                height="400"
-                width="100%"
-                scrolling="auto"
-                src="'.$url.'"></iframe>';
+            if ('' === $safeUrl) {
+                return Display::return_message(get_lang('Document not found'), 'warning', false);
+            }
+
+            $return .= '<iframe';
+            $return .= ' src="'.$safeUrl.'"';
+            $return .= ' class="w-100 border-0"';
+            $return .= ' style="min-height: 70vh;"';
+            $return .= ' referrerpolicy="no-referrer-when-downgrade"';
+            $return .= ' allowfullscreen';
+            $return .= '></iframe>';
         } else {
             $return = $repo->getResourceFileContent($document);
         }
@@ -6516,8 +6743,8 @@ document.addEventListener("DOMContentLoaded", function () {
             false,
             [],
             [],
-            ['file', 'folder'],
-            true
+            ['file', 'html', 'folder', 'link'],
+            false
         );
 
         $form = new FormValidator(
@@ -6929,11 +7156,14 @@ document.addEventListener("DOMContentLoaded", function () {
     {
         $course_id = api_get_course_int_id();
         $session_id = api_get_session_id();
-        $setting = 'true' === api_get_setting('lp.show_invisible_exercise_in_lp_toc');
+        $showInvisibleExerciseInLpToc = 'true' === api_get_setting('lp.show_invisible_exercise_in_lp_toc');
+        $showInvisibleExerciseInLpList = 'true' === api_get_setting('lp.show_invisible_exercise_in_lp_list');
+
+        $setting = $showInvisibleExerciseInLpToc || $showInvisibleExerciseInLpList;
 
         $active = 2;
         if ($setting) {
-            $active = 1;
+            $active = null;
         }
         $keyword = $_REQUEST['keyword'] ?? null;
         $categoryId = $_REQUEST['category_id'] ?? null;
@@ -7630,7 +7860,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         if ('quiz' == $last_item_not_dir_type) {
                             // if previous is quiz, mark its max score as default score to be achieved
                             $sql = "UPDATE $tbl_lp_item SET mastery_score = '$last_item_not_dir_max'
-                                    WHERE c_id = $course_id AND lp_id = $lp_id AND iid = $last_item_not_dir";
+                                    WHERE lp_id = $lp_id AND iid = $last_item_not_dir";
                             Database::query($sql);
                         }
                         // now simply update the prerequisite to set it to the last non-chapter item
@@ -8123,24 +8353,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /**
      * Check if URL is not allowed to be show in a iframe.
-     *
-     * @param string $src
-     *
-     * @return string
      */
-    public function fixBlockedLinks($src)
+    public function fixBlockedLinks(string $src): string
     {
         $urlInfo = parse_url($src);
 
         $platformProtocol = 'https';
-        if (false === strpos(api_get_path(WEB_CODE_PATH), 'https')) {
+        if (!str_contains(api_get_path(WEB_CODE_PATH), 'https')) {
             $platformProtocol = 'http';
         }
 
         $protocolFixApplied = false;
         //Scheme validation to avoid "Notices" when the lesson doesn't contain a valid scheme
-        $scheme = isset($urlInfo['scheme']) ? $urlInfo['scheme'] : null;
-        $host = isset($urlInfo['host']) ? $urlInfo['host'] : null;
+        $scheme = $urlInfo['scheme'] ?? null;
+        $host = $urlInfo['host'] ?? null;
 
         if ($platformProtocol != $scheme) {
             Session::write('x_frame_source', $src);
@@ -8148,8 +8374,8 @@ document.addEventListener("DOMContentLoaded", function () {
             $protocolFixApplied = true;
         }
 
-        if (false == $protocolFixApplied) {
-            if (false === strpos(api_get_path(WEB_PATH), $host)) {
+        if (!$protocolFixApplied) {
+            if (!str_contains(api_get_path(WEB_PATH), $host)) {
                 // Check X-Frame-Options
                 $ch = curl_init();
                 $options = [
@@ -8726,6 +8952,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 $repo = Container::getDocumentRepository();
                 $document = $repo->find($rowItem->getPath());
                 if ($document) {
+                    if ($document instanceof CDocument && self::isCloudLinkDocument($document)) {
+                        return self::getCloudLinkEmbedUrlFromDocument($document);
+                    }
+
                     $params = [
                         'cid' => $course_id,
                         'sid' => $session_id,

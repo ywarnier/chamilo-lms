@@ -3,6 +3,7 @@
 /* For licensing terms, see /license.txt */
 
 use Chamilo\CoreBundle\Entity\GradebookLink;
+use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
 use Chamilo\CoreBundle\Entity\TrackEExerciseConfirmation;
@@ -1747,7 +1748,8 @@ class Exercise
 
     /**
      * deletes the exercise from the database
-     * Notice : leaves the question in the data base.
+     * Notice : leaves the question in the data base unless the automatic
+     * orphan question cleanup setting is enabled.
      *
      * @author Olivier Brouckaert
      */
@@ -1778,6 +1780,34 @@ class Exercise
 
         if ($locked) {
             return false;
+        }
+
+        $questionList = $this->selectQuestionList(true, true);
+        $deleteOrphanQuestions = ('true' === api_get_setting(
+                'exercise.quiz_question_delete_automatically_when_deleting_exercise'
+            ));
+
+        if (!empty($questionList)) {
+            foreach ($questionList as $questionId) {
+                $questionId = (int) $questionId;
+                if ($questionId <= 0) {
+                    continue;
+                }
+
+                $question = Question::read($questionId, $this->course);
+                if (!$question) {
+                    continue;
+                }
+
+                if (
+                    $deleteOrphanQuestions &&
+                    !$this->isQuestionUsedInOtherExercises($questionId, $exerciseId)
+                ) {
+                    $question->delete();
+                } else {
+                    $question->removeFromList($exerciseId, $this->course_id);
+                }
+            }
         }
 
         $course = api_get_course_entity();
@@ -1819,12 +1849,86 @@ class Exercise
         return true;
     }
 
+    private function isQuestionUsedInOtherExercises(int $questionId, int $exerciseId): bool
+    {
+        $table = Database::get_course_table(TABLE_QUIZ_TEST_QUESTION);
+
+        $questionId = (int) $questionId;
+        $exerciseId = (int) $exerciseId;
+
+        $sql = "SELECT 1
+            FROM $table
+            WHERE
+                question_id = $questionId AND
+                quiz_id <> $exerciseId
+            LIMIT 1";
+
+        $result = Database::query($sql);
+
+        return Database::num_rows($result) > 0;
+    }
+
+    /**
+     * Returns optional language choices for resource language selectors.
+     *
+     * @return array<string, string>
+     */
+    private function getResourceLanguageOptions(): array
+    {
+        $options = [
+            '' => get_lang('No specific language'),
+        ];
+
+        $languages = Database::getManager()
+            ->getRepository(Language::class)
+            ->findBy(['available' => true], ['englishName' => 'ASC'])
+        ;
+
+        foreach ($languages as $language) {
+            if (!$language instanceof Language) {
+                continue;
+            }
+
+            $code = $language->getIsocode();
+            $label = $language->getOriginalName() ?: $language->getEnglishName();
+
+            $options[$code] = $label;
+        }
+
+        return $options;
+    }
+
+    private function getResourceLanguageIsoCode(): string
+    {
+        if (empty($this->iId)) {
+            return '';
+        }
+
+        $quiz = Database::getManager()
+            ->getRepository(CQuiz::class)
+            ->find((int) $this->iId)
+        ;
+
+        if (!$quiz instanceof CQuiz || null === $quiz->getResourceNode()) {
+            return '';
+        }
+
+        $language = $quiz->getResourceNode()->getLanguage();
+
+        if (!$language instanceof Language) {
+            return '';
+        }
+
+        return $language->getIsocode();
+    }
+
     /**
      * Creates the form to create / edit an exercise.
      *
      * @param FormValidator $form
      * @param string|array        $type
      */
+
     public function createForm($form, $type = 'full')
     {
         if (empty($type)) {
@@ -2313,9 +2417,17 @@ class Exercise
             $form->addCheckBox('update_title_in_lps', null, get_lang('Update this title in learning paths'));
 
             $defaults = [];
+            $form->addSelect(
+                'language',
+                get_lang('Language'),
+                $this->getResourceLanguageOptions(),
+                [
+                    'id' => 'resource_language',
+                ]
+            );
+
             if ('true' === api_get_setting('search_enabled')) {
                 $form->addCheckBox('index_document', '', get_lang('Index document text?'));
-                $form->addSelectLanguage('language', get_lang('Document language for indexation'));
             }
 
             $skillList = SkillModel::addSkillsToForm($form, ITEM_TYPE_EXERCISE, $this->iId);
@@ -2438,6 +2550,8 @@ class Exercise
             $defaults['exerciseTitle'] = $this->selectTitle();
             $defaults['exerciseDescription'] = $this->selectDescription();
         }
+
+        $defaults['language'] = $this->getResourceLanguageIsoCode();
 
         if ('true' === api_get_setting('search_enabled')) {
             $defaults['index_document'] = 'checked="checked"';
@@ -5095,7 +5209,8 @@ class Exercise
                                 0,
                                 $results_disabled,
                                 $showTotalScoreAndUserChoicesInLastAttempt,
-                                ''
+                                '',
+                                $answerComment
                             );
                         } elseif (CALCULATED_ANSWER == $answerType) {
                             ExerciseShowFunctions::display_calculated_answer(
@@ -5108,7 +5223,8 @@ class Exercise
                                 $showTotalScoreAndUserChoicesInLastAttempt,
                                 $expectedAnswer,
                                 $calculatedChoice,
-                                $calculatedStatus
+                                $calculatedStatus,
+                                $answerComment
                             );
                         } elseif (FREE_ANSWER == $answerType) {
                             ExerciseShowFunctions::display_free_answer(
@@ -5334,6 +5450,12 @@ class Exercise
                                     ['style' => 'color: #008000; font-weight: bold;']
                                 )
                             );
+                            if (false === $this->hideComment && EXERCISE_FEEDBACK_TYPE_EXAM !== $feedback_type) {
+                                echo Display::tag(
+                                    'td',
+                                    Security::remove_XSS((string) $answerComment, COURSEMANAGERLOWSECURITY)
+                                );
+                            }
                             echo '</tr>';
                         } elseif (ANNOTATION == $answerType) {
                             ExerciseShowFunctions::displayAnnotationAnswer(
@@ -5499,7 +5621,8 @@ class Exercise
                                 $questionId,
                                 $results_disabled,
                                 $showTotalScoreAndUserChoicesInLastAttempt,
-                                $str
+                                $str,
+                                $answerComment
                             );
                             break;
                         case CALCULATED_ANSWER:
@@ -5511,7 +5634,10 @@ class Exercise
                                 $questionId,
                                 $results_disabled,
                                 '',
-                                $showTotalScoreAndUserChoicesInLastAttempt
+                                $showTotalScoreAndUserChoicesInLastAttempt,
+                                '',
+                                '',
+                                $answerComment
                             );
 
                             break;
@@ -5538,18 +5664,16 @@ class Exercise
                             break;
                         case ORAL_EXPRESSION:
                             /** @var OralExpression $objQuestionTmp */
-                            echo '<tr>
-                                <td valign="top">'.
-                                ExerciseShowFunctions::display_oral_expression_answer(
-                                    $feedback_type,
-                                    $choice,
-                                    $exeId,
-                                    $questionId,
-                                    $results_disabled,
-                                    $questionScore
-                                ).'</td>
-                                </tr>
-                                </table>';
+                            echo '<tr><td valign="top">';
+                            ExerciseShowFunctions::display_oral_expression_answer(
+                                $feedback_type,
+                                $choice,
+                                $exeId,
+                                $questionId,
+                                $results_disabled,
+                                $questionScore
+                            );
+                            echo '</td></tr>';
                             break;
                         case HOT_SPOT:
                         case HOT_SPOT_COMBINATION:
@@ -5728,6 +5852,12 @@ class Exercise
                                     ['style' => 'color: #008000; font-weight: bold;']
                                 )
                             );
+                            if (false === $this->hideComment && EXERCISE_FEEDBACK_TYPE_EXAM !== $feedback_type) {
+                                echo Display::tag(
+                                    'td',
+                                    Security::remove_XSS((string) $answerComment, COURSEMANAGERLOWSECURITY)
+                                );
+                            }
                             echo '</tr>';
 
                             break;
@@ -9193,11 +9323,8 @@ class Exercise
                     $visibleForStudent = $visibleBase;
                 }
 
-                if (!$is_allowedToEdit && !empty($sessionId)) {
-                    $visibilitySetting = ('true' === api_get_setting('lp.show_hidden_exercise_added_to_lp'));
-                    if (!$visibleBase && !$visibilitySetting && $exercise->exercise_was_added_in_lp) {
-                        continue;
-                    }
+                if (!$is_allowedToEdit && $exercise->exercise_was_added_in_lp) {
+                    continue;
                 }
 
                 $isBaseCourseExercise = $visibleBase && ($visibleSess === null || $visibleSess === true);
@@ -10280,7 +10407,20 @@ class Exercise
         $exerciseId = $exercise_stat_info['exe_exo_id'];
         $exercise_result = Exercise::getUserAnswersSavedInExerciseStatic($exeId); // Static helper to avoid $this here
 
-        $content = Display::label(get_lang('Questions without answer'), 'danger');
+        $unansweredIds = [];
+        foreach ($questionList as $questionId) {
+            if (!in_array($questionId, $exercise_result)) {
+                $unansweredIds[] = (int) $questionId;
+            }
+        }
+        $unansweredIdsJson = json_encode($unansweredIds);
+
+        $checkAllIcon = ' <a href="javascript://" onclick="checkUnansweredQuestions();"'
+            .' title="'.get_lang('Check all unanswered questions below').'"'
+            .' style="vertical-align:middle;text-decoration:none;">'
+            .'<span class="mdi mdi-checkbox-marked-outline" style="font-size:1.1em;color:#888;"></span>'
+            .'</a>';
+        $content = Display::label(get_lang('Questions without answer'), 'danger').$checkAllIcon;
         $content .= '<div class="clear"></div><br />';
         $table = '';
         $counter = 0;
@@ -10333,6 +10473,18 @@ class Exercise
             Display::div($table, ['class' => 'question-check-test']);
 
         $content .= '<script>
+    var unansweredIds = '.$unansweredIdsJson.';
+
+    function checkUnansweredQuestions() {
+        unansweredIds.forEach(function(questionId) {
+            var checkbox = document.getElementById("remind_list[" + questionId + "]");
+            if (checkbox && !checkbox.checked) {
+                checkbox.checked = true;
+                save_remind_item(checkbox, questionId);
+            }
+        });
+    }
+
     var lp_data = $.param({
         "learnpath_id": '.$learnpath_id.',
         "learnpath_item_id" : '.$learnpath_item_id.',
@@ -11217,6 +11369,53 @@ class Exercise
         );
     }
 
+    private function shouldUseRelaxedFinishTextFiltering(): bool
+    {
+        return 'true' === api_get_setting('exercise.exercise_result_end_text_html_strict_filtering');
+    }
+
+    private function sanitizeFinishText(string $text): string
+    {
+        $text = trim($text);
+
+        if ('' === $text) {
+            return '';
+        }
+
+        // When the setting is disabled, keep a stricter whitelist.
+        // When the setting is enabled, allow richer HTML but still block active content.
+        $allowedTags = $this->shouldUseRelaxedFinishTextFiltering()
+            ? '<p><br><strong><b><em><i><u><ul><ol><li><a><blockquote><span><div><h1><h2><h3><h4><h5><h6><table><thead><tbody><tr><th><td>>'
+            : '<p><br><strong><b><em><i><u><ul><ol><li><a><blockquote>>';
+
+        // Remove dangerous container tags and their content first.
+        $text = preg_replace(
+            '/<(script|iframe|object|embed|form|input|button|textarea|select)\b[^>]*>.*?<\/\1>/is',
+            '',
+            $text
+        ) ?? $text;
+
+        // Remove self-closing dangerous tags.
+        $text = preg_replace(
+            '/<(script|iframe|object|embed|form|input|button|textarea|select)\b[^>]*\/?>/is',
+            '',
+            $text
+        ) ?? $text;
+
+        // Keep only the allowed tags.
+        $text = strip_tags($text, $allowedTags);
+
+        // Remove inline event handlers and inline styles.
+        $text = preg_replace('/\s+on[a-z]+\s*=\s*("|\').*?\1/isu', '', $text) ?? $text;
+        $text = preg_replace('/\s+style\s*=\s*("|\').*?\1/isu', '', $text) ?? $text;
+
+        // Remove javascript: and data: URLs from common attributes.
+        $text = preg_replace('/\s+href\s*=\s*("|\')\s*(javascript:|data:).*?\1/isu', '', $text) ?? $text;
+        $text = preg_replace('/\s+src\s*=\s*("|\')\s*(javascript:|data:).*?\1/isu', '', $text) ?? $text;
+
+        return $text;
+    }
+
     /**
      * Return the text to display, based on the score and the max score.
      * @param int|float $score
@@ -11232,14 +11431,12 @@ class Exercise
                 1
             );
             if ($percentage >= $passPercentage) {
-                return $this->getTextWhenFinished();
-            } else {
-                return $this->getTextWhenFinishedFailure();
+                return $this->sanitizeFinishText($this->getTextWhenFinished());
             }
-        } else {
-            return $this->getTextWhenFinished();
+
+            return $this->sanitizeFinishText($this->getTextWhenFinishedFailure());
         }
 
-        return '';
+        return $this->sanitizeFinishText($this->getTextWhenFinished());
     }
 }

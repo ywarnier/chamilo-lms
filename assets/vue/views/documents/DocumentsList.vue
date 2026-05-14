@@ -93,11 +93,11 @@
     />
     <BaseButton
       v-if="showDownloadAllButton && !hideDownloadIcon"
+      :disabled="isDownloadingAll"
       :label="t('Download all')"
       icon="download"
       only-icon
       type="primary"
-      :disabled="isDownloadingAll"
       @click="downloadAllItems"
     />
     <BaseButton
@@ -113,10 +113,10 @@
   <BaseTable
     :key="tableRenderKey"
     v-model:filters="filters"
+    v-model:rows="options.itemsPerPage"
     v-model:selected-items="selectedItems"
     :global-filter-fields="['resourceNode.title', 'resourceNode.updatedAt']"
     :is-loading="tableIsLoading"
-    v-model:rows="options.itemsPerPage"
     :total-items="totalItems"
     :values="items"
     data-key="iid"
@@ -136,27 +136,35 @@
       field="resourceNode.title"
     >
       <template #body="slotProps">
-        <div style="display: flex; align-items: center">
-          <DocumentEntry
-            v-if="slotProps.data"
-            :data="slotProps.data"
-          />
+        <div class="flex flex-col gap-1">
+          <div class="flex items-center">
+            <DocumentEntry
+              v-if="slotProps.data"
+              :data="slotProps.data"
+            />
 
-          <!-- AI badge at the end of the title -->
-          <span
-            v-if="slotProps.data?.ai_assisted"
-            class="ml-2 inline-flex items-center gap-1 rounded-full border border-gray-300 bg-gray-10 px-2 py-[2px] text-xs text-gray-700"
-            title="AI-assisted"
-            aria-label="AI-assisted"
-          >
-            <span aria-hidden="true">🤖</span>
-            <span class="font-semibold">AI</span>
-          </span>
+            <!-- AI badge at the end of the title -->
+            <span
+              v-if="slotProps.data?.ai_assisted"
+              aria-label="AI-assisted"
+              class="ml-2 inline-flex items-center gap-1 rounded-full border border-gray-300 bg-gray-10 px-2 py-[2px] text-xs text-gray-700"
+              title="AI-assisted"
+            >
+          <span aria-hidden="true">🤖</span>
+          <span class="font-semibold">AI</span>
+        </span>
 
-          <BaseIcon
-            v-if="isAllowedToEdit && isSessionDocument(slotProps.data)"
-            class="mr-8"
-            icon="session-star"
+            <BaseIcon
+              v-if="isAllowedToEdit && isSessionDocument(slotProps.data)"
+              class="mr-8"
+              icon="session-star"
+            />
+          </div>
+
+          <div
+            v-if="getDocumentComment(slotProps.data)"
+            class="max-w-3xl whitespace-pre-line text-sm text-gray-500"
+            v-text="getDocumentComment(slotProps.data)"
           />
         </div>
       </template>
@@ -169,9 +177,11 @@
     >
       <template #body="slotProps">
         {{
-          slotProps.data.resourceNode && slotProps.data.resourceNode.firstResourceFile
-            ? prettyBytes(slotProps.data.resourceNode.firstResourceFile.size)
-            : ""
+          slotProps.data.filetype === "link"
+            ? t("Cloud link")
+            : slotProps.data.resourceNode && slotProps.data.resourceNode.firstResourceFile
+              ? prettyBytes(slotProps.data.resourceNode.firstResourceFile.size)
+              : ""
         }}
       </template>
     </Column>
@@ -189,6 +199,14 @@
     <Column :exportable="false">
       <template #body="slotProps">
         <div class="flex flex-row justify-end gap-2">
+          <BaseButton
+            v-if="canShowCopyToMyFiles(slotProps.data)"
+            :title="t('Copy to My Files')"
+            icon="copy"
+            size="small"
+            type="secondary-text"
+            @click="copyToMyFiles(slotProps.data)"
+          />
           <BaseButton
             v-if="canEdit(slotProps.data)"
             :title="t('Move')"
@@ -244,10 +262,10 @@
 
           <BaseButton
             v-if="canEdit(slotProps.data) && allowAccessUrlFiles && isFile(slotProps.data) && securityStore.isAdmin"
+            :title="t('Add file variation')"
             icon="file-replace"
             size="small"
             type="secondary-text"
-            :title="t('Add file variation')"
             @click="goToAddVariation(slotProps.data)"
           />
 
@@ -360,14 +378,14 @@
         required="true"
       />
       <label
-        v-text="t('Name')"
         for="title"
+        v-text="t('Name')"
       />
     </FloatLabel>
     <small
       v-if="submitted && !item.title"
-      v-text="t('Title is required')"
       class="p-error"
+      v-text="t('Title is required')"
     />
   </BaseDialogConfirmCancel>
 
@@ -464,9 +482,9 @@
   <!-- AI feedback dialog -->
   <BaseDialogConfirmCancel
     v-model:is-visible="isAiFeedbackDialogVisible"
-    :title="t('Get AI feedback')"
-    :confirm-label="aiFeedbackLoading ? t('In progress') : t('Get AI feedback')"
     :cancel-label="t('Close')"
+    :confirm-label="aiFeedbackLoading ? t('In progress') : t('Get AI feedback')"
+    :title="t('Get AI feedback')"
     @confirm-clicked="runAiFeedback"
     @cancel-clicked="closeAiFeedbackDialog"
   >
@@ -485,8 +503,8 @@
 
         <select
           v-model="aiFeedbackProvider"
-          class="w-full rounded border border-gray-300 p-2 text-sm"
           :disabled="aiFeedbackLoading || aiFeedbackSaving || aiFeedbackProviderOptions.length === 0"
+          class="w-full rounded border border-gray-300 p-2 text-sm"
         >
           <option
             v-for="p in aiFeedbackProviderOptions"
@@ -515,10 +533,10 @@
         <div class="text-sm font-semibold">Prompt</div>
         <textarea
           v-model="aiFeedbackPrompt"
-          class="w-full rounded border border-gray-300 p-2 text-sm"
-          rows="4"
-          placeholder="Write your question for the AI..."
           :disabled="aiFeedbackLoading || aiFeedbackSaving"
+          class="w-full rounded border border-gray-300 p-2 text-sm"
+          placeholder="Write your question for the AI..."
+          rows="4"
         />
       </div>
 
@@ -576,14 +594,14 @@
           required
         />
         <label
-          v-text="t('Name')"
           for="templateTitle"
+          v-text="t('Name')"
         />
       </FloatLabel>
       <small
         v-if="submitted && !templateFormData.title"
-        v-text="t('Title is required')"
         class="p-error"
+        v-text="t('Title is required')"
       />
       <BaseFileUpload
         id="post-file"
@@ -774,6 +792,10 @@ const selectedItems = ref([])
  * Visibility helpers (safe access)
  * -----------------------------------------
  */
+function getDocumentComment(document) {
+  return String(document?.comment || "").trim()
+}
+
 function getPrimaryResourceLink(doc) {
   const links = doc?.resourceLinkListFromEntity
   if (!Array.isArray(links) || links.length === 0) {
@@ -925,22 +947,24 @@ function getOnlyofficeButtonTitle() {
 }
 
 function buildOnlyofficeUrl(doc) {
-  const url = new URL(onlyofficeEditorPath.value, window.location.origin)
+  const sp = new URLSearchParams({
+    cid: String(unref(cid) || 0),
+    sid: String(unref(sid) || 0),
+    docId: String(doc.iid),
+    returnUrl: window.location.href,
+  })
 
-  url.searchParams.set("cid", String(unref(cid) || 0))
-  url.searchParams.set("sid", String(unref(sid) || 0))
   const currentGroupId = Number(unref(gid) || 0)
+
   if (currentGroupId > 0) {
-    url.searchParams.set("groupId", String(currentGroupId))
+    sp.set("groupId", String(currentGroupId))
   }
-  url.searchParams.set("docId", String(doc.iid))
-  url.searchParams.set("returnUrl", window.location.href)
 
   if (isOnlyofficeViewOnly(doc) || !canEdit(doc)) {
-    url.searchParams.set("readOnly", "1")
+    sp.set("readOnly", "1")
   }
 
-  return url.toString()
+  return `${onlyofficeEditorPath.value}?${sp.toString()}`
 }
 
 function openWithOnlyoffice(doc) {
@@ -1057,13 +1081,6 @@ onMounted(async () => {
   // loadAllFolders() is intentionally deferred: it recursively fetches all
   // course folders and is only needed when the move dialog is opened.
   // openMoveDialog() calls it on demand.
-
-  void courseSettingsStore
-    .loadCourseSettings(cid, sid)
-    .catch((e) => console.error("[AI] loadCourseSettings failed:", e))
-    .finally(() => {
-      void loadAiCapabilities()
-    })
 
   void loadAiCapabilities()
   consumeAiSavedToast()
@@ -1258,6 +1275,12 @@ async function downloadSelectedItems() {
     return
   }
 
+  if (selectedItems.value.some((item) => item?.filetype === "link")) {
+    notification.showErrorNotification(t("Cloud links cannot be downloaded."))
+
+    return
+  }
+
   isDownloading.value = true
 
   try {
@@ -1419,7 +1442,7 @@ function btnEditOnClick(item) {
     return
   }
 
-  if ("file" === item.filetype || "certificate" === item.filetype) {
+  if ("file" === item.filetype || "certificate" === item.filetype || "html" === item.filetype) {
     folderParams.getFile = true
     router.push({ name: "DocumentsUpdateFile", params: { id: item["@id"] }, query: folderParams })
   }
@@ -2227,5 +2250,46 @@ function consumeAiSavedToast() {
     params: route.params,
     query: newQuery,
   })
+}
+
+async function copyToMyFiles(item) {
+  const documentId = item?.iid
+
+  if (!documentId) {
+    notification.showErrorNotification(t("Could not copy the file to My Files"))
+    return
+  }
+
+  try {
+    await baseService.post(`/api/documents/${documentId}/personal_files?cid=${cid}&sid=${sid}&gid=${gid}`)
+
+    notification.showSuccessNotification(t("File copied to My Files"))
+  } catch (error) {
+    console.error("[Documents] Error copying file to My Files:", error)
+    notification.showErrorNotification(t("Could not copy the file to My Files"))
+  }
+}
+
+const canCopyToMyFiles = computed(() => {
+  const allowMyFiles = platformConfigStore.getSetting("platform.allow_my_files")
+  const usersCopyFiles = platformConfigStore.getSetting("document.users_copy_files")
+
+  console.log("[Documents] copy-to-my-files config", {
+    isAuthenticated: securityStore.isAuthenticated,
+    allowMyFiles,
+    usersCopyFiles,
+  })
+
+  return securityStore.isAuthenticated && "true" === String(allowMyFiles) && "true" === String(usersCopyFiles)
+})
+
+function canShowCopyToMyFiles(item) {
+  console.log("[Documents] copy-to-my-files row", {
+    iid: item?.iid,
+    title: item?.title,
+    filetype: item?.filetype,
+  })
+
+  return canCopyToMyFiles.value && "file" === item?.filetype
 }
 </script>

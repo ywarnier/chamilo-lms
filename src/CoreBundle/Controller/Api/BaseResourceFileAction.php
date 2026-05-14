@@ -8,6 +8,7 @@ namespace Chamilo\CoreBundle\Controller\Api;
 
 use Chamilo\CoreBundle\Entity\AbstractResource;
 use Chamilo\CoreBundle\Entity\Course;
+use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Entity\ResourceFile;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\ResourceNode;
@@ -347,6 +348,7 @@ class BaseResourceFileAction
 
                                 $resourceNode->setUpdatedAt(new DateTime());
                                 $existingDocument->setResourceNode($resourceNode);
+                                $this->applyResourceLanguageFromRequest($existingDocument, $request, $em);
 
                                 $em->persist($existingDocument);
                                 $em->flush();
@@ -533,20 +535,34 @@ class BaseResourceFileAction
         $parentResourceNodeId = 0;
         $title = null;
         $content = null;
+        $comment = null;
+        $hasComment = false;
 
         if (!empty($contentData)) {
             $contentData = json_decode($contentData, true);
 
-            if (isset($contentData['parentResourceNodeId'])) {
-                $parentResourceNodeId = (int) ($this->normalizeNodeId($contentData['parentResourceNodeId']) ?? 0);
-            }
+            if (\is_array($contentData)) {
+                if (isset($contentData['parentResourceNodeId'])) {
+                    $parentResourceNodeId = (int) ($this->normalizeNodeId($contentData['parentResourceNodeId']) ?? 0);
+                }
 
-            $title = $contentData['title'] ?? null;
-            $content = $contentData['contentFile'] ?? null;
-            $resourceLinkList = $contentData['resourceLinkListFromEntity'] ?? [];
+                $title = $contentData['title'] ?? null;
+                $content = $contentData['contentFile'] ?? null;
+                $resourceLinkList = $contentData['resourceLinkListFromEntity'] ?? [];
+
+                if (\array_key_exists('comment', $contentData)) {
+                    $comment = $contentData['comment'];
+                    $hasComment = true;
+                }
+            }
         } else {
             $title = $request->get('title');
             $content = $request->request->get('contentFile');
+
+            if ($request->request->has('comment')) {
+                $comment = $request->request->get('comment');
+                $hasComment = true;
+            }
 
             // Keep compatibility with form requests
             if ($request->query->has('parentResourceNodeId') || $request->request->has('parentResourceNodeId')) {
@@ -558,6 +574,10 @@ class BaseResourceFileAction
         // Only update the name when a title is explicitly provided.
         if (null !== $title) {
             $repo->setResourceName($resource, $title);
+        }
+
+        if ($hasComment && $resource instanceof CDocument) {
+            $resource->setComment(null === $comment ? null : (string) $comment);
         }
 
         $resourceNode = $resource->getResourceNode();
@@ -677,6 +697,97 @@ class BaseResourceFileAction
         $resourceNode->setUpdatedAt(new DateTime());
 
         return $resource;
+    }
+
+    protected function applyResourceLanguageFromRequest(AbstractResource $resource, Request $request, EntityManagerInterface $em): void
+    {
+        if (!$this->hasResourceLanguageInRequest($request)) {
+            return;
+        }
+
+        $language = $this->findResourceLanguageFromRequest($request, $em);
+        $this->applyResourceLanguage($resource, $language, $em);
+    }
+
+    protected function applyResourceLanguage(AbstractResource $resource, ?Language $language, EntityManagerInterface $em): void
+    {
+        $resourceNode = $resource->getResourceNode();
+        if (null === $resourceNode) {
+            return;
+        }
+
+        $resourceNode->setLanguage($language);
+        $em->persist($resourceNode);
+
+        foreach ($resourceNode->getResourceFiles() as $resourceFile) {
+            if ($resourceFile instanceof ResourceFile) {
+                $resourceFile->setLanguage($language);
+                $em->persist($resourceFile);
+            }
+        }
+    }
+
+    private function hasResourceLanguageInRequest(Request $request): bool
+    {
+        if ($request->request->has('language')) {
+            return true;
+        }
+
+        $content = $request->getContent();
+        if ('' === trim($content)) {
+            return false;
+        }
+
+        $data = json_decode($content, true);
+
+        return \is_array($data) && \array_key_exists('language', $data);
+    }
+
+    private function findResourceLanguageFromRequest(Request $request, EntityManagerInterface $em): ?Language
+    {
+        $rawLanguage = null;
+
+        if ($request->request->has('language')) {
+            $rawLanguage = $request->request->get('language');
+        } else {
+            $content = $request->getContent();
+            if ('' !== trim($content)) {
+                $data = json_decode($content, true);
+                if (\is_array($data) && \array_key_exists('language', $data)) {
+                    $rawLanguage = $data['language'];
+                }
+            }
+        }
+
+        $languageCode = trim((string) $rawLanguage);
+        if ('' === $languageCode) {
+            return null;
+        }
+
+        if (preg_match('#/api/languages/(\d+)#', $languageCode, $matches)) {
+            $language = $em->getRepository(Language::class)->find((int) $matches[1]);
+
+            if ($language instanceof Language) {
+                return $language;
+            }
+
+            throw new BadRequestHttpException('Invalid resource language.');
+        }
+
+        if (!preg_match('/^[a-zA-Z0-9_-]{1,8}$/', $languageCode)) {
+            throw new BadRequestHttpException('Invalid resource language.');
+        }
+
+        $language = $em->getRepository(Language::class)->findOneBy([
+            'isocode' => $languageCode,
+            'available' => true,
+        ]);
+
+        if ($language instanceof Language) {
+            return $language;
+        }
+
+        throw new BadRequestHttpException('Invalid resource language.');
     }
 
     private function normalizeNodeId(mixed $value): ?int

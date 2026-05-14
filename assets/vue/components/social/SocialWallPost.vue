@@ -100,9 +100,9 @@
             type="button"
             @click="toggleComments"
           >
-            <span v-if="commentsLoading">Loading comments...</span>
-            <span v-else-if="showComments">Hide comments ({{ commentsCount }})</span>
-            <span v-else>Comments ({{ commentsCount }})</span>
+            <span v-if="commentsLoading">{{ t("Loading comments...") }}</span>
+            <span v-else-if="showComments">{{ t("Hide comments") }} ({{ commentsCount }})</span>
+            <span v-else>{{ t("Comments") }} ({{ commentsCount }})</span>
           </button>
         </div>
 
@@ -124,7 +124,7 @@
             v-else-if="!commentsLoading"
             class="text-sm text-gray-50"
           >
-            No comments yet.
+            {{ t("No comments yet.") }}
           </div>
         </div>
 
@@ -144,11 +144,11 @@ import { computed, inject, onMounted, reactive, ref, watch } from "vue"
 import WallComment from "./SocialWallComment.vue"
 import WallActions from "./Actions"
 import axios from "axios"
-import { ENTRYPOINT } from "../../config/entrypoint"
 import BaseCard from "../basecomponents/BaseCard.vue"
 import { SOCIAL_TYPE_PROMOTED_MESSAGE } from "./constants"
 import { useFormatDate } from "../../composables/formatDate"
 import { useSecurityStore } from "../../store/securityStore"
+import { useI18n } from "vue-i18n"
 
 const props = defineProps({
   post: {
@@ -158,6 +158,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits(["post-deleted"])
+const { t } = useI18n()
 const { relativeDatetime } = useFormatDate()
 
 const comments = reactive([])
@@ -245,7 +246,7 @@ async function loadCommentsCount() {
     const postIri = props.post?.["@id"]
     if (!postIri) return
 
-    const { data } = await axios.get(ENTRYPOINT + "social_posts", {
+    const { data } = await axios.get("/api/social_posts", {
       params: {
         parent: postIri,
         itemsPerPage: 1,
@@ -269,7 +270,7 @@ async function loadComments() {
     const postIri = props.post?.["@id"]
     if (!postIri) return
 
-    const { data } = await axios.get(ENTRYPOINT + "social_posts", {
+    const { data } = await axios.get("/api/social_posts", {
       params: {
         parent: postIri,
         "order[sendDate]": "desc",
