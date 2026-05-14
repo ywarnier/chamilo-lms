@@ -144,6 +144,10 @@ const compensationOptions = computed(() =>
 Use `allow-cleared` for optional filters (adds a clear/× button). Use `:hast-empty-value="true"`
 to prepend a `--` row when the field is required with a blank default.
 
+**Para listas grandes (decenas/cientos de opciones) o anidadas**, usar `BaseAutocomplete` en
+lugar de `BaseSelect` — ver la sección de [BaseAutocomplete](#baseautocomplete) y el patrón
+de caché con `useEntityCache`.
+
 ---
 
 ### BaseCalendar
@@ -268,13 +272,68 @@ Renders chips for selected values.
 ```
 **Props:** `id` (required), `label` (required), `search` (Function, required),
 `optionLabel` (default `"name"`), `isMultiple`, `disabled`, `helpText`, `isInvalid`.
-The `search` function receives the query string and must return a Promise resolving to an array:
+
+**Cuándo usar `BaseAutocomplete` en lugar de `BaseSelect`:**
+
+- La lista tiene **decenas o cientos** de elementos — un `<select>` se vuelve incómodo.
+- La fuente es un endpoint paginado o sin tope superior conocido (ej. `/api/users`).
+- La lista es **anidada** (ej. árbol de skills) y el usuario necesita buscar por texto.
+
+Para listas cortas y fijas (≤ ~20 ítems, ej. estados, periodicidades, tipos), seguir usando `BaseSelect`.
+
+El prop `search` recibe el query y devuelve una Promesa con el array de sugerencias. Existen dos patrones según el tamaño del dataset:
+
+**1) Búsqueda server-side** — datasets grandes o paginados:
 ```js
 async function searchUsers(query) {
   const result = await baseService.getCollection('/api/users', { search: query, itemsPerPage: 10 })
   return result.items
 }
 ```
+
+**2) Búsqueda con caché en memoria — `useEntityCache`** (`assets/vue/composables/useEntityCache.js`):
+
+Factory con `Map` a nivel de módulo. Cachea la lista por endpoint en toda la sesión — múltiples vistas / múltiples instancias del autocomplete comparten una sola petición.
+
+```js
+import { useEntityCache } from "../../composables/useEntityCache"
+
+const skillsCache = useEntityCache("/api/skills", { pagination: false })
+
+onMounted(async () => {
+  await skillsCache.load()   // carga una vez por sesión
+})
+```
+
+```vue
+<BaseAutocomplete
+  id="skill-ref"
+  v-model="selectedSkill"
+  :label="t('Skill')"
+  :search="skillsCache.search"
+  option-label="title"
+/>
+```
+
+API del caché:
+- `load()` — carga lazy una vez; desduplica llamadas concurrentes; en siguientes llamadas devuelve los items ya cacheados.
+- `search(query)` — filtra in-memory por el `labelField` (3er argumento del factory, default `"title"`). Pasar como prop `search`.
+- `findById(id)` — resuelve un id numérico al objeto. Útil en modo edición cuando el backend envía solo el id.
+- `invalidate()` — limpia el caché. Llamar después de crear/editar/borrar la entidad para forzar recarga.
+
+**Cuando el v-model debe enviarse como id (no IRI ni objeto)** — `BaseAutocomplete` mantiene el objeto completo en el modelo; al guardar se extrae `.id` y al cargar (edit) se resuelve id → objeto con `findById`:
+```js
+// addItem
+form.items.push({ ref: null })
+
+// load (modo edición)
+items: backendItems.map((i) => ({ ref: skillsCache.findById(i.refId) }))
+
+// save payload
+items: form.items.filter((i) => i.ref?.id).map((i) => ({ refId: Number(i.ref.id) }))
+```
+
+**Backend — habilitar `pagination=false` cuando uses el caché**: las entidades cuyo `ApiResource` no declare `paginationClientEnabled: true` ignorarán el `pagination: false` del cliente y devolverán solo 30 ítems silenciosamente. Verifica el atributo de la entidad antes de cachear listas completas.
 
 **Siempre usar `BaseAutocomplete` en lugar del patrón manual `<BaseInputText>` + `<ul>`.**
 Cuando veas este patrón en un archivo Vue, reemplázalo:
