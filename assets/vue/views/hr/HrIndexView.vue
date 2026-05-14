@@ -166,11 +166,10 @@ const performanceItems = computed(() => {
 })
 
 const recruitmentItems = computed(() => [
-  { class: "item-hr-recruitment-stages", label: t("Recruitment stages") },
   {
     class: "item-hr-recruitment-stages",
     route: { name: "HrRecruitmentStages" },
-    label: t("Evaluation stages"),
+    label: t("Recruitment stages"),
   },
   {
     class: "item-hr-recruitment-processes",

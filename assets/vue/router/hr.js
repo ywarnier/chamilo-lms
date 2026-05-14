@@ -244,17 +244,6 @@ export default {
       component: () => import("../views/hr/HrPeriodicityView.vue"),
     },
     {
-      name: "HrEvaluationStages",
-      path: "evaluation-stages",
-      meta: {
-        requiresAuth: true,
-        requiresHr: true,
-        showBreadcrumb: true,
-        breadcrumb: "Evaluation stages",
-      },
-      component: () => import("../views/hr/HrEvaluationStageView.vue"),
-    },
-    {
       name: "HrAppraisalTemplates",
       path: "appraisal-templates",
       meta: {
