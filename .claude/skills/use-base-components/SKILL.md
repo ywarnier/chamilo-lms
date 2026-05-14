@@ -1,25 +1,83 @@
 ---
 name: use-base-components
 description: >
-  Replace native HTML form elements with Base* components in Vue files.
-  Auto-invoke when: user creates a new Vue form or dialog, edits a Vue file
-  containing native <input>, <select>, <textarea>, or <checkbox> elements,
-  asks to refactor form fields, or mentions BaseInputText, BaseSelect,
-  BaseTextArea, BaseCheckbox, BaseCalendar, BaseColorPicker, BaseRadioButtons,
-  BaseMultiSelect, BaseAutocomplete, or any Base* component.
+  Replace native HTML form elements with Base* components in Vue files AND
+  ensure every Base*/SectionHeader/Fieldset tag in any Vue file has a matching
+  import in <script setup> (Vue 3 does not auto-register local components in
+  this project; only Column is global). Auto-invoke when: user creates ANY
+  new Vue file or page (form, dialog, view), adds Base*/SectionHeader/Fieldset
+  tags to an existing Vue file, edits a Vue file containing native <input>,
+  <select>, <textarea>, or <checkbox> elements, asks to refactor form fields,
+  reports "Failed to resolve component" runtime warnings, or mentions
+  BaseInputText, BaseSelect, BaseTextArea, BaseCheckbox, BaseCalendar,
+  BaseColorPicker, BaseRadioButtons, BaseMultiSelect, BaseAutocomplete,
+  BaseDialog, BaseTable, BaseButton, BaseInputNumber, SectionHeader, or any
+  Base* component.
   Do NOT invoke for: non-Vue files, React or Angular components, styling-only
-  changes, or files that already use Base* components exclusively.
+  changes inside files whose Base* imports are already complete.
 allowed-tools:
   - Read
   - Edit
   - Write
   - Glob
   - Grep
+  - Bash
 ---
 
 Review the Vue file(s) referenced in `$ARGUMENTS` (or the currently open file if no argument is given)
 and replace every native HTML form element with the appropriate `Base*` component from
 `assets/vue/components/basecomponents/`. Follow the mapping and rules below exactly.
+
+---
+
+## ⚠ Critical rule (read first): every component used in the template must be imported
+
+In this project, Vue 3 with `<script setup>` does **NOT** auto-register local components.
+Only `Column` (PrimeVue) is registered globally in `assets/vue/main.js:48,206`. **Every other
+component** — `BaseButton`, `BaseDialog`, `BaseSelect`, `BaseTable`, `BaseInputText`,
+`BaseInputNumber`, `BaseCheckbox`, `BaseCalendar`, `BaseAutocomplete`, `BaseMultiSelect`,
+`BaseRadioButtons`, `BaseColorPicker`, `BaseTextArea`, `BaseIcon`, `SectionHeader`, `Fieldset`,
+etc. — **MUST be imported explicitly** in `<script setup>`.
+
+**Why this rule exists**: when a component is missing its import, Vue 3 does **NOT** raise a
+build error. `yarn build` reports `webpack compiled successfully` even with missing imports.
+The failure surfaces only at runtime as `[Vue warn]: Failed to resolve component: BaseDialog`,
+and that warning does not show in CI. So you cannot rely on `yarn build` to catch this — you
+must cross-check by hand (or via the verification command at the end of this skill).
+
+When you **create** a new Vue file or **add** a component tag to an existing one, the imports
+are part of the same change. Don't defer them. Don't rely on the file already having the
+imports from a prior edit. Verify every time.
+
+Standard import paths (note: from `assets/vue/views/<feature>/Foo.vue` the prefix is `../../`;
+from `assets/vue/views/<feature>/<sub>/Foo.vue` it is `../../../`):
+
+```js
+// Most common Base* components
+import BaseAutocomplete from "../../components/basecomponents/BaseAutocomplete.vue"
+import BaseButton       from "../../components/basecomponents/BaseButton.vue"
+import BaseCalendar     from "../../components/basecomponents/BaseCalendar.vue"
+import BaseCheckbox     from "../../components/basecomponents/BaseCheckbox.vue"
+import BaseColorPicker  from "../../components/basecomponents/BaseColorPicker.vue"
+import BaseDialog       from "../../components/basecomponents/BaseDialog.vue"
+import BaseIcon         from "../../components/basecomponents/BaseIcon.vue"
+import BaseInputNumber  from "../../components/basecomponents/BaseInputNumber.vue"
+import BaseInputText    from "../../components/basecomponents/BaseInputText.vue"
+import BaseMultiSelect  from "../../components/basecomponents/BaseMultiSelect.vue"
+import BaseRadioButtons from "../../components/basecomponents/BaseRadioButtons.vue"
+import BaseSelect       from "../../components/basecomponents/BaseSelect.vue"
+import BaseTable        from "../../components/basecomponents/BaseTable.vue"
+import BaseTextArea     from "../../components/basecomponents/BaseTextArea.vue"
+
+// Layout
+import SectionHeader from "../../components/layout/SectionHeader.vue"
+
+// PrimeVue (when needed alongside Base* — Column is global so do NOT import)
+import Fieldset from "primevue/fieldset"
+```
+
+**Exceptions**: only `Column` (used inside `<BaseTable>`) is auto-registered globally —
+do NOT import it.
 
 ---
 
@@ -564,3 +622,36 @@ Work through the target file(s) in this order:
     - `<input type="checkbox">` used in v-model array bindings (multi-value selection).
     - `<input type="color">` unless the form already imports `colorjs.io` or it is trivial to add.
     - Inputs inside third-party component slots that require a native element.
+
+---
+
+## Final verification — cross-check template tags vs `<script setup>` imports
+
+Before declaring the file done, run this check on EVERY Vue file you created or modified.
+`yarn build` will compile successfully even when imports are missing, so this is the only
+reliable gate.
+
+```bash
+file=assets/vue/views/path/to/YourFile.vue
+
+# Components used in the template (Base*, PrimeVue PascalCase, layout):
+used=$(grep -oE '<(Base[A-Z][A-Za-z0-9]+|SectionHeader|Fieldset|Column)\b' "$file" \
+  | sed 's/^<//' | sort -u)
+
+# Components imported in <script setup>:
+imported=$(grep -oE '^import [A-Z][A-Za-z0-9]+ from' "$file" \
+  | awk '{print $2}' | sort -u)
+
+# Anything in `used` minus `imported` minus `Column` (globally registered) is a missing import:
+echo "USED:"; echo "$used"
+echo "IMPORTED:"; echo "$imported"
+echo "MISSING:"; comm -23 <(echo "$used") <(printf '%s\nColumn\n' "$imported" | sort -u)
+```
+
+If `MISSING` is non-empty, **add the imports before returning**. Re-run `yarn build` after
+adding them as a sanity check, but remember that build success alone does NOT prove the
+imports are correct — only the diff above does.
+
+**Common offenders observed in this project**: `BaseDialog`, `BaseSelect`, `BaseTable`,
+`BaseAutocomplete`, `BaseInputNumber`, `SectionHeader`. These are easy to forget because
+their tags read as if they were globally registered (`<BaseDialog>`, `<SectionHeader>`).
