@@ -15,7 +15,7 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
 use Chamilo\CoreBundle\Repository\BranchSyncRepository;
-use Chamilo\CoreBundle\State\HrBranchStateProcessor;
+use Chamilo\CoreBundle\State\BranchStateProcessor;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -42,13 +42,13 @@ use Symfony\Component\Validator\Constraints as Assert;
             security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
             normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
             denormalizationContext: ['groups' => ['branch:write']],
-            processor: HrBranchStateProcessor::class,
+            processor: BranchStateProcessor::class,
         ),
         new Put(
             security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
             normalizationContext: ['groups' => ['branch:read', 'geographic_zone:read']],
             denormalizationContext: ['groups' => ['branch:write']],
-            processor: HrBranchStateProcessor::class,
+            processor: BranchStateProcessor::class,
         ),
         new Delete(
             security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
@@ -146,7 +146,7 @@ class BranchSync
     #[ORM\Column(name: 'ssl_pub_key', type: 'string', length: 250, nullable: true, unique: false)]
     protected ?string $sslPubKey;
 
-    #[Groups(['branch:read'])]
+    #[Groups(['branch:read', 'branch:write'])]
     #[ORM\Column(name: 'branch_type', type: 'string', length: 250, nullable: true, unique: false)]
     protected ?string $branchType = null;
 

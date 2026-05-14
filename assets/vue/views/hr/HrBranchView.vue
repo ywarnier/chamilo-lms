@@ -187,6 +187,7 @@ async function save() {
     geographicZone: form.value.geographicZone,
     latitude: form.value.latitude ?? null,
     longitude: form.value.longitude ?? null,
+    branchType: "hr",
   }
   try {
     if (editing.value) {
