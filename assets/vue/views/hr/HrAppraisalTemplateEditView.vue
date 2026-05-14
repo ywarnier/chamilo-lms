@@ -3,9 +3,9 @@
     <SectionHeader :title="isEdit ? t('Edit evaluation template') : t('Add evaluation template')">
       <BaseButton
         :label="t('Back to list')"
+        :route="{ name: 'HrAppraisalTemplates' }"
         icon="arrow-left"
         type="plain"
-        @click="router.push({ name: 'HrAppraisalTemplates' })"
       />
     </SectionHeader>
 
@@ -33,36 +33,27 @@
           name="title"
           required
         />
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Periodicity") }}</label>
-          <select
-            v-model="form.periodicity"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            name="periodicity"
-          >
-            <option value="">
-              — {{ t("None") }} —
-            </option>
-            <option
-              v-for="p in periodicities"
-              :key="p['@id']"
-              :value="p['@id']"
-            >
-              {{ p.title }} ({{ p.days }} {{ t("days") }})
-            </option>
-          </select>
-        </div>
+        <BaseSelect
+          id="template-periodicity"
+          v-model="form.periodicity"
+          :label="t('Periodicity')"
+          :options="periodicityOptions"
+          allow-clear
+          name="periodicity"
+        />
       </div>
 
       <!-- Weight summary -->
       <div
-        :class="totalWeight !== 100 && form.items.length > 0 ? 'bg-red-50 border-red-300 text-red-700' : 'bg-green-50 border-green-300 text-green-700'"
+        :class="
+          totalWeight !== 100 && form.items.length > 0
+            ? 'bg-red-50 border-red-300 text-red-700'
+            : 'bg-green-50 border-green-300 text-green-700'
+        "
         class="rounded border px-4 py-2 text-sm font-medium"
       >
         {{ t("Total weight") }}: {{ totalWeight }}%
-        <span v-if="form.items.length > 0 && totalWeight !== 100">
-          — {{ t("Must equal 100%") }}
-        </span>
+        <span v-if="form.items.length > 0 && totalWeight !== 100"> — {{ t("Must equal 100%") }} </span>
       </div>
 
       <!-- Skills section -->
@@ -101,31 +92,21 @@
               class="border-b last:border-0"
             >
               <td class="py-2 pr-4">
-                <select
+                <BaseSelect
+                  :id="'skill_ref_' + idx"
                   v-model="item.ref"
-                  class="border border-gray-300 rounded px-2 py-1 text-sm w-full"
+                  :label="t('Skill')"
                   :name="'skill_ref_' + idx"
-                >
-                  <option value="">
-                    — {{ t("Select") }} —
-                  </option>
-                  <option
-                    v-for="s in skills"
-                    :key="s.id"
-                    :value="s.id"
-                  >
-                    {{ s.title }}
-                  </option>
-                </select>
+                  :options="skillOptions"
+                />
               </td>
               <td class="py-2 pr-4">
-                <input
-                  v-model.number="item.percentage"
-                  class="border border-gray-300 rounded px-2 py-1 text-sm w-full"
-                  max="100"
-                  min="0"
-                  :name="'skill_pct_' + idx"
-                  type="number"
+                <BaseInputNumber
+                  :id="'skill_pct_' + idx"
+                  v-model="item.percentage"
+                  :label="t('Weight %')"
+                  :max="100"
+                  :min="0"
                 />
               </td>
               <td class="py-2">
@@ -185,31 +166,21 @@
               class="border-b last:border-0"
             >
               <td class="py-2 pr-4">
-                <select
+                <BaseSelect
+                  :id="'activity_ref_' + idx"
                   v-model="item.ref"
-                  class="border border-gray-300 rounded px-2 py-1 text-sm w-full"
+                  :label="t('Activity')"
                   :name="'activity_ref_' + idx"
-                >
-                  <option value="">
-                    — {{ t("Select") }} —
-                  </option>
-                  <option
-                    v-for="a in activities"
-                    :key="a.id"
-                    :value="a.id"
-                  >
-                    {{ a.title }}
-                  </option>
-                </select>
+                  :options="activityOptions"
+                />
               </td>
               <td class="py-2 pr-4">
-                <input
-                  v-model.number="item.percentage"
-                  class="border border-gray-300 rounded px-2 py-1 text-sm w-full"
-                  max="100"
-                  min="0"
-                  :name="'activity_pct_' + idx"
-                  type="number"
+                <BaseInputNumber
+                  :id="'activity_pct_' + idx"
+                  v-model="item.percentage"
+                  :label="t('Weight %')"
+                  :max="100"
+                  :min="0"
                 />
               </td>
               <td class="py-2">
@@ -269,31 +240,21 @@
               class="border-b last:border-0"
             >
               <td class="py-2 pr-4">
-                <select
+                <BaseSelect
+                  :id="'objective_ref_' + idx"
                   v-model="item.ref"
-                  class="border border-gray-300 rounded px-2 py-1 text-sm w-full"
+                  :label="t('Objective')"
                   :name="'objective_ref_' + idx"
-                >
-                  <option value="">
-                    — {{ t("Select") }} —
-                  </option>
-                  <option
-                    v-for="o in objectives"
-                    :key="o.id"
-                    :value="o.id"
-                  >
-                    {{ o.title }}
-                  </option>
-                </select>
+                  :options="objectiveOptions"
+                />
               </td>
               <td class="py-2 pr-4">
-                <input
-                  v-model.number="item.percentage"
-                  class="border border-gray-300 rounded px-2 py-1 text-sm w-full"
-                  max="100"
-                  min="0"
-                  :name="'objective_pct_' + idx"
-                  type="number"
+                <BaseInputNumber
+                  :id="'objective_pct_' + idx"
+                  v-model="item.percentage"
+                  :label="t('Weight %')"
+                  :max="100"
+                  :min="0"
                 />
               </td>
               <td class="py-2">
@@ -320,8 +281,9 @@
       <div class="flex justify-end gap-3">
         <BaseButton
           :label="t('Cancel')"
+          :route="{ name: 'HrAppraisalTemplates' }"
+          icon="close"
           type="plain"
-          @click="router.push({ name: 'HrAppraisalTemplates' })"
         />
         <BaseButton
           :disabled="form.items.length > 0 && totalWeight !== 100"
@@ -341,7 +303,9 @@ import { ref, computed, onMounted } from "vue"
 import { useI18n } from "vue-i18n"
 import { useRouter, useRoute } from "vue-router"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
+import BaseInputNumber from "../../components/basecomponents/BaseInputNumber.vue"
 import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
+import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useNotification } from "../../composables/notification"
 import baseService from "../../services/baseService"
@@ -366,6 +330,16 @@ const skillItems = computed(() => form.value.items.filter((i) => i.type === "ski
 const activityItems = computed(() => form.value.items.filter((i) => i.type === "activity"))
 const objectiveItems = computed(() => form.value.items.filter((i) => i.type === "objective"))
 const totalWeight = computed(() => form.value.items.reduce((sum, i) => sum + (Number(i.percentage) || 0), 0))
+
+const periodicityOptions = computed(() =>
+  periodicities.value.map((p) => ({
+    label: `${p.title} (${p.days} ${t("days")})`,
+    value: p["@id"],
+  })),
+)
+const skillOptions = computed(() => skills.value.map((s) => ({ label: s.title, value: s.id })))
+const activityOptions = computed(() => activities.value.map((a) => ({ label: a.title, value: a.id })))
+const objectiveOptions = computed(() => objectives.value.map((o) => ({ label: o.title, value: o.id })))
 
 function addItem(type) {
   form.value.items.push({ type, ref: "", percentage: 0, _key: Date.now() + Math.random() })
@@ -427,7 +401,8 @@ async function save() {
       await baseService.post("/api/performance_appraisal_templates", payload)
     }
     showSuccessNotification(t("Template saved"))
-    router.push({ name: "HrAppraisalTemplates" })
+
+    await router.push({ name: "HrAppraisalTemplates" })
   } catch {
     showErrorNotification(t("Could not save template"))
   } finally {

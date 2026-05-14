@@ -334,7 +334,7 @@ export default {
       path: "recruitment-stages",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Recruitment stages",
       },
@@ -400,7 +400,7 @@ export default {
       path: "career-plan",
       meta: {
         requiresAuth: true,
-        requiresAdmin: true,
+        requiresHr: true,
         showBreadcrumb: true,
         breadcrumb: "Career plan overview",
       },
