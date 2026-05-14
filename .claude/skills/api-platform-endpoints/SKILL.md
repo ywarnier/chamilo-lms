@@ -1,16 +1,18 @@
 ---
 name: api-platform-endpoints
 description: >
-  Design and implement read endpoints with API Platform 3.4 in this Chamilo HR
-  project. Auto-invoke when: user creates or modifies a state provider, an
-  #[ApiResource] declaration, or a DTO under `src/CoreBundle/ApiResource/`;
-  asks how to expose a custom API endpoint, projection, aggregation, or filter;
-  mentions ApiResource, ApiFilter, ApiPlatform, FilterExtension,
-  PaginationExtension, OrderExtension, ProviderInterface, output DTO,
-  state provider, $context['filters'], or RequestStack inside a state provider.
-  Do NOT invoke for: pure entity / migration work without an exposed endpoint,
-  legacy PHP under `public/main/`, or unrelated Symfony controllers that do
-  not interact with API Platform.
+  Design and implement read AND write endpoints with API Platform 3.4 in this
+  Chamilo HR project. Auto-invoke when: user creates or modifies a state
+  provider, a state processor, an #[ApiResource] declaration, or a DTO under
+  `src/CoreBundle/ApiResource/`; asks how to expose a custom API endpoint,
+  projection, aggregation, filter, or POST/PUT/DELETE side effect; mentions
+  ApiResource, ApiFilter, ApiPlatform, FilterExtension, PaginationExtension,
+  OrderExtension, ProviderInterface, ProcessorInterface, persistProcessor,
+  output DTO, state provider, state processor, $context['filters'], or
+  RequestStack inside a state provider/processor. Do NOT invoke for: pure
+  entity / migration work without an exposed endpoint, legacy PHP under
+  `public/main/`, or unrelated Symfony controllers that do not interact with
+  API Platform.
 allowed-tools:
   - Read
   - Edit
@@ -28,15 +30,17 @@ an output DTO, or a controller that returns API data.
 
 ## Decision tree: which path do I take?
 
-| What does the endpoint return?                                                        | Path                                                                                        |
-|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| One or more instances of a **mapped entity** that already has `#[ApiResource]`        | **Path A** — state provider added to the entity's existing operations                       |
-| A **custom projection / aggregation / DTO**, query maps to ONE main Doctrine entity   | **Path B canonical** — new operation on that entity with `output: YourDto::class`           |
-| A **custom projection / aggregation / DTO**, query joins through 2+ entities, no main | **Path B fallback** — DTO-as-resource (`#[ApiResource]` on the DTO) + `$context['filters']` |
-| A **side-effect** action (send message, mark as read, file I/O), no entity response   | **Path C** — plain Symfony controller (last resort)                                         |
+| What does the endpoint do?                                                                                            | Path                                                                                        |
+|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| **Reads** one or more instances of a **mapped entity** that already has `#[ApiResource]`                              | **Path A** — state provider added to the entity's existing operations                       |
+| **Reads** a **custom projection / aggregation / DTO**, query maps to ONE main Doctrine entity                         | **Path B canonical** — new operation on that entity with `output: YourDto::class`           |
+| **Reads** a **custom projection / aggregation / DTO**, query joins through 2+ entities, no main                       | **Path B fallback** — DTO-as-resource (`#[ApiResource]` on the DTO) + `$context['filters']` |
+| **Writes** an entity (Post / Put / Delete) AND triggers side effects (notifications, related records, messenger jobs) | **Path D** — state processor decorating the default persist processor                       |
+| Pure **side-effect** action (send message, mark as read, file I/O) with no entity response                            | **Path C** — plain Symfony controller (last resort)                                         |
 
-Never use Path C just because the response shape is complex: a DTO state provider handles
-any shape. Plain controllers are for actions, not data reads.
+Never use Path C just because the response shape is complex: a DTO state provider (Path B)
+handles any shape. Never use Path C for a side effect that accompanies a normal entity write
+either: Path D keeps API Platform's denormalization, validation, and persistence intact.
 
 ---
 
@@ -361,6 +365,136 @@ and fallback endpoints. Document the parameters via the operation's `openapiCont
 
 ---
 
+## Path D — State processor for write endpoints with side effects
+
+Use a `ProcessorInterface` when a `Post` / `Put` / `Delete` operation must trigger side effects
+**in addition to** persistence (sending notifications, creating related records, dispatching
+messenger jobs, etc.). The standard pattern decorates API Platform's default persist processor:
+the framework still handles validation, denormalization, and DB persistence, and the custom
+processor wraps it with the side effect.
+
+**Step D-1 — Create the processor** in `src/CoreBundle/State/{EntityName}Processor.php`.
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Chamilo\CoreBundle\State;
+
+// Chamilo HR extension
+
+use ApiPlatform\Metadata\Operation;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\State\ProcessorInterface;
+use Chamilo\CoreBundle\Entity\HrSurveyDistribution;
+use Chamilo\CoreBundle\Helpers\MessageHelper;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Contracts\Translation\TranslatorInterface;
+
+/**
+ * @implements ProcessorInterface<HrSurveyDistribution, HrSurveyDistribution|void>
+ */
+final class HrSurveyDistributionProcessor implements ProcessorInterface
+{
+    public function __construct(
+        #[Autowire(service: 'api_platform.doctrine.orm.state.persist_processor')]
+        private readonly ProcessorInterface $persistProcessor,
+        private readonly EntityManagerInterface $em,
+        private readonly MessageHelper $messageHelper,
+        private readonly TranslatorInterface $translator,
+    ) {}
+
+    public function process($data, Operation $operation, array $uriVariables = [], array $context = []): mixed
+    {
+        if (!$operation instanceof Post) {
+            return $this->persistProcessor->process($data, $operation, $uriVariables, $context);
+        }
+
+        \assert($data instanceof HrSurveyDistribution);
+
+        // Persist first so the side effect runs against an entity that has its ID assigned.
+        $persisted = $this->persistProcessor->process($data, $operation, $uriVariables, $context);
+
+        \assert($persisted instanceof HrSurveyDistribution);
+
+        $this->dispatchInvitations($persisted);
+
+        return $persisted;
+    }
+
+    // private helpers ...
+}
+```
+
+**Step D-2 — Wire the persist processor with `#[Autowire]`, NOT services.yaml.**
+
+Use the `#[Autowire(service: 'api_platform.doctrine.orm.state.persist_processor')]` attribute
+on the constructor parameter. This is the project's preferred convention because:
+- It colocates the binding with the consumer (the file that actually needs it).
+- It removes one indirection (no need to grep `services.yaml` to understand a class).
+- It survives refactors better (renaming the class doesn't break a YAML key).
+
+**Do NOT** add a `services.yaml` block like the legacy pattern below for new processors:
+
+```yaml
+# legacy pattern in this codebase — do not replicate for new processors
+Chamilo\CoreBundle\State\YourProcessor:
+  bind:
+    $persistProcessor: '@api_platform.doctrine.orm.state.persist_processor'
+```
+
+Existing entries are kept for backward compatibility but new processors should use
+`#[Autowire]` only.
+
+**Step D-3 — Reference the processor on the operation** of the entity's `#[ApiResource]`:
+
+```php
+new Post(
+    security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
+    processor: HrSurveyDistributionProcessor::class,
+),
+```
+
+**Step D-4 — Verify wiring**:
+
+```bash
+symfony console cache:clear --no-warmup
+symfony console debug:container 'Chamilo\CoreBundle\State\YourProcessor' --show-arguments
+```
+
+The output should list the `persist_processor` plus your other dependencies as resolved
+services, with `Autowired: yes`.
+
+**Pattern rules**:
+- **Always** delegate to `$persistProcessor->process(...)` for the actual persistence — never
+  call `$em->persist()` + `$em->flush()` directly on the main entity. The default processor
+  handles denormalization, validation events, and post-persist hooks correctly.
+- **Persist first, side-effect second** — most side effects need the entity's auto-generated
+  ID, foreign keys, or default values from the constructor.
+- **Pass through non-target operations**: if the processor is referenced on `Post` only,
+  guard with `if (!$operation instanceof Post) { return $this->persistProcessor->process(...); }`.
+  This is essential because some entities reuse the same processor for multiple operations.
+- **Never make the side effect block the response on slow work**. If invitations to 1000+
+  users would be sent, dispatch via Symfony Messenger (`MessageBusInterface`) instead of
+  inline.
+- For the side effect itself, prefer existing project helpers (`MessageHelper` for in-platform
+  messages, `MailHelper` for raw email, `NotificationHelper` for in-app notifications). Avoid
+  re-implementing notification logic.
+
+**Reference example in this codebase**:
+- `src/CoreBundle/State/HrSurveyDistributionProcessor.php` + the `Post` operation in
+  `src/CoreBundle/Entity/HrSurveyDistribution.php` — persists the distribution, then iterates
+  `User → UserToFunctionInUnit → BusinessUnit` to create one `CSurveyInvitation` per member
+  and send an in-platform notification via `MessageHelper::sendMessageSimple()`.
+
+Other processors that pre-date `#[Autowire]` and still use `services.yaml` binding:
+`CourseRelUserStateProcessor`, `MessageProcessor`, `CCalendarEventStateProcessor`, etc. — read
+them for the side-effect pattern but use `#[Autowire]` for new code.
+
+---
+
 ## Path C — Plain controller (side-effect actions only)
 
 Create controllers in `src/CoreBundle/Controller/` (or `.../Admin/` for admin-only features)
@@ -399,6 +533,13 @@ Functional rules:
   natural "main" entity — use the fallback pattern instead.
 - ❌ **Use Path C just because the response shape is complex.** A DTO state provider handles
   any shape. Path C is for actions, not data reads.
+- ❌ **Add a new entry to `services.yaml` to bind `$persistProcessor`.** Use
+  `#[Autowire(service: 'api_platform.doctrine.orm.state.persist_processor')]` on the
+  constructor parameter instead. The legacy YAML pattern (`bind: $persistProcessor: '@...'`)
+  exists for older processors but should not be replicated for new code.
+- ❌ **Call `$em->persist($data); $em->flush();` directly in a state processor instead of
+  delegating to `$persistProcessor->process(...)`.** You bypass denormalization, validation,
+  and post-persist hooks. Always wrap, don't replace.
 - ❌ **Add a `-data` suffix to the URL of an API Platform operation.** That suffix is for
   plain Symfony controllers (Path C) that share a base path with a Vue SPA route. API
   Platform endpoints already live under `/api/` and don't clash.
