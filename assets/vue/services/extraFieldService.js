@@ -9,3 +9,7 @@ export async function getAll(params = {}) {
 export async function getByItemType(itemType, params = {}) {
   return getAll({ itemType, ...params })
 }
+
+export async function searchByDisplayText(query, itemType) {
+  return getAll({ itemType, displayText: query, itemsPerPage: 15 })
+}

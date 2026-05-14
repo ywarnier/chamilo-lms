@@ -69,14 +69,12 @@
           :label="t('Title')"
           name="diversity_criteria_title"
         />
-        <BaseSelect
+        <BaseAutocomplete
           id="diversity-criteria-extra-field"
           v-model="form.extraField"
           :label="t('Extra field')"
-          :options="extraFieldOptions"
-          name="diversity_criteria_extra_field"
+          :search="searchExtraField"
           option-label="label"
-          option-value="value"
         />
         <div class="flex justify-end -mt-2">
           <BaseButton
@@ -115,12 +113,12 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue"
+import { onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
+import BaseAutocomplete from "../../components/basecomponents/BaseAutocomplete.vue"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
 import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
-import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import BaseTextArea from "../../components/basecomponents/BaseTextArea.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
@@ -139,18 +137,10 @@ const { showSuccessNotification, showErrorNotification } = useNotification()
 const { requireConfirmation } = useConfirmation()
 
 const items = ref([])
-const extraFields = ref([])
 const isLoading = ref(true)
 const dialog = ref(false)
 const editing = ref(null)
 const form = ref({ title: "", description: "", extraField: null })
-
-const extraFieldOptions = computed(() =>
-  extraFields.value.map((ef) => ({
-    label: ef.displayText || ef.variable,
-    value: ef["@id"],
-  })),
-)
 
 function formatDate(dateStr) {
   if (!dateStr) return "—"
@@ -158,18 +148,18 @@ function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString()
 }
 
+async function searchExtraField(query) {
+  const fields = await extraFieldService.searchByDisplayText(query, EXTRAFIELD_ITEM_USER)
+
+  return fields
+    .filter((ef) => [EXTRAFIELD_VALUE_RADIO, EXTRAFIELD_VALUE_SELECT].includes(ef.valueType))
+    .map((ef) => ({ ...ef, label: ef.displayText || ef.variable }))
+}
+
 async function load() {
   isLoading.value = true
   try {
-    const [criteriaItems, allExtraFields] = await Promise.all([
-      diversityCriteriaService.getAll(),
-      extraFieldService.getByItemType(EXTRAFIELD_ITEM_USER),
-    ])
-
-    items.value = criteriaItems
-    extraFields.value = allExtraFields.filter((ef) =>
-      [EXTRAFIELD_VALUE_RADIO, EXTRAFIELD_VALUE_SELECT].includes(ef.valueType),
-    )
+    items.value = await diversityCriteriaService.getAll()
   } catch (e) {
     showErrorNotification(e)
   } finally {
@@ -182,7 +172,7 @@ function openForm(item = null) {
   form.value = {
     title: item ? item.title : "",
     description: item ? (item.description ?? "") : "",
-    extraField: item ? item.extraField["@id"] : null,
+    extraField: item ? { "@id": item.extraField["@id"], label: item.extraFieldDisplayText } : null,
   }
   dialog.value = true
 }
@@ -191,7 +181,7 @@ async function save() {
   const payload = {
     title: form.value.title,
     description: form.value.description || null,
-    extraField: form.value.extraField,
+    extraField: form.value.extraField?.["@id"] ?? null,
   }
 
   try {
