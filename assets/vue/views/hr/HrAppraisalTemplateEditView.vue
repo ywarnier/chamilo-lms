@@ -92,12 +92,12 @@
               class="border-b last:border-0"
             >
               <td class="py-2 pr-4">
-                <BaseSelect
+                <BaseAutocomplete
                   :id="'skill_ref_' + idx"
                   v-model="item.ref"
                   :label="t('Skill')"
-                  :name="'skill_ref_' + idx"
-                  :options="skillOptions"
+                  :search="skillsCache.search"
+                  option-label="title"
                 />
               </td>
               <td class="py-2 pr-4">
@@ -166,12 +166,12 @@
               class="border-b last:border-0"
             >
               <td class="py-2 pr-4">
-                <BaseSelect
+                <BaseAutocomplete
                   :id="'activity_ref_' + idx"
                   v-model="item.ref"
                   :label="t('Activity')"
-                  :name="'activity_ref_' + idx"
-                  :options="activityOptions"
+                  :search="activitiesCache.search"
+                  option-label="title"
                 />
               </td>
               <td class="py-2 pr-4">
@@ -240,12 +240,12 @@
               class="border-b last:border-0"
             >
               <td class="py-2 pr-4">
-                <BaseSelect
+                <BaseAutocomplete
                   :id="'objective_ref_' + idx"
                   v-model="item.ref"
                   :label="t('Objective')"
-                  :name="'objective_ref_' + idx"
-                  :options="objectiveOptions"
+                  :search="objectivesCache.search"
+                  option-label="title"
                 />
               </td>
               <td class="py-2 pr-4">
@@ -302,11 +302,13 @@
 import { ref, computed, onMounted } from "vue"
 import { useI18n } from "vue-i18n"
 import { useRouter, useRoute } from "vue-router"
+import BaseAutocomplete from "../../components/basecomponents/BaseAutocomplete.vue"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseInputNumber from "../../components/basecomponents/BaseInputNumber.vue"
 import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
 import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
+import { useEntityCache } from "../../composables/useEntityCache"
 import { useNotification } from "../../composables/notification"
 import baseService from "../../services/baseService"
 
@@ -320,9 +322,16 @@ const isEdit = computed(() => !!route.params.id)
 const loading = ref(false)
 const saving = ref(false)
 const periodicities = ref([])
-const skills = ref([])
-const activities = ref([])
-const objectives = ref([])
+
+const skillsCache = useEntityCache("/api/skills", { pagination: false })
+const activitiesCache = useEntityCache("/api/activities", { pagination: false })
+const objectivesCache = useEntityCache("/api/performance_objectives", { pagination: false })
+
+const cacheByType = {
+  skill: skillsCache,
+  activity: activitiesCache,
+  objective: objectivesCache,
+}
 
 const form = ref({ title: "", periodicity: "", items: [] })
 
@@ -337,12 +346,9 @@ const periodicityOptions = computed(() =>
     value: p["@id"],
   })),
 )
-const skillOptions = computed(() => skills.value.map((s) => ({ label: s.title, value: s.id })))
-const activityOptions = computed(() => activities.value.map((a) => ({ label: a.title, value: a.id })))
-const objectiveOptions = computed(() => objectives.value.map((o) => ({ label: o.title, value: o.id })))
 
 function addItem(type) {
-  form.value.items.push({ type, ref: "", percentage: 0, _key: Date.now() + Math.random() })
+  form.value.items.push({ type, ref: null, percentage: 0, _key: Date.now() + Math.random() })
 }
 
 function removeItem(item) {
@@ -353,16 +359,13 @@ function removeItem(item) {
 async function load() {
   loading.value = true
   try {
-    const [perioRes, skillRes, actRes, objRes] = await Promise.all([
+    const [perioRes] = await Promise.all([
       baseService.get("/api/periodicities"),
-      baseService.get("/api/skills", { pagination: false }),
-      baseService.get("/api/activities", { pagination: false }),
-      baseService.get("/api/performance_objectives", { pagination: false }),
+      skillsCache.load(),
+      activitiesCache.load(),
+      objectivesCache.load(),
     ])
     periodicities.value = perioRes["hydra:member"] ?? perioRes
-    skills.value = skillRes["hydra:member"] ?? skillRes
-    activities.value = actRes["hydra:member"] ?? actRes
-    objectives.value = objRes["hydra:member"] ?? objRes
 
     if (isEdit.value) {
       const tpl = await baseService.get(`/api/performance_appraisal_templates/${route.params.id}`)
@@ -371,7 +374,7 @@ async function load() {
         periodicity: tpl.periodicity ? tpl.periodicity["@id"] : "",
         items: (tpl.items ?? []).map((i) => ({
           type: i.type,
-          ref: i.ref,
+          ref: cacheByType[i.type]?.findById(i.ref) ?? null,
           percentage: i.percentage,
           _key: i.id,
         })),
@@ -392,8 +395,8 @@ async function save() {
       title: form.value.title,
       periodicity: form.value.periodicity || null,
       items: form.value.items
-        .filter((i) => i.ref && i.type)
-        .map((i) => ({ type: i.type, ref: Number(i.ref), percentage: Number(i.percentage) })),
+        .filter((i) => i.ref?.id && i.type)
+        .map((i) => ({ type: i.type, ref: Number(i.ref.id), percentage: Number(i.percentage) })),
     }
     if (isEdit.value) {
       await baseService.put(`/api/performance_appraisal_templates/${route.params.id}`, payload)
