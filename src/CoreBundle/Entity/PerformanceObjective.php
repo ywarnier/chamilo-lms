@@ -21,7 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ApiResource(
     operations: [
-        new GetCollection(security: "is_granted('IS_AUTHENTICATED_FULLY')"),
+        new GetCollection(paginationClientEnabled: true, security: "is_granted('IS_AUTHENTICATED_FULLY')"),
         new Get(security: "is_granted('IS_AUTHENTICATED_FULLY')"),
         new Post(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')"),
         new Put(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')"),
