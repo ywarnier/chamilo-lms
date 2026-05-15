@@ -101,7 +101,7 @@ import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
-import baseService from "../../services/baseService"
+import * as periodicityService from "../../services/hr/periodicityService"
 
 const { t } = useI18n()
 const { showSuccessNotification, showErrorNotification } = useNotification()
@@ -112,14 +112,13 @@ const loading = ref(false)
 const saving = ref(false)
 const showDialog = ref(false)
 
-const emptyForm = () => ({ id: null, title: "", days: "" })
+const emptyForm = () => ({ iri: null, title: "", days: "" })
 const form = ref(emptyForm())
 
 async function load() {
   loading.value = true
   try {
-    const res = await baseService.get("/api/periodicities")
-    periodicities.value = res["hydra:member"] ?? res
+    periodicities.value = await periodicityService.getAll()
   } catch {
     showErrorNotification(t("Could not load periodicities"))
   } finally {
@@ -128,7 +127,7 @@ async function load() {
 }
 
 function openForm(item) {
-  form.value = item ? { id: item.id, title: item.title, days: item.days } : emptyForm()
+  form.value = item ? { iri: item["@id"], title: item.title, days: item.days } : emptyForm()
   showDialog.value = true
 }
 
@@ -137,10 +136,10 @@ async function save() {
   saving.value = true
   try {
     const payload = { title: form.value.title, days: Number(form.value.days) }
-    if (form.value.id) {
-      await baseService.put(`/api/periodicities/${form.value.id}`, payload)
+    if (form.value.iri) {
+      await periodicityService.update(form.value.iri, payload)
     } else {
-      await baseService.post("/api/periodicities", payload, true)
+      await periodicityService.create(payload)
     }
     showSuccessNotification(t("Saved"))
     showDialog.value = false
@@ -161,7 +160,7 @@ function confirmDelete(item) {
 
 async function doDelete(item) {
   try {
-    await baseService.delete(`/api/periodicities/${item.id}`)
+    await periodicityService.remove(item["@id"])
     showSuccessNotification(t("Deleted"))
     await load()
   } catch {
