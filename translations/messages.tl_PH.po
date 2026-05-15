@@ -9726,6 +9726,9 @@ msgstr "Mga resulta ng paghahanap para sa:"
 msgid "Select a file"
 msgstr "Pumili ng file"
 
+msgid "Select a file to insert into the editor."
+msgstr "Pumili ng file upang ipasok sa editor."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Babala - Ang file ng FAQ, na matatagpuan sa /home/ directory ng iyong portal, ay hindi writable. Ang iyong text ay hindi mai-save hangga't hindi binago ang mga pahintulot ng file."
 
@@ -15906,6 +15909,9 @@ msgstr "Petsa at oras"
 msgid "Item"
 msgstr "Item"
 
+msgid "Items"
+msgstr "Mga item"
+
 msgid "Configure Dashboard Plugin"
 msgstr "I-configure ang Dashboard Plugin"
 
@@ -17159,6 +17165,18 @@ msgstr "Mga sesyon sa grupo"
 
 msgid "Courses in group"
 msgstr "Mga kurso sa grupo"
+
+msgid "Courses on the platform"
+msgstr "Mga kurso sa platform"
+
+msgid "%s courses"
+msgstr "%s mga kurso"
+
+msgid "%s sessions"
+msgstr "%s mga sesyon"
+
+msgid "Search by title or code"
+msgstr "Maghanap ayon sa pamagat o code"
 
 msgid "Users in group"
 msgstr "Mga gumagamit sa grupo"
@@ -26587,7 +26605,7 @@ msgid "LDAP connection configuration"
 msgstr "Kombigurasyon ng koneksyon ng LDAP"
 
 msgid "Array defining host and port for the LDAP server.<br><pre> ['host' => '', 'port' => ''] </pre>"
-msgstr "Array na nagdedepina ng host at port para sa LDAP server.<br><pre> ['host' => '', 'port' => ''] </pre>"
+msgstr "Array na tumutukoy sa host at port para sa LDAP server.<br><pre> ['host' => '', 'port' => ''] </pre>"
 
 msgid "Set expiration date on first login"
 msgstr "Itakda ang expiration date sa unang login"
@@ -26599,7 +26617,7 @@ msgid "Selective display of roles"
 msgstr "Piliin ang pagpapakita ng mga role"
 
 msgid "An array of role => true/false that defines whether that role should be shown or hidden.<br><pre> [ 'COURSEMANAGER' => true, 'STUDENT' => true, 'DRH' => false, 'SESSIONADMIN' => false, 'STUDENT_BOSS' => false, 'INVITEE' => false ] </pre>"
-msgstr "Isang array ng role => true/false na nagdedepina kung ang role na iyon ay dapat ipakita o itago.<br><pre> [ 'COURSEMANAGER' => true, 'STUDENT' => true, 'DRH' => false, 'SESSIONADMIN' => false, 'STUDENT_BOSS' => false, 'INVITEE' => false ] </pre>"
+msgstr "Isang array ng role => true/false na tumutukoy kung ang role na iyon ay dapat ipakita o itago.<br><pre> [ 'COURSEMANAGER' => true, 'STUDENT' => true, 'DRH' => false, 'SESSIONADMIN' => false, 'STUDENT_BOSS' => false, 'INVITEE' => false ] </pre>"
 
 msgid "Roles display options"
 msgstr "Mga opsyon sa pagpapakita ng mga role"
@@ -32163,6 +32181,9 @@ msgstr "Gawain"
 msgid "Allowed file formats: %s"
 msgstr "Pinapayagang mga format ng file: %s"
 
+msgid "File manager"
+msgstr ""
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Hindi pinapayagang uri ng file. Pinapayagang mga extension: %s"
 
@@ -33876,6 +33897,9 @@ msgstr "Maligayang pagdating"
 msgid "Welcome to Chamilo"
 msgstr "Maligayang pagdating sa Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr ""
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Kung ito ang unang pagkakataon mong gumamit ng Chamilo, tiyaking suriin ang side menu upang matagpuan ang iyong daan sa maraming tampok nito. Kung kailangan mo ng tulong, makikita mo na <a href=\"https://docs.chamilo.org\">ang aming opisyal na dokumentasyon</a> ay makakatulong para sa karaniwang dokumentasyon, habang ang aming <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> ay makakatulong na magbahagi ng mga ideya at makahanap ng mga sagot mula sa iba pang mga gumagamit ng Chamilo."
 
@@ -34056,17 +34080,74 @@ msgstr "Pagtatasa ng Pangangailangan sa Pagsasanay"
 msgid "Work climate surveys"
 msgstr "Mga Sarbey ng Klima sa Trabaho"
 
+msgid "Unit"
+msgstr ""
+
+msgid "Total cost"
+msgstr ""
+
+msgid "Cost per learner"
+msgstr "Kakayahang bayad bawat mag-aaral"
+
+msgid "Average cost by session"
+msgstr "Karaniwang gastos bawat sesyon"
+
+msgid "Total investment"
+msgstr "Kabuuang pamumuhunan"
+
+msgid "Set cost"
+msgstr "Itakda ang gastos"
+
+msgid "Filter by date range"
+msgstr "I-filter ayon sa saklaw ng petsa"
+
+msgid "Add distribution"
+msgstr "Magdagdag ng pamamahagi"
+
+msgid "User share"
+msgstr "Bahagi ng gumagamit"
+
+msgid "Select a unit"
+msgstr "Piliin ang yunit"
+
+msgid "Select a survey"
+msgstr "Piliin ang survey"
+
+msgid "Distribution added"
+msgstr "Idinagdag na pamamahagi"
+
+msgid "Distribution removed"
+msgstr "Tinanggal na pamamahagi"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Sigurado ka bang gustong alisin ang pamamahaging ito?"
+
+msgid "Cost updated"
+msgstr "Na-update na gastos"
+
+msgid "Total invited"
+msgstr "Kabuuang inanyayahan"
+
+msgid "Total answered"
+msgstr "Kabuuang sumagot"
+
+msgid "Total responses"
+msgstr "Kabuuang tugon"
+
+msgid "No responses yet"
+msgstr "Walang tugon pa"
+
 msgid "Diversity criteria"
 msgstr "Mga Kriteria ng Pagkakaiba-iba"
 
 msgid "Add diversity criterion"
-msgstr ""
+msgstr "Magdagdag ng pamantayan ng pagkakaiba-iba"
 
 msgid "Edit diversity criterion"
-msgstr ""
+msgstr "I-edit ang pamantayan ng pagkakaiba-iba"
 
 msgid "Extra field"
-msgstr ""
+msgstr "Karagdagang field"
 
 msgid "Diversity guidelines"
 msgstr "Mga Gabay ng Pagkakaiba-iba"
@@ -34078,25 +34159,25 @@ msgid "Professional functions"
 msgstr "Mga Propesyonal na Tungkulin"
 
 msgid "Function-unit associations"
-msgstr "Function-unit associations"
+msgstr "Mga kaugnayan ng tungkulin-yunit"
 
 msgid "Unit function list"
-msgstr "Unit function list"
+msgstr "Listahan ng tungkulin ng yunit"
 
 msgid "Positions"
 msgstr "Mga Posisyon"
 
 msgid "Competency search"
-msgstr "Competency search"
+msgstr "Paghahanap ng kakayahang panturo"
 
 msgid "Organizational chart"
 msgstr "Organisasyong Tsart"
 
 msgid "Function-unit association"
-msgstr "Function-unit association"
+msgstr "Kaugnayan ng tungkulin-yunit"
 
 msgid "Add association"
-msgstr "Add association"
+msgstr "Magdagdag ng kaugnayan"
 
 msgid "Edit association"
 msgstr "I-edit ang kaugnayan"
@@ -34565,4 +34646,274 @@ msgstr "Sigurado ka bang gusto mong burahin ang pagsusuri na ito?"
 
 msgid "Loading…"
 msgstr "Naglo-load…"
+
+msgid "Periodicity"
+msgstr "Pagkakasunod-sunod"
+
+msgid "Suggest from periodicity"
+msgstr "Magmungkahi mula sa pagkakasunod-sunod"
+
+msgid "Add job offer"
+msgstr "Magdagdag ng alok ng trabaho"
+
+msgid "Edit job offer"
+msgstr "I-edit ang alok ng trabaho"
+
+msgid "Function / Unit"
+msgstr "Tungkulin / Yunit"
+
+msgid "Vacancies"
+msgstr "Bakante"
+
+msgid "Expected start date"
+msgstr "Inaasahang petsa ng simula"
+
+msgid "Contract duration (days)"
+msgstr "Tagal ng kontrata (araw)"
+
+msgid "Public offer"
+msgstr "Pampublikong alok"
+
+msgid "Publication start date"
+msgstr "Petsa ng simula ng paglalathala"
+
+msgid "Publication end date"
+msgstr "Petsa ng pagtatapos ng paglalathala"
+
+msgid "Applications"
+msgstr "Mga aplikasyon"
+
+msgid "Selection exams"
+msgstr "Mga pagsusulit sa pagpili"
+
+msgid "Add exam"
+msgstr "Magdagdag ng pagsusulit"
+
+msgid "Applicant"
+msgstr "Aplikante"
+
+msgid "Applied on"
+msgstr "Nag-apply noong"
+
+msgid "Salary expectations"
+msgstr "Inaasahan na sahod"
+
+msgid "Pending evaluation"
+msgstr "Naghihintay ng pagsusuri"
+
+msgid "Hired"
+msgstr "Nakatanggap ng trabaho"
+
+msgid "Not hired"
+msgstr "Hindi nakatanggap ng trabaho"
+
+msgid "Evaluate"
+msgstr "Suriin"
+
+msgid "Evaluate candidate"
+msgstr "Suriin ang kandidato"
+
+msgid "Decision"
+msgstr "Desisyon"
+
+msgid "Save evaluation"
+msgstr "I-save ang pagsusuri"
+
+msgid "Back to job offers"
+msgstr "Bumalik sa mga alok ng trabaho"
+
+msgid "No job offers available at this time."
+msgstr "Walang magagamit na alok ng trabaho sa kasalukuyang panahon."
+
+msgid "See details"
+msgstr "Tingnan ang mga detalye"
+
+msgid "Apply now"
+msgstr "Mag-apply na"
+
+msgid "Already applied"
+msgstr "Na-apply na"
+
+msgid "Log in to apply"
+msgstr "Mag-log in upang mag-apply"
+
+msgid "Apply to job offer"
+msgstr "Mag-apply sa alok ng trabaho"
+
+msgid "Availability date"
+msgstr "Petsa ng availability"
+
+msgid "CV (Personal file)"
+msgstr "CV (Personal na file)"
+
+msgid "Select your CV from your personal files"
+msgstr "Piliin ang iyong CV mula sa iyong personal na mga file"
+
+msgid "Submit application"
+msgstr "Isumite ang aplikasyon"
+
+msgid "Application submitted successfully."
+msgstr "Na-submit nang matagumpay ang aplikasyon."
+
+msgid "Private observations"
+msgstr "Pribadong mga obserbasyon"
+
+msgid "My applications"
+msgstr "Mga aplikasyon ko"
+
+msgid "View job offers"
+msgstr "Tingnan ang mga alok ng trabaho"
+
+msgid "You have not submitted any applications yet."
+msgstr "Wala kang na-submit na aplikasyon pa."
+
+msgid "Under review"
+msgstr "Sa ilalim ng pagsusuri"
+
+msgid "Not selected"
+msgstr "Hindi napili"
+
+msgid "HR feedback"
+msgstr "Puna ng HR"
+
+msgid "Withdraw application"
+msgstr "Bawiin ang aplikasyon"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Sigurado ka bang gusto mong bawiin ang aplikasyong ito?"
+
+msgid "Application withdrawn."
+msgstr "Na-withdraw ang aplikasyon."
+
+msgid "Calculate quiz scores"
+msgstr " Kalkulahin ang mga marka ng pagsusulit"
+
+msgid "Scores calculated."
+msgstr "Mga marka na kinakalkula."
+
+msgid "Career plan overview"
+msgstr "Pangkalahatang-ideya ng plano sa karera"
+
+msgid "My career plan"
+msgstr "Plano ko sa karera"
+
+msgid "No function-unit associations configured yet."
+msgstr "Walang naka-configure na mga kaugnayan ng function-unit pa."
+
+msgid "No required skills defined."
+msgstr "Walang tinukoy na kinakailangang kasanayan."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Dapat kang ma-assign sa isang posisyon upang makita ang iyong plano sa karera."
+
+msgid "Your current position"
+msgstr "Iyong kasalukuyang posisyon"
+
+msgid "No career targets found for your current position."
+msgstr "Walang natagpuang target sa karera para sa iyong kasalukuyang posisyon."
+
+msgid "No required skills defined for this position."
+msgstr "Walang tinukoy na kinakailangang kasanayan para sa posisyong ito."
+
+msgid "Met"
+msgstr "Natamo"
+
+msgid "Gap"
+msgstr "Kakulangan"
+
+msgid "Acquired:"
+msgstr "Natamo:"
+
+msgid "Required:"
+msgstr "Kinakailangan:"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Walang natagpuang pamantayan ng diversity. Magdagdag muna ng pamantayan."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Pumili ng pamantayan mula sa listahan upang tingnan ang mga estadistika nito."
+
+msgid "No data available for this criterion."
+msgstr "Walang magagamit na data para sa pamantayang ito."
+
+msgid "Change password"
+msgstr "Palitan ang password"
+
+msgid "Newest first"
+msgstr "Pinakabagong una"
+
+msgid "Oldest first"
+msgstr "Pinakamatandang una"
+
+msgid "Title A–Z"
+msgstr "Pamagat A–Z"
+
+msgid "Title Z–A"
+msgstr "Pamagat Z–A"
+
+msgid "Send test email"
+msgstr "Ipadala ang test email"
+
+msgid "Show teachers"
+msgstr "Ipakita ang mga guro"
+
+msgid "Hide teachers"
+msgstr "Itago ang mga guro"
+
+msgid "Delete exercise attempts"
+msgstr "Burahin ang mga pagsisikap sa ehersisyo"
+
+msgid "Message sent successfully."
+msgstr "Naipadala nang matagumpay ang mensahe."
+
+msgid "You cannot create a new course right now."
+msgstr "Hindi ka makakagawa ng bagong kurso ngayon."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Hindi ma-verify kung makakagawa ka ng bagong kurso ngayon."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Subukan muli mamaya o makipag-ugnayan sa administrator."
+
+msgid "You cannot create more courses at this time."
+msgstr "Hindi ka makakagawa ng higit pang mga kurso sa kasalukuyang panahon."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Nagmamay-ari ka na ng %d mga kurso at ang iyong aktibong serbisyo ay nagbibigay-daan hanggang %d. Upang lumikha ng isa pang kurso, kailangan mo ng mas mataas na limitasyon ng serbisyo o bawasan ang iyong kasalukuyang aktibong mga kurso."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Nagmamay-ari ka na ng %d mga kurso at ang platform ay nagbibigay-daan hanggang %d para sa iyong account. Hindi ka makakagawa ng higit pang mga kurso ngayon."
+
+msgid "Add a class"
+msgstr "Magdagdag ng klase"
+
+msgid "Search classes"
+msgstr "Maghanap ng mga klase"
+
+msgid "No classes found"
+msgstr "Walang natagpuang klase"
+
+msgid "Import classes"
+msgstr "I-import ang mga klase"
+
+msgid "Class users"
+msgstr "Mga gumagamit ng klase"
+
+msgid "%s classes imported"
+msgstr "Na-import na %s mga klase"
+
+msgid "%s user-class links imported"
+msgstr "Na-import na %s mga link ng user-klase"
+
+msgid "Hide comments"
+msgstr "Itago ang mga komento"
+
+msgid "Loading comments..."
+msgstr "Naglo-load ng mga komento..."
+
+msgid "No comments yet."
+msgstr "Walang puna pa."
 

@@ -9731,6 +9731,9 @@ msgstr "Bilaketaren emaitzak honakoetarako:"
 msgid "Select a file"
 msgstr "Hautatu fitxategi bat"
 
+msgid "Select a file to insert into the editor."
+msgstr "Hautatu editorean txertatzeko fitxategi bat."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Abisua - Zure plataformako /home/ direktorioan dagoen FAQ fitxategian ezin da idatzi. Fitxategiaren baimenak aldatu arte ez da zuk idatzitako testua gordeko."
 
@@ -15911,6 +15914,9 @@ msgstr "Data eta ordua"
 msgid "Item"
 msgstr "Elementua"
 
+msgid "Items"
+msgstr "Elementuak"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Konfiguratu kontrol paneleko plugina"
 
@@ -17164,6 +17170,18 @@ msgstr "Saioak taldean"
 
 msgid "Courses in group"
 msgstr "Ikastaroak taldean"
+
+msgid "Courses on the platform"
+msgstr "Plataformako ikastaroak"
+
+msgid "%s courses"
+msgstr "%s ikastaro"
+
+msgid "%s sessions"
+msgstr "%s saio"
+
+msgid "Search by title or code"
+msgstr "Bilatu izenburu edo kodez"
 
 msgid "Users in group"
 msgstr "Erabiltzaileak taldean"
@@ -32174,6 +32192,9 @@ msgstr "Lanarekin"
 msgid "Allowed file formats: %s"
 msgstr "Onartutako fitxategi-formatuak: %s"
 
+msgid "File manager"
+msgstr "Fitxategi kudeatzailea"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Fitxategi-mota ez dago onartua. Hedapen onartuak: %s"
 
@@ -33887,6 +33908,9 @@ msgstr "Ongi etorri"
 msgid "Welcome to Chamilo"
 msgstr "Ongi etorri Chamilorat"
 
+msgid "Check all unanswered questions below"
+msgstr "Egiaztatu beheko galdera erantzungabe guztiak"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Baldin Chamilo lehen aldiz erabiltzen baduzu, ziurtatu alboko menua egiaztatzen duzula haren ezaugarri askoak aurkitzeko. Laguntza behar baduzu, <a href=\"https://docs.chamilo.org\">gure dokumentazio ofiziala</a> lagunduko dizu dokumentazio estandarrentzat, eta gure <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">foroa linean</a> ideiaak partekatzen eta beste Chamilo erabiltzaile batzuen erantzunak aurkitzen lagunduko dizu."
 
@@ -34066,6 +34090,63 @@ msgstr "Formakuntzaren beharren ebaluazioa"
 
 msgid "Work climate surveys"
 msgstr "Lan-ingurunearen inkestak"
+
+msgid "Unit"
+msgstr "Unitate"
+
+msgid "Total cost"
+msgstr "Kostu totala"
+
+msgid "Cost per learner"
+msgstr "Ikasleko kostua"
+
+msgid "Average cost by session"
+msgstr "Saioko kostuaren batailera"
+
+msgid "Total investment"
+msgstr "Inbertsio totala"
+
+msgid "Set cost"
+msgstr "Ezarri kostua"
+
+msgid "Filter by date range"
+msgstr "Iruditu data-tartez"
+
+msgid "Add distribution"
+msgstr "Gehitu banaketa"
+
+msgid "User share"
+msgstr "Erabiltzaile partekatzea"
+
+msgid "Select a unit"
+msgstr "Hautatu unitate bat"
+
+msgid "Select a survey"
+msgstr "Hautatu inkesta bat"
+
+msgid "Distribution added"
+msgstr "Banaketa gehitu da"
+
+msgid "Distribution removed"
+msgstr "Banaketa ezabatu da"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Ziur zaude banaketa hau ezabatu nahi duzula?"
+
+msgid "Cost updated"
+msgstr "Kostua eguneratua"
+
+msgid "Total invited"
+msgstr "Gehitu diren guztiak"
+
+msgid "Total answered"
+msgstr "Erantzun guztiak"
+
+msgid "Total responses"
+msgstr "Erantzun guztiak"
+
+msgid "No responses yet"
+msgstr "Oraindik ez dago erantzunik"
 
 msgid "Diversity criteria"
 msgstr "Aniztasun irizpideak"
@@ -34578,4 +34659,274 @@ msgstr "Ziur zaude ebaluazio hau ezabatu nahi duzula?"
 
 msgid "Loading…"
 msgstr "Kargatzen…"
+
+msgid "Periodicity"
+msgstr "Periodekoa"
+
+msgid "Suggest from periodicity"
+msgstr "Periodekotik iradoki"
+
+msgid "Add job offer"
+msgstr "Lan-eskaera gehitu"
+
+msgid "Edit job offer"
+msgstr "Lan-eskaera editatu"
+
+msgid "Function / Unit"
+msgstr "Funtzioa / Unitatea"
+
+msgid "Vacancies"
+msgstr "Plazak"
+
+msgid "Expected start date"
+msgstr "Hasierako data esperoa"
+
+msgid "Contract duration (days)"
+msgstr "Kontratuaren iraupena (egun)"
+
+msgid "Public offer"
+msgstr "Eskaintza publikoa"
+
+msgid "Publication start date"
+msgstr "Argitalpen hasierako data"
+
+msgid "Publication end date"
+msgstr "Argitalpen amaierako data"
+
+msgid "Applications"
+msgstr "Eskabideak"
+
+msgid "Selection exams"
+msgstr "Hautapen azterketak"
+
+msgid "Add exam"
+msgstr "Azterketa gehitu"
+
+msgid "Applicant"
+msgstr "Eskatzailea"
+
+msgid "Applied on"
+msgstr "Eskatua"
+
+msgid "Salary expectations"
+msgstr "Soldata itxaropenak"
+
+msgid "Pending evaluation"
+msgstr "Ebaluazioa zain"
+
+msgid "Hired"
+msgstr "Kontratatu"
+
+msgid "Not hired"
+msgstr "Ez contratatu"
+
+msgid "Evaluate"
+msgstr "Ebaluatu"
+
+msgid "Evaluate candidate"
+msgstr "Hautagaia ebaluatu"
+
+msgid "Decision"
+msgstr "Erabakia"
+
+msgid "Save evaluation"
+msgstr "Ebaluazioa gorde"
+
+msgid "Back to job offers"
+msgstr "Itzuli lan-eskaeretara"
+
+msgid "No job offers available at this time."
+msgstr "Une honetan ez dago lan-eskaerik eskuragarri."
+
+msgid "See details"
+msgstr "Ikusi xehetasunak"
+
+msgid "Apply now"
+msgstr "Eskatu orain"
+
+msgid "Already applied"
+msgstr "Dagoeneko eskatu da"
+
+msgid "Log in to apply"
+msgstr "Saioa hasi eskasteko"
+
+msgid "Apply to job offer"
+msgstr "Eskatu lan-eskaerari"
+
+msgid "Availability date"
+msgstr "Eskuragarritasun data"
+
+msgid "CV (Personal file)"
+msgstr "CV (Fitxategi pertsonala)"
+
+msgid "Select your CV from your personal files"
+msgstr "Hautatu zure CV fitxategi pertsonaletik"
+
+msgid "Submit application"
+msgstr "Bidali eskaera"
+
+msgid "Application submitted successfully."
+msgstr "Eskabidea ongi bidali da."
+
+msgid "Private observations"
+msgstr "Behatokari pribatuak"
+
+msgid "My applications"
+msgstr "Nire eskaibideak"
+
+msgid "View job offers"
+msgstr "Ikusi lan-eskaerak"
+
+msgid "You have not submitted any applications yet."
+msgstr "Oraindik ez duzu eskaibirik bidali."
+
+msgid "Under review"
+msgstr "Berrikusketa azpian"
+
+msgid "Not selected"
+msgstr "Hautatu gabe"
+
+msgid "HR feedback"
+msgstr "RRHH-ren iritzia"
+
+msgid "Withdraw application"
+msgstr "Atzitu eskaera"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Ziur zaude eskaera hau atzitzea nahi duzula?"
+
+msgid "Application withdrawn."
+msgstr "Aplikazioa atzera bota da."
+
+msgid "Calculate quiz scores"
+msgstr "Kalkulatu kuisiongen puntuazioak"
+
+msgid "Scores calculated."
+msgstr "Puntuazioak kalkulatuta."
+
+msgid "Career plan overview"
+msgstr "Lanbide-planoaren ikuspegi orokorra"
+
+msgid "My career plan"
+msgstr "Nire lanbide-planoa"
+
+msgid "No function-unit associations configured yet."
+msgstr "Oraindik ez da funtzio-unitate loturik konfiguratu."
+
+msgid "No required skills defined."
+msgstr "Ez da beharrezko gaitasunik zehaztu."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Lanbide-planoa ikusteko postu bati esleitua egon behar duzu."
+
+msgid "Your current position"
+msgstr "Zure uneko postua"
+
+msgid "No career targets found for your current position."
+msgstr "Ez da lanbide-helbururik aurkitu zure uneko postuarentzat."
+
+msgid "No required skills defined for this position."
+msgstr "Ez da beharrezko gaitasunik zehaztu postu honetarako."
+
+msgid "Met"
+msgstr "Beteta"
+
+msgid "Gap"
+msgstr "Hutsune"
+
+msgid "Acquired:"
+msgstr "Lortua:"
+
+msgid "Required:"
+msgstr "Beharrezkoa:"
+
+msgid "Max"
+msgstr "Gehi.Geh."
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Ez da aniztasun irizpiderik aurkitu. Lehenengo gehitu irizpideak."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Zerrendatik irizpide bat hautatu estatistikak ikusteko."
+
+msgid "No data available for this criterion."
+msgstr "Ez dago daturik irizpide honetarako."
+
+msgid "Change password"
+msgstr "Aldatu pasahitza"
+
+msgid "Newest first"
+msgstr "Berrienak lehen"
+
+msgid "Oldest first"
+msgstr "Zaharrak lehen"
+
+msgid "Title A–Z"
+msgstr "Izenburua A–Z"
+
+msgid "Title Z–A"
+msgstr "Izenburua Z–A"
+
+msgid "Send test email"
+msgstr "Bidali proba-posta"
+
+msgid "Show teachers"
+msgstr "Erakutsi irakasleak"
+
+msgid "Hide teachers"
+msgstr "Ezkutatu irakasleak"
+
+msgid "Delete exercise attempts"
+msgstr "Ezabatu ariketa-saiakerak"
+
+msgid "Message sent successfully."
+msgstr "Mezua ongi bidali da."
+
+msgid "You cannot create a new course right now."
+msgstr "Ezin duzu ikastaro berri bat sortu orain."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Ezin da egiaztatu ikastaro berri bat sor dezakezun orain."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Saiatu berriro geroago edo harremanetan jarri administratzailearekin."
+
+msgid "You cannot create more courses at this time."
+msgstr "Ezin duzu gehiago ikastaroak sortu une honetan."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "%d ikastaro kudeatzen dituzu jada eta zure zerbitzu aktiboak %d arteko muga du. Beste ikastaro bat sortzeko, zerbitzu-muga handiagoa behar duzu edo uneko ikastaro aktiboak murriztu."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "%d ikastaro kudeatzen dituzu jada eta plataforma %d arteko muga du zure kontuarentzat. Ezin duzu gehiago ikastaroak sortu orain."
+
+msgid "Add a class"
+msgstr "Gehitu klasea"
+
+msgid "Search classes"
+msgstr "Bilatu klaseak"
+
+msgid "No classes found"
+msgstr "Ez da klaserik aurkitu"
+
+msgid "Import classes"
+msgstr "Inportatu klaseak"
+
+msgid "Class users"
+msgstr "Klaseko erabiltzaileak"
+
+msgid "%s classes imported"
+msgstr "%s klase inportatu"
+
+msgid "%s user-class links imported"
+msgstr "%s erabiltzaile-klase lotura inportatu"
+
+msgid "Hide comments"
+msgstr "Ezkutatu iruzkinak"
+
+msgid "Loading comments..."
+msgstr "Iruzkinak kargatzen..."
+
+msgid "No comments yet."
+msgstr "Ez dago iruzkinik oraindik."
 

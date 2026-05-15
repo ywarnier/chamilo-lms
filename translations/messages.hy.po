@@ -9730,6 +9730,9 @@ msgstr "Որոնման արդյունքներ՝"
 msgid "Select a file"
 msgstr "Ընտրել ֆայլ"
 
+msgid "Select a file to insert into the editor."
+msgstr "Ընտրեք ֆայլ խմբագրիչում տեղադրելու համար:"
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Զգուշացում - FAQ ֆայլը, որը գտնվում է Ձեր պորտալի /home/ թղթապանակում, գրելի չէ: Ձեր տեքստը չի պահպանվի, մինչև փոխվեն ֆայլի թույլտվությունները:"
 
@@ -15910,6 +15913,9 @@ msgstr "Ամսաթիվ և ժամ"
 msgid "Item"
 msgstr "Տարր"
 
+msgid "Items"
+msgstr "Տարրեր"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Կարգավորել Dashboard հավելվածը"
 
@@ -17163,6 +17169,18 @@ msgstr "Սեանսներ խմբում"
 
 msgid "Courses in group"
 msgstr "Դասընթացներ խմբում"
+
+msgid "Courses on the platform"
+msgstr "Կուրսեր հարթակում"
+
+msgid "%s courses"
+msgstr "%s կուրսեր"
+
+msgid "%s sessions"
+msgstr "%s սեսիաներ"
+
+msgid "Search by title or code"
+msgstr "Որոնել վերնագրով կամ կոդով"
 
 msgid "Users in group"
 msgstr "Օգտատերեր խմբում"
@@ -32167,6 +32185,9 @@ msgstr "Առաջադրանք"
 msgid "Allowed file formats: %s"
 msgstr "Թույլատրված ֆայլերի ձևաչափեր՝ %s"
 
+msgid "File manager"
+msgstr "Ֆայլերի կառավարիչ"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Ֆայլի տիպը թույլատրված չէ: Թույլատրված ընդլայնումներ՝ %s"
 
@@ -33880,6 +33901,9 @@ msgstr "Բարի գալուստ"
 msgid "Welcome to Chamilo"
 msgstr "Բարի գալուստ Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Ստուգել բոլոր չպատասխանված հարցերը ստորև"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Եթե սա ձեր առաջին անգամն է օգտագործել Chamilo-ն, համոզվեք, որ ստուգեք կողմնակի մենյուն՝ ճանապարհ գտնելու համար դրա բազմաթիվ հնարավորություններով: Եթե օգնության կարիք ունեք, կգտնեք <a href=\"https://docs.chamilo.org\">մեր պաշտոնական փաստաթղթերը</a>, որոնք կարող են օգնել ստանդարտ փաստագրության համար, մինչդեռ մեր <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">ուղղակի ֆորումը</a> կարող է օգնել գաղափարներ կիսվել և գտնել պատասխաններ Chamilo-ի այլ օգտատերերից:"
 
@@ -34059,6 +34083,63 @@ msgstr "Ուսուցման կարիքների գնահատում"
 
 msgid "Work climate surveys"
 msgstr "Աշխատանքային միջավայրի հարցումներ"
+
+msgid "Unit"
+msgstr "Միավոր"
+
+msgid "Total cost"
+msgstr "Ընդհանուր ծախս"
+
+msgid "Cost per learner"
+msgstr "Ծախսը մեկ աշակերտի համար"
+
+msgid "Average cost by session"
+msgstr "Միջին ծախս սեսիայի համար"
+
+msgid "Total investment"
+msgstr "Ընդհանուր ներդրում"
+
+msgid "Set cost"
+msgstr "Սահմանել ծախս"
+
+msgid "Filter by date range"
+msgstr "Ֆիլտրել ամսաթվերի շրջանով"
+
+msgid "Add distribution"
+msgstr "Ավելացնել բաշխում"
+
+msgid "User share"
+msgstr "Օգտատիրոջ բաժին"
+
+msgid "Select a unit"
+msgstr "Ընտրեք միավոր"
+
+msgid "Select a survey"
+msgstr "Ընտրեք հարցում"
+
+msgid "Distribution added"
+msgstr "Բաշխումը ավելացվել է"
+
+msgid "Distribution removed"
+msgstr "Բաշխումը հեռացվել է"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Հաստատե՞լ եք այս բաշխումը հեռացնելը:"
+
+msgid "Cost updated"
+msgstr "Ծախսը թարմացվել է"
+
+msgid "Total invited"
+msgstr "Ընդհանուր հրավիրվածներ"
+
+msgid "Total answered"
+msgstr "Ընդհանուր պատասխանված"
+
+msgid "Total responses"
+msgstr "Ընդհանուր պատասխաններ"
+
+msgid "No responses yet"
+msgstr "Քանի մի պատասխաններ դեռևս"
 
 msgid "Diversity criteria"
 msgstr "Բազմազավթության չափանիշներ"
@@ -34571,4 +34652,274 @@ msgstr "Հաստատու՞ն եք, որ ցանկանում եք ջնջել այ�
 
 msgid "Loading…"
 msgstr "Բեռնվում է…"
+
+msgid "Periodicity"
+msgstr "Պարբերականություն"
+
+msgid "Suggest from periodicity"
+msgstr "Առաջարկել պարբերականությունից"
+
+msgid "Add job offer"
+msgstr "Ավելացնել աշխատանքային հայտարարություն"
+
+msgid "Edit job offer"
+msgstr "Խմբագրել աշխատանքային հայտարարություն"
+
+msgid "Function / Unit"
+msgstr "Գործառույթ / Նշանակություն"
+
+msgid "Vacancies"
+msgstr "Անոթներ"
+
+msgid "Expected start date"
+msgstr "Պատվաստվելի սկզբնական ամսաթիվ"
+
+msgid "Contract duration (days)"
+msgstr "Պայմանագրի տևողություն (օրեր)"
+
+msgid "Public offer"
+msgstr "Հանրային հայտարարություն"
+
+msgid "Publication start date"
+msgstr "Հրապարակման սկզբնական ամսաթիվ"
+
+msgid "Publication end date"
+msgstr "Հրապարակման ավարտական ամսաթիվ"
+
+msgid "Applications"
+msgstr "Հայտեր"
+
+msgid "Selection exams"
+msgstr "Ընտրության քննություններ"
+
+msgid "Add exam"
+msgstr "Ավելացնել քննություն"
+
+msgid "Applicant"
+msgstr "Հայտատու"
+
+msgid "Applied on"
+msgstr "Հայտ ներկայացրել է"
+
+msgid "Salary expectations"
+msgstr "Աշխատավարձի սպասումներ"
+
+msgid "Pending evaluation"
+msgstr "Սպասվում է գնահատմանը"
+
+msgid "Hired"
+msgstr "Վարձված"
+
+msgid "Not hired"
+msgstr "Չվարձված"
+
+msgid "Evaluate"
+msgstr "Գնահատել"
+
+msgid "Evaluate candidate"
+msgstr "Գնահատել թեկնածուն"
+
+msgid "Decision"
+msgstr "Որոշում"
+
+msgid "Save evaluation"
+msgstr "Պահպանել գնահատումը"
+
+msgid "Back to job offers"
+msgstr "Միջանցք աշխատանքային հայտարարություններ"
+
+msgid "No job offers available at this time."
+msgstr "Այս պահին չկան հասանելի աշխատանքային հայտարարություններ:"
+
+msgid "See details"
+msgstr "Տես մանրամասները"
+
+msgid "Apply now"
+msgstr "Հայտ ներկայացնել հիմա"
+
+msgid "Already applied"
+msgstr "Արդեն հայտ ներկայացրել եք"
+
+msgid "Log in to apply"
+msgstr "Մուտք գործեք հայտ ներկայացնելու համար"
+
+msgid "Apply to job offer"
+msgstr "Հայտ ներկայացնել աշխատանքային հայտարարության"
+
+msgid "Availability date"
+msgstr "Հասանելիության ամսաթիվ"
+
+msgid "CV (Personal file)"
+msgstr "ԱԳՏ (Մասնական ֆայլ)"
+
+msgid "Select your CV from your personal files"
+msgstr "Ընտրեք Ձեր ԱԳՏ-ն Ձեր անձնական ֆայլերից"
+
+msgid "Submit application"
+msgstr "Ներկայացնել հայտը"
+
+msgid "Application submitted successfully."
+msgstr "Հայտը հաջողությամբ ներկայացվել է:"
+
+msgid "Private observations"
+msgstr "Մասնավոր դիտարկումներ"
+
+msgid "My applications"
+msgstr "Իմ հայտերը"
+
+msgid "View job offers"
+msgstr "Դիտել աշխատանքային հայտարարությունները"
+
+msgid "You have not submitted any applications yet."
+msgstr "Դուք դեռևս չեք ներկայացրել ոչ մի հայտ:"
+
+msgid "Under review"
+msgstr "Քննարկման ներքո"
+
+msgid "Not selected"
+msgstr "Չընտրված"
+
+msgid "HR feedback"
+msgstr "ԱՀ ազդեցություն"
+
+msgid "Withdraw application"
+msgstr "Նահանջել հայտից"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Վստահ եք, որ ցանկանում եք նահանջել այս հայտից?"
+
+msgid "Application withdrawn."
+msgstr "Հայտը նահանջվել է:"
+
+msgid "Calculate quiz scores"
+msgstr "Հաշվարկել թեստի միավորները"
+
+msgid "Scores calculated."
+msgstr "Միավորները հաշվարկված են:"
+
+msgid "Career plan overview"
+msgstr "Կարիերայի պլանը ակնարկ"
+
+msgid "My career plan"
+msgstr "Իմ կարիերայի պլանը"
+
+msgid "No function-unit associations configured yet."
+msgstr "Ֆունկցիա-միավորի կապեր դեռ չեն կարգավորվել:"
+
+msgid "No required skills defined."
+msgstr "Պահանջվող հմտություններ չեն սահմանվել:"
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Կարիերայի պլանը տեսնելու համար պետք է նշանակվեք պաշտոնի:"
+
+msgid "Your current position"
+msgstr "Ձեր ընթացիկ պաշտոնը"
+
+msgid "No career targets found for your current position."
+msgstr "Ձեր ընթացիկ պաշտոնի համար կարիերայի թիրախներ չեն գտնվել:"
+
+msgid "No required skills defined for this position."
+msgstr "Այս պաշտոնի համար պահանջվող հմտություններ չեն սահմանվել:"
+
+msgid "Met"
+msgstr "Նվաճված"
+
+msgid "Gap"
+msgstr "Տարբերություն"
+
+msgid "Acquired:"
+msgstr "Նվաճված․"
+
+msgid "Required:"
+msgstr "Պահանջվող․"
+
+msgid "Max"
+msgstr "Առավելագույն"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Չեն գտնվել բազմազանության չափանիշներ: Ավելացրեք չափանիշներ նախ."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Ընտրեք չափանիշ ցուցակից՝ դրա վիճակագրությունը տեսնելու համար:"
+
+msgid "No data available for this criterion."
+msgstr "Այս չափանիշի համար տվյալներ չկան:"
+
+msgid "Change password"
+msgstr "Փոխել գաղտնաբառը"
+
+msgid "Newest first"
+msgstr "Նորից առաջինը"
+
+msgid "Oldest first"
+msgstr "Հինից առաջինը"
+
+msgid "Title A–Z"
+msgstr "Վերնագիր Ա–Զ"
+
+msgid "Title Z–A"
+msgstr "Վերնագիր Զ–Ա"
+
+msgid "Send test email"
+msgstr "Ուղարկել թեստային նամակ"
+
+msgid "Show teachers"
+msgstr "Ցույց տալ ուսուցիչներին"
+
+msgid "Hide teachers"
+msgstr "Թաքցնել ուսուցիչներին"
+
+msgid "Delete exercise attempts"
+msgstr "Ջնջել վարժության փորձերը"
+
+msgid "Message sent successfully."
+msgstr "Նամակը հաջողությամբ ուղարկվել է:"
+
+msgid "You cannot create a new course right now."
+msgstr "Այժմ դուք չեք կարող ստեղծել նոր դասընթաց:"
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Չկարողացանք ստուգել՝ արդյոք այժմ կարող եք ստեղծել նոր դասընթաց:"
+
+msgid "Please try again later or contact the administrator."
+msgstr "Խնդրում ենք փորձեք կրկին հետո կամ կապվեք ադմինիստրատորի հետ:"
+
+msgid "You cannot create more courses at this time."
+msgstr "Այս պահին դուք չեք կարող ստեղծել ավելի շատ դասընթացներ:"
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Դուք արդեն կառավարում եք %d դասընթաց և ձեր ակտիվ ծառայությունը թույլ է տալիս մինչև %d: Այլ դասընթաց ստեղծելու համար պետք է ավելի բարձր ծառայության սահմանափակում կամ նվազեցնեք ընթացիկ ակտիվ դասընթացները:"
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Դուք արդեն կառավարում եք %d դասընթաց և հարթակը ներկայումս թույլ է տալիս մինչև %d ձեր հաշվի համար: Այժմ դուք չեք կարող ստեղծել ավելի շատ դասընթացներ:"
+
+msgid "Add a class"
+msgstr "Ավելացնել դաս"
+
+msgid "Search classes"
+msgstr "Որոնել դասեր"
+
+msgid "No classes found"
+msgstr "Դասեր չեն գտնվել"
+
+msgid "Import classes"
+msgstr "Ներմուծել դասեր"
+
+msgid "Class users"
+msgstr "Դասի օգտատերեր"
+
+msgid "%s classes imported"
+msgstr "%s դաս ներմուծվել է"
+
+msgid "%s user-class links imported"
+msgstr "%s օգտատեր-դաս կապ ներմուծվել է"
+
+msgid "Hide comments"
+msgstr "Թաքցնել մեկնաբանությունները"
+
+msgid "Loading comments..."
+msgstr "Բեռնում են մեկնաբանությունները..."
+
+msgid "No comments yet."
+msgstr "Մեկնաբանություններ չկան:"
 

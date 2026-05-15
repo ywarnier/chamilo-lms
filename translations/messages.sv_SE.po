@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "Med vänliga hälsningar,"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Formel-exempel: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Formel exempel: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Variabelintervall"
@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":ja:copyright,, nej:ingen copyright"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapp,, application/msword:MsWord,, application/octet-stream:Okettströmm,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Mapp,, application/msword:MsWord,, application/octet-stream:Okettström,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:övning,, simulation:simulering,, questionnaire:frågeställningar,, diagram:diagram,, figure:figur,, graph:graf,, index:index,, slide:slide,, table:bordläggning,, narrative text:berättartext,, exam:examen,, experiment:experiment,, problem statement:problemställning,, self assessment:självbedömning,, lecture:föreläsning"
@@ -9731,6 +9731,9 @@ msgstr "Sökresultat för:"
 msgid "Select a file"
 msgstr "Välj en fil"
 
+msgid "Select a file to insert into the editor."
+msgstr "Välj en fil att infoga i redigeraren."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Varning - FAQ-filen, som ligger i /home/-katalogen på din portal, är inte skrivbar. Din text sparas inte förrän filrättigheterna ändras."
 
@@ -15911,6 +15914,9 @@ msgstr "Datum och tid"
 msgid "Item"
 msgstr "Objekt"
 
+msgid "Items"
+msgstr "Poster"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Konfigurera Dashboard-plugin"
 
@@ -17164,6 +17170,18 @@ msgstr "Sessioner i grupp"
 
 msgid "Courses in group"
 msgstr "Kurs i grupp"
+
+msgid "Courses on the platform"
+msgstr "Kurser på plattformen"
+
+msgid "%s courses"
+msgstr "%s kurser"
+
+msgid "%s sessions"
+msgstr "%s sessioner"
+
+msgid "Search by title or code"
+msgstr "Sök på titel eller kod"
 
 msgid "Users in group"
 msgstr "Användare i grupp"
@@ -32169,6 +32187,9 @@ msgstr "Uppgift"
 msgid "Allowed file formats: %s"
 msgstr "Tillåtna filformat: %s"
 
+msgid "File manager"
+msgstr "Filhanterare"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Filtyp inte tillåten. Tillåtna filändelser: %s"
 
@@ -33882,6 +33903,9 @@ msgstr "Välkommen"
 msgid "Welcome to Chamilo"
 msgstr "Välkommen till Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Kontrollera alla obesvarade frågor nedan"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Om detta är första gången du använder Chamilo, se till att du kollar sidomenyn för att hitta vägen genom alla dess funktioner. Om du behöver hjälp hittar du <a href=\"https://docs.chamilo.org\">vår officiella dokumentation</a> för standarddokumentation, medan vårt <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">onlineforum</a> kan hjälpa till att dela idéer och hitta svar från andra Chamilo-användare."
 
@@ -34062,6 +34086,63 @@ msgstr "Behovsanalys för utbildning"
 
 msgid "Work climate surveys"
 msgstr "Arbetsklimatundersökningar"
+
+msgid "Unit"
+msgstr "Enhet"
+
+msgid "Total cost"
+msgstr "Total kostnad"
+
+msgid "Cost per learner"
+msgstr "Kostnad per elev"
+
+msgid "Average cost by session"
+msgstr "Genomsnittlig kostnad per session"
+
+msgid "Total investment"
+msgstr "Total investering"
+
+msgid "Set cost"
+msgstr "Ange kostnad"
+
+msgid "Filter by date range"
+msgstr "Filtrera efter datumintervall"
+
+msgid "Add distribution"
+msgstr "Lägg till fördelning"
+
+msgid "User share"
+msgstr "Användarandel"
+
+msgid "Select a unit"
+msgstr "Välj en enhet"
+
+msgid "Select a survey"
+msgstr "Välj en undersökning"
+
+msgid "Distribution added"
+msgstr "Fördelning tillagd"
+
+msgid "Distribution removed"
+msgstr "Fördelning borttagen"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Är du säker på att du vill ta bort denna distribution?"
+
+msgid "Cost updated"
+msgstr "Kostnad uppdaterad"
+
+msgid "Total invited"
+msgstr "Totalt inbjudna"
+
+msgid "Total answered"
+msgstr "Totalt svarade"
+
+msgid "Total responses"
+msgstr "Totalt svar"
+
+msgid "No responses yet"
+msgstr "Inga svar än"
 
 msgid "Diversity criteria"
 msgstr "Mångfaldskriterier"
@@ -34574,4 +34655,274 @@ msgstr "Är du säker på att du vill ta bort denna utvärdering?"
 
 msgid "Loading…"
 msgstr "Laddar…"
+
+msgid "Periodicity"
+msgstr "Periodicitet"
+
+msgid "Suggest from periodicity"
+msgstr "Föreslå från periodicitet"
+
+msgid "Add job offer"
+msgstr "Lägg till jobbannons"
+
+msgid "Edit job offer"
+msgstr "Redigera jobbannons"
+
+msgid "Function / Unit"
+msgstr "Funktion / Enhet"
+
+msgid "Vacancies"
+msgstr "Lediga platser"
+
+msgid "Expected start date"
+msgstr "Förväntat startdatum"
+
+msgid "Contract duration (days)"
+msgstr "Kontraktslängd (dagar)"
+
+msgid "Public offer"
+msgstr "Offentlig annons"
+
+msgid "Publication start date"
+msgstr "Publiceringsstartdatum"
+
+msgid "Publication end date"
+msgstr "Publicerings slutdatum"
+
+msgid "Applications"
+msgstr "Ansökningar"
+
+msgid "Selection exams"
+msgstr "Urvalsprov"
+
+msgid "Add exam"
+msgstr "Lägg till prov"
+
+msgid "Applicant"
+msgstr "Sökande"
+
+msgid "Applied on"
+msgstr "Ansökt den"
+
+msgid "Salary expectations"
+msgstr "Löneförväntningar"
+
+msgid "Pending evaluation"
+msgstr "Väntar på utvärdering"
+
+msgid "Hired"
+msgstr "Anställd"
+
+msgid "Not hired"
+msgstr "Ej anställd"
+
+msgid "Evaluate"
+msgstr "Utvärdera"
+
+msgid "Evaluate candidate"
+msgstr "Utvärdera kandidat"
+
+msgid "Decision"
+msgstr "Beslut"
+
+msgid "Save evaluation"
+msgstr "Spara utvärdering"
+
+msgid "Back to job offers"
+msgstr "Tillbaka till jobbannonser"
+
+msgid "No job offers available at this time."
+msgstr "Inga jobbannonser tillgängliga för tillfället."
+
+msgid "See details"
+msgstr "Visa detaljer"
+
+msgid "Apply now"
+msgstr "Ansök nu"
+
+msgid "Already applied"
+msgstr "Redan ansökt"
+
+msgid "Log in to apply"
+msgstr "Logga in för att ansöka"
+
+msgid "Apply to job offer"
+msgstr "Ansök till jobbannons"
+
+msgid "Availability date"
+msgstr "Tillgänglighetsdatum"
+
+msgid "CV (Personal file)"
+msgstr "CV (Personlig fil)"
+
+msgid "Select your CV from your personal files"
+msgstr "Välj ditt CV från dina personliga filer"
+
+msgid "Submit application"
+msgstr "Skicka ansökan"
+
+msgid "Application submitted successfully."
+msgstr "Ansökan skickades framgångsrikt."
+
+msgid "Private observations"
+msgstr "Privata observationer"
+
+msgid "My applications"
+msgstr "Mina ansökningar"
+
+msgid "View job offers"
+msgstr "Visa jobbannonser"
+
+msgid "You have not submitted any applications yet."
+msgstr "Du har inte skickat in några ansökningar än."
+
+msgid "Under review"
+msgstr "Under granskning"
+
+msgid "Not selected"
+msgstr "Ej utvald"
+
+msgid "HR feedback"
+msgstr "HR-feedback"
+
+msgid "Withdraw application"
+msgstr "Dra tillbaka ansökan"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Är du säker på att du vill dra tillbaka denna ansökan?"
+
+msgid "Application withdrawn."
+msgstr "Ansökan dragen tillbaka."
+
+msgid "Calculate quiz scores"
+msgstr "Beräkna kvissresultat"
+
+msgid "Scores calculated."
+msgstr "Resultat beräknade."
+
+msgid "Career plan overview"
+msgstr "Översikt över karriärplan"
+
+msgid "My career plan"
+msgstr "Min karriärplan"
+
+msgid "No function-unit associations configured yet."
+msgstr "Inga funktionsenhetskopplingar konfigurerade än."
+
+msgid "No required skills defined."
+msgstr "Inga obligatoriska färdigheter definierade."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Du måste vara tilldelad en befattning för att se din karriärplan."
+
+msgid "Your current position"
+msgstr "Din nuvarande befattning"
+
+msgid "No career targets found for your current position."
+msgstr "Inga karriärmål hittades för din nuvarande befattning."
+
+msgid "No required skills defined for this position."
+msgstr "Inga obligatoriska färdigheter definierade för denna befattning."
+
+msgid "Met"
+msgstr "Uppfyllt"
+
+msgid "Gap"
+msgstr "Gap"
+
+msgid "Acquired:"
+msgstr "Förvärvad:"
+
+msgid "Required:"
+msgstr "Krävd:"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Inga mångfaldskriterier hittades. Lägg till kriterier först."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Välj ett kriterium från listan för att visa dess statistik."
+
+msgid "No data available for this criterion."
+msgstr "Ingen data tillgänglig för detta kriterium."
+
+msgid "Change password"
+msgstr "Byt lösenord"
+
+msgid "Newest first"
+msgstr "Nyast först"
+
+msgid "Oldest first"
+msgstr "Äldst först"
+
+msgid "Title A–Z"
+msgstr "Titel A–Z"
+
+msgid "Title Z–A"
+msgstr "Titel Z–A"
+
+msgid "Send test email"
+msgstr "Skicka testmejl"
+
+msgid "Show teachers"
+msgstr "Visa lärare"
+
+msgid "Hide teachers"
+msgstr "Dölj lärare"
+
+msgid "Delete exercise attempts"
+msgstr "Radera övningsförsök"
+
+msgid "Message sent successfully."
+msgstr "Meddelande skickat framgångsrikt."
+
+msgid "You cannot create a new course right now."
+msgstr "Du kan inte skapa en ny kurs just nu."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Kan inte verifiera om du kan skapa en ny kurs just nu."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Försök igen senare eller kontakta administratören."
+
+msgid "You cannot create more courses at this time."
+msgstr "Du kan inte skapa fler kurser just nu."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Du hanterar redan %d kurser och din aktiva tjänst tillåter upp till %d. För att skapa en ny kurs behöver du en högre tjänstgräns eller minska dina nuvarande aktiva kurser."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Du hanterar redan %d kurser och plattformen tillåter för närvarande upp till %d för ditt konto. Du kan inte skapa fler kurser just nu."
+
+msgid "Add a class"
+msgstr "Lägg till en klass"
+
+msgid "Search classes"
+msgstr "Sök klasser"
+
+msgid "No classes found"
+msgstr "Inga klasser hittades"
+
+msgid "Import classes"
+msgstr "Importera klasser"
+
+msgid "Class users"
+msgstr "Klassanvändare"
+
+msgid "%s classes imported"
+msgstr "%s klasser importerade"
+
+msgid "%s user-class links imported"
+msgstr "%s användar-klass-länkar importerade"
+
+msgid "Hide comments"
+msgstr "Dölj kommentarer"
+
+msgid "Loading comments..."
+msgstr "Laddar kommentarer..."
+
+msgid "No comments yet."
+msgstr "Inga kommentarer än."
 

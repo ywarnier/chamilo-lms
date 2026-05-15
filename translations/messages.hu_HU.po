@@ -9729,6 +9729,9 @@ msgstr "A keresés eredménye erre a kurzusra:"
 msgid "Select a file"
 msgstr "Állomány kiválasztása"
 
+msgid "Select a file to insert into the editor."
+msgstr "Válasszon ki egy fájlt a szerkesztőbe való beillesztéshez."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Figyelem - A GYIK állomány, amely a chamilo /home/ mappájában található, nem írható. A beírt szöveget addíg nem lehet elmenteni, amíg nem lesz javítva az írási jog."
 
@@ -15909,6 +15912,9 @@ msgstr "Dátum és idő"
 msgid "Item"
 msgstr "Elem"
 
+msgid "Items"
+msgstr "Tételek"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Vezérlőpult bővítmény konfigurálása"
 
@@ -17162,6 +17168,18 @@ msgstr "Csoportban lévő szessziók"
 
 msgid "Courses in group"
 msgstr "Csoportban lévő kurzusok"
+
+msgid "Courses on the platform"
+msgstr "Kurzusok a platformon"
+
+msgid "%s courses"
+msgstr "%s kurzus"
+
+msgid "%s sessions"
+msgstr "%s foglalkozás"
+
+msgid "Search by title or code"
+msgstr "Keresés cím vagy kód alapján"
 
 msgid "Users in group"
 msgstr "Csoportban lévő felhasználók"
@@ -32167,6 +32185,9 @@ msgstr "Feladat"
 msgid "Allowed file formats: %s"
 msgstr "Engedélyezett fájlformátumok: %s"
 
+msgid "File manager"
+msgstr "Fájlkezelő"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Fájltípus nem megengedett. Engedélyezett kiterjesztések: %s"
 
@@ -33880,6 +33901,9 @@ msgstr "Üdvözöljük"
 msgid "Welcome to Chamilo"
 msgstr "Üdvözöljük a Chamilo-ban"
 
+msgid "Check all unanswered questions below"
+msgstr "Ellenőrizze az összes megválaszolatlan kérdést lent"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ha először használja a Chamilo-t, győződjön meg róla, hogy megnézi a oldalsó menüt, hogy eligazodjon számos funkciójában. Ha segítségre van szüksége, a <a href=\"https://docs.chamilo.org\">hivatalos dokumentációnk</a> segíthet a szabványos dokumentációhoz, míg az <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online fórumunk</a> segíthet ötletek megosztásában és más Chamilo-felhasználóktól származó válaszok megtalálásában."
 
@@ -34059,6 +34083,63 @@ msgstr "Képzési igények felmérése"
 
 msgid "Work climate surveys"
 msgstr "Munkahelyi klíma felmérések"
+
+msgid "Unit"
+msgstr "Egység"
+
+msgid "Total cost"
+msgstr "Teljes költség"
+
+msgid "Cost per learner"
+msgstr "Költség tanulónként"
+
+msgid "Average cost by session"
+msgstr "Átlagköltség foglalkozásonként"
+
+msgid "Total investment"
+msgstr "Teljes befektetés"
+
+msgid "Set cost"
+msgstr "Költség beállítása"
+
+msgid "Filter by date range"
+msgstr "Szűrés dátumtartomány szerint"
+
+msgid "Add distribution"
+msgstr "Elosztás hozzáadása"
+
+msgid "User share"
+msgstr "Felhasználói részesedés"
+
+msgid "Select a unit"
+msgstr "Válasszon egységet"
+
+msgid "Select a survey"
+msgstr "Válasszon kérdőívet"
+
+msgid "Distribution added"
+msgstr "Elosztás hozzáadva"
+
+msgid "Distribution removed"
+msgstr "Elosztás eltávolítva"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Biztosan el akarja távolítani ezt az elosztást?"
+
+msgid "Cost updated"
+msgstr "Költség frissítve"
+
+msgid "Total invited"
+msgstr "Teljes meghívottak száma"
+
+msgid "Total answered"
+msgstr "Teljes válaszok száma"
+
+msgid "Total responses"
+msgstr "Válaszok száma összesen"
+
+msgid "No responses yet"
+msgstr "Még nincsenek válaszok"
 
 msgid "Diversity criteria"
 msgstr "Sokszínűségi kritériumok"
@@ -34571,4 +34652,274 @@ msgstr "Biztosan törölni szeretné ezt az értékelést?"
 
 msgid "Loading…"
 msgstr "Betöltés…"
+
+msgid "Periodicity"
+msgstr "Periódusosság"
+
+msgid "Suggest from periodicity"
+msgstr "Javaslat periódusosság alapján"
+
+msgid "Add job offer"
+msgstr "Álláshirdetés hozzáadása"
+
+msgid "Edit job offer"
+msgstr "Álláshirdetés szerkesztése"
+
+msgid "Function / Unit"
+msgstr "Funkció / Osztály"
+
+msgid "Vacancies"
+msgstr "Férőhelyek"
+
+msgid "Expected start date"
+msgstr "Várható kezdési dátum"
+
+msgid "Contract duration (days)"
+msgstr "Szerződés időtartama (nap)"
+
+msgid "Public offer"
+msgstr "Nyilvános hirdetés"
+
+msgid "Publication start date"
+msgstr "Közzététel kezdési dátuma"
+
+msgid "Publication end date"
+msgstr "Közzététel befejezési dátuma"
+
+msgid "Applications"
+msgstr "Jelentkezések"
+
+msgid "Selection exams"
+msgstr "Kiválasztási vizsgák"
+
+msgid "Add exam"
+msgstr "Vizsga hozzáadása"
+
+msgid "Applicant"
+msgstr "Jelentkező"
+
+msgid "Applied on"
+msgstr "Jelentkezés dátuma"
+
+msgid "Salary expectations"
+msgstr "Fizetési elvárások"
+
+msgid "Pending evaluation"
+msgstr "Várakozás értékelésre"
+
+msgid "Hired"
+msgstr "Feltételezve"
+
+msgid "Not hired"
+msgstr "Nem felvett"
+
+msgid "Evaluate"
+msgstr "Értékelés"
+
+msgid "Evaluate candidate"
+msgstr "Jelentkező értékelése"
+
+msgid "Decision"
+msgstr "Döntés"
+
+msgid "Save evaluation"
+msgstr "Értékelés mentése"
+
+msgid "Back to job offers"
+msgstr "Vissza az álláshirdetésekhez"
+
+msgid "No job offers available at this time."
+msgstr "Jelenleg nincsenek elérhető álláshirdetések."
+
+msgid "See details"
+msgstr "Részletek megtekintése"
+
+msgid "Apply now"
+msgstr "Jelentkezés most"
+
+msgid "Already applied"
+msgstr "Már jelentkezett"
+
+msgid "Log in to apply"
+msgstr "Jelentkezéshez lépjen be"
+
+msgid "Apply to job offer"
+msgstr "Jelentkezés az álláshirdetésre"
+
+msgid "Availability date"
+msgstr "Elérhetőségi dátum"
+
+msgid "CV (Personal file)"
+msgstr "Önéletrajz (Személyes fájl)"
+
+msgid "Select your CV from your personal files"
+msgstr "Válassza ki önéletrajzát a személyes fájljaiból"
+
+msgid "Submit application"
+msgstr "Jelentkezés beküldése"
+
+msgid "Application submitted successfully."
+msgstr "A jelentkezés sikeresen elküldve."
+
+msgid "Private observations"
+msgstr "Személyes megjegyzések"
+
+msgid "My applications"
+msgstr "Saját jelentkezéseim"
+
+msgid "View job offers"
+msgstr "Álláshirdetések megtekintése"
+
+msgid "You have not submitted any applications yet."
+msgstr "Még nem nyújtott be egyetlen jelentkezést sem."
+
+msgid "Under review"
+msgstr "Áttekintés alatt"
+
+msgid "Not selected"
+msgstr "Nem kiválasztott"
+
+msgid "HR feedback"
+msgstr "HR visszajelzés"
+
+msgid "Withdraw application"
+msgstr "Jelentkezés visszavonása"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Biztosan vissza szeretné vonni ezt a jelentkezést?"
+
+msgid "Application withdrawn."
+msgstr "A jelentkezés visszavonva."
+
+msgid "Calculate quiz scores"
+msgstr "Kvízpontszámok kiszámítása"
+
+msgid "Scores calculated."
+msgstr "Pontszámok kiszámítva."
+
+msgid "Career plan overview"
+msgstr "Pályafutási terv áttekintése"
+
+msgid "My career plan"
+msgstr "Pályafutási tervem"
+
+msgid "No function-unit associations configured yet."
+msgstr "Még nincsenek funkcióegység-hozzárendelések beállítva."
+
+msgid "No required skills defined."
+msgstr "Nincsenek megkövetelt készségek meghatározva."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Be kell jelölni egy pozícióhoz, hogy lássa a pályafutási tervét."
+
+msgid "Your current position"
+msgstr "Jelenlegi pozíciója"
+
+msgid "No career targets found for your current position."
+msgstr "Nincsenek pályafutási célok a jelenlegi pozíciójához."
+
+msgid "No required skills defined for this position."
+msgstr "Nincsenek megkövetelt készségek meghatározva ehhez a pozícióhoz."
+
+msgid "Met"
+msgstr "Elérve"
+
+msgid "Gap"
+msgstr "Hiány"
+
+msgid "Acquired:"
+msgstr "Elsajátítva:"
+
+msgid "Required:"
+msgstr "Megkövetelt:"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nincs sokszínűségi kritérium található. Először adjon hozzá kritériumot."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Válasszon egy kritériumot a listából annak statisztikái megtekintéséhez."
+
+msgid "No data available for this criterion."
+msgstr "Nincs adat ehhez a kritériumhoz."
+
+msgid "Change password"
+msgstr "Jelszó módosítása"
+
+msgid "Newest first"
+msgstr "Újabb először"
+
+msgid "Oldest first"
+msgstr "Régebbi először"
+
+msgid "Title A–Z"
+msgstr "Cím A–Z"
+
+msgid "Title Z–A"
+msgstr "Cím Z–A"
+
+msgid "Send test email"
+msgstr "Teszt e-mail küldése"
+
+msgid "Show teachers"
+msgstr "Oktatók megjelenítése"
+
+msgid "Hide teachers"
+msgstr "Oktatók elrejtése"
+
+msgid "Delete exercise attempts"
+msgstr "Feladatkísérletek törlése"
+
+msgid "Message sent successfully."
+msgstr "Üzenet sikeresen elküldve."
+
+msgid "You cannot create a new course right now."
+msgstr "Jelenleg nem hozhat létre új kurzust."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Nem sikerült ellenőrizni, hogy jelenleg létrehozhat-e új kurzust."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Kérjük, próbálja meg később, vagy vegye fel a kapcsolatot a rendszergazdával."
+
+msgid "You cannot create more courses at this time."
+msgstr "Jelenleg nem hozhat létre több kurzust."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "%d kurzust kezel már, és az aktív szolgáltatása maximum %d kurzust tesz lehetővé. Új kurzus létrehozásához magasabb szolgáltatási korlátra van szüksége, vagy csökkentse a jelenlegi aktív kurzusait."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "%d kurzust kezel már, és a platform jelenleg maximum %d kurzust tesz lehetővé a fiókjához. Jelenleg nem hozhat létre több kurzust."
+
+msgid "Add a class"
+msgstr "Osztály hozzáadása"
+
+msgid "Search classes"
+msgstr "Osztályok keresése"
+
+msgid "No classes found"
+msgstr "Nincsenek osztályok találva"
+
+msgid "Import classes"
+msgstr "Osztályok importálása"
+
+msgid "Class users"
+msgstr "Osztály felhasználói"
+
+msgid "%s classes imported"
+msgstr "%s osztály importálva"
+
+msgid "%s user-class links imported"
+msgstr "%s felhasználó-osztály kapcsolat importálva"
+
+msgid "Hide comments"
+msgstr "Megjegyzések elrejtése"
+
+msgid "Loading comments..."
+msgstr "Megjegyzések betöltése..."
+
+msgid "No comments yet."
+msgstr "Még nincs hozzászólás."
 

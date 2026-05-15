@@ -9730,6 +9730,9 @@ msgstr "Rezultatet e kërkimit për:"
 msgid "Select a file"
 msgstr "Zgjidh një skedar"
 
+msgid "Select a file to insert into the editor."
+msgstr "Zgjidhni një skedar për ta futur në editor."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Paralajmërim - Skedari FAQ, i vendosur në direktorinë /home/ të portalit tuaj, nuk është i shkruajtshëm. Teksti juaj nuk do të ruhet derisa të ndryshohen lejet e skedarit."
 
@@ -15910,6 +15913,9 @@ msgstr "Data & ora"
 msgid "Item"
 msgstr "Artikull"
 
+msgid "Items"
+msgstr "Artikuj"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Konfiguro Plugin-in e Dashboard-it"
 
@@ -17163,6 +17169,18 @@ msgstr "Sesione në grup"
 
 msgid "Courses in group"
 msgstr "Kurse në grup"
+
+msgid "Courses on the platform"
+msgstr "Kursi në platformë"
+
+msgid "%s courses"
+msgstr "%s kurse"
+
+msgid "%s sessions"
+msgstr "%s sesione"
+
+msgid "Search by title or code"
+msgstr "Kërko sipas titullit ose kodit"
 
 msgid "Users in group"
 msgstr "Përdorues në grup"
@@ -32167,6 +32185,9 @@ msgstr "Detyrë"
 msgid "Allowed file formats: %s"
 msgstr "Formatet e lejuara të skedarëve: %s"
 
+msgid "File manager"
+msgstr "Menaxher skedarësh"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Lloji i skedarit nuk lejohet. Shtesat e lejuara: %s"
 
@@ -33880,6 +33901,9 @@ msgstr "Mirësevini"
 msgid "Welcome to Chamilo"
 msgstr "Mirësevini në Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Kontrollo të gjitha pyetjet e pjawp të mëposhtme"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Nëse kjo është hera juaj e parë që përdorni Chamilo, sigurohuni të kontrolloni menunë anësore për të gjetur rrugën nëpër shumë karakteristikat e saj. Nëse keni nevojë për ndihmë, do të gjeni <a href=\"https://docs.chamilo.org\">dokumentacionin tonë zyrtar</a> mund të ndihmojë për dokumentacionin standard, ndërsa <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forumi ynë online</a> mund të ndihmojë për të ndarë ide dhe për të gjetur përgjigje nga përdorues të tjerë të Chamilo."
 
@@ -34059,6 +34083,63 @@ msgstr "Vlerësimi i nevojave të trajnimit"
 
 msgid "Work climate surveys"
 msgstr "Anketat e klimës së punës"
+
+msgid "Unit"
+msgstr "Njësi"
+
+msgid "Total cost"
+msgstr "Kostoja totale"
+
+msgid "Cost per learner"
+msgstr "Kosto për nxënës"
+
+msgid "Average cost by session"
+msgstr "Kosto mesatare për sesion"
+
+msgid "Total investment"
+msgstr "Investimi total"
+
+msgid "Set cost"
+msgstr "Vendos koston"
+
+msgid "Filter by date range"
+msgstr "Filtro sipas intervalit të datës"
+
+msgid "Add distribution"
+msgstr "Shto shpërndarje"
+
+msgid "User share"
+msgstr "Pjesë përdoruesi"
+
+msgid "Select a unit"
+msgstr "Zgjidhni një njësi"
+
+msgid "Select a survey"
+msgstr "Zgjidhni një anketë"
+
+msgid "Distribution added"
+msgstr "Shpërndarja u shtua"
+
+msgid "Distribution removed"
+msgstr "Shpërndarja u hoq"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "A jeni të sigurt që dëshironi të hiqni këtë shpërndarje?"
+
+msgid "Cost updated"
+msgstr "Kostoja u përditësua"
+
+msgid "Total invited"
+msgstr "Total i ftuar"
+
+msgid "Total answered"
+msgstr "Total i përgjigjur"
+
+msgid "Total responses"
+msgstr "Total përgjigje"
+
+msgid "No responses yet"
+msgstr "Nuk ka përgjigje ende"
 
 msgid "Diversity criteria"
 msgstr "Kriteret e diversitetit"
@@ -34324,154 +34405,154 @@ msgid "Notifications sent"
 msgstr "Njoftimet e dërguara"
 
 msgid "Send notification"
-msgstr ""
+msgstr "Dërgo njoftim"
 
 msgid "Notification sent"
-msgstr ""
+msgstr "Njoftimi u dërgua"
 
 msgid "Benefit notification"
-msgstr ""
+msgstr "Njoftim përfitimi"
 
 msgid "From date"
-msgstr ""
+msgstr "Nga data"
 
 msgid "Search by name..."
-msgstr ""
+msgstr "Kërko sipas emrit..."
 
 msgid "Filtering by"
-msgstr ""
+msgstr "Filtrohet sipas"
 
 msgid "No diversity criteria found. Add criteria first."
-msgstr ""
+msgstr "Nuk u gjetën kritere diversiteti. Shtoni kritere së pari."
 
 msgid "Select a criterion from the list to view its statistics."
-msgstr ""
+msgstr "Zgjidhni një kriter nga lista për të parë statistikat e tij."
 
 msgid "No data available for this criterion."
-msgstr ""
+msgstr "Nuk ka të dhëna të disponueshme për këtë kriter."
 
 msgid "Add periodicity"
-msgstr ""
+msgstr "Shto periudicitet"
 
 msgid "Edit periodicity"
-msgstr ""
+msgstr "Ndrysho periudicitet"
 
 msgid "Add stage"
-msgstr ""
+msgstr "Shto fazë"
 
 msgid "Edit stage"
-msgstr ""
+msgstr "Ndrysho fazë"
 
 msgid "Periodicities"
-msgstr ""
+msgstr "Periudicitetet"
 
 msgid "Evaluation stages"
-msgstr ""
+msgstr "Fazat e vlerësimit"
 
 msgid "Evaluation templates"
-msgstr ""
+msgstr "Modelet e vlerësimit"
 
 msgid "Add evaluation template"
-msgstr ""
+msgstr "Shto model vlerësimi"
 
 msgid "Edit evaluation template"
-msgstr ""
+msgstr "Ndrysho model vlerësimi"
 
 msgid "Add template"
-msgstr ""
+msgstr "Shto model"
 
 msgid "Scheduled evaluations"
-msgstr ""
+msgstr "Vlerësimet e planifikuara"
 
 msgid "Schedule evaluation"
-msgstr ""
+msgstr "Planifiko vlerësim"
 
 msgid "Evaluation form"
-msgstr ""
+msgstr "Formular vlerësimi"
 
 msgid "My evaluations"
-msgstr ""
+msgstr "Vlerësimet e mia"
 
 msgid "Evaluations of me"
-msgstr ""
+msgstr "Vlerësimet për mua"
 
 msgid "Evaluations I must conduct"
-msgstr ""
+msgstr "Vlerësimet që duhet të kryej"
 
 msgid "Evaluatee"
-msgstr ""
+msgstr "I vlerësuar"
 
 msgid "Evaluator"
-msgstr ""
+msgstr "Vlerësues"
 
 msgid "Evaluator(s)"
-msgstr ""
+msgstr "Vlerësues(it)"
 
 msgid "Scheduled date"
-msgstr ""
+msgstr "Data e planifikuar"
 
 msgid "Evaluation stage"
-msgstr ""
+msgstr "Faza e vlerësimit"
 
 msgid "Save draft"
-msgstr ""
+msgstr "Ruaj draft"
 
 msgid "Send to evaluatee"
-msgstr ""
+msgstr "Dërgo te i vlerësuari"
 
 msgid "Submit feedback"
-msgstr ""
+msgstr "Dërgo feedback"
 
 msgid "Close evaluation"
-msgstr ""
+msgstr "Mbyll vlerësimin"
 
 msgid "Feedbacked"
-msgstr ""
+msgstr "Me feedback"
 
 msgid "Action plan for next period"
-msgstr ""
+msgstr "Plani i veprimit për periudhën e ardhshme"
 
 msgid "Save action plan"
-msgstr ""
+msgstr "Ruaj planin e veprimit"
 
 msgid "Next evaluation date"
-msgstr ""
+msgstr "Data e vlerësimit të ardhshëm"
 
 msgid "History of evaluations"
-msgstr ""
+msgstr "Historia e vlerësimeve"
 
 msgid "Evaluator comment"
-msgstr ""
+msgstr "Komenti i vlerësuesit"
 
 msgid "Evaluatee comment"
-msgstr ""
+msgstr "Komenti i të vlerësuarit"
 
 msgid "Weight %"
-msgstr ""
+msgstr "Pesha %"
 
 msgid "Must equal 100%"
-msgstr ""
+msgstr "Duhet të jetë e barabartë me 100%"
 
 msgid "No skills added yet."
-msgstr ""
+msgstr "Nuk ka aftësi të shtuara ende."
 
 msgid "No activities added yet."
-msgstr ""
+msgstr "Nuk ka aktivitete të shtuara ende."
 
 msgid "No objectives added yet."
-msgstr ""
+msgstr "Nuk ka objektiva të shtuara ende."
 
 msgid "No action plan defined."
-msgstr ""
+msgstr "Nuk ka plan veprimi të përcaktuar."
 
 msgid "No comments yet."
-msgstr ""
+msgstr "Nuk ka komente ende."
 
 msgid "Hold Ctrl/Cmd to select multiple evaluators."
-msgstr ""
+msgstr "Mbaj Ctrl/Cmd për të zgjedhur vlerësues të shumëfishtë."
 
 msgid "Scheduled"
-msgstr ""
+msgstr "E planifikuar"
 
 msgid "Items"
 msgstr "Artikuj"
@@ -34571,4 +34652,274 @@ msgstr "A jeni të sigurt që dëshironi të fshini këtë vlerësim?"
 
 msgid "Loading…"
 msgstr "Duke ngarkuar…"
+
+msgid "Periodicity"
+msgstr "Periudicitet"
+
+msgid "Suggest from periodicity"
+msgstr "Sugjero nga periudiciteti"
+
+msgid "Add job offer"
+msgstr "Shto ofertë pune"
+
+msgid "Edit job offer"
+msgstr "Ndrysho ofertë pune"
+
+msgid "Function / Unit"
+msgstr "Funktion / Njësi"
+
+msgid "Vacancies"
+msgstr "Vende bosh"
+
+msgid "Expected start date"
+msgstr "Data e pritshme e fillimit"
+
+msgid "Contract duration (days)"
+msgstr "Koha e kontratës (ditë)"
+
+msgid "Public offer"
+msgstr "Ofertë publike"
+
+msgid "Publication start date"
+msgstr "Data e fillimit të publikimit"
+
+msgid "Publication end date"
+msgstr "Data e mbarimit të publikimit"
+
+msgid "Applications"
+msgstr "Aplikimet"
+
+msgid "Selection exams"
+msgstr "Provimet e zgjedhjes"
+
+msgid "Add exam"
+msgstr "Shto provim"
+
+msgid "Applicant"
+msgstr "Aplikant"
+
+msgid "Applied on"
+msgstr "Aplikuar më"
+
+msgid "Salary expectations"
+msgstr "Prisni pagën"
+
+msgid "Pending evaluation"
+msgstr "Në pritje të vlerësimit"
+
+msgid "Hired"
+msgstr "I punësuar"
+
+msgid "Not hired"
+msgstr "Jo i punësuar"
+
+msgid "Evaluate"
+msgstr "Vlerëso"
+
+msgid "Evaluate candidate"
+msgstr "Vlerëso kandidatin"
+
+msgid "Decision"
+msgstr "Vendim"
+
+msgid "Save evaluation"
+msgstr "Ruaj vlerësimin"
+
+msgid "Back to job offers"
+msgstr "Kthehu te ofertat e punës"
+
+msgid "No job offers available at this time."
+msgstr "Nuk ka oferta pune të disponueshme në këtë kohë."
+
+msgid "See details"
+msgstr "Shih detajet"
+
+msgid "Apply now"
+msgstr "Apliko tani"
+
+msgid "Already applied"
+msgstr "Tashmë e aplikuar"
+
+msgid "Log in to apply"
+msgstr "Hyr në sistem për të aplikuar"
+
+msgid "Apply to job offer"
+msgstr "Apliko për ofertën e punës"
+
+msgid "Availability date"
+msgstr "Data e disponueshmërisë"
+
+msgid "CV (Personal file)"
+msgstr "CV (Dosja personale)"
+
+msgid "Select your CV from your personal files"
+msgstr "Zgjidh CV-në tënde nga dosjet personale"
+
+msgid "Submit application"
+msgstr "Dërgo aplikimin"
+
+msgid "Application submitted successfully."
+msgstr "Aplikimi u dërgua me sukses."
+
+msgid "Private observations"
+msgstr "Vëzhgime private"
+
+msgid "My applications"
+msgstr "Aplikimet e mia"
+
+msgid "View job offers"
+msgstr "Shih ofertat e punës"
+
+msgid "You have not submitted any applications yet."
+msgstr "Ju nuk keni dorëzuar ende asnjë aplikim."
+
+msgid "Under review"
+msgstr "Nën shqyrtim"
+
+msgid "Not selected"
+msgstr "Jo i zgjedhur"
+
+msgid "HR feedback"
+msgstr "Përgjigje nga HR"
+
+msgid "Withdraw application"
+msgstr "Tërhiq aplikimin"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "A jeni i sigurt që dëshironi të tërhiqni këtë aplikim?"
+
+msgid "Application withdrawn."
+msgstr "Aplikimi u tërhoq."
+
+msgid "Calculate quiz scores"
+msgstr "Llogarit rezultatet e kuizit"
+
+msgid "Scores calculated."
+msgstr "Rezultatet u llogaritën."
+
+msgid "Career plan overview"
+msgstr "Përmbledhje e planit të karrierës"
+
+msgid "My career plan"
+msgstr "Plani im i karrierës"
+
+msgid "No function-unit associations configured yet."
+msgstr "Nuk ka asocime funksion-njësi të konfiguruar ende."
+
+msgid "No required skills defined."
+msgstr "Nuk ka aftësi të kërkuara të përcaktuara."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Duhet të caktoheni në një pozicion për të parë planin tuaj të karrierës."
+
+msgid "Your current position"
+msgstr "Pozicioni juaj aktual"
+
+msgid "No career targets found for your current position."
+msgstr "Nuk u gjetën objektiva karriere për pozicionin tuaj aktual."
+
+msgid "No required skills defined for this position."
+msgstr "Nuk ka aftësi të kërkuara të përcaktuara për këtë pozicion."
+
+msgid "Met"
+msgstr "I përmbushur"
+
+msgid "Gap"
+msgstr "Hegesi"
+
+msgid "Acquired:"
+msgstr "I fituar:"
+
+msgid "Required:"
+msgstr "I kërkuar:"
+
+msgid "Max"
+msgstr "Maks"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nuk u gjetën kritere diversiteti. Shtoni kritere së pari."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Zgjidhni një kriter nga lista për të parë statistikat e tij."
+
+msgid "No data available for this criterion."
+msgstr "Nuk ka të dhëna të disponueshme për këtë kriter."
+
+msgid "Change password"
+msgstr "Ndrysho fjalëkalimin"
+
+msgid "Newest first"
+msgstr "Më i ri së pari"
+
+msgid "Oldest first"
+msgstr "Më i vjetër së pari"
+
+msgid "Title A–Z"
+msgstr "Titull A–Z"
+
+msgid "Title Z–A"
+msgstr "Titull Z–A"
+
+msgid "Send test email"
+msgstr "Dërgo email test"
+
+msgid "Show teachers"
+msgstr "Shfaq mësuesit"
+
+msgid "Hide teachers"
+msgstr "Fsheh mësuesit"
+
+msgid "Delete exercise attempts"
+msgstr "Fshij përpjekjet e ushtrimit"
+
+msgid "Message sent successfully."
+msgstr "Mesazhi u dërgua me sukses."
+
+msgid "You cannot create a new course right now."
+msgstr "Nuk mund të krijoni një kurs të ri tani."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Nuk mund të verifikohet nëse mund të krijoni një kurs të ri tani."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Ju lutemi, provoni përsëri më vonë ose kontaktoni administratorin."
+
+msgid "You cannot create more courses at this time."
+msgstr "Nuk mund të krijoni më shumë kurse në këtë kohë."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Ju menaxhoni tashmë %d kurse dhe shërbimi juaj aktiv lejon deri në %d. Për të krijuar një kurs tjetër, keni nevojë për një limit më të lartë shërbimi ose zvogëloni kurset tuaja aktuale aktive."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Ju menaxhoni tashmë %d kurse dhe platforma aktualisht lejon deri në %d për llogarinë tuaj. Nuk mund të krijoni më shumë kurse tani."
+
+msgid "Add a class"
+msgstr "Shto një klasë"
+
+msgid "Search classes"
+msgstr "Kërko klasa"
+
+msgid "No classes found"
+msgstr "Nuk u gjetën klasa"
+
+msgid "Import classes"
+msgstr "Importo klasa"
+
+msgid "Class users"
+msgstr "Përdoruesit e klasës"
+
+msgid "%s classes imported"
+msgstr "%s klasa të importuara"
+
+msgid "%s user-class links imported"
+msgstr "%s lidhje përdorues-klasë të importuara"
+
+msgid "Hide comments"
+msgstr "Fsheh komentet"
+
+msgid "Loading comments..."
+msgstr "Duke ngarkuar komentet..."
+
+msgid "No comments yet."
+msgstr "Nuk ka komente ende."
 

@@ -9726,6 +9726,9 @@ msgstr "Søkjeftanir fyri:"
 msgid "Select a file"
 msgstr "Vel eitt fil"
 
+msgid "Select a file to insert into the editor."
+msgstr ""
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Ávaring - FAQ filin, staðsett í /home/ mappuni á portali tínum, er ikki skrivilig. Teksturin verður ikki goymdur, fyrr enn filroyndirnar eru broyttar."
 
@@ -15906,6 +15909,9 @@ msgstr "Dagsetning & tíð"
 msgid "Item"
 msgstr "Lið"
 
+msgid "Items"
+msgstr "Loyvir"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Stilla Dashboard Plugin"
 
@@ -17159,6 +17165,18 @@ msgstr "Fundir í bólki"
 
 msgid "Courses in group"
 msgstr "Líkindi í bólki"
+
+msgid "Courses on the platform"
+msgstr ""
+
+msgid "%s courses"
+msgstr ""
+
+msgid "%s sessions"
+msgstr ""
+
+msgid "Search by title or code"
+msgstr ""
 
 msgid "Users in group"
 msgstr "Brúkarar í bólki"
@@ -32163,6 +32181,9 @@ msgstr "Verkefni"
 msgid "Allowed file formats: %s"
 msgstr "Leymdar fílusnið: %s"
 
+msgid "File manager"
+msgstr ""
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Fílusnið ikki leyft. Leymdar endingar: %s"
 
@@ -33844,22 +33865,22 @@ msgid "Generate from topic"
 msgstr ""
 
 msgid "Use a topic prompt to generate a new Aiken questionnaire."
-msgstr ""
+msgstr "Brúka evni frágreiðslu til at seta saman eina nýggja Aiken spurnarkeypseyt."
 
 msgid "Quiz title"
-msgstr ""
+msgstr "Spurnarkeyps nafn"
 
 msgid "Generate from document"
-msgstr ""
+msgstr "Ger av dokumenti"
 
 msgid "Select one course document and generate questions based only on its contents."
-msgstr ""
+msgstr "Vel eitt kursusdokument og ger spurningar bert á grundroynd av innihaldinum."
 
 msgid "Selected document"
-msgstr ""
+msgstr "Valið dokument"
 
 msgid "The document is selected from the course documents list."
-msgstr ""
+msgstr "Dokumentið er valt frá listanum yvir kursusdokument."
 
 msgid "Choose document"
 msgstr "Vel dokument"
@@ -33875,6 +33896,9 @@ msgstr "Velkomin"
 
 msgid "Welcome to Chamilo"
 msgstr "Velkomin til Chamilo"
+
+msgid "Check all unanswered questions below"
+msgstr "Tak allar ósvaraðar spurningar her niðanfyri"
 
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Um hetta er fyrstu ferð tú brúkar Chamilo, so trygg at tú skoðar síðuna til at finna veg fram gjøgnum harin mongu funktionirnar. Um tú hevur brúk fyri hjálp, so finnur tú <a href=\"https://docs.chamilo.org\">okkara stovnrætta dokumentation</a> hjálpir við vanligum tingum, meðan okkara <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> kann hjálpa við at deila hugmyndum og finna svar hjá øðrum Chamilo-brúkarum."
@@ -34055,6 +34079,63 @@ msgstr "Metan av útbúgvingaravnøjum"
 
 msgid "Work climate surveys"
 msgstr "Arbaðsumhvørvisspurningar"
+
+msgid "Unit"
+msgstr "Deild"
+
+msgid "Total cost"
+msgstr "Heildarkostnaður"
+
+msgid "Cost per learner"
+msgstr "Kostnaður pr. lærari"
+
+msgid "Average cost by session"
+msgstr "Meðalkostnaður eftir samkomu"
+
+msgid "Total investment"
+msgstr "Heildarfjørimuni"
+
+msgid "Set cost"
+msgstr "Set kostnað"
+
+msgid "Filter by date range"
+msgstr "Filtur eftir dagatíð"
+
+msgid "Add distribution"
+msgstr "Legg afturat dreingissølu"
+
+msgid "User share"
+msgstr "Brúkarandans part"
+
+msgid "Select a unit"
+msgstr "Vel eina deild"
+
+msgid "Select a survey"
+msgstr "Vel eina kanning"
+
+msgid "Distribution added"
+msgstr "Dreingissølan er løgd afturat"
+
+msgid "Distribution removed"
+msgstr "Dreingissølan er tikin bort"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Er tú vís í, at tú ynskir at taka hesa dreingissølu bort?"
+
+msgid "Cost updated"
+msgstr "Kostnaður uppførdur"
+
+msgid "Total invited"
+msgstr "Heilt boðin"
+
+msgid "Total answered"
+msgstr "Heilt svarað"
+
+msgid "Total responses"
+msgstr "Heil svar"
+
+msgid "No responses yet"
+msgstr "Ongin svar enn"
 
 msgid "Diversity criteria"
 msgstr "Fjölbreytniskriterium"
@@ -34567,4 +34648,274 @@ msgstr "Er tú vís í at tú ynskir at sletta hesi metingini?"
 
 msgid "Loading…"
 msgstr "Innlesur…"
+
+msgid "Periodicity"
+msgstr "Tíðarfrekvens"
+
+msgid "Suggest from periodicity"
+msgstr "Fyriskipa frá tíðarfrekvens"
+
+msgid "Add job offer"
+msgstr "Legg afturat starvsyvirlit"
+
+msgid "Edit job offer"
+msgstr "Brota starvsyvirlit"
+
+msgid "Function / Unit"
+msgstr "Starvsfunksjon / Deild"
+
+msgid "Vacancies"
+msgstr "Ledigar pláss"
+
+msgid "Expected start date"
+msgstr "Væntað byrjanardagur"
+
+msgid "Contract duration (days)"
+msgstr "Samráðsveru (dagar)"
+
+msgid "Public offer"
+msgstr "Almennt yvirlit"
+
+msgid "Publication start date"
+msgstr "Dagur byrjanar útgivingar"
+
+msgid "Publication end date"
+msgstr "Dagur endar útgivingar"
+
+msgid "Applications"
+msgstr "Umsóknir"
+
+msgid "Selection exams"
+msgstr "Valprøvur"
+
+msgid "Add exam"
+msgstr "Legg afturat pruvu"
+
+msgid "Applicant"
+msgstr "Umsøkjari"
+
+msgid "Applied on"
+msgstr "Umsøkt hósdagin"
+
+msgid "Salary expectations"
+msgstr "Lønarvæntanir"
+
+msgid "Pending evaluation"
+msgstr "Vantz um meting"
+
+msgid "Hired"
+msgstr "Ritað/ur"
+
+msgid "Not hired"
+msgstr "Ikki ritað/ur"
+
+msgid "Evaluate"
+msgstr "Meting"
+
+msgid "Evaluate candidate"
+msgstr "Met umsøkjaran"
+
+msgid "Decision"
+msgstr "Ágreiðing"
+
+msgid "Save evaluation"
+msgstr "Goym meting"
+
+msgid "Back to job offers"
+msgstr "Aftur til starvstilboð"
+
+msgid "No job offers available at this time."
+msgstr "Ongin starvstilboð til taks í løtuni."
+
+msgid "See details"
+msgstr "Vís detaljar"
+
+msgid "Apply now"
+msgstr "Søkj nú"
+
+msgid "Already applied"
+msgstr "Hevur longdist"
+
+msgid "Log in to apply"
+msgstr "Rita inn til at søkja"
+
+msgid "Apply to job offer"
+msgstr "Søk til starvstilboð"
+
+msgid "Availability date"
+msgstr "Tilgonguligheitardagur"
+
+msgid "CV (Personal file)"
+msgstr "CV (Persónlig fíla)"
+
+msgid "Select your CV from your personal files"
+msgstr "Vel tín CV úr tínum persónligu fílum"
+
+msgid "Submit application"
+msgstr "Send søknan inn"
+
+msgid "Application submitted successfully."
+msgstr "Søknan er send inn við gongd."
+
+msgid "Private observations"
+msgstr "Eginum athugaverdir"
+
+msgid "My applications"
+msgstr "Mínar søknanir"
+
+msgid "View job offers"
+msgstr "Vís starvstilboð"
+
+msgid "You have not submitted any applications yet."
+msgstr "Tú hevur ikki send inn nakra søknan enn."
+
+msgid "Under review"
+msgstr "Undir yvirlit"
+
+msgid "Not selected"
+msgstr "Ikki valdur"
+
+msgid "HR feedback"
+msgstr "Hervísumátfrøðilig tilgjøring"
+
+msgid "Withdraw application"
+msgstr "Tak søknan út"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Er tú vís í, at tú ynskir at taka hesa søknan út?"
+
+msgid "Application withdrawn."
+msgstr "Søknan er tikin út."
+
+msgid "Calculate quiz scores"
+msgstr "Reikna kross próvastig"
+
+msgid "Scores calculated."
+msgstr "Stig eru reiknað."
+
+msgid "Career plan overview"
+msgstr "Yvirlit yvir starvsferilsætlan"
+
+msgid "My career plan"
+msgstr "Mín starvsferilsætlan"
+
+msgid "No function-unit associations configured yet."
+msgstr "Ongar samliggjandi funksjon-heildir ikki settar upp enn."
+
+msgid "No required skills defined."
+msgstr "Ongar kravdu kunnleikar ásett."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Tú mást vera nevndur til ein støðu fyri at síggja tín starvsferilsætlan."
+
+msgid "Your current position"
+msgstr "Tín núverandi støða"
+
+msgid "No career targets found for your current position."
+msgstr "Ongir starvsferilsmál funnin fyri tínar núverandi støðu."
+
+msgid "No required skills defined for this position."
+msgstr "Ongar kravdar kunnleikar ásett fyri hesa støðuna."
+
+msgid "Met"
+msgstr "Náddur"
+
+msgid "Gap"
+msgstr "Gápur"
+
+msgid "Acquired:"
+msgstr "Ópinnt:"
+
+msgid "Required:"
+msgstr "Kravt:"
+
+msgid "Max"
+msgstr "Mest"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Ongar fjølgaðarviðgerðir funnar. Legg viðgerðir afturat fyrst."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Vel eina viðgerð av listanum fyri at síggja hennara tal."
+
+msgid "No data available for this criterion."
+msgstr "Ongar dữir tøkktar fyri hesa viðgerð."
+
+msgid "Change password"
+msgstr "Broyt lykilord"
+
+msgid "Newest first"
+msgstr "Nýggjastu fyrst"
+
+msgid "Oldest first"
+msgstr "Eldstu fyrst"
+
+msgid "Title A–Z"
+msgstr "Heiti A–Z"
+
+msgid "Title Z–A"
+msgstr "Heiti Z–A"
+
+msgid "Send test email"
+msgstr "Send próvuemail"
+
+msgid "Show teachers"
+msgstr "Vís lærarar"
+
+msgid "Hide teachers"
+msgstr "Fjal lærarar"
+
+msgid "Delete exercise attempts"
+msgstr "Strika kross próvagreiðslur"
+
+msgid "Message sent successfully."
+msgstr "Boð sendt við gongd."
+
+msgid "You cannot create a new course right now."
+msgstr "Tú kanst ikki upprætta eitt nýtt kursus nú."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Kann ikki staðfesta, um tú kanst upprætta eitt nýtt kursus nú."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Vinarliga royn eina ferð til seinni ella hava samband við veitara."
+
+msgid "You cannot create more courses at this time."
+msgstr "Tú kanst ikki upprætta fleiri kursar júst nú."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Tú umsitar longu %d kursar og tína virknandi tænastu leyvir upp til %d. Til at upprætta ein annan kursur, hevur tú tørv á hægri tænastugrunsu ella at minka tína núverandi virknandi kursar."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Tú umsitar longu %d kursar og talgvelan leyvir nú upp til %d fyri tína kontu. Tú kanst ikki upprætta fleiri kursar nú."
+
+msgid "Add a class"
+msgstr "Legg bólk aftrat"
+
+msgid "Search classes"
+msgstr "Leita eftir bólkum"
+
+msgid "No classes found"
+msgstr "Ongir bólkar funnir"
+
+msgid "Import classes"
+msgstr "Flyt bólkar inn"
+
+msgid "Class users"
+msgstr "Brúkarar í bólki"
+
+msgid "%s classes imported"
+msgstr "%s bólkar innfluttir"
+
+msgid "%s user-class links imported"
+msgstr "%s brúkari-bólkur leinkjur innfluttar"
+
+msgid "Hide comments"
+msgstr "Fjal ummæli"
+
+msgid "Loading comments..."
+msgstr "Innles ummæli..."
+
+msgid "No comments yet."
+msgstr "Ongar viðmerkingar enn."
 

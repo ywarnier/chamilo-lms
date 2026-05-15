@@ -2017,7 +2017,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:dirit d'autor,, no:senza dirit d'autor"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Cartelle,, application/msword:MsWord,, application/octet-stream:Flui octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:esercizi,,      simulation:simulazion,,      questionnaire:cuestionari,,      diagram:diagrami,,      figure:figure,,      graph:graf,,      index:indis,,      slide:diapositivis,,      table:tabile,,      narrative text:test narativ,,      exam:sîs,,      experiment:esperiments,,      problem statement:enunzi de problem,,      self assessment:auto valutazion,,      lecture:lecion"
@@ -9726,6 +9726,9 @@ msgstr "Risultâts dla buskjive:"
 msgid "Select a file"
 msgstr "Slezionâ un file"
 
+msgid "Select a file to insert into the editor."
+msgstr "Scegli un file par inserîlu tal editor."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Atension - Il file FAQ, locât in /home/ dal to portal, nol è scrivîvi. Il to test nol sarà salvât fin che no si cambion lis permission dal file."
 
@@ -15906,6 +15909,9 @@ msgstr "Dât e or"
 msgid "Item"
 msgstr "Vôs"
 
+msgid "Items"
+msgstr "Vôs"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Configurâ il plugin Dashboard"
 
@@ -17160,6 +17166,18 @@ msgstr "Sesions tal grup"
 msgid "Courses in group"
 msgstr "Cors tal grup"
 
+msgid "Courses on the platform"
+msgstr "Corsi te plateformis"
+
+msgid "%s courses"
+msgstr "%s curs"
+
+msgid "%s sessions"
+msgstr "%s sesions"
+
+msgid "Search by title or code"
+msgstr "Çerca par titol o codiç"
+
 msgid "Users in group"
 msgstr "Utents tal grup"
 
@@ -17863,7 +17881,7 @@ msgid "Thread moved"
 msgstr "Fî un migrait"
 
 msgid "Migrate forum"
-msgstr "Migrate forum"
+msgstr "Migra forum"
 
 msgid "You will be notified"
 msgstr "Ti a saran notificât"
@@ -32163,6 +32181,9 @@ msgstr "Compit"
 msgid "Allowed file formats: %s"
 msgstr "Formâts di file permetûts: %s"
 
+msgid "File manager"
+msgstr "Gjestôr di file"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Gjener di file no permitût. Estensions permetûs: %s"
 
@@ -33876,6 +33897,9 @@ msgstr "Benvegniuds"
 msgid "Welcome to Chamilo"
 msgstr "Benvegniuts a Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Çontrola dutis lis domandis cence rispueste sot"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Se chest e je prime volte che deplots Chamilo, jenç di controllâ il menu laterâl par rivâ a jê funcions. Se âs bisoin di agude, i <a href=\"https://docs.chamilo.org\">documentazion uficiaâ</a> a podarai jutar par la documentazion standard, mentri il <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forum online</a> a pues jutar a partî ideis e cjatâ rispuestis di altri utents Chamilo."
 
@@ -34056,17 +34080,74 @@ msgstr "Valutazion des besoins di formazion"
 msgid "Work climate surveys"
 msgstr "Sondagis sul climat di lavôr"
 
+msgid "Unit"
+msgstr "Unitât"
+
+msgid "Total cost"
+msgstr "Cost total"
+
+msgid "Cost per learner"
+msgstr "Cost par agnant"
+
+msgid "Average cost by session"
+msgstr "Cost medie par sesion"
+
+msgid "Total investment"
+msgstr "Investiment total"
+
+msgid "Set cost"
+msgstr "Definis cost"
+
+msgid "Filter by date range"
+msgstr "Filter pe intervâl di datas"
+
+msgid "Add distribution"
+msgstr "Zovê distribussion"
+
+msgid "User share"
+msgstr "Quota utent"
+
+msgid "Select a unit"
+msgstr "Scegli une unitât"
+
+msgid "Select a survey"
+msgstr "Scegli un indagin"
+
+msgid "Distribution added"
+msgstr "Distribussion agravade"
+
+msgid "Distribution removed"
+msgstr "Distribussion gjavade"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Si jê serçûts che vûl sliâri cheste distribussion?"
+
+msgid "Cost updated"
+msgstr "Cost atualizât"
+
+msgid "Total invited"
+msgstr "Total invitâts"
+
+msgid "Total answered"
+msgstr "Total rispostûts"
+
+msgid "Total responses"
+msgstr "Total rispuestis"
+
+msgid "No responses yet"
+msgstr "Nissune rispueste ancó"
+
 msgid "Diversity criteria"
 msgstr "Critiris di diversitât"
 
 msgid "Add diversity criterion"
-msgstr ""
+msgstr "Zovê un criterî di diversitât"
 
 msgid "Edit diversity criterion"
-msgstr ""
+msgstr "Modifiche un criterî di diversitât"
 
 msgid "Extra field"
-msgstr ""
+msgstr "Camp estris"
 
 msgid "Diversity guidelines"
 msgstr "Linieis giduâtis pe diversitât"
@@ -34197,43 +34278,41 @@ msgstr "Cualche livêl"
 msgid "Geographic zone"
 msgstr "Zône geogràfiche"
 
-msgid "Required skills"
-msgstr "Cumpetence desîadis"
 msgid "Social Responsibility"
-msgstr ""
+msgstr "Responsabilitât sociale"
 
 msgid "Our commitments to the UN Sustainable Development Goals"
-msgstr ""
+msgstr "Njs impinjiments pars i Obietîvs di Svilup UN sostenibil"
 
 msgid "No published SDG commitments yet."
-msgstr ""
+msgstr "Nissun impinjiment SDG publicât ancó."
 
 msgid "SDG Goals"
-msgstr ""
+msgstr "Obietîvs SDG"
 
 msgid "Enforcement"
-msgstr ""
+msgstr "Esecuzion"
 
 msgid "Translate"
-msgstr ""
+msgstr "Traduzi"
 
 msgid "No AI provider configured"
-msgstr ""
+msgstr "Nissun fornidôr AI configurât"
 
 msgid "Translate this goal to another language"
-msgstr ""
+msgstr "Traduzi chest obietîf in unâ altre lenghe"
 
 msgid "Change history"
-msgstr ""
+msgstr "Storie des cambiaments"
 
 msgid "No history yet."
-msgstr ""
+msgstr "Nissune storie ancó."
 
 msgid "Translation ready — please review before saving."
-msgstr ""
+msgstr "Traduzion pront — controllait prime di salvâ."
 
 msgid "Target language"
-msgstr ""
+msgstr "Lenghe di destinazion"
 
 msgid "Translate SDG %s"
 msgstr "Traduzi SDG %s"
@@ -34567,4 +34646,274 @@ msgstr "Si jê sigur che vuêi scancelelâ cheste valuatîon?"
 
 msgid "Loading…"
 msgstr "Carighe…"
+
+msgid "Periodicity"
+msgstr "Periodicità"
+
+msgid "Suggest from periodicity"
+msgstr "Zovê de periodicità"
+
+msgid "Add job offer"
+msgstr "Zovê un ofert di lavor"
+
+msgid "Edit job offer"
+msgstr "Modifiche ofert di lavor"
+
+msgid "Function / Unit"
+msgstr "Funzion / Unitât"
+
+msgid "Vacancies"
+msgstr "Postis liber"
+
+msgid "Expected start date"
+msgstr "Data di inisie previste"
+
+msgid "Contract duration (days)"
+msgstr "Durade contût (giurns)"
+
+msgid "Public offer"
+msgstr "Ofert publique"
+
+msgid "Publication start date"
+msgstr "Data di inisie publicazion"
+
+msgid "Publication end date"
+msgstr "Data di fin publicazion"
+
+msgid "Applications"
+msgstr "Domandis"
+
+msgid "Selection exams"
+msgstr "Esami di selezion"
+
+msgid "Add exam"
+msgstr "Zovê un exam"
+
+msgid "Applicant"
+msgstr "Candidât"
+
+msgid "Applied on"
+msgstr "Domandât il"
+
+msgid "Salary expectations"
+msgstr "Atteses salarials"
+
+msgid "Pending evaluation"
+msgstr "Valutazion pendente"
+
+msgid "Hired"
+msgstr "Jassû"
+
+msgid "Not hired"
+msgstr "No jassû"
+
+msgid "Evaluate"
+msgstr "Valute"
+
+msgid "Evaluate candidate"
+msgstr "Valute il candidat"
+
+msgid "Decision"
+msgstr "Desizion"
+
+msgid "Save evaluation"
+msgstr "Salve la valutazion"
+
+msgid "Back to job offers"
+msgstr "Torna às ofert di lavor"
+
+msgid "No job offers available at this time."
+msgstr "Nissune offre di lavôr disponibilis al mument."
+
+msgid "See details"
+msgstr "Vê details"
+
+msgid "Apply now"
+msgstr "Aplicâ ora"
+
+msgid "Already applied"
+msgstr "Ja aplicât"
+
+msgid "Log in to apply"
+msgstr "Jentrâ pe aplicâ"
+
+msgid "Apply to job offer"
+msgstr "Aplicâ a ofert di lavôr"
+
+msgid "Availability date"
+msgstr "Data di disponibilitât"
+
+msgid "CV (Personal file)"
+msgstr "CV (File pesonal)"
+
+msgid "Select your CV from your personal files"
+msgstr "Sceâ il to CV des ties files pesonâls"
+
+msgid "Submit application"
+msgstr "Inviâ aplicazion"
+
+msgid "Application submitted successfully."
+msgstr "Aplicazion inviade cun sucès."
+
+msgid "Private observations"
+msgstr "Observazions privâdis"
+
+msgid "My applications"
+msgstr "Min aplicazions"
+
+msgid "View job offers"
+msgstr "Vê ofertis di lavôr"
+
+msgid "You have not submitted any applications yet."
+msgstr "Tu n'âs encjemme inviâ nissune aplicazion."
+
+msgid "Under review"
+msgstr "In rivision"
+
+msgid "Not selected"
+msgstr "Nol siê sielçû"
+
+msgid "HR feedback"
+msgstr "Feedback dal HR"
+
+msgid "Withdraw application"
+msgstr "Ritirâ aplicazion"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Si jerçu che vuêsi ritirâ cheste aplicazion?"
+
+msgid "Application withdrawn."
+msgstr "Aplicazion ritirade."
+
+msgid "Calculate quiz scores"
+msgstr "Calcolâ puncis dal quiz"
+
+msgid "Scores calculated."
+msgstr "Puncis calculâts."
+
+msgid "Career plan overview"
+msgstr "Panoramica dal plan di carriere"
+
+msgid "My career plan"
+msgstr "Mî plan di carriere"
+
+msgid "No function-unit associations configured yet."
+msgstr "Nissune asociations funzion-unitâ configuradis fin ora."
+
+msgid "No required skills defined."
+msgstr "Nissune competenzis obligatoriis definidis."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Tu devi jessê asignât a une posision parsê il to plan di carriere."
+
+msgid "Your current position"
+msgstr "To posision atuâl"
+
+msgid "No career targets found for your current position."
+msgstr "Nissun obietîf di carriere trombât pe la to posision atuâl."
+
+msgid "No required skills defined for this position."
+msgstr "Nissune competenzis obligatoriis definidis pe cheste posision."
+
+msgid "Met"
+msgstr "Sazisfât"
+
+msgid "Gap"
+msgstr "Lacune"
+
+msgid "Acquired:"
+msgstr "Acquisî:"
+
+msgid "Required:"
+msgstr "Obligatori:"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nissun criteris di diversitât jetât. Zonte i criteris primieri."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Sleze un criteris de liste par viodi lis so statistichis."
+
+msgid "No data available for this criterion."
+msgstr "Nissun dât disponibi par chest criteris."
+
+msgid "Change password"
+msgstr "Cjambe password"
+
+msgid "Newest first"
+msgstr "Pîs gjnovis primeir"
+
+msgid "Oldest first"
+msgstr "Pîs vecjos primeir"
+
+msgid "Title A–Z"
+msgstr "Titel A–Z"
+
+msgid "Title Z–A"
+msgstr "Titel Z–A"
+
+msgid "Send test email"
+msgstr "Inviâ email di test"
+
+msgid "Show teachers"
+msgstr "Mostre i ducjis"
+
+msgid "Hide teachers"
+msgstr "Ascondi ducjis"
+
+msgid "Delete exercise attempts"
+msgstr "Elimine tentatîfs de esercizi"
+
+msgid "Message sent successfully."
+msgstr "Missive inviade cun sucès."
+
+msgid "You cannot create a new course right now."
+msgstr "Tu no tu pùs creâ un gnûc cors ori."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Impussibil verificâ se tu pùs creâ un gnûc cors ori."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Prova tornût pli tard o contate l'amministradôr."
+
+msgid "You cannot create more courses at this time."
+msgstr "Tu no tu pùs creâ alti cors al mument."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Tu gesì gestîs %d curs e il to servisi ativ al permit te fin a %d. Par creâ un altri curs, âs bisôn di un limit di servisi pli alç o ridê i tie curs ativ dal moment."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Tu gesì gestîs %d curs e la plate-forme al permit te fin a %d par il to account. No tu pâs creâ pli curs in chest moment."
+
+msgid "Add a class"
+msgstr "Zontâ une classe"
+
+msgid "Search classes"
+msgstr "Kercjâ classes"
+
+msgid "No classes found"
+msgstr "No classes trovadis"
+
+msgid "Import classes"
+msgstr "Importâ classes"
+
+msgid "Class users"
+msgstr "Utents de classe"
+
+msgid "%s classes imported"
+msgstr "%s classes importadis"
+
+msgid "%s user-class links imported"
+msgstr "%s leams user-classe importâdis"
+
+msgid "Hide comments"
+msgstr "Sconcêi i comentârs"
+
+msgid "Loading comments..."
+msgstr "Cjampe comentârs..."
+
+msgid "No comments yet."
+msgstr "Nissun commentari ancó."
 

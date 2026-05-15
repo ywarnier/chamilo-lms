@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "ด้วยความเคารพ"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "ตัวอย่างสูตร: sqrt( [x] / [ย] ) * ( e ^ ( ln(pi) ) )"
+msgstr "ตัวอย่างสูตร: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "ช่วงตัวแปร"
@@ -9731,6 +9731,9 @@ msgstr "ผลการค้นหาสำหรับ:"
 msgid "Select a file"
 msgstr "เลือกไฟล์"
 
+msgid "Select a file to insert into the editor."
+msgstr "เลือกไฟล์เพื่อแทรกลงในตัวแก้ไข"
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "คำเตือน - ไฟล์ FAQ ที่อยู่ในไดเรกทอรี /home/ ของพอร์ทัลของคุณไม่สามารถเขียนได้ ข้อความของคุณจะไม่ถูกบันทึกจนกว่าจะเปลี่ยนสิทธิ์ไฟล์"
 
@@ -15911,6 +15914,9 @@ msgstr "วันที่และเวลา"
 msgid "Item"
 msgstr "รายการ"
 
+msgid "Items"
+msgstr "รายการ"
+
 msgid "Configure Dashboard Plugin"
 msgstr "กำหนดค่าพลักอินแดชบอร์ด"
 
@@ -17164,6 +17170,18 @@ msgstr "เซสชันในกลุ่ม"
 
 msgid "Courses in group"
 msgstr "รายวิชาในกลุ่ม"
+
+msgid "Courses on the platform"
+msgstr "คอร์สบนแพลตฟอร์ม"
+
+msgid "%s courses"
+msgstr "%s คอร์ส"
+
+msgid "%s sessions"
+msgstr "%s ภาคเรียน"
+
+msgid "Search by title or code"
+msgstr "ค้นหาตามชื่อหรือรหัส"
 
 msgid "Users in group"
 msgstr "ผู้ใช้ในกลุ่ม"
@@ -32169,6 +32187,9 @@ msgstr "งาน"
 msgid "Allowed file formats: %s"
 msgstr "รูปแบบไฟล์ที่อนุญาต: %s"
 
+msgid "File manager"
+msgstr "ตัวจัดการไฟล์"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "ประเภทไฟล์ไม่ได้รับอนุญาต ส่วนขยายที่อนุญาต: %s"
 
@@ -33882,6 +33903,9 @@ msgstr "ยินดีต้อนรับ"
 msgid "Welcome to Chamilo"
 msgstr "ยินดีต้อนรับสู่ Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "ตรวจสอบคำถามที่ยังไม่ตอบทั้งหมดด้านล่าง"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> หากนี่เป็นครั้งแรกที่คุณใช้ Chamilo โปรดตรวจสอบเมนูด้านข้างเพื่อค้นหาวิธีใช้คุณสมบัติต่างๆ หากคุณต้องการความช่วยเหลือ คุณจะพบว่า <a href=\"https://docs.chamilo.org\">เอกสารอย่างเป็นทางการของเรา</a> สามารถช่วยได้สำหรับเอกสารมาตรฐาน ในขณะที่ <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">ฟอรัมออนไลน์</a> สามารถช่วยแบ่งปันไอเดียและค้นหาคำตอบจากผู้ใช้ Chamilo คนอื่นๆ"
 
@@ -34061,6 +34085,63 @@ msgstr "การประเมินความต้องการการ
 
 msgid "Work climate surveys"
 msgstr "แบบสำรวจสภาพการทำงาน"
+
+msgid "Unit"
+msgstr "หน่วย"
+
+msgid "Total cost"
+msgstr "ต้นทุนรวม"
+
+msgid "Cost per learner"
+msgstr "ต้นทุนต่อผู้เรียน"
+
+msgid "Average cost by session"
+msgstr "ต้นทุนเฉลี่ยต่อภาคเรียน"
+
+msgid "Total investment"
+msgstr "การลงทุนรวม"
+
+msgid "Set cost"
+msgstr "กำหนดต้นทุน"
+
+msgid "Filter by date range"
+msgstr "กรองตามช่วงวันที่"
+
+msgid "Add distribution"
+msgstr "เพิ่มการกระจาย"
+
+msgid "User share"
+msgstr "ส่วนแบ่งผู้ใช้"
+
+msgid "Select a unit"
+msgstr "เลือกหน่วย"
+
+msgid "Select a survey"
+msgstr "เลือกแบบสำรวจ"
+
+msgid "Distribution added"
+msgstr "เพิ่มการกระจายแล้ว"
+
+msgid "Distribution removed"
+msgstr "ลบการกระจายแล้ว"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบการกระจายนี้?"
+
+msgid "Cost updated"
+msgstr "อัปเดตต้นทุนแล้ว"
+
+msgid "Total invited"
+msgstr "เชิญรวม"
+
+msgid "Total answered"
+msgstr "ตอบรวม"
+
+msgid "Total responses"
+msgstr "การตอบรวม"
+
+msgid "No responses yet"
+msgstr "ยังไม่มีคำตอบ"
 
 msgid "Diversity criteria"
 msgstr "เกณฑ์ความหลากหลาย"
@@ -34573,4 +34654,274 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 
 msgid "Loading…"
 msgstr "กำลังโหลด…"
+
+msgid "Periodicity"
+msgstr "ความถี่"
+
+msgid "Suggest from periodicity"
+msgstr "แนะนำจากความถี่"
+
+msgid "Add job offer"
+msgstr "เพิ่มประกาศงาน"
+
+msgid "Edit job offer"
+msgstr "แก้ไขประกาศงาน"
+
+msgid "Function / Unit"
+msgstr "ตำแหน่ง / หน่วยงาน"
+
+msgid "Vacancies"
+msgstr "ตำแหน่งว่าง"
+
+msgid "Expected start date"
+msgstr "วันที่เริ่มงานที่คาดหวัง"
+
+msgid "Contract duration (days)"
+msgstr "ระยะเวลาสัญญา (วัน)"
+
+msgid "Public offer"
+msgstr "ประกาศสาธารณะ"
+
+msgid "Publication start date"
+msgstr "วันที่เริ่มเผยแพร่"
+
+msgid "Publication end date"
+msgstr "วันที่สิ้นสุดการเผยแพร่"
+
+msgid "Applications"
+msgstr "ใบสมัคร"
+
+msgid "Selection exams"
+msgstr "การสอบคัดเลือก"
+
+msgid "Add exam"
+msgstr "เพิ่มการสอบ"
+
+msgid "Applicant"
+msgstr "ผู้สมัคร"
+
+msgid "Applied on"
+msgstr "สมัครเมื่อ"
+
+msgid "Salary expectations"
+msgstr "ค่าตอบแทนที่คาดหวัง"
+
+msgid "Pending evaluation"
+msgstr "รอการประเมิน"
+
+msgid "Hired"
+msgstr "รับเข้าทำงาน"
+
+msgid "Not hired"
+msgstr "ไม่รับเข้าทำงาน"
+
+msgid "Evaluate"
+msgstr "ประเมิน"
+
+msgid "Evaluate candidate"
+msgstr "ประเมินผู้สมัคร"
+
+msgid "Decision"
+msgstr "การตัดสินใจ"
+
+msgid "Save evaluation"
+msgstr "บันทึกการประเมิน"
+
+msgid "Back to job offers"
+msgstr "กลับไปที่ประกาศงาน"
+
+msgid "No job offers available at this time."
+msgstr "ไม่มีประกาศงานในขณะนี้"
+
+msgid "See details"
+msgstr "ดูรายละเอียด"
+
+msgid "Apply now"
+msgstr "สมัครตอนนี้"
+
+msgid "Already applied"
+msgstr "สมัครแล้ว"
+
+msgid "Log in to apply"
+msgstr "เข้าสู่ระบบเพื่อสมัคร"
+
+msgid "Apply to job offer"
+msgstr "สมัครประกาศงาน"
+
+msgid "Availability date"
+msgstr "วันที่พร้อมใช้งาน"
+
+msgid "CV (Personal file)"
+msgstr "ประวัติย่อ (ไฟล์ส่วนตัว)"
+
+msgid "Select your CV from your personal files"
+msgstr "เลือกประวัติย่อจากไฟล์ส่วนตัวของคุณ"
+
+msgid "Submit application"
+msgstr "ส่งใบสมัคร"
+
+msgid "Application submitted successfully."
+msgstr "ส่งใบสมัครสำเร็จแล้ว"
+
+msgid "Private observations"
+msgstr "บันทึกส่วนตัว"
+
+msgid "My applications"
+msgstr "ใบสมัครของฉัน"
+
+msgid "View job offers"
+msgstr "ดูประกาศงาน"
+
+msgid "You have not submitted any applications yet."
+msgstr "คุณยังไม่ได้ส่งใบสมัครใดๆ"
+
+msgid "Under review"
+msgstr "อยู่ระหว่างการพิจารณา"
+
+msgid "Not selected"
+msgstr "ไม่ได้รับเลือก"
+
+msgid "HR feedback"
+msgstr "ความคิดเห็นจากฝ่ายบุคคล"
+
+msgid "Withdraw application"
+msgstr "ถอนใบสมัคร"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการถอนใบสมัครนี้?"
+
+msgid "Application withdrawn."
+msgstr "ถอนใบสมัครแล้ว"
+
+msgid "Calculate quiz scores"
+msgstr "คำนวณคะแนนควิซ"
+
+msgid "Scores calculated."
+msgstr "คำนวณคะแนนแล้ว"
+
+msgid "Career plan overview"
+msgstr "ภาพรวมแผนอาชีพ"
+
+msgid "My career plan"
+msgstr "แผนอาชีพของฉัน"
+
+msgid "No function-unit associations configured yet."
+msgstr "ยังไม่ได้กำหนดการเชื่อมโยงตำแหน่ง-หน่วยงาน"
+
+msgid "No required skills defined."
+msgstr "ยังไม่ได้กำหนดทักษะที่จำเป็น"
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "คุณต้องได้รับการมอบหมายตำแหน่งเพื่อดูแผนอาชีพของคุณ"
+
+msgid "Your current position"
+msgstr "ตำแหน่งปัจจุบันของคุณ"
+
+msgid "No career targets found for your current position."
+msgstr "ไม่พบเป้าหมายอาชีพสำหรับตำแหน่งปัจจุบันของคุณ"
+
+msgid "No required skills defined for this position."
+msgstr "ยังไม่ได้กำหนดทักษะที่จำเป็นสำหรับตำแหน่งนี้"
+
+msgid "Met"
+msgstr "สำเร็จ"
+
+msgid "Gap"
+msgstr "ช่องว่าง"
+
+msgid "Acquired:"
+msgstr "ได้รับ:"
+
+msgid "Required:"
+msgstr "จำเป็น:"
+
+msgid "Max"
+msgstr "สูงสุด"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "ไม่พบเกณฑ์ความหลากหลาย เพิ่มเกณฑ์ก่อน"
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "เลือกเกณฑ์จากรายการเพื่อดูสถิติ"
+
+msgid "No data available for this criterion."
+msgstr "ไม่มีข้อมูลสำหรับเกณฑ์นี้"
+
+msgid "Change password"
+msgstr "เปลี่ยนรหัสผ่าน"
+
+msgid "Newest first"
+msgstr "ใหม่สุดก่อน"
+
+msgid "Oldest first"
+msgstr "เก่าสุดก่อน"
+
+msgid "Title A–Z"
+msgstr "ชื่อเรื่อง ก-ฮ"
+
+msgid "Title Z–A"
+msgstr "ชื่อเรื่อง ฮ-ก"
+
+msgid "Send test email"
+msgstr "ส่งอีเมลทดสอบ"
+
+msgid "Show teachers"
+msgstr "แสดงครู"
+
+msgid "Hide teachers"
+msgstr "ซ่อนครู"
+
+msgid "Delete exercise attempts"
+msgstr "ลบการทดลองทำแบบฝึกหัด"
+
+msgid "Message sent successfully."
+msgstr "ส่งข้อความสำเร็จ"
+
+msgid "You cannot create a new course right now."
+msgstr "คุณไม่สามารถสร้างหลักสูตรใหม่ได้ในขณะนี้"
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "ไม่สามารถยืนยันได้ว่าคุณสามารถสร้างหลักสูตรใหม่ได้ในขณะนี้"
+
+msgid "Please try again later or contact the administrator."
+msgstr "กรุณาลองอีกครั้งในภายหลังหรือติดต่อผู้ดูแลระบบ"
+
+msgid "You cannot create more courses at this time."
+msgstr "คุณไม่สามารถสร้างหลักสูตรเพิ่มเติมได้ในขณะนี้"
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "คุณจัดการหลักสูตร %d หลักสูตรอยู่แล้ว และบริการที่ใช้งานอยู่รองรับสูงสุด %d หลักสูตร เพื่อสร้างหลักสูตรเพิ่มเติม คุณต้องมีขีดจำกัดบริการที่สูงขึ้นหรือลดจำนวนหลักสูตรที่ใช้งานอยู่"
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "คุณจัดการหลักสูตร %d หลักสูตรอยู่แล้ว และแพลตฟอร์มอนุญาตสูงสุด %d หลักสูตรสำหรับบัญชีของคุณ คุณไม่สามารถสร้างหลักสูตรเพิ่มเติมได้ในขณะนี้"
+
+msgid "Add a class"
+msgstr "เพิ่มชั้นเรียน"
+
+msgid "Search classes"
+msgstr "ค้นหาชั้นเรียน"
+
+msgid "No classes found"
+msgstr "ไม่พบชั้นเรียน"
+
+msgid "Import classes"
+msgstr "นำเข้าชั้นเรียน"
+
+msgid "Class users"
+msgstr "ผู้ใช้ชั้นเรียน"
+
+msgid "%s classes imported"
+msgstr "นำเข้าชั้นเรียน %s ชั้นเรียน"
+
+msgid "%s user-class links imported"
+msgstr "นำเข้าความเชื่อมโยงผู้ใช้-ชั้นเรียน %s รายการ"
+
+msgid "Hide comments"
+msgstr "ซ่อนความคิดเห็น"
+
+msgid "Loading comments..."
+msgstr "กำลังโหลดความคิดเห็น..."
+
+msgid "No comments yet."
+msgstr "ยังไม่มีคำวิจารณ์"
 

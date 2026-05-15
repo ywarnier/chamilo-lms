@@ -9795,6 +9795,9 @@ msgstr "検索結果："
 msgid "Select a file"
 msgstr "ファイルを選択"
 
+msgid "Select a file to insert into the editor."
+msgstr "エディタに挿入するファイルを選択してください。"
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "警告 - ポータルの /home/ ディレクトリにある FAQ ファイルに書き込みできません。ファイルの権限を変更するまでテキストは保存されません。"
 
@@ -15975,6 +15978,9 @@ msgstr "日付と時間"
 msgid "Item"
 msgstr "項目"
 
+msgid "Items"
+msgstr "項目"
+
 msgid "Configure Dashboard Plugin"
 msgstr "ダッシュボード プラグインを構成"
 
@@ -17228,6 +17234,18 @@ msgstr "グループ内のセッション"
 
 msgid "Courses in group"
 msgstr "グループ内のコース"
+
+msgid "Courses on the platform"
+msgstr "プラットフォーム上のコース"
+
+msgid "%s courses"
+msgstr "%s コース"
+
+msgid "%s sessions"
+msgstr "%s セッション"
+
+msgid "Search by title or code"
+msgstr "タイトルまたはコードで検索"
 
 msgid "Users in group"
 msgstr "グループ内のユーザー"
@@ -32233,6 +32251,9 @@ msgstr "課題"
 msgid "Allowed file formats: %s"
 msgstr "許可されたファイル形式: %s"
 
+msgid "File manager"
+msgstr "ファイルマネージャー"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "ファイル形式が許可されていません。許可された拡張子: %s"
 
@@ -33946,6 +33967,9 @@ msgstr "ようこそ"
 msgid "Welcome to Chamilo"
 msgstr "Chamiloへようこそ"
 
+msgid "Check all unanswered questions below"
+msgstr "以下の未回答の質問すべてをチェック"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Chamiloを初めてお使いの場合、サイドメニューを確認して多くの機能を探してください。ヘルプが必要な場合は、<a href=\"https://docs.chamilo.org\">公式ドキュメント</a>が標準的なドキュメントを提供し、<a href=\"https://github.com/chamilo/chamilo-lms/discussions\">オンラインフォーラム</a>で他のChamiloユーザーからアイデアや回答を得ることができます。"
 
@@ -34125,6 +34149,63 @@ msgstr "研修ニーズ評価"
 
 msgid "Work climate surveys"
 msgstr "職場環境調査"
+
+msgid "Unit"
+msgstr "単位"
+
+msgid "Total cost"
+msgstr "総費用"
+
+msgid "Cost per learner"
+msgstr "学習者あたりの費用"
+
+msgid "Average cost by session"
+msgstr "セッションあたりの平均費用"
+
+msgid "Total investment"
+msgstr "総投資額"
+
+msgid "Set cost"
+msgstr "費用の設定"
+
+msgid "Filter by date range"
+msgstr "日付範囲でフィルタリング"
+
+msgid "Add distribution"
+msgstr "配分を追加"
+
+msgid "User share"
+msgstr "ユーザーシェア"
+
+msgid "Select a unit"
+msgstr "単位を選択"
+
+msgid "Select a survey"
+msgstr "調査を選択"
+
+msgid "Distribution added"
+msgstr "配分が追加されました"
+
+msgid "Distribution removed"
+msgstr "配分が削除されました"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "この配分を削除してもよろしいですか？"
+
+msgid "Cost updated"
+msgstr "費用が更新されました"
+
+msgid "Total invited"
+msgstr "総招待数"
+
+msgid "Total answered"
+msgstr "総回答数"
+
+msgid "Total responses"
+msgstr "総応答数"
+
+msgid "No responses yet"
+msgstr "まだ応答がありません"
 
 msgid "Diversity criteria"
 msgstr "多様性基準"
@@ -34637,4 +34718,274 @@ msgstr "この評価を削除してもよろしいですか？"
 
 msgid "Loading…"
 msgstr "読み込み中…"
+
+msgid "Periodicity"
+msgstr "定期性"
+
+msgid "Suggest from periodicity"
+msgstr "定期性から提案"
+
+msgid "Add job offer"
+msgstr "求人情報を追加"
+
+msgid "Edit job offer"
+msgstr "求人情報を編集"
+
+msgid "Function / Unit"
+msgstr "職務 / 部署"
+
+msgid "Vacancies"
+msgstr "空席数"
+
+msgid "Expected start date"
+msgstr "予定開始日"
+
+msgid "Contract duration (days)"
+msgstr "契約期間（日）"
+
+msgid "Public offer"
+msgstr "公開求人"
+
+msgid "Publication start date"
+msgstr "公開開始日"
+
+msgid "Publication end date"
+msgstr "公開終了日"
+
+msgid "Applications"
+msgstr "応募"
+
+msgid "Selection exams"
+msgstr "選考試験"
+
+msgid "Add exam"
+msgstr "試験を追加"
+
+msgid "Applicant"
+msgstr "応募者"
+
+msgid "Applied on"
+msgstr "応募日"
+
+msgid "Salary expectations"
+msgstr "給与期待値"
+
+msgid "Pending evaluation"
+msgstr "評価待ち"
+
+msgid "Hired"
+msgstr "採用"
+
+msgid "Not hired"
+msgstr "不採用"
+
+msgid "Evaluate"
+msgstr "評価"
+
+msgid "Evaluate candidate"
+msgstr "候補者を評価"
+
+msgid "Decision"
+msgstr "決定"
+
+msgid "Save evaluation"
+msgstr "評価を保存"
+
+msgid "Back to job offers"
+msgstr "求人情報に戻る"
+
+msgid "No job offers available at this time."
+msgstr "現在、求人情報は利用できません。"
+
+msgid "See details"
+msgstr "詳細を見る"
+
+msgid "Apply now"
+msgstr "今すぐ応募"
+
+msgid "Already applied"
+msgstr "すでに応募済み"
+
+msgid "Log in to apply"
+msgstr "応募するにはログインしてください"
+
+msgid "Apply to job offer"
+msgstr "求人情報に応募"
+
+msgid "Availability date"
+msgstr "利用可能日"
+
+msgid "CV (Personal file)"
+msgstr "履歴書（個人ファイル）"
+
+msgid "Select your CV from your personal files"
+msgstr "個人ファイルから履歴書を選択してください"
+
+msgid "Submit application"
+msgstr "応募を送信"
+
+msgid "Application submitted successfully."
+msgstr "応募が正常に送信されました。"
+
+msgid "Private observations"
+msgstr "非公開の観察事項"
+
+msgid "My applications"
+msgstr "私の応募"
+
+msgid "View job offers"
+msgstr "求人情報を閲覧"
+
+msgid "You have not submitted any applications yet."
+msgstr "まだ応募を送信していません。"
+
+msgid "Under review"
+msgstr "審査中"
+
+msgid "Not selected"
+msgstr "不採用"
+
+msgid "HR feedback"
+msgstr "人事フィードバック"
+
+msgid "Withdraw application"
+msgstr "応募を取り下げ"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "この応募を取り下げますか？"
+
+msgid "Application withdrawn."
+msgstr "応募が取り下げられました。"
+
+msgid "Calculate quiz scores"
+msgstr "クイズのスコアを計算"
+
+msgid "Scores calculated."
+msgstr "スコアが計算されました。"
+
+msgid "Career plan overview"
+msgstr "キャリアプラン概要"
+
+msgid "My career plan"
+msgstr "私のキャリアプラン"
+
+msgid "No function-unit associations configured yet."
+msgstr "職務-部署の関連付けがまだ設定されていません。"
+
+msgid "No required skills defined."
+msgstr "必要なスキルが定義されていません。"
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "キャリアプランを見るには役職に割り当てられている必要があります。"
+
+msgid "Your current position"
+msgstr "現在の役職"
+
+msgid "No career targets found for your current position."
+msgstr "現在の役職のキャリア目標が見つかりません。"
+
+msgid "No required skills defined for this position."
+msgstr "この役職に必要なスキルが定義されていません。"
+
+msgid "Met"
+msgstr "達成"
+
+msgid "Gap"
+msgstr "不足"
+
+msgid "Acquired:"
+msgstr "習得済み:"
+
+msgid "Required:"
+msgstr "必要:"
+
+msgid "Max"
+msgstr "最大"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "多様性基準が見つかりません。まず基準を追加してください。"
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "統計を表示するにはリストから基準を選択してください。"
+
+msgid "No data available for this criterion."
+msgstr "この基準にデータがありません。"
+
+msgid "Change password"
+msgstr "パスワードを変更"
+
+msgid "Newest first"
+msgstr "最新順"
+
+msgid "Oldest first"
+msgstr "最古順"
+
+msgid "Title A–Z"
+msgstr "タイトル ア–ザ"
+
+msgid "Title Z–A"
+msgstr "タイトル ザ–ア"
+
+msgid "Send test email"
+msgstr "テストメールを送信"
+
+msgid "Show teachers"
+msgstr "教師を表示"
+
+msgid "Hide teachers"
+msgstr "教師を非表示"
+
+msgid "Delete exercise attempts"
+msgstr "演習の試行を削除"
+
+msgid "Message sent successfully."
+msgstr "メッセージが正常に送信されました。"
+
+msgid "You cannot create a new course right now."
+msgstr "現在、新しいコースを作成できません。"
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "現在、新しいコースを作成できるかどうかを確認できません。"
+
+msgid "Please try again later or contact the administrator."
+msgstr "後でもう一度お試しください。あるいは、管理者に連絡してください。"
+
+msgid "You cannot create more courses at this time."
+msgstr "現在、さらにコースを作成できません。"
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "すでに %d 個のコースを管理しており、有効なサービスでは最大 %d 個まで許可されています。別のコースを作成するには、より高いサービス上限が必要、または現在の有効なコース数を減らしてください。"
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "すでに %d 個のコースを管理しており、プラットフォームでは現在アカウントあたり最大 %d 個まで許可されています。現在、さらにコースを作成できません。"
+
+msgid "Add a class"
+msgstr "クラスを追加"
+
+msgid "Search classes"
+msgstr "クラスを検索"
+
+msgid "No classes found"
+msgstr "クラスが見つかりません"
+
+msgid "Import classes"
+msgstr "クラスをインポート"
+
+msgid "Class users"
+msgstr "クラスのユーザー"
+
+msgid "%s classes imported"
+msgstr "%s クラスがインポートされました"
+
+msgid "%s user-class links imported"
+msgstr "%s ユーザー-クラスリンクがインポートされました"
+
+msgid "Hide comments"
+msgstr "コメントを非表示"
+
+msgid "Loading comments..."
+msgstr "コメントを読み込み中…"
+
+msgid "No comments yet."
+msgstr "コメントがまだありません。"
 

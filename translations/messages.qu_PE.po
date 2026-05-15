@@ -345,7 +345,7 @@ msgid "Sincerely"
 msgstr "Allin kuyaywan"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Rurasqa rakiy: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Rurasqa qillqa: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Sutikuna umu"
@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":ari:copyright nisqawan,, mana:mana copyright nisqawan"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Phuqñuq,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Phuqllay,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:ejercicio,,      simulation:simulación,,      questionnaire:cuestionario,,      diagram:diagrama,,      figure:figura,,      graph:gráfico,,      index:índice,,      slide:diapositiva,,      table:tabla,,      narrative text:texto narrativo,,      exam:examen,,      experiment:experiencia,,      problem statement:problema,,      self assessment:autoevaluación,,      lecture:presentación"
@@ -9731,6 +9731,9 @@ msgstr "Maskhaymanta kutichisqakuna:"
 msgid "Select a file"
 msgstr "Ajllay hoq khiputa"
 
+msgid "Select a file to insert into the editor."
+msgstr "Ruwananpaq qillqana yarpuspaq willaypi qillqang."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Atención - El archivo FAQ localizado en el directorio  /home/ de su plataforma, no es un archivo en el que se pueda escribir. Su texto no será guardado hasta que no cambie los permisos del archivo."
 
@@ -15911,6 +15914,9 @@ msgstr "Punchaw & pacha"
 msgid "Item"
 msgstr "Qhipu"
 
+msgid "Items"
+msgstr "Rakinakuna"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Dashboard plugin kamachiy"
 
@@ -17164,6 +17170,18 @@ msgstr "Harp'uni sesionkuna"
 
 msgid "Courses in group"
 msgstr "Harp'uni wasikuna"
+
+msgid "Courses on the platform"
+msgstr "Pukiypi kursikuna"
+
+msgid "%s courses"
+msgstr "%s kursikuna"
+
+msgid "%s sessions"
+msgstr "%s sillukunakuna"
+
+msgid "Search by title or code"
+msgstr "Sutinwan utawan ruray"
 
 msgid "Users in group"
 msgstr "Harp'uni ruraqkuna"
@@ -32169,6 +32187,9 @@ msgstr "Kamachiynin"
 msgid "Allowed file formats: %s"
 msgstr "Kutichisqa willay formato: %s"
 
+msgid "File manager"
+msgstr "Yachachisqa qillqanakuy"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Willay formato manam kutichisqachu. Kutichisqa kutikuna: %s"
 
@@ -33882,6 +33903,9 @@ msgstr "Sumajkuy"
 msgid "Welcome to Chamilo"
 msgstr "Chamilo-man sumajkuy"
 
+msgid "Check all unanswered questions below"
+msgstr "Qhawachinapaq mana kutichisqa paqarinkunata ruray"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Kay Chamilo-manta qallariykichisqa kachkan, paqarina menuta qhawachinaykipaq, wakin hallp'akunata rikunaykipaq. Yanapayta munasqanmanta, <a href=\"https://docs.chamilo.org\">ñawpaq qillqakunata</a> rurankupaq, hukkuna Chamilo runakunaq willakuykunawan kutichisqa <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">foroman</a> yanapay."
 
@@ -34062,6 +34086,63 @@ msgstr "Yachay necesidades yupay"
 msgid "Work climate surveys"
 msgstr "Kamay clima enquistakuna"
 
+msgid "Unit"
+msgstr "Unidad"
+
+msgid "Total cost"
+msgstr "Hukllachisqa sapaña"
+
+msgid "Cost per learner"
+msgstr "Yachakuq yachakuqpaq sapaña"
+
+msgid "Average cost by session"
+msgstr "Silluqpaq promidiyo sapaña"
+
+msgid "Total investment"
+msgstr "Hukllachisqa maqiy"
+
+msgid "Set cost"
+msgstr "Sapañata saqiy"
+
+msgid "Filter by date range"
+msgstr "Pachapi hichikuy"
+
+msgid "Add distribution"
+msgstr "Willanayta yapay"
+
+msgid "User share"
+msgstr "Ruraqpa rakin"
+
+msgid "Select a unit"
+msgstr "Unidadta akllay"
+
+msgid "Select a survey"
+msgstr "Paqarinniyta akllay"
+
+msgid "Distribution added"
+msgstr "Willanay yaku"
+
+msgid "Distribution removed"
+msgstr "Willanay qichisqa"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "¿Munanki kay willanayta qichisayta?"
+
+msgid "Cost updated"
+msgstr "Sapaña kikin"
+
+msgid "Total invited"
+msgstr "Hukllachisqa willakusqa"
+
+msgid "Total answered"
+msgstr "Hukllachisqa kutichisqa"
+
+msgid "Total responses"
+msgstr "Hukllachisqa kutichisqa"
+
+msgid "No responses yet"
+msgstr "Mana kutichisqa icha"
+
 msgid "Diversity criteria"
 msgstr "Qhananchakuy yatiqakuna"
 
@@ -34132,7 +34213,7 @@ msgid "FTE"
 msgstr "FTE"
 
 msgid "FTE (0–1)"
-msgstr "FTE (0–1)"
+msgstr "TEM (0–1)"
 
 msgid "Boss"
 msgstr "Jatun kamachiq"
@@ -34573,4 +34654,274 @@ msgstr "¿Ima kashanki kay timaskuyta saqiriykupaq?"
 
 msgid "Loading…"
 msgstr "Cargakuy…"
+
+msgid "Periodicity"
+msgstr "Periodyasidad"
+
+msgid "Suggest from periodicity"
+msgstr "Periodyasidadmanta sugeriy"
+
+msgid "Add job offer"
+msgstr "Pachakuna takiy"
+
+msgid "Edit job offer"
+msgstr "Pachakuna takiy kamarina"
+
+msgid "Function / Unit"
+msgstr "Kamachiq / Suyukuna"
+
+msgid "Vacancies"
+msgstr "Vacantes"
+
+msgid "Expected start date"
+msgstr "Misaq paway qallari pacha"
+
+msgid "Contract duration (days)"
+msgstr "Kutipakuy kuti (pachakuna)"
+
+msgid "Public offer"
+msgstr "Pachakuna takiy yapa"
+
+msgid "Publication start date"
+msgstr "Riwachisqa qallari pacha"
+
+msgid "Publication end date"
+msgstr "Riwachisqa kuti pacha"
+
+msgid "Applications"
+msgstr "Kutipakuykuna"
+
+msgid "Selection exams"
+msgstr "Achaqay pruibakuna"
+
+msgid "Add exam"
+msgstr "Prueba yaw"
+
+msgid "Applicant"
+msgstr "Kutipakuykuna"
+
+msgid "Applied on"
+msgstr "Kutipakuykuy pacha"
+
+msgid "Salary expectations"
+msgstr "Challay yachaykuna"
+
+msgid "Pending evaluation"
+msgstr "Mana qallariy"
+
+msgid "Hired"
+msgstr "Kamachisqa"
+
+msgid "Not hired"
+msgstr "Mana kamachisqa"
+
+msgid "Evaluate"
+msgstr "Qallariy"
+
+msgid "Evaluate candidate"
+msgstr "Kutipakuykuy qallariy"
+
+msgid "Decision"
+msgstr "Ruway"
+
+msgid "Save evaluation"
+msgstr "Qallariyta qispichiy"
+
+msgid "Back to job offers"
+msgstr "Pachakuna takikuna kutimuy"
+
+msgid "No job offers available at this time."
+msgstr "Kay punchawnataq mana pachakuna takikuna kanman."
+
+msgid "See details"
+msgstr "Willakuy qhawiy"
+
+msgid "Apply now"
+msgstr "Kutipakuy kaypi"
+
+msgid "Already applied"
+msgstr "Kutipakuy kayllapi"
+
+msgid "Log in to apply"
+msgstr "Kutipakuyta qallariychiy riy"
+
+msgid "Apply to job offer"
+msgstr "Pachakuna takiyman kutipakuy"
+
+msgid "Availability date"
+msgstr "Willakuy pacha"
+
+msgid "CV (Personal file)"
+msgstr "Hoja de vida (Runakuna rakin)"
+
+msgid "Select your CV from your personal files"
+msgstr "Runakuna rakinkunamanta hoja de vidangata suyay"
+
+msgid "Submit application"
+msgstr "Kutipakuy qispichiy"
+
+msgid "Application submitted successfully."
+msgstr "Kutipakuy allinmi qispichisqa."
+
+msgid "Private observations"
+msgstr "Yachankuna rakin"
+
+msgid "My applications"
+msgstr "Ñoqap kutipakuykuna"
+
+msgid "View job offers"
+msgstr "Pachakuna takikuna qhawiy"
+
+msgid "You have not submitted any applications yet."
+msgstr "Mana kutipakuykuy qispichisqankuna."
+
+msgid "Under review"
+msgstr "Qhawachkan"
+
+msgid "Not selected"
+msgstr "Mana suyapuq"
+
+msgid "HR feedback"
+msgstr "Runa kamachiq willakuy"
+
+msgid "Withdraw application"
+msgstr "Kutipakuy qichuy"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "¿Imaynatam kay kutipakuy qichunki?"
+
+msgid "Application withdrawn."
+msgstr "Kutipakuy qichusqa."
+
+msgid "Calculate quiz scores"
+msgstr "Prueba puntukuna hisap'iy"
+
+msgid "Scores calculated."
+msgstr "Puntukuna hisap'irqan."
+
+msgid "Career plan overview"
+msgstr "Kamachiq ñan qhawarina"
+
+msgid "My career plan"
+msgstr "Ñoqap kamachiq ñan"
+
+msgid "No function-unit associations configured yet."
+msgstr "Mana imakuna-función yachayniyukunata kamarikuyta qhapaq."
+
+msgid "No required skills defined."
+msgstr "Mana requerikun yachayniyukuna definitsuykuna."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Kay carrera planam rikunaykipaq, ñawpaq cargoq kanki."
+
+msgid "Your current position"
+msgstr "Kaypaq cargoq kanki"
+
+msgid "No career targets found for your current position."
+msgstr "Kay cargoqpaq mana carrera huañuykunata tarinakun."
+
+msgid "No required skills defined for this position."
+msgstr "Kay cargoqpaq mana requerikun yachayniyukuna definitsuykuna."
+
+msgid "Met"
+msgstr "Kutichisqa"
+
+msgid "Gap"
+msgstr "Kuti"
+
+msgid "Acquired:"
+msgstr "Chaskisqa:"
+
+msgid "Required:"
+msgstr "Requerikuq:"
+
+msgid "Max"
+msgstr "Chukcha"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Mana diversidat yachayniykuna tarikun. Yachayniykunaq munaykama."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Rakinmanta huk kriteryoni rispaq yachaynin ruray."
+
+msgid "No data available for this criterion."
+msgstr "Kay kriteryonpaq manam yachay kayku."
+
+msgid "Change password"
+msgstr "Sutinchayta huchay"
+
+msgid "Newest first"
+msgstr "Misaq primero"
+
+msgid "Oldest first"
+msgstr "Ñawpaq primero"
+
+msgid "Title A–Z"
+msgstr "Sutinchay A–Z"
+
+msgid "Title Z–A"
+msgstr "Sutinchay Z–A"
+
+msgid "Send test email"
+msgstr "Prueba willakuyta kachay"
+
+msgid "Show teachers"
+msgstr "Yachachisqakunata rikuchiy"
+
+msgid "Hide teachers"
+msgstr "Yachachisqakunata pakachiy"
+
+msgid "Delete exercise attempts"
+msgstr "Ejerciciom intentokunata huchay"
+
+msgid "Message sent successfully."
+msgstr "Willakuy allinmi kachasqa."
+
+msgid "You cannot create a new course right now."
+msgstr "Kay punchaw mana yachayta kamariykipuni."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Mana yachayta kamariykipuni kay punchaw yachakuyta."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Atrás willayta qhapaq o kamachiqwan rimay."
+
+msgid "You cannot create more courses at this time."
+msgstr "Kay tiempopi mana yachayta kamariykipuni."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "%d yachaykunata kamarikunki, servi siqillaykupaq %d astawan. Yachayta kamariy %d, servi siqillayta astawan kuy o yachaykunata huchay."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "%d yachaykunata kamarikunki, plataporma %d astawan qatiykipuni. Mana yachayta kamariykipuni."
+
+msgid "Add a class"
+msgstr "Salaqa yapasqa"
+
+msgid "Search classes"
+msgstr "Salakunata maskhay"
+
+msgid "No classes found"
+msgstr "Mana salakuna tarinakun"
+
+msgid "Import classes"
+msgstr "Salakunata yapay"
+
+msgid "Class users"
+msgstr "Sala runakuna"
+
+msgid "%s classes imported"
+msgstr "%s salakuna yapasqa"
+
+msgid "%s user-class links imported"
+msgstr "%s rura-sala willakuy yapasqa"
+
+msgid "Hide comments"
+msgstr "Willakuykunata pakachiy"
+
+msgid "Loading comments..."
+msgstr "Willakuykunata chinkachiy..."
+
+msgid "No comments yet."
+msgstr "Manam willakuykuna kayku."
 

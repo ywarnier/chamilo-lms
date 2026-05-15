@@ -2021,7 +2021,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:cóipcheart,, no:gan cóipcheart"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Fillteán,, application/msword:MsWord,, application/octet-stream:Sruth Octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Fillteán,, application/msword:MsWord,, application/octet-stream:Sruth Octad,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:cleachtadh,,      simulation:insamhal,,      questionnaire:fiosrúchán,,      diagram:léaráid,,      figure:figiúr,,      graph:graf,,      index:innéacs,,      slide:sleamhnán,,      table:tábla,,      narrative text:téacs insinte,,      exam:scrúdú,,      experiment:turgnamh,,      problem statement:ráiteas fadhb,,      self assessment:féimmeasúnú,,      lecture:léacht"
@@ -9730,6 +9730,9 @@ msgstr "Torthaí cuardaigh le haghaidh:"
 msgid "Select a file"
 msgstr "Roghnaigh comhad"
 
+msgid "Select a file to insert into the editor."
+msgstr "Roghnaigh comhad le cur isteach san eagarthóir."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Rabhadh - Níl an comhad FAQ, atá suite i gcrích /home/ do phortail, inscríobha. Ní shábhálfar do théacs go dtí go n-athraítear ceadanna an chomhaid."
 
@@ -15910,6 +15913,9 @@ msgstr "Dáta & am"
 msgid "Item"
 msgstr "Mír"
 
+msgid "Items"
+msgstr "Míreanna"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Cumraigh Plugáil Painéal Riar"
 
@@ -17163,6 +17169,18 @@ msgstr "Seisiúin sa ghrúpa"
 
 msgid "Courses in group"
 msgstr "Cúrsaí sa ghrúpa"
+
+msgid "Courses on the platform"
+msgstr "Cúrsaí ar an ardán"
+
+msgid "%s courses"
+msgstr "%s cúrsaí"
+
+msgid "%s sessions"
+msgstr "%s seisiún"
+
+msgid "Search by title or code"
+msgstr "Cuardaigh de réir teidil nó cód"
 
 msgid "Users in group"
 msgstr "Úsáideoirí sa ghrúpa"
@@ -32167,6 +32185,9 @@ msgstr "Tasc"
 msgid "Allowed file formats: %s"
 msgstr "Formáidí comhaid ceadaithe: %s"
 
+msgid "File manager"
+msgstr "Bainisteoir comhad"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Cineál comhaid nach bhfuil ceadaithe. Eisíontais ceadaithe: %s"
 
@@ -33880,6 +33901,9 @@ msgstr "Fáilte"
 msgid "Welcome to Chamilo"
 msgstr "Fáilte chuig Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Marcáil gach ceist gan fhreagra thíos"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Más é seo an chéad uair duit Chamilo a úsáid, déan cinnte go n-athraíonn tú an roghchlár taobh chun do bhealach a fháil trína ilghnéitheacha go leor. Má theastaíonn cabhair uait, gheobhaidh tú <a href=\"https://docs.chamilo.org\">ár gcáipéisí oifigiúla</a> in ann cabhrú le cáipéisíocht chaighdeánach, agus is féidir lenár <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">fóram ar líne</a> smaointe a roinnt agus freagraí a fháil ó úsáideoirí Chamilo eile."
 
@@ -34059,6 +34083,63 @@ msgstr "Measúnú riachtanas oiliúna"
 
 msgid "Work climate surveys"
 msgstr "Suirbhéanna aeráide oibre"
+
+msgid "Unit"
+msgstr "Aonad"
+
+msgid "Total cost"
+msgstr "Costas iomlán"
+
+msgid "Cost per learner"
+msgstr "Costas in aghaidh foghlaimeora"
+
+msgid "Average cost by session"
+msgstr "Meánchostas de réir seisiúin"
+
+msgid "Total investment"
+msgstr "Infheistíocht iomlán"
+
+msgid "Set cost"
+msgstr "Socraigh costas"
+
+msgid "Filter by date range"
+msgstr "Scag de réir raon dáta"
+
+msgid "Add distribution"
+msgstr "Cuir dáileadh leis"
+
+msgid "User share"
+msgstr "Scair úsáideora"
+
+msgid "Select a unit"
+msgstr "Roghnaigh aonad"
+
+msgid "Select a survey"
+msgstr "Roghnaigh suirbhé"
+
+msgid "Distribution added"
+msgstr "Dáileadh curtha leis"
+
+msgid "Distribution removed"
+msgstr "Dáileadh bainte"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "An bhfuil tú cinnte gur mhaith leat an dáileadh seo a bhaint?"
+
+msgid "Cost updated"
+msgstr "Costas nuashonraithe"
+
+msgid "Total invited"
+msgstr "Iomlán cuireadh"
+
+msgid "Total answered"
+msgstr "Iomlán freagartha"
+
+msgid "Total responses"
+msgstr "Iomlán freagraí"
+
+msgid "No responses yet"
+msgstr "Gan aon fhreagraí fós"
 
 msgid "Diversity criteria"
 msgstr "Critéir éagsúlachta"
@@ -34571,4 +34652,274 @@ msgstr "An bhfuil tú cinnte gur mhaith leat an meastóireacht seo a scriosadh?"
 
 msgid "Loading…"
 msgstr "Ag luchtú…"
+
+msgid "Periodicity"
+msgstr "Cileachtacht"
+
+msgid "Suggest from periodicity"
+msgstr "Mol de réir cileachtachta"
+
+msgid "Add job offer"
+msgstr "Cuir tairiscint phoist leis"
+
+msgid "Edit job offer"
+msgstr "Cuir tairiscint phoist in eagar"
+
+msgid "Function / Unit"
+msgstr "Feidhm / Aonad"
+
+msgid "Vacancies"
+msgstr "Follús"
+
+msgid "Expected start date"
+msgstr "Dáta tosaithe ionchais"
+
+msgid "Contract duration (days)"
+msgstr "Fad an chonartha (laethanta)"
+
+msgid "Public offer"
+msgstr "Tairiscint phoiblí"
+
+msgid "Publication start date"
+msgstr "Dáta tosaithe foilsithe"
+
+msgid "Publication end date"
+msgstr "Dáta deireadh foilsithe"
+
+msgid "Applications"
+msgstr "Iarratais"
+
+msgid "Selection exams"
+msgstr "Scrúduithe roghnúcháin"
+
+msgid "Add exam"
+msgstr "Cuir scrúdú leis"
+
+msgid "Applicant"
+msgstr "Iarratasóir"
+
+msgid "Applied on"
+msgstr "Iarratais ar"
+
+msgid "Salary expectations"
+msgstr "Iontais maoine"
+
+msgid "Pending evaluation"
+msgstr "Feitheamh le meastóireacht"
+
+msgid "Hired"
+msgstr "Fostaithe"
+
+msgid "Not hired"
+msgstr "Gan fostú"
+
+msgid "Evaluate"
+msgstr "Meastóir"
+
+msgid "Evaluate candidate"
+msgstr "Meastóir iarrthóir"
+
+msgid "Decision"
+msgstr "Cinneadh"
+
+msgid "Save evaluation"
+msgstr "Sábháil meastóireacht"
+
+msgid "Back to job offers"
+msgstr "Ar ais chuig tairiscintí poist"
+
+msgid "No job offers available at this time."
+msgstr "Níl aon tairiscintí post ar fáil faoi láthair."
+
+msgid "See details"
+msgstr "Féach sonraí"
+
+msgid "Apply now"
+msgstr "Iarr isteach anois"
+
+msgid "Already applied"
+msgstr "Iarratais cheana"
+
+msgid "Log in to apply"
+msgstr "Logáil isteach le cur isteach"
+
+msgid "Apply to job offer"
+msgstr "Cur isteach ar thairiscint poist"
+
+msgid "Availability date"
+msgstr "Dáta infhaighteachta"
+
+msgid "CV (Personal file)"
+msgstr "CV (Comhad pearsanta)"
+
+msgid "Select your CV from your personal files"
+msgstr "Roghnaigh do CV ó do chomhaid phearsanta"
+
+msgid "Submit application"
+msgstr "Cuir iarratas isteach"
+
+msgid "Application submitted successfully."
+msgstr "Iarratas curtha isteach go rathúil."
+
+msgid "Private observations"
+msgstr "Breathnuithe príobháideacha"
+
+msgid "My applications"
+msgstr "Mo chuid iarratas"
+
+msgid "View job offers"
+msgstr "Féach ar thairiscintí post"
+
+msgid "You have not submitted any applications yet."
+msgstr "Níor chuir tú aon iarratais isteach go fóill."
+
+msgid "Under review"
+msgstr "Faoi athbhreithniú"
+
+msgid "Not selected"
+msgstr "Gan roghnú"
+
+msgid "HR feedback"
+msgstr "Aiseolas AD"
+
+msgid "Withdraw application"
+msgstr "Tarraing siar iarratas"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "An bhfuil tú cinnte gur mhaith leat an t-iarratas seo a tharraingt siar?"
+
+msgid "Application withdrawn."
+msgstr "Iarratas tarraingthe siar."
+
+msgid "Calculate quiz scores"
+msgstr "Ríomh scóir na ceiste"
+
+msgid "Scores calculated."
+msgstr "Scóir ríofa."
+
+msgid "Career plan overview"
+msgstr "Forbhreathnú plean gairme"
+
+msgid "My career plan"
+msgstr "Mo phlean gairme"
+
+msgid "No function-unit associations configured yet."
+msgstr "Níl aon chomhcheangail feidhm-aonaid cumraithe go fóill."
+
+msgid "No required skills defined."
+msgstr "Níl aon scileanna riachtanacha sainithe."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Caithfear post a shannadh duit chun do phlean gairme a fheiceáil."
+
+msgid "Your current position"
+msgstr "Do phost reatha"
+
+msgid "No career targets found for your current position."
+msgstr "Níor aimsíodh spriocanna gairme do do phost reatha."
+
+msgid "No required skills defined for this position."
+msgstr "Níl aon scileanna riachtanacha sainithe don phost seo."
+
+msgid "Met"
+msgstr "Buaileadh"
+
+msgid "Gap"
+msgstr "Bearna"
+
+msgid "Acquired:"
+msgstr "Ghnóthaigh:"
+
+msgid "Required:"
+msgstr "Ag teastáil:"
+
+msgid "Max"
+msgstr "Uasmhéid"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Gan meastóireachtaí éagsúlachta aimsithe. Cuir meastóireachtaí leis ar dtús."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Roghnaigh meastóireacht ón liosta chun a staitisticí a fheiceáil."
+
+msgid "No data available for this criterion."
+msgstr "Gan sonraí ar fáil don mheastóireacht seo."
+
+msgid "Change password"
+msgstr "Athraigh pasfhocal"
+
+msgid "Newest first"
+msgstr "Is nuaí ar dtús"
+
+msgid "Oldest first"
+msgstr "Is sine ar dtús"
+
+msgid "Title A–Z"
+msgstr "Teideal A–Z"
+
+msgid "Title Z–A"
+msgstr "Teideal Z–A"
+
+msgid "Send test email"
+msgstr "Seol ríomhphost tástála"
+
+msgid "Show teachers"
+msgstr "Taispeáin múinteoirí"
+
+msgid "Hide teachers"
+msgstr "Folaigh múinteoirí"
+
+msgid "Delete exercise attempts"
+msgstr "Scrios iarrachtaí cleachtaidh"
+
+msgid "Message sent successfully."
+msgstr "Seoladh an teachtaireacht go rathúil."
+
+msgid "You cannot create a new course right now."
+msgstr "Ní féidir leat cúrsa nua a chruthú anois."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Ní féidir a fhíorú an féidir leat cúrsa nua a chruthú anois."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Déan iarracht arís níos déanaí nó déan teagmháil leis an riarthóir."
+
+msgid "You cannot create more courses at this time."
+msgstr "Ní féidir leat níos mó cúrsaí a chruthú faoi láthair."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Bainistíonn tú %d cúrsa cheana féin agus ceadaíonn do sheirbhís ghníomhach suas le %d. Chun cúrsa eile a chruthú, teastaíonn teorainn seirbhíse níos airde uait nó laghdaigh do chursaí gníomhacha reatha."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Bainistíonn tú %d cúrsa cheana féin agus ceadaíonn an t-ardán suas le %d do do chuntas faoi láthair. Ní féidir leat níos mó cúrsaí a chruthú anois."
+
+msgid "Add a class"
+msgstr "Cuir rang leis"
+
+msgid "Search classes"
+msgstr "Cuardaigh ranganna"
+
+msgid "No classes found"
+msgstr "Gan aon ranganna aimsithe"
+
+msgid "Import classes"
+msgstr "Iompórtáil ranganna"
+
+msgid "Class users"
+msgstr "Úsáideoirí ranga"
+
+msgid "%s classes imported"
+msgstr "%s ranganna iompórtáilte"
+
+msgid "%s user-class links imported"
+msgstr "%s naisc úsáideoir-rang iompórtáilte"
+
+msgid "Hide comments"
+msgstr "Folaigh tuairimí"
+
+msgid "Loading comments..."
+msgstr "Ag lódáil tuairimí..."
+
+msgid "No comments yet."
+msgstr "Gan aon nodanna go fóill."
 

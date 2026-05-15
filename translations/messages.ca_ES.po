@@ -9739,6 +9739,9 @@ msgstr "Resultats de cerca per a:"
 msgid "Select a file"
 msgstr "Seleccioni un arxiu"
 
+msgid "Select a file to insert into the editor."
+msgstr "Seleccioneu un fitxer per inserir a l'editor."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Atenció - L'arxiu FAQ localitzat en el directori /home/ de la seva plataforma, no és un arxiu en el qual es pugui escriure. El seu text no serà guardat fins que no canviï els permisos de l'arxiu."
 
@@ -15919,6 +15922,9 @@ msgstr "Data i hora"
 msgid "Item"
 msgstr "Element"
 
+msgid "Items"
+msgstr "Elements"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Configura el connector del Tauler de control"
 
@@ -17172,6 +17178,18 @@ msgstr "Sessions de l'aula"
 
 msgid "Courses in group"
 msgstr "Cursos del grup"
+
+msgid "Courses on the platform"
+msgstr "Cursos de la plataforma"
+
+msgid "%s courses"
+msgstr "%s cursos"
+
+msgid "%s sessions"
+msgstr "%s sessions"
+
+msgid "Search by title or code"
+msgstr "Cerca per títol o codi"
 
 msgid "Users in group"
 msgstr "Usuaris del grup"
@@ -32182,6 +32200,9 @@ msgstr "Treball"
 msgid "Allowed file formats: %s"
 msgstr "Formats de fitxer permesos: %s"
 
+msgid "File manager"
+msgstr "Gestor de fitxers"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Tipus de fitxer no permès. Extensions permeses: %s"
 
@@ -33895,6 +33916,9 @@ msgstr "Benvingut"
 msgid "Welcome to Chamilo"
 msgstr "Benvingut a Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Comproveu totes les preguntes sense respondre a continuació"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Si és la primera vegada que utilitzeu Chamilo, assegureu-vos de consultar el menú lateral per trobar el camí a través de les seves moltes funcionalitats. Si necessiteu ajuda, trobareu que <a href=\"https://docs.chamilo.org\">la nostra documentació oficial</a> us pot ajudar per a la documentació estàndard, mentre que el nostre <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">fòrum en línia</a> us pot ajudar a compartir idees i trobar respostes d'altres usuaris de Chamilo."
 
@@ -34074,6 +34098,63 @@ msgstr "Avaluació de necessitats formatives"
 
 msgid "Work climate surveys"
 msgstr "Enquestes de clima laboral"
+
+msgid "Unit"
+msgstr "Unitat"
+
+msgid "Total cost"
+msgstr "Cost total"
+
+msgid "Cost per learner"
+msgstr "Cost per aprenent"
+
+msgid "Average cost by session"
+msgstr "Cost mitjà per sessió"
+
+msgid "Total investment"
+msgstr "Inversió total"
+
+msgid "Set cost"
+msgstr "Establir cost"
+
+msgid "Filter by date range"
+msgstr "Filtrar per interval de dates"
+
+msgid "Add distribution"
+msgstr "Afegir distribució"
+
+msgid "User share"
+msgstr "Participació d'usuari"
+
+msgid "Select a unit"
+msgstr "Seleccioneu una unitat"
+
+msgid "Select a survey"
+msgstr "Seleccioneu una enquesta"
+
+msgid "Distribution added"
+msgstr "Distribució afegida"
+
+msgid "Distribution removed"
+msgstr "Distribució eliminada"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Segur que voleu eliminar aquesta distribució?"
+
+msgid "Cost updated"
+msgstr "Cost actualitzat"
+
+msgid "Total invited"
+msgstr "Total convidats"
+
+msgid "Total answered"
+msgstr "Total responduts"
+
+msgid "Total responses"
+msgstr "Total de respostes"
+
+msgid "No responses yet"
+msgstr "Encara no hi ha respostes"
 
 msgid "Diversity criteria"
 msgstr "Criteris de diversitat"
@@ -34586,4 +34667,274 @@ msgstr "Esteu segur que voleu suprimir aquesta avaluació?"
 
 msgid "Loading…"
 msgstr "S'està carregant…"
+
+msgid "Periodicity"
+msgstr "Periodicitat"
+
+msgid "Suggest from periodicity"
+msgstr "Sugerir des de la periodicitat"
+
+msgid "Add job offer"
+msgstr "Afegir oferta de treball"
+
+msgid "Edit job offer"
+msgstr "Editar oferta de treball"
+
+msgid "Function / Unit"
+msgstr "Funció / Unitat"
+
+msgid "Vacancies"
+msgstr "Places lliures"
+
+msgid "Expected start date"
+msgstr "Data d'inici prevista"
+
+msgid "Contract duration (days)"
+msgstr "Durada del contracte (dies)"
+
+msgid "Public offer"
+msgstr "Oferta pública"
+
+msgid "Publication start date"
+msgstr "Data d'inici de publicació"
+
+msgid "Publication end date"
+msgstr "Data de fi de publicació"
+
+msgid "Applications"
+msgstr "Sol·licituds"
+
+msgid "Selection exams"
+msgstr "Exàmens de selecció"
+
+msgid "Add exam"
+msgstr "Afegir examen"
+
+msgid "Applicant"
+msgstr "Sol·licitant"
+
+msgid "Applied on"
+msgstr "Sol·licitat el"
+
+msgid "Salary expectations"
+msgstr "Expectatives salarials"
+
+msgid "Pending evaluation"
+msgstr "Pendent d'avaluació"
+
+msgid "Hired"
+msgstr "Contractat"
+
+msgid "Not hired"
+msgstr "No contractat"
+
+msgid "Evaluate"
+msgstr "Avaluar"
+
+msgid "Evaluate candidate"
+msgstr "Avaluar candidat"
+
+msgid "Decision"
+msgstr "Decisió"
+
+msgid "Save evaluation"
+msgstr "Desar avaluació"
+
+msgid "Back to job offers"
+msgstr "Tornar a les ofertes de treball"
+
+msgid "No job offers available at this time."
+msgstr "No hi ha ofertes de treball disponibles en aquest moment."
+
+msgid "See details"
+msgstr "Veure detalls"
+
+msgid "Apply now"
+msgstr "Sol·licitar ara"
+
+msgid "Already applied"
+msgstr "Ja sol·licitat"
+
+msgid "Log in to apply"
+msgstr "Inicia sessió per sol·licitar"
+
+msgid "Apply to job offer"
+msgstr "Sol·licitar oferta de treball"
+
+msgid "Availability date"
+msgstr "Data de disponibilitat"
+
+msgid "CV (Personal file)"
+msgstr "CV (Fitxer personal)"
+
+msgid "Select your CV from your personal files"
+msgstr "Selecciona el teu CV dels teus fitxers personals"
+
+msgid "Submit application"
+msgstr "Enviar sol·licitud"
+
+msgid "Application submitted successfully."
+msgstr "Sol·licitud enviada correctament."
+
+msgid "Private observations"
+msgstr "Observacions privades"
+
+msgid "My applications"
+msgstr "Les meves sol·licituds"
+
+msgid "View job offers"
+msgstr "Veure ofertes de treball"
+
+msgid "You have not submitted any applications yet."
+msgstr "Encara no has enviat cap sol·licitud."
+
+msgid "Under review"
+msgstr "En revisió"
+
+msgid "Not selected"
+msgstr "No seleccionat"
+
+msgid "HR feedback"
+msgstr "Comentaris de RRHH"
+
+msgid "Withdraw application"
+msgstr "Retirar sol·licitud"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Estàs segur que vols retirar aquesta sol·licitud?"
+
+msgid "Application withdrawn."
+msgstr "Sol·licitud retirada."
+
+msgid "Calculate quiz scores"
+msgstr "Calcular puntuacions del qüestionari"
+
+msgid "Scores calculated."
+msgstr "Puntuacions calculades."
+
+msgid "Career plan overview"
+msgstr "Visió general del pla de carrera"
+
+msgid "My career plan"
+msgstr "El meu pla de carrera"
+
+msgid "No function-unit associations configured yet."
+msgstr "Encara no s'ha configurat cap associació funció-unitat."
+
+msgid "No required skills defined."
+msgstr "No s'ha definit cap habilitat requerida."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Has de ser assignat a un càrrec per veure el teu pla de carrera."
+
+msgid "Your current position"
+msgstr "La vostra posició actual"
+
+msgid "No career targets found for your current position."
+msgstr "No s'ha trobat cap objectiu de carrera per a la vostra posició actual."
+
+msgid "No required skills defined for this position."
+msgstr "No s'ha definit cap competència requerida per a aquesta posició."
+
+msgid "Met"
+msgstr "Complert"
+
+msgid "Gap"
+msgstr "Déficit"
+
+msgid "Acquired:"
+msgstr "Adquirit:"
+
+msgid "Required:"
+msgstr "Requerit:"
+
+msgid "Max"
+msgstr "Màx"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "No s'ha trobat cap criteri de diversitat. Afegiu criteris primer."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Seleccioneu un criteri de la llista per veure'n les estadístiques."
+
+msgid "No data available for this criterion."
+msgstr "No hi ha dades disponibles per a aquest criteri."
+
+msgid "Change password"
+msgstr "Canviar contrasenya"
+
+msgid "Newest first"
+msgstr "Més recent primer"
+
+msgid "Oldest first"
+msgstr "Més antic primer"
+
+msgid "Title A–Z"
+msgstr "Títol A–Z"
+
+msgid "Title Z–A"
+msgstr "Títol Z–A"
+
+msgid "Send test email"
+msgstr "Enviar correu de prova"
+
+msgid "Show teachers"
+msgstr "Mostrar professors"
+
+msgid "Hide teachers"
+msgstr "Amagar professors"
+
+msgid "Delete exercise attempts"
+msgstr "Eliminar intents d'exercici"
+
+msgid "Message sent successfully."
+msgstr "Missatge enviat correctament."
+
+msgid "You cannot create a new course right now."
+msgstr "No podeu crear un curs nou ara mateix."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "No s'ha pogut verificar si podeu crear un curs nou ara mateix."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Proveu-ho més tard o contacteu amb l'administrador."
+
+msgid "You cannot create more courses at this time."
+msgstr "No podeu crear més cursos en aquest moment."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Ja administreu %d cursos i el vostre servei actiu permet fins a %d. Per crear un altre curs, necessiteu un límit de servei superior o reduir els vostres cursos actius actuals."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Ja administreu %d cursos i la plataforma permet actualment fins a %d per al vostre compte. No podeu crear més cursos ara mateix."
+
+msgid "Add a class"
+msgstr "Afegir una classe"
+
+msgid "Search classes"
+msgstr "Cerca classes"
+
+msgid "No classes found"
+msgstr "No s'ha trobat cap classe"
+
+msgid "Import classes"
+msgstr "Importar classes"
+
+msgid "Class users"
+msgstr "Usuaris de la classe"
+
+msgid "%s classes imported"
+msgstr "%s classes importades"
+
+msgid "%s user-class links imported"
+msgstr "%s enllaços usuari-classe importats"
+
+msgid "Hide comments"
+msgstr "Amagar comentaris"
+
+msgid "Loading comments..."
+msgstr "S'estan carregant els comentaris..."
+
+msgid "No comments yet."
+msgstr "Encara no hi ha comentaris."
 

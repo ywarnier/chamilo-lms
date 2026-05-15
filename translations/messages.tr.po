@@ -9731,6 +9731,9 @@ msgstr "Arama sonuçları:"
 msgid "Select a file"
 msgstr "Dosya seçin"
 
+msgid "Select a file to insert into the editor."
+msgstr "Düzenleyiciye eklemek için bir dosya seçin."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Uyarı - Portala ait /home/ dizinindeki SSS dosyası yazılabilir değil. Dosya izinleri değiştirilene kadar metniniz kaydedilmeyecek."
 
@@ -15911,6 +15914,9 @@ msgstr "Tarih ve saat"
 msgid "Item"
 msgstr "Öğe"
 
+msgid "Items"
+msgstr "Öğeler"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Gösterge Tablosu Eklentisini Yapılandır"
 
@@ -17164,6 +17170,18 @@ msgstr "Gruptaki oturumlar"
 
 msgid "Courses in group"
 msgstr "Gruptaki kurslar"
+
+msgid "Courses on the platform"
+msgstr "Platformdaki kurslar"
+
+msgid "%s courses"
+msgstr "%s kurs"
+
+msgid "%s sessions"
+msgstr "%s oturum"
+
+msgid "Search by title or code"
+msgstr "Başlık veya kod ile ara"
 
 msgid "Users in group"
 msgstr "Gruptaki kullanıcılar"
@@ -32169,6 +32187,9 @@ msgstr "Görev"
 msgid "Allowed file formats: %s"
 msgstr "İzin verilen dosya formatları: %s"
 
+msgid "File manager"
+msgstr "Dosya yöneticisi"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Dosya tipi izin verilmiyor. İzin verilen uzantılar: %s"
 
@@ -33882,6 +33903,9 @@ msgstr "Hoş geldiniz"
 msgid "Welcome to Chamilo"
 msgstr "Chamilo'ya Hoş Geldiniz"
 
+msgid "Check all unanswered questions below"
+msgstr "Aşağıdaki tüm cevapsız soruları işaretle"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Chamilo'yu ilk kez kullanıyorsanız, birçok özelliğini keşfetmek için yan menüyü kontrol ettiğinizden emin olun. Yardıma ihtiyacınız olursa, standart belgeler için <a href=\"https://docs.chamilo.org\">resmi belgelerimiz</a> yardımcı olabilir, fikir paylaşmak ve diğer Chamilo kullanıcılarından cevaplar bulmak için ise <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">çevrimiçi forumumuz</a> yardımcı olabilir."
 
@@ -34061,6 +34085,63 @@ msgstr "Eğitim ihtiyaç değerlendirmesi"
 
 msgid "Work climate surveys"
 msgstr "İş iklimi anketleri"
+
+msgid "Unit"
+msgstr "Birim"
+
+msgid "Total cost"
+msgstr "Toplam maliyet"
+
+msgid "Cost per learner"
+msgstr "Öğrenci başına maliyet"
+
+msgid "Average cost by session"
+msgstr "Oturum başına ortalama maliyet"
+
+msgid "Total investment"
+msgstr "Toplam yatırım"
+
+msgid "Set cost"
+msgstr "Maliyet belirle"
+
+msgid "Filter by date range"
+msgstr "Tarih aralığına göre filtrele"
+
+msgid "Add distribution"
+msgstr "Dağılım ekle"
+
+msgid "User share"
+msgstr "Kullanıcı payı"
+
+msgid "Select a unit"
+msgstr "Bir birim seçin"
+
+msgid "Select a survey"
+msgstr "Bir anket seçin"
+
+msgid "Distribution added"
+msgstr "Dağılım eklendi"
+
+msgid "Distribution removed"
+msgstr "Dağılım kaldırıldı"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Bu dağılımı kaldırmak istediğinizden emin misiniz?"
+
+msgid "Cost updated"
+msgstr "Maliyet güncellendi"
+
+msgid "Total invited"
+msgstr "Toplam davet edilen"
+
+msgid "Total answered"
+msgstr "Toplam cevaplanan"
+
+msgid "Total responses"
+msgstr "Toplam yanıt"
+
+msgid "No responses yet"
+msgstr "Henüz yanıt yok"
 
 msgid "Diversity criteria"
 msgstr "Çeşitlilik kriterleri"
@@ -34573,4 +34654,274 @@ msgstr "Bu değerlendirmeyi silmek istediğinizden emin misiniz?"
 
 msgid "Loading…"
 msgstr "Yükleniyor…"
+
+msgid "Periodicity"
+msgstr "Periyodisite"
+
+msgid "Suggest from periodicity"
+msgstr "Periyodisiteden öner"
+
+msgid "Add job offer"
+msgstr "İş ilanı ekle"
+
+msgid "Edit job offer"
+msgstr "İş ilanını düzenle"
+
+msgid "Function / Unit"
+msgstr "Fonksiyon / Birim"
+
+msgid "Vacancies"
+msgstr "Kontenjan"
+
+msgid "Expected start date"
+msgstr "Beklenen başlangıç tarihi"
+
+msgid "Contract duration (days)"
+msgstr "Sözleşme süresi (gün)"
+
+msgid "Public offer"
+msgstr "Kamu ilanı"
+
+msgid "Publication start date"
+msgstr "Yayın başlangıç tarihi"
+
+msgid "Publication end date"
+msgstr "Yayın son tarihi"
+
+msgid "Applications"
+msgstr "Başvurular"
+
+msgid "Selection exams"
+msgstr "Seçim sınavları"
+
+msgid "Add exam"
+msgstr "Sınav ekle"
+
+msgid "Applicant"
+msgstr "Başvuran"
+
+msgid "Applied on"
+msgstr "Başvuru tarihi"
+
+msgid "Salary expectations"
+msgstr "Maaş beklentisi"
+
+msgid "Pending evaluation"
+msgstr "Değerlendirme bekliyor"
+
+msgid "Hired"
+msgstr "İşe alındı"
+
+msgid "Not hired"
+msgstr "İşe alınmadı"
+
+msgid "Evaluate"
+msgstr "Değerlendir"
+
+msgid "Evaluate candidate"
+msgstr "Adayı değerlendir"
+
+msgid "Decision"
+msgstr "Karar"
+
+msgid "Save evaluation"
+msgstr "Değerlendirmeyi kaydet"
+
+msgid "Back to job offers"
+msgstr "İş tekliflerine dön"
+
+msgid "No job offers available at this time."
+msgstr "Şu anda mevcut iş teklifi yok."
+
+msgid "See details"
+msgstr "Detayları gör"
+
+msgid "Apply now"
+msgstr "Şimdi başvur"
+
+msgid "Already applied"
+msgstr "Zaten başvurdu"
+
+msgid "Log in to apply"
+msgstr "Başvurmak için giriş yapın"
+
+msgid "Apply to job offer"
+msgstr "İş teklifine başvur"
+
+msgid "Availability date"
+msgstr "Müsaitlik tarihi"
+
+msgid "CV (Personal file)"
+msgstr "Özgeçmiş (Kişisel dosya)"
+
+msgid "Select your CV from your personal files"
+msgstr "Kişisel dosyalarınızdan özgeçmişinizi seçin"
+
+msgid "Submit application"
+msgstr "Başvuruyu gönder"
+
+msgid "Application submitted successfully."
+msgstr "Başvuru başarıyla gönderildi."
+
+msgid "Private observations"
+msgstr "Özel notlar"
+
+msgid "My applications"
+msgstr "Başvurularım"
+
+msgid "View job offers"
+msgstr "İş tekliflerini görüntüle"
+
+msgid "You have not submitted any applications yet."
+msgstr "Henüz herhangi bir başvuru göndermediniz."
+
+msgid "Under review"
+msgstr "İncelemede"
+
+msgid "Not selected"
+msgstr "Seçilmedi"
+
+msgid "HR feedback"
+msgstr "İK geri bildirimi"
+
+msgid "Withdraw application"
+msgstr "Başvuruyu geri çek"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Bu başvuruyu geri çekmek istediğinizden emin misiniz?"
+
+msgid "Application withdrawn."
+msgstr "Başvuru geri çekildi."
+
+msgid "Calculate quiz scores"
+msgstr "Sınav puanlarını hesapla"
+
+msgid "Scores calculated."
+msgstr "Puanlar hesaplandı."
+
+msgid "Career plan overview"
+msgstr "Kariyer planı özeti"
+
+msgid "My career plan"
+msgstr "Kariyer planım"
+
+msgid "No function-unit associations configured yet."
+msgstr "Henüz iş birimi ilişkilendirmesi yapılandırılmadı."
+
+msgid "No required skills defined."
+msgstr "Gerekli beceriler tanımlanmadı."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Kariyer planınızı görmek için bir pozisyona atanmış olmalısınız."
+
+msgid "Your current position"
+msgstr "Mevcut pozisyonunuz"
+
+msgid "No career targets found for your current position."
+msgstr "Mevcut pozisyonunuz için kariyer hedefi bulunamadı."
+
+msgid "No required skills defined for this position."
+msgstr "Bu pozisyon için gerekli beceriler tanımlanmadı."
+
+msgid "Met"
+msgstr "Tamamlandı"
+
+msgid "Gap"
+msgstr "Eksik"
+
+msgid "Acquired:"
+msgstr "Kazanılan:"
+
+msgid "Required:"
+msgstr "Gerekli:"
+
+msgid "Max"
+msgstr "Maks."
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Çeşitlilik kriteri bulunamadı. Önce kriter ekleyin."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "İstatistiklerini görmek için listeden bir kriter seçin."
+
+msgid "No data available for this criterion."
+msgstr "Bu kriter için veri yok."
+
+msgid "Change password"
+msgstr "Parolayı değiştir"
+
+msgid "Newest first"
+msgstr "En yeniden"
+
+msgid "Oldest first"
+msgstr "En eskisinden"
+
+msgid "Title A–Z"
+msgstr "Başlık A–Z"
+
+msgid "Title Z–A"
+msgstr "Başlık Z–A"
+
+msgid "Send test email"
+msgstr "Test e-postası gönder"
+
+msgid "Show teachers"
+msgstr "Öğretmenleri göster"
+
+msgid "Hide teachers"
+msgstr "Öğretmenleri gizle"
+
+msgid "Delete exercise attempts"
+msgstr "Egzersiz denemelerini sil"
+
+msgid "Message sent successfully."
+msgstr "Mesaj başarıyla gönderildi."
+
+msgid "You cannot create a new course right now."
+msgstr "Şu anda yeni bir ders oluşturamazsınız."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Şu anda yeni bir ders oluşturup oluşturamayacağınızı doğrulayamıyoruz."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Lütfen daha sonra tekrar deneyin veya yöneticiyle iletişime geçin."
+
+msgid "You cannot create more courses at this time."
+msgstr "Şu anda daha fazla ders oluşturamazsınız."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "%d ders yönetiyorsunuz ve aktif hizmetiniz en fazla %d'ye izin veriyor. Başka bir ders oluşturmak için daha yüksek bir hizmet limiti veya mevcut aktif derslerinizi azaltmanız gerekiyor."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "%d ders yönetiyorsunuz ve platform hesabınız için şu anda en fazla %d'ye izin veriyor. Şu anda daha fazla ders oluşturamazsınız."
+
+msgid "Add a class"
+msgstr "Sınıf ekle"
+
+msgid "Search classes"
+msgstr "Sınıf ara"
+
+msgid "No classes found"
+msgstr "Sınıf bulunamadı"
+
+msgid "Import classes"
+msgstr "Sınıf içe aktar"
+
+msgid "Class users"
+msgstr "Sınıf kullanıcıları"
+
+msgid "%s classes imported"
+msgstr "%s sınıf içe aktarıldı"
+
+msgid "%s user-class links imported"
+msgstr "%s kullanıcı-sınıf bağlantısı içe aktarıldı"
+
+msgid "Hide comments"
+msgstr "Yorumları gizle"
+
+msgid "Loading comments..."
+msgstr "Yorumlar yükleniyor..."
+
+msgid "No comments yet."
+msgstr "Henüz yorum yok."
 

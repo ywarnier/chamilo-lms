@@ -9726,6 +9726,9 @@ msgstr "ძიების შედეგები:"
 msgid "Select a file"
 msgstr "ფაილის შერჩევა"
 
+msgid "Select a file to insert into the editor."
+msgstr "შეარჩიეთ ფაილი რედაქტორში ჩასაყენებლად."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "გაფრთხილება - FAQ ფაილი, რომელიც მდებარეობს თქვენი პორტალის /home/ დირექტორიაში, არ არის ჩაწერადი. თქვენი ტექსტი არ შენახდება, სანამ ფაილის ნებართვები არ შეიცვლება."
 
@@ -15906,6 +15909,9 @@ msgstr "თარიღი და დრო"
 msgid "Item"
 msgstr "პირველადი"
 
+msgid "Items"
+msgstr "პოზენტები"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Dashboard პლაგინის კონფიგურაცია"
 
@@ -17159,6 +17165,18 @@ msgstr "სესიები ჯგუფში"
 
 msgid "Courses in group"
 msgstr "კურსები ჯგუფში"
+
+msgid "Courses on the platform"
+msgstr "პლატფორმაზე კურსები"
+
+msgid "%s courses"
+msgstr "%s კურსი"
+
+msgid "%s sessions"
+msgstr "%s სესია"
+
+msgid "Search by title or code"
+msgstr "ძებნა სათაურის ან კოდის მიხედვით"
 
 msgid "Users in group"
 msgstr "მომხმარებლები ჯგუფში"
@@ -32163,6 +32181,9 @@ msgstr "შეკვეთა"
 msgid "Allowed file formats: %s"
 msgstr "ნებადართული ფაილის ფორმატები: %s"
 
+msgid "File manager"
+msgstr "ფაილების მენეჯერი"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "ფაილის ტიპი არ არის ნებადართული. ნებადართული გაფართოებები: %s"
 
@@ -33876,6 +33897,9 @@ msgstr "მოგესალმებით"
 msgid "Welcome to Chamilo"
 msgstr "მოგესალმებით Chamilo-ში"
 
+msgid "Check all unanswered questions below"
+msgstr "შეამოწმეთ ყველა პასუხის გარეშე შეკითხვა ქვემოთ"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> თუ ეს არის თქვენი პირველი ჯერზე Chamilo-ს გამოყენება, დარწმუნდით რომ შეამოწმებთ გვერდით მენიუს მისი მრავალი ფუნქციის საპოვნელად. თუ დაგჭირდებათ დახმარება, <a href=\"https://docs.chamilo.org\"> ჩვენი ოფიციალური დოკუმენტაცია</a> დაგეხმარებათ სტანდარტული დოკუმენტაციისთვის, ხოლო ჩვენი <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">ონლაინ ფორუმი</a> დაგეხმარებათ იდეების გაზიარებასა და სხვა Chamilo მომხმარებლებისგან პასუხების მოძიებაში."
 
@@ -34055,6 +34079,63 @@ msgstr "ტრენინგის მოთხოვნების შეფ�
 
 msgid "Work climate surveys"
 msgstr "სამუშაო კლიმატის გამოკითხვები"
+
+msgid "Unit"
+msgstr "ერთეული"
+
+msgid "Total cost"
+msgstr "საერთო ღირებულება"
+
+msgid "Cost per learner"
+msgstr "ღირებულება მსწავლელზე"
+
+msgid "Average cost by session"
+msgstr "საშუალო ღირებულება სესიაზე"
+
+msgid "Total investment"
+msgstr "საერთო ინვესტიცია"
+
+msgid "Set cost"
+msgstr "ღირებულების განსაზღვრა"
+
+msgid "Filter by date range"
+msgstr "ფილტრი თარიღის დიაპაზონით"
+
+msgid "Add distribution"
+msgstr "განაწილების დამატება"
+
+msgid "User share"
+msgstr "მользователя ნაწილი"
+
+msgid "Select a unit"
+msgstr "შეარჩიეთ ერთეული"
+
+msgid "Select a survey"
+msgstr "შეარჩიეთ გამოკითხვა"
+
+msgid "Distribution added"
+msgstr "განაწილება დაემატა"
+
+msgid "Distribution removed"
+msgstr "განაწილება წაიშალა"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ განაწილების წაშლა?"
+
+msgid "Cost updated"
+msgstr "ღირებულება განახლდა"
+
+msgid "Total invited"
+msgstr "საერთო მოწვეული"
+
+msgid "Total answered"
+msgstr "საერთო პასუხები"
+
+msgid "Total responses"
+msgstr "საერთო პასუხები"
+
+msgid "No responses yet"
+msgstr "ჯერ არანაირი პასუხი"
 
 msgid "Diversity criteria"
 msgstr "მრავალფეროვნების კრიტერიუმები"
@@ -34567,4 +34648,274 @@ msgstr "დარწმუნებული ხართ, რომ გსუ�
 
 msgid "Loading…"
 msgstr "ჩატვირთვა…"
+
+msgid "Periodicity"
+msgstr "პერიოდულობა"
+
+msgid "Suggest from periodicity"
+msgstr "პერიოდულობიდან შეთავაზება"
+
+msgid "Add job offer"
+msgstr "სამუშაო შეთავაზების დამატება"
+
+msgid "Edit job offer"
+msgstr "სამუშაო შეთავაზების რედაქტირება"
+
+msgid "Function / Unit"
+msgstr "ფუნქცია / ერთეული"
+
+msgid "Vacancies"
+msgstr "ფასიანი ადგილები"
+
+msgid "Expected start date"
+msgstr "მოულოდნელი დაწყების თარიღი"
+
+msgid "Contract duration (days)"
+msgstr "კონტრაქტის ხანგრძლივობა (დღეები)"
+
+msgid "Public offer"
+msgstr "საჯარო შეთავაზება"
+
+msgid "Publication start date"
+msgstr "გამოქვეყნების დაწყების თარიღი"
+
+msgid "Publication end date"
+msgstr "გამოქვეყნების დამთავრების თარიღი"
+
+msgid "Applications"
+msgstr "განაცხადები"
+
+msgid "Selection exams"
+msgstr "შერჩევის გამოცდები"
+
+msgid "Add exam"
+msgstr "გამოცდის დამატება"
+
+msgid "Applicant"
+msgstr "განმცხადებელი"
+
+msgid "Applied on"
+msgstr "განაცხადი შეტანილია"
+
+msgid "Salary expectations"
+msgstr "ხელფასის მოლოდინი"
+
+msgid "Pending evaluation"
+msgstr "შეფასების მოლოდინში"
+
+msgid "Hired"
+msgstr "დაქირავებული"
+
+msgid "Not hired"
+msgstr "არ არის დაქირავებული"
+
+msgid "Evaluate"
+msgstr "შეფასება"
+
+msgid "Evaluate candidate"
+msgstr "კანდიდატის შეფასება"
+
+msgid "Decision"
+msgstr "გადაწყვეტილება"
+
+msgid "Save evaluation"
+msgstr "შეფასების შენახვა"
+
+msgid "Back to job offers"
+msgstr "უკან სამუშაო შეთავაზებებზე"
+
+msgid "No job offers available at this time."
+msgstr "ამჟამად სამუშაო შეთავაზებები არ არის ხელმისაწვდომი."
+
+msgid "See details"
+msgstr "დეტალების ნახვა"
+
+msgid "Apply now"
+msgstr "განაცხადის შეტანა ახლა"
+
+msgid "Already applied"
+msgstr "이미 განაცხადი შეტანილია"
+
+msgid "Log in to apply"
+msgstr "შეხვედრა სისტემაში განაცხადის შესატანად"
+
+msgid "Apply to job offer"
+msgstr "განაცხადის შეტანა სამუშაო შეთავაზებაზე"
+
+msgid "Availability date"
+msgstr "ხელმისაწვდომობის თარიღი"
+
+msgid "CV (Personal file)"
+msgstr "რეზიუმე (პირადი ფაილი)"
+
+msgid "Select your CV from your personal files"
+msgstr "აირჩიეთ თქვენი რეზიუმე თქვენი პირადი ფაილებიდან"
+
+msgid "Submit application"
+msgstr "განაცხადის გაგზავნა"
+
+msgid "Application submitted successfully."
+msgstr "განაცხადი წარმატებით გაიგზავნა."
+
+msgid "Private observations"
+msgstr "კერძო შენიშვნები"
+
+msgid "My applications"
+msgstr "ჩემი განაცხადები"
+
+msgid "View job offers"
+msgstr "სამუშაო შეთავაზებების ნახვა"
+
+msgid "You have not submitted any applications yet."
+msgstr "თქვენ ჯერ არ გაგზავნიათ განაცხადები."
+
+msgid "Under review"
+msgstr "მიმოხილვის ქვეშ"
+
+msgid "Not selected"
+msgstr "არ არის შერჩეული"
+
+msgid "HR feedback"
+msgstr "HR-ის უკუკავშირი"
+
+msgid "Withdraw application"
+msgstr "განაცხადის გაუქმება"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ განაცხადის გაუქმება?"
+
+msgid "Application withdrawn."
+msgstr "განაცხადი გაუქმებულია."
+
+msgid "Calculate quiz scores"
+msgstr "ვიქტორინის ქულების გამოთვლა"
+
+msgid "Scores calculated."
+msgstr "ქულები გამოთვლილია."
+
+msgid "Career plan overview"
+msgstr "კარიერული გეგმის მიმოხილვა"
+
+msgid "My career plan"
+msgstr "ჩემი კარიერული გეგმა"
+
+msgid "No function-unit associations configured yet."
+msgstr "ჯერ არ არის კონფიგურირებული ფუნქცია-ერთეულის ასოციაციები."
+
+msgid "No required skills defined."
+msgstr "საჭირო უნარები არ არის განსაზღვრული."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "კარიერული გეგმის ნახვისთვის თქვენ უნდა იყოთ მინიჭებული თანამდებობაზე."
+
+msgid "Your current position"
+msgstr "თქვენი მიმდინარე თანამდებობა"
+
+msgid "No career targets found for your current position."
+msgstr "თქვენი მიმდინარე თანამდებობისთვის კარიერული სამიზნეები ვერ მოიძებნა."
+
+msgid "No required skills defined for this position."
+msgstr "ამ თანამდებობისთვის საჭირო უნარები არ არის განსაზღვრული."
+
+msgid "Met"
+msgstr "შესრულებული"
+
+msgid "Gap"
+msgstr "საჭირო"
+
+msgid "Acquired:"
+msgstr "მიღებული:"
+
+msgid "Required:"
+msgstr "საჭირო:"
+
+msgid "Max"
+msgstr "მაქს"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "დივერსიტეტის კრიტერიუმები არ მოიძებნა. ჯერ კრიტერიუმების დამატება."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "კრიტერიუმის შესატყობინების ნახვისთვის სიიდან აირჩიეთ კრიტერიუმი."
+
+msgid "No data available for this criterion."
+msgstr "ამ კრიტერიუმისთვის მონაცემები არ არის ხელმისაწვდომი."
+
+msgid "Change password"
+msgstr "პაროლის შეცვლა"
+
+msgid "Newest first"
+msgstr "უმძიმესი პირველ რიგში"
+
+msgid "Oldest first"
+msgstr "უძველესი პირველ რიგში"
+
+msgid "Title A–Z"
+msgstr "სათაური A–Z"
+
+msgid "Title Z–A"
+msgstr "სათაური Z–A"
+
+msgid "Send test email"
+msgstr "ტესტური ელფოსტის გაგზავნა"
+
+msgid "Show teachers"
+msgstr "მასწავლებლების ჩვენება"
+
+msgid "Hide teachers"
+msgstr "მასწავლებლების დამალვა"
+
+msgid "Delete exercise attempts"
+msgstr "ვარჯიშის მცდელობების წაშლა"
+
+msgid "Message sent successfully."
+msgstr "შეტყობინება წარმატებით გაიგზავნა."
+
+msgid "You cannot create a new course right now."
+msgstr "ახლა ვერ შეგიძლიათ ახალი კურსის შექმნა."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "ვერ შეიმოწმა შეგიძლიათ თუ არა ახლა ახალი კურსის შექმნა."
+
+msgid "Please try again later or contact the administrator."
+msgstr "გთხოვთ სცადოთ მოგვიანებით ან დაუკავშირდეთ ადმინისტრატორს."
+
+msgid "You cannot create more courses at this time."
+msgstr "ამჟამად ვერ შეგიძლიათ მეტი კურსის შექმნა."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "თქვენ უკვე მართავთ %d კურსს და თქვენი აქტიური სერვისი საშუალოდ %d-ს იძლევა. სხვა კურსის შესაქმნელად გჭირდებათ უფრო მაღალი სერვისის ლიმიტი ან შეამცირეთ თქვენი მიმდინარე აქტიური კურსები."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "თქვენ უკვე მართავთ %d კურსს და პლატფორმა ამჟამად თქვენი ანგარიშისთვის მაქსიმუმ %d-ს საშუალებს. ახლა ვერ შეგიძლიათ მეტი კურსის შექმნა."
+
+msgid "Add a class"
+msgstr "კლასის დამატება"
+
+msgid "Search classes"
+msgstr "კლასების ძიება"
+
+msgid "No classes found"
+msgstr "კლასები ვერ მოიძებნა"
+
+msgid "Import classes"
+msgstr "კლასების იმპორტი"
+
+msgid "Class users"
+msgstr "კლასის მომხმარებლები"
+
+msgid "%s classes imported"
+msgstr "%s კლასი იმპორტირებულია"
+
+msgid "%s user-class links imported"
+msgstr "%s მომხმარებელი-კლასის ბმული იმპორტირებულია"
+
+msgid "Hide comments"
+msgstr "კომენტარების დამალვა"
+
+msgid "Loading comments..."
+msgstr "კომენტარების ჩატვირთვა..."
+
+msgid "No comments yet."
+msgstr "კომენტარები ჯერ არ არის."
 

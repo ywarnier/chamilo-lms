@@ -9729,6 +9729,9 @@ msgstr "Резултати од пребарување за:"
 msgid "Select a file"
 msgstr "Изберете датотека"
 
+msgid "Select a file to insert into the editor."
+msgstr "Изберете датотека за вметнување во уредувачот."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Предупредување - FAQ датотеката, сместена во /home/ директориумот на вашиот портал, не е запишлива. Вашиот текст нема да се зачува додека не се променат дозволите на датотеката."
 
@@ -15909,6 +15912,9 @@ msgstr "Датум и време"
 msgid "Item"
 msgstr "Ставка"
 
+msgid "Items"
+msgstr "Ставки"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Постави додаток за табла"
 
@@ -17162,6 +17168,18 @@ msgstr "Сесии во група"
 
 msgid "Courses in group"
 msgstr "Курсеви во група"
+
+msgid "Courses on the platform"
+msgstr "Курсеви на платформата"
+
+msgid "%s courses"
+msgstr "%s курсеви"
+
+msgid "%s sessions"
+msgstr "%s сесии"
+
+msgid "Search by title or code"
+msgstr "Пребарајте по наслов или код"
 
 msgid "Users in group"
 msgstr "Корисници во група"
@@ -32167,6 +32185,9 @@ msgstr "Задача"
 msgid "Allowed file formats: %s"
 msgstr "Дозволени формати на датотеки: %s"
 
+msgid "File manager"
+msgstr "Менаџер на датотеки"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Типот на датотека не е дозволен. Дозволени наставки: %s"
 
@@ -33880,6 +33901,9 @@ msgstr "Добредојде"
 msgid "Welcome to Chamilo"
 msgstr "Добредојде во Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Проверете ги сите непорачани прашања подолу"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ако ова е првпат користите Chamilo, проверете го менито на страната за да ги најдете сите негови можности. Ако ви треба помош, нашата <a href=\"https://docs.chamilo.org\">официјална документација</a> може да помогне за стандардна документација, додека нашиот <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">онлајн форум</a> може да помогне за споделување идеи и наоѓање одговори од други корисници на Chamilo."
 
@@ -34059,6 +34083,63 @@ msgstr "Оценка на потребите за обука"
 
 msgid "Work climate surveys"
 msgstr "Анкети за работната клима"
+
+msgid "Unit"
+msgstr "Единица"
+
+msgid "Total cost"
+msgstr "Вкупен трошок"
+
+msgid "Cost per learner"
+msgstr "Трошок по учесник"
+
+msgid "Average cost by session"
+msgstr "Просечен трошок по сесија"
+
+msgid "Total investment"
+msgstr "Вкупна инвестиција"
+
+msgid "Set cost"
+msgstr "Постави трошок"
+
+msgid "Filter by date range"
+msgstr "Филтрирај по опсег на датум"
+
+msgid "Add distribution"
+msgstr "Додај распределба"
+
+msgid "User share"
+msgstr "Дел од корисник"
+
+msgid "Select a unit"
+msgstr "Избери единица"
+
+msgid "Select a survey"
+msgstr "Избери анкета"
+
+msgid "Distribution added"
+msgstr "Распределбата е додадена"
+
+msgid "Distribution removed"
+msgstr "Распределбата е отстранета"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Дали сте сигурни дека сакате да ја отстраните оваа распределба?"
+
+msgid "Cost updated"
+msgstr "Трошокот е ажуриран"
+
+msgid "Total invited"
+msgstr "Вкупно поканети"
+
+msgid "Total answered"
+msgstr "Вкупно одговори"
+
+msgid "Total responses"
+msgstr "Вкупно одговори"
+
+msgid "No responses yet"
+msgstr "Сè уште нема одговори"
 
 msgid "Diversity criteria"
 msgstr "Критериуми за разновидност"
@@ -34571,4 +34652,274 @@ msgstr "Дали сте сигурни дека сакате да ја избр�
 
 msgid "Loading…"
 msgstr "Вчитување…"
+
+msgid "Periodicity"
+msgstr "Периодичност"
+
+msgid "Suggest from periodicity"
+msgstr "Предложи од периодичност"
+
+msgid "Add job offer"
+msgstr "Додади оглас за работа"
+
+msgid "Edit job offer"
+msgstr "Уреди оглас за работа"
+
+msgid "Function / Unit"
+msgstr "Функција / Единица"
+
+msgid "Vacancies"
+msgstr "Вакансии"
+
+msgid "Expected start date"
+msgstr "Очекуван датум на започнување"
+
+msgid "Contract duration (days)"
+msgstr "Траење на договорот (дена)"
+
+msgid "Public offer"
+msgstr "Јавен оглас"
+
+msgid "Publication start date"
+msgstr "Датум на започнување на објавувањето"
+
+msgid "Publication end date"
+msgstr "Датум на завршување на објавувањето"
+
+msgid "Applications"
+msgstr "Пријави"
+
+msgid "Selection exams"
+msgstr "Изборни испити"
+
+msgid "Add exam"
+msgstr "Додади испит"
+
+msgid "Applicant"
+msgstr "Пријавен"
+
+msgid "Applied on"
+msgstr "Пријавен на"
+
+msgid "Salary expectations"
+msgstr "Очекувања за плата"
+
+msgid "Pending evaluation"
+msgstr "Во чекање на оценка"
+
+msgid "Hired"
+msgstr "Ангажиран"
+
+msgid "Not hired"
+msgstr "Не ангажиран"
+
+msgid "Evaluate"
+msgstr "Оцени"
+
+msgid "Evaluate candidate"
+msgstr "Оцени кандидат"
+
+msgid "Decision"
+msgstr "Одлука"
+
+msgid "Save evaluation"
+msgstr "Зачувај оцена"
+
+msgid "Back to job offers"
+msgstr "Назад кон огласите за работа"
+
+msgid "No job offers available at this time."
+msgstr "Моментално нема достапни огласи за работа."
+
+msgid "See details"
+msgstr "Погледни детали"
+
+msgid "Apply now"
+msgstr "Пријави се сега"
+
+msgid "Already applied"
+msgstr "Веќе се пријавивте"
+
+msgid "Log in to apply"
+msgstr "Најавете се за да се пријавите"
+
+msgid "Apply to job offer"
+msgstr "Пријави се за огласот за работа"
+
+msgid "Availability date"
+msgstr "Датум на достапност"
+
+msgid "CV (Personal file)"
+msgstr "CV (Лична датотека)"
+
+msgid "Select your CV from your personal files"
+msgstr "Изберете го вашиот CV од вашите лични датотеки"
+
+msgid "Submit application"
+msgstr "Поднеси пријава"
+
+msgid "Application submitted successfully."
+msgstr "Пријавата е успешно поднесена."
+
+msgid "Private observations"
+msgstr "Приватни забелешки"
+
+msgid "My applications"
+msgstr "Мои пријави"
+
+msgid "View job offers"
+msgstr "Погледни огласи за работа"
+
+msgid "You have not submitted any applications yet."
+msgstr "Сè уште не сте поднеле никакви пријави."
+
+msgid "Under review"
+msgstr "Во преглед"
+
+msgid "Not selected"
+msgstr "Не селектиран"
+
+msgid "HR feedback"
+msgstr "HR повратна информација"
+
+msgid "Withdraw application"
+msgstr "Повлечи пријава"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Дали сте сигурни дека сакате да ја повлечете оваа пријава?"
+
+msgid "Application withdrawn."
+msgstr "Пријавата е повлечена."
+
+msgid "Calculate quiz scores"
+msgstr "Пресметај поени од квиз"
+
+msgid "Scores calculated."
+msgstr "Поените се пресметани."
+
+msgid "Career plan overview"
+msgstr "Преглед на кариерен план"
+
+msgid "My career plan"
+msgstr "Мој кариерен план"
+
+msgid "No function-unit associations configured yet."
+msgstr "Ниту една поврзаност функција-единица не е конфигурирана досега."
+
+msgid "No required skills defined."
+msgstr "Ниту едно барано вештина не е дефинирана."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Мора да бидете доделен на позиција за да го видите вашиот план за кариера."
+
+msgid "Your current position"
+msgstr "Вашата тековна позиција"
+
+msgid "No career targets found for your current position."
+msgstr "Ниту една цел за кариера не е пронајдена за вашата тековна позиција."
+
+msgid "No required skills defined for this position."
+msgstr "Ниту една барана вештина не е дефинирана за оваа позиција."
+
+msgid "Met"
+msgstr "Исполнето"
+
+msgid "Gap"
+msgstr "Пропуст"
+
+msgid "Acquired:"
+msgstr "Стекнато:"
+
+msgid "Required:"
+msgstr "Барано:"
+
+msgid "Max"
+msgstr "Макс"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Нема пронајдени критериуми за разновидност. Додадете критериуми прво."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Изберете критериум од листата за да ги видите неговите статистики."
+
+msgid "No data available for this criterion."
+msgstr "Нема достапни податоци за овој критериум."
+
+msgid "Change password"
+msgstr "Промени лозинка"
+
+msgid "Newest first"
+msgstr "Најнови први"
+
+msgid "Oldest first"
+msgstr "Најстари први"
+
+msgid "Title A–Z"
+msgstr "Наслов А–З"
+
+msgid "Title Z–A"
+msgstr "Наслов З–А"
+
+msgid "Send test email"
+msgstr "Испрати тест е-пошта"
+
+msgid "Show teachers"
+msgstr "Прикажи предавачи"
+
+msgid "Hide teachers"
+msgstr "Сокриј предавачи"
+
+msgid "Delete exercise attempts"
+msgstr "Избриши обиди на вежби"
+
+msgid "Message sent successfully."
+msgstr "Пораката е успешно испратена."
+
+msgid "You cannot create a new course right now."
+msgstr "Не можете да креирате нов курс сега."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Не може да се провери дали можете да креирате нов курс сега."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Обидете се повторно подоцна или контактирајте го администраторот."
+
+msgid "You cannot create more courses at this time."
+msgstr "Не можете да креирате повеќе курсеви во моментов."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Веќе управувате со %d курсеви и вашата активна услуга дозволува до %d. За да креирате друг курс, ви треба повисок лимит на услуга или намалете ги вашите тековни активни курсеви."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Веќе управувате со %d курсеви и платформата моментално дозволува до %d за вашиот акаунт. Не можете да креирате повеќе курсеви сега."
+
+msgid "Add a class"
+msgstr "Додај класа"
+
+msgid "Search classes"
+msgstr "Пребарај класи"
+
+msgid "No classes found"
+msgstr "Ниту една класа не е пронајдена"
+
+msgid "Import classes"
+msgstr "Увези класи"
+
+msgid "Class users"
+msgstr "Корисници на класа"
+
+msgid "%s classes imported"
+msgstr "%s класи увезени"
+
+msgid "%s user-class links imported"
+msgstr "%s врски корисник-класа увезени"
+
+msgid "Hide comments"
+msgstr "Сокриј коментари"
+
+msgid "Loading comments..."
+msgstr "Вчитувам коментари..."
+
+msgid "No comments yet."
+msgstr "Уште нема коментари."
 

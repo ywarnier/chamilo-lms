@@ -9731,6 +9731,9 @@ msgstr "Søgeresultater for:"
 msgid "Select a file"
 msgstr "Vælg en fil"
 
+msgid "Select a file to insert into the editor."
+msgstr "Vælg en fil til indsættelse i editoren."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Advarsel - FAQ-filen, der er placeret i /home/-kataloget på din portal, er ikke skrivbar. Din tekst vil ikke blive gemt, før filrettighederne er ændret."
 
@@ -15911,6 +15914,9 @@ msgstr "Dato og tid"
 msgid "Item"
 msgstr "Element"
 
+msgid "Items"
+msgstr "Elementer"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Konfigurer Dashboard Plugin"
 
@@ -17164,6 +17170,18 @@ msgstr "Sessions i gruppe"
 
 msgid "Courses in group"
 msgstr "Kurser i gruppe"
+
+msgid "Courses on the platform"
+msgstr "Kurser på platformen"
+
+msgid "%s courses"
+msgstr "%s kurser"
+
+msgid "%s sessions"
+msgstr "%s sessioner"
+
+msgid "Search by title or code"
+msgstr "Søg efter titel eller kode"
 
 msgid "Users in group"
 msgstr "Brugere i gruppe"
@@ -32169,6 +32187,9 @@ msgstr "Opgave"
 msgid "Allowed file formats: %s"
 msgstr "Tilladte filformater: %s"
 
+msgid "File manager"
+msgstr "Filhåndtering"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Filtypen er ikke tilladt. Tilladte filtyper: %s"
 
@@ -33882,6 +33903,9 @@ msgstr "Velkommen"
 msgid "Welcome to Chamilo"
 msgstr "Velkommen til Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Tjek alle besvarede spørgsmål nedenfor"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Hvis dette er din første gang med Chamilo, så tjek venligst side-menuen for at finde vej gennem dens mange funktioner. Hvis du har brug for hjælp, finder du <a href=\"https://docs.chamilo.org\">vores officielle dokumentation</a> til standard dokumentation, mens vores <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> kan hjælpe med at dele idéer og finde svar fra andre Chamilo-brugere."
 
@@ -34061,6 +34085,63 @@ msgstr "Uddannelsesbehovsvurdering"
 
 msgid "Work climate surveys"
 msgstr "Arbejdsklimaundersøgelser"
+
+msgid "Unit"
+msgstr "Enhed"
+
+msgid "Total cost"
+msgstr "Samlet omkostning"
+
+msgid "Cost per learner"
+msgstr "Omkostning pr. lærende"
+
+msgid "Average cost by session"
+msgstr "Gennemsnitlig omkostning pr. session"
+
+msgid "Total investment"
+msgstr "Samlet investering"
+
+msgid "Set cost"
+msgstr "Indstil omkostning"
+
+msgid "Filter by date range"
+msgstr "Filtrer efter datointerval"
+
+msgid "Add distribution"
+msgstr "Tilføj fordeling"
+
+msgid "User share"
+msgstr "Brugerandel"
+
+msgid "Select a unit"
+msgstr "Vælg en enhed"
+
+msgid "Select a survey"
+msgstr "Vælg en undersøgelse"
+
+msgid "Distribution added"
+msgstr "Fordeling tilføjet"
+
+msgid "Distribution removed"
+msgstr "Fordeling fjernet"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Er du sikker på, at du vil fjerne denne fordeling?"
+
+msgid "Cost updated"
+msgstr "Omkostning opdateret"
+
+msgid "Total invited"
+msgstr "Samlet inviteret"
+
+msgid "Total answered"
+msgstr "Samlet besvaret"
+
+msgid "Total responses"
+msgstr "Samlet svar"
+
+msgid "No responses yet"
+msgstr "Ingen svar endnu"
 
 msgid "Diversity criteria"
 msgstr "Mangfoldighedskriterier"
@@ -34573,4 +34654,274 @@ msgstr "Er du sikker på, at du vil slette denne evaluering?"
 
 msgid "Loading…"
 msgstr "Indlæser…"
+
+msgid "Periodicity"
+msgstr "Periodicitet"
+
+msgid "Suggest from periodicity"
+msgstr "Foreslå fra periodicitet"
+
+msgid "Add job offer"
+msgstr "Tilføj stillingsopslag"
+
+msgid "Edit job offer"
+msgstr "Rediger stillingsopslag"
+
+msgid "Function / Unit"
+msgstr "Funktion / Enhed"
+
+msgid "Vacancies"
+msgstr "Ledige pladser"
+
+msgid "Expected start date"
+msgstr "Forventet startdato"
+
+msgid "Contract duration (days)"
+msgstr "Kontraktduration (dage)"
+
+msgid "Public offer"
+msgstr "Offentligt tilbud"
+
+msgid "Publication start date"
+msgstr "Publiceringsstartdato"
+
+msgid "Publication end date"
+msgstr "Publiceringsslutdato"
+
+msgid "Applications"
+msgstr "Ansøgninger"
+
+msgid "Selection exams"
+msgstr "Udtagningsprøver"
+
+msgid "Add exam"
+msgstr "Tilføj prøve"
+
+msgid "Applicant"
+msgstr "Ansøger"
+
+msgid "Applied on"
+msgstr "Ansøgt den"
+
+msgid "Salary expectations"
+msgstr "Lønforventninger"
+
+msgid "Pending evaluation"
+msgstr "Afventer vurdering"
+
+msgid "Hired"
+msgstr "Ansat"
+
+msgid "Not hired"
+msgstr "Ikke ansat"
+
+msgid "Evaluate"
+msgstr "Vurder"
+
+msgid "Evaluate candidate"
+msgstr "Evaluér kandidat"
+
+msgid "Decision"
+msgstr "Beslutning"
+
+msgid "Save evaluation"
+msgstr "Gem evaluering"
+
+msgid "Back to job offers"
+msgstr "Tilbage til jobtilbud"
+
+msgid "No job offers available at this time."
+msgstr "Ingen jobtilbud tilgængelige på nuværende tidspunkt."
+
+msgid "See details"
+msgstr "Se detaljer"
+
+msgid "Apply now"
+msgstr "Ansøg nu"
+
+msgid "Already applied"
+msgstr "Har allerede ansøgt"
+
+msgid "Log in to apply"
+msgstr "Log ind for at ansøge"
+
+msgid "Apply to job offer"
+msgstr "Ansøg til jobtilbud"
+
+msgid "Availability date"
+msgstr "Tilgængelighedsdato"
+
+msgid "CV (Personal file)"
+msgstr "CV (Personlig fil)"
+
+msgid "Select your CV from your personal files"
+msgstr "Vælg dit CV fra dine personlige filer"
+
+msgid "Submit application"
+msgstr "Indsend ansøgning"
+
+msgid "Application submitted successfully."
+msgstr "Ansøgning indsendt succesfuldt."
+
+msgid "Private observations"
+msgstr "Private observationer"
+
+msgid "My applications"
+msgstr "Mine ansøgninger"
+
+msgid "View job offers"
+msgstr "Vis jobtilbud"
+
+msgid "You have not submitted any applications yet."
+msgstr "Du har endnu ikke indsendt nogen ansøgninger."
+
+msgid "Under review"
+msgstr "Under behandling"
+
+msgid "Not selected"
+msgstr "Ikke udvalgt"
+
+msgid "HR feedback"
+msgstr "HR feedback"
+
+msgid "Withdraw application"
+msgstr "Træk ansøgning tilbage"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Er du sikker på, at du vil trække denne ansøgning tilbage?"
+
+msgid "Application withdrawn."
+msgstr "Ansøgning trukket tilbage."
+
+msgid "Calculate quiz scores"
+msgstr "Beregn quizpoint"
+
+msgid "Scores calculated."
+msgstr "Point beregnet."
+
+msgid "Career plan overview"
+msgstr "Oversigt over karriereplan"
+
+msgid "My career plan"
+msgstr "Min karriereplan"
+
+msgid "No function-unit associations configured yet."
+msgstr "Ingen funktion-enhedsassociationer konfigureret endnu."
+
+msgid "No required skills defined."
+msgstr "Ingen påkrævede færdigheder defineret."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Du skal tildeles en stilling for at se din karriereplan."
+
+msgid "Your current position"
+msgstr "Din nuværende stilling"
+
+msgid "No career targets found for your current position."
+msgstr "Ingen karrieremål fundet for din nuværende stilling."
+
+msgid "No required skills defined for this position."
+msgstr "Ingen påkrævede færdigheder defineret for denne stilling."
+
+msgid "Met"
+msgstr "Opfyldt"
+
+msgid "Gap"
+msgstr "Mangel"
+
+msgid "Acquired:"
+msgstr "Opnået:"
+
+msgid "Required:"
+msgstr "Påkrævet:"
+
+msgid "Max"
+msgstr "Maks"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Ingen diversitetskriterier fundet. Tilføj kriterier først."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Vælg et kriterium fra listen for at se dets statistik."
+
+msgid "No data available for this criterion."
+msgstr "Ingen data tilgængelige for dette kriterium."
+
+msgid "Change password"
+msgstr "Skift adgangskode"
+
+msgid "Newest first"
+msgstr "Nyeste først"
+
+msgid "Oldest first"
+msgstr "Ældste først"
+
+msgid "Title A–Z"
+msgstr "Titel A–Z"
+
+msgid "Title Z–A"
+msgstr "Titel Z–A"
+
+msgid "Send test email"
+msgstr "Send testmail"
+
+msgid "Show teachers"
+msgstr "Vis lærere"
+
+msgid "Hide teachers"
+msgstr "Skjul lærere"
+
+msgid "Delete exercise attempts"
+msgstr "Slet øvelsesforsøg"
+
+msgid "Message sent successfully."
+msgstr "Besked sendt succesfuldt."
+
+msgid "You cannot create a new course right now."
+msgstr "Du kan ikke oprette et nyt kursus lige nu."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Kan ikke verificere, om du kan oprette et nyt kursus lige nu."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Prøv igen senere eller kontakt administratoren."
+
+msgid "You cannot create more courses at this time."
+msgstr "Du kan ikke oprette flere kurser på nuværende tidspunkt."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Du administrerer allerede %d kurser, og din aktive service tillader op til %d. For at oprette et andet kursus har du brug for en højere servicelimite eller reducér antallet af dine aktive kurser."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Du administrerer allerede %d kurser, og platformen tillader i øjeblikket op til %d for din konto. Du kan ikke oprette flere kurser lige nu."
+
+msgid "Add a class"
+msgstr "Tilføj en klasse"
+
+msgid "Search classes"
+msgstr "Søg klasser"
+
+msgid "No classes found"
+msgstr "Ingen klasser fundet"
+
+msgid "Import classes"
+msgstr "Importér klasser"
+
+msgid "Class users"
+msgstr "Klassebrugere"
+
+msgid "%s classes imported"
+msgstr "%s klasser importeret"
+
+msgid "%s user-class links imported"
+msgstr "%s bruger-klasse-links importeret"
+
+msgid "Hide comments"
+msgstr "Skjul kommentarer"
+
+msgid "Loading comments..."
+msgstr "Indlæser kommentarer..."
+
+msgid "No comments yet."
+msgstr "Ingen kommentarer endnu."
 

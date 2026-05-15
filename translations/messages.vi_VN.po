@@ -9731,6 +9731,9 @@ msgstr "Kết quả tìm kiếm cho:"
 msgid "Select a file"
 msgstr "Chọn tệp"
 
+msgid "Select a file to insert into the editor."
+msgstr "Chọn tệp để chèn vào trình soạn thảo."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Cảnh báo - Tệp FAQ, nằm trong thư mục /home/ của cổng thông tin, không thể ghi. Văn bản của bạn sẽ không được lưu cho đến khi quyền tệp được thay đổi."
 
@@ -15911,6 +15914,9 @@ msgstr "Ngày & giờ"
 msgid "Item"
 msgstr "Mục"
 
+msgid "Items"
+msgstr "Mục"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Cấu hình tiện ích Bảng điều khiển"
 
@@ -17164,6 +17170,18 @@ msgstr "Phiên trong nhóm"
 
 msgid "Courses in group"
 msgstr "Khóa học trong nhóm"
+
+msgid "Courses on the platform"
+msgstr "Các khóa học trên nền tảng"
+
+msgid "%s courses"
+msgstr "%s khóa học"
+
+msgid "%s sessions"
+msgstr "%s buổi học"
+
+msgid "Search by title or code"
+msgstr "Tìm kiếm theo tiêu đề hoặc mã"
 
 msgid "Users in group"
 msgstr "Người dùng trong nhóm"
@@ -32169,6 +32187,9 @@ msgstr "Bài tập"
 msgid "Allowed file formats: %s"
 msgstr "Định dạng tệp được phép: %s"
 
+msgid "File manager"
+msgstr "Trình quản lý tệp"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Loại tệp không được phép. Phần mở rộng được phép: %s"
 
@@ -33882,6 +33903,9 @@ msgstr "Chào mừng"
 msgid "Welcome to Chamilo"
 msgstr "Chào mừng đến với Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Chọn tất cả câu hỏi chưa trả lời bên dưới"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Nếu đây là lần đầu bạn sử dụng Chamilo, hãy kiểm tra menu bên để tìm đường qua nhiều tính năng của nó. Nếu bạn cần trợ giúp, bạn sẽ tìm thấy <a href=\"https://docs.chamilo.org\">tài liệu chính thức của chúng tôi</a> có thể giúp cho tài liệu tiêu chuẩn, trong khi <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">diễn đàn trực tuyến</a> của chúng tôi có thể giúp chia sẻ ý tưởng và tìm câu trả lời từ các người dùng Chamilo khác."
 
@@ -34061,6 +34085,63 @@ msgstr "Đánh giá nhu cầu đào tạo"
 
 msgid "Work climate surveys"
 msgstr "Khảo sát khí hậu làm việc"
+
+msgid "Unit"
+msgstr "Đơn vị"
+
+msgid "Total cost"
+msgstr "Tổng chi phí"
+
+msgid "Cost per learner"
+msgstr "Chi phí trên mỗi học viên"
+
+msgid "Average cost by session"
+msgstr "Chi phí trung bình theo buổi học"
+
+msgid "Total investment"
+msgstr "Tổng đầu tư"
+
+msgid "Set cost"
+msgstr "Đặt chi phí"
+
+msgid "Filter by date range"
+msgstr "Lọc theo khoảng ngày"
+
+msgid "Add distribution"
+msgstr "Thêm phân phối"
+
+msgid "User share"
+msgstr "Chia sẻ người dùng"
+
+msgid "Select a unit"
+msgstr "Chọn một đơn vị"
+
+msgid "Select a survey"
+msgstr "Chọn một khảo sát"
+
+msgid "Distribution added"
+msgstr "Phân phối đã thêm"
+
+msgid "Distribution removed"
+msgstr "Phân phối đã xóa"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Bạn có chắc chắn muốn xóa phân phối này không?"
+
+msgid "Cost updated"
+msgstr "Chi phí đã cập nhật"
+
+msgid "Total invited"
+msgstr "Tổng số mời"
+
+msgid "Total answered"
+msgstr "Tổng số trả lời"
+
+msgid "Total responses"
+msgstr "Tổng phản hồi"
+
+msgid "No responses yet"
+msgstr "Chưa có phản hồi"
 
 msgid "Diversity criteria"
 msgstr "Tiêu chí đa dạng"
@@ -34573,4 +34654,274 @@ msgstr "Bạn có chắc chắn muốn xóa đánh giá này không?"
 
 msgid "Loading…"
 msgstr "Đang tải…"
+
+msgid "Periodicity"
+msgstr "Chu kỳ"
+
+msgid "Suggest from periodicity"
+msgstr "Đề xuất từ chu kỳ"
+
+msgid "Add job offer"
+msgstr "Thêm lời mời việc làm"
+
+msgid "Edit job offer"
+msgstr "Chỉnh sửa lời mời việc làm"
+
+msgid "Function / Unit"
+msgstr "Chức năng / Đơn vị"
+
+msgid "Vacancies"
+msgstr "Chỗ trống"
+
+msgid "Expected start date"
+msgstr "Ngày bắt đầu dự kiến"
+
+msgid "Contract duration (days)"
+msgstr "Thời hạn hợp đồng (ngày)"
+
+msgid "Public offer"
+msgstr "Lời mời công khai"
+
+msgid "Publication start date"
+msgstr "Ngày bắt đầu công bố"
+
+msgid "Publication end date"
+msgstr "Ngày kết thúc công bố"
+
+msgid "Applications"
+msgstr "Đơn ứng tuyển"
+
+msgid "Selection exams"
+msgstr "Kỳ thi tuyển chọn"
+
+msgid "Add exam"
+msgstr "Thêm kỳ thi"
+
+msgid "Applicant"
+msgstr "Người ứng tuyển"
+
+msgid "Applied on"
+msgstr "Nộp đơn vào ngày"
+
+msgid "Salary expectations"
+msgstr "Kỳ vọng lương"
+
+msgid "Pending evaluation"
+msgstr "Chờ đánh giá"
+
+msgid "Hired"
+msgstr "Đã tuyển"
+
+msgid "Not hired"
+msgstr "Không tuyển"
+
+msgid "Evaluate"
+msgstr "Đánh giá"
+
+msgid "Evaluate candidate"
+msgstr "Đánh giá ứng viên"
+
+msgid "Decision"
+msgstr "Quyết định"
+
+msgid "Save evaluation"
+msgstr "Lưu đánh giá"
+
+msgid "Back to job offers"
+msgstr "Quay lại lời mời việc làm"
+
+msgid "No job offers available at this time."
+msgstr "Hiện tại chưa có lời mời việc làm nào."
+
+msgid "See details"
+msgstr "Xem chi tiết"
+
+msgid "Apply now"
+msgstr "Ứng tuyển ngay"
+
+msgid "Already applied"
+msgstr "Đã ứng tuyển"
+
+msgid "Log in to apply"
+msgstr "Đăng nhập để ứng tuyển"
+
+msgid "Apply to job offer"
+msgstr "Ứng tuyển vào lời mời việc làm"
+
+msgid "Availability date"
+msgstr "Ngày có thể sẵn sàng"
+
+msgid "CV (Personal file)"
+msgstr "Sơ yếu lý lịch (Tệp cá nhân)"
+
+msgid "Select your CV from your personal files"
+msgstr "Chọn sơ yếu lý lịch từ tệp cá nhân của bạn"
+
+msgid "Submit application"
+msgstr "Gửi đơn ứng tuyển"
+
+msgid "Application submitted successfully."
+msgstr "Đã gửi đơn ứng tuyển thành công."
+
+msgid "Private observations"
+msgstr "Ghi chú riêng tư"
+
+msgid "My applications"
+msgstr "Đơn ứng tuyển của tôi"
+
+msgid "View job offers"
+msgstr "Xem lời mời việc làm"
+
+msgid "You have not submitted any applications yet."
+msgstr "Bạn chưa nộp đơn ứng tuyển nào."
+
+msgid "Under review"
+msgstr "Đang xem xét"
+
+msgid "Not selected"
+msgstr "Không được chọn"
+
+msgid "HR feedback"
+msgstr "Phản hồi từ HR"
+
+msgid "Withdraw application"
+msgstr "Rút đơn ứng tuyển"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Bạn có chắc chắn muốn rút đơn ứng tuyển này không?"
+
+msgid "Application withdrawn."
+msgstr "Đã rút đơn ứng tuyển."
+
+msgid "Calculate quiz scores"
+msgstr "Tính điểm bài kiểm tra"
+
+msgid "Scores calculated."
+msgstr "Đã tính điểm."
+
+msgid "Career plan overview"
+msgstr "Tổng quan kế hoạch sự nghiệp"
+
+msgid "My career plan"
+msgstr "Kế hoạch sự nghiệp của tôi"
+
+msgid "No function-unit associations configured yet."
+msgstr "Chưa cấu hình liên kết chức năng-đơn vị."
+
+msgid "No required skills defined."
+msgstr "Chưa xác định kỹ năng yêu cầu."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Bạn phải được phân công vị trí để xem kế hoạch sự nghiệp."
+
+msgid "Your current position"
+msgstr "Vị trí hiện tại của bạn"
+
+msgid "No career targets found for your current position."
+msgstr "Không tìm thấy mục tiêu nghề nghiệp nào cho vị trí hiện tại của bạn."
+
+msgid "No required skills defined for this position."
+msgstr "Không có kỹ năng yêu cầu nào được định nghĩa cho vị trí này."
+
+msgid "Met"
+msgstr "Đạt được"
+
+msgid "Gap"
+msgstr "Thiếu hụt"
+
+msgid "Acquired:"
+msgstr "Đã đạt:"
+
+msgid "Required:"
+msgstr "Yêu cầu:"
+
+msgid "Max"
+msgstr "Tối đa"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Không tìm thấy tiêu chí đa dạng. Thêm tiêu chí trước."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Chọn một tiêu chí từ danh sách để xem thống kê."
+
+msgid "No data available for this criterion."
+msgstr "Không có dữ liệu cho tiêu chí này."
+
+msgid "Change password"
+msgstr "Thay đổi mật khẩu"
+
+msgid "Newest first"
+msgstr "Mới nhất trước"
+
+msgid "Oldest first"
+msgstr "Cũ nhất trước"
+
+msgid "Title A–Z"
+msgstr "Tiêu đề A–Z"
+
+msgid "Title Z–A"
+msgstr "Tiêu đề Z–A"
+
+msgid "Send test email"
+msgstr "Gửi email thử nghiệm"
+
+msgid "Show teachers"
+msgstr "Hiển thị giảng viên"
+
+msgid "Hide teachers"
+msgstr "Ẩn giảng viên"
+
+msgid "Delete exercise attempts"
+msgstr "Xóa các lần thử bài tập"
+
+msgid "Message sent successfully."
+msgstr "Tin nhắn đã được gửi thành công."
+
+msgid "You cannot create a new course right now."
+msgstr "Bạn không thể tạo khóa học mới ngay bây giờ."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Không thể xác minh xem bạn có thể tạo khóa học mới ngay bây giờ hay không."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Vui lòng thử lại sau hoặc liên hệ quản trị viên."
+
+msgid "You cannot create more courses at this time."
+msgstr "Bạn không thể tạo thêm khóa học vào lúc này."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Bạn đang quản lý %d khóa học và dịch vụ hoạt động của bạn cho phép tối đa %d. Để tạo khóa học khác, bạn cần giới hạn dịch vụ cao hơn hoặc giảm số khóa học hoạt động hiện tại."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Bạn đang quản lý %d khóa học và nền tảng hiện cho phép tối đa %d cho tài khoản của bạn. Bạn không thể tạo thêm khóa học ngay bây giờ."
+
+msgid "Add a class"
+msgstr "Thêm lớp học"
+
+msgid "Search classes"
+msgstr "Tìm kiếm lớp học"
+
+msgid "No classes found"
+msgstr "Không tìm thấy lớp học nào"
+
+msgid "Import classes"
+msgstr "Nhập lớp học"
+
+msgid "Class users"
+msgstr "Người dùng lớp học"
+
+msgid "%s classes imported"
+msgstr "%s lớp học đã được nhập"
+
+msgid "%s user-class links imported"
+msgstr "%s liên kết người dùng-lớp học đã được nhập"
+
+msgid "Hide comments"
+msgstr "Ẩn bình luận"
+
+msgid "Loading comments..."
+msgstr "Đang tải bình luận..."
+
+msgid "No comments yet."
+msgstr "Chưa có bình luận nào."
 

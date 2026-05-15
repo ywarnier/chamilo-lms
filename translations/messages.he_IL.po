@@ -9738,6 +9738,9 @@ msgstr "תוצאות חיפוש עבור:"
 msgid "Select a file"
 msgstr "בחר קובץ"
 
+msgid "Select a file to insert into the editor."
+msgstr "בחר קובץ להכנסה לעורך."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "אזהרה - קובץ השאלות הנפוצות, הממוקם בספריית /home/ של הפורטל שלך, אינו בר כתיבה. הטקסט שלך לא יישמר עד שהרשאות הקובץ ישתנו."
 
@@ -15918,6 +15921,9 @@ msgstr "תאריך ושעה"
 msgid "Item"
 msgstr "פריט"
 
+msgid "Items"
+msgstr "פריטים"
+
 msgid "Configure Dashboard Plugin"
 msgstr "הגדר פלאגין של לוח המחוונים"
 
@@ -17171,6 +17177,18 @@ msgstr "מפגשים בקבוצה"
 
 msgid "Courses in group"
 msgstr "קורסים בקבוצה"
+
+msgid "Courses on the platform"
+msgstr "קורסים בפלטפורמה"
+
+msgid "%s courses"
+msgstr "%s קורסים"
+
+msgid "%s sessions"
+msgstr "%s מפגשים"
+
+msgid "Search by title or code"
+msgstr "חיפוש לפי כותרת או קוד"
 
 msgid "Users in group"
 msgstr "משתמשים בקבוצה"
@@ -32180,6 +32198,9 @@ msgstr "מטלה"
 msgid "Allowed file formats: %s"
 msgstr "פורמטי קבצים מותרים: %s"
 
+msgid "File manager"
+msgstr "מנהל קבצים"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "סוג קובץ לא מותר. הרחבות מותרות: %s"
 
@@ -33893,6 +33914,9 @@ msgstr "ברוכים הבאים"
 msgid "Welcome to Chamilo"
 msgstr "ברוכים הבאים ל-Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "סמן את כל השאלות שלא נענו למטה"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> אם זו הפעם הראשונה שלך בשימוש ב-Chamilo, ודא שאתה בודק את תפריט הצד כדי למצוא את דרכך בין כל התכונות הרבות שלו. אם אתה זקוק לעזרה, תמצא ש-<a href=\"https://docs.chamilo.org\">התיעוד הרשמי שלנו</a> יכול לעזור עבור תיעוד סטנדרטי, בעוד <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">הפורום המקוון שלנו</a> יכול לעזור לשתף רעיונות ולמצוא תשובות ממשתמשי Chamilo אחרים."
 
@@ -34072,6 +34096,63 @@ msgstr "הערכת צורכי הכשרה"
 
 msgid "Work climate surveys"
 msgstr "סקרי אקלים עבודה"
+
+msgid "Unit"
+msgstr "יחידה"
+
+msgid "Total cost"
+msgstr "עלות כוללת"
+
+msgid "Cost per learner"
+msgstr "עלות ללומד"
+
+msgid "Average cost by session"
+msgstr "עלות ממוצעת למפגש"
+
+msgid "Total investment"
+msgstr "השקעה כוללת"
+
+msgid "Set cost"
+msgstr "קבע עלות"
+
+msgid "Filter by date range"
+msgstr "סנן לפי טווח תאריכים"
+
+msgid "Add distribution"
+msgstr "הוסף חלוקה"
+
+msgid "User share"
+msgstr "חלקת משתמש"
+
+msgid "Select a unit"
+msgstr "בחר יחידה"
+
+msgid "Select a survey"
+msgstr "בחר סקר"
+
+msgid "Distribution added"
+msgstr "חלוקה הוספה"
+
+msgid "Distribution removed"
+msgstr "חלוקה הוסרה"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "האם אתה בטוח שברצונך להסיר חלוקה זו?"
+
+msgid "Cost updated"
+msgstr "עלות עודכנה"
+
+msgid "Total invited"
+msgstr "מזומנים כוללים"
+
+msgid "Total answered"
+msgstr "ענו כולל"
+
+msgid "Total responses"
+msgstr "תגובות כוללות"
+
+msgid "No responses yet"
+msgstr "אין תגובות עדיין"
 
 msgid "Diversity criteria"
 msgstr "קריטריונים לגיוון"
@@ -34584,4 +34665,274 @@ msgstr "האם אתה בטוח שברצונך למחוק את ההערכה הז�
 
 msgid "Loading…"
 msgstr "טוען…"
+
+msgid "Periodicity"
+msgstr "תקופתיות"
+
+msgid "Suggest from periodicity"
+msgstr "הצע מתוך תקופתיות"
+
+msgid "Add job offer"
+msgstr "הוסף הצעת עבודה"
+
+msgid "Edit job offer"
+msgstr "ערוך הצעת עבודה"
+
+msgid "Function / Unit"
+msgstr "תפקיד / יחידה"
+
+msgid "Vacancies"
+msgstr "מקומות פנויים"
+
+msgid "Expected start date"
+msgstr "תאריך התחלה צפוי"
+
+msgid "Contract duration (days)"
+msgstr "משך החוזה (ימים)"
+
+msgid "Public offer"
+msgstr "הצעה ציבורית"
+
+msgid "Publication start date"
+msgstr "תאריך התחלת פרסום"
+
+msgid "Publication end date"
+msgstr "תאריך סיום פרסום"
+
+msgid "Applications"
+msgstr "מועמדויות"
+
+msgid "Selection exams"
+msgstr "מבחני מיון"
+
+msgid "Add exam"
+msgstr "הוסף מבחן"
+
+msgid "Applicant"
+msgstr "מועמד"
+
+msgid "Applied on"
+msgstr "הגיש מועמדות ב-"
+
+msgid "Salary expectations"
+msgstr "ציפיות שכר"
+
+msgid "Pending evaluation"
+msgstr "בהמתנה להערכה"
+
+msgid "Hired"
+msgstr "נשכר"
+
+msgid "Not hired"
+msgstr "לא נשכר"
+
+msgid "Evaluate"
+msgstr "הערך"
+
+msgid "Evaluate candidate"
+msgstr "הערך מועמד"
+
+msgid "Decision"
+msgstr "החלטה"
+
+msgid "Save evaluation"
+msgstr "שמור הערכה"
+
+msgid "Back to job offers"
+msgstr "חזור להצעות עבודה"
+
+msgid "No job offers available at this time."
+msgstr "אין הצעות עבודה זמינות כרגע."
+
+msgid "See details"
+msgstr "פרטים"
+
+msgid "Apply now"
+msgstr "הגש מועמדות עכשיו"
+
+msgid "Already applied"
+msgstr "כבר הגש מועמדות"
+
+msgid "Log in to apply"
+msgstr "התחבר כדי להגיש מועמדות"
+
+msgid "Apply to job offer"
+msgstr "הגש מועמדות להצעה"
+
+msgid "Availability date"
+msgstr "תאריך זמינות"
+
+msgid "CV (Personal file)"
+msgstr "קורות חיים (קובץ אישי)"
+
+msgid "Select your CV from your personal files"
+msgstr "בחר קורות חיים מקבצים אישיים"
+
+msgid "Submit application"
+msgstr "שלח מועמדות"
+
+msgid "Application submitted successfully."
+msgstr "המועמדות הוגשה בהצלחה."
+
+msgid "Private observations"
+msgstr "הערות פרטיות"
+
+msgid "My applications"
+msgstr "המועמדויות שלי"
+
+msgid "View job offers"
+msgstr "הצג הצעות עבודה"
+
+msgid "You have not submitted any applications yet."
+msgstr "עדיין לא הגשת מועמדויות."
+
+msgid "Under review"
+msgstr "תחת בדיקה"
+
+msgid "Not selected"
+msgstr "לא נבחר"
+
+msgid "HR feedback"
+msgstr "משוב משאבי אנוש"
+
+msgid "Withdraw application"
+msgstr "משוך מועמדות"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "האם אתה בטוח שברצונך למשוך מועמדות זו?"
+
+msgid "Application withdrawn."
+msgstr "המועמדות נמשכה."
+
+msgid "Calculate quiz scores"
+msgstr "חשב ציוני מבחן"
+
+msgid "Scores calculated."
+msgstr "ציונים חושבו."
+
+msgid "Career plan overview"
+msgstr "סקירת תוכנית קריירה"
+
+msgid "My career plan"
+msgstr "תוכנית הקריירה שלי"
+
+msgid "No function-unit associations configured yet."
+msgstr "לא הוגדרו קשרי תפקיד-יחידה עדיין."
+
+msgid "No required skills defined."
+msgstr "לא הוגדרו כישורים נדרשים."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "עליך להיות מוקצה לתפקיד כדי לראות את תוכנית הקריירה שלך."
+
+msgid "Your current position"
+msgstr "התפקיד הנוכחי שלך"
+
+msgid "No career targets found for your current position."
+msgstr "לא נמצאו יעדי קריירה לתפקיד הנוכחי שלך."
+
+msgid "No required skills defined for this position."
+msgstr "לא הוגדרו כישורים נדרשים לתפקיד זה."
+
+msgid "Met"
+msgstr "עומד בדרישות"
+
+msgid "Gap"
+msgstr "פער"
+
+msgid "Acquired:"
+msgstr "נרכש:"
+
+msgid "Required:"
+msgstr "נדרש:"
+
+msgid "Max"
+msgstr "מקס"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "לא נמצאו קריטריוני גיוון. הוסף קריטריונים תחילה."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "בחר קריטריון מהרשימה כדי לראות את הסטטיסטיקות שלו."
+
+msgid "No data available for this criterion."
+msgstr "אין נתונים זמינים עבור קריטריון זה."
+
+msgid "Change password"
+msgstr "שנה סיסמה"
+
+msgid "Newest first"
+msgstr "החדש ביותר קודם"
+
+msgid "Oldest first"
+msgstr "הוותיק ביותר קודם"
+
+msgid "Title A–Z"
+msgstr "כותרת א-ז"
+
+msgid "Title Z–A"
+msgstr "כותרת ז-א"
+
+msgid "Send test email"
+msgstr "שלח דוא\"ל ניסיון"
+
+msgid "Show teachers"
+msgstr "הצג מורים"
+
+msgid "Hide teachers"
+msgstr "הסתר מורים"
+
+msgid "Delete exercise attempts"
+msgstr "מחק ניסיונות תרגיל"
+
+msgid "Message sent successfully."
+msgstr "ההודעה נשלחה בהצלחה."
+
+msgid "You cannot create a new course right now."
+msgstr "אינך יכול ליצור קורס חדש כרגע."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "לא ניתן לאמת אם אתה יכול ליצור קורס חדש כרגע."
+
+msgid "Please try again later or contact the administrator."
+msgstr "נא לנסות שוב מאוחר יותר או לפנות למנהל."
+
+msgid "You cannot create more courses at this time."
+msgstr "אינך יכול ליצור עוד קורסים בשלב זה."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "אתה כבר מנהל %d קורסים ושירותך הפעיל מאפשר עד %d. כדי ליצור קורס נוסף, נדרש מגבלת שירות גבוהה יותר או להפחית את מספר הקורסים הפעילים הנוכחיים שלך."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "אתה כבר מנהל %d קורסים והפלטפורמה מאפשרת כרגע עד %d עבור חשבונך. אינך יכול ליצור עוד קורסים כרגע."
+
+msgid "Add a class"
+msgstr "הוסף מחלקה"
+
+msgid "Search classes"
+msgstr "חפש מחלקות"
+
+msgid "No classes found"
+msgstr "לא נמצאו מחלקות"
+
+msgid "Import classes"
+msgstr "ייבא מחלקות"
+
+msgid "Class users"
+msgstr "משתמשי מחלקה"
+
+msgid "%s classes imported"
+msgstr "%s מחלקות יובאו"
+
+msgid "%s user-class links imported"
+msgstr "%s קישורי משתמש-מחלקה יובאו"
+
+msgid "Hide comments"
+msgstr "הסתר הערות"
+
+msgid "Loading comments..."
+msgstr "טוען הערות..."
+
+msgid "No comments yet."
+msgstr "אין הערות עדיין."
 

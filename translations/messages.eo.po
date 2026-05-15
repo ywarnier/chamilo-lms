@@ -9731,6 +9731,9 @@ msgstr "Serĉrezultoj por:"
 msgid "Select a file"
 msgstr "Elekti dosieron"
 
+msgid "Select a file to insert into the editor."
+msgstr "Elektu dosieron por enmeti en la redaktilon."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Averto - La FAQ-dosiero, lokita en la /home/ dosierujon de via portalo, ne estas skribebla. Via teksto ne estos konservita ĝis kiam la dosierpermesoj estos ŝanĝitaj."
 
@@ -15911,6 +15914,9 @@ msgstr "Dato kaj tempo"
 msgid "Item"
 msgstr "Elemento"
 
+msgid "Items"
+msgstr "Elementoj"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Agordi kromprogramon de paĝostipo"
 
@@ -17164,6 +17170,18 @@ msgstr "Sesioj en grupo"
 
 msgid "Courses in group"
 msgstr "Kursoj en grupo"
+
+msgid "Courses on the platform"
+msgstr "Kursoj sur la platformo"
+
+msgid "%s courses"
+msgstr "%s kursoj"
+
+msgid "%s sessions"
+msgstr "%s sesioj"
+
+msgid "Search by title or code"
+msgstr "Serĉi laŭ titolo aŭ kodo"
 
 msgid "Users in group"
 msgstr "Uzantoj en grupo"
@@ -32169,6 +32187,9 @@ msgstr "Tasko"
 msgid "Allowed file formats: %s"
 msgstr "Permesitaj dosierformatoj: %s"
 
+msgid "File manager"
+msgstr "Dosieradministrilo"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Dosier tipo ne permesita. Permesitaj etendoj: %s"
 
@@ -33882,6 +33903,9 @@ msgstr "Bonvenon"
 msgid "Welcome to Chamilo"
 msgstr "Bonvenon al Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Kontroli ĉiujn mals responsitajn demandojn sube"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Se ĉi tio estas via unua fojo uzante Chamilo, certigu vin kontroli la flankan menuon por trovi vian vojon tra ĝiaj multaj trajtoj. Se vi bezonas helpon, vi trovos <a href=\"https://docs.chamilo.org\">nujn oficialajn dokumentojn</a> povas helpi por norma dokumentado, dum nia <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">retejo</a> povas helpi kunhavigi ideojn kaj trovi respondojn de aliaj uzantoj de Chamilo."
 
@@ -34061,6 +34085,63 @@ msgstr "Taksado de trejnaj bezonoj"
 
 msgid "Work climate surveys"
 msgstr "Enketoj pri laborlaborambiente"
+
+msgid "Unit"
+msgstr "Unuo"
+
+msgid "Total cost"
+msgstr "Tuta kosto"
+
+msgid "Cost per learner"
+msgstr "Kosto po lernanto"
+
+msgid "Average cost by session"
+msgstr "Meza kosto po sesio"
+
+msgid "Total investment"
+msgstr "Tuta investo"
+
+msgid "Set cost"
+msgstr "Agordi koston"
+
+msgid "Filter by date range"
+msgstr "Filtrilo laŭ datintervalo"
+
+msgid "Add distribution"
+msgstr "Aldoni distribuon"
+
+msgid "User share"
+msgstr "Uzanta kotizo"
+
+msgid "Select a unit"
+msgstr "Elekti unuon"
+
+msgid "Select a survey"
+msgstr "Elekti enkeston"
+
+msgid "Distribution added"
+msgstr "Distribuo aldonita"
+
+msgid "Distribution removed"
+msgstr "Distribuo forigita"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Ĉu vi certas, ke vi volas forigi tiun distribuon?"
+
+msgid "Cost updated"
+msgstr "Kosto ĝisdatigita"
+
+msgid "Total invited"
+msgstr "Totalo invititaj"
+
+msgid "Total answered"
+msgstr "Totalo respondintaj"
+
+msgid "Total responses"
+msgstr "Totalo respondoj"
+
+msgid "No responses yet"
+msgstr "Neniu respondo ankoraŭ"
 
 msgid "Diversity criteria"
 msgstr "Kriterioj de diverseco"
@@ -34573,4 +34654,274 @@ msgstr "Ĉu vi certas, ke vi volas forigi tiun ĉi taksado?"
 
 msgid "Loading…"
 msgstr "Ŝargado…"
+
+msgid "Periodicity"
+msgstr "Periodeco"
+
+msgid "Suggest from periodicity"
+msgstr "Sugesti el periodeco"
+
+msgid "Add job offer"
+msgstr "Aldoni laborkondukton"
+
+msgid "Edit job offer"
+msgstr "Redakti laborkondukton"
+
+msgid "Function / Unit"
+msgstr "Funkcio / Unuo"
+
+msgid "Vacancies"
+msgstr "Libervakancoj"
+
+msgid "Expected start date"
+msgstr "Atendata komenca dato"
+
+msgid "Contract duration (days)"
+msgstr "Kontraktdaŭro (tagoj)"
+
+msgid "Public offer"
+msgstr "Publika oferto"
+
+msgid "Publication start date"
+msgstr "Dato de publikiga komenco"
+
+msgid "Publication end date"
+msgstr "Dato de publikiga fino"
+
+msgid "Applications"
+msgstr "Kandidaturoj"
+
+msgid "Selection exams"
+msgstr "Selektaj ekzameno"
+
+msgid "Add exam"
+msgstr "Aldoni ekzamenon"
+
+msgid "Applicant"
+msgstr "Kandidato"
+
+msgid "Applied on"
+msgstr "Kandidatiĝis je"
+
+msgid "Salary expectations"
+msgstr "Atendata salajro"
+
+msgid "Pending evaluation"
+msgstr "Atendanta takso"
+
+msgid "Hired"
+msgstr "Engajxita"
+
+msgid "Not hired"
+msgstr "Ne engajxita"
+
+msgid "Evaluate"
+msgstr "Taksi"
+
+msgid "Evaluate candidate"
+msgstr "Taksi kandidaton"
+
+msgid "Decision"
+msgstr "Decido"
+
+msgid "Save evaluation"
+msgstr "Konservi takson"
+
+msgid "Back to job offers"
+msgstr "Reen al laborkonduktoj"
+
+msgid "No job offers available at this time."
+msgstr "Neniu laborkondukto havebla nun."
+
+msgid "See details"
+msgstr "Vidi detalojn"
+
+msgid "Apply now"
+msgstr "Kandidati nun"
+
+msgid "Already applied"
+msgstr "Jam kandidatiĝis"
+
+msgid "Log in to apply"
+msgstr "Ensaluti por kandidati"
+
+msgid "Apply to job offer"
+msgstr "Kandidati al laborkondukto"
+
+msgid "Availability date"
+msgstr "Dato de disponeblo"
+
+msgid "CV (Personal file)"
+msgstr "CV (Persona dosiero)"
+
+msgid "Select your CV from your personal files"
+msgstr "Elekti vian CV el viaj personaj dosieroj"
+
+msgid "Submit application"
+msgstr "Sendi kandidaturon"
+
+msgid "Application submitted successfully."
+msgstr "Kandidaturo sukcese sendita."
+
+msgid "Private observations"
+msgstr "Privataj observoj"
+
+msgid "My applications"
+msgstr "Miaj kandidaturoj"
+
+msgid "View job offers"
+msgstr "Vidi laborkonduktojn"
+
+msgid "You have not submitted any applications yet."
+msgstr "Vi ankoraŭ ne sendis iun ajn kandidaturon."
+
+msgid "Under review"
+msgstr "Sub kontrolo"
+
+msgid "Not selected"
+msgstr "Ne selektita"
+
+msgid "HR feedback"
+msgstr "HR-opinio"
+
+msgid "Withdraw application"
+msgstr "Forigi kandidaturon"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Ĉu vi certas, ke vi volas retiri tiun aplikiĝon?"
+
+msgid "Application withdrawn."
+msgstr "Aplikiĝo retirita."
+
+msgid "Calculate quiz scores"
+msgstr "Kalkuli poentaron de kvizo"
+
+msgid "Scores calculated."
+msgstr "Poentoj kalkulitaj."
+
+msgid "Career plan overview"
+msgstr "Superrigardo de karierplano"
+
+msgid "My career plan"
+msgstr "Mia karierplano"
+
+msgid "No function-unit associations configured yet."
+msgstr "Neniu asocio de funkcio-unuo agordita ankoraŭ."
+
+msgid "No required skills defined."
+msgstr "Neniu bezonata kono difinita."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Vi devas esti asignita al pozicio por vidi vian karierplanon."
+
+msgid "Your current position"
+msgstr "Via nuna pozicio"
+
+msgid "No career targets found for your current position."
+msgstr "Neniu kariercelo trovita por via nuna pozicio."
+
+msgid "No required skills defined for this position."
+msgstr "Neniu bezonata kono difinita por tiu pozicio."
+
+msgid "Met"
+msgstr "Plenumita"
+
+msgid "Gap"
+msgstr "Malplenigo"
+
+msgid "Acquired:"
+msgstr "Akirita:"
+
+msgid "Required:"
+msgstr "Bezonata:"
+
+msgid "Max"
+msgstr "Maks."
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Neniu kriterio de diverseco trovita. Alingu kriteriojn unue."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Elektu kriterion el la listo por vidi ĝiajn statistikojn."
+
+msgid "No data available for this criterion."
+msgstr "Neniu datenoj haveblaj por tiu kriterio."
+
+msgid "Change password"
+msgstr "Ŝanĝi pasvorton"
+
+msgid "Newest first"
+msgstr "Plej novaj unue"
+
+msgid "Oldest first"
+msgstr "Plej malnovaj unue"
+
+msgid "Title A–Z"
+msgstr "Titolo A–Z"
+
+msgid "Title Z–A"
+msgstr "Titolo Z–A"
+
+msgid "Send test email"
+msgstr "Sendi testan retpoŝton"
+
+msgid "Show teachers"
+msgstr "Montri instruistojn"
+
+msgid "Hide teachers"
+msgstr "Kaŝi instruistojn"
+
+msgid "Delete exercise attempts"
+msgstr "Forigi klopodojn de ekzerco"
+
+msgid "Message sent successfully."
+msgstr "Mesaĝo sukcese sendita."
+
+msgid "You cannot create a new course right now."
+msgstr "Vi ne povas krei novan kurson nun."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Ne eblas kontroli, ĉu vi povas krei novan kurson nun."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Bonvolu reprovi poste aŭ kontakti la administranton."
+
+msgid "You cannot create more courses at this time."
+msgstr "Vi ne povas krei pli da kursoj ĉi-momente."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Vi jam mastrumadas %d kursojn kaj via aktiva servo permesas ĝis %d. Por krei alian kurson, vi bezonas pli altan limon de servo aŭ redukti viaj nunaj aktivaj kursoj."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Vi jam mastrumadas %d kursojn kaj la platformo nune permesas ĝis %d por via konto. Vi ne povas krei pli da kursoj nun."
+
+msgid "Add a class"
+msgstr "Aldoni klason"
+
+msgid "Search classes"
+msgstr "Serĉi klasojn"
+
+msgid "No classes found"
+msgstr "Neniu klaso trovita"
+
+msgid "Import classes"
+msgstr "Importi klasojn"
+
+msgid "Class users"
+msgstr "Uzantoj de klaso"
+
+msgid "%s classes imported"
+msgstr "%s klasoj importitaj"
+
+msgid "%s user-class links imported"
+msgstr "%s ligoj uzanto-klaso importitaj"
+
+msgid "Hide comments"
+msgstr "Kaŝi komentojn"
+
+msgid "Loading comments..."
+msgstr "Ŝargas komentojn..."
+
+msgid "No comments yet."
+msgstr "Neniuj komentoj ankoraŭ."
 

@@ -9731,6 +9731,9 @@ msgstr "Etsinnän tulokset:"
 msgid "Select a file"
 msgstr "Valitse tiedosto"
 
+msgid "Select a file to insert into the editor."
+msgstr "Valitse tiedosto, joka lisätään editoriin."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Varoitus - UKK-tiedosto, joka sijaitsee portaalin /home/-kansiossa, ei ole kirjoitettavissa. Tekstisi ei tallennu ennen kuin tiedoston käyttöoikeudet muutetaan."
 
@@ -15911,6 +15914,9 @@ msgstr "Päiväys ja aika"
 msgid "Item"
 msgstr "Kohde"
 
+msgid "Items"
+msgstr "Kohteet"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Muokkaa työpöytälisäosan asetuksia"
 
@@ -17164,6 +17170,18 @@ msgstr "Istunnot ryhmässä"
 
 msgid "Courses in group"
 msgstr "Kursseja ryhmässä"
+
+msgid "Courses on the platform"
+msgstr "Alustan kurssit"
+
+msgid "%s courses"
+msgstr "%s kurssia"
+
+msgid "%s sessions"
+msgstr "%s istuntoa"
+
+msgid "Search by title or code"
+msgstr "Hae otsikon tai koodin mukaan"
 
 msgid "Users in group"
 msgstr "Käyttäjiä ryhmässä"
@@ -32169,6 +32187,9 @@ msgstr "Tehtävä"
 msgid "Allowed file formats: %s"
 msgstr "Sallitut tiedostomuodot: %s"
 
+msgid "File manager"
+msgstr "Tiedostonhallinta"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Tiedostotyyppi ei ole sallittu. Sallitut lisäykset: %s"
 
@@ -33882,6 +33903,9 @@ msgstr "Tervetuloa"
 msgid "Welcome to Chamilo"
 msgstr "Tervetuloa Chamilo-opintojärjestelmään"
 
+msgid "Check all unanswered questions below"
+msgstr "Tarkista kaikki vastaamattomat kysymykset alla"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Jos tämä on ensimmäinen kerta, kun käytät Chamiloa, tarkista sivupaneeli löytääksesi tiellesi sen monien ominaisuuksien läpi. Jos tarvitset apua, löydät <a href=\"https://docs.chamilo.org\">viralliset dokumentaatiomme</a> standardidokumentaatiosta, kun taas <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">verkkofoorumimme</a> auttaa jakamaan ideoita ja löytämään vastauksia muilta Chamilo-käyttäjiltä."
 
@@ -34062,17 +34086,74 @@ msgstr "Koulutustarpeiden arviointi"
 msgid "Work climate surveys"
 msgstr "Työilmastokyselyt"
 
+msgid "Unit"
+msgstr "Yksikkö"
+
+msgid "Total cost"
+msgstr "Kokonaiskustannus"
+
+msgid "Cost per learner"
+msgstr "Kustannus oppijaa kohden"
+
+msgid "Average cost by session"
+msgstr "Keskimääräinen kustannus istuntoa kohden"
+
+msgid "Total investment"
+msgstr "Kokonaisinvestointi"
+
+msgid "Set cost"
+msgstr "Aseta kustannus"
+
+msgid "Filter by date range"
+msgstr "Suodata päivämääräalueen mukaan"
+
+msgid "Add distribution"
+msgstr "Lisää jakauma"
+
+msgid "User share"
+msgstr "Käyttäjän osuus"
+
+msgid "Select a unit"
+msgstr "Valitse yksikkö"
+
+msgid "Select a survey"
+msgstr "Valitse kysely"
+
+msgid "Distribution added"
+msgstr "Jakauma lisätty"
+
+msgid "Distribution removed"
+msgstr "Jakauma poistettu"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Haluatko varmasti poistaa tämän jakauman?"
+
+msgid "Cost updated"
+msgstr "Kustannus päivitetty"
+
+msgid "Total invited"
+msgstr "Kutsuttuja yhteensä"
+
+msgid "Total answered"
+msgstr "Vastanneita yhteensä"
+
+msgid "Total responses"
+msgstr "Vastauksia yhteensä"
+
+msgid "No responses yet"
+msgstr "Ei vastauksia vielä"
+
 msgid "Diversity criteria"
 msgstr "Monimuotoisuuskriteerit"
 
 msgid "Add diversity criterion"
-msgstr ""
+msgstr "Lisää monimuotoisuuskriteeri"
 
 msgid "Edit diversity criterion"
-msgstr ""
+msgstr "Muokkaa monimuotoisuuskriteeriä"
 
 msgid "Extra field"
-msgstr ""
+msgstr "Lisäkenttä"
 
 msgid "Diversity guidelines"
 msgstr "Monimuotoisuusohjeet"
@@ -34260,94 +34341,94 @@ msgid "Select a goal from the sidebar."
 msgstr "Valitse tavoite sivupalkista."
 
 msgid "Unpublished"
-msgstr ""
+msgstr "Julkaisematon"
 
 msgid "to:"
-msgstr ""
+msgstr "vastaanottaja:"
 
 msgid "— select a language —"
-msgstr ""
+msgstr "— valitse kieli —"
 
 msgid "Add translation"
-msgstr ""
+msgstr "Lisää käännös"
 
 msgid "Add a manual translation"
-msgstr ""
+msgstr "Lisää manuaalinen käännös"
 
 msgid "Translate with AI"
-msgstr ""
+msgstr "Käännä tekoälyllä"
 
 msgid "Enter manually"
-msgstr ""
+msgstr "Syötä manuaalisesti"
 
 msgid "Paste user URL or IRI…"
-msgstr ""
+msgstr "Liitä käyttäjän URL tai IRI…"
 
 msgid "Add benefit"
-msgstr ""
+msgstr "Lisää etu"
 
 msgid "Edit benefit"
-msgstr ""
+msgstr "Muokkaa etua"
 
 msgid "Add tag"
-msgstr ""
+msgstr "Lisää tunniste"
 
 msgid "Edit tag"
-msgstr ""
+msgstr "Muokkaa tunnistetta"
 
 msgid "No tags available"
-msgstr ""
+msgstr "Ei tunnisteita saatavilla"
 
 msgid "Cannot delete a benefit that has active assignments."
-msgstr ""
+msgstr "Ei voi poistaa etua, jolla on aktiivisia tehtäviä."
 
 msgid "Assign benefit"
-msgstr ""
+msgstr "Määritä etu"
 
 msgid "My benefits"
-msgstr ""
+msgstr "Omat edut"
 
 msgid "Beneficiary"
-msgstr ""
+msgstr "Hyötyjä ottava"
 
 msgid "Economical equivalent"
-msgstr ""
+msgstr "Talousarvoinen vastine"
 
 msgid "Assigned on"
-msgstr ""
+msgstr "Määritetty"
 
 msgid "Assigned until"
-msgstr ""
+msgstr "Määritetty asti"
 
 msgid "Assigned by"
-msgstr ""
+msgstr "Määrittänyt"
 
 msgid "Notifications sent"
-msgstr ""
+msgstr "Lähetetyt ilmoitukset"
 
 msgid "Send notification"
-msgstr ""
+msgstr "Lähetä ilmoitus"
 
 msgid "Notification sent"
-msgstr ""
+msgstr "Ilmoitus lähetetty"
 
 msgid "Benefit notification"
-msgstr ""
+msgstr "Etuilmoitus"
 
 msgid "From date"
-msgstr ""
+msgstr "Alkaen päivämäärä"
 
 msgid "Search by name..."
-msgstr ""
+msgstr "Hae nimellä…"
 
 msgid "Filtering by"
-msgstr ""
+msgstr "Suodatetaan kohteella"
 
 msgid "No diversity criteria found. Add criteria first."
-msgstr ""
+msgstr "Moninaisuus kriteerejä ei löytynyt. Lisää kriteerit ensin."
 
 msgid "Select a criterion from the list to view its statistics."
-msgstr ""
+msgstr "Valitse kriteeri listasta nähdäksesi tilastot."
 
 msgid "No data available for this criterion."
 msgstr "Ei tietoja saatavilla tälle kriteerille."
@@ -34573,4 +34654,274 @@ msgstr "Oletko varma että haluat poistaa tämän arvioinnin?"
 
 msgid "Loading…"
 msgstr "Ladataan…"
+
+msgid "Periodicity"
+msgstr "Toistuvuus"
+
+msgid "Suggest from periodicity"
+msgstr "Ehdottele toistuvuuden perusteella"
+
+msgid "Add job offer"
+msgstr "Lisää työpaikkailmoitus"
+
+msgid "Edit job offer"
+msgstr "Muokkaa työpaikkailmoitusta"
+
+msgid "Function / Unit"
+msgstr "Tehtävä / Yksikkö"
+
+msgid "Vacancies"
+msgstr "Avoimet paikat"
+
+msgid "Expected start date"
+msgstr "Odotettu aloituspäivä"
+
+msgid "Contract duration (days)"
+msgstr "Sopimuksen kesto (päivää)"
+
+msgid "Public offer"
+msgstr "Julkinen ilmoitus"
+
+msgid "Publication start date"
+msgstr "Julkaisun aloituspäivä"
+
+msgid "Publication end date"
+msgstr "Julkaisun loppupäivä"
+
+msgid "Applications"
+msgstr "Hakemukset"
+
+msgid "Selection exams"
+msgstr "Valintakokeet"
+
+msgid "Add exam"
+msgstr "Lisää koe"
+
+msgid "Applicant"
+msgstr "Hakija"
+
+msgid "Applied on"
+msgstr "Hakemuksen päivä"
+
+msgid "Salary expectations"
+msgstr "Palkan odotukset"
+
+msgid "Pending evaluation"
+msgstr "Odottaa arviointia"
+
+msgid "Hired"
+msgstr "Palkattu"
+
+msgid "Not hired"
+msgstr "Ei palkattu"
+
+msgid "Evaluate"
+msgstr "Arvioi"
+
+msgid "Evaluate candidate"
+msgstr "Arvioi ehdokasta"
+
+msgid "Decision"
+msgstr "Päätös"
+
+msgid "Save evaluation"
+msgstr "Tallenna arviointi"
+
+msgid "Back to job offers"
+msgstr "Takaisin työpaikkailmoituksiin"
+
+msgid "No job offers available at this time."
+msgstr "Työpaikkailmoituksia ei ole saatavilla tällä hetkellä."
+
+msgid "See details"
+msgstr "Näytä tiedot"
+
+msgid "Apply now"
+msgstr "Hae nyt"
+
+msgid "Already applied"
+msgstr "Hakemus lähetetty"
+
+msgid "Log in to apply"
+msgstr "Kirjaudu sisään hakeaksesi"
+
+msgid "Apply to job offer"
+msgstr "Hae työpaikkaan"
+
+msgid "Availability date"
+msgstr "Saatavuuspäivä"
+
+msgid "CV (Personal file)"
+msgstr "CV (Henkilökohtainen tiedosto)"
+
+msgid "Select your CV from your personal files"
+msgstr "Valitse CV henkilökohtaisista tiedostoistasi"
+
+msgid "Submit application"
+msgstr "Lähetä hakemus"
+
+msgid "Application submitted successfully."
+msgstr "Hakemus lähetetty onnistuneesti."
+
+msgid "Private observations"
+msgstr "Yksityiset huomiot"
+
+msgid "My applications"
+msgstr "Omat hakemukset"
+
+msgid "View job offers"
+msgstr "Näytä työpaikkailmoitukset"
+
+msgid "You have not submitted any applications yet."
+msgstr "Et ole vielä lähettänyt yhtään hakemusta."
+
+msgid "Under review"
+msgstr "Käsittelyssä"
+
+msgid "Not selected"
+msgstr "Ei valittu"
+
+msgid "HR feedback"
+msgstr "HR-palautetta"
+
+msgid "Withdraw application"
+msgstr "Peru hakemus"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Haluatko varmasti peruuttaa tämän hakemuksen?"
+
+msgid "Application withdrawn."
+msgstr "Hakemus peruutettu."
+
+msgid "Calculate quiz scores"
+msgstr "Laske koe pisteet"
+
+msgid "Scores calculated."
+msgstr "Pisteet laskettiin."
+
+msgid "Career plan overview"
+msgstr "Ura-suunnitelman yleiskatsaus"
+
+msgid "My career plan"
+msgstr "Oma ura-suunnitelma"
+
+msgid "No function-unit associations configured yet."
+msgstr "Toiminto-yksikkö-yhdistelmiä ei ole vielä määritetty."
+
+msgid "No required skills defined."
+msgstr "Vaadittuja taitoja ei ole määritetty."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Sinut tulee olla nimetty tehtävään nähdäksesi ura-suunnitelmasi."
+
+msgid "Your current position"
+msgstr "Nykyinen tehtäväsi"
+
+msgid "No career targets found for your current position."
+msgstr "Nykyiselle tehtävälle ei löytynyt ura-tavoitteita."
+
+msgid "No required skills defined for this position."
+msgstr "Tälle tehtävälle ei ole määritetty vaadittuja taitoja."
+
+msgid "Met"
+msgstr "Täyttynyt"
+
+msgid "Gap"
+msgstr "Puute"
+
+msgid "Acquired:"
+msgstr "Hankittu:"
+
+msgid "Required:"
+msgstr "Vaadittu:"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Moninaisuus kriteerejä ei löytynyt. Lisää kriteerit ensin."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Valitse kriteeri listasta nähdäksesi tilastot."
+
+msgid "No data available for this criterion."
+msgstr "Ei tietoja saatavilla tälle kriteerille."
+
+msgid "Change password"
+msgstr "Vaihda salasana"
+
+msgid "Newest first"
+msgstr "Uusin ensin"
+
+msgid "Oldest first"
+msgstr "Vanhin ensin"
+
+msgid "Title A–Z"
+msgstr "Otsikko A–Z"
+
+msgid "Title Z–A"
+msgstr "Otsikko Z–A"
+
+msgid "Send test email"
+msgstr "Lähetä testisähköposti"
+
+msgid "Show teachers"
+msgstr "Näytä opettajat"
+
+msgid "Hide teachers"
+msgstr "Piilota opettajat"
+
+msgid "Delete exercise attempts"
+msgstr "Poista harjoitusten yritykset"
+
+msgid "Message sent successfully."
+msgstr "Viesti lähetetty onnistuneesti."
+
+msgid "You cannot create a new course right now."
+msgstr "Et voi luoda uutta kurssia juuri nyt."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Ei voitu vahvistaa, voitko luoda uuden kurssin juuri nyt."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Yritä uudelleen myöhemmin tai ota yhteyttä ylläpitäjään."
+
+msgid "You cannot create more courses at this time."
+msgstr "Et voi luoda kursseja juuri nyt."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Hallitset jo %d kurssia ja aktiivinen palvelusi sallii enintään %d. Toisen kurssin luomiseksi tarvitset korkeamman palvelurajan tai vähemmän aktiivisia kursseja."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Hallitset jo %d kurssia ja alusta sallii tällä hetkellä enintään %d tilillesi. Et voi luoda kursseja juuri nyt."
+
+msgid "Add a class"
+msgstr "Lisää luokka"
+
+msgid "Search classes"
+msgstr "Hae luokkia"
+
+msgid "No classes found"
+msgstr "Luokkia ei löytynyt"
+
+msgid "Import classes"
+msgstr "Tuo luokkia"
+
+msgid "Class users"
+msgstr "Luokan käyttäjät"
+
+msgid "%s classes imported"
+msgstr "%s luokkaa tuotiin"
+
+msgid "%s user-class links imported"
+msgstr "%s käyttäjä-luokka-linkkiä tuotiin"
+
+msgid "Hide comments"
+msgstr "Piilota kommentit"
+
+msgid "Loading comments..."
+msgstr "Ladataan kommentteja..."
+
+msgid "No comments yet."
+msgstr "Ei kommentteja vielä."
 

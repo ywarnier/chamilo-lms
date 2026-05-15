@@ -9740,6 +9740,9 @@ msgstr "Rezultatele cautarii"
 msgid "Select a file"
 msgstr "Selectează un fişier"
 
+msgid "Select a file to insert into the editor."
+msgstr "Selectați un fișier pentru a-l insera în editor."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Atentie - FAQ fisier in folderul / home / de pe platforma dvs. nu are drepturi de scriere. Textul dvs. nu va fi salvata pana cand nu modificati permisiunile de fisiere."
 
@@ -15920,6 +15923,9 @@ msgstr "Data și ora"
 msgid "Item"
 msgstr "Ítem"
 
+msgid "Items"
+msgstr "Elemente"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Configurarea Control Panel plugin"
 
@@ -17173,6 +17179,18 @@ msgstr "Sesiuni de clasă"
 
 msgid "Courses in group"
 msgstr "Cursuri ale grupului"
+
+msgid "Courses on the platform"
+msgstr "Cursuri pe platformă"
+
+msgid "%s courses"
+msgstr "%s cursuri"
+
+msgid "%s sessions"
+msgstr "%s sesiuni"
+
+msgid "Search by title or code"
+msgstr "Căutare după titlu sau cod"
 
 msgid "Users in group"
 msgstr "Utilizatorii grupului"
@@ -32183,6 +32201,9 @@ msgstr "Sarcină"
 msgid "Allowed file formats: %s"
 msgstr "Formate de fișiere permise: %s"
 
+msgid "File manager"
+msgstr "Manager fișiere"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Tip fișier nepermis. Extensii permise: %s"
 
@@ -33896,6 +33917,9 @@ msgstr "Bine ați venit"
 msgid "Welcome to Chamilo"
 msgstr "Bine ați venit la Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Bifați toate întrebările nerăspunse de mai jos"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Dacă este prima dată când folosiți Chamilo, asigurați-vă că verificați meniul lateral pentru a vă familiariza cu numeroasele sale funcționalități. Dacă aveți nevoie de ajutor, veți găsi <a href=\"https://docs.chamilo.org\">documentația oficială</a> utilă pentru documentație standard, în timp ce <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forumul nostru online</a> vă poate ajuta să împărtășiți idei și să găsiți răspunsuri de la alți utilizatori Chamilo."
 
@@ -34075,6 +34099,63 @@ msgstr "Evaluarea nevoilor de formare"
 
 msgid "Work climate surveys"
 msgstr "Sondaje privind clima de lucru"
+
+msgid "Unit"
+msgstr "Unitate"
+
+msgid "Total cost"
+msgstr "Cost total"
+
+msgid "Cost per learner"
+msgstr "Cost pe cursant"
+
+msgid "Average cost by session"
+msgstr "Cost mediu pe sesiune"
+
+msgid "Total investment"
+msgstr "Investiție totală"
+
+msgid "Set cost"
+msgstr "Stabiliți costul"
+
+msgid "Filter by date range"
+msgstr "Filtrați după interval de date"
+
+msgid "Add distribution"
+msgstr "Adăugați distribuție"
+
+msgid "User share"
+msgstr "Cotă utilizator"
+
+msgid "Select a unit"
+msgstr "Selectați o unitate"
+
+msgid "Select a survey"
+msgstr "Selectați un sondaj"
+
+msgid "Distribution added"
+msgstr "Distribuție adăugată"
+
+msgid "Distribution removed"
+msgstr "Distribuție ștearsă"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Sigur doriți să ștergeți această distribuție?"
+
+msgid "Cost updated"
+msgstr "Cost actualizat"
+
+msgid "Total invited"
+msgstr "Total invitați"
+
+msgid "Total answered"
+msgstr "Total răspunsuri"
+
+msgid "Total responses"
+msgstr "Răspunsuri totale"
+
+msgid "No responses yet"
+msgstr "Niciun răspuns încă"
 
 msgid "Diversity criteria"
 msgstr "Criterii de diversitate"
@@ -34587,4 +34668,274 @@ msgstr "Sigur doriți să ștergeți această evaluare?"
 
 msgid "Loading…"
 msgstr "Se încarcă…"
+
+msgid "Periodicity"
+msgstr "Periodicitate"
+
+msgid "Suggest from periodicity"
+msgstr "Sugerează din periodicitate"
+
+msgid "Add job offer"
+msgstr "Adaugă ofertă de job"
+
+msgid "Edit job offer"
+msgstr "Editează oferta de job"
+
+msgid "Function / Unit"
+msgstr "Funcție / Unitate"
+
+msgid "Vacancies"
+msgstr "Vacante"
+
+msgid "Expected start date"
+msgstr "Data de început așteptată"
+
+msgid "Contract duration (days)"
+msgstr "Durata contractului (zile)"
+
+msgid "Public offer"
+msgstr "Ofertă publică"
+
+msgid "Publication start date"
+msgstr "Data de început publicare"
+
+msgid "Publication end date"
+msgstr "Data de sfârșit publicare"
+
+msgid "Applications"
+msgstr "Cereri"
+
+msgid "Selection exams"
+msgstr "Examine de selecție"
+
+msgid "Add exam"
+msgstr "Adaugă examen"
+
+msgid "Applicant"
+msgstr "Solicitant"
+
+msgid "Applied on"
+msgstr "Aplicat la"
+
+msgid "Salary expectations"
+msgstr "Așteptări salariale"
+
+msgid "Pending evaluation"
+msgstr "În așteptarea evaluării"
+
+msgid "Hired"
+msgstr "Angajat"
+
+msgid "Not hired"
+msgstr "Neangajat"
+
+msgid "Evaluate"
+msgstr "Evaluează"
+
+msgid "Evaluate candidate"
+msgstr "Evaluează candidatul"
+
+msgid "Decision"
+msgstr "Decizie"
+
+msgid "Save evaluation"
+msgstr "Salvează evaluarea"
+
+msgid "Back to job offers"
+msgstr "Înapoi la ofertele de job"
+
+msgid "No job offers available at this time."
+msgstr "Nicio ofertă de job disponibilă în acest moment."
+
+msgid "See details"
+msgstr "Vezi detalii"
+
+msgid "Apply now"
+msgstr "Aplică acum"
+
+msgid "Already applied"
+msgstr "Deja aplicat"
+
+msgid "Log in to apply"
+msgstr "Conectează-te pentru a aplica"
+
+msgid "Apply to job offer"
+msgstr "Aplică la oferta de job"
+
+msgid "Availability date"
+msgstr "Data disponibilității"
+
+msgid "CV (Personal file)"
+msgstr "CV (Fișier personal)"
+
+msgid "Select your CV from your personal files"
+msgstr "Selectează CV-ul tău din fișierele personale"
+
+msgid "Submit application"
+msgstr "Trimite aplicația"
+
+msgid "Application submitted successfully."
+msgstr "Aplicația a fost trimisă cu succes."
+
+msgid "Private observations"
+msgstr "Observații private"
+
+msgid "My applications"
+msgstr "Aplicațiile mele"
+
+msgid "View job offers"
+msgstr "Vezi ofertele de job"
+
+msgid "You have not submitted any applications yet."
+msgstr "Nu ai trimis încă nicio aplicație."
+
+msgid "Under review"
+msgstr "În revizuire"
+
+msgid "Not selected"
+msgstr "Neselectat"
+
+msgid "HR feedback"
+msgstr "Feedback HR"
+
+msgid "Withdraw application"
+msgstr "Retrage aplicația"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Ești sigur că vrei să retragi această aplicație?"
+
+msgid "Application withdrawn."
+msgstr "Aplicația a fost retrasă."
+
+msgid "Calculate quiz scores"
+msgstr "Calculează scorurile quiz-ului"
+
+msgid "Scores calculated."
+msgstr "Scorurile au fost calculate."
+
+msgid "Career plan overview"
+msgstr "Prezentare generală plan carieră"
+
+msgid "My career plan"
+msgstr "Planul meu de carieră"
+
+msgid "No function-unit associations configured yet."
+msgstr "Nicio asociere funcție-unitate configurată încă."
+
+msgid "No required skills defined."
+msgstr "Nicio abilitate necesară definită."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Trebuie să fiți alocat unei poziții pentru a vedea planul dvs. de carieră."
+
+msgid "Your current position"
+msgstr "Poziția dvs. actuală"
+
+msgid "No career targets found for your current position."
+msgstr "Niciun obiectiv de carieră găsit pentru poziția dvs. actuală."
+
+msgid "No required skills defined for this position."
+msgstr "Nicio abilitate necesară definită pentru această poziție."
+
+msgid "Met"
+msgstr "Îndeplinit"
+
+msgid "Gap"
+msgstr "Deficit"
+
+msgid "Acquired:"
+msgstr "Dobândite:"
+
+msgid "Required:"
+msgstr "Necesar:"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Niciun criteriu de diversitate găsit. Adăugați criterii mai întâi."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Selectați un criteriu din listă pentru a vizualiza statisticile sale."
+
+msgid "No data available for this criterion."
+msgstr "Niciun date disponibile pentru acest criteriu."
+
+msgid "Change password"
+msgstr "Schimbă parola"
+
+msgid "Newest first"
+msgstr "Cele mai noi primele"
+
+msgid "Oldest first"
+msgstr "Cele mai vechi primele"
+
+msgid "Title A–Z"
+msgstr "Titlu A–Z"
+
+msgid "Title Z–A"
+msgstr "Titlu Z–A"
+
+msgid "Send test email"
+msgstr "Trimite e-mail de test"
+
+msgid "Show teachers"
+msgstr "Arată profesorii"
+
+msgid "Hide teachers"
+msgstr "Ascunde profesorii"
+
+msgid "Delete exercise attempts"
+msgstr "Șterge încercările exercițiului"
+
+msgid "Message sent successfully."
+msgstr "Mesajul a fost trimis cu succes."
+
+msgid "You cannot create a new course right now."
+msgstr "Nu puteți crea un curs nou acum."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Nu se poate verifica dacă puteți crea un curs nou acum."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Încercați din nou mai târziu sau contactați administratorul."
+
+msgid "You cannot create more courses at this time."
+msgstr "Nu puteți crea mai multe cursuri în acest moment."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Gestionați deja %d cursuri și serviciul dvs. activ permite până la %d. Pentru a crea un alt curs, aveți nevoie de o limită de serviciu mai mare sau reduceți cursurile active actuale."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Gestionați deja %d cursuri și platforma permite în prezent până la %d pentru contul dvs. Nu puteți crea mai multe cursuri acum."
+
+msgid "Add a class"
+msgstr "Adaugă clasă"
+
+msgid "Search classes"
+msgstr "Caută clase"
+
+msgid "No classes found"
+msgstr "Nicio clasă găsită"
+
+msgid "Import classes"
+msgstr "Importă clase"
+
+msgid "Class users"
+msgstr "Utilizatori clasă"
+
+msgid "%s classes imported"
+msgstr "%s clase importate"
+
+msgid "%s user-class links imported"
+msgstr "%s legături utilizator-clasă importate"
+
+msgid "Hide comments"
+msgstr "Ascunde comentariile"
+
+msgid "Loading comments..."
+msgstr "Se încarcă comentariile..."
+
+msgid "No comments yet."
+msgstr "Niciun comentariu încă."
 

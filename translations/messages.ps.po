@@ -340,7 +340,7 @@ msgid "Sincerely"
 msgstr "په درناوي سره"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "د فورمولې نمونې: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "فورمول نمونې: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "متغیر حدود"
@@ -9726,6 +9726,9 @@ msgstr "د لټون پایلې لپاره:"
 msgid "Select a file"
 msgstr "یو فایل غوره کړئ"
 
+msgid "Select a file to insert into the editor."
+msgstr "د ایډیټر کې د داخل کولو لپاره یو فایل غوره کړئ."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "ګواښنه - د FAQ فایل چې ستاسو پورتل کې /home/ په ډېريکټري کې موندل کېډ دی، لیکل نه شي کولی. ستاسو متن به تر هغه پورې خوندي نشي تر څو فایل اجازې بدلې نشي."
 
@@ -15906,6 +15909,9 @@ msgstr "نېټه او وخت"
 msgid "Item"
 msgstr "توسی"
 
+msgid "Items"
+msgstr "توکي"
+
 msgid "Configure Dashboard Plugin"
 msgstr "ډاشبورډ پلگ ان ترتیب کول"
 
@@ -17159,6 +17165,18 @@ msgstr "د ډلې کې غونډې"
 
 msgid "Courses in group"
 msgstr "د ډلې کې کورسونه"
+
+msgid "Courses on the platform"
+msgstr "پلاتفورم باندې کورسونه"
+
+msgid "%s courses"
+msgstr "%s کورسونه"
+
+msgid "%s sessions"
+msgstr "%s غونډې"
+
+msgid "Search by title or code"
+msgstr "د سرلیک یا کوډ له مخې لټون"
 
 msgid "Users in group"
 msgstr "د ډلې کې کاروونکي"
@@ -32163,6 +32181,9 @@ msgstr "دندې"
 msgid "Allowed file formats: %s"
 msgstr "اجازې شوي فایل فورمټونه: %s"
 
+msgid "File manager"
+msgstr "فایل مدیر"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "فایل ډول اجازه نشته. اجازې شوي توسیعونه: %s"
 
@@ -33876,6 +33897,9 @@ msgstr "ښه راغلاست"
 msgid "Welcome to Chamilo"
 msgstr "د Chamilo ته ښه راغلاست"
 
+msgid "Check all unanswered questions below"
+msgstr "لاندې ټول ځواب نه ورکړل شوي پوښتنې وګورئ"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> که دا ستاسو لومړی ځل دی چې Chamilo کاروئ، ډاډه کړئ چې له ګرځنده مینو څخه وکاروئ ترڅو د هغې ډېرو ځانګړتیاوو ته ورسیږئ. که تاسو سره مرستې ته اړتیا لرئ، تاسو به <a href=\"https://docs.chamilo.org\">زموږ رسمي اسناد</a> ومومئ چې د معیاري اسنادو لپاره مرسته کوي، په داسې حال کې چې زموږ <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">آنلاین فورم</a> کولی شي ایده شریکول او د نورو Chamilo کاروونکو څخه ځوابونه ومومئ."
 
@@ -34055,6 +34079,63 @@ msgstr "د روزنې اړتیاوو ارزونه"
 
 msgid "Work climate surveys"
 msgstr "د کار چاپیریال سروې"
+
+msgid "Unit"
+msgstr "یکاد"
+
+msgid "Total cost"
+msgstr "ټولیزه لګښت"
+
+msgid "Cost per learner"
+msgstr "د زده کونکي پورې لګښت"
+
+msgid "Average cost by session"
+msgstr "د غونډې لخوا متوسط لګښت"
+
+msgid "Total investment"
+msgstr "ټولیزه پانګونه"
+
+msgid "Set cost"
+msgstr "لګښت ټاکل"
+
+msgid "Filter by date range"
+msgstr "د نیټې محدوده له مخې فلټر"
+
+msgid "Add distribution"
+msgstr "توزیع اضافه کړئ"
+
+msgid "User share"
+msgstr "کاروونکي ونډه"
+
+msgid "Select a unit"
+msgstr "یوه یکاد غوره کړئ"
+
+msgid "Select a survey"
+msgstr "یوه نظرسنجنه غوره کړئ"
+
+msgid "Distribution added"
+msgstr "توزیع اضافه شوه"
+
+msgid "Distribution removed"
+msgstr "توزیع لرې کړل شو"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "آیا تاسو ډاډه یاست چې دا توزیع لرې کول غواړئ؟"
+
+msgid "Cost updated"
+msgstr "لګښت تازه شو"
+
+msgid "Total invited"
+msgstr "ټولی دعوت شوي"
+
+msgid "Total answered"
+msgstr "ټول ځواب شوي"
+
+msgid "Total responses"
+msgstr "ټول ځوابونه"
+
+msgid "No responses yet"
+msgstr "تر اوسه هیڅ ځواب نشته"
 
 msgid "Diversity criteria"
 msgstr "د تنوع معیارونه"
@@ -34567,4 +34648,274 @@ msgstr "آیا تاسو ډاډه یاست چې دا ارزونه حذف کول �
 
 msgid "Loading…"
 msgstr "بار کېدلي…"
+
+msgid "Periodicity"
+msgstr "د دورې تکرار"
+
+msgid "Suggest from periodicity"
+msgstr "د دورې تکرار څخه وړاندیز وکړئ"
+
+msgid "Add job offer"
+msgstr "د کار وړاندیز اضافه کړئ"
+
+msgid "Edit job offer"
+msgstr "د کار وړاندیز سمول"
+
+msgid "Function / Unit"
+msgstr "دنده / یکاد"
+
+msgid "Vacancies"
+msgstr "واکنۍ"
+
+msgid "Expected start date"
+msgstr "تمه شوې پیل نېټه"
+
+msgid "Contract duration (days)"
+msgstr "عقد موده (ورځې)"
+
+msgid "Public offer"
+msgstr "عامه وړاندیز"
+
+msgid "Publication start date"
+msgstr "د خپریدو پیل نېټه"
+
+msgid "Publication end date"
+msgstr "د خپریدو پای نېټه"
+
+msgid "Applications"
+msgstr "غوښتنې"
+
+msgid "Selection exams"
+msgstr "ټاکنیز امتحانونه"
+
+msgid "Add exam"
+msgstr "امتحان اضافه کړئ"
+
+msgid "Applicant"
+msgstr "غوښتونکي"
+
+msgid "Applied on"
+msgstr "غوښتنه ورکړل شوې"
+
+msgid "Salary expectations"
+msgstr "معاشي تمې"
+
+msgid "Pending evaluation"
+msgstr "ارزونې په انتظار کې"
+
+msgid "Hired"
+msgstr "ګمارل شوی"
+
+msgid "Not hired"
+msgstr "ګمارل شوی نه دی"
+
+msgid "Evaluate"
+msgstr "ارزونه وکړئ"
+
+msgid "Evaluate candidate"
+msgstr "مراجع ارزونه وکړئ"
+
+msgid "Decision"
+msgstr "پریکړه"
+
+msgid "Save evaluation"
+msgstr "ارزونه خوندي کړئ"
+
+msgid "Back to job offers"
+msgstr "د کار وړاندې کولو څخه بیرته"
+
+msgid "No job offers available at this time."
+msgstr "اوس هیڅ کار وړاندې کول شتون نلري."
+
+msgid "See details"
+msgstr "تفصیل وګورئ"
+
+msgid "Apply now"
+msgstr "اوس غوښتنه وکړئ"
+
+msgid "Already applied"
+msgstr "په پخوانی ډول غوښتنه شوې"
+
+msgid "Log in to apply"
+msgstr "د غوښتنې لپاره داخل شئ"
+
+msgid "Apply to job offer"
+msgstr "د کار وړاندې کولو غوښتنه وکړئ"
+
+msgid "Availability date"
+msgstr "د شتون نیټه"
+
+msgid "CV (Personal file)"
+msgstr "CV (شخصي فایل)"
+
+msgid "Select your CV from your personal files"
+msgstr "خپل CV له شخصي فایلونو څخه غوره کړئ"
+
+msgid "Submit application"
+msgstr "غوښتنه سپارئ"
+
+msgid "Application submitted successfully."
+msgstr "غوښتنه په بریالیتوب سره سپارل شوې."
+
+msgid "Private observations"
+msgstr "خصوصي یادښتونه"
+
+msgid "My applications"
+msgstr "زما غوښتنې"
+
+msgid "View job offers"
+msgstr "کار وړاندې کول وګورئ"
+
+msgid "You have not submitted any applications yet."
+msgstr "تاسو تر اوسه هیڅ غوښتنې نه دي سپارلي."
+
+msgid "Under review"
+msgstr "لاندې کتنې کې"
+
+msgid "Not selected"
+msgstr "غوره شوې نه"
+
+msgid "HR feedback"
+msgstr "د HR فیډبیک"
+
+msgid "Withdraw application"
+msgstr "غوښتنه وړاندې کړئ"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "آیا تاسو ډاډه یاست چې دا غوښتنه وړاندې کول غواړئ؟"
+
+msgid "Application withdrawn."
+msgstr "غوښتنه وړاندې شوې."
+
+msgid "Calculate quiz scores"
+msgstr "د کوئز نمرې محاسبه کړئ"
+
+msgid "Scores calculated."
+msgstr "نمرې محاسبه شوې."
+
+msgid "Career plan overview"
+msgstr "د مسلکي پلان لیدلوری"
+
+msgid "My career plan"
+msgstr "زما مسلکي پلان"
+
+msgid "No function-unit associations configured yet."
+msgstr "تر اوسه هیڅ دنده-وحدې اړیکې تنظیم شوې نه دي."
+
+msgid "No required skills defined."
+msgstr "هیڅ اړین مهارتونه تعریف شوي نه دي."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "د خپل مسلکي پلان لیدلو لپاره تاسو باید د یوې دندې ته ګمارل شئ."
+
+msgid "Your current position"
+msgstr "ستاسو اوسنۍ دنده"
+
+msgid "No career targets found for your current position."
+msgstr "ستاسو اوسنۍ دندې لپاره هیڅ مسلکي هدفونه موندل شوي نه دي."
+
+msgid "No required skills defined for this position."
+msgstr "د دې دندې لپاره هیڅ اړین مهارتونه تعریف شوي نه دي."
+
+msgid "Met"
+msgstr "ترلاسه شوی"
+
+msgid "Gap"
+msgstr "فاصله"
+
+msgid "Acquired:"
+msgstr "ترلاسه شوی:"
+
+msgid "Required:"
+msgstr "اړین:"
+
+msgid "Max"
+msgstr "اعظمي"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "هیڅ تنوع معیارونه ونه موندل شول. لومړی معیارونه اضافه کړئ."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "د آمارونو لیدلو لپاره له فهرست څخه یو معیار غوره کړئ."
+
+msgid "No data available for this criterion."
+msgstr "د دې معیار لپاره هیڅ ډاټا شتون نلري."
+
+msgid "Change password"
+msgstr "پاسورډ بدل کړئ"
+
+msgid "Newest first"
+msgstr "نوي تر ټول"
+
+msgid "Oldest first"
+msgstr "زاړه تر ټول"
+
+msgid "Title A–Z"
+msgstr "سرلیک الف–ي"
+
+msgid "Title Z–A"
+msgstr "سرلیک ي–الف"
+
+msgid "Send test email"
+msgstr "ازموینې برېښنالیک واستوئ"
+
+msgid "Show teachers"
+msgstr "استادان ښکاره کړئ"
+
+msgid "Hide teachers"
+msgstr "استادان پټ کړئ"
+
+msgid "Delete exercise attempts"
+msgstr "د تمرین هڅې له منځه یوسئ"
+
+msgid "Message sent successfully."
+msgstr "پیغام په بریالیتوب سره واستول شو."
+
+msgid "You cannot create a new course right now."
+msgstr "تاسو اوس نوی کورس نشی جوړولی."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "داسې نشي معلومولی چې تاسو اوس نوی کورس جوړولی شئ که نه."
+
+msgid "Please try again later or contact the administrator."
+msgstr "مهرباني وکړئ وروسته بیا هڅه وکړئ یا له مدير سره اړيکې ونیسئ."
+
+msgid "You cannot create more courses at this time."
+msgstr "تاسو اوس نور کورسونه نشی جوړولی."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "تاسو %d کورسونه اداره کوئ او ستاسو فعال خدمت تر %d پورې اجازه ورکوي. د بل کورس د جوړولو لپاره، تاسو د لوړ خدمت حد ته اړتیا لرئ یا ستاسو اوسني فعال کورسونه کم کړئ."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "تاسو %d کورسونه اداره کوئ او پلیټفارم اوس ستاسو حساب لپاره تر %d پورې اجازه ورکوي. تاسو اوس نور کورسونه نشی جوړولی."
+
+msgid "Add a class"
+msgstr "يوه ټولګي اضافه کړئ"
+
+msgid "Search classes"
+msgstr "ټولګیو لټون"
+
+msgid "No classes found"
+msgstr "ټولګي ونه موندل شول"
+
+msgid "Import classes"
+msgstr "ټولګي وارد کړئ"
+
+msgid "Class users"
+msgstr "د ټولګي کاروونکي"
+
+msgid "%s classes imported"
+msgstr "%s ټولګي وارد شول"
+
+msgid "%s user-class links imported"
+msgstr "%s د کاروونکي-ټولګي لینکونه وارد شول"
+
+msgid "Hide comments"
+msgstr "تبصرې پټې کړئ"
+
+msgid "Loading comments..."
+msgstr "تبصرې لود کېږي..."
+
+msgid "No comments yet."
+msgstr "په اوس کې هیڅ تبصرې نشته."
 

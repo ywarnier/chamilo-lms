@@ -10547,6 +10547,9 @@ msgstr "ຜົນການຄົ້ນຫາສຳລັບ:"
 msgid "Select a file"
 msgstr "ເລືອກໄຟລ໌"
 
+msgid "Select a file to insert into the editor."
+msgstr "ເລືອກໄຟລ໌ເພື່ອໃສ່ໃນ editor."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "ຄຳເຕືອນ - ໄຟລ໌ FAQ, ທີ່ຢູ່ໃນໄດເຣັກທໍຣີ /home/ ຂອງພໍທັນຂອງທ່ານ, ບໍ່ສາມາດຂຽນທັບໄດ້. ຂໍ້ຄວາມຂອງທ່ານຈະບໍ່ຖືກບັນທຶກຈົນກວ່າສິດໃນການເຂົ້າເຖິງໄຟລ໌ຈະຖືກປ່ຽນແປງ."
 
@@ -17275,6 +17278,9 @@ msgstr "ວັນທີ ແລະ ເວລາ"
 msgid "Item"
 msgstr "ລາຍການ"
 
+msgid "Items"
+msgstr "ລາຍການ"
+
 msgid "Configure Dashboard Plugin"
 msgstr "ຕັ້ງຄ່າປລັກອິນກະດານຄວບຄຸມ"
 
@@ -18636,6 +18642,18 @@ msgstr "ພາກຮຽນໃນກຸ່ມ"
 
 msgid "Courses in group"
 msgstr "ລາຍວິຊາໃນກຸ່ມ"
+
+msgid "Courses on the platform"
+msgstr "ຫຼັກສູດໃນແພລັດຟອມ"
+
+msgid "%s courses"
+msgstr "%s ຫຼັກສູດ"
+
+msgid "%s sessions"
+msgstr "%s ຊັ້ນການສຶກສາ"
+
+msgid "Search by title or code"
+msgstr "ຄົ້ນຫາຕາມຫົວຂໍ້ຫຼືລະຫັດ"
 
 msgid "Users in group"
 msgstr "ຜູ້ໃຊ້ໃນກຸ່ມ"
@@ -34513,6 +34531,9 @@ msgstr "ການກຳນົດງານ"
 msgid "Allowed file formats: %s"
 msgstr "ຮູບແບບໄຟລ໌ທີ່ອະນຸຍາດ: %s"
 
+msgid "File manager"
+msgstr "ຜູ້ດູແລໄຟລ໌"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "ປະເພດໄຟລ໌ບໍ່ໄດ້ຮັບອະນຸຍາດ. ເສັ້ນຂະແໜງທີ່ອະນຸຍາດ: %s"
 
@@ -36226,6 +36247,9 @@ msgstr "ຍິນດີຕ້ອນຮັບ"
 msgid "Welcome to Chamilo"
 msgstr "ຍິນດີຕ້ອນຮັບສູ່ Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "ກວດສອບຄຳຖາມທີ່ຍັງບໍ່ມີຄຳຕອບທັງໝົດຂ້າ�ງລຸ່ມນີ້"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> ຖ້ານີ້ເປັນຄັ້ງທຳອິດທີ່ເຈົ້າໃຊ້ Chamilo, ໃຫ້ກວດເບິ່ງເຄື່ອງມືອ່ວນດ້ານເທິງເພື່ອຊອກຫາທາງໄປສູ່ຄຸນສົມບັດຫຼາຍຢ່າງຂອງມັນ. ຖ້າເຈົ້າຕ້ອງການຄວາມຊ່ວຍເຫຼືອ, ເຈົ້າຈະພົບເຫັນ <a href=\"https://docs.chamilo.org\">ເອກະສານທາງການຂອງເຮົາ</a> ສາມາດຊ່ວຍເພື່ອເອກະສານມາດຕະຖານ, ໃນຂະນະທີ່ <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">ກຸ່ມທະບຽນອອນໄລນ໌</a> ຂອງເຮົາສາມາດຊ່ວຍແບ່ງປັນແນວຄິດແລະຊອກຫາຄຳຕອບຈາກຜູ້ໃຊ້ Chamilo ອື່ນໆ."
 
@@ -36406,6 +36430,63 @@ msgstr "ການປະເມີນຄວາມຕ້ອງການຝຶກອ
 
 msgid "Work climate surveys"
 msgstr "ການສຳຫຼວດສະພາບບໃດບ້ານການ"
+
+msgid "Unit"
+msgstr "ໜ່ວຍ"
+
+msgid "Total cost"
+msgstr "ຄ່າໃຊ້ຈ່າຍລວມ"
+
+msgid "Cost per learner"
+msgstr "ຄ່າໃຊ້ຈ່າຍຕໍ່ຜູ້ຮຽນ"
+
+msgid "Average cost by session"
+msgstr "ຄ່າໃຊ້ຈ່າຍແບບເສລີ່ຍຕໍ່ຊັ້ນ"
+
+msgid "Total investment"
+msgstr "ການລົງທຶນລວມ"
+
+msgid "Set cost"
+msgstr "ກຳນົດຄ່າໃຊ້ຈ່າຍ"
+
+msgid "Filter by date range"
+msgstr "ຟິລເຕີຕາມຊ່ວງເວລາ"
+
+msgid "Add distribution"
+msgstr "ເພີ່ມການຈັດສັນ"
+
+msgid "User share"
+msgstr "ສ່ວນແບ່ງຂອງຜູ້ໃຊ້"
+
+msgid "Select a unit"
+msgstr "ເລືອກໜ່ວຍ"
+
+msgid "Select a survey"
+msgstr "ເລືອກການສຳຫຼວດ"
+
+msgid "Distribution added"
+msgstr "ເພີ່ມການຈັດສັນແລ້ວ"
+
+msgid "Distribution removed"
+msgstr "ລຶບການຈັດສັນແລ້ວ"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "ເຈົ້າຫັດສຳເນົາບໍ່ວ່າຈະລຶບການຈັດສັນນີ້?"
+
+msgid "Cost updated"
+msgstr "ອັບເດດຄ່າໃຊ້ຈ່າຍແລ້ວ"
+
+msgid "Total invited"
+msgstr "ສົ່ງເຊີນໄດ້ທັງໝົດ"
+
+msgid "Total answered"
+msgstr "ຕອບແລ້ວທັງໝົດ"
+
+msgid "Total responses"
+msgstr "ການຕອບທັງໝົດ"
+
+msgid "No responses yet"
+msgstr "ຍັງບໍ່ມີການຕອບ"
 
 msgid "Diversity criteria"
 msgstr "ເງື່ອນໄຂຄວາມຫຼາກຫຼາຍ"
@@ -36918,4 +36999,274 @@ msgstr "ເຈົ້າຫມັ້ນຫົວບໍ່ວ່າຈະລຶບ
 
 msgid "Loading…"
 msgstr "ກຳລັງໂຫຼດ…"
+
+msgid "Periodicity"
+msgstr "ຄວາມປະຈຳ"
+
+msgid "Suggest from periodicity"
+msgstr "ແນະນຳຈາກຄວາມປະຈຳ"
+
+msgid "Add job offer"
+msgstr ""
+
+msgid "Edit job offer"
+msgstr ""
+
+msgid "Function / Unit"
+msgstr ""
+
+msgid "Vacancies"
+msgstr "ຕຳແໜ່ງວ່າງ"
+
+msgid "Expected start date"
+msgstr ""
+
+msgid "Contract duration (days)"
+msgstr ""
+
+msgid "Public offer"
+msgstr ""
+
+msgid "Publication start date"
+msgstr ""
+
+msgid "Publication end date"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid "Selection exams"
+msgstr ""
+
+msgid "Add exam"
+msgstr ""
+
+msgid "Applicant"
+msgstr ""
+
+msgid "Applied on"
+msgstr ""
+
+msgid "Salary expectations"
+msgstr ""
+
+msgid "Pending evaluation"
+msgstr ""
+
+msgid "Hired"
+msgstr ""
+
+msgid "Not hired"
+msgstr ""
+
+msgid "Evaluate"
+msgstr ""
+
+msgid "Evaluate candidate"
+msgstr ""
+
+msgid "Decision"
+msgstr ""
+
+msgid "Save evaluation"
+msgstr ""
+
+msgid "Back to job offers"
+msgstr ""
+
+msgid "No job offers available at this time."
+msgstr ""
+
+msgid "See details"
+msgstr ""
+
+msgid "Apply now"
+msgstr ""
+
+msgid "Already applied"
+msgstr ""
+
+msgid "Log in to apply"
+msgstr ""
+
+msgid "Apply to job offer"
+msgstr ""
+
+msgid "Availability date"
+msgstr ""
+
+msgid "CV (Personal file)"
+msgstr ""
+
+msgid "Select your CV from your personal files"
+msgstr ""
+
+msgid "Submit application"
+msgstr ""
+
+msgid "Application submitted successfully."
+msgstr ""
+
+msgid "Private observations"
+msgstr ""
+
+msgid "My applications"
+msgstr ""
+
+msgid "View job offers"
+msgstr ""
+
+msgid "You have not submitted any applications yet."
+msgstr ""
+
+msgid "Under review"
+msgstr ""
+
+msgid "Not selected"
+msgstr ""
+
+msgid "HR feedback"
+msgstr ""
+
+msgid "Withdraw application"
+msgstr ""
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr ""
+
+msgid "Application withdrawn."
+msgstr ""
+
+msgid "Calculate quiz scores"
+msgstr ""
+
+msgid "Scores calculated."
+msgstr ""
+
+msgid "Career plan overview"
+msgstr ""
+
+msgid "My career plan"
+msgstr ""
+
+msgid "No function-unit associations configured yet."
+msgstr ""
+
+msgid "No required skills defined."
+msgstr ""
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr ""
+
+msgid "Your current position"
+msgstr "ທ່ານຢູ່ຕຳແໜ່ງປະຈຸບັນ"
+
+msgid "No career targets found for your current position."
+msgstr "ບໍ່ພົບຈຸດປະສົງຊາຍງານສຳລັບຕຳແໜ່ງປະຈຸບັນຂອງທ່ານ."
+
+msgid "No required skills defined for this position."
+msgstr "ບໍ່ມີຄວາມຊຳນານທີ່ຕ້ອງການທີ່ກຳນົດສຳລັບຕຳແໜ່ງນີ້."
+
+msgid "Met"
+msgstr "ບັນລຸແລ້ວ"
+
+msgid "Gap"
+msgstr "ຊ່ອງວ່າງ"
+
+msgid "Acquired:"
+msgstr "ໄດ້ຮັບ:"
+
+msgid "Required:"
+msgstr "ຕ້ອງການ:"
+
+msgid "Max"
+msgstr "ສູງສຸດ"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "ບໍ່ພົບມາດຕະຖານຄວາມຫຼາກຫຼາຍ. ເພີ່ມມາດຕະຖານກ່ອນ."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "ເລືອກມາດຕະຖານຈາກລາຍການເພື່ອເບິ່ງສະຖິຕິ."
+
+msgid "No data available for this criterion."
+msgstr "ບໍ່ມີຂໍ້ມູນສຳລັບມາດຕະຖານນີ້."
+
+msgid "Change password"
+msgstr "ປ່ຽນລະຫັດຜ່ານ"
+
+msgid "Newest first"
+msgstr "ໃໝ່ທີ່ສຸດກ່ອນ"
+
+msgid "Oldest first"
+msgstr "ເກົ່າທີ່ສຸດກ່ອນ"
+
+msgid "Title A–Z"
+msgstr "ຊື່ເລື່ອງ ອາ-ຊີ"
+
+msgid "Title Z–A"
+msgstr "ຊື່ເລື່ອງ ຊີ-ອາ"
+
+msgid "Send test email"
+msgstr "ສົ່ງອີເມວທົດລອງ"
+
+msgid "Show teachers"
+msgstr "ສະແດງຄູ"
+
+msgid "Hide teachers"
+msgstr "ລັບຄູ"
+
+msgid "Delete exercise attempts"
+msgstr "ລຶບການທົດລອງທຳການ"
+
+msgid "Message sent successfully."
+msgstr "ສົ່ງຂໍ້ຄວາມສຳເລັດ."
+
+msgid "You cannot create a new course right now."
+msgstr "ທ່ານບໍ່ສາມາດສ້າງຄອສປະຈຸບັນ."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "ບໍ່ສາມາດຢັ້ງຢຶນວ່າທ່ານສາມາດສ້າງຄອສໃໝ່ໄດ້ໃນຕອນນີ້."
+
+msgid "Please try again later or contact the administrator."
+msgstr "ກະລຸນາລອງອີກເທື່ອໜ້າ ຫຼື ຕິດຕໍ່ຜູ້ຈັດການ."
+
+msgid "You cannot create more courses at this time."
+msgstr "ທ່ານບໍ່ສາມາດສ້າງຄອສເພີ່ມໃນຕອນນີ້."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "ທ່ານຈັດການ %d ຄອສ ແລະ ບໍລິການທີ່ເຮັດວຽກຂອງທ່ານອະນຸຍາດສູງສຸດ %d. ເພື່ອສ້າງຄອສອື່ນ, ທ່ານຕ້ອງການຂອບເຂດບໍລິການທີ່ສູງກວ່າ ຫຼື ຫຼຸດຄອສທີ່ເຮັດວຽກປະຈຸບັນ."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "ທ່ານຈັດການ %d ຄອສ ແລະ ແຜ່ນຍູດປະຈຸບັນອະນຸຍາດສູງສຸດ %d ສຳລັບບັນຊີຂອງທ່ານ. ທ່ານບໍ່ສາມາດສ້າງຄອສເພີ່ມໃນຕອນນີ້."
+
+msgid "Add a class"
+msgstr "ເພີ່ມຊັ້ນ"
+
+msgid "Search classes"
+msgstr "ຄົ້ນຫາຊັ້ນ"
+
+msgid "No classes found"
+msgstr "ບໍ່ພົບຊັ້ນ"
+
+msgid "Import classes"
+msgstr "ນຳເຂົ້າຊັ້ນ"
+
+msgid "Class users"
+msgstr "ຜູ້ໃຊ້ຊັ້ນ"
+
+msgid "%s classes imported"
+msgstr "%s ຊັ້ນນຳເຂົ້າ"
+
+msgid "%s user-class links imported"
+msgstr "%s ລິ້ງຜູ້ໃຊ້-ຊັ້ນຳເຂົ້າ"
+
+msgid "Hide comments"
+msgstr "ລັບຄຳຄົມ"
+
+msgid "Loading comments..."
+msgstr "ກຳລັງໂຫຼດຄຳຄົມ..."
+
+msgid "No comments yet."
+msgstr "ຍັງບໍ່ມີຄຳເຫັນ."
 

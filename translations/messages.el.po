@@ -9739,6 +9739,9 @@ msgstr "Αποτελέσματα για:"
 msgid "Select a file"
 msgstr "Επιλογή αρχείου"
 
+msgid "Select a file to insert into the editor."
+msgstr "Επιλέξτε ένα αρχείο για εισαγωγή στον επεξεργαστή."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Προειδοποίηση - Το αρχείο FAQ, που βρίσκεται στον κατάλογο /home/ του portal σας, δεν είναι εγγράψιμο. Το κείμενό σας δεν θα αποθηκευτεί μέχρι να αλλάξουν τα δικαιώματα του αρχείου."
 
@@ -15919,6 +15922,9 @@ msgstr "Ημερομηνία & ώρα"
 msgid "Item"
 msgstr "Στοιχείο"
 
+msgid "Items"
+msgstr "Αντικείμενα"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Διαμόρφωση Plugin Πίνακα Ελέγχου"
 
@@ -17172,6 +17178,18 @@ msgstr "Περίοδοι στην ομάδα"
 
 msgid "Courses in group"
 msgstr "Μαθήματα στην ομάδα"
+
+msgid "Courses on the platform"
+msgstr "Μαθήματα στην πλατφόρμα"
+
+msgid "%s courses"
+msgstr "%s μαθήματα"
+
+msgid "%s sessions"
+msgstr "%s συνεδρίες"
+
+msgid "Search by title or code"
+msgstr "Αναζήτηση κατά τίτλο ή κωδικό"
 
 msgid "Users in group"
 msgstr "Χρήστες στην ομάδα"
@@ -32182,6 +32200,9 @@ msgstr "Εργασία"
 msgid "Allowed file formats: %s"
 msgstr "Επιτρεπόμενες μορφές αρχείων: %s"
 
+msgid "File manager"
+msgstr "Διαχειριστής αρχείων"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Μη επιτρεπόμενος τύπος αρχείου. Επιτρεπόμενες επεκτάσεις: %s"
 
@@ -33895,6 +33916,9 @@ msgstr "Καλώς ήρθατε"
 msgid "Welcome to Chamilo"
 msgstr "Καλώς ήρθατε στο Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Επιλογή όλων των απαντημένων ερωτήσεων παρακάτω"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Αν χρησιμοποιείτε το Chamilo για πρώτη φορά, βεβαιωθείτε ότι ελέγξετε το πλευρικό μενού για να βρείτε τον δρόμο σας μέσα από τα πολλά χαρακτηριστικά του. Αν χρειάζεστε βοήθεια, θα βρείτε ότι <a href=\"https://docs.chamilo.org\">η επίσημη τεκμηρίωσή μας</a> μπορεί να βοηθήσει για τυπική τεκμηρίωση, ενώ το <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">διαδικτυακό φόρουμ μας</a> μπορεί να βοηθήσει να μοιραστείτε ιδέες και να βρείτε απαντήσεις από άλλους χρήστες του Chamilo."
 
@@ -34074,6 +34098,63 @@ msgstr "Αξιολόγηση αναγκών κατάρτισης"
 
 msgid "Work climate surveys"
 msgstr "Έρευνες κλίματος εργασίας"
+
+msgid "Unit"
+msgstr "Μονάδα"
+
+msgid "Total cost"
+msgstr "Συνολικό κόστος"
+
+msgid "Cost per learner"
+msgstr "Κόστος ανά εκπαιδευόμενο"
+
+msgid "Average cost by session"
+msgstr "Μέσο κόστος ανά συνεδρία"
+
+msgid "Total investment"
+msgstr "Συνολική επένδυση"
+
+msgid "Set cost"
+msgstr "Ορισμός κόστους"
+
+msgid "Filter by date range"
+msgstr "Φιλτράρισμα κατά εύρος ημερομηνιών"
+
+msgid "Add distribution"
+msgstr "Προσθήκη κατανομής"
+
+msgid "User share"
+msgstr "Κοινή χρήση χρήστη"
+
+msgid "Select a unit"
+msgstr "Επιλογή μονάδας"
+
+msgid "Select a survey"
+msgstr "Επιλογή έρευνας"
+
+msgid "Distribution added"
+msgstr "Η κατανομή προστέθηκε"
+
+msgid "Distribution removed"
+msgstr "Η κατανομή αφαιρέθηκε"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Είστε σίγουροι ότι θέλετε να αφαιρέσετε αυτή την κατανομή;"
+
+msgid "Cost updated"
+msgstr "Το κόστος ενημερώθηκε"
+
+msgid "Total invited"
+msgstr "Συνολικά προσκεκλημένοι"
+
+msgid "Total answered"
+msgstr "Συνολικά απαντημένοι"
+
+msgid "Total responses"
+msgstr "Συνολικές απαντήσεις"
+
+msgid "No responses yet"
+msgstr "Καμία απάντηση ακόμη"
 
 msgid "Diversity criteria"
 msgstr "Κριτήρια διαφορετικότητας"
@@ -34586,4 +34667,274 @@ msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετ�
 
 msgid "Loading…"
 msgstr "Φόρτωση…"
+
+msgid "Periodicity"
+msgstr "Περιοδικότητα"
+
+msgid "Suggest from periodicity"
+msgstr "Πρόταση από περιοδικότητα"
+
+msgid "Add job offer"
+msgstr "Προσθήκη προσφοράς εργασίας"
+
+msgid "Edit job offer"
+msgstr "Επεξεργασία προσφοράς εργασίας"
+
+msgid "Function / Unit"
+msgstr "Λειτουργία / Μονάδα"
+
+msgid "Vacancies"
+msgstr "Διαθέσιμες θέσεις"
+
+msgid "Expected start date"
+msgstr "Αναμενόμενη ημερομηνία έναρξης"
+
+msgid "Contract duration (days)"
+msgstr "Διάρκεια σύμβασης (ημέρες)"
+
+msgid "Public offer"
+msgstr "Δημόσια προσφορά"
+
+msgid "Publication start date"
+msgstr "Ημερομηνία έναρξης δημοσίευσης"
+
+msgid "Publication end date"
+msgstr "Ημερομηνία λήξης δημοσίευσης"
+
+msgid "Applications"
+msgstr "Αιτήσεις"
+
+msgid "Selection exams"
+msgstr "Εξεταστικές διαδικασίες επιλογής"
+
+msgid "Add exam"
+msgstr "Προσθήκη εξέτασης"
+
+msgid "Applicant"
+msgstr "Αιτών"
+
+msgid "Applied on"
+msgstr "Υποβλήθηκε στις"
+
+msgid "Salary expectations"
+msgstr "Προσδοκίες μισθού"
+
+msgid "Pending evaluation"
+msgstr "Εκκρεμεί αξιολόγηση"
+
+msgid "Hired"
+msgstr "Προσελήφθη"
+
+msgid "Not hired"
+msgstr "Δεν προσλήθηκε"
+
+msgid "Evaluate"
+msgstr "Αξιολόγηση"
+
+msgid "Evaluate candidate"
+msgstr "Αξιολόγηση υποψηφίου"
+
+msgid "Decision"
+msgstr "Απόφαση"
+
+msgid "Save evaluation"
+msgstr "Αποθήκευση αξιολόγησης"
+
+msgid "Back to job offers"
+msgstr "Επιστροφή σε προσφορές εργασίας"
+
+msgid "No job offers available at this time."
+msgstr "Δεν υπάρχουν διαθέσιμες προσφορές εργασίας αυτή τη στιγμή."
+
+msgid "See details"
+msgstr "Δες λεπτομέρειες"
+
+msgid "Apply now"
+msgstr "Κάνε αίτηση τώρα"
+
+msgid "Already applied"
+msgstr "Έχει ήδη υποβληθεί αίτηση"
+
+msgid "Log in to apply"
+msgstr "Σύνδεση για αίτηση"
+
+msgid "Apply to job offer"
+msgstr "Αίτηση για προσφορά εργασίας"
+
+msgid "Availability date"
+msgstr "Ημερομηνία διαθεσιμότητας"
+
+msgid "CV (Personal file)"
+msgstr "Βιογραφικό (Προσωπικό αρχείο)"
+
+msgid "Select your CV from your personal files"
+msgstr "Επιλέξτε το βιογραφικό σας από τα προσωπικά σας αρχεία"
+
+msgid "Submit application"
+msgstr "Υποβολή αίτησης"
+
+msgid "Application submitted successfully."
+msgstr "Η αίτηση υποβλήθηκε επιτυχώς."
+
+msgid "Private observations"
+msgstr "Ιδιωτικές παρατηρήσεις"
+
+msgid "My applications"
+msgstr "Οι αιτήσεις μου"
+
+msgid "View job offers"
+msgstr "Προβολή προσφορών εργασίας"
+
+msgid "You have not submitted any applications yet."
+msgstr "Δεν έχετε υποβάλει καμία αίτηση ακόμα."
+
+msgid "Under review"
+msgstr "Υπό εξέταση"
+
+msgid "Not selected"
+msgstr "Δεν επιλέχθηκε"
+
+msgid "HR feedback"
+msgstr "Σχόλια Π.Ο.Π."
+
+msgid "Withdraw application"
+msgstr "Ανακατάκληση αίτησης"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Είστε σίγουροι ότι θέλετε να ανακαλέσετε αυτή την αίτηση;"
+
+msgid "Application withdrawn."
+msgstr "Η αίτηση ανακλήθηκε."
+
+msgid "Calculate quiz scores"
+msgstr "Υπολογισμός βαθμολογιών κουίζ"
+
+msgid "Scores calculated."
+msgstr "Οι βαθμολογίες υπολογίστηκαν."
+
+msgid "Career plan overview"
+msgstr "Επισκόπηση προγράμματος καριέρας"
+
+msgid "My career plan"
+msgstr "Το πρόγραμμα καριέρας μου"
+
+msgid "No function-unit associations configured yet."
+msgstr "Δεν έχουν ρυθμιστεί συσχετίσεις λειτουργίας-μονάδας ακόμα."
+
+msgid "No required skills defined."
+msgstr "Δεν έχουν οριστεί απαιτούμενες δεξιότητες."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Πρέπει να σας έχει ανατεθεί θέση για να δείτε το πρόγραμμα καριέρας σας."
+
+msgid "Your current position"
+msgstr "Η τρέχουσα θέση σας"
+
+msgid "No career targets found for your current position."
+msgstr "Δεν βρέθηκαν στόχοι καριέρας για την τρέχουσα θέση σας."
+
+msgid "No required skills defined for this position."
+msgstr "Δεν έχουν οριστεί απαιτούμενες δεξιότητες για αυτή τη θέση."
+
+msgid "Met"
+msgstr "Ικανοποιημένο"
+
+msgid "Gap"
+msgstr "Κενό"
+
+msgid "Acquired:"
+msgstr "Αποκτήθηκε:"
+
+msgid "Required:"
+msgstr "Απαιτείται:"
+
+msgid "Max"
+msgstr "Μέγ."
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Δεν βρέθηκαν κριτήρια ποικιλομορφίας. Προσθέστε κριτήρια πρώτα."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Επιλέξτε ένα κριτήριο από τη λίστα για να δείτε τις στατιστικές του."
+
+msgid "No data available for this criterion."
+msgstr "Δεν υπάρχουν δεδομένα για αυτό το κριτήριο."
+
+msgid "Change password"
+msgstr "Αλλαγή κωδικού πρόσβασης"
+
+msgid "Newest first"
+msgstr "Νεότερα πρώτα"
+
+msgid "Oldest first"
+msgstr "Παλαιότερα πρώτα"
+
+msgid "Title A–Z"
+msgstr "Τίτλος Α–Ω"
+
+msgid "Title Z–A"
+msgstr "Τίτλος Ω–Α"
+
+msgid "Send test email"
+msgstr "Αποστολή δοκιμαστικού email"
+
+msgid "Show teachers"
+msgstr "Εμφάνιση εκπαιδευτικών"
+
+msgid "Hide teachers"
+msgstr "Απόκρυψη εκπαιδευτικών"
+
+msgid "Delete exercise attempts"
+msgstr "Διαγραφή προσπαθειών άσκησης"
+
+msgid "Message sent successfully."
+msgstr "Το μήνυμα εστάλη επιτυχώς."
+
+msgid "You cannot create a new course right now."
+msgstr "Δεν μπορείτε να δημιουργήσετε νέο μάθημα αυτή τη στιγμή."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Δεν είναι δυνατή η επαλήθευση αν μπορείτε να δημιουργήσετε νέο μάθημα αυτή τη στιγμή."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Παρακαλούμε δοκιμάστε ξανά αργότερα ή επικοινωνήστε με τον διαχειριστή."
+
+msgid "You cannot create more courses at this time."
+msgstr "Δεν μπορείτε να δημιουργήσετε περισσότερα μαθήματα αυτή τη στιγμή."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Διαχειρίζεστε ήδη %d μαθήματα και η ενεργή σας υπηρεσία επιτρέπει έως %d. Για να δημιουργήσετε άλλο μάθημα, χρειάζεστε υψηλότερο όριο υπηρεσίας ή να μειώσετε τα τρέχοντα ενεργά μαθήματά σας."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Διαχειρίζεστε ήδη %d μαθήματα και η πλατφόρμα επιτρέπει αυτή τη στιγμή έως %d για τον λογαριασμό σας. Δεν μπορείτε να δημιουργήσετε περισσότερα μαθήματα αυτή τη στιγμή."
+
+msgid "Add a class"
+msgstr "Προσθήκη τάξης"
+
+msgid "Search classes"
+msgstr "Αναζήτηση τάξεων"
+
+msgid "No classes found"
+msgstr "Δεν βρέθηκαν τάξεις"
+
+msgid "Import classes"
+msgstr "Εισαγωγή τάξεων"
+
+msgid "Class users"
+msgstr "Χρήστες τάξης"
+
+msgid "%s classes imported"
+msgstr "Εισήχθησαν %s τάξεις"
+
+msgid "%s user-class links imported"
+msgstr "Εισήχθησαν %s συνδέσεις χρήστη-τάξης"
+
+msgid "Hide comments"
+msgstr "Απόκρυψη σχολίων"
+
+msgid "Loading comments..."
+msgstr "Φόρτωση σχολίων..."
+
+msgid "No comments yet."
+msgstr "Δεν υπάρχουν σχόλια ακόμα."
 

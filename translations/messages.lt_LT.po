@@ -2022,7 +2022,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:autoriaus teisės,, no:be autoriaus teisių"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory: aplankas ,, application/msword:MsWord,, application/octet-stream:Oktobaitų srautas,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory: aplankas ,, application/msword:MsWord,, application/octet-stream:Oktobinis srautas,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":testas:testas,,      simuliacija:simuliacija,,      klausimynas:klausimynas,,      diagrama:diagrama,,      paveikslėlis:paveikslėlis,,      grafikas:grafikas,,      indeksas:indeksas,,      skaidrė:skaidrė,,      lentelė:lentelė,,      naratyvinis tekstas:naratyvinis tekstas,,      egzaminas:egzaminas,,      eksperimentas:eksperimentas,,      problemos teiginys:problemos teiginys,,      savęs vertinimas:savęs vertinimas,,      paskaita:paskaita"
@@ -9731,6 +9731,9 @@ msgstr "Paieškos rezultatai:"
 msgid "Select a file"
 msgstr "Pasirinkite failą"
 
+msgid "Select a file to insert into the editor."
+msgstr "Pasirinkite failą, kurį įterpti į redaktorių."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Įspėjimas – DUK failas, esantis jūsų portalo /home/ kataloge, nėra rašomas. Jūsų tekstas nebus išsaugotas, kol nebus pakeistos failo teisės."
 
@@ -15911,6 +15914,9 @@ msgstr "Data ir laikas"
 msgid "Item"
 msgstr "Elementas"
 
+msgid "Items"
+msgstr "Elementai"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Konfigūruoti prietaisų skydelio įskiepį"
 
@@ -17164,6 +17170,18 @@ msgstr "Sesijos grupėje"
 
 msgid "Courses in group"
 msgstr "Kursai grupėje"
+
+msgid "Courses on the platform"
+msgstr "Kursai platformoje"
+
+msgid "%s courses"
+msgstr "%s kursai"
+
+msgid "%s sessions"
+msgstr "%s sesijos"
+
+msgid "Search by title or code"
+msgstr "Ieškoti pagal pavadinimą arba kodą"
 
 msgid "Users in group"
 msgstr "Vartotojai grupėje"
@@ -32168,6 +32186,9 @@ msgstr "Užduotis"
 msgid "Allowed file formats: %s"
 msgstr "Leidžiami failų formatai: %s"
 
+msgid "File manager"
+msgstr "Failų tvarkytuvas"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Failo tipas neleistinas. Leidžiami plėtiniai: %s"
 
@@ -33881,6 +33902,9 @@ msgstr "Sveiki"
 msgid "Welcome to Chamilo"
 msgstr "Sveiki atvykę į Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Pažymėti visas neatsakytas klausimus žemiau"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Jei tai pirmas kartas naudojant Chamilo, įsitikinkite, kad patikrinote šoninį meniu, kad rastumėte kelią per daugybę jo funkcijų. Jei reikia pagalbos, rasite <a href=\"https://docs.chamilo.org\">mūsų oficialią dokumentaciją</a> standartinei dokumentacijai, o mūsų <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">internetinį forumą</a> idėjoms dalintis ir atsakymams iš kitų Chamilo naudotojų rasti."
 
@@ -34061,6 +34085,63 @@ msgstr "Mokymų poreikių vertinimas"
 msgid "Work climate surveys"
 msgstr "Darbo klimato apklausos"
 
+msgid "Unit"
+msgstr "Vienetas"
+
+msgid "Total cost"
+msgstr "Bendrosios išlaidos"
+
+msgid "Cost per learner"
+msgstr "Kaina už besimokantįjį"
+
+msgid "Average cost by session"
+msgstr "Vidutinės išlaidos pagal sesiją"
+
+msgid "Total investment"
+msgstr "Bendrosios investicijos"
+
+msgid "Set cost"
+msgstr "Nustatyti kainą"
+
+msgid "Filter by date range"
+msgstr "Filtruoti pagal datos intervalą"
+
+msgid "Add distribution"
+msgstr "Pridėti paskirstymą"
+
+msgid "User share"
+msgstr "Vartotojo dalis"
+
+msgid "Select a unit"
+msgstr "Pasirinkite vienetą"
+
+msgid "Select a survey"
+msgstr "Pasirinkite apklausą"
+
+msgid "Distribution added"
+msgstr "Paskirstymas pridėtas"
+
+msgid "Distribution removed"
+msgstr "Paskirstymas pašalintas"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Ar tikrai norite pašalinti šį paskirstymą?"
+
+msgid "Cost updated"
+msgstr "Kaina atnaujinta"
+
+msgid "Total invited"
+msgstr "Iš viso pakviesta"
+
+msgid "Total answered"
+msgstr "Iš viso atsakyta"
+
+msgid "Total responses"
+msgstr "Iš viso atsakymų"
+
+msgid "No responses yet"
+msgstr "Dar nėra atsakymų"
+
 msgid "Diversity criteria"
 msgstr "Įvairovės kriterijai"
 
@@ -34131,7 +34212,7 @@ msgid "FTE"
 msgstr "FTE"
 
 msgid "FTE (0–1)"
-msgstr "FTE (0–1)"
+msgstr "ETP (0–1)"
 
 msgid "Boss"
 msgstr "Vadovas"
@@ -34572,4 +34653,274 @@ msgstr "Ar tikrai norite ištrinti šį vertinimą?"
 
 msgid "Loading…"
 msgstr "Įkeliama…"
+
+msgid "Periodicity"
+msgstr "Periodiškumas"
+
+msgid "Suggest from periodicity"
+msgstr "Siūlyti pagal periodičumą"
+
+msgid "Add job offer"
+msgstr "Pridėti darbo pasiūlymą"
+
+msgid "Edit job offer"
+msgstr "Redaguoti darbo pasiūlymą"
+
+msgid "Function / Unit"
+msgstr "Funkcija / Padalinys"
+
+msgid "Vacancies"
+msgstr "Laisvos vietos"
+
+msgid "Expected start date"
+msgstr "Numatoma pradžios data"
+
+msgid "Contract duration (days)"
+msgstr "Sutarties trukmė (dienos)"
+
+msgid "Public offer"
+msgstr "Viešas pasiūlymas"
+
+msgid "Publication start date"
+msgstr "Publikavimo pradžios data"
+
+msgid "Publication end date"
+msgstr "Publikavimo pabaigos data"
+
+msgid "Applications"
+msgstr "Pareiškimai"
+
+msgid "Selection exams"
+msgstr "Atrankos egzaminai"
+
+msgid "Add exam"
+msgstr "Pridėti egzaminą"
+
+msgid "Applicant"
+msgstr "Pareikškėjas"
+
+msgid "Applied on"
+msgstr "Pateikė"
+
+msgid "Salary expectations"
+msgstr "Atlyginimo lūkesčiai"
+
+msgid "Pending evaluation"
+msgstr "Laukia vertinimo"
+
+msgid "Hired"
+msgstr "Įdarbintas"
+
+msgid "Not hired"
+msgstr "Neįdarbintas"
+
+msgid "Evaluate"
+msgstr "Įvertinti"
+
+msgid "Evaluate candidate"
+msgstr "Įvertinti kandidatą"
+
+msgid "Decision"
+msgstr "Sprendimas"
+
+msgid "Save evaluation"
+msgstr "Išsaugoti vertinimą"
+
+msgid "Back to job offers"
+msgstr "Grįžti į darbo pasiūlymus"
+
+msgid "No job offers available at this time."
+msgstr "Šiuo metu nėra prieinamų darbo pasiūlymų."
+
+msgid "See details"
+msgstr "Žiūrėti detales"
+
+msgid "Apply now"
+msgstr "Teikti paraišką dabar"
+
+msgid "Already applied"
+msgstr "Jau pateikta"
+
+msgid "Log in to apply"
+msgstr "Prisijunkite, kad pateiktumėte paraišką"
+
+msgid "Apply to job offer"
+msgstr "Teikti paraišką darbo pasiūlymui"
+
+msgid "Availability date"
+msgstr "Prieinamumo data"
+
+msgid "CV (Personal file)"
+msgstr "CV (Asmeninis failas)"
+
+msgid "Select your CV from your personal files"
+msgstr "Pasirinkite savo CV iš asmeninių failų"
+
+msgid "Submit application"
+msgstr "Pateikti paraišką"
+
+msgid "Application submitted successfully."
+msgstr "Paraiška sėkmingai pateikta."
+
+msgid "Private observations"
+msgstr "Privatus komentarai"
+
+msgid "My applications"
+msgstr "Mano paraiškos"
+
+msgid "View job offers"
+msgstr "Peržiūrėti darbo pasiūlymus"
+
+msgid "You have not submitted any applications yet."
+msgstr "Jūs dar nepateikėte jokių paraiškų."
+
+msgid "Under review"
+msgstr "Peržiūrimas"
+
+msgid "Not selected"
+msgstr "Neišrinktas"
+
+msgid "HR feedback"
+msgstr "Žmogiškųjų išteklių atsiliepimas"
+
+msgid "Withdraw application"
+msgstr "Atsitraukti nuo paraiškos"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Ar tikrai norite atsisakyti šios paraiškos?"
+
+msgid "Application withdrawn."
+msgstr "Paraiška atsiimta."
+
+msgid "Calculate quiz scores"
+msgstr "Apskaičiuoti testo rezultatus"
+
+msgid "Scores calculated."
+msgstr "Rezultatai apskaičiuoti."
+
+msgid "Career plan overview"
+msgstr "Karjeros plano apžvalga"
+
+msgid "My career plan"
+msgstr "Mano karjeros planas"
+
+msgid "No function-unit associations configured yet."
+msgstr "Dar nesukonfigūruoti funkcija-padalinio ryšiai."
+
+msgid "No required skills defined."
+msgstr "Nenustatyti reikalingi įgūdžiai."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Norėdami pamatyti savo karjeros planą, turite būti priskirti prie pareigų."
+
+msgid "Your current position"
+msgstr "Jūsų dabartinės pareigos"
+
+msgid "No career targets found for your current position."
+msgstr "Jūsų dabartinėms pareigoms karjeros tikslų nerasta."
+
+msgid "No required skills defined for this position."
+msgstr "Šioms pareigoms reikiamų įgūdžių neapibrėžta."
+
+msgid "Met"
+msgstr "Įvykdyta"
+
+msgid "Gap"
+msgstr "Trūksta"
+
+msgid "Acquired:"
+msgstr "Įgytas:"
+
+msgid "Required:"
+msgstr "Reikalingas:"
+
+msgid "Max"
+msgstr "Maks."
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Įvairovės kriterijų nerasta. Pirmiausia pridėkite kriterijus."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Pasirinkite kriterijų iš sąrašo, kad pamatytumėte jo statistiką."
+
+msgid "No data available for this criterion."
+msgstr "Šiam kriterijui duomenų nėra."
+
+msgid "Change password"
+msgstr "Keisti slaptažodį"
+
+msgid "Newest first"
+msgstr "Naujausi pirmiausia"
+
+msgid "Oldest first"
+msgstr "Seniausi pirmiausia"
+
+msgid "Title A–Z"
+msgstr "Pavadinimas A–Z"
+
+msgid "Title Z–A"
+msgstr "Pavadinimas Z–A"
+
+msgid "Send test email"
+msgstr "Siųsti bandomąjį el. laišką"
+
+msgid "Show teachers"
+msgstr "Rodyti dėstytojus"
+
+msgid "Hide teachers"
+msgstr "Slėpti dėstytojus"
+
+msgid "Delete exercise attempts"
+msgstr "Ištrinti pratimų bandymus"
+
+msgid "Message sent successfully."
+msgstr "Žinutė sėkmingai išsiųsta."
+
+msgid "You cannot create a new course right now."
+msgstr "Šiuo metu negalite sukurti naujo kurso."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Nepavyko patikrinti, ar galite šiuo metu sukurti naują kursą."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Pabandykite dar kartą vėliau arba kreipkitės į administratorių."
+
+msgid "You cannot create more courses at this time."
+msgstr "Šiuo metu negalite kurti daugiau kursų."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Jūs jau valdote %d kursus, o jūsų aktyvi paslauga leidžia iki %d. Norėdami sukurti kitą kursą, reikia didesnės paslaugos ribos arba sumažinti šiuo metu aktyvių kursų skaičių."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Jūs jau valdote %d kursus, o platforma šiuo metu jūsų paskyrai leidžia iki %d. Šiuo metu negalite kurti daugiau kursų."
+
+msgid "Add a class"
+msgstr "Pridėti klasę"
+
+msgid "Search classes"
+msgstr "Ieškoti klasių"
+
+msgid "No classes found"
+msgstr "Klasių nerasta"
+
+msgid "Import classes"
+msgstr "Importuoti klases"
+
+msgid "Class users"
+msgstr "Klasės vartotojai"
+
+msgid "%s classes imported"
+msgstr "Importuota %s klasių"
+
+msgid "%s user-class links imported"
+msgstr "Importuota %s vartotojo-klasės nuorodų"
+
+msgid "Hide comments"
+msgstr "Slėpti komentarus"
+
+msgid "Loading comments..."
+msgstr "Įkeliami komentarai..."
+
+msgid "No comments yet."
+msgstr "Dar nėra komentarų."
 

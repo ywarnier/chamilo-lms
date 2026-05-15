@@ -9726,6 +9726,9 @@ msgstr "Matokeo ya utafutaji kwa:"
 msgid "Select a file"
 msgstr "Chagua faili"
 
+msgid "Select a file to insert into the editor."
+msgstr "Chagua faili la kuingiza kwenye mhariri."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Onyo - Faili ya FAQ, iliyoko katika saraka ya /home/ ya lango lako, haiwezi kuandikwa. maandishi yako hayatakuokolewa hadi ruhusa za faili zibadilishwe."
 
@@ -15906,6 +15909,9 @@ msgstr "Tarehe & wakati"
 msgid "Item"
 msgstr "Kipengele"
 
+msgid "Items"
+msgstr "Vipengele"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Sanidi Kiuguo cha Dashibodi"
 
@@ -17159,6 +17165,18 @@ msgstr "Vikao katika kikundi"
 
 msgid "Courses in group"
 msgstr "Kozi katika kikundi"
+
+msgid "Courses on the platform"
+msgstr "Kozi kwenye jukwaa"
+
+msgid "%s courses"
+msgstr "%s kozi"
+
+msgid "%s sessions"
+msgstr "%s vipindi"
+
+msgid "Search by title or code"
+msgstr "Tafuta kwa kichwa au msimbo"
 
 msgid "Users in group"
 msgstr "Watumiaji katika kikundi"
@@ -32163,6 +32181,9 @@ msgstr "Kazi"
 msgid "Allowed file formats: %s"
 msgstr "Muundo wa faili zilizoruhusiwa: %s"
 
+msgid "File manager"
+msgstr "Msimamizi wa faili"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Aina ya faili hairuhusiwi. Viendelezi vilivyoruhusiwa: %s"
 
@@ -33876,6 +33897,9 @@ msgstr "Karibu"
 msgid "Welcome to Chamilo"
 msgstr "Karibu Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Angalia maswali yote ambayo hayajajibiwa chini"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Kama ni mara yako ya kwanza kutumia Chamilo, hakikisha unatazama menyu ya upande ili kupata njia katika vipengele vyake vingi. Kama unahitaji msaada, utapata <a href=\"https://docs.chamilo.org\">hati rasmi zetu</a> zinaweza kusaidia kwa hati za kawaida, wakati <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forum yetu ya mtandaoni</a> inaweza kusaidia kushiriki mawazo na kupata majibu kutoka kwa watumiaji wengine wa Chamilo."
 
@@ -34055,6 +34079,63 @@ msgstr "Tathmini ya mahitaji ya mafunzo"
 
 msgid "Work climate surveys"
 msgstr "Utafiti wa hali ya kazi"
+
+msgid "Unit"
+msgstr "Kitengo"
+
+msgid "Total cost"
+msgstr "Gharama jumla"
+
+msgid "Cost per learner"
+msgstr "Gharama kwa mwanafunzi"
+
+msgid "Average cost by session"
+msgstr "Gharama wastani kwa kikao"
+
+msgid "Total investment"
+msgstr "Uwekezaji wa jumla"
+
+msgid "Set cost"
+msgstr "Weka gharama"
+
+msgid "Filter by date range"
+msgstr "Chuja kwa kipindi cha tarehe"
+
+msgid "Add distribution"
+msgstr "Ongeza usambazaji"
+
+msgid "User share"
+msgstr "Sehemu ya mtumiaji"
+
+msgid "Select a unit"
+msgstr "Chagua kitengo"
+
+msgid "Select a survey"
+msgstr "Chagua uchunguzi"
+
+msgid "Distribution added"
+msgstr "Usambazaji umeongezwa"
+
+msgid "Distribution removed"
+msgstr "Usambazaji umeondolewa"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Je, una uhakika unataka kuondoa usambazaji huu?"
+
+msgid "Cost updated"
+msgstr "Gharama imesasishwa"
+
+msgid "Total invited"
+msgstr "Waloalishwa kwa jumla"
+
+msgid "Total answered"
+msgstr "Waliijibu kwa jumla"
+
+msgid "Total responses"
+msgstr "Majibu ya jumla"
+
+msgid "No responses yet"
+msgstr "Hakuna majibu bado"
 
 msgid "Diversity criteria"
 msgstr "Viainisho vya utofauti"
@@ -34567,4 +34648,274 @@ msgstr "Je, una uhakika unataka kufuta tathmini hii?"
 
 msgid "Loading…"
 msgstr "Inapakia…"
+
+msgid "Periodicity"
+msgstr "Muda wa kurudia"
+
+msgid "Suggest from periodicity"
+msgstr "Pendekeza kutoka kwa muda wa kurudia"
+
+msgid "Add job offer"
+msgstr "Ongeza tangazo la kazi"
+
+msgid "Edit job offer"
+msgstr "Hariri tangazo la kazi"
+
+msgid "Function / Unit"
+msgstr "Kazi / Kitengo"
+
+msgid "Vacancies"
+msgstr "Nafasi za kazi"
+
+msgid "Expected start date"
+msgstr "Tarehe inayotarajiwa ya kuanza"
+
+msgid "Contract duration (days)"
+msgstr "Muda wa mkataba (siku)"
+
+msgid "Public offer"
+msgstr "Tangazo la umma"
+
+msgid "Publication start date"
+msgstr "Tarehe ya kuanza chapisho"
+
+msgid "Publication end date"
+msgstr "Tarehe ya kumaliza chapisho"
+
+msgid "Applications"
+msgstr "Maombi"
+
+msgid "Selection exams"
+msgstr "Mitihani ya uchaguzi"
+
+msgid "Add exam"
+msgstr "Ongeza mtihani"
+
+msgid "Applicant"
+msgstr "Mgombea"
+
+msgid "Applied on"
+msgstr "Aliomba tarehe"
+
+msgid "Salary expectations"
+msgstr "Matarajio ya mishahara"
+
+msgid "Pending evaluation"
+msgstr "Inasubiri tathmini"
+
+msgid "Hired"
+msgstr "Ameajiriwa"
+
+msgid "Not hired"
+msgstr "Hajaajiriwa"
+
+msgid "Evaluate"
+msgstr "Tathmini"
+
+msgid "Evaluate candidate"
+msgstr "Tathmini mgombea"
+
+msgid "Decision"
+msgstr "Uamuzi"
+
+msgid "Save evaluation"
+msgstr "Hifadhi tathmini"
+
+msgid "Back to job offers"
+msgstr "Rudi kwenye matangazo ya kazi"
+
+msgid "No job offers available at this time."
+msgstr "Hakuna matangazo ya kazi yanayopatikana kwa sasa."
+
+msgid "See details"
+msgstr "Tazama maelezo"
+
+msgid "Apply now"
+msgstr "Omba sasa"
+
+msgid "Already applied"
+msgstr "Umeshapoomba"
+
+msgid "Log in to apply"
+msgstr "Ingia ili kuomba"
+
+msgid "Apply to job offer"
+msgstr "Omba tangazo la kazi"
+
+msgid "Availability date"
+msgstr "Tarehe ya upatikanaji"
+
+msgid "CV (Personal file)"
+msgstr "CV (Faili ya kibinafsi)"
+
+msgid "Select your CV from your personal files"
+msgstr "Chagua CV yako kutoka kwenye faili zako za kibinafsi"
+
+msgid "Submit application"
+msgstr "Wasilisha maombi"
+
+msgid "Application submitted successfully."
+msgstr "Ombi limetumwa kwa mafanikio."
+
+msgid "Private observations"
+msgstr "Matokeo ya kibinafsi"
+
+msgid "My applications"
+msgstr "Maombi yangu"
+
+msgid "View job offers"
+msgstr "Tazama matangazo ya kazi"
+
+msgid "You have not submitted any applications yet."
+msgstr "Hujawasilisha maombi yoyote bado."
+
+msgid "Under review"
+msgstr "Chini ya mapitio"
+
+msgid "Not selected"
+msgstr "Hakujachaguliwa"
+
+msgid "HR feedback"
+msgstr "Maoni ya HR"
+
+msgid "Withdraw application"
+msgstr "Ondoa ombi"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Je, una uhakika unataka kuondoa ombi hili?"
+
+msgid "Application withdrawn."
+msgstr "Ombi limeondolewa."
+
+msgid "Calculate quiz scores"
+msgstr "Hesabu alama za jaribio"
+
+msgid "Scores calculated."
+msgstr "Alama zimehesabiwa."
+
+msgid "Career plan overview"
+msgstr "Muhtasari wa mpango wa kazi"
+
+msgid "My career plan"
+msgstr "Mpango wangu wa kazi"
+
+msgid "No function-unit associations configured yet."
+msgstr "Hakuna uhusiano wa kitengo cha kazi uliowekwa bado."
+
+msgid "No required skills defined."
+msgstr "Hakuna ustadi unaohitajika uliofafanuliwa."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Lazima upewe nafasi ili uone mpango wako wa kazi."
+
+msgid "Your current position"
+msgstr "Nafasi yako ya sasa"
+
+msgid "No career targets found for your current position."
+msgstr "Hakuna malengo ya kazi yaliyopatikana kwa nafasi yako ya sasa."
+
+msgid "No required skills defined for this position."
+msgstr "Hakuna ustadi unaohitajika uliofafanuliwa kwa nafasi hii."
+
+msgid "Met"
+msgstr "Imefikiwa"
+
+msgid "Gap"
+msgstr "Pengo"
+
+msgid "Acquired:"
+msgstr "Ilimu:"
+
+msgid "Required:"
+msgstr "Inahitajika:"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Hakuna viainisho vya utofauti vilivyopatikana. Ongeza viainisho kwanza."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Chagua kiainishi kutoka orodha ili kuona takwimu zake."
+
+msgid "No data available for this criterion."
+msgstr "Hakuna data inayopatikana kwa kiainishi hiki."
+
+msgid "Change password"
+msgstr "Badilisha nywila"
+
+msgid "Newest first"
+msgstr "Mpya kwanza"
+
+msgid "Oldest first"
+msgstr "Zee kwanza"
+
+msgid "Title A–Z"
+msgstr "Jina A–Z"
+
+msgid "Title Z–A"
+msgstr "Jina Z–A"
+
+msgid "Send test email"
+msgstr "Tuma barua pepe ya majaribio"
+
+msgid "Show teachers"
+msgstr "Onyesha walimu"
+
+msgid "Hide teachers"
+msgstr "Ficha walimu"
+
+msgid "Delete exercise attempts"
+msgstr "Futa majaribio ya zoezi"
+
+msgid "Message sent successfully."
+msgstr "Ujumbe umetumwa kwa mafanikio."
+
+msgid "You cannot create a new course right now."
+msgstr "Huwezi kuunda kozi mpya sasa."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Haiwezi kuthibitisha kama unaweza kuunda kozi mpya sasa."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Tafadhali jaribu tena baadaye au wasiliana na msimamizi."
+
+msgid "You cannot create more courses at this time."
+msgstr "Huwezi kuunda kozi zaidi wakati huu."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Unaongoza kozi %d na huduma yako inaruhusu hadi %d. Ili kuunda kozi nyingine, unahitaji kikomo cha huduma cha juu au kupunguza kozi zako za sasa zinazoendelea."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Unaongoza kozi %d na jukwaa linakuruhusu hadi %d kwa akaunti yako. Huwezi kuunda kozi zaidi sasa."
+
+msgid "Add a class"
+msgstr "Ongeza darasa"
+
+msgid "Search classes"
+msgstr "Tafuta madarasa"
+
+msgid "No classes found"
+msgstr "Hakuna madarasa yaliyopatikana"
+
+msgid "Import classes"
+msgstr "Ingiza madarasa"
+
+msgid "Class users"
+msgstr "Watumiaji wa darasa"
+
+msgid "%s classes imported"
+msgstr "%s madarasa yameingizwa"
+
+msgid "%s user-class links imported"
+msgstr "%s viungo vya mtumiaji-darasa vimeingizwa"
+
+msgid "Hide comments"
+msgstr "Ficha maoni"
+
+msgid "Loading comments..."
+msgstr "Inapakia maoni..."
+
+msgid "No comments yet."
+msgstr "Hakuna maoni bado."
 

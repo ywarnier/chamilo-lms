@@ -9730,6 +9730,9 @@ msgstr "Meklēšanas rezultāti:"
 msgid "Select a file"
 msgstr "Iezīmēt failu"
 
+msgid "Select a file to insert into the editor."
+msgstr "Izvēlieties failu, ko ievietot redaktorā."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "<b>Brīdinājums!</b> <br> BUJ fails, kas atrodas portāla / home / direktorijā, nav rediģējams. Jūsu teksts netiks saglabāts, līdz netiks izmainītas failu rediģēšanas atļaujas."
 
@@ -15910,6 +15913,9 @@ msgstr "Datums un laiks"
 msgid "Item"
 msgstr "punkts"
 
+msgid "Items"
+msgstr "Vienības"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Konfigurēt Paneļa spraudņus"
 
@@ -17163,6 +17169,18 @@ msgstr "Sesijas grupā"
 
 msgid "Courses in group"
 msgstr "Kursi grupā"
+
+msgid "Courses on the platform"
+msgstr "Kursi platformā"
+
+msgid "%s courses"
+msgstr "%s kursi"
+
+msgid "%s sessions"
+msgstr "%s sesijas"
+
+msgid "Search by title or code"
+msgstr "Meklēt pēc nosaukuma vai koda"
 
 msgid "Users in group"
 msgstr "Lietotāji grupā"
@@ -32168,6 +32186,9 @@ msgstr "Darbs"
 msgid "Allowed file formats: %s"
 msgstr "Atļautie failu formāti: %s"
 
+msgid "File manager"
+msgstr "Failu pārvaldnieks"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Faila tips nav atļauts. Atļautās paplašinājumi: %s"
 
@@ -33881,6 +33902,9 @@ msgstr "Laipni lūdzam"
 msgid "Welcome to Chamilo"
 msgstr "Laipni lūdzam Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Pārbaudīt visas neatbildētās jautājumus zemāk"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ja tas ir jūsu pirmais reizi, izmantojot Chamilo, pārliecinieties, ka pārbaudāt sānjoslu, lai atrastu ceļu caur daudzo funkciju. Ja nepieciešama palīdzība, mūsu <a href=\"https://docs.chamilo.org\">oficiālā dokumentācija</a> palīdzēs standarta dokumentācijai, savukārt mūsu <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">tiešsaistes forums</a> palīdzēs dalīties idejās un atrast atbildes no citiem Chamilo lietotājiem."
 
@@ -34060,6 +34084,63 @@ msgstr "Apmācību vajadzību novērtējums"
 
 msgid "Work climate surveys"
 msgstr "Darba klimata aptaujas"
+
+msgid "Unit"
+msgstr "Vienība"
+
+msgid "Total cost"
+msgstr "Kopējās izmaksas"
+
+msgid "Cost per learner"
+msgstr "Izmaksas par mācekli"
+
+msgid "Average cost by session"
+msgstr "Vidējās izmaksas pa sesijām"
+
+msgid "Total investment"
+msgstr "Kopējās investīcijas"
+
+msgid "Set cost"
+msgstr "Iestatīt izmaksas"
+
+msgid "Filter by date range"
+msgstr "Filtrēt pēc datuma diapazona"
+
+msgid "Add distribution"
+msgstr "Pievienot izplatījumu"
+
+msgid "User share"
+msgstr "Lietotāja daļa"
+
+msgid "Select a unit"
+msgstr "Izvēlēties vienību"
+
+msgid "Select a survey"
+msgstr "Izvēlēties aptauju"
+
+msgid "Distribution added"
+msgstr "Izplatījums pievienots"
+
+msgid "Distribution removed"
+msgstr "Izplatījums noņemts"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Vai tiešām vēlaties dzēst šo izplatīšanu?"
+
+msgid "Cost updated"
+msgstr "Izmaksas atjauninātas"
+
+msgid "Total invited"
+msgstr "Kopā uzaicināti"
+
+msgid "Total answered"
+msgstr "Kopā atbildējuši"
+
+msgid "Total responses"
+msgstr "Kopā atbildes"
+
+msgid "No responses yet"
+msgstr "Vēl nav atbilžu"
 
 msgid "Diversity criteria"
 msgstr "Dažādības kritēriji"
@@ -34570,4 +34651,274 @@ msgstr "Vai tiešām vēlaties dzēst šo novērtējumu?"
 
 msgid "Loading…"
 msgstr "Ielāde…"
+
+msgid "Periodicity"
+msgstr "Periodicitāte"
+
+msgid "Suggest from periodicity"
+msgstr "Ieteikt no periodiccitātes"
+
+msgid "Add job offer"
+msgstr "Pievienot darba piedāvājumu"
+
+msgid "Edit job offer"
+msgstr "Rediģēt darba piedāvājumu"
+
+msgid "Function / Unit"
+msgstr "Funkcija / Vienība"
+
+msgid "Vacancies"
+msgstr "Brīvas vietas"
+
+msgid "Expected start date"
+msgstr "Paredzamais sākuma datums"
+
+msgid "Contract duration (days)"
+msgstr "Līguma ilgums (dienas)"
+
+msgid "Public offer"
+msgstr "Publisks piedāvājums"
+
+msgid "Publication start date"
+msgstr "Publicēšanas sākuma datums"
+
+msgid "Publication end date"
+msgstr "Publicēšanas beigu datums"
+
+msgid "Applications"
+msgstr "Pieteikumi"
+
+msgid "Selection exams"
+msgstr "Atlases eksāmeni"
+
+msgid "Add exam"
+msgstr "Pievienot eksāmenu"
+
+msgid "Applicant"
+msgstr "Pretendents"
+
+msgid "Applied on"
+msgstr "Pieteicās"
+
+msgid "Salary expectations"
+msgstr "Algu gaidas"
+
+msgid "Pending evaluation"
+msgstr "Gaida novērtējumu"
+
+msgid "Hired"
+msgstr "Pieņemts darbā"
+
+msgid "Not hired"
+msgstr "Nav pieņemts darbā"
+
+msgid "Evaluate"
+msgstr "Novērtēt"
+
+msgid "Evaluate candidate"
+msgstr "Novērtēt kandidātu"
+
+msgid "Decision"
+msgstr "Lēmums"
+
+msgid "Save evaluation"
+msgstr "Saglabāt novērtējumu"
+
+msgid "Back to job offers"
+msgstr "Atpakaļ uz darba piedāvājumiem"
+
+msgid "No job offers available at this time."
+msgstr "Pašlaik nav pieejamu darba piedāvājumu."
+
+msgid "See details"
+msgstr "Skatīt detaļas"
+
+msgid "Apply now"
+msgstr "Pieteikties tagad"
+
+msgid "Already applied"
+msgstr "Jau pieteicies"
+
+msgid "Log in to apply"
+msgstr "Piesakieties sistēmā, lai pieteiktos"
+
+msgid "Apply to job offer"
+msgstr "Pieteikties darba piedāvājumam"
+
+msgid "Availability date"
+msgstr "Pieejamības datums"
+
+msgid "CV (Personal file)"
+msgstr "CV (Personīgais fails)"
+
+msgid "Select your CV from your personal files"
+msgstr "Izvēlieties savu CV no personīgajiem failiem"
+
+msgid "Submit application"
+msgstr "Iesniegt pieteikumu"
+
+msgid "Application submitted successfully."
+msgstr "Pieteikums veiksmīgi iesniegts."
+
+msgid "Private observations"
+msgstr "Privātās piezīmes"
+
+msgid "My applications"
+msgstr "Mani pieteikumi"
+
+msgid "View job offers"
+msgstr "Skatīt darba piedāvājumus"
+
+msgid "You have not submitted any applications yet."
+msgstr "Jūs vēl neesat iesniedzis nevienu pieteikumu."
+
+msgid "Under review"
+msgstr "Izskata"
+
+msgid "Not selected"
+msgstr "Nav izvēlēts"
+
+msgid "HR feedback"
+msgstr "HR atsauksmes"
+
+msgid "Withdraw application"
+msgstr "Atsaukt pieteikumu"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Vai tiešām vēlaties atsaukt šo pieteikumu?"
+
+msgid "Application withdrawn."
+msgstr "Pieteikums atsaukts."
+
+msgid "Calculate quiz scores"
+msgstr "Aprēķināt viktorīnas rezultātus"
+
+msgid "Scores calculated."
+msgstr "Rezultāti aprēķināti."
+
+msgid "Career plan overview"
+msgstr "Karjeras plāna pārskats"
+
+msgid "My career plan"
+msgstr "Mans karjeras plāns"
+
+msgid "No function-unit associations configured yet."
+msgstr "Vēl nav konfigurētas funkcionālo vienību saites."
+
+msgid "No required skills defined."
+msgstr "Nav definētas nepieciešamās prasmes."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Lai redzētu savu karjeras plānu, jums jābūt piešķirtam amatam."
+
+msgid "Your current position"
+msgstr "Jūsu pašreizējais amats"
+
+msgid "No career targets found for your current position."
+msgstr "Jūsu pašreizējam amatam nav atrasti karjeras mērķi."
+
+msgid "No required skills defined for this position."
+msgstr "Šim amatam nav definētas nepieciešamās prasmes."
+
+msgid "Met"
+msgstr "Sasniegts"
+
+msgid "Gap"
+msgstr "Trūkums"
+
+msgid "Acquired:"
+msgstr "Iegūts:"
+
+msgid "Required:"
+msgstr "Nepieciešams:"
+
+msgid "Max"
+msgstr "Maks."
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Dažādības kritēriji nav atrasti. Vispirms pievienojiet kritērijus."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Izvēlieties kritēriju no saraksta, lai skatītu tā statistiku."
+
+msgid "No data available for this criterion."
+msgstr "Šim kritērijam nav pieejamu datu."
+
+msgid "Change password"
+msgstr "Mainīt paroli"
+
+msgid "Newest first"
+msgstr "Jaunākie pirmais"
+
+msgid "Oldest first"
+msgstr "Vecākie pirmais"
+
+msgid "Title A–Z"
+msgstr "Nosaukums A–Z"
+
+msgid "Title Z–A"
+msgstr "Nosaukums Z–A"
+
+msgid "Send test email"
+msgstr "Sūtīt testa e-pastu"
+
+msgid "Show teachers"
+msgstr "Rādīt skolotājus"
+
+msgid "Hide teachers"
+msgstr "Paslēpt skolotājus"
+
+msgid "Delete exercise attempts"
+msgstr "Dzēst vingrinājumu mēģinājumus"
+
+msgid "Message sent successfully."
+msgstr "Ziņa nosūtīta veiksmīgi."
+
+msgid "You cannot create a new course right now."
+msgstr "Pašlaik nevarat izveidot jaunu kursu."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Nevar pārbaudīt, vai pašlaik varat izveidot jaunu kursu."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Lūdzu, mēģiniet vēlāk vai sazinieties ar administratoru."
+
+msgid "You cannot create more courses at this time."
+msgstr "Pašlaik nevarat izveidot vairāk kursu."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Jūs jau pārvaldāt %d kursus, un jūsu aktīvais pakalpojums ļauj līdz %d. Lai izveidotu citu kursu, nepieciešams augstāks pakalpojuma limits vai samazināt pašreizējos aktīvos kursus."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Jūs jau pārvaldāt %d kursus, un platforma pašlaik jūsu kontam ļauj līdz %d. Pašlaik nevarat izveidot vairāk kursu."
+
+msgid "Add a class"
+msgstr "Pievienot klasi"
+
+msgid "Search classes"
+msgstr "Meklēt klases"
+
+msgid "No classes found"
+msgstr "Klasēs nekas nav atrasts"
+
+msgid "Import classes"
+msgstr "Importēt klases"
+
+msgid "Class users"
+msgstr "Klasēs esošie lietotāji"
+
+msgid "%s classes imported"
+msgstr "%s klases importētas"
+
+msgid "%s user-class links imported"
+msgstr "%s lietotāju-klases saites importētas"
+
+msgid "Hide comments"
+msgstr "Paslēpt komentārus"
+
+msgid "Loading comments..."
+msgstr "Ielādē komentārus..."
+
+msgid "No comments yet."
+msgstr "Vēl nav komentāru."
 

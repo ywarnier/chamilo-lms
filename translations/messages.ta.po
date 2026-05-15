@@ -344,7 +344,7 @@ msgid "Sincerely"
 msgstr "உண்மையாகவே"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "சூத்திர நட样: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "பூரணச் சமன்பாடு: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "மாறியின் வரம்புகள்"
@@ -9730,6 +9730,9 @@ msgstr "தேடல் முடிவுகள்:"
 msgid "Select a file"
 msgstr "கோப்பைத் தேர்ந்தெடுக்கவும்"
 
+msgid "Select a file to insert into the editor."
+msgstr "திருத்தியில் செருகுவதற்காக கோப்பைத் தேர்ந்தெடுக்கவும்."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "எச்சரிக்கை - உங்கள் போர்ட்டலின் /home/ அடிப்படையில் உள்ள FAQ கோப்பு எழுத முடியாது. கோப்பு அனுமதிகள் மாற்றப்படும் வரை உங்கள் உரை சேமிக்கப்படாது."
 
@@ -15910,6 +15913,9 @@ msgstr "தேதி & நேரம்"
 msgid "Item"
 msgstr "பொருள்"
 
+msgid "Items"
+msgstr "பொருட்கள்"
+
 msgid "Configure Dashboard Plugin"
 msgstr "டாஷ்போர்டு செருகுநிரலை அமைக்கவும்"
 
@@ -17163,6 +17169,18 @@ msgstr "குழுவில் உள்ள அமர்வுகள்"
 
 msgid "Courses in group"
 msgstr "குழுவில் உள்ள பாடங்கள்"
+
+msgid "Courses on the platform"
+msgstr "தளத்தில் உள்ள பாடங்கள்"
+
+msgid "%s courses"
+msgstr "%s பாடங்கள்"
+
+msgid "%s sessions"
+msgstr "%s அமர்வுகள்"
+
+msgid "Search by title or code"
+msgstr "தலைப்பு அல்லது குறியீட்டினால் தேடல்"
 
 msgid "Users in group"
 msgstr "குழுவில் உள்ள பயனர்கள்"
@@ -32167,6 +32185,9 @@ msgstr "பணி"
 msgid "Allowed file formats: %s"
 msgstr "அனுமதிக்கப்பட்ட கோப்பு வடிவங்கள்: %s"
 
+msgid "File manager"
+msgstr "கோப்பு மேலாளர்"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "கோப்பு வகை அனுமதிக்கப்படவில்லை. அனுமதிக்கப்பட்ட நீட்டிப்புகள்: %s"
 
@@ -33880,6 +33901,9 @@ msgstr "வரவேற்கிறோம்"
 msgid "Welcome to Chamilo"
 msgstr "Chamiloக்கு வரவேற்கிறோம்"
 
+msgid "Check all unanswered questions below"
+msgstr "கீழே உள்ள அனைத்து பதிலளிக்கப்படாத கேள்விகளையும் சரிபார்க்கவும்"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Chamilo ஐ முதல் முறையாக பயன்படுத்தினால், அதன் பல அம்சங்களை அறிய பக்கப் பட்டியை சரிபார்க்கவும். உதவி தேவைப்பட்டால், <a href=\"https://docs.chamilo.org\">எங்கள் அதிகாரப்பூர்வ ஆவணங்கள்</a> தரமான ஆவணப்படுத்தலுக்கு உதவும், எங்கள் <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">ஆன்லைன் மன்றம்</a> Chamilo பயனர்களிடமிருந்து யோசனைகளைப் பகிர்ந்து பதில்களைக் கண்டுபிடிக்க உதவும்."
 
@@ -34059,6 +34083,63 @@ msgstr "பயிற்சி தேவை மதிப்பீடு"
 
 msgid "Work climate surveys"
 msgstr "வேலை சூழல் ஆய்வுகள்"
+
+msgid "Unit"
+msgstr "அலகு"
+
+msgid "Total cost"
+msgstr "மொத்த செலவு"
+
+msgid "Cost per learner"
+msgstr "கற்றவருக்கு ஒரு செலவு"
+
+msgid "Average cost by session"
+msgstr "அமர்வுக்கு சராசரி செலவு"
+
+msgid "Total investment"
+msgstr "மொத்த முதலீடு"
+
+msgid "Set cost"
+msgstr "செலவை அமைக்கவும்"
+
+msgid "Filter by date range"
+msgstr "தேதி வரம்பினால் வடிகட்டல்"
+
+msgid "Add distribution"
+msgstr "விநியோகத்தைச் சேர்க்கவும்"
+
+msgid "User share"
+msgstr "பயனர் பங்கு"
+
+msgid "Select a unit"
+msgstr "ஒரு அலகைத் தேர்ந்தெடுக்கவும்"
+
+msgid "Select a survey"
+msgstr "ஒரு ஆய்வைத் தேர்ந்தெடுக்கவும்"
+
+msgid "Distribution added"
+msgstr "விநியோகம் சேர்க்கப்பட்டது"
+
+msgid "Distribution removed"
+msgstr "விநியோகம் அகற்றப்பட்டது"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "இந்த விநியோகத்தை அகற்ற விரும்புகிறீர்களா?"
+
+msgid "Cost updated"
+msgstr "செலவு புதுப்பிக்கப்பட்டது"
+
+msgid "Total invited"
+msgstr "மொத்தம் அழைக்கப்பட்டது"
+
+msgid "Total answered"
+msgstr "மொத்த பதில்கள்"
+
+msgid "Total responses"
+msgstr "மொத்த பதில்கள்"
+
+msgid "No responses yet"
+msgstr "இன்னும் பதில்கள் இல்லை"
 
 msgid "Diversity criteria"
 msgstr "பன்முகத்தன்மை அளவுகோல்கள்"
@@ -34571,4 +34652,274 @@ msgstr "இந்த மதிப்பீட்டை நீக்க விர
 
 msgid "Loading…"
 msgstr "ஏற்றுகிறது…"
+
+msgid "Periodicity"
+msgstr "周期性"
+
+msgid "Suggest from periodicity"
+msgstr "周期性ிலிருந்து பரிந்துரை"
+
+msgid "Add job offer"
+msgstr "வேலை வாய்ப்பைச் சேர்க்கவும்"
+
+msgid "Edit job offer"
+msgstr "வேலை வாய்ப்பைத் திருத்தவும்"
+
+msgid "Function / Unit"
+msgstr "பணி / அலகு"
+
+msgid "Vacancies"
+msgstr "வெற்றிடங்கள்"
+
+msgid "Expected start date"
+msgstr "எதிர்பார்க்கப்படும் தொடக்க தேதி"
+
+msgid "Contract duration (days)"
+msgstr "கரார் கால அளவு (நாட்கள்)"
+
+msgid "Public offer"
+msgstr "பொது வாய்ப்பு"
+
+msgid "Publication start date"
+msgstr "வெளியிடல் தொடக்க தேதி"
+
+msgid "Publication end date"
+msgstr "வெளியிடல் முடிவு தேதி"
+
+msgid "Applications"
+msgstr "விண்ணப்பங்கள்"
+
+msgid "Selection exams"
+msgstr "தேர்வு தேர்வுகள்"
+
+msgid "Add exam"
+msgstr "தேர்வு சேர்க்கவும்"
+
+msgid "Applicant"
+msgstr "விண்ணப்பதாரர்"
+
+msgid "Applied on"
+msgstr "விண்ணப்பித்த தேதி"
+
+msgid "Salary expectations"
+msgstr "ஊதிய எதிர்பார்ப்புகள்"
+
+msgid "Pending evaluation"
+msgstr "மதிப்பீட்டிற்காக காத்திருக்கிறது"
+
+msgid "Hired"
+msgstr "ஊழியராக அமர்த்தப்பட்டார்"
+
+msgid "Not hired"
+msgstr "ஊழியராக அமர்த்தப்படவில்லை"
+
+msgid "Evaluate"
+msgstr "மதிப்பிடவும்"
+
+msgid "Evaluate candidate"
+msgstr "விண்ணப்பதாரரை மதிப்பிடவும்"
+
+msgid "Decision"
+msgstr "முடிவு"
+
+msgid "Save evaluation"
+msgstr "மதிப்பீட்டை சேமிக்கவும்"
+
+msgid "Back to job offers"
+msgstr "வேலை வாய்ப்புகளுக்கு திரும்பவும்"
+
+msgid "No job offers available at this time."
+msgstr "தற்போது எந்த வேலை வாய்ப்புகளும் கிடைக்கவில்லை."
+
+msgid "See details"
+msgstr "விவரங்களைப் பார்க்கவும்"
+
+msgid "Apply now"
+msgstr "இப்போது விண்ணப்பிக்கவும்"
+
+msgid "Already applied"
+msgstr "ஏற்கனவே விண்ணப்பிக்கப்பட்டது"
+
+msgid "Log in to apply"
+msgstr "விண்ணப்பிக்க லாகின் செய்யவும்"
+
+msgid "Apply to job offer"
+msgstr "வேலை வாய்ப்புக்கு விண்ணப்பிக்கவும்"
+
+msgid "Availability date"
+msgstr "கிடைக்கும் தேதி"
+
+msgid "CV (Personal file)"
+msgstr "சுயவிவரம் (தனிப்பட்ட கோப்பு)"
+
+msgid "Select your CV from your personal files"
+msgstr "உங்கள் தனிப்பட்ட கோப்புகளில் இருந்து உங்கள் சுயவிவரத்தைத் தேர்ந்தெடுக்கவும்"
+
+msgid "Submit application"
+msgstr "விண்ணப்பத்தை சமர்ப்பிக்கவும்"
+
+msgid "Application submitted successfully."
+msgstr "விண்ணப்பம் வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது."
+
+msgid "Private observations"
+msgstr "தனியான குறிப்புகள்"
+
+msgid "My applications"
+msgstr "எனது விண்ணப்பங்கள்"
+
+msgid "View job offers"
+msgstr "வேலை வாய்ப்புகளைப் பார்க்கவும்"
+
+msgid "You have not submitted any applications yet."
+msgstr "நீங்கள் இதுவரை எந்த விண்ணப்பங்களையும் சமர்ப்பிக்கவில்லை."
+
+msgid "Under review"
+msgstr "மதிப்பீட்டின் கீழ்"
+
+msgid "Not selected"
+msgstr "தேர்ந்தெடுக்கப்படவில்லை"
+
+msgid "HR feedback"
+msgstr "HR கருத்து"
+
+msgid "Withdraw application"
+msgstr "விண்ணப்பத்தை திரும்பப் பெறவும்"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "இந்த விண்ணப்பத்தை திரும்பப் பெற விரும்புகிறீர்களா?"
+
+msgid "Application withdrawn."
+msgstr "விண்ணப்பம் திரும்பப் பெறப்பட்டது."
+
+msgid "Calculate quiz scores"
+msgstr "クイズ 점수를 계산하세요"
+
+msgid "Scores calculated."
+msgstr "점수가 계산되었습니다."
+
+msgid "Career plan overview"
+msgstr "தொழில் திட்டம் கண்ணோட்டம்"
+
+msgid "My career plan"
+msgstr "எனது தொழில் திட்டம்"
+
+msgid "No function-unit associations configured yet."
+msgstr "இன்னும் பணி-அலகு சேர்க்கைகள் அமைக்கப்படவில்லை."
+
+msgid "No required skills defined."
+msgstr "எந்த தேவையான திறன்களும் வரையறுக்கப்படவில்லை."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "உங்கள் தொழில் திட்டத்தைப் பார்க்க ஒரு பதவிக்கு ஒதுக்கப்பட்டிருக்க வேண்டும்."
+
+msgid "Your current position"
+msgstr "உங்கள் தற்போதைய பதவி"
+
+msgid "No career targets found for your current position."
+msgstr "உங்கள் தற்போதைய பதவிக்கு எந்த வாழ்க்கை இலக்குகளும் கிடைக்கவில்லை."
+
+msgid "No required skills defined for this position."
+msgstr "இந்த பதவிக்கு தேவையான திறன்கள் வரையறுக்கப்படவில்லை."
+
+msgid "Met"
+msgstr "சாதித்தது"
+
+msgid "Gap"
+msgstr "பற்றாக்குறை"
+
+msgid "Acquired:"
+msgstr "பெற்றது:"
+
+msgid "Required:"
+msgstr "தேவை:"
+
+msgid "Max"
+msgstr "அதிகபட்சம்"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "பன்முகத்தன்மை அளவுகோல்கள் கிடைக்கவில்லை. முதலில் அளவுகோல்களைச் சேர்க்கவும்."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "புள்ளிவிவரங்களைக் காண பட்டியலில் இருந்து ஒரு அளவுகோலைத் தேர்ந்தெடுக்கவும்."
+
+msgid "No data available for this criterion."
+msgstr "இந்த அளவுகோலைக்கு தரவு கிடைக்கவில்லை."
+
+msgid "Change password"
+msgstr "கடவுச்சொல்லை மாற்றவும்"
+
+msgid "Newest first"
+msgstr "புதியது முதலில்"
+
+msgid "Oldest first"
+msgstr "பழையது முதலில்"
+
+msgid "Title A–Z"
+msgstr "தலைப்பு அ–இ"
+
+msgid "Title Z–A"
+msgstr "தலைப்பு இ–அ"
+
+msgid "Send test email"
+msgstr "சோதனை மின்னஞ்சலை அனுப்பவும்"
+
+msgid "Show teachers"
+msgstr "ஆசிரியர்களைக் காட்டு"
+
+msgid "Hide teachers"
+msgstr "ஆசிரியர்களை மறை"
+
+msgid "Delete exercise attempts"
+msgstr "ப் பயிற்சி முயற்சிகளை நீக்கு"
+
+msgid "Message sent successfully."
+msgstr "செய்தி வெற்றிகரமாக அனுப்பப்பட்டது."
+
+msgid "You cannot create a new course right now."
+msgstr "நீங்கள் இப்போது புதிய பாடத்தை உருவாக்க முடியாது."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "நீங்கள் இப்போது புதிய பாடத்தை உருவாக்க முடியுமா என்பதை சரிபார்க்க முடியவில்லை."
+
+msgid "Please try again later or contact the administrator."
+msgstr "பின்னர் மீண்டும் முயற்சி செய்யவும் அல்லது நிர்வாகியை தொடர்பு கொள்ளவும்."
+
+msgid "You cannot create more courses at this time."
+msgstr "இப்போது நீங்கள் மேலும் பாடங்கள் உருவாக்க முடியாது."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "நீங்கள் ஏற்கனவே %d பாடங்களை நிர்வகிக்கிறீர்கள் மற்றும் உங்கள் செயல்படும் சேவை %d வரை அனுமதிக்கிறது. மற்றொரு பாடத்தை உருவாக்க, உங்களுக்கு உயர் சேவை வரம்பு தேவை அல்லது உங்கள் தற்போதைய செயல்படும் பாடங்களைக் குறைக்க வேண்டும்."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "நீங்கள் ஏற்கனவே %d பாடங்களை நிர்வகிக்கிறீர்கள் மற்றும் தளம் உங்கள் கணக்கிற்கு %d வரை அனுமதிக்கிறது. நீங்கள் இப்போது மேலும் பாடங்கள் உருவாக்க முடியாது."
+
+msgid "Add a class"
+msgstr "ஒரு வகுப்பு சேர்க்கவும்"
+
+msgid "Search classes"
+msgstr "வகுப்புகளைத் தேடு"
+
+msgid "No classes found"
+msgstr "வகுப்புகள் கிடைக்கவில்லை"
+
+msgid "Import classes"
+msgstr "வகுப்புகளை இறக்குமதி செய்யவும்"
+
+msgid "Class users"
+msgstr "வகுப்பு பயனர்கள்"
+
+msgid "%s classes imported"
+msgstr "%s வகுப்புகள் இறக்குமதி செய்யப்பட்டன"
+
+msgid "%s user-class links imported"
+msgstr "%s பயனர்-வகுப்பு இணைப்புகள் இறக்குமதி செய்யப்பட்டன"
+
+msgid "Hide comments"
+msgstr "கருத்துக்களை மறை"
+
+msgid "Loading comments..."
+msgstr "கருத்துக்களை ஏற்றுகிறது..."
+
+msgid "No comments yet."
+msgstr "இதுவரை கருத்துகள் இல்லை."
 

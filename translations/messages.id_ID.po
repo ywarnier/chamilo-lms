@@ -9729,6 +9729,9 @@ msgstr "Hasil pencarian untuk:"
 msgid "Select a file"
 msgstr "Pilih file"
 
+msgid "Select a file to insert into the editor."
+msgstr "Pilih file untuk disisipkan ke editor."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Peringatan - File FAQ, yang terletak di direktori /home/ portal Anda, tidak dapat ditulis. Teks Anda tidak akan disimpan sampai izin file diubah."
 
@@ -15909,6 +15912,9 @@ msgstr "Tanggal & waktu"
 msgid "Item"
 msgstr "Item"
 
+msgid "Items"
+msgstr "Item"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Konfigurasi Plugin Dashboard"
 
@@ -17162,6 +17168,18 @@ msgstr "Sesi dalam grup"
 
 msgid "Courses in group"
 msgstr "Kursus dalam grup"
+
+msgid "Courses on the platform"
+msgstr "Kursus di platform"
+
+msgid "%s courses"
+msgstr "%s kursus"
+
+msgid "%s sessions"
+msgstr "%s sesi"
+
+msgid "Search by title or code"
+msgstr "Cari berdasarkan judul atau kode"
 
 msgid "Users in group"
 msgstr "Pengguna dalam grup"
@@ -32167,6 +32185,9 @@ msgstr "Tugas"
 msgid "Allowed file formats: %s"
 msgstr "Format file yang diizinkan: %s"
 
+msgid "File manager"
+msgstr "Pengelola file"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Jenis file tidak diizinkan. Ekstensi yang diizinkan: %s"
 
@@ -33880,6 +33901,9 @@ msgstr "Selamat datang"
 msgid "Welcome to Chamilo"
 msgstr "Selamat datang di Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Centang semua pertanyaan yang belum dijawab di bawah"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Jika ini pertama kali Anda menggunakan Chamilo, pastikan Anda memeriksa menu samping untuk menemukan jalan melalui banyak fiturnya. Jika Anda membutuhkan bantuan, Anda akan menemukan <a href=\"https://docs.chamilo.org\">dokumentasi resmi kami</a> dapat membantu untuk dokumentasi standar, sementara <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forum online kami</a> dapat membantu berbagi ide dan menemukan jawaban dari pengguna Chamilo lainnya."
 
@@ -34059,6 +34083,63 @@ msgstr "Penilaian kebutuhan pelatihan"
 
 msgid "Work climate surveys"
 msgstr "Survei iklim kerja"
+
+msgid "Unit"
+msgstr "Unit"
+
+msgid "Total cost"
+msgstr "Total biaya"
+
+msgid "Cost per learner"
+msgstr "Biaya per peserta"
+
+msgid "Average cost by session"
+msgstr "Biaya rata-rata per sesi"
+
+msgid "Total investment"
+msgstr "Total investasi"
+
+msgid "Set cost"
+msgstr "Tetapkan biaya"
+
+msgid "Filter by date range"
+msgstr "Filter berdasarkan rentang tanggal"
+
+msgid "Add distribution"
+msgstr "Tambah distribusi"
+
+msgid "User share"
+msgstr "Bagian pengguna"
+
+msgid "Select a unit"
+msgstr "Pilih unit"
+
+msgid "Select a survey"
+msgstr "Pilih survei"
+
+msgid "Distribution added"
+msgstr "Distribusi ditambahkan"
+
+msgid "Distribution removed"
+msgstr "Distribusi dihapus"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Apakah Anda yakin ingin menghapus distribusi ini?"
+
+msgid "Cost updated"
+msgstr "Biaya diperbarui"
+
+msgid "Total invited"
+msgstr "Total undangan"
+
+msgid "Total answered"
+msgstr "Total dijawab"
+
+msgid "Total responses"
+msgstr "Total respons"
+
+msgid "No responses yet"
+msgstr "Belum ada respons"
 
 msgid "Diversity criteria"
 msgstr "Kriteria keberagaman"
@@ -34571,4 +34652,274 @@ msgstr "Apakah Anda yakin ingin menghapus evaluasi ini?"
 
 msgid "Loading…"
 msgstr "Memuat…"
+
+msgid "Periodicity"
+msgstr "Periodisitas"
+
+msgid "Suggest from periodicity"
+msgstr "Sarankan dari periodisitas"
+
+msgid "Add job offer"
+msgstr "Tambah penawaran pekerjaan"
+
+msgid "Edit job offer"
+msgstr "Edit penawaran pekerjaan"
+
+msgid "Function / Unit"
+msgstr "Fungsi / Unit"
+
+msgid "Vacancies"
+msgstr "Kuota"
+
+msgid "Expected start date"
+msgstr "Tanggal mulai yang diharapkan"
+
+msgid "Contract duration (days)"
+msgstr "Durasi kontrak (hari)"
+
+msgid "Public offer"
+msgstr "Penawaran publik"
+
+msgid "Publication start date"
+msgstr "Tanggal mulai publikasi"
+
+msgid "Publication end date"
+msgstr "Tanggal akhir publikasi"
+
+msgid "Applications"
+msgstr "Lamaran"
+
+msgid "Selection exams"
+msgstr "Ujian seleksi"
+
+msgid "Add exam"
+msgstr "Tambah ujian"
+
+msgid "Applicant"
+msgstr "Pelamar"
+
+msgid "Applied on"
+msgstr "Melamar pada"
+
+msgid "Salary expectations"
+msgstr "Harapan gaji"
+
+msgid "Pending evaluation"
+msgstr "Menunggu evaluasi"
+
+msgid "Hired"
+msgstr "Dipekerjakan"
+
+msgid "Not hired"
+msgstr "Tidak dipekerjakan"
+
+msgid "Evaluate"
+msgstr "Evaluasi"
+
+msgid "Evaluate candidate"
+msgstr "Evaluasi kandidat"
+
+msgid "Decision"
+msgstr "Keputusan"
+
+msgid "Save evaluation"
+msgstr "Simpan evaluasi"
+
+msgid "Back to job offers"
+msgstr "Kembali ke penawaran pekerjaan"
+
+msgid "No job offers available at this time."
+msgstr "Tidak ada penawaran pekerjaan yang tersedia saat ini."
+
+msgid "See details"
+msgstr "Lihat detail"
+
+msgid "Apply now"
+msgstr "Lamar sekarang"
+
+msgid "Already applied"
+msgstr "Sudah melamar"
+
+msgid "Log in to apply"
+msgstr "Masuk untuk melamar"
+
+msgid "Apply to job offer"
+msgstr "Lamar ke penawaran pekerjaan"
+
+msgid "Availability date"
+msgstr "Tanggal ketersediaan"
+
+msgid "CV (Personal file)"
+msgstr "CV (File pribadi)"
+
+msgid "Select your CV from your personal files"
+msgstr "Pilih CV Anda dari file pribadi Anda"
+
+msgid "Submit application"
+msgstr "Kirim lamaran"
+
+msgid "Application submitted successfully."
+msgstr "Lamaran berhasil dikirim."
+
+msgid "Private observations"
+msgstr "Observasi pribadi"
+
+msgid "My applications"
+msgstr "Lamaran saya"
+
+msgid "View job offers"
+msgstr "Lihat penawaran pekerjaan"
+
+msgid "You have not submitted any applications yet."
+msgstr "Anda belum mengirimkan lamaran apa pun."
+
+msgid "Under review"
+msgstr "Sedang ditinjau"
+
+msgid "Not selected"
+msgstr "Tidak terpilih"
+
+msgid "HR feedback"
+msgstr "Umpan balik HR"
+
+msgid "Withdraw application"
+msgstr "Tarik kembali lamaran"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Apakah Anda yakin ingin menarik kembali lamaran ini?"
+
+msgid "Application withdrawn."
+msgstr "Lamaran ditarik kembali."
+
+msgid "Calculate quiz scores"
+msgstr "Hitung skor kuis"
+
+msgid "Scores calculated."
+msgstr "Skor dihitung."
+
+msgid "Career plan overview"
+msgstr "Ikhtisar rencana karir"
+
+msgid "My career plan"
+msgstr "Rencana karir saya"
+
+msgid "No function-unit associations configured yet."
+msgstr "Belum ada asosiasi fungsi-unit yang dikonfigurasi."
+
+msgid "No required skills defined."
+msgstr "Tidak ada keterampilan yang diperlukan yang didefinisikan."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Anda harus ditugaskan ke sebuah posisi untuk melihat rencana karir Anda."
+
+msgid "Your current position"
+msgstr "Posisi Anda saat ini"
+
+msgid "No career targets found for your current position."
+msgstr "Tidak ada target karir yang ditemukan untuk posisi Anda saat ini."
+
+msgid "No required skills defined for this position."
+msgstr "Tidak ada keterampilan yang diperlukan yang didefinisikan untuk posisi ini."
+
+msgid "Met"
+msgstr "Terpenuhi"
+
+msgid "Gap"
+msgstr "Kekurangan"
+
+msgid "Acquired:"
+msgstr "Diperoleh:"
+
+msgid "Required:"
+msgstr "Diperlukan:"
+
+msgid "Max"
+msgstr "Maks"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Tidak ada kriteria keberagaman yang ditemukan. Tambahkan kriteria terlebih dahulu."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Pilih kriteria dari daftar untuk melihat statistiknya."
+
+msgid "No data available for this criterion."
+msgstr "Tidak ada data yang tersedia untuk kriteria ini."
+
+msgid "Change password"
+msgstr "Ubah kata sandi"
+
+msgid "Newest first"
+msgstr "Terbaru terlebih dahulu"
+
+msgid "Oldest first"
+msgstr "Terlama terlebih dahulu"
+
+msgid "Title A–Z"
+msgstr "Judul A–Z"
+
+msgid "Title Z–A"
+msgstr "Judul Z–A"
+
+msgid "Send test email"
+msgstr "Kirim email tes"
+
+msgid "Show teachers"
+msgstr "Tampilkan pengajar"
+
+msgid "Hide teachers"
+msgstr "Sembunyikan pengajar"
+
+msgid "Delete exercise attempts"
+msgstr "Hapus percobaan latihan"
+
+msgid "Message sent successfully."
+msgstr "Pesan berhasil dikirim."
+
+msgid "You cannot create a new course right now."
+msgstr "Anda tidak dapat membuat kursus baru saat ini."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Tidak dapat memverifikasi apakah Anda dapat membuat kursus baru saat ini."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Silakan coba lagi nanti atau hubungi administrator."
+
+msgid "You cannot create more courses at this time."
+msgstr "Anda tidak dapat membuat lebih banyak kursus saat ini."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Anda sudah mengelola %d kursus dan layanan aktif Anda mengizinkan hingga %d. Untuk membuat kursus lain, Anda memerlukan batas layanan yang lebih tinggi atau kurangi kursus aktif Anda saat ini."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Anda sudah mengelola %d kursus dan platform saat ini mengizinkan hingga %d untuk akun Anda. Anda tidak dapat membuat lebih banyak kursus saat ini."
+
+msgid "Add a class"
+msgstr "Tambah kelas"
+
+msgid "Search classes"
+msgstr "Cari kelas"
+
+msgid "No classes found"
+msgstr "Tidak ada kelas yang ditemukan"
+
+msgid "Import classes"
+msgstr "Impor kelas"
+
+msgid "Class users"
+msgstr "Pengguna kelas"
+
+msgid "%s classes imported"
+msgstr "%s kelas diimpor"
+
+msgid "%s user-class links imported"
+msgstr "%s tautan pengguna-kelas diimpor"
+
+msgid "Hide comments"
+msgstr "Sembunyikan komentar"
+
+msgid "Loading comments..."
+msgstr "Memuat komentar..."
+
+msgid "No comments yet."
+msgstr "Belum ada komentar."
 

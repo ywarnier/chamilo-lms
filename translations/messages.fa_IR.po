@@ -9729,6 +9729,9 @@ msgstr "نتایج جستجو برای:"
 msgid "Select a file"
 msgstr "انتخاب یک فایل"
 
+msgid "Select a file to insert into the editor."
+msgstr "فایلی را برای درج در ویرایشگر انتخاب کنید."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "هشدار - فایل FAQ واقع در دایرکتوری /home/ پورتال شما قابل نوشتن نیست. متن شما تا زمانی که مجوزهای فایل تغییر نکند ذخیره نخواهد شد."
 
@@ -15909,6 +15912,9 @@ msgstr "تاریخ و زمان"
 msgid "Item"
 msgstr "بخش"
 
+msgid "Items"
+msgstr "مورد(ها)"
+
 msgid "Configure Dashboard Plugin"
 msgstr "پیکربندی افزونه داشبورد"
 
@@ -17162,6 +17168,18 @@ msgstr "جلسات در گروه"
 
 msgid "Courses in group"
 msgstr "دروس در گروه"
+
+msgid "Courses on the platform"
+msgstr "دوره‌های پلتفرم"
+
+msgid "%s courses"
+msgstr "%s دوره"
+
+msgid "%s sessions"
+msgstr "%s جلسه"
+
+msgid "Search by title or code"
+msgstr "جستجو بر اساس عنوان یا کد"
 
 msgid "Users in group"
 msgstr "کاربران در گروه"
@@ -32167,6 +32185,9 @@ msgstr "تکلیف"
 msgid "Allowed file formats: %s"
 msgstr "فرمت‌های مجاز فایل: %s"
 
+msgid "File manager"
+msgstr "مدیر فایل"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "نوع فایل مجاز نیست. پسوندهای مجاز: %s"
 
@@ -33880,6 +33901,9 @@ msgstr "خوش آمدید"
 msgid "Welcome to Chamilo"
 msgstr "به Chamilo خوش آمدید"
 
+msgid "Check all unanswered questions below"
+msgstr "بررسی همه سؤالات بی‌پاسخ زیر"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> اگر اولین بار است که از Chamilo استفاده می‌کنید، مطمئن شوید که منوی کناری را بررسی کنید تا راه خود را در میان ویژگی‌های متعدد آن پیدا کنید. اگر به کمک نیاز دارید، <a href=\"https://docs.chamilo.org\">مستندات رسمی ما</a> برای مستندات استاندارد کمک‌کننده است، در حالی که <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">انجمن آنلاین ما</a> می‌تواند برای به اشتراک گذاشتن ایده‌ها و یافتن پاسخ‌ها از دیگر کاربران Chamilo کمک کند."
 
@@ -34059,6 +34083,63 @@ msgstr "ارزیابی نیازهای آموزشی"
 
 msgid "Work climate surveys"
 msgstr "نظرسنجی‌های فضای کاری"
+
+msgid "Unit"
+msgstr "واحد"
+
+msgid "Total cost"
+msgstr "هزینه کل"
+
+msgid "Cost per learner"
+msgstr "هزینه به ازای هر یادگیرنده"
+
+msgid "Average cost by session"
+msgstr "هزینه متوسط به ازای جلسه"
+
+msgid "Total investment"
+msgstr "سرمایه‌گذاری کل"
+
+msgid "Set cost"
+msgstr "تنظیم هزینه"
+
+msgid "Filter by date range"
+msgstr "فیلتر بر اساس بازه زمانی"
+
+msgid "Add distribution"
+msgstr "افزودن توزیع"
+
+msgid "User share"
+msgstr "سهم کاربر"
+
+msgid "Select a unit"
+msgstr "انتخاب یک واحد"
+
+msgid "Select a survey"
+msgstr "انتخاب یک نظرسنجی"
+
+msgid "Distribution added"
+msgstr "توزیع افزوده شد"
+
+msgid "Distribution removed"
+msgstr "توزیع حذف شد"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "آیا مطمئن هستید که می‌خواهید این توزیع را حذف کنید؟"
+
+msgid "Cost updated"
+msgstr "هزینه به‌روزرسانی شد"
+
+msgid "Total invited"
+msgstr "کل دعوت‌شده‌ها"
+
+msgid "Total answered"
+msgstr "کل پاسخ‌دهندگان"
+
+msgid "Total responses"
+msgstr "کل پاسخ‌ها"
+
+msgid "No responses yet"
+msgstr "هنوز پاسخی وجود ندارد"
 
 msgid "Diversity criteria"
 msgstr "معیارهای تنوع"
@@ -34571,4 +34652,274 @@ msgstr "آیا مطمئن هستید که می‌خواهید این ارزیا�
 
 msgid "Loading…"
 msgstr "در حال بارگذاری…"
+
+msgid "Periodicity"
+msgstr "دوره‌ای بودن"
+
+msgid "Suggest from periodicity"
+msgstr "پیشنهاد از دوره‌ای بودن"
+
+msgid "Add job offer"
+msgstr "افزودن پیشنهاد شغلی"
+
+msgid "Edit job offer"
+msgstr "ویرایش پیشنهاد شغلی"
+
+msgid "Function / Unit"
+msgstr "عنوان / واحد"
+
+msgid "Vacancies"
+msgstr "ظرفیت‌های خالی"
+
+msgid "Expected start date"
+msgstr "تاریخ شروع مورد انتظار"
+
+msgid "Contract duration (days)"
+msgstr "مدت قرارداد (روز)"
+
+msgid "Public offer"
+msgstr "پیشنهاد عمومی"
+
+msgid "Publication start date"
+msgstr "تاریخ شروع انتشار"
+
+msgid "Publication end date"
+msgstr "تاریخ پایان انتشار"
+
+msgid "Applications"
+msgstr "درخواست‌ها"
+
+msgid "Selection exams"
+msgstr "آزمون‌های انتخاب"
+
+msgid "Add exam"
+msgstr "افزودن آزمون"
+
+msgid "Applicant"
+msgstr "متقاضی"
+
+msgid "Applied on"
+msgstr "درخواست داده شده در"
+
+msgid "Salary expectations"
+msgstr "انتظارات حقوق"
+
+msgid "Pending evaluation"
+msgstr "در انتظار ارزیابی"
+
+msgid "Hired"
+msgstr "استخدام شده"
+
+msgid "Not hired"
+msgstr "استخدام نشده"
+
+msgid "Evaluate"
+msgstr "ارزیابی"
+
+msgid "Evaluate candidate"
+msgstr "ارزیابی نامزد"
+
+msgid "Decision"
+msgstr "تصمیم"
+
+msgid "Save evaluation"
+msgstr "ذخیره ارزیابی"
+
+msgid "Back to job offers"
+msgstr "بازگشت به آگهی‌های شغلی"
+
+msgid "No job offers available at this time."
+msgstr "در حال حاضر آگهی شغلی موجود نیست."
+
+msgid "See details"
+msgstr "مشاهده جزئیات"
+
+msgid "Apply now"
+msgstr "درخواست اکنون"
+
+msgid "Already applied"
+msgstr "درخواست شده"
+
+msgid "Log in to apply"
+msgstr "برای درخواست ورود کنید"
+
+msgid "Apply to job offer"
+msgstr "درخواست برای آگهی شغلی"
+
+msgid "Availability date"
+msgstr "تاریخ در دسترس بودن"
+
+msgid "CV (Personal file)"
+msgstr "رزومه (فایل شخصی)"
+
+msgid "Select your CV from your personal files"
+msgstr "رزومه خود را از فایل‌های شخصی انتخاب کنید"
+
+msgid "Submit application"
+msgstr "ارسال درخواست"
+
+msgid "Application submitted successfully."
+msgstr "درخواست با موفقیت ارسال شد."
+
+msgid "Private observations"
+msgstr "یادداشت‌های خصوصی"
+
+msgid "My applications"
+msgstr "درخواست‌های من"
+
+msgid "View job offers"
+msgstr "مشاهده آگهی‌های شغلی"
+
+msgid "You have not submitted any applications yet."
+msgstr "شما هنوز هیچ درخواستی ارسال نکرده‌اید."
+
+msgid "Under review"
+msgstr "در حال بررسی"
+
+msgid "Not selected"
+msgstr "انتخاب نشده"
+
+msgid "HR feedback"
+msgstr "بازخورد منابع انسانی"
+
+msgid "Withdraw application"
+msgstr "انصراف از درخواست"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "آیا مطمئن هستید که می‌خواهید از این درخواست انصراف دهید؟"
+
+msgid "Application withdrawn."
+msgstr "درخواست انصراف داده شد."
+
+msgid "Calculate quiz scores"
+msgstr "محاسبه نمرات آزمون"
+
+msgid "Scores calculated."
+msgstr "نمرات محاسبه شد."
+
+msgid "Career plan overview"
+msgstr "بررسی اجمالی برنامه شغلی"
+
+msgid "My career plan"
+msgstr "برنامه شغلی من"
+
+msgid "No function-unit associations configured yet."
+msgstr "هنوز هیچ ارتباط تابع-واحد پیکربندی نشده است."
+
+msgid "No required skills defined."
+msgstr "هیچ مهارت مورد نیاز تعریف نشده است."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "برای مشاهده برنامه شغلی خود باید به یک سمت割り当て شوید."
+
+msgid "Your current position"
+msgstr "سمت فعلی شما"
+
+msgid "No career targets found for your current position."
+msgstr "هیچ هدف شغلی برای سمت فعلی شما یافت نشد."
+
+msgid "No required skills defined for this position."
+msgstr "هیچ مهارت مورد نیاز برای این سمت تعریف نشده است."
+
+msgid "Met"
+msgstr "دستیابی یافته"
+
+msgid "Gap"
+msgstr "شکاف"
+
+msgid "Acquired:"
+msgstr "کسب شده:"
+
+msgid "Required:"
+msgstr "مورد نیاز:"
+
+msgid "Max"
+msgstr "حداکثر"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "هیچ معیار تنوعی یافت نشد. ابتدا معیارها را اضافه کنید."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "یک معیار از لیست انتخاب کنید تا آمار آن را ببینید."
+
+msgid "No data available for this criterion."
+msgstr "هیچ داده‌ای برای این معیار موجود نیست."
+
+msgid "Change password"
+msgstr "تغییر رمز عبور"
+
+msgid "Newest first"
+msgstr "جدیدترین ابتدا"
+
+msgid "Oldest first"
+msgstr "قدیمی‌ترین ابتدا"
+
+msgid "Title A–Z"
+msgstr "عنوان الف–ی"
+
+msgid "Title Z–A"
+msgstr "عنوان ی–الف"
+
+msgid "Send test email"
+msgstr "ارسال ایمیل آزمایشی"
+
+msgid "Show teachers"
+msgstr "نمایش مدرسان"
+
+msgid "Hide teachers"
+msgstr "مخفی کردن مدرسان"
+
+msgid "Delete exercise attempts"
+msgstr "حذف تلاش‌های تمرین"
+
+msgid "Message sent successfully."
+msgstr "پیام با موفقیت ارسال شد."
+
+msgid "You cannot create a new course right now."
+msgstr "شما در حال حاضر نمی‌توانید دوره جدیدی ایجاد کنید."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "نمی‌توان تأیید کرد که آیا در حال حاضر می‌توانید دوره جدیدی ایجاد کنید."
+
+msgid "Please try again later or contact the administrator."
+msgstr "لطفاً بعداً دوباره تلاش کنید یا با مدیر تماس بگیرید."
+
+msgid "You cannot create more courses at this time."
+msgstr "شما در حال حاضر نمی‌توانید دوره‌های بیشتری ایجاد کنید."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "شما در حال حاضر %d دوره را مدیریت می‌کنید و سرویس فعال شما تا %d دوره را مجاز می‌داند. برای ایجاد دوره دیگر، نیاز به حد سرویس بالاتر یا کاهش دوره‌های فعال فعلی دارید."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "شما در حال حاضر %d دوره را مدیریت می‌کنید و پلتفرم در حال حاضر تا %d دوره برای حساب شما مجاز است. شما در حال حاضر نمی‌توانید دوره‌های بیشتری ایجاد کنید."
+
+msgid "Add a class"
+msgstr "افزودن کلاس"
+
+msgid "Search classes"
+msgstr "جستجوی کلاس‌ها"
+
+msgid "No classes found"
+msgstr "هیچ کلاسی یافت نشد"
+
+msgid "Import classes"
+msgstr "وارد کردن کلاس‌ها"
+
+msgid "Class users"
+msgstr "کاربران کلاس"
+
+msgid "%s classes imported"
+msgstr "%s کلاس وارد شد"
+
+msgid "%s user-class links imported"
+msgstr "%s پیوند کاربر-کلاس وارد شد"
+
+msgid "Hide comments"
+msgstr "مخفی کردن نظرات"
+
+msgid "Loading comments..."
+msgstr "در حال بارگذاری نظرات..."
+
+msgid "No comments yet."
+msgstr "هنوز نظری ثبت نشده است."
 

@@ -9732,6 +9732,9 @@ msgstr "Rezultati pretrage za:"
 msgid "Select a file"
 msgstr "Izaberite datoteku"
 
+msgid "Select a file to insert into the editor."
+msgstr "Izaberite datoteku za umetanje u uređivač."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Upozorenje - FAQ datoteka, smeštena u /home/ direktorijumu vašeg portala, nije upisiva. Vaš tekst neće biti sačuvan dok se dozvole datoteke ne promene."
 
@@ -15912,6 +15915,9 @@ msgstr "Datum i vreme"
 msgid "Item"
 msgstr "Stavka"
 
+msgid "Items"
+msgstr "Stavke"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Podesi Dashboard dodatak"
 
@@ -17165,6 +17171,18 @@ msgstr "Sesije u grupi"
 
 msgid "Courses in group"
 msgstr "Kursevi u grupi"
+
+msgid "Courses on the platform"
+msgstr "Kursevi na platformi"
+
+msgid "%s courses"
+msgstr "%s kurseva"
+
+msgid "%s sessions"
+msgstr "%s sesija"
+
+msgid "Search by title or code"
+msgstr "Pretraga po naslovu ili kodu"
 
 msgid "Users in group"
 msgstr "Korisnici u grupi"
@@ -32170,6 +32188,9 @@ msgstr "Zadatak"
 msgid "Allowed file formats: %s"
 msgstr "Dozvoljeni formati datoteka: %s"
 
+msgid "File manager"
+msgstr "Uređivač datoteka"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Tip datoteke nije dozvoljen. Dozvoljene ekstenzije: %s"
 
@@ -33883,6 +33904,9 @@ msgstr "Dobrodošli"
 msgid "Welcome to Chamilo"
 msgstr "Dobrodošli u Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Proverite sve neodgovorena pitanja ispod"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ako je ovo vaš prvi put da koristite Chamilo, proverite bočni meni da biste pronašli put kroz njegove mnoge funkcije. Ako vam je potrebna pomoć, <a href=\"https://docs.chamilo.org\">naša zvanična dokumentacija</a> može pomoći za standardnu dokumentaciju, dok naš <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> može pomoći u razmeni ideja i pronalaženju odgovora od drugih korisnika Chamilo-a."
 
@@ -33980,7 +34004,7 @@ msgid "Coordinates"
 msgstr "Koordinate"
 
 msgid "HR Dashboard"
-msgstr "HR Dashboard"
+msgstr "HR Kontrolna tabla"
 
 msgid "Staff"
 msgstr "Zaposleni"
@@ -34062,6 +34086,63 @@ msgstr "Процена потреба за обуком"
 
 msgid "Work climate surveys"
 msgstr "Анкете о клими на раду"
+
+msgid "Unit"
+msgstr "Jedinica"
+
+msgid "Total cost"
+msgstr "Ukupni trošak"
+
+msgid "Cost per learner"
+msgstr "Trošak po polazniku"
+
+msgid "Average cost by session"
+msgstr "Prosečni trošak po sesiji"
+
+msgid "Total investment"
+msgstr "Ukupna investicija"
+
+msgid "Set cost"
+msgstr "Podesi trošak"
+
+msgid "Filter by date range"
+msgstr "Filtriraj po opsegu datuma"
+
+msgid "Add distribution"
+msgstr "Dodaj distribuciju"
+
+msgid "User share"
+msgstr "Udeo korisnika"
+
+msgid "Select a unit"
+msgstr "Izaberite jedinicu"
+
+msgid "Select a survey"
+msgstr "Izaberite anketu"
+
+msgid "Distribution added"
+msgstr "Distribucija dodata"
+
+msgid "Distribution removed"
+msgstr "Distribucija uklonjena"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Da li ste sigurni da želite da uklonite ovu distribuciju?"
+
+msgid "Cost updated"
+msgstr "Trošak ažuriran"
+
+msgid "Total invited"
+msgstr "Ukupno pozvano"
+
+msgid "Total answered"
+msgstr "Ukupno odgovoreno"
+
+msgid "Total responses"
+msgstr "Ukupno odgovora"
+
+msgid "No responses yet"
+msgstr "Još uvek nema odgovora"
 
 msgid "Diversity criteria"
 msgstr "Критеријуми разноликости"
@@ -34574,4 +34655,274 @@ msgstr "Da li ste sigurni da želite da obrišete ovu evaluaciju?"
 
 msgid "Loading…"
 msgstr "Učitavanje…"
+
+msgid "Periodicity"
+msgstr "Periodičnost"
+
+msgid "Suggest from periodicity"
+msgstr "Predloži iz periodičnosti"
+
+msgid "Add job offer"
+msgstr "Dodaj ponudu posla"
+
+msgid "Edit job offer"
+msgstr "Izmeni ponudu posla"
+
+msgid "Function / Unit"
+msgstr "Funkcija / Jedinica"
+
+msgid "Vacancies"
+msgstr "Slobodna mesta"
+
+msgid "Expected start date"
+msgstr "Očekivani datum početka"
+
+msgid "Contract duration (days)"
+msgstr "Trajanje ugovora (dani)"
+
+msgid "Public offer"
+msgstr "Javna ponuda"
+
+msgid "Publication start date"
+msgstr "Datum početka objave"
+
+msgid "Publication end date"
+msgstr "Datum kraja objave"
+
+msgid "Applications"
+msgstr "Prijava"
+
+msgid "Selection exams"
+msgstr "Selektivni ispiti"
+
+msgid "Add exam"
+msgstr "Dodaj ispit"
+
+msgid "Applicant"
+msgstr "Kandidat"
+
+msgid "Applied on"
+msgstr "Prijavljen"
+
+msgid "Salary expectations"
+msgstr "Očekivanja plate"
+
+msgid "Pending evaluation"
+msgstr "Čeka procenu"
+
+msgid "Hired"
+msgstr "Zaposlen"
+
+msgid "Not hired"
+msgstr "Nije zaposlen"
+
+msgid "Evaluate"
+msgstr "Proceni"
+
+msgid "Evaluate candidate"
+msgstr "Proceni kandidata"
+
+msgid "Decision"
+msgstr "Odluka"
+
+msgid "Save evaluation"
+msgstr "Sačuvaj procenu"
+
+msgid "Back to job offers"
+msgstr "Nazad na ponude posla"
+
+msgid "No job offers available at this time."
+msgstr "Trenutno nema dostupnih ponuda posla."
+
+msgid "See details"
+msgstr "Pogledaj detalje"
+
+msgid "Apply now"
+msgstr "Prijavi se sada"
+
+msgid "Already applied"
+msgstr "Već se prijavio"
+
+msgid "Log in to apply"
+msgstr "Prijavi se za prijavu"
+
+msgid "Apply to job offer"
+msgstr "Prijavi se na ponudu posla"
+
+msgid "Availability date"
+msgstr "Datum dostupnosti"
+
+msgid "CV (Personal file)"
+msgstr "CV (Lični fajl)"
+
+msgid "Select your CV from your personal files"
+msgstr "Izaberite svoj CV iz ličnih fajlova"
+
+msgid "Submit application"
+msgstr "Podnesite prijavu"
+
+msgid "Application submitted successfully."
+msgstr "Prijava uspešno podneta."
+
+msgid "Private observations"
+msgstr "Privatne beleške"
+
+msgid "My applications"
+msgstr "Moje prijave"
+
+msgid "View job offers"
+msgstr "Pogledajte ponude poslova"
+
+msgid "You have not submitted any applications yet."
+msgstr "Još uvek niste podneli nijednu prijavu."
+
+msgid "Under review"
+msgstr "U pregledu"
+
+msgid "Not selected"
+msgstr "Nije izabran"
+
+msgid "HR feedback"
+msgstr "Povratna informacija HR-a"
+
+msgid "Withdraw application"
+msgstr "Povucite prijavu"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Da li ste sigurni da želite da povučete ovu prijavu?"
+
+msgid "Application withdrawn."
+msgstr "Prijava povučena."
+
+msgid "Calculate quiz scores"
+msgstr "Izračunaj rezultate kviza"
+
+msgid "Scores calculated."
+msgstr "Rezultati izračunati."
+
+msgid "Career plan overview"
+msgstr "Pregled plana karijere"
+
+msgid "My career plan"
+msgstr "Moj plan karijere"
+
+msgid "No function-unit associations configured yet."
+msgstr "Još uvek nema podešenih povezanosti funkcija i jedinica."
+
+msgid "No required skills defined."
+msgstr "Nisu definisane potrebne veštine."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Morate biti dodeljeni na poziciju da biste videli svoj plan karijere."
+
+msgid "Your current position"
+msgstr "Vaša trenutna pozicija"
+
+msgid "No career targets found for your current position."
+msgstr "Nisu pronađeni ciljevi karijere za vašu trenutnu poziciju."
+
+msgid "No required skills defined for this position."
+msgstr "Nisu definisane potrebne veštine za ovu poziciju."
+
+msgid "Met"
+msgstr "Ispuni"
+
+msgid "Gap"
+msgstr "Razlika"
+
+msgid "Acquired:"
+msgstr "Stekao:"
+
+msgid "Required:"
+msgstr "Potrebno:"
+
+msgid "Max"
+msgstr "Maks"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nema pronađenih kriterijuma raznolikosti. Prvo dodajte kriterijume."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Izaberite kriterijum sa liste da biste videli njegovu statistiku."
+
+msgid "No data available for this criterion."
+msgstr "Nema dostupnih podataka za ovaj kriterijum."
+
+msgid "Change password"
+msgstr "Promeni lozinku"
+
+msgid "Newest first"
+msgstr "Najnovije prvo"
+
+msgid "Oldest first"
+msgstr "Najstarije prvo"
+
+msgid "Title A–Z"
+msgstr "Naslov A–Z"
+
+msgid "Title Z–A"
+msgstr "Naslov Z–A"
+
+msgid "Send test email"
+msgstr "Pošalji test e-poštu"
+
+msgid "Show teachers"
+msgstr "Prikaži nastavnike"
+
+msgid "Hide teachers"
+msgstr "Sakrij nastavnike"
+
+msgid "Delete exercise attempts"
+msgstr "Obriši pokušaje vežbi"
+
+msgid "Message sent successfully."
+msgstr "Poruka uspešno poslata."
+
+msgid "You cannot create a new course right now."
+msgstr "Trenutno ne možete kreirati novi kurs."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Nije moguće proveriti da li trenutno možete kreirati novi kurs."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Molimo pokušajte ponovo kasnije ili kontaktirajte administratora."
+
+msgid "You cannot create more courses at this time."
+msgstr "Trenutno ne možete kreirati više kurseva."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Već upravljate %d kursevima, a vaša aktivna usluga dozvoljava do %d. Da biste kreirali još jedan kurs, potrebno je više uslužno ograničenje ili smanjite trenutno aktivne kurseve."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Već upravljate %d kursevima, a platforma trenutno dozvoljava do %d za vaš nalog. Ne možete kreirati više kurseva sada."
+
+msgid "Add a class"
+msgstr "Dodaj klasu"
+
+msgid "Search classes"
+msgstr "Pretraži klase"
+
+msgid "No classes found"
+msgstr "Nisu pronađene klase"
+
+msgid "Import classes"
+msgstr "Uvezi klase"
+
+msgid "Class users"
+msgstr "Korisnici klase"
+
+msgid "%s classes imported"
+msgstr "%s klasa uvezeno"
+
+msgid "%s user-class links imported"
+msgstr "%s veza korisnik-klasa uvezeno"
+
+msgid "Hide comments"
+msgstr "Sakrij komentare"
+
+msgid "Loading comments..."
+msgstr "Učitavam komentare..."
+
+msgid "No comments yet."
+msgstr "Još uvek nema komentara."
 

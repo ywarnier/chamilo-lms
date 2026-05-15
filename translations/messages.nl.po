@@ -9772,6 +9772,9 @@ msgstr "Zoekresultaten voor:"
 msgid "Select a file"
 msgstr "Selecteer een bestand"
 
+msgid "Select a file to insert into the editor."
+msgstr "Selecteer een bestand om in de editor in te voegen."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Aandacht - het FAQ bestand in de /home/ folder van uw platform is niet schrijfbaar. Uw tekst zal niet opgeslagen worden totdat u de bestandspermissies gewijzigd worden."
 
@@ -15985,6 +15988,9 @@ msgstr "datum & tijd"
 msgid "Item"
 msgstr "Item"
 
+msgid "Items"
+msgstr "Items"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Configureer dashboard plugin"
 
@@ -17262,6 +17268,18 @@ msgstr "Sessies in groep"
 
 msgid "Courses in group"
 msgstr "Cursussen in groep"
+
+msgid "Courses on the platform"
+msgstr "Cursussen op het platform"
+
+msgid "%s courses"
+msgstr "%s cursussen"
+
+msgid "%s sessions"
+msgstr "%s sessies"
+
+msgid "Search by title or code"
+msgstr "Zoeken op titel of code"
 
 msgid "Users in group"
 msgstr "Gebruikers in groep"
@@ -34247,6 +34265,9 @@ msgstr "Opdracht"
 msgid "Allowed file formats: %s"
 msgstr "Toegestane bestandsformaten: %s"
 
+msgid "File manager"
+msgstr "Bestandsbeheer"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Bestandstype niet toegestaan. Toegestane extensies: %s"
 
@@ -35139,40 +35160,40 @@ msgid "MDI icon name"
 msgstr "MDI-pictogramnaam"
 
 msgid "Assign authentication sources"
-msgstr ""
+msgstr "Authenticatiebronnen toewijzen"
 
 msgid "Assignment details"
-msgstr ""
+msgstr "Opdrachttdetails"
 
 msgid "Terms and conditions"
-msgstr ""
+msgstr "Algemene voorwaarden"
 
 msgid "Icons"
-msgstr ""
+msgstr "Pictogrammen"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Back-up maken"
 
 msgid "Create file"
-msgstr ""
+msgstr "Bestand aanmaken"
 
 msgid "Create link"
-msgstr ""
+msgstr "Link maken"
 
 msgid "Edit template"
-msgstr ""
+msgstr "Sjabloon bewerken"
 
 msgid "Shared files"
-msgstr ""
+msgstr "Gedeelde bestanden"
 
 msgid "Skill wheel"
-msgstr ""
+msgstr "Vaardighedenwiel"
 
 msgid "Favourite courses"
-msgstr ""
+msgstr "Favoriete cursussen"
 
 msgid "Restart courses"
-msgstr ""
+msgstr "Cursussen herstarten"
 
 msgid "Generate terms"
 msgstr "Voorwaarden genereren"
@@ -35388,7 +35409,7 @@ msgid "Management list"
 msgstr "Beheerslijst"
 
 msgid "Open platform"
-msgstr "Open platform"
+msgstr "Platform openen"
 
 msgid "Teacher user ID"
 msgstr "Docent gebruikers-ID"
@@ -35960,6 +35981,9 @@ msgstr "Welkom"
 msgid "Welcome to Chamilo"
 msgstr "Welkom bij Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Controleer alle onbeantwoorde vragen hieronder"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Als dit je eerste keer is dat je Chamilo gebruikt, zorg er dan voor dat je het zijmenu bekijkt om je weg te vinden door de vele functies. Als je hulp nodig hebt, vind je <a href=\"https://docs.chamilo.org\">onze officiële documentatie</a> voor standaarddocumentatie, terwijl ons <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> kan helpen om ideeën te delen en antwoorden te vinden van andere Chamilo-gebruikers."
 
@@ -36139,6 +36163,63 @@ msgstr "Opleidingsbehoeftebeoordeling"
 
 msgid "Work climate surveys"
 msgstr "Werkklimaatonderzoeken"
+
+msgid "Unit"
+msgstr "Eenheid"
+
+msgid "Total cost"
+msgstr "Totale kosten"
+
+msgid "Cost per learner"
+msgstr "Kosten per leerling"
+
+msgid "Average cost by session"
+msgstr "Gemiddelde kosten per sessie"
+
+msgid "Total investment"
+msgstr "Totale investering"
+
+msgid "Set cost"
+msgstr "Kosten instellen"
+
+msgid "Filter by date range"
+msgstr "Filteren op datumbereik"
+
+msgid "Add distribution"
+msgstr "Verdeling toevoegen"
+
+msgid "User share"
+msgstr "Gebruikersdeel"
+
+msgid "Select a unit"
+msgstr "Selecteer een eenheid"
+
+msgid "Select a survey"
+msgstr "Selecteer een enquête"
+
+msgid "Distribution added"
+msgstr "Verdeling toegevoegd"
+
+msgid "Distribution removed"
+msgstr "Verdeling verwijderd"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Weet je zeker dat je deze verdeling wilt verwijderen?"
+
+msgid "Cost updated"
+msgstr "Kosten bijgewerkt"
+
+msgid "Total invited"
+msgstr "Totaal uitgenodigd"
+
+msgid "Total answered"
+msgstr "Totaal beantwoord"
+
+msgid "Total responses"
+msgstr "Totaal antwoorden"
+
+msgid "No responses yet"
+msgstr "Nog geen antwoorden"
 
 msgid "Diversity criteria"
 msgstr "Diversiteitscriteria"
@@ -36651,4 +36732,274 @@ msgstr "Weet u zeker dat u deze evaluatie wilt verwijderen?"
 
 msgid "Loading…"
 msgstr "Laden…"
+
+msgid "Periodicity"
+msgstr "Periodiek"
+
+msgid "Suggest from periodicity"
+msgstr "Voorgesteld vanuit periodiciteit"
+
+msgid "Add job offer"
+msgstr "Vacature toevoegen"
+
+msgid "Edit job offer"
+msgstr "Vacature bewerken"
+
+msgid "Function / Unit"
+msgstr "Functie / Eenheid"
+
+msgid "Vacancies"
+msgstr "Beschikbare plaatsen"
+
+msgid "Expected start date"
+msgstr "Verwachte startdatum"
+
+msgid "Contract duration (days)"
+msgstr "Contractduur (dagen)"
+
+msgid "Public offer"
+msgstr "Publieke vacature"
+
+msgid "Publication start date"
+msgstr "Publicatiestartdatum"
+
+msgid "Publication end date"
+msgstr "Publicatie-einddatum"
+
+msgid "Applications"
+msgstr "Sollicitaties"
+
+msgid "Selection exams"
+msgstr "Selectie-examens"
+
+msgid "Add exam"
+msgstr "Examen toevoegen"
+
+msgid "Applicant"
+msgstr "Sollicitant"
+
+msgid "Applied on"
+msgstr "Gesolliciteerd op"
+
+msgid "Salary expectations"
+msgstr "Salarisverwachtingen"
+
+msgid "Pending evaluation"
+msgstr "In afwachting van beoordeling"
+
+msgid "Hired"
+msgstr "Aangenomen"
+
+msgid "Not hired"
+msgstr "Niet aangenomen"
+
+msgid "Evaluate"
+msgstr "Evalueren"
+
+msgid "Evaluate candidate"
+msgstr "Kandidaat evalueren"
+
+msgid "Decision"
+msgstr "Beslissing"
+
+msgid "Save evaluation"
+msgstr "Evaluatie opslaan"
+
+msgid "Back to job offers"
+msgstr "Terug naar vacatures"
+
+msgid "No job offers available at this time."
+msgstr "Geen vacatures beschikbaar op dit moment."
+
+msgid "See details"
+msgstr "Details bekijken"
+
+msgid "Apply now"
+msgstr "Nu solliciteren"
+
+msgid "Already applied"
+msgstr "Al gesolliciteerd"
+
+msgid "Log in to apply"
+msgstr "Log in om te solliciteren"
+
+msgid "Apply to job offer"
+msgstr "Solliciteren op vacature"
+
+msgid "Availability date"
+msgstr "Beschikbaarheidsdatum"
+
+msgid "CV (Personal file)"
+msgstr "CV (Persoonlijk bestand)"
+
+msgid "Select your CV from your personal files"
+msgstr "Selecteer uw CV uit uw persoonlijke bestanden"
+
+msgid "Submit application"
+msgstr "Sollicitatie indienen"
+
+msgid "Application submitted successfully."
+msgstr "Sollicitatie succesvol ingediend."
+
+msgid "Private observations"
+msgstr "Privé opmerkingen"
+
+msgid "My applications"
+msgstr "Mijn sollicitaties"
+
+msgid "View job offers"
+msgstr "Vacatures bekijken"
+
+msgid "You have not submitted any applications yet."
+msgstr "U hebt nog geen sollicitaties ingediend."
+
+msgid "Under review"
+msgstr "In behandeling"
+
+msgid "Not selected"
+msgstr "Niet geselecteerd"
+
+msgid "HR feedback"
+msgstr "HR-feedback"
+
+msgid "Withdraw application"
+msgstr "Sollicitatie intrekken"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Weet u zeker dat u deze sollicitatie wilt intrekken?"
+
+msgid "Application withdrawn."
+msgstr "Sollicitatie ingetrokken."
+
+msgid "Calculate quiz scores"
+msgstr "Quizscores berekenen"
+
+msgid "Scores calculated."
+msgstr "Scores berekend."
+
+msgid "Career plan overview"
+msgstr "Overzicht carrièreplan"
+
+msgid "My career plan"
+msgstr "Mijn carrièreplan"
+
+msgid "No function-unit associations configured yet."
+msgstr "Nog geen functie-eenheidkoppelingen geconfigureerd."
+
+msgid "No required skills defined."
+msgstr "Geen vereiste vaardigheden gedefinieerd."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "U moet aan een positie worden toegewezen om uw carrièreplan te zien."
+
+msgid "Your current position"
+msgstr "Uw huidige positie"
+
+msgid "No career targets found for your current position."
+msgstr "Geen carrièredoelen gevonden voor uw huidige positie."
+
+msgid "No required skills defined for this position."
+msgstr "Geen vereiste vaardigheden gedefinieerd voor deze positie."
+
+msgid "Met"
+msgstr "Behaald"
+
+msgid "Gap"
+msgstr "Kloof"
+
+msgid "Acquired:"
+msgstr "Verworven:"
+
+msgid "Required:"
+msgstr "Vereist:"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Geen diversiteitscriteria gevonden. Voeg eerst criteria toe."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Selecteer een criterium uit de lijst om de statistieken te bekijken."
+
+msgid "No data available for this criterion."
+msgstr "Geen gegevens beschikbaar voor dit criterium."
+
+msgid "Change password"
+msgstr "Wachtwoord wijzigen"
+
+msgid "Newest first"
+msgstr "Nieuwste eerst"
+
+msgid "Oldest first"
+msgstr "Oudste eerst"
+
+msgid "Title A–Z"
+msgstr "Titel A–Z"
+
+msgid "Title Z–A"
+msgstr "Titel Z–A"
+
+msgid "Send test email"
+msgstr "Test e-mail verzenden"
+
+msgid "Show teachers"
+msgstr "Docenten tonen"
+
+msgid "Hide teachers"
+msgstr "Docenten verbergen"
+
+msgid "Delete exercise attempts"
+msgstr "Verwijder oefenpogingen"
+
+msgid "Message sent successfully."
+msgstr "Bericht succesvol verzonden."
+
+msgid "You cannot create a new course right now."
+msgstr "U kunt nu geen nieuwe cursus aanmaken."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Kan niet verifiëren of u nu een nieuwe cursus kunt aanmaken."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Probeer het later opnieuw of neem contact op met de beheerder."
+
+msgid "You cannot create more courses at this time."
+msgstr "U kunt op dit moment geen extra cursussen aanmaken."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "U beheert al %d cursussen en uw actieve service staat maximaal %d toe. Om een andere cursus aan te maken, heeft u een hogere servicelimiet nodig of moet u het aantal actieve cursussen verminderen."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "U beheert al %d cursussen en het platform staat momenteel maximaal %d toe voor uw account. U kunt nu geen extra cursussen aanmaken."
+
+msgid "Add a class"
+msgstr "Voeg een klas toe"
+
+msgid "Search classes"
+msgstr "Zoek klassen"
+
+msgid "No classes found"
+msgstr "Geen klassen gevonden"
+
+msgid "Import classes"
+msgstr "Importeer klassen"
+
+msgid "Class users"
+msgstr "Klasgebruikers"
+
+msgid "%s classes imported"
+msgstr "%s klassen geïmporteerd"
+
+msgid "%s user-class links imported"
+msgstr "%s gebruiker-klas koppelingen geïmporteerd"
+
+msgid "Hide comments"
+msgstr "Verberg opmerkingen"
+
+msgid "Loading comments..."
+msgstr "Opmerkingen laden..."
+
+msgid "No comments yet."
+msgstr "Nog geen opmerkingen."
 

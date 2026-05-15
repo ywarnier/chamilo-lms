@@ -340,7 +340,7 @@ msgid "Sincerely"
 msgstr "Si sax ah"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "Foomulka tusaalaha: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "Foomilada tusaale: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "Kala duwanaanshaha doorsoomaha"
@@ -9726,6 +9726,9 @@ msgstr "Natiijooyinka raadinta ee:"
 msgid "Select a file"
 msgstr "Dooro fayl"
 
+msgid "Select a file to insert into the editor."
+msgstr "Dooro fayl lagu gelinayo tifaftiraha."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Digtoow - Faylka FAQ, oo ku yaal /home/ directory-ga portal-kaaga, lama qori karo. Qoraalkaagu lama keydin doono ilaa inta ogolaanshaha faylka la beddelo."
 
@@ -15906,6 +15909,9 @@ msgstr "Taariikhda & waqtiga"
 msgid "Item"
 msgstr "Qodobka"
 
+msgid "Items"
+msgstr "Walxaha"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Habeynta Boostada Dashboard"
 
@@ -17159,6 +17165,18 @@ msgstr "Jirrooyinka kooxda"
 
 msgid "Courses in group"
 msgstr "Koorsaska kooxda"
+
+msgid "Courses on the platform"
+msgstr "Koorasyada ku jira goobta"
+
+msgid "%s courses"
+msgstr "%s koorasyo"
+
+msgid "%s sessions"
+msgstr "%s fadhiyo"
+
+msgid "Search by title or code"
+msgstr "Raadi magaca ama koodka"
 
 msgid "Users in group"
 msgstr "Isticmaale kooxda"
@@ -32163,6 +32181,9 @@ msgstr "Shaqo"
 msgid "Allowed file formats: %s"
 msgstr "Noocyada faylalka la oggol yahay: %s"
 
+msgid "File manager"
+msgstr "Maamulaha faylalka"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Nooca faylka lama oggol. Kordhinta la oggol yahay: %s"
 
@@ -33876,6 +33897,9 @@ msgstr "Ku soo dhawow"
 msgid "Welcome to Chamilo"
 msgstr "Ku soo dhawow Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Jeclo dhammaan su'aalaha aan jawaabayn hoosta"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Haddii kani yahay markii ugu horeysay ee aad isticmaasho Chamilo, hubi inaad ka hubiso menu-ka dhinaca bidix si aad u hesho jidka loo maro astaamihiisa badan. Haddii aad u baahan tahay caawinaad, waxaad ka heli doontaa <a href=\"https://docs.chamilo.org\">dukumentiyada rasmiga ah</a> waxay kaa caawin karaan dukumentiga caadiga ah, halka <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">guddiga online-ka</a> uu kaa caawin karo wadaagista fikradaha iyo helista jawaabaha ka yimaada isticmaale kale ee Chamilo."
 
@@ -34055,6 +34079,63 @@ msgstr "Qiimeynta baahida tababarka"
 
 msgid "Work climate surveys"
 msgstr "Sahannada jawiga shaqada"
+
+msgid "Unit"
+msgstr "Qayb"
+
+msgid "Total cost"
+msgstr "Wadarta kharashka"
+
+msgid "Cost per learner"
+msgstr "Kharashka arday kasta"
+
+msgid "Average cost by session"
+msgstr "Celceliska kharashka fadhiga"
+
+msgid "Total investment"
+msgstr "Maalgelinta guud"
+
+msgid "Set cost"
+msgstr "Deji kharashka"
+
+msgid "Filter by date range"
+msgstr "Shaandheyn ku samee kala duwanaanshaha taariikhda"
+
+msgid "Add distribution"
+msgstr "Ku dar qaybinta"
+
+msgid "User share"
+msgstr "Qaybsiga isticmaale"
+
+msgid "Select a unit"
+msgstr "Dooro unug"
+
+msgid "Select a survey"
+msgstr "Dooro baadhitaanka"
+
+msgid "Distribution added"
+msgstr "Qaybinta la daray"
+
+msgid "Distribution removed"
+msgstr "Qaybinta la saaray"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Ma hubin in aad rabto in aad tirtirto qaybintan?"
+
+msgid "Cost updated"
+msgstr "Kharashka la cusboonaysiiyay"
+
+msgid "Total invited"
+msgstr "Wadarta la casuumay"
+
+msgid "Total answered"
+msgstr "Wadarta jawaabay"
+
+msgid "Total responses"
+msgstr "Wadarta jawaabaha"
+
+msgid "No responses yet"
+msgstr "Ma jiraan jawaabo welwel"
 
 msgid "Diversity criteria"
 msgstr "Shuruudaha kala duwanaanshaha"
@@ -34302,154 +34383,154 @@ msgid "My benefits"
 msgstr "Faa'iidooyinkayga"
 
 msgid "Beneficiary"
-msgstr ""
+msgstr "Ka-faa'iideystaha"
 
 msgid "Economical equivalent"
-msgstr ""
+msgstr "Iskuxaar dhaqaale"
 
 msgid "Assigned on"
-msgstr ""
+msgstr "La qoray"
 
 msgid "Assigned until"
-msgstr ""
+msgstr "La qoray ilaa"
 
 msgid "Assigned by"
-msgstr ""
+msgstr "La qoray by"
 
 msgid "Notifications sent"
-msgstr ""
+msgstr "Ogeysiisyada la diray"
 
 msgid "Send notification"
-msgstr ""
+msgstr "Dir ogeysiis"
 
 msgid "Notification sent"
-msgstr ""
+msgstr "Ogeysiiska la diray"
 
 msgid "Benefit notification"
-msgstr ""
+msgstr "Ogeysiiska faa'iido"
 
 msgid "From date"
-msgstr ""
+msgstr "Taariikhda laga bilaabo"
 
 msgid "Search by name..."
-msgstr ""
+msgstr "Raadi magac..."
 
 msgid "Filtering by"
-msgstr ""
+msgstr "Shaandhaynta"
 
 msgid "No diversity criteria found. Add criteria first."
-msgstr ""
+msgstr "Ma jiraan shuruudaha kala duwanaanshaha. Markii hore ku dar shuruudaha."
 
 msgid "Select a criterion from the list to view its statistics."
-msgstr ""
+msgstr "Dooro shuruud liiska si aad u aragto tirakoobkeeda."
 
 msgid "No data available for this criterion."
-msgstr ""
+msgstr "Ma jiraan xog shuruudahan."
 
 msgid "Add periodicity"
-msgstr ""
+msgstr "Ku dar xilli"
 
 msgid "Edit periodicity"
-msgstr ""
+msgstr "Tafatir xilli"
 
 msgid "Add stage"
-msgstr ""
+msgstr "Ku dar marxalad"
 
 msgid "Edit stage"
-msgstr ""
+msgstr "Tafatir marxalad"
 
 msgid "Periodicities"
-msgstr ""
+msgstr "Xilliyada"
 
 msgid "Evaluation stages"
-msgstr ""
+msgstr "Marxaladaha qiimeynta"
 
 msgid "Evaluation templates"
-msgstr ""
+msgstr "Qaansooyinka qiimeynta"
 
 msgid "Add evaluation template"
-msgstr ""
+msgstr "Ku dar qaansooyinka qiimeynta"
 
 msgid "Edit evaluation template"
-msgstr ""
+msgstr "Tafatir qaansooyinka qiimeynta"
 
 msgid "Add template"
-msgstr ""
+msgstr "Ku dar qaansooyin"
 
 msgid "Scheduled evaluations"
-msgstr ""
+msgstr "Qiimeynta la qorsheeyay"
 
 msgid "Schedule evaluation"
-msgstr ""
+msgstr "Qorshee qiimeynta"
 
 msgid "Evaluation form"
-msgstr ""
+msgstr "Foomka qiimeynta"
 
 msgid "My evaluations"
-msgstr ""
+msgstr "Qiimeyntayda"
 
 msgid "Evaluations of me"
-msgstr ""
+msgstr "Qiimeynta aniga"
 
 msgid "Evaluations I must conduct"
-msgstr ""
+msgstr "Qiimeynta aan sameeyo"
 
 msgid "Evaluatee"
-msgstr ""
+msgstr "Qofka la qiimeynayo"
 
 msgid "Evaluator"
-msgstr ""
+msgstr "Qiimeeyaha"
 
 msgid "Evaluator(s)"
-msgstr ""
+msgstr "Qiimeeyayaasha"
 
 msgid "Scheduled date"
-msgstr ""
+msgstr "Taariikhda la qorsheeyay"
 
 msgid "Evaluation stage"
-msgstr ""
+msgstr "Marxaladda qiimeynta"
 
 msgid "Save draft"
-msgstr ""
+msgstr "Kaydso qoraalka"
 
 msgid "Send to evaluatee"
-msgstr ""
+msgstr "U soo gudbi qiimeeyaha"
 
 msgid "Submit feedback"
-msgstr ""
+msgstr "Soo gudbi jawaabta"
 
 msgid "Close evaluation"
-msgstr ""
+msgstr "Xir qiimeynta"
 
 msgid "Feedbacked"
-msgstr ""
+msgstr "Jawaab bixiyay"
 
 msgid "Action plan for next period"
-msgstr ""
+msgstr "Qorshaha waxqabadka ee muddada soo socota"
 
 msgid "Save action plan"
-msgstr ""
+msgstr "Kaydso qorshaha waxqabadka"
 
 msgid "Next evaluation date"
-msgstr ""
+msgstr "Taariikhda qiimeynta soo socota"
 
 msgid "History of evaluations"
-msgstr ""
+msgstr "Taariikhda qiimeynta"
 
 msgid "Evaluator comment"
-msgstr ""
+msgstr "Faallada qiimeeyaha"
 
 msgid "Evaluatee comment"
-msgstr ""
+msgstr "Faallada qiimeeyaha"
 
 msgid "Weight %"
-msgstr ""
+msgstr "Miisaan %"
 
 msgid "Must equal 100%"
-msgstr ""
+msgstr "Waa in ay u dhigantahay 100%"
 
 msgid "No skills added yet."
-msgstr ""
+msgstr "Xirfadaha lama darin weli."
 
 msgid "No activities added yet."
 msgstr "Wali wax dhaqdhaqaaq ah lama darin."
@@ -34567,4 +34648,274 @@ msgstr "Ma hubinaysaa in aad rabto in aad tirtirto qiimeyntan?"
 
 msgid "Loading…"
 msgstr "La raro…"
+
+msgid "Periodicity"
+msgstr "Muddada"
+
+msgid "Suggest from periodicity"
+msgstr "Lagu talin muddada"
+
+msgid "Add job offer"
+msgstr "Ku dar shaqada"
+
+msgid "Edit job offer"
+msgstr "Tafatir shaqada"
+
+msgid "Function / Unit"
+msgstr "Shaqa / Qaybta"
+
+msgid "Vacancies"
+msgstr "Meel bannaan"
+
+msgid "Expected start date"
+msgstr "Taariikhda bilowga la filanayo"
+
+msgid "Contract duration (days)"
+msgstr "Muddada qandaraaska (maalmood)"
+
+msgid "Public offer"
+msgstr "Bixinta dadweynaha"
+
+msgid "Publication start date"
+msgstr "Taariikhda daabacaadda bilowga"
+
+msgid "Publication end date"
+msgstr "Taariikhda dhamaadka daabacaadda"
+
+msgid "Applications"
+msgstr "Codsiayaasha"
+
+msgid "Selection exams"
+msgstr "Imtixaannada xulashada"
+
+msgid "Add exam"
+msgstr "Ku dar imtixaanka"
+
+msgid "Applicant"
+msgstr "Cod-sadeyaasha"
+
+msgid "Applied on"
+msgstr "Cod-saday"
+
+msgid "Salary expectations"
+msgstr "Filashada mushaharka"
+
+msgid "Pending evaluation"
+msgstr "Qiimeyn sugaya"
+
+msgid "Hired"
+msgstr "Shaqaalaysiiyay"
+
+msgid "Not hired"
+msgstr "Ma shaqaalaysanin"
+
+msgid "Evaluate"
+msgstr "Qiimeyn"
+
+msgid "Evaluate candidate"
+msgstr "Qiimeyn musharaxa"
+
+msgid "Decision"
+msgstr "Go'aanka"
+
+msgid "Save evaluation"
+msgstr "Kaydso qiimeynta"
+
+msgid "Back to job offers"
+msgstr "Ku noqo shaqo bixinta"
+
+msgid "No job offers available at this time."
+msgstr "Ma jiro shaqo bixinta hadda."
+
+msgid "See details"
+msgstr "Eeg faahfaahinta"
+
+msgid "Apply now"
+msgstr "Codso hadda"
+
+msgid "Already applied"
+msgstr "Hore ayaa loo codsaday"
+
+msgid "Log in to apply"
+msgstr "Gal si aad u codsato"
+
+msgid "Apply to job offer"
+msgstr "U codsato shaqada"
+
+msgid "Availability date"
+msgstr "Taariikhda la heli karo"
+
+msgid "CV (Personal file)"
+msgstr "CV (Faylka shakhsi ahaaneed)"
+
+msgid "Select your CV from your personal files"
+msgstr "Dooro CV-gaaga faylalka shakhsi ahaaneed"
+
+msgid "Submit application"
+msgstr "Soo gudbi codsiga"
+
+msgid "Application submitted successfully."
+msgstr "Codsiga si guul leh ayaa loo gudbiyay."
+
+msgid "Private observations"
+msgstr "Faallooyinka gaarka ah"
+
+msgid "My applications"
+msgstr "Codshyada my"
+
+msgid "View job offers"
+msgstr "Eeg dalabyada shaqada"
+
+msgid "You have not submitted any applications yet."
+msgstr "Wali ma aad gudbisay codsiyo."
+
+msgid "Under review"
+msgstr "Gudaha dib u eegista"
+
+msgid "Not selected"
+msgstr "Ma la doortay"
+
+msgid "HR feedback"
+msgstr "Ra'yiga HR"
+
+msgid "Withdraw application"
+msgstr "Ka bax codsiga"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Ma hubtaa in aad rabto in aad ka baxdo codsigaan?"
+
+msgid "Application withdrawn."
+msgstr "Codsiga waa laga saaray."
+
+msgid "Calculate quiz scores"
+msgstr "Xisaabinka buundooyinka imtixaanka"
+
+msgid "Scores calculated."
+msgstr "Buundooyinka waa la xisaabiyay."
+
+msgid "Career plan overview"
+msgstr "Qorshaha shaqada guud ahaan"
+
+msgid "My career plan"
+msgstr "Qorshaha shaqadayda"
+
+msgid "No function-unit associations configured yet."
+msgstr "Ma jiraan ururo shaqo-unug la sameeyay."
+
+msgid "No required skills defined."
+msgstr "Ma jiraan xirfado loo baahan yahay oo la qeexay."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Waa in lagu meeleeyaa jago si aad u aragto qorshahaaga shaqada."
+
+msgid "Your current position"
+msgstr "Jogadaada hadda"
+
+msgid "No career targets found for your current position."
+msgstr "Ma jiraan bartilmaameedyada shaqada ee jagadaada hadda."
+
+msgid "No required skills defined for this position."
+msgstr "Ma jiraan xirfado loo baahan yahay ee jagadan."
+
+msgid "Met"
+msgstr "La gaadhay"
+
+msgid "Gap"
+msgstr "Farqiga"
+
+msgid "Acquired:"
+msgstr "La helay:"
+
+msgid "Required:"
+msgstr "Loo baahan yahay:"
+
+msgid "Max"
+msgstr "Ugu badnaan"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Ma jiraan shuruudaha kala duwanaanshaha. Markii hore ku dar shuruudaha."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Dooro shuruud liiska si aad u aragto tirakoobkeeda."
+
+msgid "No data available for this criterion."
+msgstr "Ma jiraan xog shuruudahan."
+
+msgid "Change password"
+msgstr "Beddel erayga sirta"
+
+msgid "Newest first"
+msgstr "Ugu cusub marka hore"
+
+msgid "Oldest first"
+msgstr "Ugu da'da marka hore"
+
+msgid "Title A–Z"
+msgstr "Ciwaanka A–Z"
+
+msgid "Title Z–A"
+msgstr "Ciwaanka Z–A"
+
+msgid "Send test email"
+msgstr "U soo dir iimaylka tijaabada"
+
+msgid "Show teachers"
+msgstr "Muuj macallimiinta"
+
+msgid "Hide teachers"
+msgstr "Dhuum macallimiinta"
+
+msgid "Delete exercise attempts"
+msgstr "Tirtir isku dayada layliga"
+
+msgid "Message sent successfully."
+msgstr "Farriinta si guul leh ayaa loo diray."
+
+msgid "You cannot create a new course right now."
+msgstr "Ma sameyn karo koorsada cusub hadda."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Ma xaqiijin karo haddii aad hadda sameyn karto koorsad cusub."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Fadlan isku day mar kale hadhow ama la xiriir maamulaha."
+
+msgid "You cannot create more courses at this time."
+msgstr "Marahan ma samayn karto koorsado badan."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Waad maamushaa %d koorsado waxayna adeeggaaga firfircoon u oggol yahay ilaa %d. Si aad u samayso koorsad kale, waxa aad u baahan tahay xad adeeg sare ama yaraato koorsadahaaga hadda firfircoon."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Waad maamushaa %d koorsado waxayna platformku hadda u oggol yahay ilaa %d akoonkaaga. Ma samayn karto koorsado badan hadda."
+
+msgid "Add a class"
+msgstr "Ku dar fasal"
+
+msgid "Search classes"
+msgstr "Raadi fasallada"
+
+msgid "No classes found"
+msgstr "Ma jiraan fasalo la helay"
+
+msgid "Import classes"
+msgstr "Soodeji fasallada"
+
+msgid "Class users"
+msgstr "Isticmaale fasalka"
+
+msgid "%s classes imported"
+msgstr "%s fasalo la soo dejin"
+
+msgid "%s user-class links imported"
+msgstr "%s xiriiraha isticmaale-fasal la soo dejin"
+
+msgid "Hide comments"
+msgstr "Dhuuq faallooyinka"
+
+msgid "Loading comments..."
+msgstr "Faallooyinka ayaa la raro..."
+
+msgid "No comments yet."
+msgstr "Wali ma jiraan faallooyin."
 

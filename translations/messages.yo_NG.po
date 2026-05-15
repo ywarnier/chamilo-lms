@@ -9726,6 +9726,9 @@ msgstr "Awọn abajade ìwádìí fun:"
 msgid "Select a file"
 msgstr "Yan faili kan"
 
+msgid "Select a file to insert into the editor."
+msgstr ""
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Ìkìlọ̀ - Faili FAQ, tí ó wà nínú àwùjọ /home/ ti ọ̀tá rẹ, kò ṣe ìkọ̀wé. Ọrọ rẹ kò ni fipamọ títí di ìgbà tí ìyọ̀nda faili yí padà."
 
@@ -15906,6 +15909,9 @@ msgstr "Ọjọ́ & àkókò"
 msgid "Item"
 msgstr "Ohun kan"
 
+msgid "Items"
+msgstr "Àwùjọ"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Ṣàtúnṣe Ìdàdìrì Plugin Dashboard"
 
@@ -17159,6 +17165,18 @@ msgstr "Awọn akoko ni ẹgbẹ"
 
 msgid "Courses in group"
 msgstr "Awọn iṣẹ-ẹkọ ni ẹgbẹ"
+
+msgid "Courses on the platform"
+msgstr ""
+
+msgid "%s courses"
+msgstr ""
+
+msgid "%s sessions"
+msgstr ""
+
+msgid "Search by title or code"
+msgstr ""
 
 msgid "Users in group"
 msgstr "Awọn olumulo ni ẹgbẹ"
@@ -32163,6 +32181,9 @@ msgstr "Iṣẹ́ Ìdásílẹ̀"
 msgid "Allowed file formats: %s"
 msgstr "Àwùn ìlò ìdásílẹ̀ tí a yọ̀ǹda: %s"
 
+msgid "File manager"
+msgstr ""
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Àwùn ìlò ìdásílẹ̀ kò yọ̀ǹda. Àwùn ìdásílẹ̀ tí a yọ̀ǹda: %s"
 
@@ -33876,6 +33897,9 @@ msgstr "Kaabọ"
 msgid "Welcome to Chamilo"
 msgstr "Kaabọ si Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr ""
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ti o ba jẹ akoko akọkọ rẹ lati lo Chamilo, rii daju pe o ṣayẹwo akojọ ẹwa ẹgbẹ lati wa ọna rẹ nipasẹ awọn ẹya ọpọlọpọ rẹ. Ti o ba nilo iranlọwọ, iwọ yoo rii <a href=\"https://docs.chamilo.org\">awọn iwe itọnisọna osise wa</a> le ṣe iranlọwọ fun awọn iwe itọnisọna boṣewa, lakoko ti <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">apejọ ori ayelujara wa</a> le ṣe iranlọwọ lati pin awọn imọran ati ri awọn idahun lati ọdọ awọn olummo Chamilo miiran."
 
@@ -34055,6 +34079,63 @@ msgstr "Ìdíwò àìní ìkọ́nilẹ́kọ̀"
 
 msgid "Work climate surveys"
 msgstr " Ìwádìí ìjìnlẹ̀ ìpò iṣẹ́"
+
+msgid "Unit"
+msgstr ""
+
+msgid "Total cost"
+msgstr ""
+
+msgid "Cost per learner"
+msgstr ""
+
+msgid "Average cost by session"
+msgstr ""
+
+msgid "Total investment"
+msgstr ""
+
+msgid "Set cost"
+msgstr ""
+
+msgid "Filter by date range"
+msgstr ""
+
+msgid "Add distribution"
+msgstr ""
+
+msgid "User share"
+msgstr ""
+
+msgid "Select a unit"
+msgstr ""
+
+msgid "Select a survey"
+msgstr ""
+
+msgid "Distribution added"
+msgstr ""
+
+msgid "Distribution removed"
+msgstr ""
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr ""
+
+msgid "Cost updated"
+msgstr ""
+
+msgid "Total invited"
+msgstr ""
+
+msgid "Total answered"
+msgstr ""
+
+msgid "Total responses"
+msgstr ""
+
+msgid "No responses yet"
+msgstr ""
 
 msgid "Diversity criteria"
 msgstr "Àwòrán ìyàwòran"
@@ -34567,4 +34648,274 @@ msgstr "Ṣe o dájú pé o fẹ́ pa ìdàwòdàwò yìí rẹ́?"
 
 msgid "Loading…"
 msgstr "Ṣe ìkójọpọ̀…"
+
+msgid "Periodicity"
+msgstr ""
+
+msgid "Suggest from periodicity"
+msgstr ""
+
+msgid "Add job offer"
+msgstr ""
+
+msgid "Edit job offer"
+msgstr ""
+
+msgid "Function / Unit"
+msgstr ""
+
+msgid "Vacancies"
+msgstr "Awọn ipo iṣẹ"
+
+msgid "Expected start date"
+msgstr ""
+
+msgid "Contract duration (days)"
+msgstr ""
+
+msgid "Public offer"
+msgstr ""
+
+msgid "Publication start date"
+msgstr ""
+
+msgid "Publication end date"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid "Selection exams"
+msgstr ""
+
+msgid "Add exam"
+msgstr ""
+
+msgid "Applicant"
+msgstr ""
+
+msgid "Applied on"
+msgstr ""
+
+msgid "Salary expectations"
+msgstr ""
+
+msgid "Pending evaluation"
+msgstr ""
+
+msgid "Hired"
+msgstr ""
+
+msgid "Not hired"
+msgstr "Kò yàtọ̀ ṣiṣẹ́"
+
+msgid "Evaluate"
+msgstr "Ṣàyẹ̀wò"
+
+msgid "Evaluate candidate"
+msgstr "Ṣàyẹ̀wò olùdòtun"
+
+msgid "Decision"
+msgstr "Ìpinnu"
+
+msgid "Save evaluation"
+msgstr "Fipamọ ìdàwò"
+
+msgid "Back to job offers"
+msgstr "Pada sẹ́dììṣẹ́ àwùjọ"
+
+msgid "No job offers available at this time."
+msgstr "Kò sẹ́dììṣẹ́ àwùjọ kankan wà lọ́wọ́ lọ́nà yìí."
+
+msgid "See details"
+msgstr "Wo kùkúrù"
+
+msgid "Apply now"
+msgstr "Fẹ́ran lọ́wọ́lọ́wọ́"
+
+msgid "Already applied"
+msgstr "Ti fẹ́ran tẹ́lẹ̀"
+
+msgid "Log in to apply"
+msgstr "Wọlé láti fẹ́ran"
+
+msgid "Apply to job offer"
+msgstr "Fẹ́ran sẹ́dììṣẹ́ àwùjọ"
+
+msgid "Availability date"
+msgstr "Ọjọ́ ìwàláàyè"
+
+msgid "CV (Personal file)"
+msgstr "CV (Faili àdáni)"
+
+msgid "Select your CV from your personal files"
+msgstr "Yan CV rẹ láti inú àwùjọ faili àdáni rẹ"
+
+msgid "Submit application"
+msgstr "Fi ìdáwòsí rẹ sílẹ̀"
+
+msgid "Application submitted successfully."
+msgstr "Ìdáwòsí ti fi sílẹ̀ àṣeyọri."
+
+msgid "Private observations"
+msgstr "Àwòkíkà ìdàrúdàpọ̀"
+
+msgid "My applications"
+msgstr "Àwùjọ ìdáwòsí mi"
+
+msgid "View job offers"
+msgstr "Wo àwùjọ sẹ́dììṣẹ́"
+
+msgid "You have not submitted any applications yet."
+msgstr "O kò ti fi ìdáwòsí kankan sílẹ̀ lẹ́yìn."
+
+msgid "Under review"
+msgstr "Wà lábẹ́ ìdàwò"
+
+msgid "Not selected"
+msgstr "Kò yàn"
+
+msgid "HR feedback"
+msgstr "Àwùrọ̀ ìdàhùn HR"
+
+msgid "Withdraw application"
+msgstr "Fa ìdáwòsí kúrò"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Ṣe o dájú pé o fẹ́ fa ìdáwòsí yìí kúrò?"
+
+msgid "Application withdrawn."
+msgstr "Ìdáwòsí ti fa kúrò."
+
+msgid "Calculate quiz scores"
+msgstr "Ṣe ìṣirò àwùjọ ìdíwò"
+
+msgid "Scores calculated."
+msgstr "Àwùjọ ti ṣe ìṣirò."
+
+msgid "Career plan overview"
+msgstr "Àkàlẹ̀ ìlò ìdàgbàsókè ìṣẹ́"
+
+msgid "My career plan"
+msgstr "Ètò ìdàgbàsókè ìṣẹ́ mi"
+
+msgid "No function-unit associations configured yet."
+msgstr "Kò sí ìdarapọ̀ iṣẹ́-ẹ̀ka tí a ṣe ìdàdìde lẹ́yìn."
+
+msgid "No required skills defined."
+msgstr "Kò sí ìmọ̀ ìbeere tí a ṣàpèjúwe."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "O gbọ́dọ̀ ni ìyàn sí ipò kan láti wo ètò ìdàgbàsókè ìṣẹ́ rẹ."
+
+msgid "Your current position"
+msgstr "Ipò rẹ lọ́wọ́lọ́wọ́"
+
+msgid "No career targets found for your current position."
+msgstr "Kò sí àwùjọ ìdí ìdàgbàsókè ìṣẹ́ tí a rí fún ipò rẹ lọ́wọ́lọ́wọ́."
+
+msgid "No required skills defined for this position."
+msgstr "Kò sí ìmọ̀ ìbeere tí a ṣàpèjúwe fún ipò yìí."
+
+msgid "Met"
+msgstr "Ìpìlẹ̀"
+
+msgid "Gap"
+msgstr "Àlọ́"
+
+msgid "Acquired:"
+msgstr "Tí a gba:"
+
+msgid "Required:"
+msgstr "Tí a beere:"
+
+msgid "Max"
+msgstr "Ọ̀pọ̀ jùlọ"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Kò sí ìdùpẹ́ ìdàpọ̀ tí a rí. Ṣe ìfiwọsi ìdùpẹ́ kọ́kọ́."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Yan ìdùpẹ́ kan láti inú àtòjọ lati wo ìṣirò rẹ̀."
+
+msgid "No data available for this criterion."
+msgstr "Kò sí ìròyìn kankan tí ó ṣeé lò fún ìdùpẹ́ yìí."
+
+msgid "Change password"
+msgstr "Yí ìpamọ́ ọrọ̀ kọjá padà"
+
+msgid "Newest first"
+msgstr "Tuntun jùlọ lákọ̀ọ́kọ́"
+
+msgid "Oldest first"
+msgstr "Àtijọ́ jùlọ lákọ̀ọ́kọ́"
+
+msgid "Title A–Z"
+msgstr "Àkọ́kọ́ A–Z"
+
+msgid "Title Z–A"
+msgstr "Àkọ́kọ́ Z–A"
+
+msgid "Send test email"
+msgstr "Firanṣẹ́ ìmeẹ̀lì ìdíwò"
+
+msgid "Show teachers"
+msgstr "Fi àwọn olùkọ́ hàn"
+
+msgid "Hide teachers"
+msgstr "Pa àwọn olùkọ́ mọ́"
+
+msgid "Delete exercise attempts"
+msgstr "Pa awọn ìdọwọ́ ìdàgbàsókè rẹ̀ kúrò"
+
+msgid "Message sent successfully."
+msgstr "Ìfọwọ́sowọ́pọ̀ ti fi lọ́nà rere."
+
+msgid "You cannot create a new course right now."
+msgstr "O kò le ṣẹ̀dá ìkẹ́kọ̀ọ́ tuntun lọ́nà yìí."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "A kò le ṣàyẹ̀wò boya o le ṣẹ̀dá ìkẹ́kọ̀ọ́ tuntun lọ́nà yìí."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Jọ̀wọ́ gbìyànjú lẹ́yìn ìgbà díẹ̀ tàbí kàn si alábòójútó."
+
+msgid "You cannot create more courses at this time."
+msgstr "O kò le ṣẹ̀dá ìkẹ́kọ̀ọ́ púpọ̀ sí i lọ́nà yìí."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "O ti ń ṣàtúnṣe ìkẹ́kọ̀ọ́ %d àti pé ìhàn-ìdùsílẹ̀ rẹ gba ìdúróde títí dé %d. Láti ṣẹ̀dá ìkẹ́kọ̀ọ́ mìíràn, o nilo ìdíbe ìhàn-ìdùsílẹ̀ gíga tàbí dín ìkẹ́kọ̀ọ́ tí ń ṣiṣẹ́ lọ́nà yìí kù."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "O ti ń ṣàtúnṣe ìkẹ́kọ̀ọ́ %d àti pé ìpìlẹ̀ yìí gba ìdúróde títí dé %d fún ìdàrò rẹ. O kò le ṣẹ̀dá ìkẹ́kọ̀ọ́ púpọ̀ sí i lọ́nà yìí."
+
+msgid "Add a class"
+msgstr "Ṣàfikún kíláàsì"
+
+msgid "Search classes"
+msgstr "Ṣàwárí kíláàsì"
+
+msgid "No classes found"
+msgstr "Kò sí kíláàsì tí a rí"
+
+msgid "Import classes"
+msgstr "Gbe kíláàsì wọlé"
+
+msgid "Class users"
+msgstr "Àwùjọ kíláàsì"
+
+msgid "%s classes imported"
+msgstr "%s kíláàsì tí a gbe wọlé"
+
+msgid "%s user-class links imported"
+msgstr "%s ìdàpọ̀ olùwò-kíláàsì tí a gbe wọlé"
+
+msgid "Hide comments"
+msgstr "Fi ìwòyì pamọ́"
+
+msgid "Loading comments..."
+msgstr "Ọ̀nà ìgbẹ́kẹ̀lé ìwòyì..."
+
+msgid "No comments yet."
+msgstr "Kò sí ìròyìn sí ìsinsìnyí."
 

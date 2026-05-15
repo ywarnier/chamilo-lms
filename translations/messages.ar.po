@@ -346,7 +346,7 @@ msgid "Sincerely"
 msgstr "مع التقدير"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "نموذج صيغة: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "مثال على الصيغة: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "مدى المتغير"
@@ -9740,6 +9740,9 @@ msgstr ":البحث عن النتائج حول"
 msgid "Select a file"
 msgstr "اختيار ملف"
 
+msgid "Select a file to insert into the editor."
+msgstr "اختر ملفًا لإدراجه في المحرر."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "تحذير - ان ملف استفسارات الاسئلة موجود في مسار الملف الرئيسي وهو غير قابل للتغيير"
 
@@ -15920,6 +15923,9 @@ msgstr "التاريخ والوقت"
 msgid "Item"
 msgstr "فقرة"
 
+msgid "Items"
+msgstr "العناصر"
+
 msgid "Configure Dashboard Plugin"
 msgstr "تهيئة المكون الاضافي للوحة المتابعة"
 
@@ -17173,6 +17179,18 @@ msgstr "الدورات في المجموعة"
 
 msgid "Courses in group"
 msgstr "المقررات في المجموعة"
+
+msgid "Courses on the platform"
+msgstr "الدورات على المنصة"
+
+msgid "%s courses"
+msgstr "%s دورات"
+
+msgid "%s sessions"
+msgstr "%s جلسات"
+
+msgid "Search by title or code"
+msgstr "البحث حسب العنوان أو الرمز"
 
 msgid "Users in group"
 msgstr "المستخدمين في المجموعة"
@@ -32181,6 +32199,9 @@ msgstr "مهمة"
 msgid "Allowed file formats: %s"
 msgstr "صيغ الملفات المسموح بها: %s"
 
+msgid "File manager"
+msgstr "مدير الملفات"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "نوع الملف غير مسموح. الامتدادات المسموح بها: %s"
 
@@ -33894,6 +33915,9 @@ msgstr "مرحباً"
 msgid "Welcome to Chamilo"
 msgstr "مرحباً بك في Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "تحقق من جميع الأسئلة غير المدقق أدناه"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> إذا كانت هذه هي المرة الأولى التي تستخدم فيها Chamilo، تأكد من التحقق من القائمة الجانبية للعثور على طريقك عبر ميزاته العديدة. إذا كنت بحاجة إلى مساعدة، ستجد <a href=\"https://docs.chamilo.org\">وثائقنا الرسمية</a> مفيدة للوثائق القياسية، بينما يمكن لـ <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">منتدى الإنترنت</a> مشاركة الأفكار والعثور على إجابات من مستخدمي Chamilo الآخرين."
 
@@ -34073,6 +34097,63 @@ msgstr "تقييم احتياجات التدريب"
 
 msgid "Work climate surveys"
 msgstr "استطلاعات مناخ العمل"
+
+msgid "Unit"
+msgstr "وحدة"
+
+msgid "Total cost"
+msgstr "التكلفة الإجمالية"
+
+msgid "Cost per learner"
+msgstr "التكلفة لكل متعلم"
+
+msgid "Average cost by session"
+msgstr "التكلفة المتوسطة لكل جلسة"
+
+msgid "Total investment"
+msgstr "الاستثمار الإجمالي"
+
+msgid "Set cost"
+msgstr "تعيين التكلفة"
+
+msgid "Filter by date range"
+msgstr "تصفية حسب نطاق التاريخ"
+
+msgid "Add distribution"
+msgstr "إضافة توزيع"
+
+msgid "User share"
+msgstr "حصة المستخدم"
+
+msgid "Select a unit"
+msgstr "اختر وحدة"
+
+msgid "Select a survey"
+msgstr "اختر استطلاعًا"
+
+msgid "Distribution added"
+msgstr "تم إضافة التوزيع"
+
+msgid "Distribution removed"
+msgstr "تم إزالة التوزيع"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "هل أنت متأكد من رغبتك في إزالة هذا التوزيع؟"
+
+msgid "Cost updated"
+msgstr "تم تحديث التكلفة"
+
+msgid "Total invited"
+msgstr "الإجمالي المدعو"
+
+msgid "Total answered"
+msgstr "الإجمالي المدقق"
+
+msgid "Total responses"
+msgstr "إجمالي الردود"
+
+msgid "No responses yet"
+msgstr "لا توجد ردود بعد"
 
 msgid "Diversity criteria"
 msgstr "معايير التنوع"
@@ -34585,4 +34666,274 @@ msgstr "هل أنت متأكد من رغبتك في حذف هذا التقييم
 
 msgid "Loading…"
 msgstr "جارٍ التحميل…"
+
+msgid "Periodicity"
+msgstr "الدورية"
+
+msgid "Suggest from periodicity"
+msgstr "اقتراح من الدورية"
+
+msgid "Add job offer"
+msgstr "إضافة عرض وظيفي"
+
+msgid "Edit job offer"
+msgstr "تعديل عرض وظيفي"
+
+msgid "Function / Unit"
+msgstr "الوظيفة / الوحدة"
+
+msgid "Vacancies"
+msgstr "الشواغر"
+
+msgid "Expected start date"
+msgstr "تاريخ البدء المتوقع"
+
+msgid "Contract duration (days)"
+msgstr "مدة العقد (أيام)"
+
+msgid "Public offer"
+msgstr "عرض عام"
+
+msgid "Publication start date"
+msgstr "تاريخ بدء النشر"
+
+msgid "Publication end date"
+msgstr "تاريخ انتهاء النشر"
+
+msgid "Applications"
+msgstr "الطلبات"
+
+msgid "Selection exams"
+msgstr "امتحانات الاختيار"
+
+msgid "Add exam"
+msgstr "إضافة امتحان"
+
+msgid "Applicant"
+msgstr "المتقدم"
+
+msgid "Applied on"
+msgstr "تقدم في"
+
+msgid "Salary expectations"
+msgstr "توقعات الراتب"
+
+msgid "Pending evaluation"
+msgstr "في انتظار التقييم"
+
+msgid "Hired"
+msgstr "تم التوظيف"
+
+msgid "Not hired"
+msgstr "لم يتم التوظيف"
+
+msgid "Evaluate"
+msgstr "تقييم"
+
+msgid "Evaluate candidate"
+msgstr "تقييم المرشح"
+
+msgid "Decision"
+msgstr "القرار"
+
+msgid "Save evaluation"
+msgstr "حفظ التقييم"
+
+msgid "Back to job offers"
+msgstr "العودة إلى عروض الوظائف"
+
+msgid "No job offers available at this time."
+msgstr "لا توجد عروض وظائف متاحة حالياً."
+
+msgid "See details"
+msgstr "عرض التفاصيل"
+
+msgid "Apply now"
+msgstr "التقديم الآن"
+
+msgid "Already applied"
+msgstr "تم التقديم مسبقاً"
+
+msgid "Log in to apply"
+msgstr "تسجيل الدخول للتقديم"
+
+msgid "Apply to job offer"
+msgstr "التقديم على عرض الوظيفة"
+
+msgid "Availability date"
+msgstr "تاريخ التوافر"
+
+msgid "CV (Personal file)"
+msgstr "السيرة الذاتية (الملف الشخصي)"
+
+msgid "Select your CV from your personal files"
+msgstr "اختر سيرتك الذاتية من ملفاتك الشخصية"
+
+msgid "Submit application"
+msgstr "إرسال الطلب"
+
+msgid "Application submitted successfully."
+msgstr "تم إرسال الطلب بنجاح."
+
+msgid "Private observations"
+msgstr "ملاحظات خاصة"
+
+msgid "My applications"
+msgstr "طلباتي"
+
+msgid "View job offers"
+msgstr "عرض عروض الوظائف"
+
+msgid "You have not submitted any applications yet."
+msgstr "لم تقدم أي طلبات بعد."
+
+msgid "Under review"
+msgstr "قيد المراجعة"
+
+msgid "Not selected"
+msgstr "غير مختار"
+
+msgid "HR feedback"
+msgstr "تعليقات الموارد البشرية"
+
+msgid "Withdraw application"
+msgstr "سحب الطلب"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "هل أنت متأكد من سحب هذا الطلب؟"
+
+msgid "Application withdrawn."
+msgstr "تم سحب الطلب."
+
+msgid "Calculate quiz scores"
+msgstr "حساب درجات الاختبار"
+
+msgid "Scores calculated."
+msgstr "تم حساب الدرجات."
+
+msgid "Career plan overview"
+msgstr "نظرة عامة على خطة المسار المهني"
+
+msgid "My career plan"
+msgstr "خطة مساري المهني"
+
+msgid "No function-unit associations configured yet."
+msgstr "لم يتم تهيئة أي ارتباطات وحدة وظيفة بعد."
+
+msgid "No required skills defined."
+msgstr "لم يتم تحديد أي مهارات مطلوبة."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "يجب تعيينك لوظيفة لرؤية خطة مسارك المهني."
+
+msgid "Your current position"
+msgstr "منصبك الحالي"
+
+msgid "No career targets found for your current position."
+msgstr "لم يتم العثور على أهداف مهنية لمنصبك الحالي."
+
+msgid "No required skills defined for this position."
+msgstr "لم يتم تحديد مهارات مطلوبة لهذا المنصب."
+
+msgid "Met"
+msgstr "مُحقّق"
+
+msgid "Gap"
+msgstr "فجوة"
+
+msgid "Acquired:"
+msgstr "مكتسب:"
+
+msgid "Required:"
+msgstr "مطلوب:"
+
+msgid "Max"
+msgstr "الحد الأقصى"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "لم يتم العثور على معايير تنوع. أضف معايير أولاً."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "اختر معياراً من القائمة لعرض إحصائياته."
+
+msgid "No data available for this criterion."
+msgstr "لا توجد بيانات متاحة لهذا المعيار."
+
+msgid "Change password"
+msgstr "تغيير كلمة المرور"
+
+msgid "Newest first"
+msgstr "الأحدث أولاً"
+
+msgid "Oldest first"
+msgstr "الأقدم أولاً"
+
+msgid "Title A–Z"
+msgstr "العنوان أ-ي"
+
+msgid "Title Z–A"
+msgstr "العنوان ي-أ"
+
+msgid "Send test email"
+msgstr "إرسال بريد إلكتروني تجريبي"
+
+msgid "Show teachers"
+msgstr "إظهار المعلمين"
+
+msgid "Hide teachers"
+msgstr "إخفاء المعلمين"
+
+msgid "Delete exercise attempts"
+msgstr "حذف محاولات التمرين"
+
+msgid "Message sent successfully."
+msgstr "تم إرسال الرسالة بنجاح."
+
+msgid "You cannot create a new course right now."
+msgstr "لا يمكنك إنشاء مساق جديد الآن."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "غير قادر على التحقق مما إذا كان بإمكانك إنشاء مساق جديد الآن."
+
+msgid "Please try again later or contact the administrator."
+msgstr "يرجى المحاولة مرة أخرى لاحقاً أو الاتصال بالمدير."
+
+msgid "You cannot create more courses at this time."
+msgstr "لا يمكنك إنشاء المزيد من المساقات في هذه اللحظة."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "أنت تدير %d مساق بالفعل وخدمتك النشطة تسمح بحد أقصى %d. لإنشاء مساق آخر، تحتاج إلى حد خدمة أعلى أو تقليل مساقاتك النشطة الحالية."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "أنت تدير %d مساق بالفعل والمنصة تسمح حالياً بحد أقصى %d للحساب الخاص بك. لا يمكنك إنشاء المزيد من المساقات الآن."
+
+msgid "Add a class"
+msgstr "إضافة فصل"
+
+msgid "Search classes"
+msgstr "البحث في الفصول"
+
+msgid "No classes found"
+msgstr "لم يتم العثور على فصول"
+
+msgid "Import classes"
+msgstr "استيراد الفصول"
+
+msgid "Class users"
+msgstr "مستخدمو الفصل"
+
+msgid "%s classes imported"
+msgstr "%s فصول مستوردة"
+
+msgid "%s user-class links imported"
+msgstr "%s روابط مستخدم-فصل مستوردة"
+
+msgid "Hide comments"
+msgstr "إخفاء التعليقات"
+
+msgid "Loading comments..."
+msgstr "جارٍ تحميل التعليقات..."
+
+msgid "No comments yet."
+msgstr "لا توجد تعليقات بعد."
 

@@ -9730,6 +9730,9 @@ msgstr "Wyniki wyszukiwania dla:"
 msgid "Select a file"
 msgstr "Wybierz plik"
 
+msgid "Select a file to insert into the editor."
+msgstr "Wybierz plik do wstawienia do edytora."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Uwaga - plik FAQ, zlokalizowany na portalu w katalogu /home/, nie jest zapisywalny. Twój tekst nie zostanie zapisany dopóki uprawnienia do plików są zmieniane."
 
@@ -15910,6 +15913,9 @@ msgstr "Data i czas"
 msgid "Item"
 msgstr "Pozycja"
 
+msgid "Items"
+msgstr "Elementy"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Konfiguracja wtyczki Panelu"
 
@@ -17163,6 +17169,18 @@ msgstr "Sesje w grupie"
 
 msgid "Courses in group"
 msgstr "Kursy w grupie"
+
+msgid "Courses on the platform"
+msgstr "Kursy na platformie"
+
+msgid "%s courses"
+msgstr "%s kursów"
+
+msgid "%s sessions"
+msgstr "%s sesji"
+
+msgid "Search by title or code"
+msgstr "Wyszukaj po tytule lub kodzie"
 
 msgid "Users in group"
 msgstr "Użytkownicy w grupie"
@@ -32173,6 +32191,9 @@ msgstr "Zadanie"
 msgid "Allowed file formats: %s"
 msgstr "Dozwolone formaty plików: %s"
 
+msgid "File manager"
+msgstr "Menedżer plików"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Nieprawidłowy typ pliku. Dozwolone rozszerzenia: %s"
 
@@ -33886,6 +33907,9 @@ msgstr "Witamy"
 msgid "Welcome to Chamilo"
 msgstr "Witamy w Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Zaznacz wszystkie nieodpowiedziane pytania poniżej"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Jeśli korzystasz z Chamilo po raz pierwszy, upewnij się, że sprawdzisz menu boczne, aby znaleźć drogę przez jego liczne funkcje. Jeśli potrzebujesz pomocy, nasze <a href=\"https://docs.chamilo.org\">oficjalne dokumenty</a> pomogą w standardowej dokumentacji, podczas gdy nasze <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forum online</a> pomoże dzielić się pomysłami i znaleźć odpowiedzi od innych użytkowników Chamilo."
 
@@ -34065,6 +34089,63 @@ msgstr "Ocena potrzeb szkoleniowych"
 
 msgid "Work climate surveys"
 msgstr "Badania klimatu pracy"
+
+msgid "Unit"
+msgstr "Jednostka"
+
+msgid "Total cost"
+msgstr "Całkowity koszt"
+
+msgid "Cost per learner"
+msgstr "Koszt na ucznia"
+
+msgid "Average cost by session"
+msgstr "Średni koszt na sesję"
+
+msgid "Total investment"
+msgstr "Całkowita inwestycja"
+
+msgid "Set cost"
+msgstr "Ustaw koszt"
+
+msgid "Filter by date range"
+msgstr "Filtruj według zakresu dat"
+
+msgid "Add distribution"
+msgstr "Dodaj dystrybucję"
+
+msgid "User share"
+msgstr "Udział użytkownika"
+
+msgid "Select a unit"
+msgstr "Wybierz jednostkę"
+
+msgid "Select a survey"
+msgstr "Wybierz ankietę"
+
+msgid "Distribution added"
+msgstr "Dystrybucja dodana"
+
+msgid "Distribution removed"
+msgstr "Dystrybucja usunięta"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Czy na pewno chcesz usunąć tę dystrybucję?"
+
+msgid "Cost updated"
+msgstr "Koszt zaktualizowany"
+
+msgid "Total invited"
+msgstr "Całkowita liczba zaproszonych"
+
+msgid "Total answered"
+msgstr "Całkowita liczba odpowiedzi"
+
+msgid "Total responses"
+msgstr "Całkowita liczba odpowiedzi"
+
+msgid "No responses yet"
+msgstr "Brak odpowiedzi"
 
 msgid "Diversity criteria"
 msgstr "Kryteria różnorodności"
@@ -34577,4 +34658,274 @@ msgstr "Czy na pewno chcesz usunąć tę ocenę?"
 
 msgid "Loading…"
 msgstr "Ładowanie…"
+
+msgid "Periodicity"
+msgstr "Okresowość"
+
+msgid "Suggest from periodicity"
+msgstr "Zaproponuj z okresowości"
+
+msgid "Add job offer"
+msgstr "Dodaj ofertę pracy"
+
+msgid "Edit job offer"
+msgstr "Edytuj ofertę pracy"
+
+msgid "Function / Unit"
+msgstr "Stanowisko / Jednostka"
+
+msgid "Vacancies"
+msgstr "Wolne miejsca"
+
+msgid "Expected start date"
+msgstr "Oczekiwana data rozpoczęcia"
+
+msgid "Contract duration (days)"
+msgstr "Czas trwania umowy (dni)"
+
+msgid "Public offer"
+msgstr "Publiczna oferta"
+
+msgid "Publication start date"
+msgstr "Data rozpoczęcia publikacji"
+
+msgid "Publication end date"
+msgstr "Data zakończenia publikacji"
+
+msgid "Applications"
+msgstr "Aplikacje"
+
+msgid "Selection exams"
+msgstr "Egzaminy selekcyjne"
+
+msgid "Add exam"
+msgstr "Dodaj egzamin"
+
+msgid "Applicant"
+msgstr "Aplikant"
+
+msgid "Applied on"
+msgstr "Złożono"
+
+msgid "Salary expectations"
+msgstr "Oczekiwania finansowe"
+
+msgid "Pending evaluation"
+msgstr "Oczekuje na ocenę"
+
+msgid "Hired"
+msgstr "Zatrudniony"
+
+msgid "Not hired"
+msgstr "Nie zatrudniony"
+
+msgid "Evaluate"
+msgstr "Oceń"
+
+msgid "Evaluate candidate"
+msgstr "Oceń kandydata"
+
+msgid "Decision"
+msgstr "Decyzja"
+
+msgid "Save evaluation"
+msgstr "Zapisz ocenę"
+
+msgid "Back to job offers"
+msgstr "Powrót do ofert pracy"
+
+msgid "No job offers available at this time."
+msgstr "Brak dostępnych ofert pracy w tym momencie."
+
+msgid "See details"
+msgstr "Zobacz szczegóły"
+
+msgid "Apply now"
+msgstr "Aplikuj teraz"
+
+msgid "Already applied"
+msgstr "Już aplikowałeś"
+
+msgid "Log in to apply"
+msgstr "Zaloguj się, aby aplikować"
+
+msgid "Apply to job offer"
+msgstr "Aplikuj na ofertę pracy"
+
+msgid "Availability date"
+msgstr "Data dostępności"
+
+msgid "CV (Personal file)"
+msgstr "CV (Plik osobisty)"
+
+msgid "Select your CV from your personal files"
+msgstr "Wybierz swoje CV z plików osobistych"
+
+msgid "Submit application"
+msgstr "Wyślij aplikację"
+
+msgid "Application submitted successfully."
+msgstr "Aplikacja została pomyślnie złożona."
+
+msgid "Private observations"
+msgstr "Prywatne uwagi"
+
+msgid "My applications"
+msgstr "Moje aplikacje"
+
+msgid "View job offers"
+msgstr "Zobacz oferty pracy"
+
+msgid "You have not submitted any applications yet."
+msgstr "Nie złożyłeś jeszcze żadnej aplikacji."
+
+msgid "Under review"
+msgstr "W trakcie przeglądu"
+
+msgid "Not selected"
+msgstr "Nie wybrany"
+
+msgid "HR feedback"
+msgstr "Opinia HR"
+
+msgid "Withdraw application"
+msgstr "Wycofaj aplikację"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Czy na pewno chcesz wycofać tę aplikację?"
+
+msgid "Application withdrawn."
+msgstr "Aplikacja wycofana."
+
+msgid "Calculate quiz scores"
+msgstr "Oblicz wyniki quizu"
+
+msgid "Scores calculated."
+msgstr "Wyniki obliczone."
+
+msgid "Career plan overview"
+msgstr "Przegląd planu kariery"
+
+msgid "My career plan"
+msgstr "Mój plan kariery"
+
+msgid "No function-unit associations configured yet."
+msgstr "Brak skonfigurowanych powiązań stanowisko-jednostka."
+
+msgid "No required skills defined."
+msgstr "Brak zdefiniowanych wymaganych umiejętności."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Musisz być przypisany do stanowiska, aby zobaczyć swój plan kariery."
+
+msgid "Your current position"
+msgstr "Twoje obecne stanowisko"
+
+msgid "No career targets found for your current position."
+msgstr "Nie znaleziono celów kariery dla Twojej obecnej pozycji."
+
+msgid "No required skills defined for this position."
+msgstr "Brak zdefiniowanych wymaganych umiejętności dla tej pozycji."
+
+msgid "Met"
+msgstr "Spełnione"
+
+msgid "Gap"
+msgstr "Luka"
+
+msgid "Acquired:"
+msgstr "Nabyte:"
+
+msgid "Required:"
+msgstr "Wymagane:"
+
+msgid "Max"
+msgstr "Maks."
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nie znaleziono kryteriów różnorodności. Najpierw dodaj kryteria."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Wybierz kryterium z listy, aby zobaczyć jego statystyki."
+
+msgid "No data available for this criterion."
+msgstr "Brak danych dla tego kryterium."
+
+msgid "Change password"
+msgstr "Zmień hasło"
+
+msgid "Newest first"
+msgstr "Najnowsze pierwsze"
+
+msgid "Oldest first"
+msgstr "Najstarsze pierwsze"
+
+msgid "Title A–Z"
+msgstr "Tytuł A–Z"
+
+msgid "Title Z–A"
+msgstr "Tytuł Z–A"
+
+msgid "Send test email"
+msgstr "Wyślij testowy e-mail"
+
+msgid "Show teachers"
+msgstr "Pokaż nauczycieli"
+
+msgid "Hide teachers"
+msgstr "Ukryj nauczycieli"
+
+msgid "Delete exercise attempts"
+msgstr "Usuń próby ćwiczenia"
+
+msgid "Message sent successfully."
+msgstr "Wiadomość wysłana pomyślnie."
+
+msgid "You cannot create a new course right now."
+msgstr "Nie możesz teraz utworzyć nowego kursu."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Nie można zweryfikować, czy możesz teraz utworzyć nowy kurs."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Spróbuj ponownie później lub skontaktuj się z administratorem."
+
+msgid "You cannot create more courses at this time."
+msgstr "Nie możesz teraz utworzyć więcej kursów."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Zarządzasz już %d kursami, a Twoja aktywna usługa pozwala na maks. %d. Aby utworzyć kolejny kurs, potrzebujesz wyższego limitu usług lub zmniejsz liczbę aktywnych kursów."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Zarządzasz już %d kursami, a platforma obecnie pozwala na maks. %d dla Twojego konta. Nie możesz teraz utworzyć więcej kursów."
+
+msgid "Add a class"
+msgstr "Dodaj klasę"
+
+msgid "Search classes"
+msgstr "Wyszukaj klasy"
+
+msgid "No classes found"
+msgstr "Nie znaleziono klas"
+
+msgid "Import classes"
+msgstr "Importuj klasy"
+
+msgid "Class users"
+msgstr "Użytkownicy klasy"
+
+msgid "%s classes imported"
+msgstr "Zaimportowano %s klasy"
+
+msgid "%s user-class links imported"
+msgstr "Zaimportowano %s powiązań użytkownik-klasa"
+
+msgid "Hide comments"
+msgstr "Ukryj komentarze"
+
+msgid "Loading comments..."
+msgstr "Ładowanie komentarzy..."
+
+msgid "No comments yet."
+msgstr "Brak komentarzy."
 

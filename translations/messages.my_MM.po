@@ -9730,6 +9730,9 @@ msgstr "အတွက် ရှာဖွေမှုရလဒ်များ-"
 msgid "Select a file"
 msgstr "ဖိုင်တစ်ခုကို ရွေးချယ်ပါ"
 
+msgid "Select a file to insert into the editor."
+msgstr ""
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "သတိပေးချက် - သင့်ဝဘ်ပေါ်တယ်၏ /home/ ဖိုင်တွဲတွင်ရှိသော FAQ ဖိုင်သည် ရေးသားခွင့်မရှိပါ။ ဖိုင်ခွင့်ပြုချက်များကို ပြောင်းလဲမထားသမျှ သင့်စာသားကို သိမ်းဆည်း၍မရပါ။"
 
@@ -9742,8 +9745,8 @@ msgstr "ဝမ်းနည်းပါသည်၊ သင်သည် ဤစာ�
 msgid "Result"
 msgstr "ရလဒ်"
 
-msgid "Attempting to login as %s %s (id %s)"
-msgstr "%s %s (id %s) အဖြစ် အကောင့်ဝင်ရန် ကြိုးစားနေသည်"
+msgid "Attempting to login as %s (id %d)"
+msgstr ""
 
 msgid "Login successful. Go to %s"
 msgstr "အကောင့်ဝင်မှု အောင်မြင်ပါသည်။ %s သို့သွားပါ"
@@ -15910,6 +15913,9 @@ msgstr "ရက်စွဲနှင့်အချိန်"
 msgid "Item"
 msgstr "အရာ"
 
+msgid "Items"
+msgstr "အရာများ"
+
 msgid "Configure Dashboard Plugin"
 msgstr "ဒက်ရှ်ဘုတ်ပလပ်အင်ကို ဖွဲ့စည်းပုံပြင်ဆင်ပါ"
 
@@ -17163,6 +17169,18 @@ msgstr "အုပ်စုထဲရှိ အစည်းအဝေးမျာ�
 
 msgid "Courses in group"
 msgstr "အုပ်စုထဲရှိ သင်တန်းများ"
+
+msgid "Courses on the platform"
+msgstr ""
+
+msgid "%s courses"
+msgstr ""
+
+msgid "%s sessions"
+msgstr ""
+
+msgid "Search by title or code"
+msgstr ""
 
 msgid "Users in group"
 msgstr "အုပ်စုထဲရှိ အသုံးပြုသူများ"
@@ -32167,6 +32185,9 @@ msgstr "တာဝန်ပေးခြင်း"
 msgid "Allowed file formats: %s"
 msgstr "ခွင့်ပြုထားသော ဖိုင်ပုံစံများ။ %s"
 
+msgid "File manager"
+msgstr "ဖိုင်မန်နေဂျာ"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "ဖိုင်အမျိုးအစား ခွင့်မပြုပါ။ ခွင့်ပြုထားသော ချဲ့ထွင်မှုများ။ %s"
 
@@ -32591,13 +32612,13 @@ msgid "Current authentication method"
 msgstr "လက်ရှိ အထောက်အထားစစ်အပ်ထားသော နည်းလမ်း"
 
 msgid "Branches"
-msgstr ""
+msgstr "ဌာနခွဲများ"
 
 msgid "Rooms"
-msgstr ""
+msgstr "အခန်းများ"
 
 msgid "Room availability finder"
-msgstr ""
+msgstr "အခန်းရရှိနိုင်မှုရှာဖွေကိရိယာ"
 
 msgid "New branch"
 msgstr "အသစ်ဆိုင်"
@@ -33880,6 +33901,9 @@ msgstr "ဧည့်ခံပါသည်"
 msgid "Welcome to Chamilo"
 msgstr "Chamilo သို့ ဧည့်ခံပါသည်"
 
+msgid "Check all unanswered questions below"
+msgstr "အောက်ပါ မဖြေရသေးသော မေးခွန်းများကို အားလုံးစစ်ဆေး"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Chamilo ကို ပထမဆုံး သုံးကြုံခဲ့ရင်၊ ဘေးမီနူးကို စစ်ဆေးပြီး အင်္ဂါရပ်များစွာကို ရှာဖွေပါ။ အကူအညီ လိုအပ်ပါက၊ <a href=\"https://docs.chamilo.org\">တရားဝင် စာရွက်စာတမ်းများ</a> က စံ စာရွက်စာတမ်းများအတွက် ကူညီပေးနိုင်ပြီး၊ <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">အွန်လိုင်း ဖိုရမ်</a> က Chamilo အသုံးပြုသူများထံမှ အကြံဉာဏ်များမျှဝေပြီး အဖြေများ ရှာဖွေနိုင်ပါသည်။"
 
@@ -34059,6 +34083,63 @@ msgstr "လေ့ကျင့်ရေးလိုအပ်ချက်အကဲ
 
 msgid "Work climate surveys"
 msgstr "အလုပ်ပတ်ဝန်းကျင်စစ်တမ်းများ"
+
+msgid "Unit"
+msgstr "ယူနစ်"
+
+msgid "Total cost"
+msgstr "စုစုပေါင်း ကုန်ကျစရိတ်"
+
+msgid "Cost per learner"
+msgstr "သင်တန်းသားတစ်ဦးလျှင် ကုန်ကျစရိတ်"
+
+msgid "Average cost by session"
+msgstr "သင်တန်းတစ်ခုလျှင် ပျမ်းမျှကုန်ကျစရိတ်"
+
+msgid "Total investment"
+msgstr "စုစုပေါင်း ရင်းနှီးမြှုပ်နှံမှု"
+
+msgid "Set cost"
+msgstr "ကုန်ကျစရိတ်သတ်မှတ်ရန်"
+
+msgid "Filter by date range"
+msgstr "နေ့စွဲအပိုင်းအခြားဖြင့် စစ်ထုတ်ရန်"
+
+msgid "Add distribution"
+msgstr "ဖြန့်ဖြူးမှု ထပ်မံထည့်ရန်"
+
+msgid "User share"
+msgstr "အသုံးပြုသူ မျှဝေမှု"
+
+msgid "Select a unit"
+msgstr "ယူနစ်တစ်ခု ရွေးချယ်ပါ"
+
+msgid "Select a survey"
+msgstr "စစ်တမ်းတစ်ခု ရွေးချယ်ပါ"
+
+msgid "Distribution added"
+msgstr "ဖြန့်ဖြူးမှု ထည့်ပြီး"
+
+msgid "Distribution removed"
+msgstr "ဖြန့်ဖြူးမှု ဖယ်ရှားပြီး"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "ဤဖြန့်ဖြူးမှုကို ဖယ်ရှားလိုသည်မှာ သေချာပါသလား?"
+
+msgid "Cost updated"
+msgstr "ကုန်ကျစရိတ် အပ်ဒိတ်လုပ်ပြီး"
+
+msgid "Total invited"
+msgstr "ဖိတ်ခေါ်ထားစုစုပေါင်း"
+
+msgid "Total answered"
+msgstr "ဖြေကြားထားစုစုပေါင်း"
+
+msgid "Total responses"
+msgstr "တုံ့ပြန်မှုစုစုပေါင်း"
+
+msgid "No responses yet"
+msgstr "တုံ့ပြန်မှု မရှိသေးပါ"
 
 msgid "Diversity criteria"
 msgstr "မတူကွဲပြားမှုစံနှုန်းများ"
@@ -34571,4 +34652,274 @@ msgstr "ဤအကဲဖြတ်မှုကို ဖျက်မှာလာ�
 
 msgid "Loading…"
 msgstr "လုပ်နေပါသည်…"
+
+msgid "Periodicity"
+msgstr "ကာလသံသရာ"
+
+msgid "Suggest from periodicity"
+msgstr "ကာလသံသရာမှ အကြံပြုရန်"
+
+msgid "Add job offer"
+msgstr "အလုပ်ကမ်းလှမ်းချက် ထည့်ရန်"
+
+msgid "Edit job offer"
+msgstr "အလုပ်ကမ်းလှမ်းချက် တည်းဖြတ်ရန်"
+
+msgid "Function / Unit"
+msgstr "ရာထူး / ယူနစ်"
+
+msgid "Vacancies"
+msgstr "ရာထူးနေရာလွတ်များ"
+
+msgid "Expected start date"
+msgstr "မျှော်လင့်ထားသော စတင်ရက်"
+
+msgid "Contract duration (days)"
+msgstr "စာချုပ်ကြာချိန် (ရက်)"
+
+msgid "Public offer"
+msgstr "အများပြည်သူ ကမ်းလှမ်းချက်"
+
+msgid "Publication start date"
+msgstr "ထုတ်ဝေစတင်ရက်"
+
+msgid "Publication end date"
+msgstr "ထုတ်ဝေသက်တမ်း ပြီးဆုံးရက်"
+
+msgid "Applications"
+msgstr "လျှောက်လွှာများ"
+
+msgid "Selection exams"
+msgstr "ရွေးချယ်မှု စာမေးပွဲများ"
+
+msgid "Add exam"
+msgstr "စာမေးပွဲ ထည့်ရန်"
+
+msgid "Applicant"
+msgstr "လျှောက်ထားသူ"
+
+msgid "Applied on"
+msgstr "လျှောက်ထားသည့်ရက်"
+
+msgid "Salary expectations"
+msgstr "လစာမျှော်လင့်ချက်"
+
+msgid "Pending evaluation"
+msgstr "အကဲဖြတ်ရန် စောင့်နေသေး"
+
+msgid "Hired"
+msgstr "ခန့်အပ်ပြီး"
+
+msgid "Not hired"
+msgstr "ခန့်မအပ်"
+
+msgid "Evaluate"
+msgstr "အကဲဖြတ်ရန်"
+
+msgid "Evaluate candidate"
+msgstr "ဝင်မေးသူကို အကဲဖြတ်ရန်"
+
+msgid "Decision"
+msgstr "ဆုံးဖြတ်ချက်"
+
+msgid "Save evaluation"
+msgstr "အကဲဖြတ်မှုကို သိမ်းဆည်း"
+
+msgid "Back to job offers"
+msgstr "အလုပ်ခေါ်ယူစာများသို့ ပြန်ရန်"
+
+msgid "No job offers available at this time."
+msgstr "ယခုအချိန်တွင် အလုပ်ခေါ်ယူစာများ မရှိပါ။"
+
+msgid "See details"
+msgstr "အသေးစိတ်ကို ကြည့်ရန်"
+
+msgid "Apply now"
+msgstr "ယခုပင် လျှောက်ထားရန်"
+
+msgid "Already applied"
+msgstr "လျှောက်ထားပြီးပါပြီ"
+
+msgid "Log in to apply"
+msgstr "လျှောက်ထားရန် အကောင့်ဝင်ပါ"
+
+msgid "Apply to job offer"
+msgstr "အလုပ်ခေါ်ယူစာသို့ လျှောက်ထားရန်"
+
+msgid "Availability date"
+msgstr "ရရှိနိုင်မည့်ရက်စွဲ"
+
+msgid "CV (Personal file)"
+msgstr "စာရင်းတိုင်း (ပုဂ္ဂိုလ်ရေးဖိုင်)"
+
+msgid "Select your CV from your personal files"
+msgstr "သင့်ပုဂ္ဂိုလ်ရေးဖိုင်များမှ သင့်စာရင်းတိုင်းကို ရွေးချယ်ပါ"
+
+msgid "Submit application"
+msgstr "လျှောက်လွှာကို တင်ပါ"
+
+msgid "Application submitted successfully."
+msgstr "လျှောက်လွှာကို အောင်မြင်စွာ တင်ပြပြီးပါပြီ။"
+
+msgid "Private observations"
+msgstr "ပုဂ္ဂလိက မှတ်ချက်များ"
+
+msgid "My applications"
+msgstr "ကျွန်ုပ်၏ လျှောက်လွှာများ"
+
+msgid "View job offers"
+msgstr "အလုပ်ခေါ်ယူစာများကို ကြည့်ရန်"
+
+msgid "You have not submitted any applications yet."
+msgstr "သင်သည် လျှောက်လွှာများ မတင်ပြရသေးပါ။"
+
+msgid "Under review"
+msgstr "စိစစ်နေသည်"
+
+msgid "Not selected"
+msgstr "မရွေးချယ်ခံရပါ"
+
+msgid "HR feedback"
+msgstr "HR မှ တုံ့ပြန်ချက်"
+
+msgid "Withdraw application"
+msgstr "လျှောက်လွှာကို ရုပ်သိမ်းရန်"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "ဤလျှောက်လွှာကို ရုပ်သိမ်းလိုသည်မှာ သေချာပါသလား။"
+
+msgid "Application withdrawn."
+msgstr "လျှောက်လွှာကို ရုပ်သိမ်းပြီးပါပြီ။"
+
+msgid "Calculate quiz scores"
+msgstr "စမ်းသပ်မှု ရမှတ်များကို တွက်ချက်ပါ"
+
+msgid "Scores calculated."
+msgstr "ရမှတ်များကို တွက်ချက်ပြီးပါပြီ။"
+
+msgid "Career plan overview"
+msgstr "အသက်မွေးဝမ်းကျောင်း အစီအစဉ် ခြုံငုံသုံးသပ်ချက်"
+
+msgid "My career plan"
+msgstr "ကျွန်ုပ်၏ အသက်မွေးဝမ်းကျောင်း အစီအစဉ်"
+
+msgid "No function-unit associations configured yet."
+msgstr "လုပ်ငန်းခွင်-ယူနစ် ဆက်နွယ်မှုများ မပြင်ဆင်ရသေးပါ။"
+
+msgid "No required skills defined."
+msgstr "လိုအပ်သော ကျွမ်းကျင်မှုများ မသတ်မှတ်ရသေးပါ။"
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "သင့်အသက်မွေးဝမ်းကျောင်းအစီအစဉ်ကို မြင်ရန် ရာထူးတစ်ခုကို တာဝန်ပေးအပ်ခံရပါမည်။"
+
+msgid "Your current position"
+msgstr "သင်၏ လက်ရှိရာထူး"
+
+msgid "No career targets found for your current position."
+msgstr "သင်၏ လက်ရှိရာထူးအတွက် အသက်မွေးဝမ်းကျောင်းး ပစ်မှတ်များ မတွေ့ပါ။"
+
+msgid "No required skills defined for this position."
+msgstr "ဤရာထူးအတွက် လိုအပ်သော ကျွမ်းကျင်မှုများ မသတ်မှတ်ရသေးပါ။"
+
+msgid "Met"
+msgstr "ပြည့်မီသည်"
+
+msgid "Gap"
+msgstr "ကွာဟချက်"
+
+msgid "Acquired:"
+msgstr "ရရှိထားသည်:"
+
+msgid "Required:"
+msgstr "လိုအပ်သည်:"
+
+msgid "Max"
+msgstr "အများဆုံး"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "မတူကွဲပြားမှု စံနှုန်း မတွေ့ရပါ။ စံနှုန်းများ ဦးစွာ ထည့်ပါ။"
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "စာရင်းမှ စံနှုန်းတစ်ခု ရွေးချယ်ပြီး ၎င်း၏ စာရင်းအရေအတွက်ကို ကြည့်ရှုပါ။"
+
+msgid "No data available for this criterion."
+msgstr "ဤစံနှုန်းအတွက် ဒေတာ မရှိပါ။"
+
+msgid "Change password"
+msgstr "စကားဝှက်ပြောင်းရန်"
+
+msgid "Newest first"
+msgstr "အသစ်ဆုံးမှ ဦးစွာ"
+
+msgid "Oldest first"
+msgstr "အဟောင်းဆုံးမှ ဦးစွာ"
+
+msgid "Title A–Z"
+msgstr "ခေါင်းစဉ် အေ-ဇီ"
+
+msgid "Title Z–A"
+msgstr "ခေါင်းစဉ် ဇီ-အေ"
+
+msgid "Send test email"
+msgstr "စမ်းသပ်အီးမေးလ်ပို့ရန်"
+
+msgid "Show teachers"
+msgstr "ဆရာများကို ပြရန်"
+
+msgid "Hide teachers"
+msgstr "ဆရာများကို ဖယ်ရှားရန်"
+
+msgid "Delete exercise attempts"
+msgstr "လေ့ကျင့်မှု ကြိုးပမ်းမှုများကို ဖျက်ရန်"
+
+msgid "Message sent successfully."
+msgstr "မက်ဆေ့ချ်ကို အောင်မြင်စွာ ပို့ပြီးပါပြီ။"
+
+msgid "You cannot create a new course right now."
+msgstr "ယခုအချိန်တွင် သင်သည် သင်္ကေတအသစ်တစ်ခု မဖန်တီးနိုင်ပါ။"
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "ယခုအချိန်တွင် သင်သစ်ကူးစာတမ်းတစ်ခုဖန်တီးနိုင်မလားကို အတည်ပြုလို့မရပါ။"
+
+msgid "Please try again later or contact the administrator."
+msgstr "နောက်မှ ထပ်မံကြိုးစားပါ သို့မဟုတ် အုပ်ချုပ်ရေးမှူးကို ဆက်သွယ်ပါ။"
+
+msgid "You cannot create more courses at this time."
+msgstr "ယခုအချိန်တွင် သင်သည် ကူးစာတမ်းများထပ်မံဖန်တီးလို့မရပါ။"
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "သင်သည် ကူးစာတမ်း %d ခုကို စီမံထားပြီး သင့်လှုပ်ရှားနေသော ဝန်ဆောင်မှုသည် %d ခုအထိခွင့်ပြုထားပါသည်။ ကူးစာတမ်းတစ်ခုထပ်ဖန်တီးရန် သင်သည် ပိုမိုမြင့်သော ဝန်ဆောင်မှုကန့်သတ်ချက်လိုအပ်သည် သို့မဟုတ် လက်ရှိလှုပ်ရှားနေသော ကူးစာတမ်းများကို လျှော့ချရမည်။"
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "သင်သည် ကူးစာတမ်း %d ခုကို စီမံထားပြီး ပလက်ဖောင်းသည် သင့်အကောင့်အတွက် ယခုအချိန်တွင် %d ခုအထိခွင့်ပြုထားပါသည်။ သင်သည် ယခုအချိန်တွင် ကူးစာတမ်းများထပ်မံဖန်တီးလို့မရပါ။"
+
+msgid "Add a class"
+msgstr "အတန်း ထည့်ပါ"
+
+msgid "Search classes"
+msgstr "အတန်းများ ရှာဖွေပါ"
+
+msgid "No classes found"
+msgstr "အတန်း မတွေ့ပါ"
+
+msgid "Import classes"
+msgstr "အတန်းများ တင်သွင်းပါ"
+
+msgid "Class users"
+msgstr "အတန်း အသုံးပြုသူများ"
+
+msgid "%s classes imported"
+msgstr "%s အတန်း တင်သွင်းပြီး"
+
+msgid "%s user-class links imported"
+msgstr "%s အသုံးပြုသူ-အတန်း ချိတ်ဆက်မှုများ တင်သွင်းပြီး"
+
+msgid "Hide comments"
+msgstr "မှတ်ချက်များ ဖုံးကွယ်ပါ"
+
+msgid "Loading comments..."
+msgstr "မှတ်ချက်များ ဖွင့်နေသည်..."
+
+msgid "No comments yet."
+msgstr "မှတ်ချက်များ မရှိသေးပါ။"
 

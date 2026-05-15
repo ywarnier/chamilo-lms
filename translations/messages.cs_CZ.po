@@ -9726,6 +9726,9 @@ msgstr "Výsledky hledání pro:"
 msgid "Select a file"
 msgstr "Vybrat soubor"
 
+msgid "Select a file to insert into the editor."
+msgstr "Vyberte soubor k vložení do editoru."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Varování - Soubor FAQ, umístěný v adresáři /home/ vašeho portálu, není zapisovatelný. Váš text nebude uložen, dokud nebudou změněna oprávnění souboru."
 
@@ -14647,7 +14650,7 @@ msgid "Enable button bars extended when the WYSIWYG editor is maximized"
 msgstr "Povolit rozšířené panely nástrojů, když je WYSIWYG editor maximalizován"
 
 msgid "HTML Editor"
-msgstr "HTML editor"
+msgstr "HTML Editor"
 
 msgid "Go directly to the course after login"
 msgstr "Přejít přímo do kurzu po přihlášení"
@@ -15906,6 +15909,9 @@ msgstr "Datum a čas"
 msgid "Item"
 msgstr "Položka"
 
+msgid "Items"
+msgstr "Položky"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Nastavit plugin nástroje Dashboard"
 
@@ -17159,6 +17165,18 @@ msgstr "Relace ve skupině"
 
 msgid "Courses in group"
 msgstr "Kurzy ve skupině"
+
+msgid "Courses on the platform"
+msgstr "Kurzy na platformě"
+
+msgid "%s courses"
+msgstr "%s kurzů"
+
+msgid "%s sessions"
+msgstr "%s sezení"
+
+msgid "Search by title or code"
+msgstr "Hledat podle názvu nebo kódu"
 
 msgid "Users in group"
 msgstr "Uživatelé ve skupině"
@@ -32163,6 +32181,9 @@ msgstr "Úkol"
 msgid "Allowed file formats: %s"
 msgstr "Povolené formáty souborů: %s"
 
+msgid "File manager"
+msgstr "Správce souborů"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Nepovolený typ souboru. Povolené přípony: %s"
 
@@ -32380,7 +32401,7 @@ msgid "Delete failed: missing course context or invalid question id."
 msgstr "Smazání selhalo: chybí kontext kurzu nebo neplatné ID otázky."
 
 msgid "AI Tutor"
-msgstr "AI tutor"
+msgstr "AI Tutor"
 
 msgid "The APCu extension needs to be both installed and enabled in order for the platform to use it."
 msgstr "Rozšíření APCu musí být nainstalováno a povoleno, aby platforma mohla být použita."
@@ -33876,6 +33897,9 @@ msgstr "Vítejte"
 msgid "Welcome to Chamilo"
 msgstr "Vítejte v Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Zkontrolovat všechny nezodpovězené otázky níže"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Pokud používáte Chamilo poprvé, podívejte se na boční menu, abyste se zorientovali v jeho mnoha funkcích. Pokud potřebujete pomoc, naše <a href=\"https://docs.chamilo.org\">oficiální dokumentace</a> vám pomůže se standardní dokumentací, zatímco naše <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online fórum</a> vám pomůže sdílet nápady a najít odpovědi od jiných uživatelů Chamilo."
 
@@ -34055,6 +34079,63 @@ msgstr "Zjistění potřeb školení"
 
 msgid "Work climate surveys"
 msgstr "Průzkumy pracovního klimatu"
+
+msgid "Unit"
+msgstr "Jednotka"
+
+msgid "Total cost"
+msgstr "Celková cena"
+
+msgid "Cost per learner"
+msgstr "Cena za žáka"
+
+msgid "Average cost by session"
+msgstr "Průměrná cena za sezení"
+
+msgid "Total investment"
+msgstr "Celková investice"
+
+msgid "Set cost"
+msgstr "Nastavit cenu"
+
+msgid "Filter by date range"
+msgstr "Filtrovat podle rozsahu dat"
+
+msgid "Add distribution"
+msgstr "Přidat distribuci"
+
+msgid "User share"
+msgstr "Sdílení uživatele"
+
+msgid "Select a unit"
+msgstr "Vyberte jednotku"
+
+msgid "Select a survey"
+msgstr "Vyberte průzkum"
+
+msgid "Distribution added"
+msgstr "Distribuce přidána"
+
+msgid "Distribution removed"
+msgstr "Distribuce odebrána"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Jste si jisti, že chcete odebrat tuto distribuci?"
+
+msgid "Cost updated"
+msgstr "Náklady aktualizovány"
+
+msgid "Total invited"
+msgstr "Celkem pozvaných"
+
+msgid "Total answered"
+msgstr "Celkem odpovědělo"
+
+msgid "Total responses"
+msgstr "Celkem odpovědí"
+
+msgid "No responses yet"
+msgstr "Zatím žádné odpovědi"
 
 msgid "Diversity criteria"
 msgstr "Kritéria diverzity"
@@ -34567,4 +34648,274 @@ msgstr "Jste si jisti, že chcete smazat toto hodnocení?"
 
 msgid "Loading…"
 msgstr "Načítání…"
+
+msgid "Periodicity"
+msgstr "Periodičita"
+
+msgid "Suggest from periodicity"
+msgstr "Navrhnout z periodicity"
+
+msgid "Add job offer"
+msgstr "Přidat nabídku práce"
+
+msgid "Edit job offer"
+msgstr "Upravit nabídku práce"
+
+msgid "Function / Unit"
+msgstr "Funkce / Jednotka"
+
+msgid "Vacancies"
+msgstr "Volné místa"
+
+msgid "Expected start date"
+msgstr "Očekávané datum zahájení"
+
+msgid "Contract duration (days)"
+msgstr "Doba trvání smlouvy (dny)"
+
+msgid "Public offer"
+msgstr "Veřejná nabídka"
+
+msgid "Publication start date"
+msgstr "Datum zahájení publikace"
+
+msgid "Publication end date"
+msgstr "Datum ukončení publikace"
+
+msgid "Applications"
+msgstr "Žádosti"
+
+msgid "Selection exams"
+msgstr "Výběrové zkoušky"
+
+msgid "Add exam"
+msgstr "Přidat zkoušku"
+
+msgid "Applicant"
+msgstr "Žadatel"
+
+msgid "Applied on"
+msgstr "Přihlásil se"
+
+msgid "Salary expectations"
+msgstr "Očekávané mzdy"
+
+msgid "Pending evaluation"
+msgstr "Čeká na vyhodnocení"
+
+msgid "Hired"
+msgstr "Nabídnuto místo"
+
+msgid "Not hired"
+msgstr "Nabídka zamítnuta"
+
+msgid "Evaluate"
+msgstr "Vyhodnotit"
+
+msgid "Evaluate candidate"
+msgstr "Vyhodnotit kandidáta"
+
+msgid "Decision"
+msgstr "Rozhodnutí"
+
+msgid "Save evaluation"
+msgstr "Uložit vyhodnocení"
+
+msgid "Back to job offers"
+msgstr "Zpět na nabídky práce"
+
+msgid "No job offers available at this time."
+msgstr "V tuto chvíli nejsou k dispozici žádné nabídky práce."
+
+msgid "See details"
+msgstr "Zobrazit podrobnosti"
+
+msgid "Apply now"
+msgstr "Přihlásit se nyní"
+
+msgid "Already applied"
+msgstr "Již přihlášen"
+
+msgid "Log in to apply"
+msgstr "Přihlaste se pro podání žádosti"
+
+msgid "Apply to job offer"
+msgstr "Přihlásit se k nabídce práce"
+
+msgid "Availability date"
+msgstr "Datum dostupnosti"
+
+msgid "CV (Personal file)"
+msgstr "Životopis (Osobní soubory)"
+
+msgid "Select your CV from your personal files"
+msgstr "Vyberte svůj životopis z osobních souborů"
+
+msgid "Submit application"
+msgstr "Odeslat žádost"
+
+msgid "Application submitted successfully."
+msgstr "Žádost úspěšně odeslána."
+
+msgid "Private observations"
+msgstr "Soukromé poznámky"
+
+msgid "My applications"
+msgstr "Moje žádosti"
+
+msgid "View job offers"
+msgstr "Zobrazit nabídky práce"
+
+msgid "You have not submitted any applications yet."
+msgstr "Zatím jste neodeslali žádné žádosti."
+
+msgid "Under review"
+msgstr "Podle posouzení"
+
+msgid "Not selected"
+msgstr "Nevybráno"
+
+msgid "HR feedback"
+msgstr "Zpětná vazba HR"
+
+msgid "Withdraw application"
+msgstr "Stáhnout žádost"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Jste si jisti, že chcete stáhnout tuto žádost?"
+
+msgid "Application withdrawn."
+msgstr "Žádost stažena."
+
+msgid "Calculate quiz scores"
+msgstr "Vypočítat skóre kvízu"
+
+msgid "Scores calculated."
+msgstr "Skóre vypočítáno."
+
+msgid "Career plan overview"
+msgstr "Přehled kariérního plánu"
+
+msgid "My career plan"
+msgstr "Můj kariérní plán"
+
+msgid "No function-unit associations configured yet."
+msgstr "Zatím nejsou nakonfigurovány žádné asociace funkce-jednotky."
+
+msgid "No required skills defined."
+msgstr "Nejsou definovány žádné požadované dovednosti."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "K zobrazení kariérního plánu musíte být přiřazeni k pozici."
+
+msgid "Your current position"
+msgstr "Vaše současná pozice"
+
+msgid "No career targets found for your current position."
+msgstr "Pro vaši současnou pozici nebyly nalezeny žádné kariérní cíle."
+
+msgid "No required skills defined for this position."
+msgstr "Pro tuto pozici nejsou definovány žádné požadované dovednosti."
+
+msgid "Met"
+msgstr "Splněno"
+
+msgid "Gap"
+msgstr "Chybí"
+
+msgid "Acquired:"
+msgstr "Získáno:"
+
+msgid "Required:"
+msgstr "Požadováno:"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nebyly nalezeny žádné kritéria diverzity. Nejprve přidejte kritéria."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Vyberte kritérium ze seznamu pro zobrazení jeho statistik."
+
+msgid "No data available for this criterion."
+msgstr "Pro toto kritérium nejsou k dispozici žádná data."
+
+msgid "Change password"
+msgstr "Změnit heslo"
+
+msgid "Newest first"
+msgstr "Nejnovější nejdříve"
+
+msgid "Oldest first"
+msgstr "Nejstarší nejdříve"
+
+msgid "Title A–Z"
+msgstr "Název A–Z"
+
+msgid "Title Z–A"
+msgstr "Název Z–A"
+
+msgid "Send test email"
+msgstr "Odeslat testovací e-mail"
+
+msgid "Show teachers"
+msgstr "Zobrazit učitele"
+
+msgid "Hide teachers"
+msgstr "Skrýt učitele"
+
+msgid "Delete exercise attempts"
+msgstr "Smazat pokusy cvičení"
+
+msgid "Message sent successfully."
+msgstr "Zpráva úspěšně odeslána."
+
+msgid "You cannot create a new course right now."
+msgstr "Nyní nemůžete vytvořit nový kurz."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Nelze ověřit, zda nyní můžete vytvořit nový kurz."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Zkuste to prosím později nebo kontaktujte správce."
+
+msgid "You cannot create more courses at this time."
+msgstr "V tuto chvíli nemůžete vytvářet další kurzy."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Už spravujete %d kurzů a vaší aktivní službou je povoleno maximálně %d. K vytvoření dalšího kurzu potřebujete vyšší limit služby nebo snížit počet aktuálně aktivních kurzů."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Už spravujete %d kurzů a platforma pro váš účet aktuálně povoluje maximálně %d. Nyní nemůžete vytvářet další kurzy."
+
+msgid "Add a class"
+msgstr "Přidat třídu"
+
+msgid "Search classes"
+msgstr "Hledat třídy"
+
+msgid "No classes found"
+msgstr "Nalezeny žádné třídy"
+
+msgid "Import classes"
+msgstr "Importovat třídy"
+
+msgid "Class users"
+msgstr "Uživatelé třídy"
+
+msgid "%s classes imported"
+msgstr "Importováno %s tříd"
+
+msgid "%s user-class links imported"
+msgstr "Importováno %s odkazů uživatel-třída"
+
+msgid "Hide comments"
+msgstr "Skrýt komentáře"
+
+msgid "Loading comments..."
+msgstr "Načítání komentářů..."
+
+msgid "No comments yet."
+msgstr "Zatím žádné komentáře."
 

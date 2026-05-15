@@ -9729,6 +9729,9 @@ msgstr "검색 결과:"
 msgid "Select a file"
 msgstr "파일 선택"
 
+msgid "Select a file to insert into the editor."
+msgstr "편집기에 삽입할 파일을 선택하세요."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "경고 - 포털의 /home/ 디렉토리에 있는 FAQ 파일에 쓰기 권한이 없습니다. 파일 권한을 변경할 때까지 텍스트가 저장되지 않습니다."
 
@@ -15909,6 +15912,9 @@ msgstr "날짜 및 시간"
 msgid "Item"
 msgstr "항목"
 
+msgid "Items"
+msgstr "항목"
+
 msgid "Configure Dashboard Plugin"
 msgstr "대시보드 플러그인 설정"
 
@@ -17162,6 +17168,18 @@ msgstr "그룹의 세션"
 
 msgid "Courses in group"
 msgstr "그룹의 과정"
+
+msgid "Courses on the platform"
+msgstr "플랫폼의 과정"
+
+msgid "%s courses"
+msgstr "%s 과정"
+
+msgid "%s sessions"
+msgstr "%s 세션"
+
+msgid "Search by title or code"
+msgstr "제목 또는 코드로 검색"
 
 msgid "Users in group"
 msgstr "그룹의 사용자"
@@ -32167,6 +32185,9 @@ msgstr "과제"
 msgid "Allowed file formats: %s"
 msgstr "허용된 파일 형식: %s"
 
+msgid "File manager"
+msgstr "파일 관리자"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "허용되지 않은 파일 유형입니다. 허용된 확장자: %s"
 
@@ -33880,6 +33901,9 @@ msgstr "환영합니다"
 msgid "Welcome to Chamilo"
 msgstr "Chamilo에 오신 것을 환영합니다"
 
+msgid "Check all unanswered questions below"
+msgstr "아래 모든 미답변 질문을 확인하세요"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Chamilo를 처음 사용하신다면, 다양한 기능을 탐색하기 위해 사이드 메뉴를 확인하세요. 도움이 필요하시면 <a href=\"https://docs.chamilo.org\">공식 문서</a>에서 표준 문서를 확인하거나, <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">온라인 포럼</a>에서 다른 Chamilo 사용자들과 아이디어를 공유하고 답변을 찾을 수 있습니다."
 
@@ -34059,6 +34083,63 @@ msgstr "교육 수요 평가"
 
 msgid "Work climate surveys"
 msgstr "직무 환경 조사"
+
+msgid "Unit"
+msgstr "단위"
+
+msgid "Total cost"
+msgstr "총 비용"
+
+msgid "Cost per learner"
+msgstr "학습자당 비용"
+
+msgid "Average cost by session"
+msgstr "세션당 평균 비용"
+
+msgid "Total investment"
+msgstr "총 투자액"
+
+msgid "Set cost"
+msgstr "비용 설정"
+
+msgid "Filter by date range"
+msgstr "날짜 범위로 필터링"
+
+msgid "Add distribution"
+msgstr "배분 추가"
+
+msgid "User share"
+msgstr "사용자 비중"
+
+msgid "Select a unit"
+msgstr "단위 선택"
+
+msgid "Select a survey"
+msgstr "설문 선택"
+
+msgid "Distribution added"
+msgstr "배분이 추가되었습니다"
+
+msgid "Distribution removed"
+msgstr "배분이 제거되었습니다"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "이 배분을 제거하시겠습니까?"
+
+msgid "Cost updated"
+msgstr "비용이 업데이트되었습니다"
+
+msgid "Total invited"
+msgstr "총 초대 인원"
+
+msgid "Total answered"
+msgstr "총 응답 인원"
+
+msgid "Total responses"
+msgstr "총 응답 수"
+
+msgid "No responses yet"
+msgstr "아직 응답이 없습니다"
 
 msgid "Diversity criteria"
 msgstr "다양성 기준"
@@ -34571,4 +34652,274 @@ msgstr "이 평가를 삭제하시겠습니까?"
 
 msgid "Loading…"
 msgstr "로딩 중…"
+
+msgid "Periodicity"
+msgstr "주기성"
+
+msgid "Suggest from periodicity"
+msgstr "주기성으로 제안"
+
+msgid "Add job offer"
+msgstr "채용 공고 추가"
+
+msgid "Edit job offer"
+msgstr "채용 공고 편집"
+
+msgid "Function / Unit"
+msgstr "직무 / 부서"
+
+msgid "Vacancies"
+msgstr "여석"
+
+msgid "Expected start date"
+msgstr "예상 시작일"
+
+msgid "Contract duration (days)"
+msgstr "계약 기간 (일)"
+
+msgid "Public offer"
+msgstr "공개 공고"
+
+msgid "Publication start date"
+msgstr "공개 시작일"
+
+msgid "Publication end date"
+msgstr "공개 종료일"
+
+msgid "Applications"
+msgstr "지원서"
+
+msgid "Selection exams"
+msgstr "선발 시험"
+
+msgid "Add exam"
+msgstr "시험 추가"
+
+msgid "Applicant"
+msgstr "지원자"
+
+msgid "Applied on"
+msgstr "지원일"
+
+msgid "Salary expectations"
+msgstr "희망 연봉"
+
+msgid "Pending evaluation"
+msgstr "평가 대기"
+
+msgid "Hired"
+msgstr "채용"
+
+msgid "Not hired"
+msgstr "미채용"
+
+msgid "Evaluate"
+msgstr "평가"
+
+msgid "Evaluate candidate"
+msgstr "지원자 평가"
+
+msgid "Decision"
+msgstr "결정"
+
+msgid "Save evaluation"
+msgstr "평가 저장"
+
+msgid "Back to job offers"
+msgstr "채용 공고로 돌아가기"
+
+msgid "No job offers available at this time."
+msgstr "현재 이용 가능한 채용 공고가 없습니다."
+
+msgid "See details"
+msgstr "상세 정보 보기"
+
+msgid "Apply now"
+msgstr "지금 지원하기"
+
+msgid "Already applied"
+msgstr "이미 지원함"
+
+msgid "Log in to apply"
+msgstr "지원하려면 로그인하세요"
+
+msgid "Apply to job offer"
+msgstr "채용 공고 지원"
+
+msgid "Availability date"
+msgstr "가능 일자"
+
+msgid "CV (Personal file)"
+msgstr "이력서 (개인 파일)"
+
+msgid "Select your CV from your personal files"
+msgstr "개인 파일에서 이력서를 선택하세요"
+
+msgid "Submit application"
+msgstr "지원서 제출"
+
+msgid "Application submitted successfully."
+msgstr "지원서가 성공적으로 제출되었습니다."
+
+msgid "Private observations"
+msgstr "비공개 의견"
+
+msgid "My applications"
+msgstr "내 지원서"
+
+msgid "View job offers"
+msgstr "채용 공고 보기"
+
+msgid "You have not submitted any applications yet."
+msgstr "아직 지원서를 제출하지 않았습니다."
+
+msgid "Under review"
+msgstr "검토 중"
+
+msgid "Not selected"
+msgstr "선발되지 않음"
+
+msgid "HR feedback"
+msgstr "인사 피드백"
+
+msgid "Withdraw application"
+msgstr "지원 철회"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "이 지원서를 철회하시겠습니까?"
+
+msgid "Application withdrawn."
+msgstr "지원서가 철회되었습니다."
+
+msgid "Calculate quiz scores"
+msgstr "퀴즈 점수 계산"
+
+msgid "Scores calculated."
+msgstr "점수가 계산되었습니다."
+
+msgid "Career plan overview"
+msgstr "경력 계획 개요"
+
+msgid "My career plan"
+msgstr "내 경력 계획"
+
+msgid "No function-unit associations configured yet."
+msgstr "아직 직무-부서 연관성이 구성되지 않았습니다."
+
+msgid "No required skills defined."
+msgstr "필요한 기술이 정의되지 않았습니다."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "경력 계획을 보려면 직위가 배정되어야 합니다."
+
+msgid "Your current position"
+msgstr "현재 직위"
+
+msgid "No career targets found for your current position."
+msgstr "현재 직위에 대한 경력 목표를 찾을 수 없습니다."
+
+msgid "No required skills defined for this position."
+msgstr "이 직위에 필요한 기술이 정의되지 않았습니다."
+
+msgid "Met"
+msgstr "달성"
+
+msgid "Gap"
+msgstr "차이"
+
+msgid "Acquired:"
+msgstr "취득:"
+
+msgid "Required:"
+msgstr "필요:"
+
+msgid "Max"
+msgstr "최대"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "다양성 기준을 찾을 수 없습니다. 먼저 기준을 추가하세요."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "통계를 보려면 목록에서 기준을 선택하세요."
+
+msgid "No data available for this criterion."
+msgstr "이 기준에 대한 데이터가 없습니다."
+
+msgid "Change password"
+msgstr "비밀번호 변경"
+
+msgid "Newest first"
+msgstr "최신순"
+
+msgid "Oldest first"
+msgstr "오래된 순"
+
+msgid "Title A–Z"
+msgstr "제목 가-나"
+
+msgid "Title Z–A"
+msgstr "제목 나-가"
+
+msgid "Send test email"
+msgstr "테스트 이메일 보내기"
+
+msgid "Show teachers"
+msgstr "교사 표시"
+
+msgid "Hide teachers"
+msgstr "교사 숨기기"
+
+msgid "Delete exercise attempts"
+msgstr "연습 시도 삭제"
+
+msgid "Message sent successfully."
+msgstr "메시지가 성공적으로 보내졌습니다."
+
+msgid "You cannot create a new course right now."
+msgstr "지금 새로운 코스를 생성할 수 없습니다."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "지금 새로운 코스를 생성할 수 있는지 확인할 수 없습니다."
+
+msgid "Please try again later or contact the administrator."
+msgstr "나중에 다시 시도하거나 관리자에게 문의하십시오."
+
+msgid "You cannot create more courses at this time."
+msgstr "현재 더 이상 코스를 생성할 수 없습니다."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "%d개의 코스를 이미 관리 중이며 활성 서비스는 최대 %d개까지 허용됩니다. 다른 코스를 생성하려면 더 높은 서비스 한도가 필요하거나 현재 활성 코스를 줄여야 합니다."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "%d개의 코스를 이미 관리 중이며 플랫폼은 현재 계정당 최대 %d개까지 허용합니다. 지금 더 이상 코스를 생성할 수 없습니다."
+
+msgid "Add a class"
+msgstr "클래스 추가"
+
+msgid "Search classes"
+msgstr "클래스 검색"
+
+msgid "No classes found"
+msgstr "클래스를 찾을 수 없습니다"
+
+msgid "Import classes"
+msgstr "클래스 가져오기"
+
+msgid "Class users"
+msgstr "클래스 사용자"
+
+msgid "%s classes imported"
+msgstr "%s개 클래스 가져오기 완료"
+
+msgid "%s user-class links imported"
+msgstr "%s개 사용자-클래스 링크 가져오기 완료"
+
+msgid "Hide comments"
+msgstr "댓글 숨기기"
+
+msgid "Loading comments..."
+msgstr "댓글 로딩 중..."
+
+msgid "No comments yet."
+msgstr "아직 코멘트가 없습니다."
 

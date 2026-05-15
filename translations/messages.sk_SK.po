@@ -9739,6 +9739,9 @@ msgstr "Výsledky vyhľadávania pre:"
 msgid "Select a file"
 msgstr "Vybrať súbor"
 
+msgid "Select a file to insert into the editor."
+msgstr "Vybrať súbor na vloženie do editora."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Upozornenie - FAQ súbor , ktorý sa nachádza v /home/ adresári Vášho portálu, nie je zapisovateľný. Váš text nebude uložený pokiaľ sa nezmení nastavenie súboru."
 
@@ -15919,6 +15922,9 @@ msgstr "Dátum a čas"
 msgid "Item"
 msgstr "Položka"
 
+msgid "Items"
+msgstr "Položky"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Konfigurovať Dashboard zásuvný modul"
 
@@ -17172,6 +17178,18 @@ msgstr "Stretnutie v skupine"
 
 msgid "Courses in group"
 msgstr "Kurzy v skupine"
+
+msgid "Courses on the platform"
+msgstr "Kurzy na platforme"
+
+msgid "%s courses"
+msgstr "%s kurzy"
+
+msgid "%s sessions"
+msgstr "%s stretnutia"
+
+msgid "Search by title or code"
+msgstr "Hľadať podľa názvu alebo kódu"
 
 msgid "Users in group"
 msgstr "Používatelia v skupine"
@@ -32182,6 +32200,9 @@ msgstr "Úloha"
 msgid "Allowed file formats: %s"
 msgstr "Povolené formáty súborov: %s"
 
+msgid "File manager"
+msgstr "Správca súborov"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Nepovolený typ súboru. Povolené prípony: %s"
 
@@ -33895,6 +33916,9 @@ msgstr "Vitajte"
 msgid "Welcome to Chamilo"
 msgstr "Vitajte v Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Skontrolovať všetky nezodpovedané otázky nižšie"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ak používate Chamilo prvýkrát, uistite sa, že skontrolujete bočné menu, aby ste sa zorientovali v jeho mnohých funkciách. Ak potrebujete pomoc, naša <a href=\"https://docs.chamilo.org\">oficiálna dokumentácia</a> vám pomôže so štandardnou dokumentáciou, zatiaľ čo naše <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online fórum</a> vám pomôže zdieľať nápady a nájsť odpovede od iných používateľov Chamilo."
 
@@ -34074,6 +34098,63 @@ msgstr "Posúdenie potrieb školenia"
 
 msgid "Work climate surveys"
 msgstr "Prieskumy pracovného prostredia"
+
+msgid "Unit"
+msgstr "Jednotka"
+
+msgid "Total cost"
+msgstr "Celkové náklady"
+
+msgid "Cost per learner"
+msgstr "Náklady na študenta"
+
+msgid "Average cost by session"
+msgstr "Priemerné náklady na stretnutie"
+
+msgid "Total investment"
+msgstr "Celková investícia"
+
+msgid "Set cost"
+msgstr "Nastaviť náklady"
+
+msgid "Filter by date range"
+msgstr "Filtrovať podľa rozsahu dátumov"
+
+msgid "Add distribution"
+msgstr "Pridať distribúciu"
+
+msgid "User share"
+msgstr "Používateľské zdieľanie"
+
+msgid "Select a unit"
+msgstr "Vybrať jednotku"
+
+msgid "Select a survey"
+msgstr "Vybrať prieskum"
+
+msgid "Distribution added"
+msgstr "Distribúcia pridaná"
+
+msgid "Distribution removed"
+msgstr "Distribúcia odstránená"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Naozaj chcete odstrániť túto distribúciu?"
+
+msgid "Cost updated"
+msgstr "Náklady aktualizované"
+
+msgid "Total invited"
+msgstr "Celkom pozvaných"
+
+msgid "Total answered"
+msgstr "Celkom odpovedalo"
+
+msgid "Total responses"
+msgstr "Celkom odpovedí"
+
+msgid "No responses yet"
+msgstr "Zatiaľ žiadne odpovede"
 
 msgid "Diversity criteria"
 msgstr "Kritériá diverzity"
@@ -34586,4 +34667,274 @@ msgstr "Naozaj chcete odstrániť toto hodnotenie?"
 
 msgid "Loading…"
 msgstr "Načítavam…"
+
+msgid "Periodicity"
+msgstr "Periodicita"
+
+msgid "Suggest from periodicity"
+msgstr "Navrhnúť podľa periodicity"
+
+msgid "Add job offer"
+msgstr "Pridať ponuku práce"
+
+msgid "Edit job offer"
+msgstr "Upraviť ponuku práce"
+
+msgid "Function / Unit"
+msgstr "Funkcia / Jednotka"
+
+msgid "Vacancies"
+msgstr "Voľné miesta"
+
+msgid "Expected start date"
+msgstr "Očakávaný dátum začiatku"
+
+msgid "Contract duration (days)"
+msgstr "Trvanie zmluvy (dni)"
+
+msgid "Public offer"
+msgstr "Verejná ponuka"
+
+msgid "Publication start date"
+msgstr "Dátum začiatku zverejnenia"
+
+msgid "Publication end date"
+msgstr "Dátum ukončenia zverejnenia"
+
+msgid "Applications"
+msgstr "Žiadosti"
+
+msgid "Selection exams"
+msgstr "Výberové skúšky"
+
+msgid "Add exam"
+msgstr "Pridať skúšku"
+
+msgid "Applicant"
+msgstr "Žiadateľ"
+
+msgid "Applied on"
+msgstr "Podal dňa"
+
+msgid "Salary expectations"
+msgstr "Očakávanie platu"
+
+msgid "Pending evaluation"
+msgstr "Čaká na hodnotenie"
+
+msgid "Hired"
+msgstr "Najať"
+
+msgid "Not hired"
+msgstr "Nenajať"
+
+msgid "Evaluate"
+msgstr "Hodnotiť"
+
+msgid "Evaluate candidate"
+msgstr "Hodnotiť kandidáta"
+
+msgid "Decision"
+msgstr "Rozhodnutie"
+
+msgid "Save evaluation"
+msgstr "Uložiť hodnotenie"
+
+msgid "Back to job offers"
+msgstr "Späť na ponuky práce"
+
+msgid "No job offers available at this time."
+msgstr "Momentálne nie sú k dispozícii žiadne ponuky práce."
+
+msgid "See details"
+msgstr "Zobraziť podrobnosti"
+
+msgid "Apply now"
+msgstr "Prihlásiť sa teraz"
+
+msgid "Already applied"
+msgstr "Už ste sa prihlásili"
+
+msgid "Log in to apply"
+msgstr "Prihláste sa na prihlásenie"
+
+msgid "Apply to job offer"
+msgstr "Prihlásiť sa na ponuku práce"
+
+msgid "Availability date"
+msgstr "Dátum dostupnosti"
+
+msgid "CV (Personal file)"
+msgstr "Životopis (Osobné súbory)"
+
+msgid "Select your CV from your personal files"
+msgstr "Vybrať svoj životopis z osobných súborov"
+
+msgid "Submit application"
+msgstr "Odoslať žiadosť"
+
+msgid "Application submitted successfully."
+msgstr "Žiadosť úspešne odoslaná."
+
+msgid "Private observations"
+msgstr "Súkromné poznámky"
+
+msgid "My applications"
+msgstr "Moje prihlášky"
+
+msgid "View job offers"
+msgstr "Zobraziť ponuky práce"
+
+msgid "You have not submitted any applications yet."
+msgstr "Zatiaľ ste nepodali žiadne prihlášky."
+
+msgid "Under review"
+msgstr "Na posúdení"
+
+msgid "Not selected"
+msgstr "Nevybraný"
+
+msgid "HR feedback"
+msgstr "Spätná väzba od HR"
+
+msgid "Withdraw application"
+msgstr "Stiahnuť prihlášku"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Naozaj chcete stiahnuť túto prihlášku?"
+
+msgid "Application withdrawn."
+msgstr "Prihláška stiahnutá."
+
+msgid "Calculate quiz scores"
+msgstr "Vypočítať skóre kvízov"
+
+msgid "Scores calculated."
+msgstr "Skóre vypočítané."
+
+msgid "Career plan overview"
+msgstr "Prehľad kariérneho plánu"
+
+msgid "My career plan"
+msgstr "Môj kariérny plán"
+
+msgid "No function-unit associations configured yet."
+msgstr "Zatiaľ nie sú nakonfigurované žiadne asociácie funkcia-jednotka."
+
+msgid "No required skills defined."
+msgstr "Nie sú definované žiadne požadované zručnosti."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Musíte byť priradení k pozícii, aby ste videli svoj kariérny plán."
+
+msgid "Your current position"
+msgstr "Vaša aktuálna pozícia"
+
+msgid "No career targets found for your current position."
+msgstr "Pre vašu aktuálnu pozíciu neboli nájdené žiadne kariérne ciele."
+
+msgid "No required skills defined for this position."
+msgstr "Pre túto pozíciu nie sú definované žiadne požadované zručnosti."
+
+msgid "Met"
+msgstr "Splnené"
+
+msgid "Gap"
+msgstr "Chýba"
+
+msgid "Acquired:"
+msgstr "Získané:"
+
+msgid "Required:"
+msgstr "Požadované:"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Žiadne kritériá diverzity nenájdené. Najprv pridajte kritériá."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Vyberte kritérium zo zoznamu na zobrazenie jeho štatistík."
+
+msgid "No data available for this criterion."
+msgstr "Žiadne údaje pre toto kritérium nie sú k dispozícii."
+
+msgid "Change password"
+msgstr "Zmeniť heslo"
+
+msgid "Newest first"
+msgstr "Najnovšie najprv"
+
+msgid "Oldest first"
+msgstr "Najstaršie najprv"
+
+msgid "Title A–Z"
+msgstr "Názov A–Z"
+
+msgid "Title Z–A"
+msgstr "Názov Z–A"
+
+msgid "Send test email"
+msgstr "Odoslať testovací e-mail"
+
+msgid "Show teachers"
+msgstr "Zobraziť učiteľov"
+
+msgid "Hide teachers"
+msgstr "Skryť učiteľov"
+
+msgid "Delete exercise attempts"
+msgstr "Zmazať pokusy o cvičenie"
+
+msgid "Message sent successfully."
+msgstr "Správa úspešne odoslaná."
+
+msgid "You cannot create a new course right now."
+msgstr "Momentálne nemôžete vytvoriť nový kurz."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Nie je možné overiť, či momentálne môžete vytvoriť nový kurz."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Skúste to neskôr alebo kontaktujte správcu."
+
+msgid "You cannot create more courses at this time."
+msgstr "Momentálne nemôžete vytvoriť ďalšie kurzy."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Už spravujete %d kurzov a vaša aktívna služba umožňuje maximálne %d. Na vytvorenie ďalšieho kurzu potrebujete vyšší limit služby alebo znížte počet aktuálne aktívnych kurzov."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Už spravujete %d kurzov a platforma momentálne umožňuje maximálne %d pre váš účet. Momentálne nemôžete vytvoriť ďalšie kurzy."
+
+msgid "Add a class"
+msgstr "Pridať triedu"
+
+msgid "Search classes"
+msgstr "Hľadať triedy"
+
+msgid "No classes found"
+msgstr "Nenašli sa žiadne triedy"
+
+msgid "Import classes"
+msgstr "Importovať triedy"
+
+msgid "Class users"
+msgstr "Používatelia triedy"
+
+msgid "%s classes imported"
+msgstr "%s tried importovaných"
+
+msgid "%s user-class links imported"
+msgstr "%s prepojení používateľ-trieda importovaných"
+
+msgid "Hide comments"
+msgstr "Skryť komentáre"
+
+msgid "Loading comments..."
+msgstr "Načítavajú sa komentáre..."
+
+msgid "No comments yet."
+msgstr "Zatiaľ žiadne komentáre."
 

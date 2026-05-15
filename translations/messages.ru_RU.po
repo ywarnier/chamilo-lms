@@ -9732,6 +9732,9 @@ msgstr "Результаты поиска по:"
 msgid "Select a file"
 msgstr "Выбрать файл"
 
+msgid "Select a file to insert into the editor."
+msgstr "Выберите файл для вставки в редактор."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Предупреждение - файл FAQ, расположенный в директории /home/ вашего портала, недоступен для записи. Ваш текст не будет сохранен, пока не изменены права доступа к файлу."
 
@@ -15912,6 +15915,9 @@ msgstr "Дата и время"
 msgid "Item"
 msgstr "Элемент"
 
+msgid "Items"
+msgstr "Элементы"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Настроить плагин панели управления"
 
@@ -17165,6 +17171,18 @@ msgstr "Сессии в группе"
 
 msgid "Courses in group"
 msgstr "Курсы в группе"
+
+msgid "Courses on the platform"
+msgstr "Курсы на платформе"
+
+msgid "%s courses"
+msgstr "%s курсов"
+
+msgid "%s sessions"
+msgstr "%s сессий"
+
+msgid "Search by title or code"
+msgstr "Поиск по названию или коду"
 
 msgid "Users in group"
 msgstr "Пользователи в группе"
@@ -32170,6 +32188,9 @@ msgstr "Задание"
 msgid "Allowed file formats: %s"
 msgstr "Разрешенные форматы файлов: %s"
 
+msgid "File manager"
+msgstr "Диспетчер файлов"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Тип файла не разрешен. Разрешенные расширения: %s"
 
@@ -33883,6 +33904,9 @@ msgstr "Добро пожаловать"
 msgid "Welcome to Chamilo"
 msgstr "Добро пожаловать в Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Проверить все не отвеченные вопросы ниже"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Если вы впервые используете Chamilo, обязательно проверьте боковое меню, чтобы найти путь через его множество функций. Если вам нужна помощь, вы найдете <a href=\"https://docs.chamilo.org\">официальную документацию</a> для стандартной документации, а наш <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">онлайн-форум</a> поможет поделиться идеями и найти ответы от других пользователей Chamilo."
 
@@ -34062,6 +34086,63 @@ msgstr "Оценка потребностей в обучении"
 
 msgid "Work climate surveys"
 msgstr "Опросы рабочего климата"
+
+msgid "Unit"
+msgstr "Единица"
+
+msgid "Total cost"
+msgstr "Общая стоимость"
+
+msgid "Cost per learner"
+msgstr "Стоимость на обучающегося"
+
+msgid "Average cost by session"
+msgstr "Средняя стоимость по сессии"
+
+msgid "Total investment"
+msgstr "Общая инвестиция"
+
+msgid "Set cost"
+msgstr "Установить стоимость"
+
+msgid "Filter by date range"
+msgstr "Фильтр по диапазону дат"
+
+msgid "Add distribution"
+msgstr "Добавить распределение"
+
+msgid "User share"
+msgstr "Доля пользователя"
+
+msgid "Select a unit"
+msgstr "Выберите единицу"
+
+msgid "Select a survey"
+msgstr "Выберите опрос"
+
+msgid "Distribution added"
+msgstr "Распределение добавлено"
+
+msgid "Distribution removed"
+msgstr "Распределение удалено"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Вы уверены, что хотите удалить это распределение?"
+
+msgid "Cost updated"
+msgstr "Стоимость обновлена"
+
+msgid "Total invited"
+msgstr "Всего приглашено"
+
+msgid "Total answered"
+msgstr "Всего ответов"
+
+msgid "Total responses"
+msgstr "Всего откликов"
+
+msgid "No responses yet"
+msgstr "Пока нет откликов"
 
 msgid "Diversity criteria"
 msgstr "Критерии разнообразия"
@@ -34574,4 +34655,274 @@ msgstr "Вы уверены, что хотите удалить эту оцен�
 
 msgid "Loading…"
 msgstr "Загрузка…"
+
+msgid "Periodicity"
+msgstr "Периодичность"
+
+msgid "Suggest from periodicity"
+msgstr "Предложить из периодичности"
+
+msgid "Add job offer"
+msgstr "Добавить предложение о работе"
+
+msgid "Edit job offer"
+msgstr "Редактировать предложение о работе"
+
+msgid "Function / Unit"
+msgstr "Функция / Единица"
+
+msgid "Vacancies"
+msgstr "Вакансии"
+
+msgid "Expected start date"
+msgstr "Ожидаемая дата начала"
+
+msgid "Contract duration (days)"
+msgstr "Продолжительность контракта (дни)"
+
+msgid "Public offer"
+msgstr "Публичное предложение"
+
+msgid "Publication start date"
+msgstr "Дата начала публикации"
+
+msgid "Publication end date"
+msgstr "Дата окончания публикации"
+
+msgid "Applications"
+msgstr "Заявки"
+
+msgid "Selection exams"
+msgstr "Экзамены отбора"
+
+msgid "Add exam"
+msgstr "Добавить экзамен"
+
+msgid "Applicant"
+msgstr "Соискатель"
+
+msgid "Applied on"
+msgstr "Подана"
+
+msgid "Salary expectations"
+msgstr "Ожидания по зарплате"
+
+msgid "Pending evaluation"
+msgstr "Ожидает оценки"
+
+msgid "Hired"
+msgstr "Нанят"
+
+msgid "Not hired"
+msgstr "Не нанят"
+
+msgid "Evaluate"
+msgstr "Оценить"
+
+msgid "Evaluate candidate"
+msgstr "Оценить кандидата"
+
+msgid "Decision"
+msgstr "Решение"
+
+msgid "Save evaluation"
+msgstr "Сохранить оценку"
+
+msgid "Back to job offers"
+msgstr "Вернуться к вакансиям"
+
+msgid "No job offers available at this time."
+msgstr "В настоящее время вакансий нет."
+
+msgid "See details"
+msgstr "Подробнее"
+
+msgid "Apply now"
+msgstr "Подать заявку"
+
+msgid "Already applied"
+msgstr "Заявка уже подана"
+
+msgid "Log in to apply"
+msgstr "Войдите, чтобы подать заявку"
+
+msgid "Apply to job offer"
+msgstr "Подать заявку на вакансию"
+
+msgid "Availability date"
+msgstr "Дата доступности"
+
+msgid "CV (Personal file)"
+msgstr "Резюме (личный файл)"
+
+msgid "Select your CV from your personal files"
+msgstr "Выберите резюме из ваших личных файлов"
+
+msgid "Submit application"
+msgstr "Отправить заявку"
+
+msgid "Application submitted successfully."
+msgstr "Заявка успешно отправлена."
+
+msgid "Private observations"
+msgstr "Частные замечания"
+
+msgid "My applications"
+msgstr "Мои заявки"
+
+msgid "View job offers"
+msgstr "Просмотр вакансий"
+
+msgid "You have not submitted any applications yet."
+msgstr "Вы еще не подавали заявки."
+
+msgid "Under review"
+msgstr "На рассмотрении"
+
+msgid "Not selected"
+msgstr "Не выбран"
+
+msgid "HR feedback"
+msgstr "Отзыв HR"
+
+msgid "Withdraw application"
+msgstr "Отозвать заявку"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Вы уверены, что хотите отозвать эту заявку?"
+
+msgid "Application withdrawn."
+msgstr "Заявка отозвана."
+
+msgid "Calculate quiz scores"
+msgstr "Рассчитать баллы теста"
+
+msgid "Scores calculated."
+msgstr "Баллы рассчитаны."
+
+msgid "Career plan overview"
+msgstr "Обзор плана карьеры"
+
+msgid "My career plan"
+msgstr "Мой план карьеры"
+
+msgid "No function-unit associations configured yet."
+msgstr "Связи функция-единица еще не настроены."
+
+msgid "No required skills defined."
+msgstr "Необходимые навыки не определены."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Вы должны быть назначены на должность, чтобы увидеть план карьеры."
+
+msgid "Your current position"
+msgstr "Ваша текущая должность"
+
+msgid "No career targets found for your current position."
+msgstr "Цели карьеры для вашей текущей должности не найдены."
+
+msgid "No required skills defined for this position."
+msgstr "Необходимые навыки для этой должности не определены."
+
+msgid "Met"
+msgstr "Выполнено"
+
+msgid "Gap"
+msgstr "Разрыв"
+
+msgid "Acquired:"
+msgstr "Приобретено:"
+
+msgid "Required:"
+msgstr "Требуется:"
+
+msgid "Max"
+msgstr "Макс"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Критерии разнообразия не найдены. Сначала добавьте критерии."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Выберите критерий из списка, чтобы просмотреть его статистику."
+
+msgid "No data available for this criterion."
+msgstr "Данные для этого критерия недоступны."
+
+msgid "Change password"
+msgstr "Сменить пароль"
+
+msgid "Newest first"
+msgstr "Сначала новые"
+
+msgid "Oldest first"
+msgstr "Сначала старые"
+
+msgid "Title A–Z"
+msgstr "Название А–Я"
+
+msgid "Title Z–A"
+msgstr "Название Я–А"
+
+msgid "Send test email"
+msgstr "Отправить тестовое письмо"
+
+msgid "Show teachers"
+msgstr "Показать преподавателей"
+
+msgid "Hide teachers"
+msgstr "Скрыть преподавателей"
+
+msgid "Delete exercise attempts"
+msgstr "Удалить попытки упражнения"
+
+msgid "Message sent successfully."
+msgstr "Сообщение успешно отправлено."
+
+msgid "You cannot create a new course right now."
+msgstr "Вы не можете создать новый курс сейчас."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Не удалось проверить, можете ли вы создать новый курс сейчас."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Попробуйте позже или обратитесь к администратору."
+
+msgid "You cannot create more courses at this time."
+msgstr "Вы не можете создать больше курсов сейчас."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Вы уже управляете %d курсами, а ваш активный сервис позволяет до %d. Чтобы создать ещё один курс, вам нужен более высокий лимит сервиса или уменьшите количество активных курсов."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Вы уже управляете %d курсами, а платформа сейчас позволяет до %d для вашего аккаунта. Вы не можете создать больше курсов сейчас."
+
+msgid "Add a class"
+msgstr "Добавить класс"
+
+msgid "Search classes"
+msgstr "Поиск классов"
+
+msgid "No classes found"
+msgstr "Классы не найдены"
+
+msgid "Import classes"
+msgstr "Импорт классов"
+
+msgid "Class users"
+msgstr "Пользователи класса"
+
+msgid "%s classes imported"
+msgstr "Импортировано %s классов"
+
+msgid "%s user-class links imported"
+msgstr "Импортировано %s связей пользователь-класс"
+
+msgid "Hide comments"
+msgstr "Скрыть комментарии"
+
+msgid "Loading comments..."
+msgstr "Загрузка комментариев..."
+
+msgid "No comments yet."
+msgstr "Комментариев пока нет."
 

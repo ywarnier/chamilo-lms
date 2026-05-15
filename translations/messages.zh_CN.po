@@ -9731,6 +9731,9 @@ msgstr "搜索结果："
 msgid "Select a file"
 msgstr "选择文件"
 
+msgid "Select a file to insert into the editor."
+msgstr "选择要插入编辑器的文件。"
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "警告 - 门户 /home/ 目录中的 FAQ 文件不可写。在更改文件权限之前，您的文本将无法保存。"
 
@@ -15911,6 +15914,9 @@ msgstr "日期与时间"
 msgid "Item"
 msgstr "项目"
 
+msgid "Items"
+msgstr "项目"
+
 msgid "Configure Dashboard Plugin"
 msgstr "配置资料卡插件"
 
@@ -17164,6 +17170,18 @@ msgstr "组中的会话"
 
 msgid "Courses in group"
 msgstr "组中的课程"
+
+msgid "Courses on the platform"
+msgstr "平台上的课程"
+
+msgid "%s courses"
+msgstr "%s 门课程"
+
+msgid "%s sessions"
+msgstr "%s 个课程会话"
+
+msgid "Search by title or code"
+msgstr "按标题或代码搜索"
 
 msgid "Users in group"
 msgstr "组中的用户"
@@ -32169,6 +32187,9 @@ msgstr "作业"
 msgid "Allowed file formats: %s"
 msgstr "允许的文件格式：%s"
 
+msgid "File manager"
+msgstr "文件管理器"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "文件类型不允许。允许的扩展名：%s"
 
@@ -33882,6 +33903,9 @@ msgstr "欢迎"
 msgid "Welcome to Chamilo"
 msgstr "欢迎使用 Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "选中下方所有未回答的问题"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> 如果这是您第一次使用 Chamilo，请确保查看侧边菜单以了解其众多功能。如果您需要帮助，您会发现<a href=\"https://docs.chamilo.org\">我们的官方文档</a>可用于标准文档，而我们的<a href=\"https://github.com/chamilo/chamilo-lms/discussions\">在线论坛</a>可帮助分享想法并从其他 Chamilo 用户那里找到答案。"
 
@@ -34061,6 +34085,63 @@ msgstr "培训需求评估"
 
 msgid "Work climate surveys"
 msgstr "工作氛围调查"
+
+msgid "Unit"
+msgstr "单位"
+
+msgid "Total cost"
+msgstr "总成本"
+
+msgid "Cost per learner"
+msgstr "每位学习者成本"
+
+msgid "Average cost by session"
+msgstr "每会话平均成本"
+
+msgid "Total investment"
+msgstr "总投资"
+
+msgid "Set cost"
+msgstr "设置成本"
+
+msgid "Filter by date range"
+msgstr "按日期范围筛选"
+
+msgid "Add distribution"
+msgstr "添加分发"
+
+msgid "User share"
+msgstr "用户份额"
+
+msgid "Select a unit"
+msgstr "选择单位"
+
+msgid "Select a survey"
+msgstr "选择调查"
+
+msgid "Distribution added"
+msgstr "分发已添加"
+
+msgid "Distribution removed"
+msgstr "分发已移除"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "您确定要移除此分发吗？"
+
+msgid "Cost updated"
+msgstr "成本已更新"
+
+msgid "Total invited"
+msgstr "总邀请人数"
+
+msgid "Total answered"
+msgstr "总回答人数"
+
+msgid "Total responses"
+msgstr "总回复数"
+
+msgid "No responses yet"
+msgstr "暂无回复"
 
 msgid "Diversity criteria"
 msgstr "多样性标准"
@@ -34573,4 +34654,274 @@ msgstr "您确定要删除此评估吗？"
 
 msgid "Loading…"
 msgstr "加载中…"
+
+msgid "Periodicity"
+msgstr "周期性"
+
+msgid "Suggest from periodicity"
+msgstr "根据周期建议"
+
+msgid "Add job offer"
+msgstr "添加职位招聘"
+
+msgid "Edit job offer"
+msgstr "编辑职位招聘"
+
+msgid "Function / Unit"
+msgstr "职能 / 单位"
+
+msgid "Vacancies"
+msgstr "空位"
+
+msgid "Expected start date"
+msgstr "预期开始日期"
+
+msgid "Contract duration (days)"
+msgstr "合同期限（天）"
+
+msgid "Public offer"
+msgstr "公开招聘"
+
+msgid "Publication start date"
+msgstr "发布开始日期"
+
+msgid "Publication end date"
+msgstr "发布结束日期"
+
+msgid "Applications"
+msgstr "申请"
+
+msgid "Selection exams"
+msgstr "选拔考试"
+
+msgid "Add exam"
+msgstr "添加考试"
+
+msgid "Applicant"
+msgstr "申请人"
+
+msgid "Applied on"
+msgstr "申请日期"
+
+msgid "Salary expectations"
+msgstr "薪资期望"
+
+msgid "Pending evaluation"
+msgstr "待评估"
+
+msgid "Hired"
+msgstr "已录用"
+
+msgid "Not hired"
+msgstr "未录用"
+
+msgid "Evaluate"
+msgstr "评估"
+
+msgid "Evaluate candidate"
+msgstr "评估候选人"
+
+msgid "Decision"
+msgstr "决定"
+
+msgid "Save evaluation"
+msgstr "保存评估"
+
+msgid "Back to job offers"
+msgstr "返回职位招聘"
+
+msgid "No job offers available at this time."
+msgstr "目前没有可用的职位招聘。"
+
+msgid "See details"
+msgstr "查看详情"
+
+msgid "Apply now"
+msgstr "立即申请"
+
+msgid "Already applied"
+msgstr "已申请"
+
+msgid "Log in to apply"
+msgstr "登录申请"
+
+msgid "Apply to job offer"
+msgstr "申请职位招聘"
+
+msgid "Availability date"
+msgstr "可用日期"
+
+msgid "CV (Personal file)"
+msgstr "简历（个人文件）"
+
+msgid "Select your CV from your personal files"
+msgstr "从个人文件中选择您的简历"
+
+msgid "Submit application"
+msgstr "提交申请"
+
+msgid "Application submitted successfully."
+msgstr "申请提交成功。"
+
+msgid "Private observations"
+msgstr "私人备注"
+
+msgid "My applications"
+msgstr "我的申请"
+
+msgid "View job offers"
+msgstr "查看职位招聘"
+
+msgid "You have not submitted any applications yet."
+msgstr "您尚未提交任何申请。"
+
+msgid "Under review"
+msgstr "审核中"
+
+msgid "Not selected"
+msgstr "未入选"
+
+msgid "HR feedback"
+msgstr "HR反馈"
+
+msgid "Withdraw application"
+msgstr "撤回申请"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "您确定要撤回此申请吗？"
+
+msgid "Application withdrawn."
+msgstr "申请已撤回。"
+
+msgid "Calculate quiz scores"
+msgstr "计算测验分数"
+
+msgid "Scores calculated."
+msgstr "分数已计算。"
+
+msgid "Career plan overview"
+msgstr "职业规划概览"
+
+msgid "My career plan"
+msgstr "我的职业规划"
+
+msgid "No function-unit associations configured yet."
+msgstr "尚未配置职能-单位关联。"
+
+msgid "No required skills defined."
+msgstr "未定义所需技能。"
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "您必须被分配到一个职位才能查看您的职业计划。"
+
+msgid "Your current position"
+msgstr "您当前职位"
+
+msgid "No career targets found for your current position."
+msgstr "未找到您当前职位的职业目标。"
+
+msgid "No required skills defined for this position."
+msgstr "此职位未定义所需技能。"
+
+msgid "Met"
+msgstr "已达成"
+
+msgid "Gap"
+msgstr "差距"
+
+msgid "Acquired:"
+msgstr "已获得："
+
+msgid "Required:"
+msgstr "所需："
+
+msgid "Max"
+msgstr "最高"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "未找到多样性标准。请先添加标准。"
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "从列表中选择一个标准以查看其统计信息。"
+
+msgid "No data available for this criterion."
+msgstr "此标准无可用数据。"
+
+msgid "Change password"
+msgstr "更改密码"
+
+msgid "Newest first"
+msgstr "最新优先"
+
+msgid "Oldest first"
+msgstr "最早优先"
+
+msgid "Title A–Z"
+msgstr "标题 A–Z"
+
+msgid "Title Z–A"
+msgstr "标题 Z–A"
+
+msgid "Send test email"
+msgstr "发送测试邮件"
+
+msgid "Show teachers"
+msgstr "显示教师"
+
+msgid "Hide teachers"
+msgstr "隐藏教师"
+
+msgid "Delete exercise attempts"
+msgstr "删除练习尝试"
+
+msgid "Message sent successfully."
+msgstr "消息发送成功。"
+
+msgid "You cannot create a new course right now."
+msgstr "您现在无法创建新课程。"
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "无法验证您现在是否可以创建新课程。"
+
+msgid "Please try again later or contact the administrator."
+msgstr "请稍后重试或联系管理员。"
+
+msgid "You cannot create more courses at this time."
+msgstr "您目前无法创建更多课程。"
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "您已管理 %d 个课程，您的活跃服务允许最多 %d 个。要创建另一个课程，您需要更高的服务限制或减少当前活跃课程。"
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "您已管理 %d 个课程，平台当前允许您的账户最多 %d 个。您现在无法创建更多课程。"
+
+msgid "Add a class"
+msgstr "添加班级"
+
+msgid "Search classes"
+msgstr "搜索班级"
+
+msgid "No classes found"
+msgstr "未找到班级"
+
+msgid "Import classes"
+msgstr "导入班级"
+
+msgid "Class users"
+msgstr "班级用户"
+
+msgid "%s classes imported"
+msgstr "已导入 %s 个班级"
+
+msgid "%s user-class links imported"
+msgstr "已导入 %s 个用户-班级链接"
+
+msgid "Hide comments"
+msgstr "隐藏评论"
+
+msgid "Loading comments..."
+msgstr "正在加载评论…"
+
+msgid "No comments yet."
+msgstr "暂无评论。"
 

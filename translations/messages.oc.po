@@ -2017,7 +2017,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":òc:dret d'autor,, non:sens dret d'autor"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Dossiè,, application/msword:MsWord,, application/octet-stream:Flux d'octets,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Dossiè,, application/msword:MsWord,, application/octet-stream:Flux octet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercici:exercici,,      simulacion:simulacion,,      questionari:questionari,,      diagrama:diagrama,,      figura:figura,,      grafic:grafic,,      indèx:indèx,,      diapositiva:diapositiva,,      taula:taula,,      tèxte narratiu:tèxte narratiu,,      examen:examen,,      experiment:experiment,,      enunciat de problèma:enunciat de problèma,,      autoevaluacion:autoevaluacion,,      leçon:leçon"
@@ -9726,6 +9726,9 @@ msgstr "Resultats de recèrca per :"
 msgid "Select a file"
 msgstr "Seleccionar un fichièr"
 
+msgid "Select a file to insert into the editor."
+msgstr "Seleccionatz un fichièr per l’inserir dins l’editor."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Avís - Lo fichièr FAQ, situat dins lo repertòri /home/ de vòstre portal, es pas escrivible. Vòstre tèxte serà pas salvat fins que las permissions del fichièr siá modificadas."
 
@@ -15906,6 +15909,9 @@ msgstr "Data e ora"
 msgid "Item"
 msgstr "Element"
 
+msgid "Items"
+msgstr "Elements"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Configurar lo plugin Dashboard"
 
@@ -17159,6 +17165,18 @@ msgstr "Sessions dins lo grup"
 
 msgid "Courses in group"
 msgstr "Cors dins lo grup"
+
+msgid "Courses on the platform"
+msgstr "Cours sus la plataforma"
+
+msgid "%s courses"
+msgstr "%s cursos"
+
+msgid "%s sessions"
+msgstr "%s sessions"
+
+msgid "Search by title or code"
+msgstr "Recèrca per títol o còde"
 
 msgid "Users in group"
 msgstr "Utilizaires dins lo grup"
@@ -32163,6 +32181,9 @@ msgstr "Tòca"
 msgid "Allowed file formats: %s"
 msgstr "Formats de fichièrs autorizats: %s"
 
+msgid "File manager"
+msgstr "Gestionnaire de fichièrs"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Tipe de fichièr pas autorizat. Extensions autorizadas: %s"
 
@@ -33876,6 +33897,9 @@ msgstr "Benvenguda"
 msgid "Welcome to Chamilo"
 msgstr "Benvenguda a Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Verificatz totas las questions sens responsa çaissas"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Se si es la primeira vez qu'utilizatz Chamilo, verificatz lo menú lateral per descobrir totas las foncionalitats. Se avetz besonh d'ajuda, podetz consultar <a href=\"https://docs.chamilo.org\">nosta documentacion oficial</a> per la documentacion estandard, e lo <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forum en linha</a> per partir d'idèas e trobar de responsas amb d'autres utilizaires de Chamilo."
 
@@ -34055,6 +34079,63 @@ msgstr "Evaluacion de besonhs de formacion"
 
 msgid "Work climate surveys"
 msgstr "Sondatges sul climat de trabalh"
+
+msgid "Unit"
+msgstr "Unitat"
+
+msgid "Total cost"
+msgstr "Còst total"
+
+msgid "Cost per learner"
+msgstr "Còst per aprènt"
+
+msgid "Average cost by session"
+msgstr "Còst moyen per session"
+
+msgid "Total investment"
+msgstr "Invertiment total"
+
+msgid "Set cost"
+msgstr "Fixar lo còst"
+
+msgid "Filter by date range"
+msgstr "Filtrar per interval de datas"
+
+msgid "Add distribution"
+msgstr "Apondre una distribucion"
+
+msgid "User share"
+msgstr "Partiment d'utilizaire"
+
+msgid "Select a unit"
+msgstr "Seleccionar una unitat"
+
+msgid "Select a survey"
+msgstr "Seleccionar un sondatge"
+
+msgid "Distribution added"
+msgstr "Distribucion aponduda"
+
+msgid "Distribution removed"
+msgstr "Distribucion suprimida"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Sètz segur que volètz suprimir aquesta distribucion ?"
+
+msgid "Cost updated"
+msgstr "Còst actualizat"
+
+msgid "Total invited"
+msgstr "Total convidats"
+
+msgid "Total answered"
+msgstr "Total responduts"
+
+msgid "Total responses"
+msgstr "Total de responsas"
+
+msgid "No responses yet"
+msgstr "Cap responsa encara"
 
 msgid "Diversity criteria"
 msgstr "Critèris de diversitat"
@@ -34567,4 +34648,274 @@ msgstr "Sètz segur que volètz suprimir aquesta evaluacion ?"
 
 msgid "Loading…"
 msgstr "Cargament…"
+
+msgid "Periodicity"
+msgstr "Periodicitat"
+
+msgid "Suggest from periodicity"
+msgstr "Sugerir a partir de la periodicitat"
+
+msgid "Add job offer"
+msgstr "Apondre una oferta d'empleg"
+
+msgid "Edit job offer"
+msgstr "Modificar l'oferta d'empleg"
+
+msgid "Function / Unit"
+msgstr "Foncion / Unitat"
+
+msgid "Vacancies"
+msgstr "Placas vacantas"
+
+msgid "Expected start date"
+msgstr "Data d'inici preveista"
+
+msgid "Contract duration (days)"
+msgstr "Durada del contràt (jours)"
+
+msgid "Public offer"
+msgstr "Oferta publica"
+
+msgid "Publication start date"
+msgstr "Data d'inici de publicacion"
+
+msgid "Publication end date"
+msgstr "Data de fin de publicacion"
+
+msgid "Applications"
+msgstr "Candidaturas"
+
+msgid "Selection exams"
+msgstr "Exames de seleccion"
+
+msgid "Add exam"
+msgstr "Apondre un examen"
+
+msgid "Applicant"
+msgstr "Candidat"
+
+msgid "Applied on"
+msgstr "Candidatura deposada lo"
+
+msgid "Salary expectations"
+msgstr "Expectativas salarialas"
+
+msgid "Pending evaluation"
+msgstr "En espera d'evaluacion"
+
+msgid "Hired"
+msgstr "Embauchat"
+
+msgid "Not hired"
+msgstr "Pas embauchat"
+
+msgid "Evaluate"
+msgstr "Evaluar"
+
+msgid "Evaluate candidate"
+msgstr "Evaluar lo candidat"
+
+msgid "Decision"
+msgstr "Decision"
+
+msgid "Save evaluation"
+msgstr "Enregistrar l'evaluacion"
+
+msgid "Back to job offers"
+msgstr "Tornar a las ofertas d'empleg"
+
+msgid "No job offers available at this time."
+msgstr "Cap oferta d'empleg disponible per lo moment."
+
+msgid "See details"
+msgstr "Veire los detaills"
+
+msgid "Apply now"
+msgstr "Candidatar ara"
+
+msgid "Already applied"
+msgstr "Ja candidat"
+
+msgid "Log in to apply"
+msgstr "Connexion per candidatar"
+
+msgid "Apply to job offer"
+msgstr "Candidatura a l'oferta d'empleg"
+
+msgid "Availability date"
+msgstr "Data de disponibilitat"
+
+msgid "CV (Personal file)"
+msgstr "CV (Dossiè personal)"
+
+msgid "Select your CV from your personal files"
+msgstr "Seleccionatz vòstre CV dins vòstres dosssiers personals"
+
+msgid "Submit application"
+msgstr "Enviar la candidatura"
+
+msgid "Application submitted successfully."
+msgstr "Candidatura enviada amb succès."
+
+msgid "Private observations"
+msgstr "Observacions privadas"
+
+msgid "My applications"
+msgstr "Mas candidaturas"
+
+msgid "View job offers"
+msgstr "Veire las ofertas d'empleg"
+
+msgid "You have not submitted any applications yet."
+msgstr "En anc res candidaturat."
+
+msgid "Under review"
+msgstr "En revision"
+
+msgid "Not selected"
+msgstr "Pas seleccionat"
+
+msgid "HR feedback"
+msgstr "Retorn RH"
+
+msgid "Withdraw application"
+msgstr "Retirar la demanda"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Sètz segur que volètz retirar aquesta demanda ?"
+
+msgid "Application withdrawn."
+msgstr "Demanda retirada."
+
+msgid "Calculate quiz scores"
+msgstr "Calcular las nots del quiz"
+
+msgid "Scores calculated."
+msgstr "Nots calculadas."
+
+msgid "Career plan overview"
+msgstr "Vision d'ensemble del plan de carrera"
+
+msgid "My career plan"
+msgstr "Mon plan de carrera"
+
+msgid "No function-unit associations configured yet."
+msgstr "Cap associacion foncion-unitat configurada encara."
+
+msgid "No required skills defined."
+msgstr "Cap competéncia requerida definida."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Vos cal èsser assignat a un poste per veire vostre plan de carrera."
+
+msgid "Your current position"
+msgstr "Vòstre poste actual"
+
+msgid "No career targets found for your current position."
+msgstr "Cap objectiu de carrera trobat per vòstre poste actual."
+
+msgid "No required skills defined for this position."
+msgstr "Cap competéncia requerida definida per aquest poste."
+
+msgid "Met"
+msgstr "Ates"
+
+msgid "Gap"
+msgstr "Deficiéncia"
+
+msgid "Acquired:"
+msgstr "Adquès :"
+
+msgid "Required:"
+msgstr "Requèrs :"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Cap criteri de diversitat pas trobat. Apondètz un criteri en primier luèu."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Seleccionatz un criteri de la lista per veire sas estatisticas."
+
+msgid "No data available for this criterion."
+msgstr "Cap donada disponibla per aqueste criteri."
+
+msgid "Change password"
+msgstr "Cambiar lo senhal"
+
+msgid "Newest first"
+msgstr "Los mai recents primièrs"
+
+msgid "Oldest first"
+msgstr "Los mai ancians primièrs"
+
+msgid "Title A–Z"
+msgstr "Títol A–Z"
+
+msgid "Title Z–A"
+msgstr "Títol Z–A"
+
+msgid "Send test email"
+msgstr "Mandar un e-mail de prèba"
+
+msgid "Show teachers"
+msgstr "Afichar los professors"
+
+msgid "Hide teachers"
+msgstr "Amagar los professors"
+
+msgid "Delete exercise attempts"
+msgstr "Suprimir las temptativas d'exercici"
+
+msgid "Message sent successfully."
+msgstr "Messatge enviat amb succès."
+
+msgid "You cannot create a new course right now."
+msgstr "Podètz pas crear un novè curs ara."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Impossible de verificar se podètz crear un novè curs ara."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Ensajatz tornamai mai tard o contactatz l'administrator."
+
+msgid "You cannot create more courses at this time."
+msgstr "Podètz pas crear mai de cors ara."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Vos já gestionatz %d cors e vòstre servici actiu permet fins a %d. Per crear un autre curs, avètz besonh d'una limita superior de servici o de reducir vòstres cors actius actuals."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Vos já gestionatz %d cors e la plataforma permet actualament fins a %d per vòstre compte. Podètz pas crear mai de cors ara."
+
+msgid "Add a class"
+msgstr "Apondre una classe"
+
+msgid "Search classes"
+msgstr "Recercar las classes"
+
+msgid "No classes found"
+msgstr "Cap classe trobada"
+
+msgid "Import classes"
+msgstr "Importar las classes"
+
+msgid "Class users"
+msgstr "Utilizaires de la classe"
+
+msgid "%s classes imported"
+msgstr "%s classes importadas"
+
+msgid "%s user-class links imported"
+msgstr "%s ligams utilizaire-classe importats"
+
+msgid "Hide comments"
+msgstr "Amagar los comentaris"
+
+msgid "Loading comments..."
+msgstr "Carga dels comentaris..."
+
+msgid "No comments yet."
+msgstr "Cap de comentaris encara."
 

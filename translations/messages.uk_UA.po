@@ -9726,6 +9726,9 @@ msgstr "Результати пошуку для:"
 msgid "Select a file"
 msgstr "Вибрати файл"
 
+msgid "Select a file to insert into the editor."
+msgstr "Виберіть файл для вставки в редактор."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Увага - файл FAQ, розташований у каталозі /home/ вашого порталу, недоступний для запису. Ваш текст не буде збережено, доки не змінено дозволи файлу."
 
@@ -15906,6 +15909,9 @@ msgstr "Дата та час"
 msgid "Item"
 msgstr "Елемент"
 
+msgid "Items"
+msgstr "Елементи"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Налаштувати плагін панелі приладів"
 
@@ -17159,6 +17165,18 @@ msgstr "Сесії в групі"
 
 msgid "Courses in group"
 msgstr "Курси в групі"
+
+msgid "Courses on the platform"
+msgstr "Курси на платформі"
+
+msgid "%s courses"
+msgstr "%s курсів"
+
+msgid "%s sessions"
+msgstr "%s сесій"
+
+msgid "Search by title or code"
+msgstr "Пошук за назвою або кодом"
 
 msgid "Users in group"
 msgstr "Користувачі в групі"
@@ -32163,6 +32181,9 @@ msgstr "Завдання"
 msgid "Allowed file formats: %s"
 msgstr "Дозволені формати файлів: %s"
 
+msgid "File manager"
+msgstr "Менеджер файлів"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Тип файлу не дозволено. Дозволені розширення: %s"
 
@@ -33876,6 +33897,9 @@ msgstr "Ласкаво просимо"
 msgid "Welcome to Chamilo"
 msgstr "Ласкаво просимо до Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Позначити всі невідповідані запитання нижче"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Якщо це ваш перший раз у Chamilo, переконайтеся, що ви перевірили бокове меню, щоб знайти шлях через його численні функції. Якщо вам потрібна допомога, ви знайдете <a href=\"https://docs.chamilo.org\">нашу офіційну документацію</a> для стандартної документації, тоді як наш <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">онлайн-форум</a> може допомогти ділитися ідеями та знаходити відповіді від інших користувачів Chamilo."
 
@@ -34055,6 +34079,63 @@ msgstr "Оцінка потреб у навчанні"
 
 msgid "Work climate surveys"
 msgstr "Опитування робочого клімату"
+
+msgid "Unit"
+msgstr "Одиниця"
+
+msgid "Total cost"
+msgstr "Загальна вартість"
+
+msgid "Cost per learner"
+msgstr "Вартість на одного учня"
+
+msgid "Average cost by session"
+msgstr "Середня вартість за сесію"
+
+msgid "Total investment"
+msgstr "Загальні інвестиції"
+
+msgid "Set cost"
+msgstr "Встановити вартість"
+
+msgid "Filter by date range"
+msgstr "Фільтр за діапазоном дат"
+
+msgid "Add distribution"
+msgstr "Додати розподіл"
+
+msgid "User share"
+msgstr "Частка користувача"
+
+msgid "Select a unit"
+msgstr "Виберіть одиницю"
+
+msgid "Select a survey"
+msgstr "Виберіть опитування"
+
+msgid "Distribution added"
+msgstr "Розподіл додано"
+
+msgid "Distribution removed"
+msgstr "Розподіл видалено"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Ви впевнені, що хочете видалити цей розподіл?"
+
+msgid "Cost updated"
+msgstr "Вартість оновлено"
+
+msgid "Total invited"
+msgstr "Всього запрошено"
+
+msgid "Total answered"
+msgstr "Всього відповіли"
+
+msgid "Total responses"
+msgstr "Всього відповідей"
+
+msgid "No responses yet"
+msgstr "Відповідей ще немає"
 
 msgid "Diversity criteria"
 msgstr "Критерії різноманітності"
@@ -34567,4 +34648,274 @@ msgstr "Ви впевнені, що хочете видалити цю оцін�
 
 msgid "Loading…"
 msgstr "Завантаження…"
+
+msgid "Periodicity"
+msgstr "Періодичність"
+
+msgid "Suggest from periodicity"
+msgstr "Запропонувати з періодичності"
+
+msgid "Add job offer"
+msgstr "Додати вакансію"
+
+msgid "Edit job offer"
+msgstr "Редагувати вакансію"
+
+msgid "Function / Unit"
+msgstr "Посада / Підрозділ"
+
+msgid "Vacancies"
+msgstr "Вакансії"
+
+msgid "Expected start date"
+msgstr "Очікувана дата початку"
+
+msgid "Contract duration (days)"
+msgstr "Тривалість контракту (дні)"
+
+msgid "Public offer"
+msgstr "Публічна вакансія"
+
+msgid "Publication start date"
+msgstr "Дата початку публікації"
+
+msgid "Publication end date"
+msgstr "Дата завершення публікації"
+
+msgid "Applications"
+msgstr "Заявки"
+
+msgid "Selection exams"
+msgstr "Відбіркові іспити"
+
+msgid "Add exam"
+msgstr "Додати іспит"
+
+msgid "Applicant"
+msgstr "Кандидат"
+
+msgid "Applied on"
+msgstr "Подана"
+
+msgid "Salary expectations"
+msgstr "Очікувана зарплата"
+
+msgid "Pending evaluation"
+msgstr "Очікує на оцінку"
+
+msgid "Hired"
+msgstr "Прийнятий"
+
+msgid "Not hired"
+msgstr "Відхилений"
+
+msgid "Evaluate"
+msgstr "Оцінити"
+
+msgid "Evaluate candidate"
+msgstr "Оцінити кандидата"
+
+msgid "Decision"
+msgstr "Рішення"
+
+msgid "Save evaluation"
+msgstr "Зберегти оцінку"
+
+msgid "Back to job offers"
+msgstr "Повернутися до вакансій"
+
+msgid "No job offers available at this time."
+msgstr "Наразі вакансій немає."
+
+msgid "See details"
+msgstr "Деталі"
+
+msgid "Apply now"
+msgstr "Подати заявку"
+
+msgid "Already applied"
+msgstr "Вже подано"
+
+msgid "Log in to apply"
+msgstr "Увійдіть, щоб подати заявку"
+
+msgid "Apply to job offer"
+msgstr "Подати заявку на вакансію"
+
+msgid "Availability date"
+msgstr "Дата доступності"
+
+msgid "CV (Personal file)"
+msgstr "Резюме (Особисті файли)"
+
+msgid "Select your CV from your personal files"
+msgstr "Виберіть резюме з ваших особистих файлів"
+
+msgid "Submit application"
+msgstr "Надіслати заявку"
+
+msgid "Application submitted successfully."
+msgstr "Заявку успішно надіслано."
+
+msgid "Private observations"
+msgstr "Приватні нотатки"
+
+msgid "My applications"
+msgstr "Мої заявки"
+
+msgid "View job offers"
+msgstr "Переглянути вакансії"
+
+msgid "You have not submitted any applications yet."
+msgstr "Ви ще не подавали заявок."
+
+msgid "Under review"
+msgstr "На розгляді"
+
+msgid "Not selected"
+msgstr "Не відібраний"
+
+msgid "HR feedback"
+msgstr "Зворотний зв’язок від кадровика"
+
+msgid "Withdraw application"
+msgstr "Відкликати заявку"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Ви впевнені, що хочете відкликати цю заявку?"
+
+msgid "Application withdrawn."
+msgstr "Заявку відкликано."
+
+msgid "Calculate quiz scores"
+msgstr "Обчислити бали тесту"
+
+msgid "Scores calculated."
+msgstr "Бали обчислено."
+
+msgid "Career plan overview"
+msgstr "Огляд плану кар’єри"
+
+msgid "My career plan"
+msgstr "Мій план кар’єри"
+
+msgid "No function-unit associations configured yet."
+msgstr "Асоціації посади-підрозділу ще не налаштовано."
+
+msgid "No required skills defined."
+msgstr "Необхідні навички не визначено."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Щоб побачити план кар’єри, вам потрібно бути призначеним на посаду."
+
+msgid "Your current position"
+msgstr "Ваша поточна посада"
+
+msgid "No career targets found for your current position."
+msgstr "Цільові посади не знайдено для вашої поточної посади."
+
+msgid "No required skills defined for this position."
+msgstr "Необхідні навички для цієї посади не визначено."
+
+msgid "Met"
+msgstr "Виконано"
+
+msgid "Gap"
+msgstr "Розрив"
+
+msgid "Acquired:"
+msgstr "Набуто:"
+
+msgid "Required:"
+msgstr "Необхідно:"
+
+msgid "Max"
+msgstr "Макс"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Критерії різноманітності не знайдено. Спочатку додайте критерії."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Виберіть критерій зі списку, щоб переглянути його статистику."
+
+msgid "No data available for this criterion."
+msgstr "Дані для цього критерію недоступні."
+
+msgid "Change password"
+msgstr "Змінити пароль"
+
+msgid "Newest first"
+msgstr "Найновіші першими"
+
+msgid "Oldest first"
+msgstr "Найстаріші першими"
+
+msgid "Title A–Z"
+msgstr "Назва А–Я"
+
+msgid "Title Z–A"
+msgstr "Назва Я–А"
+
+msgid "Send test email"
+msgstr "Надіслати тестове повідомлення"
+
+msgid "Show teachers"
+msgstr "Показати викладачів"
+
+msgid "Hide teachers"
+msgstr "Приховати викладачів"
+
+msgid "Delete exercise attempts"
+msgstr "Видалити спроби вправ"
+
+msgid "Message sent successfully."
+msgstr "Повідомлення успішно надіслано."
+
+msgid "You cannot create a new course right now."
+msgstr "Ви не можете створити новий курс зараз."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Не вдалося перевірити, чи можете ви створити новий курс зараз."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Спробуйте пізніше або зверніться до адміністратора."
+
+msgid "You cannot create more courses at this time."
+msgstr "Ви не можете створити більше курсів наразі."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Ви вже керуєте %d курсами, а ваш активний сервіс дозволяє до %d. Щоб створити інший курс, вам потрібен вищий ліміт сервісу або зменшіть кількість активних курсів."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Ви вже керуєте %d курсами, а платформа наразі дозволяє до %d для вашого облікового запису. Ви не можете створити більше курсів зараз."
+
+msgid "Add a class"
+msgstr "Додати клас"
+
+msgid "Search classes"
+msgstr "Пошук класів"
+
+msgid "No classes found"
+msgstr "Класи не знайдено"
+
+msgid "Import classes"
+msgstr "Імпортувати класи"
+
+msgid "Class users"
+msgstr "Користувачі класу"
+
+msgid "%s classes imported"
+msgstr "Імпортовано %s класів"
+
+msgid "%s user-class links imported"
+msgstr "Імпортовано %s зв’язків користувач-клас"
+
+msgid "Hide comments"
+msgstr "Приховати коментарі"
+
+msgid "Loading comments..."
+msgstr "Завантаження коментарів…"
+
+msgid "No comments yet."
+msgstr "Коментарів ще немає."
 

@@ -2020,7 +2020,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":yes:berhak cipta,, no:tiada hak cipta"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Pastas,, application/msword:MsWord,, application/octet-stream:Aliran oktet,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":exercise:latihan,,      simulation:simulasi,,      questionnaire:soal selidik,,      diagram:diagram,,      figure:gambar,,      graph:graf,,      index:indeks,,      slide:slaid,,      table:jadual,,      narrative text:teks naratif,,      exam:ujian,,      experiment:eksperimen,,      problem statement:penyata masalah,,      self assessment:penilaian diri,,      lecture:kuliah"
@@ -9729,6 +9729,9 @@ msgstr "Keputusan carian untuk:"
 msgid "Select a file"
 msgstr "Pilih fail"
 
+msgid "Select a file to insert into the editor."
+msgstr "Pilih fail untuk dimasukkan ke dalam editor."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Amaran - Fail FAQ, yang terletak di direktori /home/ portal anda, tidak boleh ditulis. Teks anda tidak akan disimpan sehingga kebenaran fail diubah."
 
@@ -15909,6 +15912,9 @@ msgstr "Tarikh & masa"
 msgid "Item"
 msgstr "Item"
 
+msgid "Items"
+msgstr "Item"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Konfigurasi Plugin Papan Pemuka"
 
@@ -17162,6 +17168,18 @@ msgstr "Sesi dalam kumpulan"
 
 msgid "Courses in group"
 msgstr "Kursus dalam kumpulan"
+
+msgid "Courses on the platform"
+msgstr "Kursus di platform"
+
+msgid "%s courses"
+msgstr "%s kursus"
+
+msgid "%s sessions"
+msgstr "%s sesi"
+
+msgid "Search by title or code"
+msgstr "Cari mengikut tajuk atau kod"
 
 msgid "Users in group"
 msgstr "Pengguna dalam kumpulan"
@@ -32167,6 +32185,9 @@ msgstr "Tugasan"
 msgid "Allowed file formats: %s"
 msgstr "Format fail dibenarkan: %s"
 
+msgid "File manager"
+msgstr "Pengurus fail"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Jenis fail tidak dibenarkan. Sambungan dibenarkan: %s"
 
@@ -33880,6 +33901,9 @@ msgstr "Selamat datang"
 msgid "Welcome to Chamilo"
 msgstr "Selamat datang ke Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Tandakan semua soalan belum dijawab di bawah"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Jika ini kali pertama anda menggunakan Chamilo, pastikan anda semak menu sisi untuk mencari jalan melalui banyak ciri-cirinya. Jika anda memerlukan bantuan, anda akan jumpa <a href=\"https://docs.chamilo.org\">dokumentasi rasmi kami</a> boleh membantu untuk dokumentasi standard, manakala <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">forum dalam talian kami</a> boleh membantu berkongsi idea dan mencari jawapan daripada pengguna Chamilo lain."
 
@@ -34059,6 +34083,63 @@ msgstr "Penilaian keperluan latihan"
 
 msgid "Work climate surveys"
 msgstr "Tinjauan iklim kerja"
+
+msgid "Unit"
+msgstr "Unit"
+
+msgid "Total cost"
+msgstr "Jumlah kos"
+
+msgid "Cost per learner"
+msgstr "Kos setiap pelajar"
+
+msgid "Average cost by session"
+msgstr "Kos purata sesi"
+
+msgid "Total investment"
+msgstr "Jumlah pelaburan"
+
+msgid "Set cost"
+msgstr "Tetapkan kos"
+
+msgid "Filter by date range"
+msgstr "Tapis mengikut julat tarikh"
+
+msgid "Add distribution"
+msgstr "Tambah taburan"
+
+msgid "User share"
+msgstr "Bahagian pengguna"
+
+msgid "Select a unit"
+msgstr "Pilih unit"
+
+msgid "Select a survey"
+msgstr "Pilih tinjauan"
+
+msgid "Distribution added"
+msgstr "Taburan ditambah"
+
+msgid "Distribution removed"
+msgstr "Taburan dialih keluar"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Adakah anda pasti mahu mengalih keluar taburan ini?"
+
+msgid "Cost updated"
+msgstr "Kos dikemas kini"
+
+msgid "Total invited"
+msgstr "Jumlah dijemput"
+
+msgid "Total answered"
+msgstr "Jumlah dijawab"
+
+msgid "Total responses"
+msgstr "Jumlah respons"
+
+msgid "No responses yet"
+msgstr "Tiada respons lagi"
 
 msgid "Diversity criteria"
 msgstr "Kriteria kepelbagaian"
@@ -34571,4 +34652,274 @@ msgstr "Adakah anda pasti ingin memadam penilaian ini?"
 
 msgid "Loading…"
 msgstr "Memuatkan…"
+
+msgid "Periodicity"
+msgstr "Kalaulangan"
+
+msgid "Suggest from periodicity"
+msgstr "Cadangkan dari kalaulangan"
+
+msgid "Add job offer"
+msgstr "Tambah tawaran pekerjaan"
+
+msgid "Edit job offer"
+msgstr "Edit tawaran pekerjaan"
+
+msgid "Function / Unit"
+msgstr "Fungsi / Unit"
+
+msgid "Vacancies"
+msgstr "Kekosongan"
+
+msgid "Expected start date"
+msgstr "Tarikh mula dijangka"
+
+msgid "Contract duration (days)"
+msgstr "Tempoh kontrak (hari)"
+
+msgid "Public offer"
+msgstr "Tawaran awam"
+
+msgid "Publication start date"
+msgstr "Tarikh mula penerbitan"
+
+msgid "Publication end date"
+msgstr "Tarikh akhir penerbitan"
+
+msgid "Applications"
+msgstr "Permohonan"
+
+msgid "Selection exams"
+msgstr "Peperiksaan pemilihan"
+
+msgid "Add exam"
+msgstr "Tambah peperiksaan"
+
+msgid "Applicant"
+msgstr "Pemohon"
+
+msgid "Applied on"
+msgstr "Memohon pada"
+
+msgid "Salary expectations"
+msgstr "Harapan gaji"
+
+msgid "Pending evaluation"
+msgstr "Menunggu penilaian"
+
+msgid "Hired"
+msgstr "Diupah"
+
+msgid "Not hired"
+msgstr "Tidak diupah"
+
+msgid "Evaluate"
+msgstr "Nilai"
+
+msgid "Evaluate candidate"
+msgstr "Nilai calon"
+
+msgid "Decision"
+msgstr "Keputusan"
+
+msgid "Save evaluation"
+msgstr "Simpan penilaian"
+
+msgid "Back to job offers"
+msgstr "Kembali ke tawaran pekerjaan"
+
+msgid "No job offers available at this time."
+msgstr "Tiada tawaran pekerjaan tersedia pada masa ini."
+
+msgid "See details"
+msgstr "Lihat butiran"
+
+msgid "Apply now"
+msgstr "Memohon sekarang"
+
+msgid "Already applied"
+msgstr "Sudah memohon"
+
+msgid "Log in to apply"
+msgstr "Log masuk untuk memohon"
+
+msgid "Apply to job offer"
+msgstr "Memohon tawaran pekerjaan"
+
+msgid "Availability date"
+msgstr "Tarikh tersedia"
+
+msgid "CV (Personal file)"
+msgstr "CV (Fail peribadi)"
+
+msgid "Select your CV from your personal files"
+msgstr "Pilih CV anda dari fail peribadi anda"
+
+msgid "Submit application"
+msgstr "Hantar permohonan"
+
+msgid "Application submitted successfully."
+msgstr "Permohonan berjaya dihantar."
+
+msgid "Private observations"
+msgstr "Pemerhatian peribadi"
+
+msgid "My applications"
+msgstr "Permohonan saya"
+
+msgid "View job offers"
+msgstr "Lihat tawaran pekerjaan"
+
+msgid "You have not submitted any applications yet."
+msgstr "Anda belum menghantar sebarang permohonan lagi."
+
+msgid "Under review"
+msgstr "Sedang dikaji"
+
+msgid "Not selected"
+msgstr "Tidak dipilih"
+
+msgid "HR feedback"
+msgstr "Maklum balas HR"
+
+msgid "Withdraw application"
+msgstr "Tarik balik permohonan"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Adakah anda pasti mahu menarik balik permohonan ini?"
+
+msgid "Application withdrawn."
+msgstr "Permohonan ditarik balik."
+
+msgid "Calculate quiz scores"
+msgstr "Kira skor kuiz"
+
+msgid "Scores calculated."
+msgstr "Skor dikira."
+
+msgid "Career plan overview"
+msgstr "Gambaran pelan kerjaya"
+
+msgid "My career plan"
+msgstr "Pelan kerjaya saya"
+
+msgid "No function-unit associations configured yet."
+msgstr "Tiada persatuan unit-fungsi yang dikonfigurasi lagi."
+
+msgid "No required skills defined."
+msgstr "Tiada kemahiran yang diperlukan ditakrifkan."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Anda mesti ditugaskan kepada jawatan untuk melihat pelan kerjaya anda."
+
+msgid "Your current position"
+msgstr "Jawatan semasa anda"
+
+msgid "No career targets found for your current position."
+msgstr "Tiada sasaran kerjaya ditemui untuk jawatan semasa anda."
+
+msgid "No required skills defined for this position."
+msgstr "Tiada kemahiran yang diperlukan ditakrifkan untuk jawatan ini."
+
+msgid "Met"
+msgstr "Dipenuhi"
+
+msgid "Gap"
+msgstr "Jarak"
+
+msgid "Acquired:"
+msgstr "Diperoleh:"
+
+msgid "Required:"
+msgstr "Diperlukan:"
+
+msgid "Max"
+msgstr "Maks"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Tiada kriteria kepelbagaian ditemui. Tambah kriteria dahulu."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Pilih kriteria dari senarai untuk melihat statistiknya."
+
+msgid "No data available for this criterion."
+msgstr "Tiada data untuk kriteria ini."
+
+msgid "Change password"
+msgstr "Tukar kata laluan"
+
+msgid "Newest first"
+msgstr "Terbaru dahulu"
+
+msgid "Oldest first"
+msgstr "Terlama dahulu"
+
+msgid "Title A–Z"
+msgstr "Tajuk A–Z"
+
+msgid "Title Z–A"
+msgstr "Tajuk Z–A"
+
+msgid "Send test email"
+msgstr "Hantar e-mel ujian"
+
+msgid "Show teachers"
+msgstr "Tunjukkan guru"
+
+msgid "Hide teachers"
+msgstr "Sembunyikan guru"
+
+msgid "Delete exercise attempts"
+msgstr "Padam percubaan latihan"
+
+msgid "Message sent successfully."
+msgstr "Mesej dihantar berjaya."
+
+msgid "You cannot create a new course right now."
+msgstr "Anda tidak boleh mencipta kursus baru sekarang."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Tidak dapat mengesahkan sama ada anda boleh mencipta kursus baru sekarang."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Sila cuba lagi kemudian atau hubungi pentadbir."
+
+msgid "You cannot create more courses at this time."
+msgstr "Anda tidak boleh mencipta lebih banyak kursus pada masa ini."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Anda sudah mengurus %d kursus dan perkhidmatan aktif anda membenarkan sehingga %d. Untuk mencipta kursus lain, anda memerlukan had perkhidmatan yang lebih tinggi atau kurangkan kursus aktif semasa anda."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Anda sudah mengurus %d kursus dan platform kini membenarkan sehingga %d untuk akaun anda. Anda tidak boleh mencipta lebih banyak kursus sekarang."
+
+msgid "Add a class"
+msgstr "Tambah kelas"
+
+msgid "Search classes"
+msgstr "Cari kelas"
+
+msgid "No classes found"
+msgstr "Tiada kelas ditemui"
+
+msgid "Import classes"
+msgstr "Import kelas"
+
+msgid "Class users"
+msgstr "Pengguna kelas"
+
+msgid "%s classes imported"
+msgstr "%s kelas diimport"
+
+msgid "%s user-class links imported"
+msgstr "%s pautan pengguna-kelas diimport"
+
+msgid "Hide comments"
+msgstr "Sembunyikan komen"
+
+msgid "Loading comments..."
+msgstr "Memuatkan komen..."
+
+msgid "No comments yet."
+msgstr "Belum ada komen."
 

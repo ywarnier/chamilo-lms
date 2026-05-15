@@ -340,7 +340,7 @@ msgid "Sincerely"
 msgstr "सादर"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "सूत्र नमूना: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "फ़ॉर्मूला नमूना: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "चर सीमाएं"
@@ -9726,6 +9726,9 @@ msgstr "खोज परिणाम:"
 msgid "Select a file"
 msgstr "फ़ाइल चुनें"
 
+msgid "Select a file to insert into the editor."
+msgstr "संपादक में डालने के लिए एक फ़ाइल चुनें।"
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "चेतावनी - FAQ फ़ाइल, जो आपके पोर्टल के /home/ निर्देशिका में स्थित है, लिखने योग्य नहीं है। फ़ाइल अनुमतियाँ बदलने तक आपका पाठ सहेजा नहीं जाएगा।"
 
@@ -15906,6 +15909,9 @@ msgstr "तिथि और समय"
 msgid "Item"
 msgstr "वस्तु"
 
+msgid "Items"
+msgstr "आइटम्स"
+
 msgid "Configure Dashboard Plugin"
 msgstr "डैशबोर्ड प्लगइन कॉन्फ़िगर करें"
 
@@ -17159,6 +17165,18 @@ msgstr "समूह में सत्र"
 
 msgid "Courses in group"
 msgstr "समूह में पाठ्यक्रम"
+
+msgid "Courses on the platform"
+msgstr "मंच पर पाठ्यक्रम"
+
+msgid "%s courses"
+msgstr "%s पाठ्यक्रम"
+
+msgid "%s sessions"
+msgstr "%s सत्र"
+
+msgid "Search by title or code"
+msgstr "शीर्षक या कोड से खोजें"
 
 msgid "Users in group"
 msgstr "समूह में उपयोगकर्ता"
@@ -32163,6 +32181,9 @@ msgstr "कार्य"
 msgid "Allowed file formats: %s"
 msgstr "अनुमत फ़ाइल प्रारूप: %s"
 
+msgid "File manager"
+msgstr "फ़ाइल प्रबंधक"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "फ़ाइल प्रकार अनुमत नहीं। अनुमत एक्सटेंशन: %s"
 
@@ -33876,6 +33897,9 @@ msgstr "स्वागत है"
 msgid "Welcome to Chamilo"
 msgstr "Chamilo में स्वागत है"
 
+msgid "Check all unanswered questions below"
+msgstr "नीचे सभी अनुत्तरित प्रश्नों की जाँच करें"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> यदि यह आपका पहली बार Chamilo का उपयोग है, तो सुनिश्चित करें कि आप साइड मेनू की जाँच करें ताकि इसके कई फीचर्स के माध्यम से अपना रास्ता ढूंढ सकें। यदि आपको सहायता चाहिए, तो आप पाएंगे कि <a href=\"https://docs.chamilo.org\">हमारी आधिकारिक दस्तावेज़</a> मानक दस्तावेज़ीकरण के लिए मदद कर सकती हैं, जबकि हमारा <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">ऑनलाइन फ़ोरम</a> विचार साझा करने और अन्य Chamilo उपयोगकर्ताओं से उत्तर ढूंढने में मदद कर सकता है।"
 
@@ -34055,6 +34079,63 @@ msgstr "प्रशिक्षण आवश्यकताओं का मू
 
 msgid "Work climate surveys"
 msgstr "कार्य वातावरण सर्वेक्षण"
+
+msgid "Unit"
+msgstr "इकाई"
+
+msgid "Total cost"
+msgstr "कुल लागत"
+
+msgid "Cost per learner"
+msgstr "प्रति शिक्षार्थी लागत"
+
+msgid "Average cost by session"
+msgstr "सत्र के अनुसार औसत लागत"
+
+msgid "Total investment"
+msgstr "कुल निवेश"
+
+msgid "Set cost"
+msgstr "लागत सेट करें"
+
+msgid "Filter by date range"
+msgstr "तिथि सीमा से फ़िल्टर करें"
+
+msgid "Add distribution"
+msgstr "वितरण जोड़ें"
+
+msgid "User share"
+msgstr "उपयोगकर्ता हिस्सा"
+
+msgid "Select a unit"
+msgstr "एक इकाई चुनें"
+
+msgid "Select a survey"
+msgstr "एक सर्वेक्षण चुनें"
+
+msgid "Distribution added"
+msgstr "वितरण जोड़ा गया"
+
+msgid "Distribution removed"
+msgstr "वितरण हटाया गया"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "क्या आप वाकई इस वितरण को हटाना चाहते हैं?"
+
+msgid "Cost updated"
+msgstr "लागत अपडेट हुई"
+
+msgid "Total invited"
+msgstr "कुल आमंत्रित"
+
+msgid "Total answered"
+msgstr "कुल उत्तर दिए गए"
+
+msgid "Total responses"
+msgstr "कुल प्रतिक्रियाएँ"
+
+msgid "No responses yet"
+msgstr "अभी तक कोई प्रतिक्रिया नहीं"
 
 msgid "Diversity criteria"
 msgstr "विविधता मानदंड"
@@ -34567,4 +34648,274 @@ msgstr "क्या आप निश्चित हैं कि आप इस
 
 msgid "Loading…"
 msgstr "लोड हो रहा है…"
+
+msgid "Periodicity"
+msgstr "आवर्तिता"
+
+msgid "Suggest from periodicity"
+msgstr "आवर्तिता से सुझाव"
+
+msgid "Add job offer"
+msgstr "नौकरी की पेशकश जोड़ें"
+
+msgid "Edit job offer"
+msgstr "नौकरी की पेशकश संपादित करें"
+
+msgid "Function / Unit"
+msgstr "कार्य / इकाई"
+
+msgid "Vacancies"
+msgstr "रिक्तियां"
+
+msgid "Expected start date"
+msgstr "अपेक्षित प्रारंभ तिथि"
+
+msgid "Contract duration (days)"
+msgstr "अनुबंध अवधि (दिन)"
+
+msgid "Public offer"
+msgstr "सार्वजनिक पेशकश"
+
+msgid "Publication start date"
+msgstr "प्रकाशन प्रारंभ तिथि"
+
+msgid "Publication end date"
+msgstr "प्रकाशन समाप्ति तिथि"
+
+msgid "Applications"
+msgstr "आवेदन"
+
+msgid "Selection exams"
+msgstr "चयन परीक्षाएँ"
+
+msgid "Add exam"
+msgstr "परीक्षा जोड़ें"
+
+msgid "Applicant"
+msgstr "आवेदक"
+
+msgid "Applied on"
+msgstr "आवेदन किया गया"
+
+msgid "Salary expectations"
+msgstr "वेतन अपेक्षाएँ"
+
+msgid "Pending evaluation"
+msgstr "मूल्यांकन लंबित"
+
+msgid "Hired"
+msgstr "नियुक्त"
+
+msgid "Not hired"
+msgstr "नियुक्त नहीं"
+
+msgid "Evaluate"
+msgstr "मूल्यांकन करें"
+
+msgid "Evaluate candidate"
+msgstr "उम्मीदवार का मूल्यांकन करें"
+
+msgid "Decision"
+msgstr "निर्णय"
+
+msgid "Save evaluation"
+msgstr "मूल्यांकन सहेजें"
+
+msgid "Back to job offers"
+msgstr "नौकरी की पेशकशों पर वापस"
+
+msgid "No job offers available at this time."
+msgstr "वर्तमान में कोई नौकरी की पेशकश उपलब्ध नहीं है।"
+
+msgid "See details"
+msgstr "विवरण देखें"
+
+msgid "Apply now"
+msgstr "अभी आवेदन करें"
+
+msgid "Already applied"
+msgstr "पहले ही आवेदन किया गया"
+
+msgid "Log in to apply"
+msgstr "आवेदन करने के लिए लॉग इन करें"
+
+msgid "Apply to job offer"
+msgstr "नौकरी की पेशकश पर आवेदन करें"
+
+msgid "Availability date"
+msgstr "उपलब्धता तिथि"
+
+msgid "CV (Personal file)"
+msgstr "सीवी (व्यक्तिगत फ़ाइल)"
+
+msgid "Select your CV from your personal files"
+msgstr "अपनी व्यक्तिगत फ़ाइलों से अपना सीवी चुनें"
+
+msgid "Submit application"
+msgstr "आवेदन जमा करें"
+
+msgid "Application submitted successfully."
+msgstr "आवेदन सफलतापूर्वक जमा किया गया।"
+
+msgid "Private observations"
+msgstr "निजी टिप्पणियाँ"
+
+msgid "My applications"
+msgstr "मेरे आवेदन"
+
+msgid "View job offers"
+msgstr "नौकरी की पेशकशें देखें"
+
+msgid "You have not submitted any applications yet."
+msgstr "आपने अभी तक कोई आवेदन जमा नहीं किया है।"
+
+msgid "Under review"
+msgstr "समीक्षा के अधीन"
+
+msgid "Not selected"
+msgstr "चयनित नहीं"
+
+msgid "HR feedback"
+msgstr "एचआर प्रतिक्रिया"
+
+msgid "Withdraw application"
+msgstr "आवेदन वापस लें"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "क्या आप वाकई इस आवेदन को वापस लेना चाहते हैं?"
+
+msgid "Application withdrawn."
+msgstr "आवेदन वापस ले लिया गया।"
+
+msgid "Calculate quiz scores"
+msgstr "क्विज़ स्कोर की गणना करें"
+
+msgid "Scores calculated."
+msgstr "स्कोर की गणना की गई।"
+
+msgid "Career plan overview"
+msgstr "कैरियर योजना अवलोकन"
+
+msgid "My career plan"
+msgstr "मेरी कैरियर योजना"
+
+msgid "No function-unit associations configured yet."
+msgstr "अभी तक कोई कार्य-इकाई संबंध कॉन्फ़िगर नहीं किया गया।"
+
+msgid "No required skills defined."
+msgstr "कोई आवश्यक कौशल परिभाषित नहीं।"
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "करियर योजना देखने के लिए आपको किसी पद पर नियुक्त होना चाहिए।"
+
+msgid "Your current position"
+msgstr "आपका वर्तमान पद"
+
+msgid "No career targets found for your current position."
+msgstr "आपके वर्तमान पद के लिए कोई करियर लक्ष्य नहीं मिला।"
+
+msgid "No required skills defined for this position."
+msgstr "इस पद के लिए कोई आवश्यक कौशल परिभाषित नहीं।"
+
+msgid "Met"
+msgstr "पूर्ति"
+
+msgid "Gap"
+msgstr "कमी"
+
+msgid "Acquired:"
+msgstr "प्राप्त:"
+
+msgid "Required:"
+msgstr "आवश्यक:"
+
+msgid "Max"
+msgstr "अधिकतम"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "कोई विविधता मानदंड नहीं मिला। पहले मानदंड जोड़ें।"
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "इसके सांख्यिकी देखने के लिए सूची से एक मानदंड चुनें।"
+
+msgid "No data available for this criterion."
+msgstr "इस मानदंड के लिए कोई डेटा उपलब्ध नहीं है।"
+
+msgid "Change password"
+msgstr "पासवर्ड बदलें"
+
+msgid "Newest first"
+msgstr "नवीनतम पहले"
+
+msgid "Oldest first"
+msgstr "पुराने पहले"
+
+msgid "Title A–Z"
+msgstr "शीर्षक ए–जेड"
+
+msgid "Title Z–A"
+msgstr "शीर्षक जेड–ए"
+
+msgid "Send test email"
+msgstr "टेस्ट ईमेल भेजें"
+
+msgid "Show teachers"
+msgstr "शिक्षकों को दिखाएं"
+
+msgid "Hide teachers"
+msgstr "शिक्षकों को छिपाएं"
+
+msgid "Delete exercise attempts"
+msgstr "अभ्यास प्रयास हटाएं"
+
+msgid "Message sent successfully."
+msgstr "संदेश सफलतापूर्वक भेजा गया।"
+
+msgid "You cannot create a new course right now."
+msgstr "आप अभी नया कोर्स नहीं बना सकते।"
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "पता नहीं लगा सके कि आप अभी नया कोर्स बना सकते हैं या नहीं।"
+
+msgid "Please try again later or contact the administrator."
+msgstr "कृपया बाद में पुनः प्रयास करें या प्रशासक से संपर्क करें।"
+
+msgid "You cannot create more courses at this time."
+msgstr "आप इस समय अधिक कोर्स नहीं बना सकते।"
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "आप पहले से ही %d कोर्स प्रबंधित कर रहे हैं और आपकी सक्रिय सेवा %d तक अनुमत है। एक और कोर्स बनाने के लिए, आपको उच्च सेवा सीमा की आवश्यकता है या वर्तमान सक्रिय कोर्स कम करें।"
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "आप पहले से ही %d कोर्स प्रबंधित कर रहे हैं और प्लेटफ़ॉर्म वर्तमान में आपके खाते के लिए %d तक अनुमत है। आप अभी अधिक कोर्स नहीं बना सकते।"
+
+msgid "Add a class"
+msgstr "कक्षा जोड़ें"
+
+msgid "Search classes"
+msgstr "कक्षाएँ खोजें"
+
+msgid "No classes found"
+msgstr "कोई कक्षा नहीं मिली"
+
+msgid "Import classes"
+msgstr "कक्षाएँ आयात करें"
+
+msgid "Class users"
+msgstr "कक्षा उपयोगकर्ता"
+
+msgid "%s classes imported"
+msgstr "%s कक्षाएँ आयात की गईं"
+
+msgid "%s user-class links imported"
+msgstr "%s उपयोगकर्ता-कक्षा लिंक आयात किए गए"
+
+msgid "Hide comments"
+msgstr "टिप्पणियाँ छिपाएँ"
+
+msgid "Loading comments..."
+msgstr "टिप्पणियाँ लोड हो रही हैं..."
+
+msgid "No comments yet."
+msgstr "अभी तक कोई टिप्पणी नहीं।"
 

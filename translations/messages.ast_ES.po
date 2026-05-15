@@ -9731,6 +9731,9 @@ msgstr "Resultaos de la busca pa:"
 msgid "Select a file"
 msgstr "Escueya un archivu"
 
+msgid "Select a file to insert into the editor."
+msgstr "Seleicionar un ficheru pa inserir nel editor."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Cuidáu - L'archivu FAQ allugáu nel direutoriu /home/ de la so plataforma nun ye un archivu que se pueda escribir. El so testu nun se va guardar hasta que nun cambie los permisos del archivu."
 
@@ -15911,6 +15914,9 @@ msgstr "Fecha y hora"
 msgid "Item"
 msgstr "Elementu"
 
+msgid "Items"
+msgstr "Elementos"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Configurar plugin del Dashboard"
 
@@ -17164,6 +17170,18 @@ msgstr "Sesiones nel grupu"
 
 msgid "Courses in group"
 msgstr "Cursos nel grupu"
+
+msgid "Courses on the platform"
+msgstr "Cursos na plataforma"
+
+msgid "%s courses"
+msgstr "%s cursos"
+
+msgid "%s sessions"
+msgstr "%s sesones"
+
+msgid "Search by title or code"
+msgstr "Guetar por títulu o códigu"
 
 msgid "Users in group"
 msgstr "Usuarios nel grupu"
@@ -32169,6 +32187,9 @@ msgstr "Trabayu"
 msgid "Allowed file formats: %s"
 msgstr "Formatos de ficheru permitíos: %s"
 
+msgid "File manager"
+msgstr "Xestor de ficheros"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Tipu de ficheru non permitíu. Estensiones permitíes: %s"
 
@@ -33882,6 +33903,9 @@ msgstr "Bienveníu"
 msgid "Welcome to Chamilo"
 msgstr "Bienveníu a Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Comprobar toles preguntes ensin responder dexiabaxo"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Si ye la primera vegada que uses Chamilo, asegúrate de consultar el menú lateral pa atopar el camín ente les toes les sos prestaciones. Si necesitas ayuda, atoparás que <a href=\"https://docs.chamilo.org\">nosa documentación oficial</a> te puede ayudar col estándar, mentres que <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">nusu forum en llinia</a> puede ayudar a compartir idegues y atopar respuestes d'outros usuarios de Chamilo."
 
@@ -34061,6 +34085,63 @@ msgstr "Avaliación de necesidaes formatives"
 
 msgid "Work climate surveys"
 msgstr "Encuestes de clima laboral"
+
+msgid "Unit"
+msgstr "Unidá"
+
+msgid "Total cost"
+msgstr "Coste total"
+
+msgid "Cost per learner"
+msgstr "Coste por aprendiz"
+
+msgid "Average cost by session"
+msgstr "Coste mediu por sesón"
+
+msgid "Total investment"
+msgstr "Inversión total"
+
+msgid "Set cost"
+msgstr "Establir coste"
+
+msgid "Filter by date range"
+msgstr "Filtrar por intervalu de fecha"
+
+msgid "Add distribution"
+msgstr "Amestar distribución"
+
+msgid "User share"
+msgstr "Participación d'usuariu"
+
+msgid "Select a unit"
+msgstr "Seleicionar una unidá"
+
+msgid "Select a survey"
+msgstr "Seleicionar una enqueta"
+
+msgid "Distribution added"
+msgstr "Distribución amestada"
+
+msgid "Distribution removed"
+msgstr "Distribución desaniciada"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "¿Tas seguru de que quies desaniciar esta distribución?"
+
+msgid "Cost updated"
+msgstr "Coste actualizáu"
+
+msgid "Total invited"
+msgstr "Total convidáu"
+
+msgid "Total answered"
+msgstr "Total respondíu"
+
+msgid "Total responses"
+msgstr "Respuestes totales"
+
+msgid "No responses yet"
+msgstr "Encami nenguna respuesta encami"
 
 msgid "Diversity criteria"
 msgstr "Criterios de diversidá"
@@ -34573,4 +34654,274 @@ msgstr "¿Tas seguru de que quies desaniciar esta avaliación?"
 
 msgid "Loading…"
 msgstr "Cargando…"
+
+msgid "Periodicity"
+msgstr "Periodicidá"
+
+msgid "Suggest from periodicity"
+msgstr "Suxerir dende periodicidá"
+
+msgid "Add job offer"
+msgstr "Amestar oferta d'emplegu"
+
+msgid "Edit job offer"
+msgstr "Editar oferta d'emplegu"
+
+msgid "Function / Unit"
+msgstr "Función / Unidá"
+
+msgid "Vacancies"
+msgstr "Plazes llibres"
+
+msgid "Expected start date"
+msgstr "Fecha d'iniciu esperada"
+
+msgid "Contract duration (days)"
+msgstr "Duración del contractu (díes)"
+
+msgid "Public offer"
+msgstr "Oferta pública"
+
+msgid "Publication start date"
+msgstr "Fechá de entamu de publicación"
+
+msgid "Publication end date"
+msgstr "Fechá de fin de publicación"
+
+msgid "Applications"
+msgstr "Solicitudes"
+
+msgid "Selection exams"
+msgstr "Exames de seleición"
+
+msgid "Add exam"
+msgstr "Amestar examén"
+
+msgid "Applicant"
+msgstr "Solicitante"
+
+msgid "Applied on"
+msgstr "Solicitó el"
+
+msgid "Salary expectations"
+msgstr "Expectatives de sellu"
+
+msgid "Pending evaluation"
+msgstr "Pendiente d'evaluación"
+
+msgid "Hired"
+msgstr "Contraíu"
+
+msgid "Not hired"
+msgstr "Nun consegúi"
+
+msgid "Evaluate"
+msgstr "Evaluar"
+
+msgid "Evaluate candidate"
+msgstr "Evaluar al candidat"
+
+msgid "Decision"
+msgstr "Decisión"
+
+msgid "Save evaluation"
+msgstr "Guardar evaluación"
+
+msgid "Back to job offers"
+msgstr "Volver a les ofertes d'emplegu"
+
+msgid "No job offers available at this time."
+msgstr "Nun hai ofertes d'emplegu disponibles nel momentu."
+
+msgid "See details"
+msgstr "Ver detalles"
+
+msgid "Apply now"
+msgstr "Solicitar agora"
+
+msgid "Already applied"
+msgstr "Yá solicitó"
+
+msgid "Log in to apply"
+msgstr "Identificate pa solicitar"
+
+msgid "Apply to job offer"
+msgstr "Solicitar a l'oferta d'emplegu"
+
+msgid "Availability date"
+msgstr "Fechá de disponibilidá"
+
+msgid "CV (Personal file)"
+msgstr "CV (Ficheru personal)"
+
+msgid "Select your CV from your personal files"
+msgstr "Escoye'l to CV de los tos ficheros personals"
+
+msgid "Submit application"
+msgstr "Enviar solicitú"
+
+msgid "Application submitted successfully."
+msgstr "Solicitú enviada con èxitu."
+
+msgid "Private observations"
+msgstr "Observaciones priváes"
+
+msgid "My applications"
+msgstr "Les mios solicitudes"
+
+msgid "View job offers"
+msgstr "Ver ofertes d'emplegu"
+
+msgid "You have not submitted any applications yet."
+msgstr "Encami nun has enviáu denguna solicitú encami."
+
+msgid "Under review"
+msgstr "En revisión"
+
+msgid "Not selected"
+msgstr "Nun seleicionáu"
+
+msgid "HR feedback"
+msgstr "Comentariu de RRHH"
+
+msgid "Withdraw application"
+msgstr "Retirar solicitú"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "¿Tas seguru de que quies retirar esta solicitú?"
+
+msgid "Application withdrawn."
+msgstr "Solicitú retirada."
+
+msgid "Calculate quiz scores"
+msgstr "Calcular puntuaciones del cuestionariu"
+
+msgid "Scores calculated."
+msgstr "Puntuaciones calculáes."
+
+msgid "Career plan overview"
+msgstr "Vista xeneral del plan de carrera"
+
+msgid "My career plan"
+msgstr "El meu plan de carrera"
+
+msgid "No function-unit associations configured yet."
+msgstr "Nun hai asociaes de funición-unidá configuráes encami."
+
+msgid "No required skills defined."
+msgstr "Nun hai competencies requeiríes definíes."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Has de tar asignáu a un cargu pa ver el to plan de carrera."
+
+msgid "Your current position"
+msgstr "El to cargu actual"
+
+msgid "No career targets found for your current position."
+msgstr "Nun s'alfó ningún oxetivu de carrera pal to cargu actual."
+
+msgid "No required skills defined for this position."
+msgstr "Nun hai competencies requeiríes definíes pa esti cargu."
+
+msgid "Met"
+msgstr "Cumplíu"
+
+msgid "Gap"
+msgstr "Lacuna"
+
+msgid "Acquired:"
+msgstr "Conseguida:"
+
+msgid "Required:"
+msgstr "Requerida:"
+
+msgid "Max"
+msgstr "Máx"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Nun se atoparon criterios de diversidad. Amesta criterios primero."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Seleiciona un criteriu de la llista pa ver les sos estadístiques."
+
+msgid "No data available for this criterion."
+msgstr "Nun hai datos disponibles pa esti criteriu."
+
+msgid "Change password"
+msgstr "Camudar contraseña"
+
+msgid "Newest first"
+msgstr "Más nuevu primero"
+
+msgid "Oldest first"
+msgstr "Más antiguu primero"
+
+msgid "Title A–Z"
+msgstr "Títulu A–Z"
+
+msgid "Title Z–A"
+msgstr "Títulu Z–A"
+
+msgid "Send test email"
+msgstr "Unviar corréu de prueba"
+
+msgid "Show teachers"
+msgstr "Amosar profesores"
+
+msgid "Hide teachers"
+msgstr "Anubrir profesores"
+
+msgid "Delete exercise attempts"
+msgstr "Esborrar intentos d'eiciu"
+
+msgid "Message sent successfully."
+msgstr "Mensaxe unviada con èxitu."
+
+msgid "You cannot create a new course right now."
+msgstr "Nun pues crear un cursu nuevu agora."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Nun ye posible verificar si pues crear un cursu nuevu agora."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Prueba de nuevu más tarde o contauta col alministrador."
+
+msgid "You cannot create more courses at this time."
+msgstr "Nun pues crear más cursos nesta altura."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Yá xestionas %d cursos y el teu serviciu activu permite hasta %d. Pa crear otru cursu, precisas un llimite de serviciu más altu o reducir los cursos activos actuales."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Yá xestionas %d cursos y la plataforma permite actualmente hasta %d pa la to cuenta. Nun pues crear más cursos agora."
+
+msgid "Add a class"
+msgstr "Amestar una clase"
+
+msgid "Search classes"
+msgstr "Guetar clases"
+
+msgid "No classes found"
+msgstr "Nun s'escontraieron clases"
+
+msgid "Import classes"
+msgstr "Importar clases"
+
+msgid "Class users"
+msgstr "Usuarios de la clase"
+
+msgid "%s classes imported"
+msgstr "%s clases importaes"
+
+msgid "%s user-class links imported"
+msgstr "%s enllaces usuariu-clase importaos"
+
+msgid "Hide comments"
+msgstr "Anubrir comentarios"
+
+msgid "Loading comments..."
+msgstr "Cargando comentarios..."
+
+msgid "No comments yet."
+msgstr "Encami nun hai comentarios."
 

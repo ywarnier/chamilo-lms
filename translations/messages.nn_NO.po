@@ -9729,6 +9729,9 @@ msgstr "Søkeresultat for:"
 msgid "Select a file"
 msgstr "Vel ein fil"
 
+msgid "Select a file to insert into the editor."
+msgstr "Vel ein fil å setja inn i redigeraren."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Åtvaring - FAQ-fila, som ligg i /home/-katalog på portala di, er ikkje skrivbar. Teksten din blir ikkje lagra før filrettane er endra."
 
@@ -15909,6 +15912,9 @@ msgstr "Dato og tid"
 msgid "Item"
 msgstr "Element"
 
+msgid "Items"
+msgstr "Element"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Oppsett Dashboard tillegg"
 
@@ -17162,6 +17168,18 @@ msgstr "Økter i gruppe"
 
 msgid "Courses in group"
 msgstr "Kurs i gruppe"
+
+msgid "Courses on the platform"
+msgstr "Kurs på plattforma"
+
+msgid "%s courses"
+msgstr "%s kurs"
+
+msgid "%s sessions"
+msgstr "%s samlingar"
+
+msgid "Search by title or code"
+msgstr "Søk etter tittel eller kode"
 
 msgid "Users in group"
 msgstr "Brukere i gruppe"
@@ -32167,6 +32185,9 @@ msgstr "Oppgåve"
 msgid "Allowed file formats: %s"
 msgstr "Tillatte filformat: %s"
 
+msgid "File manager"
+msgstr "Filhandtering"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Filtyp ikkje tillatt. Tillatte endelser: %s"
 
@@ -33880,6 +33901,9 @@ msgstr "Velkommen"
 msgid "Welcome to Chamilo"
 msgstr "Velkommen til Chamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Marker alle ubesvarte spørsmål under"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Om dette er første gong du brukar Chamilo, sjekk side-menyen for å finne vegen gjennom mange funksjonar. Om du treng hjelp, finn <a href=\"https://docs.chamilo.org\">offisiell dokumentasjon</a> for standard dokumentasjon, medan <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">nettforumet vårt</a> kan hjelpe med å dele idéar og finne svar frå andre Chamilo-brukarar."
 
@@ -34059,6 +34083,63 @@ msgstr "Behovsundersøking for opplæring"
 
 msgid "Work climate surveys"
 msgstr "Spørreundersøkingar om arbeidsklima"
+
+msgid "Unit"
+msgstr "Eining"
+
+msgid "Total cost"
+msgstr "Total kostnad"
+
+msgid "Cost per learner"
+msgstr "Kostnad per elev"
+
+msgid "Average cost by session"
+msgstr "Gjennomsnittskostnad per samling"
+
+msgid "Total investment"
+msgstr "Total investering"
+
+msgid "Set cost"
+msgstr "Sett kostnad"
+
+msgid "Filter by date range"
+msgstr "Filtrer etter datoperiode"
+
+msgid "Add distribution"
+msgstr "Legg til fordeling"
+
+msgid "User share"
+msgstr "Brukarandel"
+
+msgid "Select a unit"
+msgstr "Vel ein eining"
+
+msgid "Select a survey"
+msgstr "Vel ein spørjeundersøking"
+
+msgid "Distribution added"
+msgstr "Distribusjon lagt til"
+
+msgid "Distribution removed"
+msgstr "Distribusjon fjerna"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Er du sikker på at du vil fjerne denne distribusjonen?"
+
+msgid "Cost updated"
+msgstr "Kostnad oppdatert"
+
+msgid "Total invited"
+msgstr "Totalt invitert"
+
+msgid "Total answered"
+msgstr "Totalt svarte"
+
+msgid "Total responses"
+msgstr "Totalt svar"
+
+msgid "No responses yet"
+msgstr "Ingen svar enno"
 
 msgid "Diversity criteria"
 msgstr "Mangefaldskriteria"
@@ -34571,4 +34652,274 @@ msgstr "Er du sikker på at du vil slette denne evalueringa?"
 
 msgid "Loading…"
 msgstr "Lastar inn…"
+
+msgid "Periodicity"
+msgstr "Periodisitet"
+
+msgid "Suggest from periodicity"
+msgstr "Foreslå frå periodisitet"
+
+msgid "Add job offer"
+msgstr "Legg til jobbtilbod"
+
+msgid "Edit job offer"
+msgstr "Rediger jobbtilbod"
+
+msgid "Function / Unit"
+msgstr "Funksjon / Eining"
+
+msgid "Vacancies"
+msgstr "Ledige plassar"
+
+msgid "Expected start date"
+msgstr "Forventet startdato"
+
+msgid "Contract duration (days)"
+msgstr "Kontraktslengd (dager)"
+
+msgid "Public offer"
+msgstr "Offentleg tilbod"
+
+msgid "Publication start date"
+msgstr "Publiseringsstartdato"
+
+msgid "Publication end date"
+msgstr "Publiseringssluttdato"
+
+msgid "Applications"
+msgstr "Søknader"
+
+msgid "Selection exams"
+msgstr "Utvalgseksamnar"
+
+msgid "Add exam"
+msgstr "Legg til eksamen"
+
+msgid "Applicant"
+msgstr "Søkjar"
+
+msgid "Applied on"
+msgstr "Søkte %s"
+
+msgid "Salary expectations"
+msgstr "Lønnsforventningar"
+
+msgid "Pending evaluation"
+msgstr "Venter på vurdering"
+
+msgid "Hired"
+msgstr "Ansatt"
+
+msgid "Not hired"
+msgstr "Ikke ansatt"
+
+msgid "Evaluate"
+msgstr "Vurder"
+
+msgid "Evaluate candidate"
+msgstr "Vurder kandidat"
+
+msgid "Decision"
+msgstr "Beslutning"
+
+msgid "Save evaluation"
+msgstr "Lagre vurdering"
+
+msgid "Back to job offers"
+msgstr "Tilbake til jobbtilbod"
+
+msgid "No job offers available at this time."
+msgstr "Ingen jobbtilbod tilgjengelege no."
+
+msgid "See details"
+msgstr "Vis detaljar"
+
+msgid "Apply now"
+msgstr "Søk no"
+
+msgid "Already applied"
+msgstr "Har allereie søkt"
+
+msgid "Log in to apply"
+msgstr "Logg inn for å søke"
+
+msgid "Apply to job offer"
+msgstr "Søk på jobbtilbod"
+
+msgid "Availability date"
+msgstr "Tilgjengelegsdatoum"
+
+msgid "CV (Personal file)"
+msgstr "CV (Personleg fil)"
+
+msgid "Select your CV from your personal files"
+msgstr "Vel CV-en din frå personlege filer"
+
+msgid "Submit application"
+msgstr "Send inn søknad"
+
+msgid "Application submitted successfully."
+msgstr "Søknad sendt inn moglege."
+
+msgid "Private observations"
+msgstr "Private merknadar"
+
+msgid "My applications"
+msgstr "Mine søknader"
+
+msgid "View job offers"
+msgstr "Vis jobbtilbod"
+
+msgid "You have not submitted any applications yet."
+msgstr "Du har ikkje sendt inn nokon søknader enno."
+
+msgid "Under review"
+msgstr "Under vurdering"
+
+msgid "Not selected"
+msgstr "Ikkje valgt"
+
+msgid "HR feedback"
+msgstr "HR-tilbakemelding"
+
+msgid "Withdraw application"
+msgstr "Trekk søknad"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Er du sikker på at du vil trekke denne søknaden?"
+
+msgid "Application withdrawn."
+msgstr "Søknad trukken."
+
+msgid "Calculate quiz scores"
+msgstr "Regne ut kvisskar"
+
+msgid "Scores calculated."
+msgstr "Kar regna ut."
+
+msgid "Career plan overview"
+msgstr "Oversikt over karriereplan"
+
+msgid "My career plan"
+msgstr "Min karriereplan"
+
+msgid "No function-unit associations configured yet."
+msgstr "Ingen funksjon-enhet-samlingar konfigurert enno."
+
+msgid "No required skills defined."
+msgstr "Ingen påkråvd ferdigheiter definert."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Du må vere tilordna ein stilling for å sjå karriereplanen din."
+
+msgid "Your current position"
+msgstr "Din nåverande stilling"
+
+msgid "No career targets found for your current position."
+msgstr "Ingen karrieremål funne for din nåverande stilling."
+
+msgid "No required skills defined for this position."
+msgstr "Ingen påkråvd ferdigheiter definert for denne stillinga."
+
+msgid "Met"
+msgstr "Oppfylt"
+
+msgid "Gap"
+msgstr "Mangel"
+
+msgid "Acquired:"
+msgstr "Oppnådd:"
+
+msgid "Required:"
+msgstr "Påkråvd:"
+
+msgid "Max"
+msgstr "Maks"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Ingen mangfaldskriteria funne. Legg til kriterium først."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Vel ein kriterium frå lista for å sjå statistikk."
+
+msgid "No data available for this criterion."
+msgstr "Ingen data tilgjengeleg for dette kriteriet."
+
+msgid "Change password"
+msgstr "Endre passord"
+
+msgid "Newest first"
+msgstr "Nyast først"
+
+msgid "Oldest first"
+msgstr "Eldst først"
+
+msgid "Title A–Z"
+msgstr "Tittel A–Z"
+
+msgid "Title Z–A"
+msgstr "Tittel Z–A"
+
+msgid "Send test email"
+msgstr "Send test-e-post"
+
+msgid "Show teachers"
+msgstr "Vis lærarar"
+
+msgid "Hide teachers"
+msgstr "Skjul lærarar"
+
+msgid "Delete exercise attempts"
+msgstr "Slett øvingforsøk"
+
+msgid "Message sent successfully."
+msgstr "Melding sendt vellykka."
+
+msgid "You cannot create a new course right now."
+msgstr "Du kan ikkje oppretta eit nytt kurs akkurat no."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Klarar ikkje å stadfesta om du kan oppretta eit nytt kurs akkurat no."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Prøv igjen seinare eller kontakt administratoren."
+
+msgid "You cannot create more courses at this time."
+msgstr "Du kan ikkje oppretta fleire kurs akkurat no."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Du forvaltar allereie %d kurs og din aktive teneste tillèt maks %d. For å oppretta eit nytt kurs treng du ein høgare tenestegrense eller å redusere det antal aktive kursa du har no."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Du forvaltar allereie %d kurs og plattforma tillèt for tida maks %d for kontoen din. Du kan ikkje oppretta fleire kurs akkurat no."
+
+msgid "Add a class"
+msgstr "Legg til ein klasse"
+
+msgid "Search classes"
+msgstr "Søk etter klassar"
+
+msgid "No classes found"
+msgstr "Ingen klassar funne"
+
+msgid "Import classes"
+msgstr "Importer klassar"
+
+msgid "Class users"
+msgstr "Klassebrukarar"
+
+msgid "%s classes imported"
+msgstr "%s klassar importert"
+
+msgid "%s user-class links imported"
+msgstr "%s brukar-klasse-lenker importert"
+
+msgid "Hide comments"
+msgstr "Skjul kommentarar"
+
+msgid "Loading comments..."
+msgstr "Lastar kommentarar..."
+
+msgid "No comments yet."
+msgstr "Ingen kommentarar enno."
 

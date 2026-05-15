@@ -9726,6 +9726,9 @@ msgstr "Iziphumo zokukhangela:"
 msgid "Select a file"
 msgstr "Khetha ifayile"
 
+msgid "Select a file to insert into the editor."
+msgstr "Khetha ifayile ukuze ifakwe kumhleli."
+
 msgid "Warning - The FAQ file, located in the /home/ directory of your portal, is not writable. Your text will not be saved until the file permissions are changed."
 msgstr "Isilumkiso - Ifayile ye-FAQ, ebekwe kwi /home/ yolawulo lwakho, ayibhalwanga. Isicatshulwa sakho asizongagcinwa de kube zichithelwe iimvume zefayile."
 
@@ -15906,6 +15909,9 @@ msgstr "Umhla & ixesha"
 msgid "Item"
 msgstr "Into"
 
+msgid "Items"
+msgstr "Izinto"
+
 msgid "Configure Dashboard Plugin"
 msgstr "Qhuba iPlugin yeDashboard"
 
@@ -17159,6 +17165,18 @@ msgstr "Iiseshini equlathethiweyo"
 
 msgid "Courses in group"
 msgstr "Izifundo equlathethiweyo"
+
+msgid "Courses on the platform"
+msgstr "Izifundo zeqonga"
+
+msgid "%s courses"
+msgstr "%s izifundo"
+
+msgid "%s sessions"
+msgstr "%s iiseshini"
+
+msgid "Search by title or code"
+msgstr "Gqiba ngokwesihloko okanye ikhowudi"
 
 msgid "Users in group"
 msgstr "Abasebenzisi equlathethiweyo"
@@ -32163,6 +32181,9 @@ msgstr "Umsebenzi"
 msgid "Allowed file formats: %s"
 msgstr "Iifomati zefayile ezivunyelweyo: %s"
 
+msgid "File manager"
+msgstr "Umphathi weefayile"
+
 msgid "File type not allowed. Allowed extensions: %s"
 msgstr "Udidi lwefayile aluvunyelwanga. Izandiso ezivunyelweyo: %s"
 
@@ -33876,6 +33897,9 @@ msgstr "Wamkelekile"
 msgid "Welcome to Chamilo"
 msgstr "Wamkelekile eChamilo"
 
+msgid "Check all unanswered questions below"
+msgstr "Hlola yonke imibuzo engaphendulwanga ngaphantsi"
+
 msgid "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> If this is your first time using Chamilo, make sure you check the side menu to find your way through its many features. If you need help, you will find <a href=\"https://docs.chamilo.org\">our official docs</a> can help for standard documentation, while our <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">online forum</a> can help share ideas and find answers from other Chamilo users."
 msgstr "<p><img src=\"/img/document/images/mr_chamilo/svg/collaborative.svg\" width=\"320\" height=\"340\" /></p> Ukuba oku kuqala ukusebenzisa iChamilo, qinisekisa ukuba ujonge imenyu esecaleni ukuze ufumane indlela yokuhamba ngezinto ezininzi zayo. Ukuba ufuna uncedo, uya kufumana <a href=\"https://docs.chamilo.org\">amashicilelo ethu ase-official</a> anokunceda kuxwebhu oluqhelekileyo, ngelixa <a href=\"https://github.com/chamilo/chamilo-lms/discussions\">iforum yethu ye-online</a> inokunceda ukwabelana ngezimvo kwaye ufumane iimpendulo abanye abasebenzisi beChamilo."
 
@@ -34055,6 +34079,63 @@ msgstr "Uhlolisiso lweemfuno zoqeqesho"
 
 msgid "Work climate surveys"
 msgstr "Uhlolisiso lwemozulu yokusebenza"
+
+msgid "Unit"
+msgstr "Iyunithi"
+
+msgid "Total cost"
+msgstr "Inani elipheleleyo leendleko"
+
+msgid "Cost per learner"
+msgstr "Ixabiso ngomfundi ngamnye"
+
+msgid "Average cost by session"
+msgstr "Ixabiso elinganiselweyo ngeseshibhini"
+
+msgid "Total investment"
+msgstr "Utyalo-mali olupheleleyo"
+
+msgid "Set cost"
+msgstr "Misela ixabiso"
+
+msgid "Filter by date range"
+msgstr "Hlela ngokwexesha elinye"
+
+msgid "Add distribution"
+msgstr "Faka ukuhanjiswa"
+
+msgid "User share"
+msgstr "Isabelo somsebenzisi"
+
+msgid "Select a unit"
+msgstr "Khetha iyunithi"
+
+msgid "Select a survey"
+msgstr "Khetha uphando"
+
+msgid "Distribution added"
+msgstr "Ukuhanjiswa kufakiwe"
+
+msgid "Distribution removed"
+msgstr "Ukuhanjiswa kususiwe"
+
+msgid "Are you sure you want to remove this distribution?"
+msgstr "Uqinisekile uyafuna ukususa okuhanjiswayo?"
+
+msgid "Cost updated"
+msgstr "Ixabiso luhlaziywe"
+
+msgid "Total invited"
+msgstr "Inani elimenyiweyo"
+
+msgid "Total answered"
+msgstr "Inani eliphendulweyo"
+
+msgid "Total responses"
+msgstr "Iziphendulo zizonke"
+
+msgid "No responses yet"
+msgstr "Azikho iziphendulo okwangoku"
 
 msgid "Diversity criteria"
 msgstr "Iikhrayitheriya zokwahluka"
@@ -34567,4 +34648,274 @@ msgstr "Uqinisekile ukuba ufuna ukususa olu hlolo?"
 
 msgid "Loading…"
 msgstr "Kulayishwa…"
+
+msgid "Periodicity"
+msgstr "Ukuphindaphinda"
+
+msgid "Suggest from periodicity"
+msgstr "Cecela ngokuphindaphindayo"
+
+msgid "Add job offer"
+msgstr "Faka isithembiso somsebenzi"
+
+msgid "Edit job offer"
+msgstr "Hlela isithembiso somsebenzi"
+
+msgid "Function / Unit"
+msgstr "Umsebenzi / Iyunithi"
+
+msgid "Vacancies"
+msgstr "Izithuba"
+
+msgid "Expected start date"
+msgstr "Umhla oqalwayo"
+
+msgid "Contract duration (days)"
+msgstr "Ubudoda bekhontrakthi (iintsuku)"
+
+msgid "Public offer"
+msgstr "Isithembiso esidlalwa phambili"
+
+msgid "Publication start date"
+msgstr "Umhla wokuqala ukupapashwa"
+
+msgid "Publication end date"
+msgstr "Umhla wokugqibela ukupapashwa"
+
+msgid "Applications"
+msgstr "Izicelo"
+
+msgid "Selection exams"
+msgstr "Iimviwo zokukhetha"
+
+msgid "Add exam"
+msgstr "Faka uvavanyo"
+
+msgid "Applicant"
+msgstr "Omfaki-zicelo"
+
+msgid "Applied on"
+msgstr "Ufake nge"
+
+msgid "Salary expectations"
+msgstr "Intembeko yomvuzo"
+
+msgid "Pending evaluation"
+msgstr "Uvavanyo olusalindelweyo"
+
+msgid "Hired"
+msgstr "Uqeshiwe"
+
+msgid "Not hired"
+msgstr "Akazange aqeshwe"
+
+msgid "Evaluate"
+msgstr "Vavanya"
+
+msgid "Evaluate candidate"
+msgstr "Vavanya umgqatsi"
+
+msgid "Decision"
+msgstr "Isigqibo"
+
+msgid "Save evaluation"
+msgstr "Gcina uvavanyo"
+
+msgid "Back to job offers"
+msgstr "Buyela kwizithembiso zemisebenzi"
+
+msgid "No job offers available at this time."
+msgstr "Akukho zithembiso zemisebenzi ngoku."
+
+msgid "See details"
+msgstr "Jonga iinkcukacha"
+
+msgid "Apply now"
+msgstr "Faka isicelo ngoku"
+
+msgid "Already applied"
+msgstr "Sele ufake isicelo"
+
+msgid "Log in to apply"
+msgstr "Ngena uze ufake isicelo"
+
+msgid "Apply to job offer"
+msgstr "Faka isicelo kwisithembiso somsebenzi"
+
+msgid "Availability date"
+msgstr "Umhla wokufumaneka"
+
+msgid "CV (Personal file)"
+msgstr "CV (Ifayile yamabali)"
+
+msgid "Select your CV from your personal files"
+msgstr "Khetha iCV yakho kwiifayile zakho zobuqu"
+
+msgid "Submit application"
+msgstr "Genisa isicelo"
+
+msgid "Application submitted successfully."
+msgstr "Isicelo sigenisiwe ngempumelelo."
+
+msgid "Private observations"
+msgstr "Iingqikelelo zabucala"
+
+msgid "My applications"
+msgstr "Izicelo zam"
+
+msgid "View job offers"
+msgstr "Jonga izinto ezithengiswayo zomsebenzi"
+
+msgid "You have not submitted any applications yet."
+msgstr "Awukaze wangenise naziphi na izicelo okwangoku."
+
+msgid "Under review"
+msgstr "Phantsi kophononongo"
+
+msgid "Not selected"
+msgstr "Akakhethwanga"
+
+msgid "HR feedback"
+msgstr "Ingxelo ye-HR"
+
+msgid "Withdraw application"
+msgstr "Rhusela isicelo"
+
+msgid "Are you sure you want to withdraw this application?"
+msgstr "Uqinisekile ukuba ufuna ukuRhushula esi sicelo?"
+
+msgid "Application withdrawn."
+msgstr "Isicelo siye siRhushulwe."
+
+msgid "Calculate quiz scores"
+msgstr "Bala amanqaku e-quiz"
+
+msgid "Scores calculated."
+msgstr "Amanqaku abaliwe."
+
+msgid "Career plan overview"
+msgstr "Isishwankathelo sesicwangwesi somsebenzi"
+
+msgid "My career plan"
+msgstr "Sicwangwesi somsebenzi wam"
+
+msgid "No function-unit associations configured yet."
+msgstr "Akukho nto inxulumene neyunithi echaziweyo okwangoku."
+
+msgid "No required skills defined."
+msgstr "Akukho zakhono ezifunwayo zichaziweyo."
+
+msgid "You must be assigned to a position to see your career plan."
+msgstr "Kufuneka uwenywe kwisikhundla ukuze ubone isicwangwesi sakho somsebenzi."
+
+msgid "Your current position"
+msgstr "Isikhundla sakho sangoku"
+
+msgid "No career targets found for your current position."
+msgstr "Akukhoo zinto ezilungiselelwe umsebenzi kwisikhundla sakho sangoku."
+
+msgid "No required skills defined for this position."
+msgstr "Akukho zakhono ezifunwayo zichaziweyo kwesi sikhundla."
+
+msgid "Met"
+msgstr "Kufikiwe"
+
+msgid "Gap"
+msgstr "Umsantsa"
+
+msgid "Acquired:"
+msgstr "Efunyanwayo:"
+
+msgid "Required:"
+msgstr "Efunwayo:"
+
+msgid "Max"
+msgstr "Ubuyiseko"
+
+msgid "No diversity criteria found. Add criteria first."
+msgstr "Akukho midiliya yobuhlukani ifunyanweyo. Yongeza imilinganiselo kuqala."
+
+msgid "Select a criterion from the list to view its statistics."
+msgstr "Khetha imilinganiselo kuluhlu ukuze ubone iinkcukacha-manani zayo."
+
+msgid "No data available for this criterion."
+msgstr "Akukho data elifumanekayo kule midiliya."
+
+msgid "Change password"
+msgstr "Tshintsha iphasiwedi"
+
+msgid "Newest first"
+msgstr "Intsha kuqala"
+
+msgid "Oldest first"
+msgstr "Indala kuqala"
+
+msgid "Title A–Z"
+msgstr "Isihloko A–Z"
+
+msgid "Title Z–A"
+msgstr "Isihloko Z–A"
+
+msgid "Send test email"
+msgstr "Thumela i-imeyile yovavanyo"
+
+msgid "Show teachers"
+msgstr "Bonisa ootitshala"
+
+msgid "Hide teachers"
+msgstr "Fihla ootitshala"
+
+msgid "Delete exercise attempts"
+msgstr "Cima iz Lingeseo lomsebenzi"
+
+msgid "Message sent successfully."
+msgstr "Umyalezo uthunyelwe ngempumelelo."
+
+msgid "You cannot create a new course right now."
+msgstr "Awungekudeli ukudala ikhosi entsha ngoku."
+
+msgid "Unable to verify whether you can create a new course right now."
+msgstr "Akukho nto inokuthi iqinisekiswe ukuba ungayidala ikhosi entsha ngoku."
+
+msgid "Please try again later or contact the administrator."
+msgstr "Nceda uzame kwakhona emva kwexesha okanye qhakambisa umlawuli."
+
+msgid "You cannot create more courses at this time."
+msgstr "Awungekudeli ukudala ezinye iikhosi ngeli xesha."
+
+msgid "You already manage %d courses and your active service allows up to %d. To create another course, you need a higher service limit or reduce your current active courses."
+msgstr "Sele ulawula %d iikhosi kwaye inkonzo yakho esebenzayo ivumela ukuya kuthi ga kwi-%d. Ukuze udale enye ikhosi, ufuna umda weenkonzo ophezulu okanye uciphise iikhosi zakho ezisebenzayo ngoku."
+
+msgid "You already manage %d courses and the platform currently allows up to %d for your account. You cannot create more courses right now."
+msgstr "Sele ulawula %d iikhosi kwaye iqonga ngoku livumela ukuya kuthi ga kwi-%d kwia kaount yakho. Awungekudeli ukudala ezinye iikhosi ngoku."
+
+msgid "Add a class"
+msgstr "Geya iklasi"
+
+msgid "Search classes"
+msgstr "Gqala iiklasi"
+
+msgid "No classes found"
+msgstr "Akukhoo klasi ezifunyanwayo"
+
+msgid "Import classes"
+msgstr "Genisa iiklasi"
+
+msgid "Class users"
+msgstr "Abasebenzisi beklasi"
+
+msgid "%s classes imported"
+msgstr "%s iiklasi ezingenisiweyo"
+
+msgid "%s user-class links imported"
+msgstr "Iikhonkco ze-%s user-class zingeniswe"
+
+msgid "Hide comments"
+msgstr "Fihla izagqino"
+
+msgid "Loading comments..."
+msgstr "Ukulayisha izagqino..."
+
+msgid "No comments yet."
+msgstr "Akukho mazwi okuxoxa okwangoku."
 
