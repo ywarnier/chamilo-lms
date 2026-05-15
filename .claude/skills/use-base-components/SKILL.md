@@ -202,9 +202,9 @@ const compensationOptions = computed(() =>
 Use `allow-cleared` for optional filters (adds a clear/× button). Use `:hast-empty-value="true"`
 to prepend a `--` row when the field is required with a blank default.
 
-**Para listas grandes (decenas/cientos de opciones) o anidadas**, usar `BaseAutocomplete` en
-lugar de `BaseSelect` — ver la sección de [BaseAutocomplete](#baseautocomplete) y el patrón
-de caché con `useEntityCache`.
+**For large lists (dozens/hundreds of options) or nested lists**, use `BaseAutocomplete`
+instead of `BaseSelect` — see the [BaseAutocomplete](#baseautocomplete) section and the
+caching pattern with `useEntityCache`.
 
 ---
 
@@ -231,9 +231,9 @@ Uses `defineModel` — type `Date | Array | String | null`.
 - After switching from `<input type="date">`, update `resetFilters` / initial form values to use
   `null` instead of `""`.
 
-**Rango de fechas — `type="range"`:**
-Cuando un formulario tiene un campo de inicio y uno de fin, usar un solo `BaseCalendar` con
-`type="range"` en lugar de dos calendarios separados. El modelo es `[startDate, endDate | null]`:
+**Date range — `type="range"`:**
+When a form has a start field and an end field, use a single `BaseCalendar` with
+`type="range"` instead of two separate calendars. The model is `[startDate, endDate | null]`:
 
 ```vue
 <BaseCalendar
@@ -245,20 +245,20 @@ Cuando un formulario tiene un campo de inicio y uno de fin, usar un solo `BaseCa
 ```
 
 ```js
-const dateRange = ref([new Date(), null])   // inicializar con inicio = hoy, fin = null
+const dateRange = ref([new Date(), null])   // initialize with start = today, end = null
 
-// Al guardar, extraer por índice:
+// When saving, extract by index:
 const payload = {
   startDate: dateRange.value?.[0] ? new Date(dateRange.value[0]).toISOString() : null,
   endDate:   dateRange.value?.[1] ? new Date(dateRange.value[1]).toISOString() : null,
 }
 
-// Al resetear:
-dateRange.value = null   // o [new Date(), null] si quieres pre-rellenar el inicio
+// When resetting:
+dateRange.value = null   // or [new Date(), null] if you want to pre-fill the start
 ```
 
-El segundo elemento es `null` hasta que el usuario selecciona la fecha de fin — comprueba
-`dateRange.value?.[1]` antes de serializar.
+The second element is `null` until the user selects the end date — check
+`dateRange.value?.[1]` before serializing.
 
 ---
 
@@ -331,17 +331,17 @@ Renders chips for selected values.
 **Props:** `id` (required), `label` (required), `search` (Function, required),
 `optionLabel` (default `"name"`), `isMultiple`, `disabled`, `helpText`, `isInvalid`.
 
-**Cuándo usar `BaseAutocomplete` en lugar de `BaseSelect`:**
+**When to use `BaseAutocomplete` instead of `BaseSelect`:**
 
-- La lista tiene **decenas o cientos** de elementos — un `<select>` se vuelve incómodo.
-- La fuente es un endpoint paginado o sin tope superior conocido (ej. `/api/users`).
-- La lista es **anidada** (ej. árbol de skills) y el usuario necesita buscar por texto.
+- The list has **dozens or hundreds** of items — a `<select>` becomes unwieldy.
+- The source is a paginated endpoint or has no known upper bound (e.g. `/api/users`).
+- The list is **nested** (e.g. skill tree) and the user needs to search by text.
 
-Para listas cortas y fijas (≤ ~20 ítems, ej. estados, periodicidades, tipos), seguir usando `BaseSelect`.
+For short and fixed lists (≤ ~20 items, e.g. statuses, periodicities, types), keep using `BaseSelect`.
 
-El prop `search` recibe el query y devuelve una Promesa con el array de sugerencias. Existen dos patrones según el tamaño del dataset:
+The `search` prop receives the query and returns a Promise with the array of suggestions. There are two patterns depending on the dataset size:
 
-**1) Búsqueda server-side** — datasets grandes o paginados:
+**1) Server-side search** — large or paginated datasets:
 ```js
 async function searchUsers(query) {
   const result = await baseService.getCollection('/api/users', { search: query, itemsPerPage: 10 })
@@ -349,9 +349,9 @@ async function searchUsers(query) {
 }
 ```
 
-**2) Búsqueda con caché en memoria — `useEntityCache`** (`assets/vue/composables/useEntityCache.js`):
+**2) In-memory cached search — `useEntityCache`** (`assets/vue/composables/useEntityCache.js`):
 
-Factory con `Map` a nivel de módulo. Cachea la lista por endpoint en toda la sesión — múltiples vistas / múltiples instancias del autocomplete comparten una sola petición.
+Factory with a module-level `Map`. Caches the list by endpoint for the whole session — multiple views / multiple autocomplete instances share a single request.
 
 ```js
 import { useEntityCache } from "../../composables/useEntityCache"
@@ -359,7 +359,7 @@ import { useEntityCache } from "../../composables/useEntityCache"
 const skillsCache = useEntityCache("/api/skills", { pagination: false })
 
 onMounted(async () => {
-  await skillsCache.load()   // carga una vez por sesión
+  await skillsCache.load()   // loads once per session
 })
 ```
 
@@ -373,31 +373,31 @@ onMounted(async () => {
 />
 ```
 
-API del caché:
-- `load()` — carga lazy una vez; desduplica llamadas concurrentes; en siguientes llamadas devuelve los items ya cacheados.
-- `search(query)` — filtra in-memory por el `labelField` (3er argumento del factory, default `"title"`). Pasar como prop `search`.
-- `findById(id)` — resuelve un id numérico al objeto. Útil en modo edición cuando el backend envía solo el id.
-- `invalidate()` — limpia el caché. Llamar después de crear/editar/borrar la entidad para forzar recarga.
+Cache API:
+- `load()` — lazy-loads once; deduplicates concurrent calls; subsequent calls return the already cached items.
+- `search(query)` — filters in-memory by the `labelField` (3rd argument of the factory, default `"title"`). Pass as the `search` prop.
+- `findById(id)` — resolves a numeric id to the object. Useful in edit mode when the backend sends only the id.
+- `invalidate()` — clears the cache. Call it after creating/editing/deleting the entity to force a reload.
 
-**Cuando el v-model debe enviarse como id (no IRI ni objeto)** — `BaseAutocomplete` mantiene el objeto completo en el modelo; al guardar se extrae `.id` y al cargar (edit) se resuelve id → objeto con `findById`:
+**When the v-model must be sent as an id (not an IRI nor an object)** — `BaseAutocomplete` keeps the full object in the model; on save extract `.id`, and on load (edit) resolve id → object with `findById`:
 ```js
 // addItem
 form.items.push({ ref: null })
 
-// load (modo edición)
+// load (edit mode)
 items: backendItems.map((i) => ({ ref: skillsCache.findById(i.refId) }))
 
 // save payload
 items: form.items.filter((i) => i.ref?.id).map((i) => ({ refId: Number(i.ref.id) }))
 ```
 
-**Backend — habilitar `pagination=false` cuando uses el caché**: las entidades cuyo `ApiResource` no declare `paginationClientEnabled: true` ignorarán el `pagination: false` del cliente y devolverán solo 30 ítems silenciosamente. Verifica el atributo de la entidad antes de cachear listas completas.
+**Backend — enable `pagination=false` when using the cache**: entities whose `ApiResource` does not declare `paginationClientEnabled: true` will silently ignore the client's `pagination: false` and return only 30 items. Verify the entity attribute before caching full lists.
 
-**Siempre usar `BaseAutocomplete` en lugar del patrón manual `<BaseInputText>` + `<ul>`.**
-Cuando veas este patrón en un archivo Vue, reemplázalo:
+**Always use `BaseAutocomplete` instead of the manual `<BaseInputText>` + `<ul>` pattern.**
+When you see this pattern in a Vue file, replace it:
 
 ```vue
-<!-- ❌ patrón manual a reemplazar -->
+<!-- ❌ manual pattern to replace -->
 <div class="relative">
   <BaseInputText v-model="userSearch" @input="onUserInput" ... />
   <ul v-if="results.length" class="absolute ...">
@@ -408,7 +408,7 @@ Cuando veas este patrón en un archivo Vue, reemplázalo:
 ```
 
 ```vue
-<!-- ✅ usar BaseAutocomplete -->
+<!-- ✅ use BaseAutocomplete -->
 <BaseAutocomplete
   id="field-id"
   v-model="selectedUser"
@@ -418,24 +418,24 @@ Cuando veas este patrón en un archivo Vue, reemplázalo:
 />
 ```
 
-**Cuando el v-model debe ser un IRI** (no el objeto completo), mantén un ref separado para el
-autocomplete y extrae el IRI al construir el payload:
+**When the v-model must be an IRI** (not the full object), keep a separate ref for the
+autocomplete and extract the IRI when building the payload:
 ```js
 const selectedUser = ref(null)
 
-// en save():
+// in save():
 const payload = { user: selectedUser.value?.["@id"] ?? null }
 ```
 
-**Al limpiar o resetear**, simplemente asigna `null`:
+**When clearing or resetting**, simply assign `null`:
 ```js
 function resetForm() {
   selectedUser.value = null
 }
 ```
 
-Elimina además: los refs de texto (`userSearch`), los refs de sugerencias (`userSearchResults`),
-los timers de debounce, y las funciones `onUserInput`, `selectUser`, `clearUser`.
+Also remove: the text refs (`userSearch`), the suggestion refs (`userSearchResults`),
+the debounce timers, and the `onUserInput`, `selectUser`, `clearUser` functions.
 
 ---
 
@@ -529,9 +529,9 @@ Always use `<BaseButton>` instead of a plain `<button>`. Import from
 
 ---
 
-### Fieldset (agrupación de campos)
+### Fieldset (field grouping)
 
-Cuando un grupo de campos lleva un título visible, usa `<Fieldset>` de PrimeVue en lugar de
+When a group of fields has a visible title, use PrimeVue's `<Fieldset>` instead of
 `<div class="field-group">` + `<label>`.
 
 ```vue
@@ -544,15 +544,15 @@ import Fieldset from "primevue/fieldset"
 </Fieldset>
 ```
 
-**Cuándo aplicarlo:** cualquier `<div>` con una `<label>` cuyo único propósito es titular un
-grupo de inputs (checkboxes, radios, campos relacionados). No lo uses para un campo único —
-cada `Base*` component ya renderiza su propio label.
+**When to apply it:** any `<div>` with a `<label>` whose only purpose is to title a
+group of inputs (checkboxes, radios, related fields). Do not use it for a single field —
+every `Base*` component already renders its own label.
 
 ---
 
 ### SectionHeader
 
-Usar `<SectionHeader>` para encabezados de sección o página en lugar de un `<h2>` / `<div>` manual.
+Use `<SectionHeader>` for section or page headings instead of a manual `<h2>` / `<div>`.
 
 ```vue
 import SectionHeader from "../../components/layout/SectionHeader.vue"
@@ -567,15 +567,15 @@ import SectionHeader from "../../components/layout/SectionHeader.vue"
 </SectionHeader>
 ```
 
-**Props:** `title` (String, required), `size` (String, default `"2"` → renderiza `<h2>`).
-El slot por defecto es para botones de acción (aparecen a la derecha del título).
-Incluye automáticamente `StudentViewButton` cuando hay contexto de curso — no añadirlo manualmente.
+**Props:** `title` (String, required), `size` (String, default `"2"` → renders `<h2>`).
+The default slot is for action buttons (rendered to the right of the title).
+Automatically includes `StudentViewButton` when there is course context — do not add it manually.
 
 ---
 
-### Notificaciones — useNotification
+### Notifications — useNotification
 
-Nunca usar `useToast` de PrimeVue directamente. Usar siempre el composable
+Never use PrimeVue's `useToast` directly. Always use the composable
 `assets/vue/composables/notification.js`:
 
 ```js
@@ -583,20 +583,20 @@ import { useNotification } from "../../composables/notification"
 
 const { showSuccessNotification, showErrorNotification } = useNotification()
 
-// éxito
+// success
 showSuccessNotification(t("Saved"))
 
-// error desde un objeto Error (Axios o JS nativo)
+// error from an Error object (Axios or native JS)
 showErrorNotification(e)
 
-// error con mensaje fijo (cuando el catch no tiene el mensaje correcto)
+// error with a fixed message (when the catch doesn't have the correct message)
 showErrorNotification(t("Cannot delete a benefit that has active assignments."))
 ```
 
-`showErrorNotification` acepta tanto un objeto `Error` / respuesta Axios como un string.
-Sanitiza el mensaje, filtra leakage de excepciones internas y evita toasts duplicados.
+`showErrorNotification` accepts both an `Error` object / Axios response and a string.
+It sanitizes the message, filters internal exception leakage, and prevents duplicate toasts.
 
-**Métodos disponibles:** `showSuccessNotification`, `showInfoNotification`,
+**Available methods:** `showSuccessNotification`, `showInfoNotification`,
 `showWarningNotification`, `showErrorNotification`.
 
 ---
