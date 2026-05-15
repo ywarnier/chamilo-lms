@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace Chamilo\CoreBundle\Controller;
 
+use Chamilo\CoreBundle\AiProvider\AiCourseAnalyzerService;
 use Chamilo\CoreBundle\AiProvider\AiDocumentProcessProviderInterface;
 use Chamilo\CoreBundle\AiProvider\AiImageProviderInterface;
 use Chamilo\CoreBundle\AiProvider\AiProviderFactory;
@@ -18,9 +19,11 @@ use Chamilo\CoreBundle\Entity\TrackEDefault;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
 use Chamilo\CoreBundle\Helpers\AiDisclosureHelper;
 use Chamilo\CoreBundle\Helpers\MessageHelper;
+use Chamilo\CoreBundle\Repository\Node\CourseRepository;
 use Chamilo\CoreBundle\Repository\ResourceNodeRepository;
 use Chamilo\CoreBundle\Repository\TrackEAttemptRepository;
 use Chamilo\CoreBundle\Security\Authorization\Voter\CourseVoter;
+use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CDocument;
 use Chamilo\CourseBundle\Entity\CGlossary;
 use Chamilo\CourseBundle\Entity\CQuizAnswer;
@@ -34,8 +37,11 @@ use RuntimeException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\Security\Csrf\CsrfToken;
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -165,7 +171,7 @@ class AiController extends AbstractController
             ->setParameter('txtExt', '%.txt')
         ;
 
-        if (0 < $sid) {
+        if ($sid > 0) {
             $qb
                 ->andWhere('(IDENTITY(rl.session) = :sid OR rl.session IS NULL)')
                 ->setParameter('sid', $sid, Types::INTEGER)
@@ -184,7 +190,7 @@ class AiController extends AbstractController
          * resolved through CDocument. This keeps the selector robust without
          * replacing the ResourceFile flow that already worked.
          */
-        if (count($documents) < 200) {
+        if (\count($documents) < 200) {
             $qb = $this->em->createQueryBuilder();
             $qb
                 ->select(
@@ -226,7 +232,7 @@ class AiController extends AbstractController
                 ->setParameter('txtExt', '%.txt')
             ;
 
-            if (0 < $sid) {
+            if ($sid > 0) {
                 $qb
                     ->andWhere('(IDENTITY(rl.session) = :sid OR rl.session IS NULL)')
                     ->setParameter('sid', $sid, Types::INTEGER)
@@ -237,7 +243,7 @@ class AiController extends AbstractController
             $rows = $qb->getQuery()->getArrayResult();
 
             foreach ($rows as $row) {
-                if (200 <= count($documents)) {
+                if (\count($documents) >= 200) {
                     break;
                 }
 
@@ -262,10 +268,10 @@ class AiController extends AbstractController
         $n = (int) $request->query->get('n', 15);
         $resourceFileId = (int) $request->query->get('resource_file_id', 0);
 
-        if (1 > $n) {
+        if ($n < 1) {
             $n = 1;
         }
-        if (200 < $n) {
+        if ($n > 200) {
             $n = 200;
         }
 
@@ -281,7 +287,7 @@ class AiController extends AbstractController
 
         $existingTerms = $this->getExistingGlossaryTermTitles($course, $sid);
 
-        if (0 < $resourceFileId) {
+        if ($resourceFileId > 0) {
             /** @var ResourceFile|null $resourceFile */
             $resourceFile = $this->em->getRepository(ResourceFile::class)->find($resourceFileId);
             if (null === $resourceFile) {
@@ -342,6 +348,7 @@ class AiController extends AbstractController
         }
 
         $debug = false;
+
         try {
             $debug = (bool) $this->getParameter('kernel.debug');
         } catch (Throwable) {
@@ -366,10 +373,10 @@ class AiController extends AbstractController
         $resourceFileId = (int) ($data['resource_file_id'] ?? 0);
         $documentTitle = trim((string) ($data['document_title'] ?? ''));
 
-        if (1 > $n) {
+        if ($n < 1) {
             $n = 1;
         }
-        if (200 < $n) {
+        if ($n > 200) {
             $n = 200;
         }
 
@@ -392,7 +399,7 @@ class AiController extends AbstractController
         $existingTerms = $this->getExistingGlossaryTermTitles($course, $sid);
 
         try {
-            if (0 < $resourceFileId) {
+            if ($resourceFileId > 0) {
                 /** @var ResourceFile|null $resourceFile */
                 $resourceFile = $this->em->getRepository(ResourceFile::class)->find($resourceFileId);
                 if (null === $resourceFile) {
@@ -659,6 +666,76 @@ class AiController extends AbstractController
         }
     }
 
+    #[Route('/course/{courseId}/analyzer', name: 'chamilo_core_ai_course_analyzer', methods: ['GET', 'POST'])]
+    public function courseAnalyzer(
+        Request $request,
+        int $courseId,
+        CourseRepository $courseRepository,
+        SettingsManager $settingsManager,
+        AiCourseAnalyzerService $courseAnalyzerService,
+        CsrfTokenManagerInterface $csrfTokenManager,
+    ): Response {
+        /** @var Course|null $course */
+        $course = $courseRepository->find($courseId);
+        if (!$course instanceof Course) {
+            throw $this->createNotFoundException('Course not found.');
+        }
+
+        $this->denyAccessUnlessGranted(CourseVoter::EDIT, $course);
+
+        $enabled = $this->isAiCourseAnalyzerSettingEnabled($settingsManager->getSetting('ai_helpers.enable_ai_helpers', true))
+            && $this->isAiCourseAnalyzerSettingEnabled($settingsManager->getSetting('ai_helpers.course_analyser', true));
+
+        $session = $this->getAiCourseAnalyzerSessionFromRequest($request);
+        $providers = $this->aiProviderFactory->getProvidersForType('text');
+        $defaultProvider = $providers[0] ?? '';
+        $csrfTokenId = 'ai_course_analyzer_'.$course->getId();
+
+        $result = null;
+        $error = null;
+        $prompt = trim((string) $request->request->get('prompt', ''));
+        $selectedProvider = trim((string) $request->request->get('provider', $defaultProvider));
+
+        if ('' === $selectedProvider) {
+            $selectedProvider = $defaultProvider;
+        }
+
+        if ($request->isMethod('POST')) {
+            if (!$enabled) {
+                $error = 'AI course analyzer is disabled.';
+            } elseif ('' === $prompt) {
+                $error = 'Please describe what kind of feedback you want.';
+            } elseif ('' === $selectedProvider || !\in_array($selectedProvider, $providers, true)) {
+                $error = 'No valid AI text provider is configured.';
+            } else {
+                $submittedToken = (string) $request->request->get('_token', '');
+                $token = new CsrfToken($csrfTokenId, $submittedToken);
+
+                if (!$csrfTokenManager->isTokenValid($token)) {
+                    $error = 'Invalid security token. Please reload the page and try again.';
+                } else {
+                    try {
+                        $result = $courseAnalyzerService->analyze($course, $session, $prompt, $selectedProvider);
+                    } catch (Throwable $exception) {
+                        $error = 'The AI analysis could not be completed: '.$exception->getMessage();
+                    }
+                }
+            }
+        }
+
+        return $this->render('@ChamiloCore/Course/ai_analyzer.html.twig', [
+            'course' => $course,
+            'session' => $session,
+            'enabled' => $enabled,
+            'providers' => $providers,
+            'selected_provider' => $selectedProvider,
+            'prompt' => $prompt,
+            'result' => $result,
+            'error' => $error,
+            'csrf_token_id' => $csrfTokenId,
+        ]);
+    }
+
     #[Route('/capabilities', name: 'chamilo_core_ai_capabilities', methods: ['GET'])]
     public function capabilities(): JsonResponse
     {
@@ -849,7 +926,7 @@ class AiController extends AbstractController
                 ], 400);
             }
 
-            if (100 < $nQ) {
+            if ($nQ > 100) {
                 $nQ = 100;
             }
 
@@ -965,7 +1042,7 @@ class AiController extends AbstractController
             ], 400);
         }
 
-        if (100 < $nQ) {
+        if ($nQ > 100) {
             $nQ = 100;
         }
 
@@ -2361,7 +2438,7 @@ class AiController extends AbstractController
         $base .= "Language: {$language}\n";
         $base .= "Course: {$courseTitle}\n";
         $base .= "Document: {$documentTitle}\n";
-        if (0 < $sid) {
+        if ($sid > 0) {
             $base .= "Session ID: {$sid}\n";
         }
         $base .= "\nTeacher request:\n{$teacherPrompt}\n";
@@ -2376,13 +2453,13 @@ class AiController extends AbstractController
 
     /**
      * @param list<array<string, mixed>> $documents
-     * @param array<int, bool> $seen
-     * @param array<string, mixed> $row
+     * @param array<int, bool>           $seen
+     * @param array<string, mixed>       $row
      */
     private function addGlossaryDocumentSourceFromRow(array &$documents, array &$seen, array $row): void
     {
         $resourceFileId = (int) ($row['resource_file_id'] ?? 0);
-        if (0 >= $resourceFileId || isset($seen[$resourceFileId])) {
+        if ($resourceFileId <= 0 || isset($seen[$resourceFileId])) {
             return;
         }
 
@@ -2415,7 +2492,7 @@ class AiController extends AbstractController
     private function getExistingGlossaryTermTitles(Course $course, int $sid = 0, int $limit = 200): array
     {
         $session = null;
-        if (0 < $sid) {
+        if ($sid > 0) {
             /** @var Session|null $session */
             $session = $this->em->getRepository(Session::class)->find($sid);
         }
@@ -2497,7 +2574,7 @@ class AiController extends AbstractController
 
     private function resourceFileBelongsToCourse(ResourceFile $resourceFile, int $courseId): bool
     {
-        if (0 >= $courseId) {
+        if ($courseId <= 0) {
             return false;
         }
 
@@ -2529,7 +2606,7 @@ class AiController extends AbstractController
             ->getSingleScalarResult()
         ;
 
-        return 0 < $count;
+        return $count > 0;
     }
 
     private function buildGlossaryFromDocumentPrompt(
@@ -2591,7 +2668,7 @@ class AiController extends AbstractController
         $prompt .= "Course: {$courseTitle}\n";
         $prompt .= "Document: {$documentTitle}\n";
 
-        if (0 < $sid) {
+        if ($sid > 0) {
             $prompt .= "Session ID: {$sid}\n";
         }
 
@@ -2944,6 +3021,31 @@ class AiController extends AbstractController
         error_log($message);
     }
 
+    private function getAiCourseAnalyzerSessionFromRequest(Request $request): ?Session
+    {
+        $sessionId = (int) $request->get('sid', 0);
+        if ($sessionId <= 0) {
+            return null;
+        }
+
+        $session = $this->em->getRepository(Session::class)->find($sessionId);
+
+        return $session instanceof Session ? $session : null;
+    }
+
+    private function isAiCourseAnalyzerSettingEnabled(mixed $value): bool
+    {
+        if (\is_bool($value)) {
+            return $value;
+        }
+
+        if (\is_int($value)) {
+            return 1 === $value;
+        }
+
+        return \in_array(strtolower(trim((string) $value)), ['1', 'true', 'yes', 'on'], true);
+    }
+
     private function getCurrentUserId(): int
     {
         $u = $this->getUser();
@@ -3111,13 +3213,13 @@ class AiController extends AbstractController
     {
         // 1) JSON payload
         $sid = (int) ($data['sid'] ?? 0);
-        if (0 < $sid) {
+        if ($sid > 0) {
             return $sid;
         }
 
         // 2) Query string
         $sid = (int) $request->query->get('sid', 0);
-        if (0 < $sid) {
+        if ($sid > 0) {
             return $sid;
         }
 

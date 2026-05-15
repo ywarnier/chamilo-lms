@@ -58,6 +58,7 @@
       icon="drawing"
       only-icon
       type="success"
+      @click="goToNewDrawing"
     />
     <BaseButton
       v-if="showRecordAudioButton"
@@ -438,6 +439,7 @@
     v-model:is-visible="isFileUsageDialogVisible"
     :style="{ width: '28rem' }"
     :title="t('Space available')"
+    :close-label="t('Close')"
   >
     <div
       v-if="usageQuotaSummary"
@@ -471,6 +473,7 @@
     :style="{ width: '28rem' }"
     :title="t('Record audio')"
     header-icon="record-add"
+    :close-label="t('Close')"
   >
     <DocumentAudioRecorder
       :parent-resource-node-id="route.params.node"
@@ -1406,6 +1409,27 @@ function goToUploadFile() {
   })
 }
 
+function goToNewDrawing() {
+  router.push({
+    name: "DocumentsSvgEditor",
+    params: { node: route.params.node },
+    query: route.query,
+  })
+}
+
+function getDocumentExtension(doc) {
+  const fileName = String(doc?.resourceNode?.firstResourceFile?.originalName || doc?.title || "").trim().toLowerCase()
+  const parts = fileName.split(".")
+
+  return parts.length > 1 ? String(parts.pop() || "").trim() : ""
+}
+
+function isSvgDocument(doc) {
+  const mime = String(doc?.resourceNode?.firstResourceFile?.mimeType || "").trim().toLowerCase()
+
+  return mime === "image/svg+xml" || getDocumentExtension(doc) === "svg"
+}
+
 function btnShowInformationOnClick(item) {
   const folderParams = route.query
 
@@ -1438,6 +1462,18 @@ function btnEditOnClick(item) {
       name: "DocumentsUpdate",
       params: { id: item["@id"] },
       query: folderParams,
+    })
+    return
+  }
+
+  if ("file" === item.filetype && isSvgDocument(item)) {
+    router.push({
+      name: "DocumentsSvgEditor",
+      params: { node: route.params.node },
+      query: {
+        ...folderParams,
+        id: item["@id"],
+      },
     })
     return
   }
