@@ -133,12 +133,6 @@
       </div>
       <template #footer>
         <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="trackingDialog = false"
-        />
-        <BaseButton
           :disabled="!trackingForm.stage"
           :label="t('Save')"
           icon="save"

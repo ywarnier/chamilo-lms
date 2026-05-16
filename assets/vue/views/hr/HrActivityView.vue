@@ -122,12 +122,6 @@
 
       <template #footer>
         <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="categoryDialog = false"
-        />
-        <BaseButton
           :disabled="!categoryForm.title"
           :label="t('Save')"
           icon="save"
@@ -165,12 +159,6 @@
       />
 
       <template #footer>
-        <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="activityDialog = false"
-        />
         <BaseButton
           :disabled="!activityForm.title"
           :label="t('Save')"

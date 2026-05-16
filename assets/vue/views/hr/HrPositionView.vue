@@ -144,12 +144,6 @@
 
       <template #footer>
         <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="dialogVisible = false"
-        />
-        <BaseButton
           :disabled="isSaving"
           :label="t('Save')"
           icon="save"

@@ -183,12 +183,6 @@
 
       <template #footer>
         <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="formDialog = false"
-        />
-        <BaseButton
           :disabled="!form.title || !form.functionInUnit || !form.description"
           :label="t('Save')"
           icon="save"
@@ -201,6 +195,7 @@
     <!-- Quiz assignment dialog -->
     <BaseDialog
       v-model:is-visible="quizDialog"
+      :close-label="t('Close')"
       :title="t('Selection exams')"
       :style="{ width: '560px' }"
     >
@@ -262,15 +257,6 @@
           </div>
         </Fieldset>
       </div>
-
-      <template #footer>
-        <BaseButton
-          :label="t('Close')"
-          icon="close"
-          type="plain"
-          @click="quizDialog = false"
-        />
-      </template>
     </BaseDialog>
   </div>
 </template>

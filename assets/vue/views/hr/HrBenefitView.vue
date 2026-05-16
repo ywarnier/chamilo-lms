@@ -156,12 +156,6 @@
       </div>
       <template #footer>
         <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="tagDialog = false"
-        />
-        <BaseButton
           :disabled="!tagForm.title"
           :label="t('Save')"
           icon="save"
@@ -231,12 +225,6 @@
         </div>
       </Fieldset>
       <template #footer>
-        <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="compensationDialog = false"
-        />
         <BaseButton
           :disabled="!compensationForm.title"
           :label="t('Save')"

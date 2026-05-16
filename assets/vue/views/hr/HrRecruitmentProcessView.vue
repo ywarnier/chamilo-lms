@@ -88,12 +88,6 @@
       </div>
       <template #footer>
         <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="formDialog = false"
-        />
-        <BaseButton
           :disabled="!form.jobOffer || !form.application"
           :label="t('Save')"
           icon="save"

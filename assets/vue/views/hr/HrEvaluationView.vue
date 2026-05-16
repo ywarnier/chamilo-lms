@@ -122,9 +122,8 @@
     <!-- Create / Edit dialog -->
     <BaseDialog
       v-if="showDialog"
+      v-model:is-visible="showDialog"
       :title="form.id ? t('Edit evaluation') : t('Schedule evaluation')"
-      :visible="showDialog"
-      @close="showDialog = false"
     >
       <form
         class="space-y-4"
@@ -223,11 +222,6 @@
         />
       </form>
       <template #footer>
-        <BaseButton
-          :label="t('Cancel')"
-          type="plain"
-          @click="showDialog = false"
-        />
         <BaseButton
           :label="t('Save')"
           :loading="saving"

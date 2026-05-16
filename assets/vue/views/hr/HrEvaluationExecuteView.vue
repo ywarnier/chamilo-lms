@@ -355,10 +355,9 @@
 
     <!-- Comments dialog -->
     <BaseDialog
-      v-if="commentsDialog.visible"
+      v-model:is-visible="commentsDialog.visible"
+      :close-label="t('Close')"
       :title="t('Comments')"
-      :visible="commentsDialog.visible"
-      @close="commentsDialog.visible = false"
     >
       <div class="space-y-3 max-h-64 overflow-y-auto">
         <div
@@ -397,13 +396,6 @@
           @click="postComment"
         />
       </div>
-      <template #footer>
-        <BaseButton
-          :label="t('Close')"
-          type="plain"
-          @click="commentsDialog.visible = false"
-        />
-      </template>
     </BaseDialog>
   </div>
 </template>

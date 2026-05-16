@@ -95,12 +95,6 @@
       </div>
       <template #footer>
         <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="dialog = false"
-        />
-        <BaseButton
           :disabled="!form.title || !form.extraField"
           :label="t('Save')"
           icon="save"

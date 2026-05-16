@@ -192,12 +192,6 @@
       </div>
       <template #footer>
         <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="assignDialog = false"
-        />
-        <BaseButton
           :disabled="!assignForm.compensation || (beneficiaryMode === 'search' ? !selectedUser : !beneficiaryUrl.trim()) || !assignDateRange?.[0]"
           :label="t('Save')"
           icon="save"
@@ -229,12 +223,6 @@
         />
       </div>
       <template #footer>
-        <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="notifyDialog = false"
-        />
         <BaseButton
           :disabled="!notifyForm.subject || !notifyForm.message"
           :label="t('Send')"

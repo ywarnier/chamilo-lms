@@ -88,12 +88,6 @@
       </div>
       <template #footer>
         <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          severity="secondary"
-          @click="dialog = false"
-        />
-        <BaseButton
           :disabled="!form.surveyIri || !form.businessUnitIri"
           :label="t('Save')"
           :loading="isSaving"
@@ -105,6 +99,7 @@
 
     <BaseDialog
       v-model:is-visible="resultsDialog"
+      :close-label="t('Close')"
       :title="t('Results')"
       :style="{ width: '720px' }"
     >
@@ -163,14 +158,6 @@
           </ul>
         </div>
       </div>
-      <template #footer>
-        <BaseButton
-          :label="t('Close')"
-          icon="close"
-          severity="secondary"
-          @click="resultsDialog = false"
-        />
-      </template>
     </BaseDialog>
   </div>
 </template>

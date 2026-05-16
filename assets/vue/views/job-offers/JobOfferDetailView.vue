@@ -160,12 +160,6 @@
       </div>
       <template #footer>
         <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          type="plain"
-          @click="applyDialog = false"
-        />
-        <BaseButton
           :label="t('Submit application')"
           icon="send"
           type="success"

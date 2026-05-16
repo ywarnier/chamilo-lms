@@ -98,12 +98,6 @@
       </div>
       <template #footer>
         <BaseButton
-          :label="t('Cancel')"
-          icon="close"
-          severity="secondary"
-          @click="costDialog = false"
-        />
-        <BaseButton
           :label="t('Save')"
           :loading="isSaving"
           icon="save"
