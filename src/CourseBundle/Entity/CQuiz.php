@@ -6,6 +6,11 @@ declare(strict_types=1);
 
 namespace Chamilo\CourseBundle\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use Chamilo\CoreBundle\Entity\AbstractResource;
 use Chamilo\CoreBundle\Entity\ResourceInterface;
 use Chamilo\CoreBundle\Entity\ResourceShowCourseResourcesInSessionInterface;
@@ -23,6 +28,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Course quizzes.
  */
+#[ApiResource(
+    operations: [
+        new GetCollection(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')"),
+        new Get(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')"),
+    ],
+    normalizationContext: ['groups' => ['c_quiz:read']],
+)]
+#[ApiFilter(SearchFilter::class, properties: ['resourceNode.parent' => 'exact'])]
 #[ORM\Table(name: 'c_quiz')]
 #[ORM\Entity(repositoryClass: CQuizRepository::class)]
 class CQuiz extends AbstractResource implements ResourceInterface, ResourceShowCourseResourcesInSessionInterface, Stringable
@@ -30,13 +43,14 @@ class CQuiz extends AbstractResource implements ResourceInterface, ResourceShowC
     public const ALL_ON_ONE_PAGE = 1;
     public const ONE_PER_PAGE = 2;
 
-    #[Groups(['track_e_exercise:read'])]
+    #[Groups(['track_e_exercise:read', 'c_quiz:read'])]
     #[ORM\Column(name: 'iid', type: 'integer')]
     #[ORM\Id]
     #[ORM\GeneratedValue]
     protected ?int $iid = null;
 
     #[Assert\NotBlank]
+    #[Groups(['c_quiz:read'])]
     #[ORM\Column(name: 'title', type: 'text', nullable: false)]
     protected string $title;
 

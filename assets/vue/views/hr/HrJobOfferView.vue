@@ -448,7 +448,7 @@ async function loadCourseQuizzes() {
     return
   }
   try {
-    const res = await axios.get(`/api/c_quizzes?pagination=false&resourceNode.parent=${quizForm.value.course}`)
+    const res = await axios.get(`/api/c_quizes?pagination=false&resourceNode.parent=${quizForm.value.course}`)
     courseQuizOptions.value = (res.data["hydra:member"] ?? []).map((q) => ({
       label: q.title,
       value: q["@id"],
