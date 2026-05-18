@@ -1,13 +1,22 @@
 <template>
   <div class="space-y-6">
-    <SectionHeader :title="application ? application.applicantName : t('Candidate')">
+    <SectionHeader :title="application ? application.applicantName : t('Candidate')" />
+
+    <div class="flex items-center justify-between">
+      <BaseButton
+        :label="t('Back to list')"
+        :route="{ name: 'HrJobOfferApplications', params: { id: offerId } }"
+        icon="back"
+        only-icon
+        type="plain"
+      />
       <div class="flex items-center gap-2">
-        <span class="text-sm text-gray-500 mr-1"> {{ currentIndex + 1 }}/{{ applications.length }} </span>
+        <span class="text-sm text-gray-500">{{ currentIndex + 1 }}/{{ applications.length }}</span>
         <BaseButton
           :disabled="currentIndex === 0"
           :label="t('Previous')"
           :route="prevRoute"
-          icon="chevron-left"
+          icon="arrow-left"
           only-icon
           type="secondary"
         />
@@ -15,18 +24,12 @@
           :disabled="currentIndex >= applications.length - 1"
           :label="t('Next')"
           :route="nextRoute"
-          icon="chevron-right"
+          icon="arrow-right"
           only-icon
           type="secondary"
         />
-        <BaseButton
-          :label="t('Back to list')"
-          :route="{ name: 'HrJobOfferApplications', params: { id: offerId } }"
-          icon="arrow-left"
-          type="plain"
-        />
       </div>
-    </SectionHeader>
+    </div>
 
     <div
       v-if="loading"
@@ -157,7 +160,9 @@
             <BaseInputNumber
               id="eval-score"
               v-model="evalForm.totalScore"
+              :help-text="t('0 to 100 (%)')"
               :label="t('Score')"
+              :max="100"
               :min="0"
               :step="0.1"
               name="total_score"

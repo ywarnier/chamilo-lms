@@ -158,22 +158,36 @@
           v-model="applyForm.availabilityDate"
           :label="t('Availability date')"
         />
-        <BaseSelect
-          id="apply-cv"
-          v-model="applyForm.cvFile"
-          :label="t('CV (Personal file)')"
-          :options="personalFileOptions"
-          allow-clear
-          name="cv_file"
-        />
-        <BaseSelect
-          id="apply-motivation"
-          v-model="applyForm.motivationLetterFile"
-          :label="t('Motivation letter (Personal file)')"
-          :options="personalFileOptions"
-          allow-clear
-          name="motivation_letter_file"
-        />
+        <div>
+          <label
+            class="block text-sm font-medium text-gray-700 mb-1"
+            for="apply-cv"
+          >
+            {{ t("CV") }}
+          </label>
+          <input
+            id="apply-cv"
+            class="block w-full text-sm text-gray-700 border border-gray-300 rounded px-3 py-1.5 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            name="cv_file"
+            type="file"
+            @change="applyForm.cvFile = $event.target.files[0] ?? null"
+          />
+        </div>
+        <div>
+          <label
+            class="block text-sm font-medium text-gray-700 mb-1"
+            for="apply-motivation"
+          >
+            {{ t("Motivation letter") }}
+          </label>
+          <input
+            id="apply-motivation"
+            class="block w-full text-sm text-gray-700 border border-gray-300 rounded px-3 py-1.5 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            name="motivation_letter_file"
+            type="file"
+            @change="applyForm.motivationLetterFile = $event.target.files[0] ?? null"
+          />
+        </div>
       </div>
       <template #footer>
         <BaseButton
@@ -197,7 +211,6 @@ import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseCalendar from "../../components/basecomponents/BaseCalendar.vue"
 import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
 import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
-import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTextArea from "../../components/basecomponents/BaseTextArea.vue"
 import { useNotification } from "../../composables/notification"
 import * as jobOfferService from "../../services/hr/jobOfferService"
@@ -214,7 +227,6 @@ const alreadyApplied = ref(false)
 const isAuthenticated = computed(() => securityStore.isAuthenticated)
 
 const applyDialog = ref(false)
-const personalFileOptions = ref([])
 const applyForm = ref({
   introduction: "",
   salaryExpectations: "",
@@ -240,16 +252,7 @@ async function load() {
   }
 }
 
-async function openApply() {
-  try {
-    const res = await axios.get("/api/personal_files?pagination=false")
-    personalFileOptions.value = (res.data["hydra:member"] ?? []).map((f) => ({
-      label: f.title,
-      value: f["@id"],
-    }))
-  } catch (e) {
-    console.error(e)
-  }
+function openApply() {
   applyForm.value = {
     introduction: "",
     salaryExpectations: "",
@@ -260,15 +263,31 @@ async function openApply() {
   applyDialog.value = true
 }
 
+async function uploadPersonalFile(file) {
+  const nodeId = securityStore.user?.resourceNode?.id
+  const formData = new FormData()
+  formData.append("uploadFile", file)
+  formData.append("title", file.name)
+  formData.append("filetype", "file")
+  formData.append("parentResourceNodeId", String(nodeId))
+  formData.append("parentResourceNode", `/api/resource_nodes/${nodeId}`)
+  const res = await axios.post("/api/personal_files", formData)
+  return res.data["@id"]
+}
+
 async function submitApplication() {
   try {
+    const [cvIri, motivationIri] = await Promise.all([
+      applyForm.value.cvFile ? uploadPersonalFile(applyForm.value.cvFile) : null,
+      applyForm.value.motivationLetterFile ? uploadPersonalFile(applyForm.value.motivationLetterFile) : null,
+    ])
     await jobOfferApplicationService.create({
       jobOffer: offer.value["@id"],
       introduction: applyForm.value.introduction || null,
       salaryExpectations: applyForm.value.salaryExpectations || null,
       availabilityDate: applyForm.value.availabilityDate ? applyForm.value.availabilityDate.toISOString() : null,
-      cvFile: applyForm.value.cvFile || null,
-      motivationLetterFile: applyForm.value.motivationLetterFile || null,
+      cvFile: cvIri,
+      motivationLetterFile: motivationIri,
     })
     applyDialog.value = false
     alreadyApplied.value = true
