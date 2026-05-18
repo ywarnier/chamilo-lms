@@ -30,6 +30,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     ],
     normalizationContext: ['groups' => ['periodicity:read']],
     denormalizationContext: ['groups' => ['periodicity:write']],
+    paginationClientEnabled: true,
 )]
 #[ORM\Table(name: 'periodicity')]
 #[ORM\Entity(repositoryClass: PeriodicityRepository::class)]

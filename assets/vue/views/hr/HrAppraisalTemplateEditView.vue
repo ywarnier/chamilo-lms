@@ -361,7 +361,7 @@ async function load() {
   loading.value = true
   try {
     const [perioItems] = await Promise.all([
-      periodicityService.getAll(),
+      periodicityService.getAll({ pagination: false }),
       skillsCache.load(),
       activitiesCache.load(),
       objectivesCache.load(),
