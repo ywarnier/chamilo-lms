@@ -176,7 +176,7 @@ const pieChartOptions = {
 async function loadCriteria() {
   isLoading.value = true
   try {
-    criteria.value = await diversityCriteriaService.getAll()
+    criteria.value = await diversityCriteriaService.getAll({ pagination: false })
     if (criteria.value.length > 0) {
       await selectCriteria(criteria.value[0])
     }

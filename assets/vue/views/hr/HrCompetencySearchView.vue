@@ -127,21 +127,19 @@
           v-if="activeMode === 'compare_users'"
           class="space-y-3"
         >
-          <BaseSelect
+          <BaseAutocomplete
             id="cs-user-a"
-            v-model="searchC.userAId"
-            :hast-empty-value="true"
+            v-model="searchC.userA"
             :label="t('User A')"
-            :options="userOptions"
-            name="cs_user_a"
+            :search="searchUsers"
+            option-label="fullName"
           />
-          <BaseSelect
+          <BaseAutocomplete
             id="cs-user-b"
-            v-model="searchC.userBId"
-            :hast-empty-value="true"
+            v-model="searchC.userB"
             :label="t('User B')"
-            :options="userOptions"
-            name="cs_user_b"
+            :search="searchUsers"
+            option-label="fullName"
           />
           <BaseButton
             :disabled="isSearching"
@@ -157,13 +155,12 @@
           v-if="activeMode === 'user_vs_function'"
           class="space-y-3"
         >
-          <BaseSelect
+          <BaseAutocomplete
             id="cs-user-vs"
-            v-model="searchD.userId"
-            :hast-empty-value="true"
+            v-model="searchD.user"
             :label="t('Staff member')"
-            :options="userOptions"
-            name="cs_user_id"
+            :search="searchUsers"
+            option-label="fullName"
           />
           <BaseSelect
             id="cs-function-vs"
@@ -276,11 +273,13 @@
 <script setup>
 import { computed, onMounted, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
+import BaseAutocomplete from "../../components/basecomponents/BaseAutocomplete.vue"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseMultiSelect from "../../components/basecomponents/BaseMultiSelect.vue"
 import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
+import baseService from "../../services/baseService"
 import * as functionInUnitService from "../../services/hr/functionInUnitService"
 import axios from "axios"
 
@@ -300,19 +299,23 @@ const results = ref(null)
 const skills = ref([])
 const levels = ref([])
 const functionInUnits = ref([])
-const users = ref([])
 
 const searchA = ref({ skillIds: [], levelId: null })
 const searchB = ref({ functionId: null })
-const searchC = ref({ userAId: null, userBId: null })
-const searchD = ref({ userId: null, functionId: null })
+const searchC = ref({ userA: null, userB: null })
+const searchD = ref({ user: null, functionId: null })
 
 const selectedFunctionSkills = ref([])
 
 const skillOptions = computed(() => skills.value.map((sk) => ({ label: sk.title, value: sk.id })))
 const levelOptions = computed(() => levels.value.map((lv) => ({ label: lv.title, value: lv.id })))
 const functionInUnitOptions = computed(() => functionInUnits.value.map((f) => ({ label: f.title, value: f.id })))
-const userOptions = computed(() => users.value.map((u) => ({ label: u.fullName, value: u.id })))
+
+async function searchUsers(query) {
+  const result = await baseService.getCollection("/api/users", { search: query, itemsPerPage: 10 })
+
+  return result.items
+}
 
 watch(
   () => searchB.value.functionId,
@@ -358,10 +361,10 @@ async function search() {
     } else if ("by_function" === activeMode.value) {
       params.function_in_unit_id = searchB.value.functionId
     } else if ("compare_users" === activeMode.value) {
-      params.user_a = searchC.value.userAId
-      params.user_b = searchC.value.userBId
+      params.user_a = searchC.value.userA?.id
+      params.user_b = searchC.value.userB?.id
     } else {
-      params.user_id = searchD.value.userId
+      params.user_id = searchD.value.user?.id
       params.function_in_unit_id = searchD.value.functionId
     }
     const res = await axios.get("/hr/competency-search-data", { params })
@@ -372,11 +375,10 @@ async function search() {
 }
 
 async function load() {
-  const [skillRes, levelRes, fiuList, userRes] = await Promise.all([
+  const [skillRes, levelRes, fiuList] = await Promise.all([
     axios.get("/hr/skills-data"),
     axios.get("/hr/levels-data"),
     functionInUnitService.getAll(),
-    axios.get("/api/users?pagination=false&properties[]=id&properties[]=fullName"),
   ])
   skills.value = (skillRes.data["hydra:member"] ?? []).map((s) => ({
     id: s.id ?? s["@id"].split("/").pop(),
@@ -389,10 +391,6 @@ async function load() {
   functionInUnits.value = fiuList.map((f) => ({
     id: f["@id"].split("/").pop(),
     title: f.title,
-  }))
-  users.value = (userRes.data["hydra:member"] ?? []).map((u) => ({
-    id: u.id ?? u["@id"].split("/").pop(),
-    fullName: u.fullName,
   }))
 }
 
