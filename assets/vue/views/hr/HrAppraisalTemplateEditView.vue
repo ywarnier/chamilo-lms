@@ -311,6 +311,7 @@ import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useEntityCache } from "../../composables/useEntityCache"
 import { useNotification } from "../../composables/notification"
 import baseService from "../../services/baseService"
+import * as periodicityService from "../../services/hr/periodicityService"
 
 const { t } = useI18n()
 const router = useRouter()
@@ -359,13 +360,13 @@ function removeItem(item) {
 async function load() {
   loading.value = true
   try {
-    const [perioRes] = await Promise.all([
-      baseService.get("/api/periodicities"),
+    const [perioItems] = await Promise.all([
+      periodicityService.getAll(),
       skillsCache.load(),
       activitiesCache.load(),
       objectivesCache.load(),
     ])
-    periodicities.value = perioRes["hydra:member"] ?? perioRes
+    periodicities.value = perioItems
 
     if (isEdit.value) {
       const tpl = await baseService.get(`/api/performance_appraisal_templates/${route.params.id}`)
