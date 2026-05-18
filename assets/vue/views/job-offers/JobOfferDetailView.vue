@@ -8,50 +8,60 @@
     </div>
 
     <template v-else-if="offer">
-      <SectionHeader :title="offer.title">
+      <div>
         <BaseButton
           :label="t('Back')"
           :route="{ name: 'JobOfferPublicList' }"
-          icon="arrow-left"
+          icon="back"
+          only-icon
           type="plain"
         />
-      </SectionHeader>
-      <p class="text-sm text-gray-500 -mt-4">
-        {{ offer.functionInUnitTitle }}
-      </p>
+      </div>
+
+      <div class="border-b border-gray-200 pb-4">
+        <h1 class="text-2xl font-bold text-gray-900">
+          {{ offer.title }}
+        </h1>
+        <p
+          v-if="offer.functionInUnitTitle"
+          class="mt-1 text-sm text-gray-500"
+        >
+          {{ offer.functionInUnitTitle }}
+        </p>
+      </div>
 
       <div class="grid grid-cols-2 gap-4 text-sm">
         <div
           v-if="offer.salary"
-          class="bg-gray-50 rounded p-3"
+          class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm"
         >
-          <span class="font-medium block text-gray-700">{{ t("Salary") }}</span>
-          <span class="text-gray-900">{{ offer.salary }}</span>
+          <span class="font-semibold block text-gray-500 text-xs uppercase tracking-wide mb-1">{{ t("Salary") }}</span>
+          <span class="text-gray-900 font-medium">{{ offer.salary }}</span>
         </div>
-        <div class="bg-gray-50 rounded p-3">
-          <span class="font-medium block text-gray-700">{{ t("Vacancies") }}</span>
-          <span class="text-gray-900">{{ offer.vacancy }}</span>
+        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+          <span class="font-semibold block text-gray-500 text-xs uppercase tracking-wide mb-1">{{ t("Vacancies") }}</span>
+          <span class="text-gray-900 font-medium">{{ offer.vacancy }}</span>
         </div>
         <div
           v-if="offer.expectedStartDate"
-          class="bg-gray-50 rounded p-3"
+          class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm"
         >
-          <span class="font-medium block text-gray-700">{{ t("Expected start date") }}</span>
-          <span class="text-gray-900">{{ offer.expectedStartDate.slice(0, 10) }}</span>
+          <span class="font-semibold block text-gray-500 text-xs uppercase tracking-wide mb-1">{{ t("Expected start date") }}</span>
+          <span class="text-gray-900 font-medium">{{ offer.expectedStartDate.slice(0, 10) }}</span>
         </div>
         <div
           v-if="offer.contractTypeTitle"
-          class="bg-gray-50 rounded p-3"
+          class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm"
         >
-          <span class="font-medium block text-gray-700">{{ t("Contract type") }}</span>
-          <span class="text-gray-900">{{ offer.contractTypeTitle }}</span>
+          <span class="font-semibold block text-gray-500 text-xs uppercase tracking-wide mb-1">{{ t("Contract type") }}</span>
+          <span class="text-gray-900 font-medium">{{ offer.contractTypeTitle }}</span>
         </div>
         <div
           v-if="offer.contractDuration"
-          class="bg-gray-50 rounded p-3"
+          class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm"
         >
-          <span class="font-medium block text-gray-700">{{ t("Contract duration (days)") }}</span>
-          <span class="text-gray-900">{{ offer.contractDuration }}</span>
+          <span class="font-semibold block text-gray-500 text-xs uppercase tracking-wide mb-1">{{ t("Contract duration (days)") }}</span>
+          <span class="text-gray-900 font-medium">{{ offer.contractDuration }}</span>
         </div>
       </div>
 
@@ -97,7 +107,7 @@
         </ul>
       </div>
 
-      <div class="flex justify-end pt-4">
+      <div class="flex justify-end gap-3 pt-4 border-t border-gray-100">
         <BaseButton
           v-if="isAuthenticated"
           :disabled="alreadyApplied"
@@ -106,13 +116,20 @@
           type="success"
           @click="openApply"
         />
-        <BaseButton
-          v-else
-          :label="t('Log in to apply')"
-          :route="{ name: 'Login' }"
-          icon="login"
-          type="primary"
-        />
+        <template v-else>
+          <BaseButton
+            :label="t('Register to apply')"
+            :to-url="'/registration'"
+            icon="account-plus"
+            type="success"
+          />
+          <BaseButton
+            :label="t('Log in to apply')"
+            :route="{ name: 'Login' }"
+            icon="login"
+            type="primary"
+          />
+        </template>
       </div>
     </template>
 
@@ -178,7 +195,6 @@ import { useRoute } from "vue-router"
 import { useSecurityStore } from "../../store/securityStore"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseCalendar from "../../components/basecomponents/BaseCalendar.vue"
-import SectionHeader from "../../components/layout/SectionHeader.vue"
 import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
 import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
 import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
