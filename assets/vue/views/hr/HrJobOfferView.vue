@@ -302,6 +302,7 @@ const assignedQuizzes = ref([])
 const courseOptions = ref([])
 const courseQuizOptions = ref([])
 const quizForm = ref({ course: null, cquiz: null })
+const courseResourceNodeMap = ref({})
 
 function emptyForm() {
   return {
@@ -431,10 +432,12 @@ async function openQuizDialog(item) {
       axios.get("/api/courses?pagination=false"),
     ])
     assignedQuizzes.value = quizRes
-    courseOptions.value = (courseRes.data["hydra:member"] ?? []).map((c) => ({
-      label: c.title,
-      value: c["@id"],
-    }))
+    const map = {}
+    courseOptions.value = (courseRes.data["hydra:member"] ?? []).map((c) => {
+      map[c["@id"]] = c.resourceNode?.id
+      return { label: c.title, value: c["@id"] }
+    })
+    courseResourceNodeMap.value = map
   } catch (e) {
     showErrorNotification(e)
   } finally {
@@ -448,7 +451,8 @@ async function loadCourseQuizzes() {
     return
   }
   try {
-    const res = await axios.get(`/api/c_quizes?pagination=false&resourceNode.parent=${quizForm.value.course}`)
+    const resourceNodeId = courseResourceNodeMap.value[quizForm.value.course]
+    const res = await axios.get(`/api/c_quizes?pagination=false&resourceNode.parent=${resourceNodeId}`)
     courseQuizOptions.value = (res.data["hydra:member"] ?? []).map((q) => ({
       label: q.title,
       value: q["@id"],
