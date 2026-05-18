@@ -11,11 +11,12 @@ namespace Chamilo\CoreBundle\DataFixtures;
 use Chamilo\CoreBundle\Entity\SocialResponsibilityGoal;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class SocialResponsibilityGoalFixtures extends Fixture
 {
     /**
-     * Official UN Sustainable Development Goals short titles (English).
+     * Official UN Sustainable Development Goals short titles (translation source keys).
      */
     private const SDG_TITLES = [
         1 => 'No Poverty',
@@ -37,13 +38,19 @@ class SocialResponsibilityGoalFixtures extends Fixture
         17 => 'Partnerships for the Goals',
     ];
 
+    public function __construct(
+        private readonly TranslatorInterface $translator,
+    ) {}
+
     public function load(ObjectManager $manager): void
     {
-        foreach (self::SDG_TITLES as $number => $title) {
+        $locale = $this->translator->getLocale();
+
+        foreach (self::SDG_TITLES as $number => $titleKey) {
             $goal = (new SocialResponsibilityGoal())
                 ->setSdgNumber($number)
-                ->setLanguage('en_US')
-                ->setTitle($title)
+                ->setLanguage($locale)
+                ->setTitle($this->translator->trans($titleKey))
                 ->setIsPublished(false)
             ;
 

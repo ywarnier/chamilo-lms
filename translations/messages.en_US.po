@@ -34929,3 +34929,54 @@ msgstr "Loading comments..."
 
 msgid "No comments yet."
 msgstr "No comments yet."
+
+msgid "No Poverty"
+msgstr "No Poverty"
+
+msgid "Zero Hunger"
+msgstr "Zero Hunger"
+
+msgid "Good Health and Well-being"
+msgstr "Good Health and Well-being"
+
+msgid "Quality Education"
+msgstr "Quality Education"
+
+msgid "Gender Equality"
+msgstr "Gender Equality"
+
+msgid "Clean Water and Sanitation"
+msgstr "Clean Water and Sanitation"
+
+msgid "Affordable and Clean Energy"
+msgstr "Affordable and Clean Energy"
+
+msgid "Decent Work and Economic Growth"
+msgstr "Decent Work and Economic Growth"
+
+msgid "Industry, Innovation and Infrastructure"
+msgstr "Industry, Innovation and Infrastructure"
+
+msgid "Reduced Inequalities"
+msgstr "Reduced Inequalities"
+
+msgid "Sustainable Cities and Communities"
+msgstr "Sustainable Cities and Communities"
+
+msgid "Responsible Consumption and Production"
+msgstr "Responsible Consumption and Production"
+
+msgid "Climate Action"
+msgstr "Climate Action"
+
+msgid "Life Below Water"
+msgstr "Life Below Water"
+
+msgid "Life on Land"
+msgstr "Life on Land"
+
+msgid "Peace, Justice and Strong Institutions"
+msgstr "Peace, Justice and Strong Institutions"
+
+msgid "Partnerships for the Goals"
+msgstr "Partnerships for the Goals"

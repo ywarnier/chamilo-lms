@@ -34899,3 +34899,54 @@ msgstr ""
 
 msgid "%s of staff have not filled in this criterion."
 msgstr ""
+
+msgid "No Poverty"
+msgstr ""
+
+msgid "Zero Hunger"
+msgstr ""
+
+msgid "Good Health and Well-being"
+msgstr ""
+
+msgid "Quality Education"
+msgstr ""
+
+msgid "Gender Equality"
+msgstr ""
+
+msgid "Clean Water and Sanitation"
+msgstr ""
+
+msgid "Affordable and Clean Energy"
+msgstr ""
+
+msgid "Decent Work and Economic Growth"
+msgstr ""
+
+msgid "Industry, Innovation and Infrastructure"
+msgstr ""
+
+msgid "Reduced Inequalities"
+msgstr ""
+
+msgid "Sustainable Cities and Communities"
+msgstr ""
+
+msgid "Responsible Consumption and Production"
+msgstr ""
+
+msgid "Climate Action"
+msgstr ""
+
+msgid "Life Below Water"
+msgstr ""
+
+msgid "Life on Land"
+msgstr ""
+
+msgid "Peace, Justice and Strong Institutions"
+msgstr ""
+
+msgid "Partnerships for the Goals"
+msgstr ""
