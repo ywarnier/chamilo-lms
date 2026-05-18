@@ -34192,7 +34192,6 @@ msgstr ""
 msgid "Any level"
 msgstr ""
 
-msgid "Geographic zone"
 msgid "Social Responsibility"
 msgstr ""
 
@@ -34272,16 +34271,12 @@ msgid "Paste user URL or IRI…"
 msgstr ""
 
 msgid "No AI text provider is configured. Please configure one in the AI settings."
-msgid "Geographic zones"
 msgstr ""
 
 msgid "Add geographic zone"
 msgstr ""
 
 msgid "Edit geographic zone"
-msgstr ""
-
-msgid "Geographic zone"
 msgstr ""
 
 msgid "Staff statuses"
@@ -34396,7 +34391,6 @@ msgid "Filtering by"
 msgstr ""
 
 msgid "Select a benefit"
-msgid "No diversity criteria found. Add criteria first."
 msgstr ""
 
 msgid "Select a criterion from the list to view its statistics."
@@ -34517,7 +34511,6 @@ msgid "No objectives added yet."
 msgstr ""
 
 msgid "No action plan defined."
-msgid "Change password"
 msgstr ""
 
 msgid "Goto current location"
