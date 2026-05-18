@@ -281,6 +281,7 @@ import BaseMultiSelect from "../../components/basecomponents/BaseMultiSelect.vue
 import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
+import * as functionInUnitService from "../../services/hr/functionInUnitService"
 import axios from "axios"
 
 const { t } = useI18n()
@@ -371,10 +372,10 @@ async function search() {
 }
 
 async function load() {
-  const [skillRes, levelRes, fiuRes, userRes] = await Promise.all([
+  const [skillRes, levelRes, fiuList, userRes] = await Promise.all([
     axios.get("/hr/skills-data"),
     axios.get("/hr/levels-data"),
-    axios.get("/api/function_in_units?pagination=false"),
+    functionInUnitService.getAll(),
     axios.get("/api/users?pagination=false&properties[]=id&properties[]=fullName"),
   ])
   skills.value = (skillRes.data["hydra:member"] ?? []).map((s) => ({
@@ -385,7 +386,7 @@ async function load() {
     id: l.id ?? l["@id"].split("/").pop(),
     title: l.title,
   }))
-  functionInUnits.value = (fiuRes.data["hydra:member"] ?? []).map((f) => ({
+  functionInUnits.value = fiuList.map((f) => ({
     id: f["@id"].split("/").pop(),
     title: f.title,
   }))

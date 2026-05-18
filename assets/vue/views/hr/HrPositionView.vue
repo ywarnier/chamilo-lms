@@ -168,6 +168,7 @@ import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
 import * as branchService from "../../services/branchService"
+import * as functionInUnitService from "../../services/hr/functionInUnitService"
 import axios from "axios"
 
 const { t } = useI18n()
@@ -217,16 +218,16 @@ function endDateClass(date) {
 async function load() {
   isLoading.value = true
   try {
-    const [posRes, userRes, fiuRes, branchItems, gzRes] = await Promise.all([
+    const [posRes, userRes, fiuList, branchItems, gzRes] = await Promise.all([
       axios.get("/hr/positions-data"),
       axios.get("/api/users?pagination=false&properties[]=id&properties[]=fullName&properties[]=username"),
-      axios.get("/api/function_in_units?pagination=false"),
+      functionInUnitService.getAll(),
       branchService.getAll({ branchType: "hr" }),
       axios.get("/api/geographic_zones?pagination=false"),
     ])
     items.value = posRes.data
     users.value = userRes.data["hydra:member"] ?? []
-    functionInUnits.value = fiuRes.data["hydra:member"] ?? []
+    functionInUnits.value = fiuList
     branches.value = branchItems
     geographicZones.value = gzRes.data["hydra:member"] ?? []
   } finally {

@@ -197,6 +197,7 @@ import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import BaseTextArea from "../../components/basecomponents/BaseTextArea.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
+import * as functionInUnitService from "../../services/hr/functionInUnitService"
 import axios from "axios"
 
 const { t } = useI18n()
@@ -255,8 +256,8 @@ watch(selectedActivityToAdd, (iri) => {
 async function load() {
   isLoading.value = true
   try {
-    const [itemsRes, pfRes, buRes, gzRes, actRes, skillRes, levelRes] = await Promise.all([
-      axios.get("/api/function_in_units?pagination=false"),
+    const [itemsList, pfRes, buRes, gzRes, actRes, skillRes, levelRes] = await Promise.all([
+      functionInUnitService.getAll(),
       axios.get("/api/professional_functions?pagination=false"),
       axios.get("/api/business_units?pagination=false"),
       axios.get("/api/geographic_zones?pagination=false"),
@@ -264,7 +265,7 @@ async function load() {
       axios.get("/hr/skills-data"),
       axios.get("/hr/levels-data"),
     ])
-    items.value = itemsRes.data["hydra:member"] ?? []
+    items.value = itemsList
     professionalFunctions.value = pfRes.data["hydra:member"] ?? []
     businessUnits.value = buRes.data["hydra:member"] ?? []
     geographicZones.value = gzRes.data["hydra:member"] ?? []
@@ -335,11 +336,11 @@ async function save() {
     }
     let fiuIri
     if (editingItem.value) {
-      await axios.put(editingItem.value["@id"], payload)
+      await functionInUnitService.update(editingItem.value["@id"], payload)
       fiuIri = editingItem.value["@id"]
     } else {
-      const res = await axios.post("/api/function_in_units", payload)
-      fiuIri = res.data["@id"]
+      const created = await functionInUnitService.create(payload)
+      fiuIri = created["@id"]
     }
 
     const existing = form.value.skills.filter((s) => s.id)
@@ -377,7 +378,7 @@ function confirmDelete(item) {
   requireConfirmation({
     message: t("Are you sure you want to delete this item?"),
     accept: async () => {
-      await axios.delete(item["@id"])
+      await functionInUnitService.remove(item["@id"])
       await load()
     },
   })
