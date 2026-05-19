@@ -46,7 +46,7 @@
       </Column>
       <Column :header="t('Score')">
         <template #body="{ data }">
-          {{ data.totalScore !== null ? `${data.totalScore}%` : "—" }}
+          {{ data.totalScore != null ? `${data.totalScore}%` : "N/A" }}
         </template>
       </Column>
       <Column :header="t('Status')">

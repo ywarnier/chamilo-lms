@@ -49,70 +49,83 @@
       </div>
 
       <!-- Application summary -->
-      <div class="grid grid-cols-2 gap-4 text-sm">
-        <div class="bg-gray-50 rounded p-3">
-          <span class="font-medium block text-gray-700">{{ t("Applied on") }}</span>
-          <span>{{ application.createdAt.slice(0, 10) }}</span>
+      <div class="border border-gray-200 rounded-lg divide-y divide-gray-100 text-sm">
+        <div class="flex items-center px-4 py-3">
+          <span class="w-48 shrink-0 text-xs font-semibold uppercase tracking-wide text-gray-400">{{ t("Applied on") }}</span>
+          <span class="text-gray-900">{{ application.createdAt.slice(0, 10) }}</span>
         </div>
-        <div class="bg-gray-50 rounded p-3">
-          <span class="font-medium block text-gray-700">{{ t("Score") }}</span>
-          <span>{{ application.totalScore !== null ? `${application.totalScore}%` : "—" }}</span>
+        <div class="flex items-center px-4 py-3">
+          <span class="w-48 shrink-0 text-xs font-semibold uppercase tracking-wide text-gray-400">{{ t("Score") }}</span>
+          <span class="text-gray-900 font-medium">{{ application.totalScore != null ? `${application.totalScore}%` : "N/A" }}</span>
         </div>
         <div
           v-if="application.salaryExpectations"
-          class="bg-gray-50 rounded p-3"
+          class="flex items-center px-4 py-3"
         >
-          <span class="font-medium block text-gray-700">{{ t("Salary expectations") }}</span>
-          <span>{{ application.salaryExpectations }}</span>
+          <span class="w-48 shrink-0 text-xs font-semibold uppercase tracking-wide text-gray-400">{{ t("Salary expectations") }}</span>
+          <span class="text-gray-900">{{ application.salaryExpectations }}</span>
         </div>
         <div
           v-if="application.availabilityDate"
-          class="bg-gray-50 rounded p-3"
+          class="flex items-center px-4 py-3"
         >
-          <span class="font-medium block text-gray-700">{{ t("Availability date") }}</span>
-          <span>{{ application.availabilityDate.slice(0, 10) }}</span>
+          <span class="w-48 shrink-0 text-xs font-semibold uppercase tracking-wide text-gray-400">{{ t("Availability date") }}</span>
+          <span class="text-gray-900">{{ application.availabilityDate.slice(0, 10) }}</span>
         </div>
         <div
           v-if="application.introduction"
-          class="bg-gray-50 rounded p-3 col-span-2"
+          class="flex items-start px-4 py-3"
         >
-          <span class="font-medium block text-gray-700">{{ t("Introduction") }}</span>
-          <span>{{ application.introduction }}</span>
+          <span class="w-48 shrink-0 text-xs font-semibold uppercase tracking-wide text-gray-400 pt-0.5">{{ t("Introduction") }}</span>
+          <span class="text-gray-900">{{ application.introduction }}</span>
         </div>
         <div
           v-if="application.firstEvaluatedAt"
-          class="bg-gray-50 rounded p-3"
+          class="flex items-center px-4 py-3"
         >
-          <span class="font-medium block text-gray-700">{{ t("First evaluated on") }}</span>
-          <span>{{ application.firstEvaluatedAt.slice(0, 10) }}</span>
+          <span class="w-48 shrink-0 text-xs font-semibold uppercase tracking-wide text-gray-400">{{ t("First evaluated on") }}</span>
+          <span class="text-gray-900">{{ application.firstEvaluatedAt.slice(0, 10) }}</span>
         </div>
         <div
           v-if="application.evaluatedByName"
-          class="bg-gray-50 rounded p-3"
+          class="flex items-center px-4 py-3"
         >
-          <span class="font-medium block text-gray-700">{{ t("Evaluated by") }}</span>
-          <span>{{ application.evaluatedByName }}</span>
+          <span class="w-48 shrink-0 text-xs font-semibold uppercase tracking-wide text-gray-400">{{ t("Evaluated by") }}</span>
+          <span class="text-gray-900">{{ application.evaluatedByName }}</span>
         </div>
       </div>
 
       <!-- Files -->
-      <div class="flex flex-wrap gap-3">
-        <BaseButton
+      <div
+        v-if="application.cvFileTitle || application.motivationLetterFileTitle"
+        class="flex flex-wrap gap-4"
+      >
+        <div
           v-if="application.cvFileTitle"
-          :is-loading="loadingCvUrl"
-          :label="application.cvFileTitle"
-          icon="file-account"
-          type="primary"
-          @click="downloadFile('cv')"
-        />
-        <BaseButton
+          class="flex items-center gap-3 border border-gray-200 rounded-lg px-4 py-2"
+        >
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">{{ t("CV") }}</span>
+          <BaseButton
+            :is-loading="loadingCvUrl"
+            :label="application.cvFileTitle"
+            icon="file-account"
+            type="primary"
+            @click="downloadFile('cv')"
+          />
+        </div>
+        <div
           v-if="application.motivationLetterFileTitle"
-          :is-loading="loadingMotivationUrl"
-          :label="application.motivationLetterFileTitle"
-          icon="file-document"
-          type="primary"
-          @click="downloadFile('motivation')"
-        />
+          class="flex items-center gap-3 border border-gray-200 rounded-lg px-4 py-2"
+        >
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">{{ t("Motivation letter") }}</span>
+          <BaseButton
+            :is-loading="loadingMotivationUrl"
+            :label="application.motivationLetterFileTitle"
+            icon="file-document"
+            type="primary"
+            @click="downloadFile('motivation')"
+          />
+        </div>
       </div>
 
       <!-- Skills comparison -->

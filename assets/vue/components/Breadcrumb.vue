@@ -241,10 +241,15 @@ function buildManualCrumbs() {
       }
     }
 
-    const pageLabel = route.matched[route.matched.length - 1]?.meta?.breadcrumb
+    const currentMeta = route.matched[route.matched.length - 1]?.meta
 
-    if (pageLabel) {
-      items.push({ label: t(pageLabel) })
+    if (currentMeta?.breadcrumbParent) {
+      const parent = currentMeta.breadcrumbParent
+      items.push({ label: t(parent.label), route: parent.route })
+    }
+
+    if (currentMeta?.breadcrumb) {
+      items.push({ label: t(currentMeta.breadcrumb) })
     }
 
     return items
