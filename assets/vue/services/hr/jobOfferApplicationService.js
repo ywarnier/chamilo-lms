@@ -28,3 +28,8 @@ export async function update(iri, payload) {
 export async function remove(iri) {
   return baseService.delete(iri)
 }
+
+export async function withdraw(iri) {
+  const id = iri.split("/").pop()
+  return baseService.post(`/api/job_offer_applications/${id}/withdraw`, {})
+}

@@ -17,12 +17,12 @@
     </SectionHeader>
 
     <div
-      v-if="!loading && applications.length && averageScore !== null"
+      v-if="!loading && activeApplications.length && averageScore !== null"
       class="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 rounded px-4 py-2"
     >
       <span class="mdi mdi-chart-bar text-blue-500" />
       {{ t("Average score") }}: <strong>{{ averageScore }}%</strong>
-      <span class="text-gray-400">({{ scoredCount }}/{{ applications.length }} {{ t("evaluated") }})</span>
+      <span class="text-gray-400">({{ scoredCount }}/{{ activeApplications.length }} {{ t("evaluated") }})</span>
     </div>
 
     <BaseTable
@@ -52,6 +52,13 @@
       <Column :header="t('Status')">
         <template #body="{ data }">
           <span
+            v-if="data.withdrawnAt"
+            class="px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-500"
+          >
+            {{ t("Withdrawn by candidate") }}
+          </span>
+          <span
+            v-else
             :class="statusClass(data.hired)"
             class="px-2 py-0.5 rounded text-xs font-medium"
           >
@@ -71,6 +78,7 @@
               type="secondary-text"
             />
             <BaseButton
+              v-if="isAdmin"
               :label="t('Delete')"
               icon="delete"
               only-icon
@@ -90,6 +98,7 @@ import axios from "axios"
 import { computed, onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
 import { useRoute } from "vue-router"
+import { useSecurityStore } from "../../store/securityStore"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
@@ -105,16 +114,19 @@ const { t } = useI18n()
 const { showSuccessNotification, showErrorNotification } = useNotification()
 const { requireConfirmation } = useConfirmation()
 const route = useRoute()
+const securityStore = useSecurityStore()
+const isAdmin = computed(() => securityStore.isAdmin)
 
 const offer = ref(null)
 const applications = ref([])
 const loading = ref(true)
 const computingScores = ref(false)
 
-const scoredCount = computed(() => applications.value.filter((a) => a.totalScore !== null).length)
+const activeApplications = computed(() => applications.value.filter((a) => !a.withdrawnAt))
+const scoredCount = computed(() => activeApplications.value.filter((a) => a.totalScore !== null).length)
 const averageScore = computed(() => {
   if (0 === scoredCount.value) return null
-  const sum = applications.value.reduce((acc, a) => acc + (a.totalScore ?? 0), 0)
+  const sum = activeApplications.value.reduce((acc, a) => acc + (a.totalScore ?? 0), 0)
   return Math.round((sum / scoredCount.value) * 10) / 10
 })
 
@@ -153,7 +165,7 @@ async function load() {
       jobOfferApplicationService.getByJobOffer(offerId),
     ])
     offer.value = offerData
-    applications.value = appData
+    applications.value = appData.sort((a, b) => (a.withdrawnAt ? 1 : 0) - (b.withdrawnAt ? 1 : 0))
   } catch (e) {
     console.error(e)
   } finally {

@@ -223,4 +223,10 @@ class PersonalFile extends AbstractResource implements ResourceInterface, String
     {
         return $this->setTitle($name);
     }
+
+    // PersonalFile is always a file — filetype is not stored, but BaseResourceFileAction calls this on overwrite.
+    public function setFiletype(string $filetype): static
+    {
+        return $this;
+    }
 }

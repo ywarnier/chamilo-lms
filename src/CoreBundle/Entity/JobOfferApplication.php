@@ -20,6 +20,7 @@ use Chamilo\CoreBundle\Repository\JobOfferApplicationRepository;
 use Chamilo\CoreBundle\State\JobOfferApplicationStateProcessor;
 use Chamilo\CoreBundle\State\JobOfferMyApplicationsProvider;
 use DateTime;
+use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Attribute\Groups;
@@ -37,7 +38,7 @@ use Symfony\Component\Validator\Constraints as Assert;
         new Get(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR') or object.getCreatedBy() == user"),
         new Post(security: "is_granted('IS_AUTHENTICATED_FULLY')", processor: JobOfferApplicationStateProcessor::class),
         new Put(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')", processor: JobOfferApplicationStateProcessor::class),
-        new Delete(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR') or (is_granted('IS_AUTHENTICATED_FULLY') and object.getCreatedBy() == user and object.getHired() == 0)"),
+        new Delete(security: "is_granted('ROLE_ADMIN')"),
     ],
     normalizationContext: ['groups' => ['job_offer_application:read']],
     denormalizationContext: ['groups' => ['job_offer_application:write']],
@@ -140,6 +141,10 @@ class JobOfferApplication
     #[Groups(['job_offer_application:read'])]
     #[ORM\Column(name: 'first_evaluated_at', type: 'datetime', nullable: true)]
     private ?DateTimeInterface $firstEvaluatedAt = null;
+
+    #[Groups(['job_offer_application:read'])]
+    #[ORM\Column(name: 'withdrawn_at', type: 'datetime_immutable', nullable: true)]
+    private ?DateTimeImmutable $withdrawnAt = null;
 
     public function __construct()
     {
@@ -420,6 +425,18 @@ class JobOfferApplication
     public function setFirstEvaluatedAt(?DateTimeInterface $firstEvaluatedAt): static
     {
         $this->firstEvaluatedAt = $firstEvaluatedAt;
+
+        return $this;
+    }
+
+    public function getWithdrawnAt(): ?DateTimeImmutable
+    {
+        return $this->withdrawnAt;
+    }
+
+    public function setWithdrawnAt(?DateTimeImmutable $withdrawnAt): static
+    {
+        $this->withdrawnAt = $withdrawnAt;
 
         return $this;
     }

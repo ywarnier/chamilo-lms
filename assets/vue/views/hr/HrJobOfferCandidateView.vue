@@ -39,6 +39,15 @@
     </div>
 
     <template v-else-if="application">
+      <div
+        v-if="application.withdrawnAt"
+        class="flex items-center gap-3 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600"
+      >
+        <span class="mdi mdi-account-remove text-gray-400 text-lg" />
+        {{ t("This candidate withdrew their application on") }}
+        <strong>{{ application.withdrawnAt.slice(0, 10) }}</strong>
+      </div>
+
       <!-- Application summary -->
       <div class="grid grid-cols-2 gap-4 text-sm">
         <div class="bg-gray-50 rounded p-3">

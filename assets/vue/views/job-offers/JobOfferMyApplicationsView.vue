@@ -30,6 +30,7 @@
       <div
         v-for="app in applications"
         :key="app['@id']"
+        :class="app.withdrawnAt ? 'opacity-60' : ''"
         class="border border-gray-200 rounded-lg p-6 bg-white shadow-sm"
       >
         <div class="flex items-start justify-between gap-4">
@@ -47,6 +48,13 @@
               {{ t("Score") }}: {{ app.totalScore }}%
             </span>
             <span
+              v-if="app.withdrawnAt"
+              class="px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600"
+            >
+              {{ t("Withdrawn") }} · {{ app.withdrawnAt.slice(0, 10) }}
+            </span>
+            <span
+              v-else
               :class="statusClass(app.hired)"
               class="px-2 py-0.5 rounded text-xs font-medium"
             >
@@ -80,7 +88,7 @@
         </div>
 
         <div
-          v-if="app.hired === STATUS_STAND_BY"
+          v-if="!app.withdrawnAt && app.hired === STATUS_STAND_BY"
           class="mt-4 flex justify-end"
         >
           <BaseButton
@@ -131,8 +139,8 @@ function confirmWithdraw(app) {
     message: t("Are you sure you want to withdraw this application?"),
     accept: async () => {
       try {
-        await jobOfferApplicationService.remove(app["@id"])
-        applications.value = applications.value.filter((a) => a["@id"] !== app["@id"])
+        await jobOfferApplicationService.withdraw(app["@id"])
+        app.withdrawnAt = new Date().toISOString()
         showSuccessNotification(t("Application withdrawn."))
       } catch (e) {
         showErrorNotification(e)

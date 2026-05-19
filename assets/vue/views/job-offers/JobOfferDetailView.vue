@@ -243,7 +243,7 @@ async function load() {
 
     if (isAuthenticated.value) {
       const myApps = await jobOfferApplicationService.getMine()
-      alreadyApplied.value = myApps.some((a) => a.jobOffer === `/api/job_offers/${offerId}`)
+      alreadyApplied.value = myApps.some((a) => a.jobOffer === `/api/job_offers/${offerId}` && !a.withdrawnAt)
     }
   } catch (e) {
     console.error(e)
