@@ -10,8 +10,14 @@
     </SectionHeader>
 
     <BaseTable
+      v-model:rows="pageSize"
       :is-loading="isLoading"
+      :lazy="true"
+      :total-items="total"
       :values="distributions"
+      data-key="id"
+      @page="onPage"
+      @sort="onSort"
     >
       <Column
         field="surveyTitle"
@@ -193,6 +199,11 @@ const isLoading = ref(false)
 const isSaving = ref(false)
 const dialog = ref(false)
 const distributions = ref([])
+const total = ref(0)
+const page = ref(1)
+const pageSize = ref(20)
+const sortField = ref(null)
+const sortOrder = ref(null)
 const surveyOptions = ref([])
 const unitOptions = ref([])
 const surveysLoading = ref(false)
@@ -204,6 +215,12 @@ const results = ref(null)
 const pageTitle = computed(() => props.title)
 
 const form = ref({ surveyIri: null, businessUnitIri: null })
+
+const sortFieldMap = {
+  surveyTitle: "survey.title",
+  businessUnitTitle: "businessUnit.title",
+  createdAt: "createdAt",
+}
 
 function formatDate(dateStr) {
   if (!dateStr) return ""
@@ -233,8 +250,18 @@ function optionLabel(question, optionId) {
 async function load() {
   isLoading.value = true
   try {
-    const response = await baseService.get("/api/hr_survey_distributions", { category: props.category })
-    distributions.value = response["hydra:member"] ?? response
+    const params = {
+      category: props.category,
+      page: page.value,
+      itemsPerPage: pageSize.value,
+    }
+    if (sortField.value) {
+      const apiField = sortFieldMap[sortField.value] ?? sortField.value
+      params[`order[${apiField}]`] = sortOrder.value === 1 ? "asc" : "desc"
+    }
+    const { items, totalItems } = await baseService.getCollection("/api/hr_survey_distributions", params)
+    distributions.value = items
+    total.value = totalItems
   } catch {
     showErrorNotification(t("An error occurred"))
   } finally {
@@ -242,12 +269,26 @@ async function load() {
   }
 }
 
+function onPage(event) {
+  page.value = event.page + 1
+  pageSize.value = event.rows
+  load()
+}
+
+function onSort(event) {
+  sortField.value = event.sortField
+  sortOrder.value = event.sortOrder
+  page.value = 1
+  load()
+}
+
 async function loadSurveys() {
   surveysLoading.value = true
   try {
-    const response = await baseService.get("/api/c_surveys", { pagination: false })
-    const surveys = response["hydra:member"] ?? response
-    surveyOptions.value = surveys.map((s) => ({ label: s.title, value: `/api/c_surveys/${s.iid}` }))
+    // CSurvey is an upstream Chamilo entity without paginationClientEnabled.
+    // Cap at the maximum server-side page (30 by default). Increase itemsPerPage if needed.
+    const { items } = await baseService.getCollection("/api/c_surveys")
+    surveyOptions.value = items.map((s) => ({ label: s.title, value: `/api/c_surveys/${s.iid}` }))
   } catch {
     showErrorNotification(t("An error occurred"))
   } finally {
@@ -302,7 +343,7 @@ async function deleteDistribution(distribution) {
   try {
     await baseService.delete(distribution["@id"])
     showSuccessNotification(t("Distribution removed"))
-    distributions.value = distributions.value.filter((d) => d["@id"] !== distribution["@id"])
+    await load()
   } catch {
     showErrorNotification(t("An error occurred"))
   }

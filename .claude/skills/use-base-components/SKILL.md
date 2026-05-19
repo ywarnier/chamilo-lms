@@ -505,6 +505,83 @@ Always use `<BaseDialog>` instead of PrimeVue `<Dialog>` directly. It wraps Dial
 `BaseTable` (`assets/vue/components/basecomponents/BaseTable.vue`) wraps PrimeVue `DataTable`.
 `Column` is globally registered in `main.js` — no import needed.
 
+#### Server-side pagination (lazy mode)
+
+Use lazy mode when the underlying API supports native pagination and the dataset may exceed the
+default page size (30 for API Platform). For short, bounded lists prefer **client-side** with
+`{ pagination: false }` — see `HrBusinessUnitView.vue` for that variant.
+
+**When to choose lazy** (server-side):
+- Collection has no known upper bound or is expected to grow (users, sessions, applications).
+- The API Platform resource exposes pagination (default behaviour unless overridden).
+
+**When to choose `{ pagination: false }`** (client-side):
+- Bounded list ≤ ~50 items (statuses, types, branches, business units, periodicities used in selects).
+- The entity declares `paginationClientEnabled: true` so the client can opt out.
+
+**Lazy pagination template:**
+```vue
+<BaseTable
+  v-model:rows="pageSize"
+  :is-loading="loading"
+  :lazy="true"
+  :total-items="total"
+  :values="items"
+  data-key="id"
+  @page="onPage"
+>
+  <Column :header="t('Title')" field="title" />
+</BaseTable>
+```
+
+```js
+import baseService from "../../services/baseService"
+
+const items = ref([])
+const total = ref(0)
+const page = ref(1)
+const pageSize = ref(20)
+const loading = ref(false)
+
+async function load() {
+  loading.value = true
+  try {
+    const { items: rows, totalItems } = await baseService.getCollection("/api/periodicities", {
+      page: page.value,
+      itemsPerPage: pageSize.value,
+    })
+    items.value = rows
+    total.value = totalItems
+  } finally {
+    loading.value = false
+  }
+}
+
+function onPage(event) {
+  page.value = event.page + 1   // PrimeVue uses 0-based pages; API Platform uses 1-based
+  pageSize.value = event.rows
+  load()
+}
+
+onMounted(load)
+```
+
+**Convention — where the request lives:**
+
+- Call `baseService.getCollection(endpoint, params)` **directly from the view** when you need
+  pagination metadata (`totalItems`). It already returns `{ items, totalItems, nextPageParams }`.
+- The service wrapper's `getAll(params)` is the shortcut "give me the items array only".
+  Do **not** add `getPage` / `getPaginated` / `getCollection` variants to service wrappers —
+  the base service already exposes that entry point.
+- Reserve the service wrapper for endpoint-specific shortcuts (`getAll`, `create`, `update`,
+  `remove`, and any non-trivial composed queries).
+
+**`sortable` columns + lazy = need backend support.**
+With `:lazy="true"` PrimeVue stops sorting client-side. Marking a column `sortable` is then
+only meaningful when the entity declares `#[ApiFilter(OrderFilter::class, properties: [...])]`.
+If the filter is missing, remove `sortable` to avoid a misleading UI; re-enable once
+`OrderFilter` is wired and you forward `order[field]=asc|desc` from a `@sort` handler.
+
 ---
 
 ### BaseButton

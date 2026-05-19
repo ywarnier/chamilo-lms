@@ -10,18 +10,21 @@
     </SectionHeader>
 
     <BaseTable
+      v-model:rows="pageSize"
       :is-loading="loading"
+      :lazy="true"
+      :total-items="total"
       :values="periodicities"
+      data-key="id"
+      @page="onPage"
     >
       <Column
         :header="t('Title')"
         field="title"
-        sortable
       />
       <Column
         :header="t('Days')"
         field="days"
-        sortable
       />
       <Column :exportable="false">
         <template #body="{ data }">
@@ -95,6 +98,7 @@ import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
+import baseService from "../../services/baseService"
 import * as periodicityService from "../../services/hr/periodicityService"
 
 const { t } = useI18n()
@@ -102,6 +106,9 @@ const { showSuccessNotification, showErrorNotification } = useNotification()
 const { requireConfirmation } = useConfirmation()
 
 const periodicities = ref([])
+const total = ref(0)
+const page = ref(1)
+const pageSize = ref(20)
 const loading = ref(false)
 const saving = ref(false)
 const showDialog = ref(false)
@@ -112,12 +119,23 @@ const form = ref(emptyForm())
 async function load() {
   loading.value = true
   try {
-    periodicities.value = await periodicityService.getAll()
+    const { items, totalItems } = await baseService.getCollection("/api/periodicities", {
+      page: page.value,
+      itemsPerPage: pageSize.value,
+    })
+    periodicities.value = items
+    total.value = totalItems
   } catch {
     showErrorNotification(t("Could not load periodicities"))
   } finally {
     loading.value = false
   }
+}
+
+function onPage(event) {
+  page.value = event.page + 1
+  pageSize.value = event.rows
+  load()
 }
 
 function openForm(item) {

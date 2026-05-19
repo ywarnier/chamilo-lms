@@ -280,6 +280,7 @@ import { useConfirmation } from "../../composables/useConfirmation"
 import { useNotification } from "../../composables/notification"
 import * as jobOfferService from "../../services/hr/jobOfferService"
 import * as jobOfferQuizService from "../../services/hr/jobOfferQuizService"
+import * as functionInUnitService from "../../services/hr/functionInUnitService"
 
 const { t } = useI18n()
 const { showSuccessNotification, showErrorNotification } = useNotification()
@@ -331,11 +332,11 @@ async function load() {
 }
 
 async function loadSelects() {
-  const [fiuRes, ctRes] = await Promise.all([
-    axios.get("/api/function_in_units?pagination=false"),
+  const [fiuList, ctRes] = await Promise.all([
+    functionInUnitService.getAll(),
     axios.get("/api/contract_types?pagination=false"),
   ])
-  functionInUnitOptions.value = (fiuRes.data["hydra:member"] ?? []).map((f) => ({
+  functionInUnitOptions.value = fiuList.map((f) => ({
     label: `${f.title} — ${f.businessUnitTitle}`,
     value: f["@id"],
   }))

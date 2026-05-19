@@ -8,6 +8,9 @@ namespace Chamilo\CoreBundle\Entity;
 
 // Chamilo HR extension
 
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
@@ -41,6 +44,15 @@ use Symfony\Component\Validator\Constraints as Assert;
     normalizationContext: ['groups' => ['performance_appraisal:read']],
     denormalizationContext: ['groups' => ['performance_appraisal:write']],
 )]
+#[ApiFilter(SearchFilter::class, properties: [
+    'status' => 'exact',
+    'evaluatedUser' => 'exact',
+])]
+#[ApiFilter(OrderFilter::class, properties: [
+    'scheduledAt',
+    'createdAt',
+    'status',
+])]
 #[ORM\Table(name: 'performance_appraisal')]
 #[ORM\Entity(repositoryClass: PerformanceAppraisalRepository::class)]
 class PerformanceAppraisal

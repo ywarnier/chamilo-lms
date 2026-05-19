@@ -153,7 +153,7 @@ async function searchExtraField(query) {
 async function load() {
   isLoading.value = true
   try {
-    items.value = await diversityCriteriaService.getAll()
+    items.value = await diversityCriteriaService.getAll({ pagination: false })
   } catch (e) {
     showErrorNotification(e)
   } finally {

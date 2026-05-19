@@ -12,46 +12,36 @@
     <!-- Search bar -->
     <div class="flex gap-4 items-end mb-4">
       <div class="flex-1 max-w-xs">
-        <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Search by evaluatee") }}</label>
-        <input
-          v-model="search"
-          class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-          name="search"
-          :placeholder="t('Name...')"
-          type="text"
-          @input="debouncedLoad"
+        <BaseAutocomplete
+          id="evaluatee-filter"
+          v-model="evaluateeFilter"
+          :label="t('Search by evaluatee')"
+          :search="searchUsers"
+          option-label="fullName"
+          @update:model-value="onFiltersChanged"
         />
       </div>
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Status") }}</label>
-        <select
+        <BaseSelect
+          id="status-filter"
           v-model="statusFilter"
-          class="border border-gray-300 rounded px-3 py-1.5 text-sm"
+          :label="t('Status')"
+          :options="statusFilterOptions"
+          allow-cleared
           name="status"
-          @change="load"
-        >
-          <option value="">
-            {{ t("All") }}
-          </option>
-          <option value="scheduled">
-            {{ t("Scheduled") }}
-          </option>
-          <option value="done">
-            {{ t("Done") }}
-          </option>
-          <option value="feedbacked">
-            {{ t("Feedbacked") }}
-          </option>
-          <option value="closed">
-            {{ t("Closed") }}
-          </option>
-        </select>
+          @update:model-value="onFiltersChanged"
+        />
       </div>
     </div>
 
     <BaseTable
+      v-model:rows="pageSize"
       :is-loading="loading"
-      :values="filteredEvaluations"
+      :lazy="true"
+      :total-items="total"
+      :values="evaluations"
+      data-key="id"
+      @page="onPage"
     >
       <Column :header="t('Evaluatee')">
         <template #body="{ data }">
@@ -129,89 +119,39 @@
         class="space-y-4"
         @submit.prevent="save"
       >
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Evaluatee") }}</label>
-          <select
-            v-model="form.evaluatedUser"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            name="evaluatedUser"
-            required
-          >
-            <option value="">
-              — {{ t("Select") }} —
-            </option>
-            <option
-              v-for="u in users"
-              :key="u['@id']"
-              :value="u['@id']"
-            >
-              {{ u.fullName }}
-            </option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Evaluator(s)") }}</label>
-          <select
-            v-model="form.evaluatorUsers"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            multiple
-            name="evaluatorUsers"
-            required
-            size="5"
-          >
-            <option
-              v-for="u in users"
-              :key="u['@id']"
-              :value="u['@id']"
-            >
-              {{ u.fullName }}
-            </option>
-          </select>
-          <p class="text-xs text-gray-400 mt-1">
-            {{ t("Hold Ctrl/Cmd to select multiple evaluators.") }}
-          </p>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Template") }}</label>
-          <select
-            v-model="form.template"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            :disabled="!!form.id"
-            name="template"
-            required
-          >
-            <option value="">
-              — {{ t("Select") }} —
-            </option>
-            <option
-              v-for="tpl in templates"
-              :key="tpl['@id']"
-              :value="tpl['@id']"
-            >
-              {{ tpl.title }}
-            </option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">{{ t("Evaluation stage") }}</label>
-          <select
-            v-model="form.stage"
-            class="border border-gray-300 rounded px-3 py-1.5 text-sm w-full"
-            name="stage"
-            required
-          >
-            <option value="">
-              — {{ t("Select") }} —
-            </option>
-            <option
-              v-for="s in stages"
-              :key="s['@id']"
-              :value="s['@id']"
-            >
-              {{ s.title }}
-            </option>
-          </select>
-        </div>
+        <BaseAutocomplete
+          id="form-evaluatedUser"
+          v-model="form.evaluatedUser"
+          :disabled="!!form.id"
+          :label="t('Evaluatee')"
+          :search="searchUsers"
+          option-label="fullName"
+        />
+        <BaseAutocomplete
+          id="form-evaluatorUsers"
+          v-model="form.evaluatorUsers"
+          :is-multiple="true"
+          :label="t('Evaluator(s)')"
+          :search="searchUsers"
+          option-label="fullName"
+        />
+        <BaseSelect
+          id="form-template"
+          v-model="form.template"
+          :disabled="!!form.id"
+          :hast-empty-value="true"
+          :label="t('Template')"
+          :options="templateOptions"
+          name="template"
+        />
+        <BaseSelect
+          id="form-stage"
+          v-model="form.stage"
+          :hast-empty-value="true"
+          :label="t('Evaluation stage')"
+          :options="stageOptions"
+          name="stage"
+        />
         <BaseInputText
           id="evaluation-date"
           v-model="form.scheduledAt"
@@ -238,9 +178,11 @@
 import { ref, computed, onMounted } from "vue"
 import { useI18n } from "vue-i18n"
 import { useRouter } from "vue-router"
+import BaseAutocomplete from "../../components/basecomponents/BaseAutocomplete.vue"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
 import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
+import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useNotification } from "../../composables/notification"
@@ -254,19 +196,30 @@ const { showSuccessNotification, showErrorNotification } = useNotification()
 const { requireConfirmation } = useConfirmation()
 
 const evaluations = ref([])
-const users = ref([])
 const templates = ref([])
 const stages = ref([])
+const total = ref(0)
+const page = ref(1)
+const pageSize = ref(20)
 const loading = ref(false)
 const saving = ref(false)
 const showDialog = ref(false)
-const search = ref("")
+const evaluateeFilter = ref(null)
 const statusFilter = ref("")
-let debounceTimer = null
+
+const statusFilterOptions = computed(() => [
+  { label: t("Scheduled"), value: "scheduled" },
+  { label: t("Done"), value: "done" },
+  { label: t("Feedbacked"), value: "feedbacked" },
+  { label: t("Closed"), value: "closed" },
+])
+
+const templateOptions = computed(() => templates.value.map((tpl) => ({ label: tpl.title, value: tpl["@id"] })))
+const stageOptions = computed(() => stages.value.map((s) => ({ label: s.title, value: s["@id"] })))
 
 const emptyForm = () => ({
   id: null,
-  evaluatedUser: "",
+  evaluatedUser: null,
   evaluatorUsers: [],
   template: "",
   stage: "",
@@ -274,17 +227,11 @@ const emptyForm = () => ({
 })
 const form = ref(emptyForm())
 
-const filteredEvaluations = computed(() => {
-  let list = evaluations.value
-  if (search.value) {
-    const q = search.value.toLowerCase()
-    list = list.filter((e) => e.evaluatedUser?.fullName?.toLowerCase().includes(q))
-  }
-  if (statusFilter.value) {
-    list = list.filter((e) => e.status === statusFilter.value)
-  }
-  return list
-})
+async function searchUsers(query) {
+  const result = await baseService.getCollection("/api/users", { search: query, itemsPerPage: 10 })
+
+  return result.items
+}
 
 function formatDate(dateStr) {
   if (!dateStr) return ""
@@ -306,16 +253,22 @@ function statusBadge(status) {
   return (map[status] ?? "bg-gray-100 text-gray-700") + " text-xs px-2 py-0.5 rounded-full font-medium"
 }
 
-function debouncedLoad() {
-  clearTimeout(debounceTimer)
-  debounceTimer = setTimeout(load, 300)
-}
-
 async function load() {
   loading.value = true
   try {
-    const res = await baseService.get("/api/performance_appraisals")
-    evaluations.value = res["hydra:member"] ?? res
+    const params = {
+      page: page.value,
+      itemsPerPage: pageSize.value,
+    }
+    if (evaluateeFilter.value?.["@id"]) {
+      params.evaluatedUser = evaluateeFilter.value["@id"]
+    }
+    if (statusFilter.value) {
+      params.status = statusFilter.value
+    }
+    const { items, totalItems } = await baseService.getCollection("/api/performance_appraisals", params)
+    evaluations.value = items
+    total.value = totalItems
   } catch {
     showErrorNotification(t("Could not load evaluations"))
   } finally {
@@ -323,23 +276,32 @@ async function load() {
   }
 }
 
+function onPage(event) {
+  page.value = event.page + 1
+  pageSize.value = event.rows
+  load()
+}
+
+function onFiltersChanged() {
+  page.value = 1
+  load()
+}
+
 async function loadReferenceData() {
-  const [uRes, tRes, sRes] = await Promise.all([
-    baseService.get("/api/users?properties[]=id&properties[]=fullName"),
-    baseService.get("/api/performance_appraisal_templates"),
-    baseService.get("/api/recruitment_stages"),
+  const [tRes, sRes] = await Promise.all([
+    baseService.getCollection("/api/performance_appraisal_templates", { pagination: false }),
+    baseService.getCollection("/api/recruitment_stages", { pagination: false }),
   ])
-  users.value = uRes["hydra:member"] ?? uRes
-  templates.value = tRes["hydra:member"] ?? tRes
-  stages.value = sRes["hydra:member"] ?? sRes
+  templates.value = tRes.items
+  stages.value = sRes.items
 }
 
 function openForm(item) {
   if (item) {
     form.value = {
       id: item.id,
-      evaluatedUser: item.evaluatedUser?.["@id"] ?? "",
-      evaluatorUsers: [item.evaluatorUser?.["@id"] ?? ""],
+      evaluatedUser: item.evaluatedUser ?? null,
+      evaluatorUsers: item.evaluatorUser ? [item.evaluatorUser] : [],
       template: item.template?.["@id"] ?? "",
       stage: item.stage?.["@id"] ?? "",
       scheduledAt: item.scheduledAt ? item.scheduledAt.replace("Z", "").slice(0, 16) : "",
@@ -366,10 +328,10 @@ async function save() {
       showSuccessNotification(t("Evaluation updated"))
     } else {
       // Create one appraisal per evaluator and schedule reminders
-      const evaluatorIris = Array.isArray(form.value.evaluatorUsers) ? form.value.evaluatorUsers : [form.value.evaluatorUsers]
+      const evaluatorIris = (form.value.evaluatorUsers ?? []).map((u) => u["@id"]).filter(Boolean)
       for (const evaluatorIri of evaluatorIris) {
         const created = await baseService.post("/api/performance_appraisals", {
-          evaluatedUser: form.value.evaluatedUser,
+          evaluatedUser: form.value.evaluatedUser?.["@id"] ?? null,
           evaluatorUser: evaluatorIri,
           template: form.value.template,
           stage: form.value.stage,

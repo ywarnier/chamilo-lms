@@ -315,7 +315,7 @@ const filteredAssignments = computed(() => {
 async function loadAssignments() {
   loading.value = true
   try {
-    assignments.value = await benefitAssignmentService.getAll()
+    assignments.value = await benefitAssignmentService.getAll({ pagination: false })
   } catch (e) {
     console.error(e)
   } finally {

@@ -8,6 +8,7 @@ namespace Chamilo\CoreBundle\Entity;
 
 // Chamilo HR extension
 
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
@@ -50,6 +51,11 @@ use Symfony\Component\Validator\Constraints as Assert;
     denormalizationContext: ['groups' => ['hr_survey_distribution:write']],
 )]
 #[ApiFilter(filterClass: SearchFilter::class, properties: ['category' => 'exact', 'businessUnit' => 'exact'])]
+#[ApiFilter(OrderFilter::class, properties: [
+    'createdAt',
+    'survey.title',
+    'businessUnit.title',
+])]
 #[ORM\Table(name: 'hr_survey_distribution')]
 #[ORM\Entity(repositoryClass: HrSurveyDistributionRepository::class)]
 class HrSurveyDistribution

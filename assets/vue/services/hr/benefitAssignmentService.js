@@ -1,13 +1,13 @@
 import baseService from "../baseService"
 
-export async function getAll() {
-  const { items } = await baseService.getCollection("/api/benefit_assignments")
+export async function getAll(params = {}) {
+  const { items } = await baseService.getCollection("/api/benefit_assignments", params)
 
   return items
 }
 
-export async function getMyBenefits() {
-  const { items } = await baseService.getCollection("/api/me/benefit_assignments")
+export async function getMyBenefits(params = {}) {
+  const { items } = await baseService.getCollection("/api/me/benefit_assignments", params)
 
   return items
 }

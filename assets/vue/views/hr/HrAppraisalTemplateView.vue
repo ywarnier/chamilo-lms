@@ -76,8 +76,8 @@ const loading = ref(false)
 async function load() {
   loading.value = true
   try {
-    const res = await baseService.get("/api/performance_appraisal_templates")
-    templates.value = res["hydra:member"] ?? res
+    const { items } = await baseService.getCollection("/api/performance_appraisal_templates", { pagination: false })
+    templates.value = items
   } catch {
     showErrorNotification(t("Could not load templates"))
   } finally {

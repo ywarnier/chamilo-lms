@@ -82,13 +82,12 @@
       :style="{ width: '560px' }"
       :title="editingItem ? t('Edit position') : t('Add position')"
     >
-      <BaseSelect
+      <BaseAutocomplete
         id="position-user"
         v-model="form.user"
-        :hast-empty-value="true"
         :label="t('Staff member')"
-        :options="userOptions"
-        name="position_user"
+        :search="searchUsers"
+        option-label="fullName"
       />
       <BaseSelect
         id="position-function-in-unit"
@@ -158,6 +157,7 @@
 <script setup>
 import { computed, onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
+import BaseAutocomplete from "../../components/basecomponents/BaseAutocomplete.vue"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseCalendar from "../../components/basecomponents/BaseCalendar.vue"
 import BaseCheckbox from "../../components/basecomponents/BaseCheckbox.vue"
@@ -167,14 +167,15 @@ import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
+import baseService from "../../services/baseService"
 import * as branchService from "../../services/branchService"
+import * as functionInUnitService from "../../services/hr/functionInUnitService"
 import axios from "axios"
 
 const { t } = useI18n()
 const { requireConfirmation } = useConfirmation()
 
 const items = ref([])
-const users = ref([])
 const functionInUnits = ref([])
 const branches = ref([])
 const geographicZones = ref([])
@@ -194,9 +195,11 @@ const emptyForm = () => ({
 })
 const form = ref(emptyForm())
 
-const userOptions = computed(() =>
-  users.value.map((u) => ({ label: `${u.fullName} (${u.username})`, value: u["@id"] })),
-)
+async function searchUsers(query) {
+  const result = await baseService.getCollection("/api/users", { search: query, itemsPerPage: 10 })
+
+  return result.items
+}
 
 const functionInUnitOptions = computed(() =>
   functionInUnits.value.map((fiu) => ({ label: `${fiu.title} — ${fiu.businessUnitTitle}`, value: fiu["@id"] })),
@@ -217,16 +220,14 @@ function endDateClass(date) {
 async function load() {
   isLoading.value = true
   try {
-    const [posRes, userRes, fiuRes, branchItems, gzRes] = await Promise.all([
+    const [posRes, fiuList, branchItems, gzRes] = await Promise.all([
       axios.get("/hr/positions-data"),
-      axios.get("/api/users?pagination=false&properties[]=id&properties[]=fullName&properties[]=username"),
-      axios.get("/api/function_in_units?pagination=false"),
+      functionInUnitService.getAll(),
       branchService.getAll({ branchType: "hr" }),
       axios.get("/api/geographic_zones?pagination=false"),
     ])
     items.value = posRes.data
-    users.value = userRes.data["hydra:member"] ?? []
-    functionInUnits.value = fiuRes.data["hydra:member"] ?? []
+    functionInUnits.value = fiuList
     branches.value = branchItems
     geographicZones.value = gzRes.data["hydra:member"] ?? []
   } finally {
@@ -244,7 +245,7 @@ function openCreate() {
 function openEdit(item) {
   editingItem.value = item
   form.value = {
-    user: item.userIri ?? null,
+    user: item.userIri ? { "@id": item.userIri, fullName: item.userFullName } : null,
     functionInUnit: item.functionInUnitIri ?? null,
     branch: null,
     geographicZone: null,
@@ -262,7 +263,7 @@ async function save() {
   isSaving.value = true
   try {
     const payload = {
-      user: form.value.user,
+      user: form.value.user?.["@id"] ?? null,
       functionInUnit: form.value.functionInUnit,
       startDate: dateRange.value?.[0] ? new Date(dateRange.value[0]).toISOString() : null,
       endDate: dateRange.value?.[1] ? new Date(dateRange.value[1]).toISOString() : null,

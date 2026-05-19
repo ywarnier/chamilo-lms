@@ -90,7 +90,7 @@ const loading = ref(true)
 async function loadAssignments() {
   loading.value = true
   try {
-    assignments.value = await getMyBenefits()
+    assignments.value = await getMyBenefits({ pagination: false })
   } catch (e) {
     console.error(e)
   } finally {
