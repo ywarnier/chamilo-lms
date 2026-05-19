@@ -172,24 +172,12 @@
       <!-- Evaluation -->
       <Fieldset :legend="t('Evaluation')">
         <div class="space-y-6 pt-2">
-          <div class="flex gap-6 items-start">
-            <BaseRadioButtons
-              v-model="evalForm.hired"
-              :options="hiredOptions"
-              :title="t('Decision')"
-              name="hired"
-            />
-            <BaseInputNumber
-              id="eval-score"
-              v-model="evalForm.totalScore"
-              :help-text="t('0 to 100 (%)')"
-              :label="t('Score')"
-              :max="100"
-              :min="0"
-              :step="0.1"
-              name="total_score"
-            />
-          </div>
+          <BaseRadioButtons
+            v-model="evalForm.hired"
+            :options="hiredOptions"
+            :title="t('Decision')"
+            name="hired"
+          />
 
           <Fieldset :legend="t('CV')">
             <div class="space-y-3 pt-1">
@@ -269,7 +257,6 @@ import { computed, onMounted, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
 import { useRoute } from "vue-router"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
-import BaseInputNumber from "../../components/basecomponents/BaseInputNumber.vue"
 import BaseRadioButtons from "../../components/basecomponents/BaseRadioButtons.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import BaseTextArea from "../../components/basecomponents/BaseTextArea.vue"
@@ -300,7 +287,6 @@ const loadingMotivationUrl = ref(false)
 
 const evalForm = ref({
   hired: STATUS_STAND_BY,
-  totalScore: null,
   cvObservation: "",
   cvPrivateObservation: "",
   motivationLetterObservation: "",
@@ -349,7 +335,6 @@ async function load() {
 
     evalForm.value = {
       hired: appData.hired,
-      totalScore: appData.totalScore ?? null,
       cvObservation: appData.cvObservation ?? "",
       cvPrivateObservation: appData.cvPrivateObservation ?? "",
       motivationLetterObservation: appData.motivationLetterObservation ?? "",
@@ -403,7 +388,6 @@ async function saveEvaluation() {
   try {
     await jobOfferApplicationService.update(`/api/job_offer_applications/${applicationId.value}`, {
       hired: evalForm.value.hired,
-      totalScore: evalForm.value.totalScore,
       cvObservation: evalForm.value.cvObservation || null,
       cvPrivateObservation: evalForm.value.cvPrivateObservation || null,
       motivationLetterObservation: evalForm.value.motivationLetterObservation || null,
