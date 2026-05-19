@@ -17,7 +17,9 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
 use Chamilo\CoreBundle\Repository\JobOfferApplicationRepository;
+use Chamilo\CoreBundle\State\JobOfferApplicationItemProvider;
 use Chamilo\CoreBundle\State\JobOfferApplicationStateProcessor;
+use Chamilo\CoreBundle\State\JobOfferApplicationWithdrawProcessor;
 use Chamilo\CoreBundle\State\JobOfferMyApplicationsProvider;
 use DateTime;
 use DateTimeImmutable;
@@ -37,6 +39,15 @@ use Symfony\Component\Validator\Constraints as Assert;
         ),
         new Get(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR') or object.getCreatedBy() == user"),
         new Post(security: "is_granted('IS_AUTHENTICATED_FULLY')", processor: JobOfferApplicationStateProcessor::class),
+        new Post(
+            uriTemplate: '/job_offer_applications/{id}/withdraw',
+            security: "is_granted('IS_AUTHENTICATED_FULLY') and object.getCreatedBy() == user",
+            input: false,
+            read: true,
+            deserialize: false,
+            provider: JobOfferApplicationItemProvider::class,
+            processor: JobOfferApplicationWithdrawProcessor::class,
+        ),
         new Put(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')", processor: JobOfferApplicationStateProcessor::class),
         new Delete(security: "is_granted('ROLE_ADMIN')"),
     ],
