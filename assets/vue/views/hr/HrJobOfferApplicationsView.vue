@@ -28,28 +28,45 @@
     <BaseTable
       :is-loading="loading"
       :values="applications"
+      removable-sort
     >
-      <Column :header="t('Applicant')">
-        <template #body="{ data }">
-          {{ data.applicantName }}
-        </template>
-      </Column>
-      <Column :header="t('Applied on')">
+      <Column
+        :header="t('Applicant')"
+        field="applicantName"
+        sortable
+      />
+      <Column
+        :header="t('Applied on')"
+        field="createdAt"
+        sortable
+      >
         <template #body="{ data }">
           {{ data.createdAt.slice(0, 10) }}
         </template>
       </Column>
-      <Column :header="t('Salary expectations')">
+      <Column
+        :header="t('Salary expectations')"
+        field="salaryExpectations"
+        sortable
+      >
         <template #body="{ data }">
           {{ data.salaryExpectations || "—" }}
         </template>
       </Column>
-      <Column :header="t('Score')">
+      <Column
+        :header="t('Score')"
+        field="totalScore"
+        sortable
+      >
         <template #body="{ data }">
           {{ data.totalScore != null ? `${data.totalScore}%` : "N/A" }}
         </template>
       </Column>
-      <Column :header="t('Status')">
+      <Column
+        :header="t('Status')"
+        field="hired"
+        sortable
+      >
         <template #body="{ data }">
           <span
             v-if="data.withdrawnAt"
@@ -165,7 +182,7 @@ async function load() {
       jobOfferApplicationService.getByJobOffer(offerId),
     ])
     offer.value = offerData
-    applications.value = appData.sort((a, b) => (a.withdrawnAt ? 1 : 0) - (b.withdrawnAt ? 1 : 0))
+    applications.value = appData
   } catch (e) {
     console.error(e)
   } finally {
