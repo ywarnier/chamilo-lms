@@ -50,8 +50,10 @@ class survey_question
             $options,
             ['id' => 'parent_id', 'placeholder' => get_lang('Please select an option')]
         );
+        $hrMode = !empty($_GET['hr_mode']) || !empty($_POST['hr_mode']);
+        $hrCatVal = Security::remove_XSS($_GET['hr_category'] ?? ($_POST['hr_category'] ?? ''));
         $url = api_get_path(WEB_AJAX_PATH).
-            'survey.ajax.php?'.api_get_cidreq().'&a=load_question_options&survey_id='.$surveyId;
+            'survey.ajax.php?'.($hrMode ? 'hr_mode=1&hr_category='.urlencode($hrCatVal) : api_get_cidreq()).'&a=load_question_options&survey_id='.$surveyId;
         $form->addHtml('
             <script>
                 $(function() {
@@ -211,8 +213,10 @@ class survey_question
         $toolName = $icon.$actionHeader.$toolName;
         $sharedQuestionId = $formData['shared_question_id'] ?? null;
 
+        $hrMode = !empty($_GET['hr_mode']) || !empty($_POST['hr_mode']);
+        $hrCatVal = Security::remove_XSS($_GET['hr_category'] ?? ($_POST['hr_category'] ?? ''));
         $url = api_get_self().
-            '?action='.$action.'&type='.$type.'&survey_id='.$surveyId.'&question_id='.$questionId.'&'.api_get_cidreq();
+            '?action='.$action.'&type='.$type.'&survey_id='.$surveyId.'&question_id='.$questionId.'&'.($hrMode ? 'hr_mode=1&hr_category='.urlencode($hrCatVal) : api_get_cidreq());
         $form = new FormValidator('question_form', 'post', $url);
         $form->addHeader($toolName);
         if (!empty($questionComment)) {
@@ -499,7 +503,9 @@ class survey_question
             $result = SurveyManager::saveQuestion($survey, $formData, true, $dataFromDatabase);
             if (false === $result['error']) {
                 Display::addFlash(Display::return_message($result['message']));
-                $url = api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$survey->getIid().'&'.api_get_cidreq();
+                $hrMode = !empty($_GET['hr_mode']) || !empty($_POST['hr_mode']);
+                $hrCatVal = Security::remove_XSS($_GET['hr_category'] ?? ($_POST['hr_category'] ?? ''));
+                $url = api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$survey->getIid().'&'.($hrMode ? 'hr_mode=1&hr_category='.urlencode($hrCatVal) : api_get_cidreq());
                 header('Location: '.$url);
                 exit;
             }

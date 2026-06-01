@@ -16,6 +16,9 @@ use Chamilo\CoreBundle\Framework\Container;
 
 require_once __DIR__.'/../inc/global.inc.php';
 
+$hrMode = !empty($_GET['hr_mode']) || !empty($_POST['hr_mode']);
+$hrCategory = Security::remove_XSS($_GET['hr_category'] ?? ($_POST['hr_category'] ?? ''));
+
 $repo = Container::getSurveyRepository();
 
 $_course = api_get_course_info();
@@ -24,7 +27,11 @@ $table_gradebook_link = Database::get_main_table(TABLE_MAIN_GRADEBOOK_LINK);
 
 /** @todo this has to be moved to a more appropriate place (after the display_header of the code) */
 // If user is not teacher or if he's a coach trying to access an element out of his session
-if (!api_is_allowed_to_edit()) {
+if ($hrMode) {
+    if (!api_is_platform_admin()) {
+        api_not_allowed(true);
+    }
+} elseif (!api_is_allowed_to_edit()) {
     if (!api_is_session_general_coach() ||
         (!empty($_GET['survey_id']) &&
             !api_is_element_in_the_session(TOOL_SURVEY, $_GET['survey_id']))
@@ -45,23 +52,48 @@ $gradebook_link_type = 8;
 $urlname = isset($survey_data['title']) ? strip_tags($survey_data['title']) : null;
 
 // Breadcrumbs
+if ($hrMode) {
+    $hrCategoryLabel = match ($hrCategory) {
+        'work_climate' => get_lang('Work climate surveys'),
+        'training_need' => get_lang('Training needs assessment'),
+        default => get_lang('HR Surveys'),
+    };
+    $hrCategoryUrl = match ($hrCategory) {
+        'work_climate' => api_get_path(WEB_PATH).'surveys-list/work-climate',
+        'training_need' => api_get_path(WEB_PATH).'surveys-list/training-need-assessments',
+        default => api_get_path(WEB_PATH),
+    };
+    $interbreadcrumb[] = ['url' => api_get_path(WEB_PATH).'main/admin/index.php', 'name' => get_lang('Administration')];
+    $interbreadcrumb[] = ['url' => $hrCategoryUrl, 'name' => $hrCategoryLabel];
+    if ('edit' === $action && is_numeric($survey_id)) {
+        $interbreadcrumb[] = [
+            'url' => api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$survey_id.'&hr_mode=1&hr_category='.urlencode($hrCategory),
+            'name' => Security::remove_XSS($urlname),
+        ];
+    }
+}
+
 if ('add' === $action) {
-    $interbreadcrumb[] = [
-        'url' => api_get_path(WEB_CODE_PATH).'survey/survey_list.php?'.api_get_cidreq(),
-        'name' => get_lang('Survey list'),
-    ];
     $tool_name = get_lang('Create survey');
+    if (!$hrMode) {
+        $interbreadcrumb[] = [
+            'url' => api_get_path(WEB_CODE_PATH).'survey/survey_list.php?'.api_get_cidreq(),
+            'name' => get_lang('Survey list'),
+        ];
+    }
 }
 if ('edit' === $action && is_numeric($survey_id)) {
-    $interbreadcrumb[] = [
-        'url' => api_get_path(WEB_CODE_PATH).'survey/survey_list.php?'.api_get_cidreq(),
-        'name' => get_lang('Survey list'),
-    ];
-    $interbreadcrumb[] = [
-        'url' => api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$survey_id.'&'.api_get_cidreq(),
-        'name' => Security::remove_XSS($urlname),
-    ];
     $tool_name = get_lang('Edit survey');
+    if (!$hrMode) {
+        $interbreadcrumb[] = [
+            'url' => api_get_path(WEB_CODE_PATH).'survey/survey_list.php?'.api_get_cidreq(),
+            'name' => get_lang('Survey list'),
+        ];
+        $interbreadcrumb[] = [
+            'url' => api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$survey_id.'&'.api_get_cidreq(),
+            'name' => Security::remove_XSS($urlname),
+        ];
+    }
 }
 $gradebook_link_id = null;
 // Getting the default values
@@ -94,7 +126,7 @@ if ('edit' === $action && isset($survey_id) && is_numeric($survey_id)) {
         }
     }
 } else {
-    $defaults['survey_language'] = $_course['language'];
+    $defaults['survey_language'] = $hrMode ? api_get_language_isocode() : ($_course['language'] ?? api_get_language_isocode());
     $defaults['start_date'] = date('Y-m-d 00:00:00', api_strtotime(api_get_local_time()));
     $startdateandxdays = time() + 864000; // today + 10 days
     $defaults['end_date'] = date('Y-m-d 23:59:59', $startdateandxdays);
@@ -102,13 +134,19 @@ if ('edit' === $action && isset($survey_id) && is_numeric($survey_id)) {
 }
 
 // Initialize the object
+$cidreqStr = $hrMode ? 'hr_mode=1&hr_category='.urlencode($hrCategory) : api_get_cidreq();
 $form = new FormValidator(
     'survey',
     'post',
-    api_get_self().'?action='.$action.'&survey_id='.$survey_id.'&'.api_get_cidreq()
+    api_get_self().'?action='.$action.'&survey_id='.$survey_id.'&'.$cidreqStr
 );
 
 $form->addElement('header', $tool_name);
+
+if ($hrMode) {
+    $form->addElement('hidden', 'hr_mode', '1');
+    $form->addElement('hidden', 'hr_category', $hrCategory);
+}
 
 // Setting the form elements
 if ('edit' === $action && isset($survey_id) && is_numeric($survey_id)) {
@@ -186,9 +224,11 @@ $form->addElement(
 );
 
 $extraField = new ExtraField('survey');
-$extraField->addElements($form, $survey_id, ['group_id']);
+if (!$hrMode) {
+    $extraField->addElements($form, $survey_id, ['group_id']);
+}
 
-if ($extraField->get_handler_field_info_by_field_variable('group_id')) {
+if (!$hrMode && $extraField->get_handler_field_info_by_field_variable('group_id')) {
     $extraFieldValue = new ExtraFieldValue('survey');
     $groupData = $extraFieldValue->get_values_by_handler_and_field_variable($survey_id, 'group_id');
     $groupValue = [];
@@ -211,7 +251,7 @@ if ($extraField->get_handler_field_info_by_field_variable('group_id')) {
 $form->addButtonAdvancedSettings('advanced_params');
 $form->addElement('html', '<div id="advanced_params_options" style="display:none">');
 
-if (Gradebook::is_active()) {
+if (!$hrMode && Gradebook::is_active()) {
     // An option: Qualify the fact that survey has been answered in the gradebook
     $form->addCheckBox(
         'survey_qualify_gradebook',
@@ -247,18 +287,20 @@ $surveytypes[1] = get_lang('Conditional');
 
 if ('add' === $action) {
     $form->addHidden('survey_type', 0);
-    $qb = $repo->findAllByCourse(api_get_course_entity(), api_get_session_entity());
-    $surveys = $qb->getQuery()->getResult();
-    $surveyOptions[0] = '';
-    foreach ($surveys as $survey) {
-        try {
-            $surveyOptions[$survey->getIid()] = implode(' > ', $repo->getPath($survey));
-        } catch (\InvalidArgumentException) {
-            $surveyOptions[$survey->getIid()] = (string) $survey;
+    if (!$hrMode) {
+        $qb = $repo->findAllByCourse(api_get_course_entity(), api_get_session_entity());
+        $surveys = $qb->getQuery()->getResult();
+        $surveyOptions[0] = '';
+        foreach ($surveys as $survey) {
+            try {
+                $surveyOptions[$survey->getIid()] = implode(' > ', $repo->getPath($survey));
+            } catch (\InvalidArgumentException) {
+                $surveyOptions[$survey->getIid()] = (string) $survey;
+            }
         }
+        $form->addSelect('parent_id', get_lang('Parent Survey'), $surveyOptions);
+        $defaults['parent_id'] = 0;
     }
-    $form->addSelect('parent_id', get_lang('Parent Survey'), $surveyOptions);
-    $defaults['parent_id'] = 0;
 }
 
 $form->addElement('checkbox', 'one_question_per_page', null, get_lang('One question per page'));
@@ -353,7 +395,11 @@ if ($form->validate()) {
     $extraFieldValue->saveFieldValues($values);
 
     // Redirecting to the survey page (whilst showing the return message)
-    header('Location: '.api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$return['id'].'&'.api_get_cidreq());
+    if ($hrMode) {
+        header('Location: '.api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$return['id'].'&hr_mode=1');
+    } else {
+        header('Location: '.api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$return['id'].'&'.api_get_cidreq());
+    }
     exit;
 } else {
     // Displaying the header

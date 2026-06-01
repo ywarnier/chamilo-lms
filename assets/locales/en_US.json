@@ -2226,5 +2226,14 @@
     "{0} updated": "{0} updated",
     "{0} user-class links imported": "{0} user-class links imported",
     "{0}'s picture": "{0}'s picture",
-    "\u2014 select a language \u2014": "\u2014 select a language \u2014"
+    "\u2014 select a language \u2014": "\u2014 select a language \u2014",
+    "New survey": "New survey",
+    "Anonymous responses": "Anonymous responses",
+    "Available until": "Available until",
+    "Distributions": "Distributions",
+    "Survey deleted": "Survey deleted",
+    "Survey created": "Survey created",
+    "Survey updated": "Survey updated",
+    "Are you sure you want to delete this survey? All related distributions will also be removed.": "Are you sure you want to delete this survey? All related distributions will also be removed.",
+    "Edit questions": "Edit questions"
 }

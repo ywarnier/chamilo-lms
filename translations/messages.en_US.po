@@ -34980,3 +34980,27 @@ msgstr "Peace, Justice and Strong Institutions"
 
 msgid "Partnerships for the Goals"
 msgstr "Partnerships for the Goals"
+
+msgid "New survey"
+msgstr "New survey"
+
+msgid "Anonymous responses"
+msgstr "Anonymous responses"
+
+msgid "Available until"
+msgstr "Available until"
+
+msgid "Distributions"
+msgstr "Distributions"
+
+msgid "Survey deleted"
+msgstr "Survey deleted"
+
+msgid "Survey created"
+msgstr "Survey created"
+
+msgid "Survey updated"
+msgstr "Survey updated"
+
+msgid "Are you sure you want to delete this survey? All related distributions will also be removed."
+msgstr "Are you sure you want to delete this survey? All related distributions will also be removed."

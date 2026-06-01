@@ -6,11 +6,18 @@ declare(strict_types=1);
 
 namespace Chamilo\CourseBundle\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use Chamilo\CoreBundle\Entity\AbstractResource;
 use Chamilo\CoreBundle\Entity\ResourceInterface;
 use Chamilo\CoreBundle\Entity\ResourceShowCourseResourcesInSessionInterface;
+use Chamilo\CoreBundle\State\HrSurveyStateProcessor;
 use Chamilo\CourseBundle\Repository\CSurveyRepository;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -25,9 +32,22 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ApiResource(
     operations: [
         new GetCollection(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')"),
+        new Get(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')"),
+        new Post(
+            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
+            denormalizationContext: ['groups' => ['c_survey:write']],
+            processor: HrSurveyStateProcessor::class,
+        ),
+        new Put(
+            security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')",
+            denormalizationContext: ['groups' => ['c_survey:write']],
+            processor: HrSurveyStateProcessor::class,
+        ),
+        new Delete(security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_HR')"),
     ],
     normalizationContext: ['groups' => ['c_survey:read']],
 )]
+#[ApiFilter(SearchFilter::class, properties: ['hrCategory' => 'exact'])]
 #[ORM\Table(name: 'c_survey')]
 #[ORM\Index(columns: ['code'], name: 'idx_survey_code')]
 #[Gedmo\Tree(type: 'nested')]
@@ -41,23 +61,27 @@ class CSurvey extends AbstractResource implements ResourceInterface, ResourceSho
     protected ?int $iid = null;
 
     #[Assert\NotBlank]
+    #[Groups(['c_survey:write'])]
     #[ORM\Column(name: 'code', type: 'string', length: 40, nullable: true)]
     protected ?string $code = null;
 
     #[Assert\NotBlank]
-    #[Groups(['c_survey:read'])]
+    #[Groups(['c_survey:read', 'c_survey:write'])]
     #[ORM\Column(name: 'title', type: 'text', nullable: false)]
     protected string $title;
 
+    #[Groups(['c_survey:read', 'c_survey:write'])]
     #[ORM\Column(name: 'subtitle', type: 'text', nullable: true)]
     protected ?string $subtitle;
 
     #[ORM\Column(name: 'lang', type: 'string', length: 20, nullable: true)]
     protected ?string $lang;
 
+    #[Groups(['c_survey:read', 'c_survey:write'])]
     #[ORM\Column(name: 'avail_from', type: 'datetime', nullable: true)]
     protected ?DateTime $availFrom = null;
 
+    #[Groups(['c_survey:read', 'c_survey:write'])]
     #[ORM\Column(name: 'avail_till', type: 'datetime', nullable: true)]
     protected ?DateTime $availTill = null;
 
@@ -67,6 +91,7 @@ class CSurvey extends AbstractResource implements ResourceInterface, ResourceSho
     #[ORM\Column(name: 'template', type: 'string', length: 20, nullable: true)]
     protected ?string $template = null;
 
+    #[Groups(['c_survey:read', 'c_survey:write'])]
     #[ORM\Column(name: 'intro', type: 'text', nullable: true)]
     protected ?string $intro = null;
 
@@ -92,6 +117,7 @@ class CSurvey extends AbstractResource implements ResourceInterface, ResourceSho
     protected string $mailSubject;
 
     #[Assert\NotBlank]
+    #[Groups(['c_survey:read', 'c_survey:write'])]
     #[ORM\Column(name: 'anonymous', type: 'string', length: 10, nullable: false)]
     protected string $anonymous;
 
@@ -169,6 +195,10 @@ class CSurvey extends AbstractResource implements ResourceInterface, ResourceSho
 
     #[ORM\Column(name: 'duration', type: 'integer', nullable: true)]
     protected ?int $duration = null;
+
+    #[Groups(['c_survey:read', 'c_survey:write'])]
+    #[ORM\Column(name: 'hr_category', type: 'string', length: 32, nullable: true)]
+    private ?string $hrCategory = null;
 
     public function __construct()
     {
@@ -669,6 +699,18 @@ class CSurvey extends AbstractResource implements ResourceInterface, ResourceSho
     public function setDisplayQuestionNumber(bool $displayQuestionNumber): static
     {
         $this->displayQuestionNumber = $displayQuestionNumber;
+
+        return $this;
+    }
+
+    public function getHrCategory(): ?string
+    {
+        return $this->hrCategory;
+    }
+
+    public function setHrCategory(?string $hrCategory): self
+    {
+        $this->hrCategory = $hrCategory;
 
         return $this;
     }

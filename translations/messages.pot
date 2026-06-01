@@ -34950,3 +34950,27 @@ msgstr ""
 
 msgid "Partnerships for the Goals"
 msgstr ""
+
+msgid "New survey"
+msgstr ""
+
+msgid "Anonymous responses"
+msgstr ""
+
+msgid "Available until"
+msgstr ""
+
+msgid "Distributions"
+msgstr ""
+
+msgid "Survey deleted"
+msgstr ""
+
+msgid "Survey created"
+msgstr ""
+
+msgid "Survey updated"
+msgstr ""
+
+msgid "Are you sure you want to delete this survey? All related distributions will also be removed."
+msgstr ""
