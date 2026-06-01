@@ -14,8 +14,15 @@ require_once __DIR__.'/../inc/global.inc.php';
 
 //$htmlHeadXtra[] = '<script>'.api_get_language_translate_html().'</script>';
 
+$hrMode = !empty($_GET['hr_mode']) || !empty($_POST['hr_mode']);
+$hrCategory = Security::remove_XSS($_GET['hr_category'] ?? ($_POST['hr_category'] ?? ''));
+
 /** @todo this has to be moved to a more appropriate place (after the display_header of the code)*/
-if (!api_is_allowed_to_edit(false, true)) {
+if ($hrMode) {
+    if (!api_is_platform_admin()) {
+        api_not_allowed(true);
+    }
+} elseif (!api_is_allowed_to_edit(false, true)) {
     api_not_allowed(true);
 }
 
@@ -47,12 +54,27 @@ if (1 == $surveyData['survey_type']) {
     }
 }
 
-$surveyUrl = api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$surveyId.'&'.api_get_cidreq();
+$surveyUrl = api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$surveyId.'&'.($hrMode ? 'hr_mode=1&hr_category='.urlencode($hrCategory) : api_get_cidreq());
 
-$interbreadcrumb[] = [
-    'url' => api_get_path(WEB_CODE_PATH).'survey/survey_list.php?'.api_get_cidreq(),
-    'name' => get_lang('Survey list'),
-];
+if ($hrMode) {
+    $hrCategoryLabel = match ($hrCategory) {
+        'work_climate' => get_lang('Work climate surveys'),
+        'training_need' => get_lang('Training needs assessment'),
+        default => get_lang('HR Surveys'),
+    };
+    $hrCategoryUrl = match ($hrCategory) {
+        'work_climate' => api_get_path(WEB_PATH).'surveys-list/work-climate',
+        'training_need' => api_get_path(WEB_PATH).'surveys-list/training-need-assessments',
+        default => api_get_path(WEB_PATH),
+    };
+    $interbreadcrumb[] = ['url' => api_get_path(WEB_PATH).'main/admin/index.php', 'name' => get_lang('Administration')];
+    $interbreadcrumb[] = ['url' => $hrCategoryUrl, 'name' => $hrCategoryLabel];
+} else {
+    $interbreadcrumb[] = [
+        'url' => api_get_path(WEB_CODE_PATH).'survey/survey_list.php?'.api_get_cidreq(),
+        'name' => get_lang('Survey list'),
+    ];
+}
 $interbreadcrumb[] = [
     'url' => $surveyUrl,
     'name' => strip_tags($urlname),

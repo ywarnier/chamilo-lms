@@ -136,7 +136,7 @@ class SurveyManager
         $survey_id = (int) $survey_id;
         $table_survey = Database::get_course_table(TABLE_SURVEY);
 
-        if (empty($courseInfo) || empty($survey_id)) {
+        if (empty($survey_id)) {
             return [];
         }
 
@@ -190,6 +190,8 @@ class SurveyManager
     public static function store_survey($values)
     {
         $return = ['id' => 0];
+        $isHrMode = !empty($values['hr_mode']);
+        $hrCategory = $values['hr_category'] ?? '';
         $session_id = api_get_session_id();
         $table_survey = Database::get_course_table(TABLE_SURVEY);
         $shared_survey_id = 0;
@@ -264,9 +266,23 @@ class SurveyManager
                 ->setVisibleResults((int) ($values['visible_results'] ?? SURVEY_VISIBLE_TUTOR))
                 ->setSurveyType((int) ($values['survey_type'] ?? 0))
                 ->setOneQuestionPerPage($onePerPage)
-                ->setShuffle($shuffle)
-                ->setParent($course)
-                ->addCourseLink($course, $session);
+                ->setShuffle($shuffle);
+
+            if ($isHrMode) {
+                $em = Database::getManager();
+                $user = $em->getRepository(\Chamilo\CoreBundle\Entity\User::class)->find(api_get_user_id());
+                $userNode = $user?->getResourceNode();
+                if (null !== $userNode) {
+                    $survey->setParentResourceNode($userNode->getId());
+                }
+                if ('' !== $hrCategory) {
+                    $survey->setHrCategory($hrCategory);
+                }
+            } else {
+                $survey
+                    ->setParent($course)
+                    ->addCourseLink($course, $session);
+            }
 
             if (!empty($values['parent_id'])) {
                 $parent = $repo->find((int) $values['parent_id']);
