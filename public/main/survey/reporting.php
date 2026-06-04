@@ -14,6 +14,9 @@ use Chamilo\CourseBundle\Entity\CSurvey;
  */
 require_once __DIR__.'/../inc/global.inc.php';
 
+$hrMode = !empty($_GET['hr_mode']);
+$hrCategory = Security::remove_XSS($_GET['hr_category'] ?? '');
+
 $this_section = SECTION_COURSES;
 $surveyId = isset($_GET['survey_id']) ? (int) $_GET['survey_id'] : 0;
 $userId = $_GET['user_id'] ?? 0;
@@ -40,8 +43,14 @@ SurveyUtil::check_parameters($people_filled);
 
 $isDrhOfCourse = CourseManager::isUserSubscribedInCourseAsDrh(api_get_user_id(), api_get_course_info());
 
+$cidreqStr = $hrMode ? 'hr_mode=1&hr_category='.urlencode($hrCategory) : api_get_cidreq();
+
+if ($hrMode && !api_is_platform_admin()) {
+    api_not_allowed(true);
+}
+
 /** @todo this has to be moved to a more appropriate place (after the display_header of the code)*/
-if ($isDrhOfCourse || !api_is_allowed_to_edit(false, true)) {
+if (!$hrMode && ($isDrhOfCourse || !api_is_allowed_to_edit(false, true))) {
     // Show error message if the survey can be seen only by tutors
     if (SURVEY_VISIBLE_TUTOR == $survey->getVisibleResults()) {
         api_not_allowed(true);
@@ -93,12 +102,27 @@ if (api_strlen(strip_tags($survey->getTitle())) > 40) {
 }
 
 // Breadcrumbs
+if ($hrMode) {
+    $hrCategoryLabel = match ($hrCategory) {
+        'work_climate' => get_lang('Work climate surveys'),
+        'training_need' => get_lang('Training needs assessment'),
+        default => get_lang('HR Surveys'),
+    };
+    $hrCategoryUrl = match ($hrCategory) {
+        'work_climate' => api_get_path(WEB_PATH).'surveys-list/work-climate',
+        'training_need' => api_get_path(WEB_PATH).'surveys-list/training-need-assessments',
+        default => api_get_path(WEB_PATH),
+    };
+    $interbreadcrumb[] = ['url' => api_get_path(WEB_PATH).'main/admin/index.php', 'name' => get_lang('Administration')];
+    $interbreadcrumb[] = ['url' => $hrCategoryUrl, 'name' => $hrCategoryLabel];
+} else {
+    $interbreadcrumb[] = [
+        'url' => api_get_path(WEB_CODE_PATH).'survey/survey_list.php?'.api_get_cidreq(),
+        'name' => get_lang('Survey list'),
+    ];
+}
 $interbreadcrumb[] = [
-    'url' => api_get_path(WEB_CODE_PATH).'survey/survey_list.php?'.api_get_cidreq(),
-    'name' => get_lang('Survey list'),
-];
-$interbreadcrumb[] = [
-    'url' => api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$surveyId.'&'.api_get_cidreq(),
+    'url' => api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$surveyId.'&'.$cidreqStr,
     'name' => $urlname,
 ];
 
@@ -106,7 +130,7 @@ if ('overview' === $action) {
     $tool_name = get_lang('Reporting');
 } else {
     $interbreadcrumb[] = [
-        'url' => api_get_path(WEB_CODE_PATH).'survey/reporting.php?survey_id='.$surveyId.'&'.api_get_cidreq(),
+        'url' => api_get_path(WEB_CODE_PATH).'survey/reporting.php?survey_id='.$surveyId.'&'.$cidreqStr,
         'name' => get_lang('Reporting'),
     ];
     switch ($action) {
@@ -224,7 +248,7 @@ SurveyUtil::handleReportingActions($survey, $people_filled);
 
 if ('overview' === $action) {
     $html = null;
-    $url = api_get_path(WEB_CODE_PATH).'survey/reporting.php?'.api_get_cidreq().'&';
+    $url = api_get_path(WEB_CODE_PATH).'survey/reporting.php?'.$cidreqStr.'&';
 
     $html .= '<div class="survey-reports">';
     $html .= '<div class="list-group">';

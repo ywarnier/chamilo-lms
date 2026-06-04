@@ -13,10 +13,18 @@ use Chamilo\CourseBundle\Entity\CSurvey;
  */
 require_once __DIR__.'/../inc/global.inc.php';
 
-api_protect_course_script(true);
+$hrMode = !empty($_GET['hr_mode']);
+$hrCategory = Security::remove_XSS($_GET['hr_category'] ?? '');
 
-if (!api_is_allowed_to_edit()) {
-    api_not_allowed(true);
+if ($hrMode) {
+    if (!api_is_platform_admin()) {
+        api_not_allowed(true);
+    }
+} else {
+    api_protect_course_script(true);
+    if (!api_is_allowed_to_edit()) {
+        api_not_allowed(true);
+    }
 }
 
 $surveyId = (int) $_GET['survey_id'];
@@ -44,13 +52,29 @@ $allowRequiredSurveyQuestions = true;
 // -----------------------------------------------------------------------------
 // Breadcrumb
 // -----------------------------------------------------------------------------
+$cidreqStr = $hrMode ? 'hr_mode=1&hr_category='.urlencode($hrCategory) : api_get_cidreq();
+
+if ($hrMode) {
+    $hrCategoryLabel = match ($hrCategory) {
+        'work_climate' => get_lang('Work climate surveys'),
+        'training_need' => get_lang('Training needs assessment'),
+        default => get_lang('HR Surveys'),
+    };
+    $hrCategoryUrl = match ($hrCategory) {
+        'work_climate' => api_get_path(WEB_PATH).'surveys-list/work-climate',
+        'training_need' => api_get_path(WEB_PATH).'surveys-list/training-need-assessments',
+        default => api_get_path(WEB_PATH),
+    };
+    $interbreadcrumb[] = ['url' => api_get_path(WEB_PATH).'main/admin/index.php', 'name' => get_lang('Administration')];
+    $interbreadcrumb[] = ['url' => $hrCategoryUrl, 'name' => $hrCategoryLabel];
+} else {
+    $interbreadcrumb[] = [
+        'url' => api_get_path(WEB_CODE_PATH).'survey/survey_list.php?'.api_get_cidreq(),
+        'name' => get_lang('Survey list'),
+    ];
+}
 $interbreadcrumb[] = [
-    'url' => api_get_path(WEB_CODE_PATH).'survey/survey_list.php?'.api_get_cidreq(),
-    'name' => get_lang('Survey list'),
-];
-$interbreadcrumb[] = [
-    'url' => api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$surveyId.'&'.api_get_cidreq(),
-    // Strip HTML from the title safely
+    'url' => api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$surveyId.'&'.$cidreqStr,
     'name' => Security::remove_XSS(strip_tags($survey->getTitle())),
 ];
 
@@ -164,7 +188,7 @@ if (isset($_GET['show'])) {
 $numberOfPages = SurveyManager::getCountPages($survey);
 $show = isset($_GET['show']) ? (int) $_GET['show'] + 1 : 0;
 $originalShow = isset($_GET['show']) ? (int) $_GET['show'] : 0;
-$url = api_get_self().'?survey_id='.$surveyId.'&show='.$show.'&'.api_get_cidreq();
+$url = api_get_self().'?survey_id='.$surveyId.'&show='.$show.'&'.$cidreqStr;
 
 $form = new FormValidator('question-survey', 'post', $url, null, null, FormValidator::LAYOUT_HORIZONTAL);
 
@@ -240,7 +264,7 @@ if (
     && 1 === (int) $survey->getOneQuestionPerPage()
 ) {
     $prevShow = (int) $_GET['show'] - 1;
-    $prevUrl = api_get_self().'?survey_id='.$surveyId.'&show='.$prevShow.'&'.api_get_cidreq();
+    $prevUrl = api_get_self().'?survey_id='.$surveyId.'&show='.$prevShow.'&'.$cidreqStr;
 
     $form->addHtml(
         '<a href="'.$prevUrl.'" class="btn btn--plain-outline">
