@@ -180,9 +180,15 @@ class ExtraFieldValue extends Model
             switch ($extraFieldInfo['value_type']) {
                 case ExtraField::FIELD_TYPE_GEOLOCALIZATION_COORDINATES:
                 case ExtraField::FIELD_TYPE_GEOLOCALIZATION:
-                    if (!empty($value)) {
-                        if (isset($params['extra_'.$extraFieldInfo['variable'].'_coordinates'])) {
-                            $value = $value.'::'.$params['extra_'.$extraFieldInfo['variable'].'_coordinates'];
+                    // The address is optional: the frontend only submits
+                    // "extra_<variable>" when the address text was filled in,
+                    // so a coordinates-only entry must still be saved on its
+                    // own -- gating solely on $value (the address) silently
+                    // dropped it entirely.
+                    $coordinates = $params['extra_'.$extraFieldInfo['variable'].'_coordinates'] ?? '';
+                    if (!empty($value) || !empty($coordinates)) {
+                        if ('' !== $coordinates) {
+                            $value = $value.'::'.$coordinates;
                         }
                         $newParams = [
                             'item_id' => $params['item_id'],
