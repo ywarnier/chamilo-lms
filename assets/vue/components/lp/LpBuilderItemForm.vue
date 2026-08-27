@@ -21,7 +21,6 @@ const FIELD_TAG = 10
 
 const props = defineProps({
   context: { type: Object, required: true },
-  csrfToken: { type: String, required: true },
   item: { type: Object, required: true },
   lpId: { type: Number, required: true },
   parentOptions: { type: Array, required: true },
@@ -213,7 +212,6 @@ async function persistItem({ notify = true, emitSaved = true } = {}) {
         content: canEditContent.value ? String(form.content || "") : null,
         exportAllowed: showExportAllowed.value && Boolean(form.exportAllowed),
         extraFields: serializeExtraFields(),
-        csrfToken: props.csrfToken,
       },
       extraFieldFiles,
     )
@@ -256,7 +254,6 @@ async function generateQuickTest() {
       Number(props.item.id),
       props.context,
       {
-        csrfToken: props.csrfToken,
         provider: quickTestProvider.value,
       },
     )
@@ -325,6 +322,28 @@ async function generateQuickTest() {
       name="url"
     />
 
+    <BaseTinyEditor
+      v-if="canEditContent"
+      :editor-id="contentEditorId"
+      v-model="form.content"
+      :editor-config="contentEditorConfig"
+      :title="t('Content')"
+    />
+
+    <BaseCheckbox
+      v-if="showExportAllowed"
+      id="lp-builder-item-export-pdf"
+      v-model="form.exportAllowed"
+      :label="t('Export to PDF')"
+      name="exportAllowed"
+    />
+
+    <LpExtraFields
+      v-model="extraFieldValues"
+      :fields="item.extraFields || []"
+      @file-selected="onExtraFileSelected"
+    />
+
     <div
       v-if="canGenerateQuickTest"
       class="rounded-lg border border-gray-20 bg-gray-5 p-3"
@@ -353,28 +372,6 @@ async function generateQuickTest() {
         {{ t("The saved document content will be sent to an AI model for processing.") }}
       </p>
     </div>
-
-    <BaseTinyEditor
-      v-if="canEditContent"
-      :editor-id="contentEditorId"
-      v-model="form.content"
-      :editor-config="contentEditorConfig"
-      :title="t('Content')"
-    />
-
-    <BaseCheckbox
-      v-if="showExportAllowed"
-      id="lp-builder-item-export-pdf"
-      v-model="form.exportAllowed"
-      :label="t('Export to PDF')"
-      name="exportAllowed"
-    />
-
-    <LpExtraFields
-      v-model="extraFieldValues"
-      :fields="item.extraFields || []"
-      @file-selected="onExtraFileSelected"
-    />
 
     <div class="flex justify-end">
       <BaseButton

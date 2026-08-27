@@ -32,6 +32,7 @@ use Chamilo\CoreBundle\Repository\Node\IllustrationRepository;
 use Chamilo\CoreBundle\Repository\SequenceResourceRepository;
 use Chamilo\CoreBundle\Repository\TagRepository;
 use Chamilo\CoreBundle\Security\Authorization\Voter\CourseVoter;
+use Chamilo\CoreBundle\Security\CourseAccessResolver;
 use Chamilo\CoreBundle\Service\LearningPath\LearningPathAccessChecker;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CoreBundle\Tool\ToolChain;
@@ -116,7 +117,8 @@ class CourseController extends ToolBaseController
         LegalRepository $legalTermsRepo,
         LanguageRepository $languageRepository,
         ExtraFieldValuesRepository $extraFieldValuesRepository,
-        SettingsManager $settingsManager
+        SettingsManager $settingsManager,
+        CourseAccessResolver $courseAccessResolver,
     ): Response {
         $user = $this->userHelper->getCurrent();
         $course = $this->getCourse();
@@ -126,6 +128,26 @@ class CourseController extends ToolBaseController
             'redirect' => false,
             'url' => '#',
         ];
+
+        if (null !== $course) {
+            $coursePasswordAccepted = true === (bool) $request->getSession()->get(
+                'course_password_'.$course->getId(),
+                false
+            );
+            $session = $sid > 0 ? $this->em->find(Session::class, $sid) : null;
+
+            if (!$coursePasswordAccepted
+                && $courseAccessResolver->requiresRegistrationPassword($course, $user, $session)
+            ) {
+                return new JsonResponse([
+                    'redirect' => true,
+                    'url' => '/main/auth/set_temp_password.php?'.http_build_query([
+                        'course_id' => $course->getId(),
+                        'session_id' => $sid,
+                    ]),
+                ]);
+            }
+        }
 
         if ($user->isStudent()
             && 'true' === $settingsManager->getSetting('registration.allow_terms_conditions', true)
@@ -194,6 +216,13 @@ class CourseController extends ToolBaseController
                         Response::HTTP_BAD_REQUEST
                     );
                 }
+
+                // Reordering the course home is a teacher action: the drag &
+                // drop handle is only rendered when api_is_allowed_to_edit()
+                // grants it. Without this check the POST branch returns before
+                // reaching the GET flow's access check below, so any
+                // authenticated user could reorder any course's tools.
+                $this->denyAccessUnlessGranted(CourseVoter::EDIT, $course);
 
                 $sessionId = $this->getSessionId();
                 $toolId = (int) $requestData['toolId'];
@@ -874,21 +903,21 @@ class CourseController extends ToolBaseController
         SettingsCourseManager $manager,
         SettingsFormFactory $formFactory
     ): Response {
-        $this->denyAccessUnlessGranted(CourseVoter::VIEW, $course);
+        // Course settings are teacher material: VIEW would let any enrolled student in.
+        $user = $this->userHelper->getCurrent();
+        $canManageSettings = $this->isGranted('ROLE_ADMIN')
+            || ($user instanceof User && (
+                $course->hasUserAsTeacher($user)
+                || $this->isGranted('ROLE_CURRENT_COURSE_TEACHER')
+            ));
+
+        if (!$canManageSettings) {
+            throw $this->createAccessDeniedException('You are not allowed to manage the course settings.');
+        }
+
         $manager->setCourse($course);
 
         if ('wiki' === $namespace) {
-            $user = $this->userHelper->getCurrent();
-            $canManageWikiSettings = $this->isGranted('ROLE_ADMIN')
-                || ($user instanceof User && (
-                    $course->hasUserAsTeacher($user)
-                    || $this->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-                ));
-
-            if (!$canManageWikiSettings) {
-                throw $this->createAccessDeniedException('You are not allowed to manage Wiki settings.');
-            }
-
             if ($request->isMethod(Request::METHOD_GET)) {
                 $nodeId = $course->getResourceNode()?->getId();
                 if (null !== $nodeId) {
@@ -1613,7 +1642,7 @@ class CourseController extends ToolBaseController
         }
 
         $userId = (int) $user->getId();
-        $sessionId = (int) $request->query->get('sid', 0);
+        $sessionId = (int) $request->query->get('sid', '0');
 
         if (0 === $sessionId) {
             $this->denyAccessUnlessGranted(CourseVoter::VIEW, $course);
@@ -1747,8 +1776,8 @@ class CourseController extends ToolBaseController
         }
 
         $userId = (int) $user->getId();
-        $sessionId = (int) $request->query->get('sid', 0);
-        $limit = (int) $request->query->get('limit', 20);
+        $sessionId = (int) $request->query->get('sid', '0');
+        $limit = (int) $request->query->get('limit', '20');
         if ($limit <= 0) {
             $limit = 20;
         }
@@ -1806,8 +1835,11 @@ class CourseController extends ToolBaseController
                 } else {
                     $session_key = 'lp_autolaunch_'.$session_id.'_'.$course_id.'_'.api_get_user_id();
                     if (!isset($_SESSION[$session_key])) {
-                        // Redirecting to the LP
-                        $url = api_get_path(WEB_CODE_PATH).'lp/lp_controller.php?'.api_get_cidreq();
+                        // Redirecting to the migrated LP list.
+                        $url = $this->buildLearningPathVueToolUrl();
+                        if (null === $url) {
+                            $url = api_get_path(WEB_CODE_PATH).'lp/lp_controller.php?'.api_get_cidreq();
+                        }
                         $_SESSION[$session_key] = true;
                         header(\sprintf('Location: %s', $url));
 
@@ -1841,9 +1873,12 @@ class CourseController extends ToolBaseController
                         } else {
                             $session_key = 'lp_autolaunch_'.$session_id.'_'.api_get_course_int_id().'_'.api_get_user_id();
                             if (!isset($_SESSION[$session_key])) {
-                                // Redirecting to the LP
-                                $url = api_get_path(WEB_CODE_PATH).
-                                    'lp/lp_controller.php?'.api_get_cidreq().'&action=view&lp_id='.$lp_data['iid'];
+                                // Redirecting to the migrated LP runtime.
+                                $url = $this->buildLearningPathVueToolUrl((int) $lp_data['iid']);
+                                if (null === $url) {
+                                    $url = api_get_path(WEB_CODE_PATH).
+                                        'lp/lp_controller.php?'.api_get_cidreq().'&action=view&lp_id='.$lp_data['iid'];
+                                }
 
                                 $_SESSION[$session_key] = true;
                                 header(\sprintf('Location: %s', $url));
@@ -1968,6 +2003,38 @@ class CourseController extends ToolBaseController
                 )
             );
         }
+    }
+
+    private function buildLearningPathVueToolUrl(?int $lpId = null): ?string
+    {
+        $course = $this->getCourse();
+        if (!$course instanceof Course) {
+            $course = api_get_course_entity();
+        }
+
+        if (!$course instanceof Course || null === $course->getResourceNode()) {
+            return null;
+        }
+
+        $nodeId = $course->getResourceNode()->getId();
+        if (null === $nodeId) {
+            return null;
+        }
+
+        $path = '/resources/lp/'.(int) $nodeId.'/';
+        if (null !== $lpId && $lpId > 0) {
+            $path .= $lpId.'/runtime';
+        }
+
+        $query = http_build_query([
+            'cid' => (int) api_get_course_int_id(),
+            'sid' => (int) api_get_session_id(),
+            'gid' => (int) api_get_group_id(),
+            'origin' => 'learnpath',
+            'isStudentView' => 'true',
+        ]);
+
+        return rtrim(api_get_path(WEB_PATH), '/').$path.'?'.$query;
     }
 
     private function buildExerciseVueToolUrl(?int $exerciseId = null): ?string

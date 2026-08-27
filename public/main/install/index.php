@@ -295,7 +295,7 @@ if (isset($_POST['step2_install']) || isset($_POST['step2_update_8']) || isset($
             $proposedUpdatePath = api_add_trailing_slash(empty($_POST['updatePath']) ? api_get_path(SYMFONY_SYS_PATH) : $_POST['updatePath']);
 
             if (file_exists($proposedUpdatePath)) {
-                if (in_array($my_old_version, $upgradeFromVersion)) {
+                if (1 === preg_match('/^1\.11\.\d+$/', (string) $my_old_version)) {
                     $_POST['step2'] = 1;
                 } else {
                     $badUpdatePath = true;
@@ -334,7 +334,20 @@ if (!isset($_GET['running'])) {
     }
 
     $loginForm = 'admin';
-    $passForm = api_generate_password(12, false);
+    // CHAMILO_INSTALLER_DEFAULT_ADMIN_PASSWORD is a server-side-only escape
+    // hatch for automated test installs (set via Apache's SetEnv in the
+    // CI-only .github/gh-apache vhost, never reachable via any request
+    // parameter) so a deterministic admin password can be asserted
+    // afterward instead of an unpredictable generated one. Checks $_SERVER
+    // as well as getenv(): under mod_php specifically, getenv() doesn't
+    // reliably see values Apache sets via SetEnv, while $_SERVER does.
+    // Falls back to the normal random generation whenever neither is set,
+    // i.e. for every real install.
+    $defaultAdminPassword = getenv('CHAMILO_INSTALLER_DEFAULT_ADMIN_PASSWORD');
+    if (false === $defaultAdminPassword || '' === $defaultAdminPassword) {
+        $defaultAdminPassword = $_SERVER['CHAMILO_INSTALLER_DEFAULT_ADMIN_PASSWORD'] ?? '';
+    }
+    $passForm = '' !== $defaultAdminPassword ? $defaultAdminPassword : api_generate_password(12, false);
     $institutionUrlForm = 'https://chamilo.org';
     $checkEmailByHashSent = 0;
     $userMailCanBeEmpty = 1;
@@ -363,15 +376,15 @@ $total_steps = 7;
 $current_step = 1;
 if (!$_POST) {
     $current_step = 1;
-} elseif ($httpRequest->request->get('language_list') || !empty($_POST['step1']) || ((!empty($_POST['step2_update_8']) || (!empty($_POST['step2_update_6']))) && ($emptyUpdatePath || $badUpdatePath))) {
+} elseif ($httpRequest->request->get('language_list') || !empty($_POST['step1']) || ((isset($_POST['step2_update_8']) || isset($_POST['step2_update_6'])) && ($emptyUpdatePath || $badUpdatePath))) {
     $current_step = 2;
-} elseif (!empty($_POST['step2']) || (!empty($_POST['step2_update_8']) || (!empty($_POST['step2_update_6'])))) {
+} elseif (!empty($_POST['step2']) || (isset($_POST['step2_update_8']) || isset($_POST['step2_update_6']))) {
     $current_step = 3;
-} elseif (!empty($_POST['step3'])) {
+} elseif (isset($_POST['step3'])) {
     $current_step = 4;
-} elseif (!empty($_POST['step4'])) {
+} elseif (isset($_POST['step4'])) {
     $current_step = 5;
-} elseif (!empty($_POST['step5'])) {
+} elseif (isset($_POST['step5'])) {
     $current_step = 6;
 } elseif (isset($_POST['step6'])) {
     $current_step = 7;
@@ -902,7 +915,8 @@ function getEncoreAssetFromManifest(string $assetName): ?string
 }
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $installationLanguage ?>" class="no-js h-100">
+<?php $escapedInstallationLanguage = htmlspecialchars($installationLanguage, ENT_QUOTES, 'UTF-8'); ?>
+<html lang="<?php echo $escapedInstallationLanguage ?>" data-lang="<?php echo $escapedInstallationLanguage ?>" class="no-js h-100">
 <head>
     <title>
         &mdash; <?php echo $translator->trans('Chamilo installation').' &mdash; '.$translator->trans('Version').' '.$new_version; ?>
@@ -949,7 +963,7 @@ function getEncoreAssetFromManifest(string $assetName): ?string
 <body class="flex min-h-screen p-2 md:px-16 md:py-8 xl:px-32 xl:py-16 bg-gradient-to-br from-primary to-primary-gradient">
 <div id="app" class="m-auto"></div>
 <script>
-  var installerData = <?php echo json_encode($installerData) ?>;
+  var installerData = <?php echo json_encode($installerData, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>;
 </script>
 <script type="text/javascript" src="<?php echo getEncoreAssetFromManifest('public/build/runtime.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo getEncoreAssetFromManifest('public/build/vue_installer.js'); ?>"></script>

@@ -9,6 +9,8 @@ namespace Chamilo\CoreBundle\State\CourseProgress;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\CourseProgressHelper;
 use Chamilo\CoreBundle\Repository\ResourceLinkRepository;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CThematic;
@@ -27,8 +29,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 use const COURSEMANAGERLOWSECURITY;
@@ -37,19 +37,18 @@ use const ENT_SUBSTITUTE;
 
 final readonly class CourseProgressCsvManager
 {
-    use CourseProgressAccessHelperTrait;
-
     private const int MAX_FILE_SIZE = 5_242_880;
     private const int MAX_ROWS = 10_000;
     private const int MAX_PLAN_ITEMS_PER_THEMATIC = 100;
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private EntityManagerInterface $entityManager,
         private CThematicRepository $thematicRepository,
         private ResourceLinkRepository $resourceLinkRepository,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private CourseProgressHelper $courseProgressHelper,
     ) {}
 
     public function export(Request $request): StreamedResponse
@@ -91,7 +90,6 @@ final readonly class CourseProgressCsvManager
     public function import(Request $request): array
     {
         [$course, $session] = $this->resolveWritableContext($request);
-        $this->validateCsrfToken((string) $request->request->get('csrfToken', ''));
 
         $file = $request->files->get('file');
         if (!$file instanceof UploadedFile || !$file->isValid()) {
@@ -176,20 +174,12 @@ final readonly class CourseProgressCsvManager
      */
     private function resolveWritableContext(Request $request): array
     {
-        $course = $this->getCourseProgressCourse($request, $this->entityManager);
-        $this->assertCourseProgressToolEnabled($this->entityManager, $course);
-        $session = $this->getCourseProgressSession($request, $this->entityManager);
-        $this->assertSessionBelongsToCourse($session, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->courseProgressHelper->assertToolEnabled($course);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->courseProgressHelper->assertSessionBelongsToCourse($session, $course);
 
-        if ($this->isCourseProgressStudentView($request, (int) $course->getId())
-            || !$this->canManageCourseProgress(
-                $this->entityManager,
-                $this->security,
-                $this->settingsManager,
-                $course,
-                $session,
-            )
-        ) {
+        if (!$this->courseProgressHelper->canManage($course, $session)) {
             throw new AccessDeniedHttpException('You are not allowed to transfer course progress in this context.');
         }
 
@@ -430,20 +420,11 @@ final readonly class CourseProgressCsvManager
     private function removeCurrentContextThematics(Course $course, ?Session $session): void
     {
         foreach ($this->thematicRepository->getThematicListForCourse($course, $session) as $thematic) {
-            if (!$thematic instanceof CThematic || !$this->thematicBelongsToExactContext($thematic, $course, $session)) {
+            if (!$thematic instanceof CThematic || !$this->courseProgressHelper->thematicBelongsToExactContext($thematic, $course, $session)) {
                 continue;
             }
 
             $this->resourceLinkRepository->removeByResourceInContext($thematic, $course, $session);
-        }
-    }
-
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(
-            new CsrfToken(CourseProgressThematicProvider::CSRF_TOKEN_ID, $token),
-        )) {
-            throw new AccessDeniedHttpException('The security token is invalid.');
         }
     }
 

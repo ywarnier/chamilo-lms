@@ -224,12 +224,14 @@ import BaseUserAvatar from "../../components/basecomponents/BaseUserAvatar.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useNotification } from "../../composables/notification"
 import { useCourseSettings } from "../../store/courseSettingStore"
+import { useFormatDate } from "../../composables/formatDate"
 import { useIsAllowedToEdit } from "../../composables/userPermissions"
 import forumService from "../../services/forumService"
 import { useSecurityStore } from "../../store/securityStore"
 import { sanitizeHtml } from "../../utils/sanitizeHtml"
 
-const { t, d, locale } = useI18n()
+const { t, d } = useI18n()
+const { relativeDatetime } = useFormatDate()
 const route = useRoute()
 const router = useRouter()
 const notifications = useNotification()
@@ -237,7 +239,6 @@ const securityStore = useSecurityStore()
 const courseSettingsStore = useCourseSettings()
 const { isAllowedToEdit } = useIsAllowedToEdit({ coach: true, sessionCoach: true })
 
-const csrfToken = ref("")
 const isSubmitting = ref(false)
 const formSubmitted = ref(false)
 const forum = ref(null)
@@ -363,16 +364,6 @@ function isPostVisible(post) {
 
   return true === post.visible || 1 === post.visible || "1" === String(post.visible)
 }
-
-const relativeTimeFormatter = computed(() => {
-  try {
-    return new Intl.RelativeTimeFormat(locale.value || undefined, { numeric: "auto" })
-  } catch (error) {
-    console.error("Error creating relative time formatter:", error)
-
-    return null
-  }
-})
 
 function normalizeDateValue(value) {
   if (!value) {
@@ -502,24 +493,7 @@ function formatRelativeTime(value) {
     return ""
   }
 
-  const diffInSeconds = Math.round((date.getTime() - Date.now()) / 1000)
-  const units = [
-    { unit: "year", seconds: 31536000 },
-    { unit: "month", seconds: 2592000 },
-    { unit: "week", seconds: 604800 },
-    { unit: "day", seconds: 86400 },
-    { unit: "hour", seconds: 3600 },
-    { unit: "minute", seconds: 60 },
-    { unit: "second", seconds: 1 },
-  ]
-  const selected = units.find((item) => Math.abs(diffInSeconds) >= item.seconds) || units[units.length - 1]
-  const amount = Math.round(diffInSeconds / selected.seconds)
-
-  if (relativeTimeFormatter.value) {
-    return relativeTimeFormatter.value.format(amount, selected.unit)
-  }
-
-  return formatDate(value)
+  return relativeDatetime(date) ?? formatDate(value)
 }
 
 function isTeacherRole(item) {
@@ -552,10 +526,7 @@ function isFormValid() {
 }
 
 async function loadInitialData() {
-  const [threadPostsData, tokenResponse] = await Promise.all([
-    forumService.getThreadPosts(threadId.value, forumId.value, baseQuery.value),
-    forumService.getActionToken(),
-  ])
+  const threadPostsData = await forumService.getThreadPosts(threadId.value, forumId.value, baseQuery.value)
 
   forum.value = threadPostsData.forum
   thread.value = threadPostsData.thread
@@ -573,8 +544,6 @@ async function loadInitialData() {
   if (shouldQuote.value && quotedPost.value) {
     form.text = buildQuotedText(quotedPost.value)
   }
-
-  csrfToken.value = tokenResponse.token || ""
 }
 
 async function submitReply() {
@@ -602,7 +571,6 @@ async function submitReply() {
       postNotification: showPostNotification.value && form.postNotification,
       giveRevision: isGivingRevision.value,
       revisionLanguage: "1",
-      csrfToken: csrfToken.value,
       attachments: allowAttachments.value ? form.attachments : [],
     })
 

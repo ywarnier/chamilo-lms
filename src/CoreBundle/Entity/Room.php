@@ -26,6 +26,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ApiResource(
     operations: [
         new GetCollection(
+            security: "is_granted('IS_AUTHENTICATED_FULLY')",
             normalizationContext: ['groups' => ['room:list']],
         ),
         new Get(
@@ -132,10 +133,7 @@ class Room
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -171,10 +169,7 @@ class Room
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getGeolocation()
+    public function getGeolocation(): ?string
     {
         return $this->geolocation;
     }
@@ -186,10 +181,7 @@ class Room
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getIp()
+    public function getIp(): ?string
     {
         return $this->ip;
     }
@@ -201,10 +193,7 @@ class Room
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getIpMask()
+    public function getIpMask(): ?string
     {
         return $this->ipMask;
     }

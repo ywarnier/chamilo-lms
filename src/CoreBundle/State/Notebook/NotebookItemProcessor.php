@@ -11,6 +11,8 @@ use ApiPlatform\Metadata\Put;
 use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\ApiResource\Notebook\NotebookItem;
 use Chamilo\CoreBundle\Entity\Language;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
 use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CNotebook;
@@ -18,11 +20,8 @@ use Chamilo\CourseBundle\Repository\CNotebookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Security as LegacySecurity;
 use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 use const COURSEMANAGERLOWSECURITY;
 use const ENT_QUOTES;
@@ -36,14 +35,13 @@ final readonly class NotebookItemProcessor implements ProcessorInterface
     use NotebookAccessHelperTrait;
 
     public function __construct(
-        private RequestStack $requestStack,
+        private CidReqHelper $cidReqHelper,
         private EntityManagerInterface $entityManager,
         private CNotebookRepository $notebookRepository,
         private Security $security,
         private UserHelper $userHelper,
         private SettingsManager $settingsManager,
-        private NotebookWriteProtection $writeProtection,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private StudentViewHelper $studentViewHelper,
     ) {}
 
     /**
@@ -56,13 +54,8 @@ final readonly class NotebookItemProcessor implements ProcessorInterface
             throw new BadRequestHttpException('The request payload is invalid.');
         }
 
-        $request = $this->requestStack->getCurrentRequest();
-        if (!$request instanceof Request) {
-            throw new BadRequestHttpException('The current request is required.');
-        }
-
-        $course = $this->getNotebookCourse($this->entityManager, $request);
-        $session = $this->getNotebookSession($this->entityManager, $request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $this->assertNotebookSessionBelongsToCourse($session, $course);
 
         if (!$this->canReadNotebook(
@@ -75,7 +68,7 @@ final readonly class NotebookItemProcessor implements ProcessorInterface
             throw new AccessDeniedHttpException('You are not allowed to view Notebook in this context.');
         }
 
-        $studentView = $this->isNotebookStudentView($request);
+        $studentView = $this->studentViewHelper->isActive();
         if (!$this->canWriteNotebook(
             $this->entityManager,
             $this->security,
@@ -87,8 +80,6 @@ final readonly class NotebookItemProcessor implements ProcessorInterface
         )) {
             throw new AccessDeniedHttpException('Notebook is read-only in this context.');
         }
-
-        $this->writeProtection->assertWriteAllowed($data->csrfToken);
 
         $title = trim(strip_tags($data->title));
         if ('' === $title) {
@@ -191,7 +182,6 @@ final readonly class NotebookItemProcessor implements ProcessorInterface
         $item->title = (string) $note->getTitle();
         $item->content = (string) $note->getDescription();
         $item->language = null !== $language ? (string) $language->getIsocode() : '';
-        $item->csrfToken = (string) $this->csrfTokenManager->getToken(NotebookItemProvider::CSRF_TOKEN_ID);
         $item->canWrite = true;
         $item->isNew = false;
 

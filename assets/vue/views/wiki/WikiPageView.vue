@@ -1,5 +1,7 @@
 <template>
   <section class="space-y-6">
+    <SectionHeader :title="t('Wiki')" />
+
     <BaseToolbar class="border-b border-gray-25 bg-white">
       <template #start>
         <div class="flex items-center gap-2">
@@ -438,6 +440,8 @@ import BaseCard from "../../components/basecomponents/BaseCard.vue";
 import BaseIcon from "../../components/basecomponents/BaseIcon.vue";
 import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue";
 import wikiService from "../../services/wikiService";
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 
 const { t } = useI18n();
 const route = useRoute();
@@ -525,7 +529,6 @@ function createEmptyPage() {
     canManageCategories: false,
     canManageSettings: false,
     categories: [],
-    managementCsrfToken: "",
   };
 }
 
@@ -548,9 +551,6 @@ function getSharedQuery() {
     query.gid = gid;
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    query.isStudentView = getQueryValue(route.query.isStudentView);
-  }
 
   return query;
 }
@@ -713,26 +713,14 @@ async function executeManagementAction(action, successText) {
 
 function changeVisibility() {
   return executeManagementAction(
-    () =>
-      wikiService.setPageVisibility(
-        Number(wikiPage.pageId),
-        !wikiPage.visible,
-        getContextParams(),
-        wikiPage.managementCsrfToken,
-      ),
+    () => wikiService.setPageVisibility(Number(wikiPage.pageId), !wikiPage.visible, getContextParams()),
     wikiPage.visible ? "The page is now hidden" : "The page is now visible",
   );
 }
 
 function changeProtection() {
   return executeManagementAction(
-    () =>
-      wikiService.setPageProtection(
-        Number(wikiPage.pageId),
-        !wikiPage.editLocked,
-        getContextParams(),
-        wikiPage.managementCsrfToken,
-      ),
+    () => wikiService.setPageProtection(Number(wikiPage.pageId), !wikiPage.editLocked, getContextParams()),
     wikiPage.editLocked ? "The page is now unlocked" : "The page is now locked",
   );
 }
@@ -740,11 +728,7 @@ function changeProtection() {
 function changeAddLock() {
   return executeManagementAction(
     () =>
-      wikiService.setContextAddLock(
-        !wikiPage.addLocked,
-        getContextParams(),
-        wikiPage.managementCsrfToken,
-      ),
+      wikiService.setContextAddLock(!wikiPage.addLocked, getContextParams()),
     wikiPage.addLocked
       ? "New Wiki pages are now allowed"
       : "New Wiki pages are now blocked",
@@ -753,13 +737,7 @@ function changeAddLock() {
 
 function changeSubscription() {
   return executeManagementAction(
-    () =>
-      wikiService.setPageSubscription(
-        Number(wikiPage.pageId),
-        !wikiPage.subscribed,
-        getContextParams(),
-        wikiPage.managementCsrfToken,
-      ),
+    () => wikiService.setPageSubscription(Number(wikiPage.pageId), !wikiPage.subscribed, getContextParams()),
     wikiPage.subscribed
       ? "Wiki notifications disabled"
       : "Wiki notifications enabled",
@@ -785,11 +763,7 @@ async function deletePage() {
   errorMessage.value = "";
 
   try {
-    await wikiService.deletePage(
-      Number(wikiPage.pageId),
-      getContextParams(),
-      wikiPage.managementCsrfToken,
-    );
+    await wikiService.deletePage(Number(wikiPage.pageId), getContextParams());
     await router.push(getReportRoute("all"));
   } catch (error) {
     console.error("Error deleting Wiki page", error);
@@ -865,11 +839,7 @@ async function exportToDocuments() {
   successMessage.value = "";
 
   try {
-    await wikiService.exportPageToDocuments(
-      Number(wikiPage.pageId),
-      getContextParams(),
-      wikiPage.managementCsrfToken,
-    );
+    await wikiService.exportPageToDocuments(Number(wikiPage.pageId), getContextParams());
     successMessage.value = t("The page has been exported to the document tool");
   } catch (error) {
     console.error("Error exporting Wiki page to Documents", error);
@@ -948,6 +918,8 @@ async function loadPage() {
 
 onMounted(loadPage);
 
+useStudentViewRefresh(loadPage);
+
 watch(
   () => [
     route.params.node,
@@ -955,7 +927,6 @@ watch(
     route.query.sid,
     route.query.gid,
     route.query.title,
-    route.query.isStudentView,
   ],
   loadPage,
 );

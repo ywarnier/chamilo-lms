@@ -122,6 +122,13 @@
     </div>
 
     <div
+      v-else-if="loadError"
+      class="rounded-xl border border-danger bg-white p-6 text-center text-sm text-danger"
+    >
+      {{ t("Could not retrieve posts") }}
+    </div>
+
+    <div
       v-else-if="!posts.length"
       class="rounded-xl border border-gray-20 bg-white p-6 text-center text-sm text-gray-600"
     >
@@ -364,6 +371,31 @@
           </div>
         </div>
       </article>
+
+      <div class="flex items-center justify-center text-xs text-gray-500">
+        {{ posts.length }} / {{ totalItems }}
+      </div>
+
+      <div
+        v-if="hasMorePosts"
+        ref="loadMoreSentinel"
+        class="flex min-h-10 items-center justify-center"
+      >
+        <span
+          v-if="isLoadingMore"
+          class="text-sm text-gray-500"
+        >
+          {{ t("Loading") }}
+        </span>
+        <BaseButton
+          v-else-if="!supportsIntersectionObserver"
+          :label="t('Load more')"
+          icon="plus"
+          size="small"
+          type="plain"
+          @click="loadNextPage"
+        />
+      </div>
     </div>
 
     <BaseDialog
@@ -437,7 +469,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, reactive, ref } from "vue"
+import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref } from "vue"
 import { useI18n } from "vue-i18n"
 import { useRoute, useRouter } from "vue-router"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
@@ -451,11 +483,14 @@ import BaseUserAvatar from "../../components/basecomponents/BaseUserAvatar.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
+import { useFormatDate } from "../../composables/formatDate"
 import forumService from "../../services/forumService"
 import { useSecurityStore } from "../../store/securityStore"
 import { sanitizeHtml } from "../../utils/sanitizeHtml"
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
 
-const { t, d, locale } = useI18n()
+const { t, d } = useI18n()
+const { relativeDatetime } = useFormatDate()
 const route = useRoute()
 const router = useRouter()
 const notifications = useNotification()
@@ -463,13 +498,21 @@ const securityStore = useSecurityStore()
 const { requireConfirmation } = useConfirmation()
 
 const isLoading = ref(false)
+const isLoadingMore = ref(false)
+const loadError = ref(false)
 const isSavingEdit = ref(false)
 const isSavingMove = ref(false)
 const isLoadingMoveOptions = ref(false)
 const forum = ref(null)
 const thread = ref(null)
 const posts = ref([])
-const csrfToken = ref("")
+const currentPage = ref(1)
+const totalItems = ref(0)
+const totalPages = ref(0)
+const itemsPerPage = 25
+const loadMoreSentinel = ref(null)
+const supportsIntersectionObserver = typeof window !== "undefined" && "IntersectionObserver" in window
+let postObserver = null
 const editDialogVisible = ref(false)
 const moveDialogVisible = ref(false)
 const editFormSubmitted = ref(false)
@@ -498,7 +541,6 @@ const baseQuery = computed(() => ({
   sid: sid.value || null,
   gid: gid.value || null,
 }))
-const actionPayload = computed(() => ({ csrfToken: csrfToken.value }))
 const hasEditMessage = computed(() => stripTags(editForm.text).trim().length > 0)
 const viewType = ref(["flat", "threaded", "nested"].includes(String(route.query.view || "")) ? String(route.query.view) : "flat")
 const viewTypeOptions = computed(() => [
@@ -507,6 +549,9 @@ const viewTypeOptions = computed(() => [
   { label: t("Nested"), value: "nested" },
 ])
 const displayedPosts = computed(() => buildDisplayedPosts(posts.value, viewType.value))
+const hasMorePosts = computed(
+  () => currentPage.value < totalPages.value && posts.value.length < totalItems.value,
+)
 
 function sanitizePostText(value) {
   return sanitizeHtml(value || "")
@@ -675,16 +720,6 @@ function getAttachmentUrl(attachment) {
   return attachment.downloadUrl || attachment.contentUrl || attachment.url || "#"
 }
 
-const relativeTimeFormatter = computed(() => {
-  try {
-    return new Intl.RelativeTimeFormat(locale.value || undefined, { numeric: "auto" })
-  } catch (error) {
-    console.error("Error creating relative time formatter:", error)
-
-    return null
-  }
-})
-
 function normalizeDateValue(value) {
   if (!value) {
     return ""
@@ -813,24 +848,7 @@ function formatRelativeTime(value) {
     return ""
   }
 
-  const diffInSeconds = Math.round((date.getTime() - Date.now()) / 1000)
-  const units = [
-    { unit: "year", seconds: 31536000 },
-    { unit: "month", seconds: 2592000 },
-    { unit: "week", seconds: 604800 },
-    { unit: "day", seconds: 86400 },
-    { unit: "hour", seconds: 3600 },
-    { unit: "minute", seconds: 60 },
-    { unit: "second", seconds: 1 },
-  ]
-  const selected = units.find((item) => Math.abs(diffInSeconds) >= item.seconds) || units[units.length - 1]
-  const amount = Math.round(diffInSeconds / selected.seconds)
-
-  if (relativeTimeFormatter.value) {
-    return relativeTimeFormatter.value.format(amount, selected.unit)
-  }
-
-  return formatDate(value)
+  return relativeDatetime(date) ?? formatDate(value)
 }
 
 function isTeacherRole(item) {
@@ -876,36 +894,114 @@ function goBackToLearningPath() {
   })
 }
 
-async function ensureToken() {
-  if (csrfToken.value) {
+function disconnectPostObserver() {
+  if (postObserver) {
+    postObserver.disconnect()
+    postObserver = null
+  }
+}
+
+async function observeLoadMoreSentinel() {
+  disconnectPostObserver()
+
+  if (!supportsIntersectionObserver || !hasMorePosts.value) {
     return
   }
 
-  const tokenResponse = await forumService.getActionToken()
-  csrfToken.value = tokenResponse.token || ""
+  await nextTick()
+
+  if (!loadMoreSentinel.value) {
+    return
+  }
+
+  postObserver = new IntersectionObserver(
+    (entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        void loadNextPage()
+      }
+    },
+    { rootMargin: "400px 0px" },
+  )
+  postObserver.observe(loadMoreSentinel.value)
+}
+
+function updatePagination(data, requestedPage) {
+  currentPage.value = Number(data.page || requestedPage || 1)
+  totalItems.value = Number(data.totalItems || 0)
+  totalPages.value = Number(data.totalPages || 0)
+}
+
+function mergePosts(currentPosts, newPosts) {
+  const byId = new Map(currentPosts.map((post) => [Number(post.iid), post]))
+
+  newPosts.forEach((post) => {
+    byId.set(Number(post.iid), post)
+  })
+
+  return Array.from(byId.values())
 }
 
 async function loadPosts() {
+  disconnectPostObserver()
   isLoading.value = true
+  loadError.value = false
+  currentPage.value = 1
+  totalItems.value = 0
+  totalPages.value = 0
 
   try {
-    const [data, tokenResponse] = await Promise.all([
-      forumService.getThreadPosts(threadId.value, forumId.value, baseQuery.value),
-      forumService.getActionToken(),
-    ])
+    const data = await forumService.getThreadPosts(threadId.value, forumId.value, {
+      ...baseQuery.value,
+      page: 1,
+      itemsPerPage,
+    })
 
     forum.value = data.forum
     thread.value = { ...(data.thread || {}), canReply: Boolean(data.canReply) }
     posts.value = data.posts || []
+    updatePagination(data, 1)
     if (!route.query.view && forum.value?.defaultView) {
       viewType.value = ["flat", "threaded", "nested"].includes(forum.value.defaultView) ? forum.value.defaultView : "flat"
     }
-    csrfToken.value = tokenResponse.token || ""
   } catch (error) {
+    loadError.value = true
     console.error("Error fetching forum posts:", error)
     notifications.showErrorNotification(t("Could not retrieve posts"))
   } finally {
     isLoading.value = false
+    await observeLoadMoreSentinel()
+  }
+}
+
+async function loadNextPage() {
+  if (isLoading.value || isLoadingMore.value || !hasMorePosts.value) {
+    return
+  }
+
+  const nextPage = currentPage.value + 1
+  isLoadingMore.value = true
+  disconnectPostObserver()
+
+  try {
+    const data = await forumService.getThreadPosts(threadId.value, forumId.value, {
+      ...baseQuery.value,
+      page: nextPage,
+      itemsPerPage,
+    })
+
+    forum.value = data.forum || forum.value
+    thread.value = {
+      ...(data.thread || thread.value || {}),
+      canReply: Boolean(data.canReply ?? thread.value?.canReply),
+    }
+    posts.value = mergePosts(posts.value, data.posts || [])
+    updatePagination(data, nextPage)
+  } catch (error) {
+    console.error("Error fetching more forum posts:", error)
+    notifications.showErrorNotification(t("Could not retrieve posts"))
+  } finally {
+    isLoadingMore.value = false
+    await observeLoadMoreSentinel()
   }
 }
 
@@ -914,8 +1010,7 @@ async function toggleThreadVisibility() {
   const wasVisible = isThreadVisible(thread.value)
 
   try {
-    await ensureToken()
-    const response = await forumService.toggleThreadVisibility(threadId.value, baseQuery.value, { ...actionPayload.value, visible: !wasVisible })
+    const response = await forumService.toggleThreadVisibility(threadId.value, baseQuery.value, { visible: !wasVisible })
     if (thread.value) {
       thread.value.threadVisible = response.visible
     }
@@ -929,8 +1024,7 @@ async function toggleThreadVisibility() {
 
 async function toggleThreadLock() {
   try {
-    await ensureToken()
-    const response = await forumService.toggleThreadLock(threadId.value, baseQuery.value, actionPayload.value)
+    const response = await forumService.toggleThreadLock(threadId.value, baseQuery.value, {})
 
     notifications.showSuccessNotification(Number(response.locked || 0) ? t("Thread closed") : t("Thread opened"))
     await loadPosts()
@@ -942,8 +1036,7 @@ async function toggleThreadLock() {
 
 async function toggleThreadSticky() {
   try {
-    await ensureToken()
-    const response = await forumService.toggleThreadSticky(threadId.value, baseQuery.value, actionPayload.value)
+    const response = await forumService.toggleThreadSticky(threadId.value, baseQuery.value, {})
 
     notifications.showSuccessNotification(response.threadSticky ? t("Thread marked as sticky") : t("Thread unmarked as sticky"))
     await loadPosts()
@@ -960,9 +1053,7 @@ async function toggleThreadNotification() {
   }
 
   try {
-    await ensureToken()
     const response = await forumService.toggleThreadSubscription(threadId.value, baseQuery.value, {
-      ...actionPayload.value,
       subscribed: !thread.value.subscribed,
     })
 
@@ -984,8 +1075,7 @@ function confirmDeleteThread() {
 
 async function deleteThread() {
   try {
-    await ensureToken()
-    await forumService.deleteThread(threadId.value, baseQuery.value, actionPayload.value)
+    await forumService.deleteThread(threadId.value, baseQuery.value, {})
 
     notifications.showSuccessNotification(t("Thread deleted"))
     await router.push({ name: "ForumThreadList", params: { node: parentId.value, forumId: forumId.value }, query: route.query })
@@ -998,8 +1088,7 @@ async function deleteThread() {
 
 async function approvePost(post) {
   try {
-    await ensureToken()
-    const response = await forumService.approvePost(post.iid, baseQuery.value, actionPayload.value)
+    const response = await forumService.approvePost(post.iid, baseQuery.value, {})
     post.visible = response.visible
     post.status = response.status
     notifications.showSuccessNotification(t("Post approved"))
@@ -1019,8 +1108,7 @@ function confirmRejectPost(post) {
 
 async function rejectPost(post) {
   try {
-    await ensureToken()
-    const response = await forumService.rejectPost(post.iid, baseQuery.value, actionPayload.value)
+    const response = await forumService.rejectPost(post.iid, baseQuery.value, {})
     post.visible = response.visible
     post.status = response.status
     notifications.showSuccessNotification(t("Post rejected"))
@@ -1035,8 +1123,7 @@ async function togglePostVisibility(post) {
   const wasVisible = isPostVisible(post)
 
   try {
-    await ensureToken()
-    const response = await forumService.togglePostVisibility(post.iid, baseQuery.value, { ...actionPayload.value, visible: !wasVisible })
+    const response = await forumService.togglePostVisibility(post.iid, baseQuery.value, { visible: !wasVisible })
     post.visible = response.visible
     notifications.showSuccessNotification(response.visible ? t("Post shown") : t("Post hidden"))
     await loadPosts()
@@ -1064,9 +1151,7 @@ async function savePostEdit() {
   isSavingEdit.value = true
 
   try {
-    await ensureToken()
     await forumService.updatePost(editPost.value.iid, baseQuery.value, {
-      ...actionPayload.value,
       title: editForm.title.trim(),
       text: editForm.text.trim(),
     })
@@ -1091,8 +1176,7 @@ function confirmDeletePost(post) {
 
 async function deletePost(post) {
   try {
-    await ensureToken()
-    const response = await forumService.deletePost(post.iid, baseQuery.value, actionPayload.value)
+    const response = await forumService.deletePost(post.iid, baseQuery.value, {})
 
     notifications.showSuccessNotification(response.threadDeleted ? t("Thread deleted") : t("Post deleted"))
 
@@ -1145,9 +1229,7 @@ async function savePostMove() {
   isSavingMove.value = true
 
   try {
-    await ensureToken()
     const response = await forumService.movePost(movePost.value.iid, baseQuery.value, {
-      ...actionPayload.value,
       targetThreadId: Number(moveTargetThreadId.value),
     })
 
@@ -1174,8 +1256,7 @@ async function savePostMove() {
 
 async function askRevision(post) {
   try {
-    await ensureToken()
-    const response = await forumService.askPostRevision(post.iid, baseQuery.value, actionPayload.value)
+    const response = await forumService.askPostRevision(post.iid, baseQuery.value, {})
     post.revisionRequested = response.revisionRequested
     notifications.showSuccessNotification(response.revisionRequested ? t("Revision requested") : t("Revision request removed"))
     await loadPosts()
@@ -1194,8 +1275,7 @@ function confirmReportPost(post) {
 
 async function reportPost(post) {
   try {
-    await ensureToken()
-    await forumService.reportPost(post.iid, baseQuery.value, actionPayload.value)
+    await forumService.reportPost(post.iid, baseQuery.value, {})
     notifications.showSuccessNotification(t("Reported"))
   } catch (error) {
     console.error("Error reporting forum post:", error)
@@ -1212,8 +1292,7 @@ function confirmDeleteAttachment(attachment) {
 
 async function deleteAttachment(attachment) {
   try {
-    await ensureToken()
-    await forumService.deleteAttachment(attachment.iid || attachment.id, baseQuery.value, actionPayload.value)
+    await forumService.deleteAttachment(attachment.iid || attachment.id, baseQuery.value, {})
 
     notifications.showSuccessNotification(t("Attachment deleted"))
     await loadPosts()
@@ -1224,4 +1303,7 @@ async function deleteAttachment(attachment) {
 }
 
 onMounted(loadPosts)
+
+useStudentViewRefresh(loadPosts)
+onBeforeUnmount(disconnectPostObserver)
 </script>

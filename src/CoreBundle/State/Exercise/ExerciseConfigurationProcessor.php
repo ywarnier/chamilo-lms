@@ -13,13 +13,15 @@ use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ExtraField;
 use Chamilo\CoreBundle\Entity\ExtraFieldOptions;
 use Chamilo\CoreBundle\Entity\ExtraFieldValues;
-use Chamilo\CoreBundle\Entity\GradebookCategory;
-use Chamilo\CoreBundle\Entity\GradebookLink;
 use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\Skill;
 use Chamilo\CoreBundle\Entity\SkillRelItem;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
 use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\State\Gradebook\GradebookLinkResourceResolver;
 use Chamilo\CourseBundle\Entity\CLpItem;
 use Chamilo\CourseBundle\Entity\CQuiz;
 use Chamilo\CourseBundle\Entity\CQuizCategory;
@@ -34,13 +36,10 @@ use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 /**
@@ -52,19 +51,20 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
     private const FEEDBACK_TYPE_EXAM = 2;
     private const FEEDBACK_TYPE_POPUP = 3;
     private const FEEDBACK_TYPE_PROGRESSIVE_ADAPTIVE = 4;
-    private const LP_ITEM_TYPE_QUIZ = 'quiz';
-    private const CSRF_TOKEN_ID = 'exercise_configuration';
+    private const QUESTION_SELECTION_RANDOM = 2;
     private const MEDIA_QUESTION = 15;
     private const PAGE_BREAK = 31;
     private const SKILL_ITEM_TYPE_EXERCISE = 1;
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CQuizRepository $quizRepository,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private GradebookLinkManager $gradebookLinkManager,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -82,11 +82,9 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $this->validateCsrfToken($data->csrfToken);
-
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
-        if (!$this->canManageExercises()) {
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        if (!$this->isAllowedToEditHelper->check(coach: true)) {
             throw new AccessDeniedHttpException('You are not allowed to manage exercises in this context.');
         }
         $this->getLanguageFromCode($data->language);
@@ -104,7 +102,7 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
         $this->saveCategoryMatrix($quiz, $data);
         $this->saveExerciseSkills($quiz, $data, $course, $session);
         $this->saveExerciseExtraFields($quiz, $data);
-        $this->saveExerciseGradebookLink($quiz, $data, $course);
+        $this->saveExerciseGradebookLink($quiz, $data, $course, $session);
         $this->entityManager->flush();
 
         return $this->buildResponse($quiz, $course, $session);
@@ -171,12 +169,19 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
             $type = CQuiz::ONE_PER_PAGE;
         }
 
-        $lockLearningPathFields = $this->shouldLockFieldsForEdit($quiz);
-        $random = $lockLearningPathFields ? (int) $quiz->getRandom() : $this->normalizeRandomQuestionCount($data->random);
-        $maxAttempt = $lockLearningPathFields ? $quiz->getMaxAttempt() : max(0, $data->maxAttempt);
-        $propagateNeg = $lockLearningPathFields ? $quiz->getPropagateNeg() : ($data->propagateNeg ? 1 : 0);
-        $reviewAnswers = $lockLearningPathFields ? $quiz->getReviewAnswers() : ($data->reviewAnswers ? 1 : 0);
-        $expiredTime = $lockLearningPathFields ? $quiz->getExpiredTime() : max(0, $data->expiredTime);
+        $questionSelectionType = $this->normalizeQuestionSelectionType($data->questionSelectionType);
+        $random = 0;
+        $randomByCategory = 0;
+        if (self::QUESTION_SELECTION_RANDOM === $questionSelectionType) {
+            $random = $this->normalizeRandomQuestionCount($data->random);
+            if (0 !== $random) {
+                $randomByCategory = $this->normalizeRandomByCategory($data->randomByCategory);
+            }
+        }
+        $maxAttempt = max(0, $data->maxAttempt);
+        $propagateNeg = $data->propagateNeg ? 1 : 0;
+        $reviewAnswers = $data->reviewAnswers ? 1 : 0;
+        $expiredTime = max(0, $data->expiredTime);
 
         $quiz
             ->setTitle(trim($data->title))
@@ -188,7 +193,7 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
             ->setMaxAttempt($maxAttempt)
             ->setPassPercentage(max(0, min(100, $data->passPercentage)))
             ->setRandom($random)
-            ->setRandomByCategory($this->normalizeRandomByCategory($data->randomByCategory))
+            ->setRandomByCategory($randomByCategory)
             ->setRandomAnswers($data->randomAnswers)
             ->setShowPreviousButton($data->showPreviousButton)
             ->setPreventBackwards($data->preventBackwards ? 1 : 0)
@@ -199,7 +204,7 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
             ->setSound((string) $data->sound)
             ->setFeedbackType($feedbackType)
             ->setResultsDisabled($resultsDisabled)
-            ->setQuestionSelectionType($this->normalizeQuestionSelectionType($data->questionSelectionType))
+            ->setQuestionSelectionType($questionSelectionType)
             ->setDisplayCategoryName($data->displayCategoryName ? 1 : 0)
             ->setHideQuestionTitle($data->hideQuestionTitle)
             ->setHideQuestionNumber($data->hideQuestionNumber ? 1 : 0)
@@ -440,42 +445,6 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
         return $value;
     }
 
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
-    }
-
     private function isProgressiveAdaptiveSettingEnabled(): bool
     {
         $value = $this->entityManager->getConnection()->fetchOne(
@@ -496,13 +465,6 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
         return true === $value || 'true' === strtolower((string) $value) || '1' === (string) $value;
     }
 
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(self::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('Invalid CSRF token.');
-        }
-    }
-
     private function buildResponse(CQuiz $quiz, Course $course, ?Session $session): ExerciseConfiguration
     {
         $configuration = new ExerciseConfiguration();
@@ -518,7 +480,7 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
         $configuration->skillIds = $this->getSelectedSkillIds($quiz);
         $configuration->extraFieldValues = $this->getExerciseExtraFieldValues($quiz);
         $configuration->extraNotification = '';
-        $configuration->lockedFields = $this->getLockedFieldsForEdit($quiz);
+        $configuration->lockedFields = [];
         $configuration->startTime = $this->formatDateForInput($quiz->getStartTime());
         $configuration->endTime = $this->formatDateForInput($quiz->getEndTime());
         $configuration->duration = $quiz->getDuration();
@@ -554,7 +516,6 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
         $configuration->textWhenFinished = (string) $quiz->getTextWhenFinished();
         $configuration->textWhenFinishedFailure = (string) $quiz->getTextWhenFinishedFailure();
         $configuration->questionsUrl = $this->buildLegacyQuestionsUrl($quiz, $course, $session);
-        $configuration->csrfToken = (string) $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID);
         $configuration->settings = $this->getSettings();
         $configuration->options = $this->getOptions($course, $quiz);
         $configuration->canCreate = true;
@@ -595,82 +556,42 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
         return $language;
     }
 
-    private function saveExerciseGradebookLink(CQuiz $quiz, ExerciseConfiguration $data, Course $course): void
-    {
+    private function saveExerciseGradebookLink(
+        CQuiz $quiz,
+        ExerciseConfiguration $data,
+        Course $course,
+        ?Session $session,
+    ): void {
         $exerciseId = (int) ($quiz->getIid() ?? 0);
         if ($exerciseId <= 0) {
             return;
         }
 
-        $link = $this->getExerciseGradebookLink($exerciseId, $course);
         if (!$data->addToGradebook) {
-            if ($link instanceof GradebookLink && 1 !== (int) $link->getLocked()) {
-                $this->entityManager->remove($link);
-            }
+            $this->gradebookLinkManager->removeLinks(
+                $course,
+                $session,
+                GradebookLinkResourceResolver::LINK_EXERCISE,
+                $exerciseId,
+            );
 
             return;
         }
 
         if (null === $data->gradebookCategoryId || $data->gradebookCategoryId <= 0) {
-            return;
+            throw new BadRequestHttpException('A Gradebook category is required.');
         }
 
-        $category = $this->entityManager->createQueryBuilder()
-            ->select('category')
-            ->from(GradebookCategory::class, 'category')
-            ->andWhere('category.id = :categoryId')
-            ->andWhere('IDENTITY(category.course) = :courseId')
-            ->setParameter('categoryId', (int) $data->gradebookCategoryId, Types::INTEGER)
-            ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-
-        if (!$category instanceof GradebookCategory) {
-            return;
-        }
-
-        if (!$link instanceof GradebookLink) {
-            $link = new GradebookLink();
-            $link->setType(1);
-            $link->setRefId($exerciseId);
-            $link->setUserScoreList([]);
-            $link->setCourse($course);
-            $link->setCreatedAt(new DateTime());
-            $link->setLocked(0);
-        }
-
-        if (1 === (int) $link->getLocked()) {
-            return;
-        }
-
-        $link
-            ->setCategory($category)
-            ->setWeight((float) max(0, $data->gradebookWeight))
-            ->setVisible($data->gradebookVisible ? 1 : 0)
-        ;
-
-        $this->entityManager->persist($link);
-    }
-
-    private function getExerciseGradebookLink(int $exerciseId, Course $course): ?GradebookLink
-    {
-        $link = $this->entityManager->createQueryBuilder()
-            ->select('link')
-            ->from(GradebookLink::class, 'link')
-            ->andWhere('link.type = :type')
-            ->andWhere('link.refId = :exerciseId')
-            ->andWhere('IDENTITY(link.course) = :courseId')
-            ->setParameter('type', 1, Types::INTEGER)
-            ->setParameter('exerciseId', $exerciseId, Types::INTEGER)
-            ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-
-        return $link instanceof GradebookLink ? $link : null;
+        $this->gradebookLinkManager->upsertLink(
+            $course,
+            $session,
+            GradebookLinkResourceResolver::LINK_EXERCISE,
+            $exerciseId,
+            (int) $data->gradebookCategoryId,
+            max(0.0, (float) $data->gradebookWeight),
+            $data->gradebookVisible,
+            0.0,
+        );
     }
 
     private function updateLearningPathTitles(CQuiz $quiz, ExerciseConfiguration $data): void
@@ -698,50 +619,6 @@ final readonly class ExerciseConfigurationProcessor implements ProcessorInterfac
             $item->setTitle($quiz->getTitle());
             $this->entityManager->persist($item);
         }
-    }
-
-    /**
-     * Legacy freezes these fields only when the exercise is linked to a learning path
-     * and the platform does not explicitly allow editing it there.
-     *
-     * @return array<int, string>
-     */
-    private function getLockedFieldsForEdit(CQuiz $quiz): array
-    {
-        if (!$this->shouldLockFieldsForEdit($quiz)) {
-            return [];
-        }
-
-        return [
-            'random',
-            'maxAttempt',
-            'propagateNeg',
-            'enableTimeControl',
-            'expiredTime',
-            'reviewAnswers',
-        ];
-    }
-
-    private function shouldLockFieldsForEdit(CQuiz $quiz): bool
-    {
-        if (
-            null === $quiz->getIid()
-            || $this->isSettingEnabled('lp.force_edit_exercise_in_lp')
-        ) {
-            return false;
-        }
-
-        return null !== $this->entityManager->createQueryBuilder()
-            ->select('lpItem.iid')
-            ->from(CLpItem::class, 'lpItem')
-            ->andWhere('lpItem.itemType = :itemType')
-            ->andWhere('lpItem.path = :exerciseId OR lpItem.ref = :exerciseId')
-            ->setParameter('itemType', self::LP_ITEM_TYPE_QUIZ, Types::STRING)
-            ->setParameter('exerciseId', (string) $quiz->getIid(), Types::STRING)
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
     }
 
     private function saveCategoryMatrix(CQuiz $quiz, ExerciseConfiguration $data): void

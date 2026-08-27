@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\ApiResource\LearningPath;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
 use Chamilo\CoreBundle\State\LearningPath\LearningPathManagementProcessor;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Attribute\Groups;
@@ -23,6 +24,21 @@ use Symfony\Component\Serializer\Attribute\Groups;
             output: false,
             read: false,
             name: 'manage_learning_path',
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: LearningPathManagementProcessor::class,
         ),
     ],
@@ -40,9 +56,6 @@ final class LearningPathManagementInput
 
     #[Groups(['learning_path_management:write'])]
     public ?bool $enabled = null;
-
-    #[Groups(['learning_path_management:write'])]
-    public string $csrfToken = '';
 
     public function getLpId(): ?int
     {

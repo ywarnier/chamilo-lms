@@ -8,6 +8,7 @@ namespace Chamilo\CoreBundle\Controller;
 
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
 use Chamilo\CoreBundle\Security\Upload\UploadFilenamePolicy;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CoreBundle\State\Announcement\AnnouncementAccessHelperTrait;
@@ -28,15 +29,11 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 final readonly class AnnouncementAttachmentController
 {
     use AnnouncementAccessHelperTrait;
-
-    public const string CSRF_TOKEN_ID = 'announcement_attachment';
 
     public function __construct(
         private EntityManagerInterface $entityManager,
@@ -44,8 +41,8 @@ final readonly class AnnouncementAttachmentController
         private CAnnouncementAttachmentRepository $attachmentRepository,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private UploadFilenamePolicy $uploadFilenamePolicy,
+        private StudentViewHelper $studentViewHelper,
     ) {}
 
     #[Route(
@@ -57,7 +54,7 @@ final readonly class AnnouncementAttachmentController
     public function download(int $announcementId, int $attachmentId, Request $request): Response
     {
         [$course, $session, $group] = $this->resolveContext($request);
-        $announcement = $this->getReadableAnnouncement($announcementId, $course, $session, $group, $request);
+        $announcement = $this->getReadableAnnouncement($announcementId, $course, $session, $group);
         $attachment = $this->getAttachment($announcement, $attachmentId);
 
         if (null === $attachment->getResourceNode() || !$attachment->getResourceNode()->hasResourceFile()) {
@@ -106,8 +103,7 @@ final readonly class AnnouncementAttachmentController
     {
         [$course, $session, $group] = $this->resolveContext($request);
         $this->assertAttachmentsEnabled();
-        $this->validateCsrfToken((string) $request->request->get('csrfToken', ''));
-        $announcement = $this->getEditableAnnouncement($announcementId, $course, $session, $group, $request);
+        $announcement = $this->getEditableAnnouncement($announcementId, $course, $session, $group);
         $files = $this->getUploadedFiles($request);
         if ([] === $files) {
             throw new BadRequestHttpException('At least one attachment is required.');
@@ -190,8 +186,7 @@ final readonly class AnnouncementAttachmentController
     {
         [$course, $session, $group] = $this->resolveContext($request);
         $this->assertAttachmentsEnabled();
-        $this->validateCsrfToken((string) $request->headers->get('X-CSRF-TOKEN', ''));
-        $announcement = $this->getEditableAnnouncement($announcementId, $course, $session, $group, $request);
+        $announcement = $this->getEditableAnnouncement($announcementId, $course, $session, $group);
         $attachment = $this->getAttachment($announcement, $attachmentId);
 
         $announcement->removeAttachment($attachment);
@@ -248,14 +243,13 @@ final readonly class AnnouncementAttachmentController
         Course $course,
         ?Session $session,
         ?CGroup $group,
-        Request $request,
     ): CAnnouncement {
         $announcement = $this->announcementRepository->find($announcementId);
         if (!$announcement instanceof CAnnouncement) {
             throw new NotFoundHttpException('The requested announcement was not found.');
         }
 
-        $studentView = $this->isStudentView($request);
+        $studentView = $this->studentViewHelper->isActive();
         $canManage = !$studentView && $this->canManageAnnouncements(
             $this->entityManager,
             $this->security,
@@ -284,9 +278,8 @@ final readonly class AnnouncementAttachmentController
         Course $course,
         ?Session $session,
         ?CGroup $group,
-        Request $request,
     ): CAnnouncement {
-        if ($this->isStudentView($request)) {
+        if ($this->studentViewHelper->isActive()) {
             throw new AccessDeniedHttpException('You are not allowed to edit this announcement.');
         }
 
@@ -388,13 +381,6 @@ final readonly class AnnouncementAttachmentController
         }
 
         throw new AccessDeniedHttpException('Announcement attachments are disabled.');
-    }
-
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(self::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('The security token is invalid.');
-        }
     }
 
     /**

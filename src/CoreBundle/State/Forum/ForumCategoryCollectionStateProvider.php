@@ -12,6 +12,8 @@ use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ExtraField;
 use Chamilo\CoreBundle\Entity\ExtraFieldValues;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
 use Chamilo\CoreBundle\Repository\ExtraFieldRepository;
 use Chamilo\CoreBundle\Repository\ExtraFieldValuesRepository;
 use Chamilo\CoreBundle\Settings\SettingsManager;
@@ -23,7 +25,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
- * @implements ProviderInterface<array<string, mixed>>
+ * @implements ProviderInterface<CForumCategory>
  */
 final class ForumCategoryCollectionStateProvider implements ProviderInterface
 {
@@ -37,6 +39,8 @@ final class ForumCategoryCollectionStateProvider implements ProviderInterface
         private readonly SettingsManager $settingsManager,
         private readonly ExtraFieldRepository $extraFieldRepository,
         private readonly ExtraFieldValuesRepository $extraFieldValuesRepository,
+        private readonly CidReqHelper $cidReqHelper,
+        private readonly IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -75,11 +79,11 @@ final class ForumCategoryCollectionStateProvider implements ProviderInterface
     {
         $this->assertForumMemberAccess($this->security, 'You are not allowed to access forum categories.');
 
-        $course = $this->getCourse($this->entityManager, $request);
-        $session = $this->getSession($this->entityManager, $request);
-        $group = $this->getGroup($this->entityManager, $request);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getGroup($this->entityManager, $this->cidReqHelper);
         $parentNode = $this->getParentNode($this->entityManager, $request);
-        $showHidden = $this->canManageForumsInCurrentView($this->security, $request);
+        $showHidden = $this->isAllowedToEditHelper->check(coach: true);
         $languageField = $this->getForumCategoryLanguageField();
         $selectedLanguages = $this->getSelectedLanguageFilterValues($request);
 

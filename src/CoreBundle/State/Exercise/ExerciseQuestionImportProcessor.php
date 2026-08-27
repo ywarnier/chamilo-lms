@@ -11,6 +11,8 @@ use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\ApiResource\Exercise\ExerciseQuestionImport;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
 use Chamilo\CoreBundle\Service\Exercise\ExerciseQti2ImportService;
 use Chamilo\CourseBundle\Entity\CLp;
 use Chamilo\CourseBundle\Entity\CLpItem;
@@ -24,14 +26,11 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
-use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 use ZipArchive;
 
@@ -47,15 +46,14 @@ final readonly class ExerciseQuestionImportProcessor implements ProcessorInterfa
     private const FREE_ANSWER = 5;
     private const GLOBAL_MULTIPLE_ANSWER = 14;
     private const DEFAULT_TOTAL_WEIGHT = 20.0;
-    private const CSRF_TOKEN_ID = ExerciseQuestionImportProvider::CSRF_TOKEN_ID;
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
-        private Security $security,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private CQuizQuestionCategoryRepository $questionCategoryRepository,
         private ExerciseQti2ImportService $qti2ImportService,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -69,15 +67,14 @@ final readonly class ExerciseQuestionImportProcessor implements ProcessorInterfa
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        if (!$this->canManageExercises()) {
+        if (!$this->isAllowedToEditHelper->check(coach: true)) {
             throw new AccessDeniedHttpException('You are not allowed to import exercises in this context.');
         }
 
         $importType = $this->normalizeImportType((string) ($uriVariables['importType'] ?? 'aiken'));
-        $this->validateCsrfToken((string) $request->request->get('submittedCsrfToken', ''));
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $uploadedFile = $request->files->get('file');
         if (!$uploadedFile instanceof UploadedFile) {
             throw new BadRequestHttpException('A file is required.');
@@ -92,49 +89,6 @@ final readonly class ExerciseQuestionImportProcessor implements ProcessorInterfa
         }
 
         return $this->processAikenImport($uploadedFile, $request, $course, $session);
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
-    }
-
-    private function validateCsrfToken(string $submittedToken): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(self::CSRF_TOKEN_ID, $submittedToken))) {
-            throw new AccessDeniedHttpException('Invalid CSRF token.');
-        }
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
     }
 
     private function normalizeImportType(string $importType): string
@@ -386,7 +340,7 @@ final readonly class ExerciseQuestionImportProcessor implements ProcessorInterfa
             ->andWhere('item.lp = :lp')
             ->andWhere('item.itemType = :itemType')
             ->andWhere('item.path = :path')
-            ->setParameter('lp', $lp)
+            ->setParameter('lp', (int) $lp->getIid())
             ->setParameter('itemType', 'quiz')
             ->setParameter('path', (string) $exerciseId)
             ->setMaxResults(1)
@@ -404,7 +358,7 @@ final readonly class ExerciseQuestionImportProcessor implements ProcessorInterfa
             ->from(CLpItem::class, 'item')
             ->andWhere('item.lp = :lp')
             ->andWhere('item.path = :path')
-            ->setParameter('lp', $lp)
+            ->setParameter('lp', (int) $lp->getIid())
             ->setParameter('path', 'root')
             ->setMaxResults(1)
             ->getQuery()
@@ -432,7 +386,7 @@ final readonly class ExerciseQuestionImportProcessor implements ProcessorInterfa
                 ->andWhere('item.iid = :itemId')
                 ->andWhere('item.lp = :lp')
                 ->setParameter('itemId', $candidateId)
-                ->setParameter('lp', $lp)
+                ->setParameter('lp', (int) $lp->getIid())
                 ->setMaxResults(1)
                 ->getQuery()
                 ->getOneOrNullResult()
@@ -459,8 +413,8 @@ final readonly class ExerciseQuestionImportProcessor implements ProcessorInterfa
             ->from(CLpItem::class, 'item')
             ->andWhere('item.lp = :lp')
             ->andWhere('item.parent = :parent')
-            ->setParameter('lp', $lp)
-            ->setParameter('parent', $parent)
+            ->setParameter('lp', (int) $lp->getIid())
+            ->setParameter('parent', (int) $parent->getIid())
             ->getQuery()
             ->getSingleScalarResult()
         ;

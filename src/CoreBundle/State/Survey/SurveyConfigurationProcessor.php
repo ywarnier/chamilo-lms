@@ -10,25 +10,23 @@ use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\ApiResource\Survey\SurveyConfiguration;
 use Chamilo\CoreBundle\Entity\Course;
-use Chamilo\CoreBundle\Entity\GradebookCategory;
-use Chamilo\CoreBundle\Entity\GradebookLink;
 use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\SurveyHelper;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
 use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\State\Gradebook\GradebookLinkResourceResolver;
 use Chamilo\CourseBundle\Entity\CSurvey;
 use Chamilo\CourseBundle\Repository\CSurveyRepository;
 use DateTime;
 use DateTimeZone;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 /**
@@ -36,23 +34,21 @@ use Throwable;
  */
 final readonly class SurveyConfigurationProcessor implements ProcessorInterface
 {
-    use SurveyCsrfTokenValidationTrait;
     use SurveyPersonalitySupportTrait;
     use SurveyProfileFieldsTrait;
 
     private const int VISIBLE_TUTOR = 0;
     private const int VISIBLE_TUTOR_STUDENT = 1;
     private const int VISIBLE_PUBLIC = 2;
-    private const int GRADEBOOK_LINK_TYPE_SURVEY = 8;
-    private const string CSRF_TOKEN_ID = 'survey_configuration';
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CSurveyRepository $surveyRepository,
-        private Security $security,
+        private GradebookLinkManager $gradebookLinkManager,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private SurveyHelper $surveyHelper,
     ) {}
 
     /**
@@ -70,11 +66,10 @@ final readonly class SurveyConfigurationProcessor implements ProcessorInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $this->validateSubmittedCsrfToken($request, $this->csrfTokenManager, self::CSRF_TOKEN_ID, $data, $data->csrfToken);
-
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
-        if (!$this->canManageSurveys()) {
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->gradebookLinkManager->assertSessionBelongsToCourse($course, $session);
+        if (!$this->surveyHelper->canManage()) {
             throw new AccessDeniedHttpException('You are not allowed to manage surveys in this context.');
         }
 
@@ -106,7 +101,7 @@ final readonly class SurveyConfigurationProcessor implements ProcessorInterface
         }
 
         $language = $this->getSurveyLanguage($data, $course);
-        if ($this->surveyCodeExists($code, $language, null)) {
+        if ($this->surveyCodeExists($code, $language, null, $course, $session)) {
             throw new BadRequestHttpException('This survey code already exists in this language.');
         }
 
@@ -144,7 +139,7 @@ final readonly class SurveyConfigurationProcessor implements ProcessorInterface
 
         $this->validatePayload($data, true);
         $language = $this->getSurveyLanguage($data, $course);
-        if ($this->surveyCodeExists((string) $survey->getCode(), $language, $surveyId)) {
+        if ($this->surveyCodeExists((string) $survey->getCode(), $language, $surveyId, $course, $session)) {
             throw new BadRequestHttpException('This survey code already exists in this language.');
         }
 
@@ -262,20 +257,25 @@ final readonly class SurveyConfigurationProcessor implements ProcessorInterface
         return substr($normalized, 0, 40);
     }
 
-    private function surveyCodeExists(string $code, string $language, ?int $exceptSurveyId): bool
-    {
-        $queryBuilder = $this->entityManager->createQueryBuilder()
-            ->select('COUNT(survey.iid)')
-            ->from(CSurvey::class, 'survey')
-            ->andWhere('survey.code = :code')
-            ->andWhere('survey.lang = :language')
+    private function surveyCodeExists(
+        string $code,
+        string $language,
+        ?int $exceptSurveyId,
+        Course $course,
+        ?Session $session
+    ): bool {
+        $queryBuilder = $this->surveyRepository
+            ->getResourcesByCourse($course, $session, null, null, false, false)
+            ->select('COUNT(DISTINCT resource.iid)')
+            ->andWhere('resource.code = :code')
+            ->andWhere('resource.lang = :language')
             ->setParameter('code', $code)
             ->setParameter('language', $language)
         ;
 
         if (null !== $exceptSurveyId) {
             $queryBuilder
-                ->andWhere('survey.iid <> :surveyId')
+                ->andWhere('resource.iid <> :surveyId')
                 ->setParameter('surveyId', $exceptSurveyId, Types::INTEGER)
             ;
         }
@@ -317,12 +317,17 @@ final readonly class SurveyConfigurationProcessor implements ProcessorInterface
         ?Session $session
     ): void {
         $surveyId = (int) $survey->getIid();
-        $existingLink = $this->findGradebookLink($course, $surveyId);
+        if ($surveyId <= 0) {
+            throw new BadRequestHttpException('The survey must be saved before it can be linked to the Gradebook.');
+        }
 
         if (!$data->gradebookEnabled) {
-            if (null !== $existingLink) {
-                $this->entityManager->remove($existingLink);
-            }
+            $this->gradebookLinkManager->removeLinks(
+                $course,
+                $session,
+                GradebookLinkResourceResolver::LINK_SURVEY,
+                $surveyId,
+            );
 
             return;
         }
@@ -331,70 +336,14 @@ final readonly class SurveyConfigurationProcessor implements ProcessorInterface
             throw new BadRequestHttpException('A gradebook category is required.');
         }
 
-        $category = $this->getGradebookCategory($data->gradebookCategoryId, $course, $session);
-        $link = $existingLink ?? new GradebookLink();
-        $link
-            ->setType(self::GRADEBOOK_LINK_TYPE_SURVEY)
-            ->setVisible(1)
-            ->setWeight($data->gradebookWeight)
-            ->setRefId($surveyId)
-            ->setCategory($category)
-            ->setCourse($course)
-            ->setMinScore(0.0)
-        ;
-
-        if (null === $link->getId()) {
-            $link->setCreatedAt(new DateTime());
-        }
-
-        $this->entityManager->persist($link);
-    }
-
-    private function getGradebookCategory(int $categoryId, Course $course, ?Session $session): GradebookCategory
-    {
-        $queryBuilder = $this->entityManager->createQueryBuilder()
-            ->select('category')
-            ->from(GradebookCategory::class, 'category')
-            ->andWhere('category.id = :categoryId')
-            ->andWhere('IDENTITY(category.course) = :courseId')
-            ->setParameter('categoryId', $categoryId, Types::INTEGER)
-            ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
-        ;
-
-        if (null === $session) {
-            $queryBuilder->andWhere('category.session IS NULL');
-        } else {
-            $queryBuilder
-                ->andWhere('IDENTITY(category.session) = :sessionId')
-                ->setParameter('sessionId', (int) $session->getId(), Types::INTEGER)
-            ;
-        }
-
-        $category = $queryBuilder->getQuery()->getOneOrNullResult();
-        if (!$category instanceof GradebookCategory) {
-            throw new BadRequestHttpException('The selected gradebook category is invalid.');
-        }
-
-        return $category;
-    }
-
-    private function findGradebookLink(Course $course, int $surveyId): ?GradebookLink
-    {
-        $link = $this->entityManager->createQueryBuilder()
-            ->select('link')
-            ->from(GradebookLink::class, 'link')
-            ->andWhere('IDENTITY(link.course) = :courseId')
-            ->andWhere('link.type = :type')
-            ->andWhere('link.refId = :surveyId')
-            ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
-            ->setParameter('type', self::GRADEBOOK_LINK_TYPE_SURVEY, Types::INTEGER)
-            ->setParameter('surveyId', $surveyId, Types::INTEGER)
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-
-        return $link instanceof GradebookLink ? $link : null;
+        $this->gradebookLinkManager->upsertLink(
+            $course,
+            $session,
+            GradebookLinkResourceResolver::LINK_SURVEY,
+            $surveyId,
+            (int) $data->gradebookCategoryId,
+            (float) $data->gradebookWeight,
+        );
     }
 
     private function getSurveyFromCurrentContext(int $surveyId, Course $course, ?Session $session): CSurvey
@@ -439,56 +388,6 @@ final readonly class SurveyConfigurationProcessor implements ProcessorInterface
         }
 
         return false;
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
-    private function canManageSurveys(): bool
-    {
-        if ($this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')) {
-            return true;
-        }
-
-        if (!$this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER')) {
-            return false;
-        }
-
-        return $this->isSettingEnabled('survey.extend_rights_for_coach_on_survey');
-    }
-
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(self::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('Invalid CSRF token.');
-        }
     }
 
     private function isSurveyEditionGloballyHidden(): bool
@@ -544,7 +443,6 @@ final readonly class SurveyConfigurationProcessor implements ProcessorInterface
         $configuration->code = (string) $survey->getCode();
         $configuration->title = $survey->getTitle();
         $configuration->questionUrl = $this->buildModernQuestionsUrl($survey, $course, $session);
-        $configuration->csrfToken = (string) $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID);
 
         return $configuration;
     }

@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\ApiResource\Exercise;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
 use ApiPlatform\OpenApi\Model\RequestBody;
@@ -26,13 +27,10 @@ use Symfony\Component\Serializer\Attribute\Groups;
                 'attemptId' => '\d+',
             ],
             openapi: new Operation(
-                summary: 'Upload a file or oral recording as a Vue exercise runtime answer',
+                summary: 'Upload a file, oral recording or completed Office document as a Vue exercise runtime answer',
                 parameters: [
                     new Parameter(name: 'exerciseId', in: 'path', required: true, schema: ['type' => 'integer']),
                     new Parameter(name: 'attemptId', in: 'path', required: true, schema: ['type' => 'integer']),
-                    new Parameter(name: 'cid', in: 'query', required: true, schema: ['type' => 'integer']),
-                    new Parameter(name: 'sid', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'gid', in: 'query', required: false, schema: ['type' => 'integer']),
                 ],
                 requestBody: new RequestBody(
                     content: new ArrayObject([
@@ -43,10 +41,29 @@ use Symfony\Component\Serializer\Attribute\Groups;
                                     'questionId' => ['type' => 'integer'],
                                     'secondsSpent' => ['type' => 'integer'],
                                     'reviewLater' => ['type' => 'boolean'],
+                                    'navigationAction' => ['type' => 'string'],
                                     'file' => [
                                         'type' => 'string',
                                         'format' => 'binary',
-                                        'description' => 'Upload answer file or oral expression audio file',
+                                        'description' => 'Upload answer file, oral expression audio file or completed Office document',
+                                    ],
+                                ],
+                            ],
+                        ],
+                        'application/json' => [
+                            'schema' => [
+                                'type' => 'object',
+                                'required' => ['questionId'],
+                                'properties' => [
+                                    'questionId' => ['type' => 'integer'],
+                                    'secondsSpent' => ['type' => 'integer'],
+                                    'reviewLater' => ['type' => 'boolean'],
+                                    'navigationAction' => ['type' => 'string'],
+                                    'fileName' => ['type' => 'string'],
+                                    'mimeType' => ['type' => 'string'],
+                                    'base64Content' => [
+                                        'type' => 'string',
+                                        'description' => 'Base64-encoded file content for native/mobile clients',
                                     ],
                                 ],
                             ],
@@ -58,6 +75,17 @@ use Symfony\Component\Serializer\Attribute\Groups;
             deserialize: false,
             name: 'post_exercise_runtime_upload_answer',
             processor: ExerciseRuntimeUploadAnswerProcessor::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+            ],
         ),
     ],
     normalizationContext: ['groups' => ['exercise_runtime_upload_answer:read']],

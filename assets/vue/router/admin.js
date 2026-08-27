@@ -53,6 +53,29 @@ export default {
       component: () => import("../views/admin/UserList.vue"),
     },
     {
+      name: "AdminUserAdd",
+      path: "user-add",
+      meta: { requiresAdmin: true, requiresSessionAdmin: true, showBreadcrumb: true, breadcrumb: "Add a user" },
+      component: () => import("../views/admin/UserAdd.vue"),
+    },
+    {
+      name: "AdminUserEdit",
+      path: "user-edit/:userId",
+      meta: {
+        requiresAdmin: true,
+        requiresSessionAdmin: true,
+        showBreadcrumb: true,
+        breadcrumb: "Edit user information",
+      },
+      component: () => import("../views/admin/UserEdit.vue"),
+    },
+    {
+      name: "AdminQuestionBank",
+      path: "questions",
+      meta: { requiresQuestionManager: true, showBreadcrumb: true, breadcrumb: "Questions" },
+      component: () => import("../views/admin/QuestionBank.vue"),
+    },
+    {
       name: "AdminCourseList",
       path: "course-list",
       meta: { requiresAdmin: true, showBreadcrumb: true, breadcrumb: "Course list" },
@@ -63,6 +86,18 @@ export default {
       path: "list-icons",
       meta: { requiresAdmin: true, showBreadcrumb: true, breadcrumb: "Icons" },
       component: () => import("../views/admin/ListIcons.vue"),
+    },
+    {
+      name: "AdminStatistics",
+      path: "statistics",
+      meta: { requiresAdmin: true, showBreadcrumb: true, breadcrumb: "Statistics" },
+      component: () => import("../views/admin/AdminStatisticsView.vue"),
+    },
+    {
+      name: "AdminSystemStatus",
+      path: "system-status",
+      meta: { requiresAdmin: true, showBreadcrumb: true, breadcrumb: "System status" },
+      component: () => import("../views/admin/SystemStatus.vue"),
     },
     {
       name: "AdminSystemUpdate",
@@ -123,6 +158,54 @@ export default {
       path: "usergroup-user-import",
       meta: { requiresAdmin: true, showBreadcrumb: true, breadcrumb: "Add users to a class" },
       component: () => import("../views/admin/UsergroupUserImport.vue"),
+    },
+    {
+      name: "AdminMultiUrlList",
+      path: "urls",
+      meta: { requiresGlobalAdmin: true, showBreadcrumb: true, breadcrumb: "Multi URLs" },
+      component: () => import("../views/admin/MultiUrlList.vue"),
+    },
+    {
+      name: "AccessUrlManage",
+      path: "urls/manage",
+      meta: { requiresGlobalAdmin: true, showBreadcrumb: true, breadcrumb: "Multiple access URL / Branding" },
+      component: () => import("../views/accessurl/AccessUrlManage.vue"),
+    },
+    {
+      name: "AccessUrlUsers",
+      path: "urls/assign-users",
+      meta: { requiresGlobalAdmin: true, showBreadcrumb: true, breadcrumb: "Manage users" },
+      component: () => import("../views/accessurl/AccessUrlUsers.vue"),
+    },
+    {
+      name: "AccessUrlCourses",
+      path: "urls/assign-courses",
+      meta: { requiresGlobalAdmin: true, showBreadcrumb: true, breadcrumb: "Manage courses" },
+      component: () => import("../views/accessurl/AccessUrlCourses.vue"),
+    },
+    {
+      name: "AccessUrlUserGroups",
+      path: "urls/assign-usergroups",
+      meta: { requiresGlobalAdmin: true, showBreadcrumb: true, breadcrumb: "Manage user groups" },
+      component: () => import("../views/accessurl/AccessUrlUserGroups.vue"),
+    },
+    {
+      name: "AccessUrlCourseCategories",
+      path: "urls/assign-course-categories",
+      meta: { requiresGlobalAdmin: true, showBreadcrumb: true, breadcrumb: "Manage course categories" },
+      component: () => import("../views/accessurl/AccessUrlCourseCategories.vue"),
+    },
+    {
+      name: "AdminMultiUrlUserDetail",
+      path: "urls/users/:id(\\d+)",
+      meta: { requiresGlobalAdmin: true, showBreadcrumb: true, breadcrumb: "User details" },
+      component: () => import("../views/admin/MultiUrlUserDetail.vue"),
+    },
+    {
+      name: "AdminMultiUrlCourseDetail",
+      path: "urls/courses/:id(\\d+)",
+      meta: { requiresGlobalAdmin: true, showBreadcrumb: true, breadcrumb: "Course details" },
+      component: () => import("../views/admin/MultiUrlCourseDetail.vue"),
     },
   ],
 }

@@ -12,6 +12,9 @@ use Chamilo\CoreBundle\ApiResource\Survey\SurveyMeeting;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\SurveyHelper;
+use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CSurvey;
 use Chamilo\CourseBundle\Entity\CSurveyAnswer;
@@ -29,22 +32,21 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProviderInterface<SurveyMeeting>
  */
 final readonly class SurveyMeetingProvider implements ProviderInterface
 {
-    public const string CSRF_TOKEN_ID = 'survey_meeting';
-
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CSurveyRepository $surveyRepository,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private SurveyHelper $surveyHelper,
+        private UserHelper $userHelper,
     ) {}
 
     /**
@@ -58,12 +60,12 @@ final readonly class SurveyMeetingProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $surveyId = isset($uriVariables['surveyId']) ? (int) $uriVariables['surveyId'] : 0;
 
         if ($surveyId <= 0) {
-            if (!$this->canManageSurveys()) {
+            if (!$this->surveyHelper->canManage()) {
                 throw new AccessDeniedHttpException('You are not allowed to create meeting polls.');
             }
 
@@ -74,11 +76,11 @@ final readonly class SurveyMeetingProvider implements ProviderInterface
         $mode = (string) $request->query->get('mode', 'answer');
         $isEditMode = 'edit' === $mode;
 
-        if ($isEditMode && !$this->canManageSurveys()) {
+        if ($isEditMode && !$this->surveyHelper->canManage()) {
             throw new AccessDeniedHttpException('You are not allowed to edit this meeting poll.');
         }
 
-        return $this->buildResponse($survey, $course, $session, $request, $isEditMode);
+        return $this->buildResponse($operation, $survey, $course, $session, $request, $isEditMode);
     }
 
     public function buildCreateResponse(Course $course, ?Session $session): SurveyMeeting
@@ -92,7 +94,6 @@ final readonly class SurveyMeetingProvider implements ProviderInterface
         $response->surveyLanguage = $this->getCourseLanguage($course);
         $response->availableFrom = $this->formatDate($now);
         $response->availableUntil = $this->formatDate($later);
-        $response->csrfToken = (string) $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID);
         $response->canEdit = true;
         $response->canSubmit = false;
         $response->slots = $this->getDefaultSlots();
@@ -111,6 +112,7 @@ final readonly class SurveyMeetingProvider implements ProviderInterface
     }
 
     public function buildResponse(
+        Operation $operation,
         CSurvey $survey,
         Course $course,
         ?Session $session,
@@ -120,14 +122,14 @@ final readonly class SurveyMeetingProvider implements ProviderInterface
         string $message = ''
     ): SurveyMeeting {
         $user = $this->getCurrentUser();
-        $canManage = $this->canManageSurveys();
+        $canManage = $this->surveyHelper->canManage();
         $invitation = null;
         $selectedSlots = [];
 
         if (!$canManage || '' !== $this->getInvitationCode($request)) {
             $this->assertSurveyIsAvailable($survey);
             $invitation = $this->getInvitation($survey, $course, $session, $user, $request);
-            $selectedSlots = $this->getSelectedSlots($survey, $user, $request);
+            $selectedSlots = $this->getSelectedSlots($operation, $survey, $user, $request);
         }
 
         $response = new SurveyMeeting();
@@ -138,7 +140,6 @@ final readonly class SurveyMeetingProvider implements ProviderInterface
         $response->surveyLanguage = (string) $survey->getLang();
         $response->availableFrom = $this->formatDate($survey->getAvailFrom());
         $response->availableUntil = $this->formatDate($survey->getAvailTill());
-        $response->csrfToken = (string) $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID);
         $response->slots = $this->getSlots($survey);
         $response->selectedSlots = $selectedSlots;
         $response->participants = $this->getParticipants($survey, $course, $session);
@@ -163,36 +164,6 @@ final readonly class SurveyMeetingProvider implements ProviderInterface
         ];
 
         return $response;
-    }
-
-    public function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    public function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
     }
 
     public function getCurrentUser(): User
@@ -227,6 +198,11 @@ final readonly class SurveyMeetingProvider implements ProviderInterface
     {
         $invitationCode = $this->getInvitationCode($request);
         if ('auto' === $invitationCode) {
+            // The auto code mints an invitation on the spot, so it has to stay inside the course.
+            if (!$this->userHelper->isMemberOfCurrentCourse()) {
+                throw new AccessDeniedHttpException('You are not allowed to answer this meeting poll.');
+            }
+
             return $this->getOrCreateAutoInvitation($survey, $course, $session, $user);
         }
 
@@ -321,7 +297,7 @@ final readonly class SurveyMeetingProvider implements ProviderInterface
     /**
      * @return array<int, int>
      */
-    private function getSelectedSlots(CSurvey $survey, User $user, Request $request): array
+    private function getSelectedSlots(Operation $operation, CSurvey $survey, User $user, Request $request): array
     {
         $rows = $this->entityManager->createQueryBuilder()
             ->select('IDENTITY(answer.question) AS questionId')
@@ -335,7 +311,7 @@ final readonly class SurveyMeetingProvider implements ProviderInterface
             ->setParameter('lpItemId', $request->query->getInt('lpItemId'), Types::INTEGER)
         ;
 
-        $sessionId = $request->query->getInt('sid');
+        $sessionId = (int) $this->cidReqHelper->getSessionId();
         if ($sessionId > 0) {
             $rows
                 ->andWhere('answer.sessionId = :sessionId')
@@ -545,23 +521,6 @@ final readonly class SurveyMeetingProvider implements ProviderInterface
         if (null !== $availableUntil && $availableUntil < $now) {
             throw new AccessDeniedHttpException('This survey is already closed.');
         }
-    }
-
-    private function canManageSurveys(): bool
-    {
-        if ($this->security->isGranted('ROLE_ADMIN')) {
-            return true;
-        }
-
-        if ($this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')) {
-            return true;
-        }
-
-        if (!$this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER')) {
-            return false;
-        }
-
-        return $this->isSettingEnabled('survey.extend_rights_for_coach_on_survey');
     }
 
     private function isSurveyInContext(CSurvey $survey, Course $course, ?Session $session): bool

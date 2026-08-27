@@ -9,8 +9,8 @@ namespace Chamilo\CoreBundle\ApiResource\CourseProgress;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
-use ApiPlatform\OpenApi\Model\Parameter;
 use Chamilo\CoreBundle\State\CourseProgress\CourseProgressCompletionProcessor;
 use Symfony\Component\Serializer\Attribute\Groups;
 
@@ -21,17 +21,22 @@ use Symfony\Component\Serializer\Attribute\Groups;
             uriTemplate: '/course-progress/completion',
             openapi: new Operation(
                 summary: 'Set the last completed thematic advance',
-                parameters: [
-                    new Parameter(name: 'cid', in: 'query', required: true, schema: ['type' => 'integer']),
-                    new Parameter(name: 'sid', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'gid', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'isStudentView', in: 'query', required: false, schema: ['type' => 'boolean']),
-                ],
             ),
             security: "is_granted('IS_AUTHENTICATED_FULLY')",
             read: false,
             name: 'post_course_progress_completion',
             processor: CourseProgressCompletionProcessor::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+            ],
         ),
     ],
     normalizationContext: ['groups' => ['course_progress_completion:read']],
@@ -45,9 +50,6 @@ final class CourseProgressCompletion
 
     #[Groups(['course_progress_completion:read', 'course_progress_completion:write'])]
     public int $advanceId = 0;
-
-    #[Groups(['course_progress_completion:write'])]
-    public string $csrfToken = '';
 
     /**
      * @var int[]

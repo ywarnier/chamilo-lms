@@ -25,6 +25,7 @@ class IndexController extends BaseController
     #[Route('/demo', name: 'demo', options: ['expose' => true], methods: ['GET', 'POST'])]
     #[Route('/course/{cid}/home', name: 'chamilo_core_course_home')]
     #[Route('/courses', name: 'courses', options: ['expose' => true], methods: ['GET', 'POST'])]
+    #[Route('/courses/{vueRouting}', name: 'courses_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
     #[Route('/catalogue/{slug}', name: 'catalogue', options: ['expose' => true], methods: ['GET', 'POST'])]
     #[Route('/resources/ccalendarevent', name: 'resources_ccalendarevent', methods: ['GET'])]
     #[Route('/resources/courses', name: 'resources_courses', methods: ['GET'])]
@@ -45,15 +46,27 @@ class IndexController extends BaseController
     #[Route('/resources/forum/{vueRouting}', name: 'resources_forum_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
     #[Route('/resources/survey/{vueRouting}', name: 'resources_survey_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
     #[Route('/resources/exercise/{vueRouting}', name: 'resources_exercise_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
+    #[Route('/resources/gradebook/{vueRouting}', name: 'resources_gradebook_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
     #[Route('/resources/course-description/{vueRouting}', name: 'resources_course_description_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
+    #[Route('/resources/course-invitation', name: 'resources_course_invitation_vue_root', methods: ['GET'])]
+    #[Route('/resources/course-invitation/', name: 'resources_course_invitation_vue_root_slash', methods: ['GET'])]
+    #[Route('/resources/course-invitation/{vueRouting}', name: 'resources_course_invitation_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
     #[Route('/resources/notebook/{vueRouting}', name: 'resources_notebook_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
     #[Route('/resources/portfolio/{vueRouting}', name: 'resources_portfolio_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
     #[Route('/resources/wiki/{vueRouting}', name: 'resources_wiki_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
     #[Route('/resources/course-progress/{vueRouting}', name: 'resources_course_progress_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
+    #[Route('/resources/course-settings/{vueRouting}', name: 'resources_course_settings_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
+    #[Route('/resources/course-reporting/', name: 'resources_course_reporting_vue_entrypoint', methods: ['GET'])]
+    #[Route('/resources/course-reporting/{vueRouting}', name: 'resources_course_reporting_vue_nested_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
+    #[Route('/reporting', name: 'global_reporting_vue_entrypoint', methods: ['GET'])]
+    #[Route('/reporting/{vueRouting}', name: 'global_reporting_vue_nested_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
+    #[Route('/resources/course-users/{vueRouting}', name: 'resources_course_users_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
     #[Route('/resources/announcement/{vueRouting}', name: 'resources_announcement_vue_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
     #[Route('/tickets', name: 'tickets_vue_entrypoint', methods: ['GET'])]
     #[Route('/tickets/{vueRouting}', name: 'tickets_vue_nested_entrypoint', requirements: ['vueRouting' => '.+'], methods: ['GET'])]
     #[Route('/survey/pending', name: 'survey_pending_vue_entrypoint', methods: ['GET'])]
+    #[Route('/my-certificates', name: 'my_certificates_vue_entrypoint', methods: ['GET'])]
+    #[Route('/certificates/search', name: 'certificate_search_vue_entrypoint', methods: ['GET'])]
     #[Route('/resources/accessurl/{id}/delete', name: 'access_url_delete', methods: ['GET'])]
     #[Route('/account/home', name: 'chamilo_core_account_home', options: ['expose' => true])]
     #[Route('/social', name: 'chamilo_core_socialnetwork', options: ['expose' => true])]
@@ -61,6 +74,9 @@ class IndexController extends BaseController
     #[Route('/admin', name: 'admin', options: ['expose' => true])]
     #[Route('/admin-dashboard', name: 'admin_dashboard_entry', options: ['expose' => true])]
     #[Route('/admin-dashboard/{vueRouting}', name: 'admin_dashboard_vue_entry', requirements: ['vueRouting' => '.+'])]
+    #[Route('/course-sessions', name: 'course_sessions_entry', options: ['expose' => true], methods: ['GET'])]
+    #[Route('/course-sessions/{vueRouting}', name: 'course_sessions_vue_entry', requirements: ['vueRouting' => '.+'], options: ['expose' => true], methods: ['GET'])]
+    #[Route('/my-classes', name: 'my_classes_entry', options: ['expose' => true], methods: ['GET'])]
     #[Route('/my-services', name: 'my_services_entry', options: ['expose' => true])]
     #[Route('/my-services/{vueRouting}', name: 'my_services_vue_entry', requirements: ['vueRouting' => '.+'], options: ['expose' => true])]
     #[Route('/p/{slug}', name: 'public_page')]
@@ -94,7 +110,13 @@ class IndexController extends BaseController
             }
         }
 
-        return $this->redirect($request->getBasePath().'/main/auth/registration.php');
+        $target = $request->getBasePath().'/main/auth/registration.php';
+        $queryString = $request->getQueryString();
+        if (null !== $queryString && '' !== $queryString) {
+            $target .= '?'.$queryString;
+        }
+
+        return $this->redirect($target);
     }
 
     #[Route('/registration-feedback', name: 'custom_registration_feedback', options: ['expose' => true], methods: ['GET'])]

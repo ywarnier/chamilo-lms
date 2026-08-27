@@ -1,55 +1,47 @@
 <template>
   <section class="space-y-6">
-    <BaseToolbar class="mb-4 border-b border-gray-25 bg-white">
-      <template #start>
-        <div class="flex flex-wrap items-center gap-2">
-          <BaseButton
-            icon="back"
-            :label="t('Back')"
-            only-icon
-            :route="listRoute"
-            size="normal"
-            :tooltip="t('Back')"
-            type="primary-text"
-          />
+    <SectionHeader :title="t('Announcements')">
+      <BaseButton
+        :label="t('Back')"
+        :route="listRoute"
+        :tooltip="t('Back')"
+        icon="back"
+        only-icon
+        type="primary-text"
+      />
 
-          <BaseButton
-            v-if="announcement?.canEdit"
-            icon="edit"
-            :label="t('Edit')"
-            only-icon
-            :route="editRoute"
-            size="normal"
-            :tooltip="t('Edit')"
-            type="secondary-text"
-          />
+      <BaseButton
+        v-if="announcement?.canEdit"
+        :label="t('Edit')"
+        :route="editRoute"
+        :tooltip="t('Edit')"
+        icon="edit"
+        only-icon
+        type="secondary-text"
+      />
 
-          <BaseButton
-            v-if="announcement?.canChangeVisibility"
-            :icon="Number(announcement.visibility) === 2 ? 'eye-on' : 'eye-off'"
-            :is-loading="isManaging"
-            :label="Number(announcement.visibility) === 2 ? t('Visible') : t('Invisible')"
-            only-icon
-            size="normal"
-            :tooltip="Number(announcement.visibility) === 2 ? t('Visible') : t('Invisible')"
-            type="secondary-text"
-            @click="changeVisibility"
-          />
+      <BaseButton
+        v-if="announcement?.canChangeVisibility"
+        :icon="Number(announcement.visibility) === 2 ? 'eye-on' : 'eye-off'"
+        :is-loading="isManaging"
+        :label="Number(announcement.visibility) === 2 ? t('Visible') : t('Invisible')"
+        :tooltip="Number(announcement.visibility) === 2 ? t('Visible') : t('Invisible')"
+        only-icon
+        type="secondary-text"
+        @click="changeVisibility"
+      />
 
-          <BaseButton
-            v-if="announcement?.canDelete"
-            icon="delete"
-            :is-loading="isManaging"
-            :label="t('Delete')"
-            only-icon
-            size="normal"
-            :tooltip="t('Delete')"
-            type="danger-text"
-            @click="confirmDeleteAnnouncement"
-          />
-        </div>
-      </template>
-    </BaseToolbar>
+      <BaseButton
+        v-if="announcement?.canDelete"
+        :is-loading="isManaging"
+        :label="t('Delete')"
+        :tooltip="t('Delete')"
+        icon="delete"
+        only-icon
+        type="danger-text"
+        @click="confirmDeleteAnnouncement"
+      />
+    </SectionHeader>
 
     <div
       v-if="successMessage"
@@ -106,7 +98,7 @@
           </span>
           <span>
             {{ t("Latest update") }}:
-            {{ formatDate(announcement.updatedAt) }}
+            {{ abbreviatedDatetime(announcement.updatedAt) ?? "-" }}
           </span>
         </div>
       </template>
@@ -232,21 +224,22 @@ import { useRoute, useRouter } from "vue-router"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseCard from "../../components/basecomponents/BaseCard.vue"
 import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
-import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
+import { useFormatDate } from "../../composables/formatDate"
 import announcementService from "../../services/announcementService"
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 
 const { t, locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
 const { requireConfirmation } = useConfirmation()
+const { abbreviatedDatetime } = useFormatDate()
 
 const announcement = ref(null)
 const canManage = ref(false)
 const canViewRecipients = ref(false)
 const attachmentsEnabled = ref(false)
-const csrfToken = ref("")
-const attachmentCsrfToken = ref("")
 const isLoading = ref(false)
 const isManaging = ref(false)
 const deletingAttachmentId = ref(0)
@@ -272,7 +265,7 @@ function getContextParams() {
     params.gid = gid
   }
 
-  for (const key of ["origin", "page", "isStudentView", "lp_id", "lp_item_id", "lp_view_id", "returnToLp", "embedded"]) {
+  for (const key of ["origin", "page", "lp_id", "lp_item_id", "lp_view_id", "returnToLp", "embedded"]) {
     if (Object.prototype.hasOwnProperty.call(route.query, key)) {
       params[key] = getQueryValue(route.query[key])
     }
@@ -296,22 +289,6 @@ const editRoute = computed(() => ({
   query: getContextParams(),
 }))
 
-function formatDate(value) {
-  if (!value) {
-    return "-"
-  }
-
-  const date = new Date(value)
-  if (Number.isNaN(date.getTime())) {
-    return value
-  }
-
-  return new Intl.DateTimeFormat(locale.value, {
-    dateStyle: "long",
-    timeStyle: "short",
-  }).format(date)
-}
-
 function formatFileSize(value) {
   const size = Number(value || 0)
   if (size <= 0) {
@@ -322,7 +299,7 @@ function formatFileSize(value) {
   const unitIndex = Math.min(Math.floor(Math.log(size) / Math.log(1024)), units.length - 1)
   const normalized = size / 1024 ** unitIndex
 
-  return `${new Intl.NumberFormat(locale.value, { maximumFractionDigits: 1 }).format(normalized)} ${units[unitIndex]}`
+  return `${new Intl.NumberFormat(locale.value.replace("_", "-"), { maximumFractionDigits: 1 }).format(normalized)} ${units[unitIndex]}`
 }
 
 function getErrorMessage(error) {
@@ -338,12 +315,7 @@ async function changeVisibility() {
 
   try {
     const visibility = Number(announcement.value.visibility) === 2 ? 0 : 2
-    await announcementService.changeVisibility(
-      announcement.value.id,
-      visibility,
-      csrfToken.value,
-      getContextParams(),
-    )
+    await announcementService.changeVisibility(announcement.value.id, visibility, getContextParams())
     successMessage.value = t("The visibility has been changed.")
     await loadAnnouncement()
   } catch (error) {
@@ -368,7 +340,7 @@ async function deleteAnnouncement() {
   errorMessage.value = ""
 
   try {
-    await announcementService.deleteOne(announcement.value.id, csrfToken.value, getContextParams())
+    await announcementService.deleteOne(announcement.value.id, getContextParams())
     await router.push(listRoute.value)
   } catch (error) {
     console.error("Error deleting announcement", error)
@@ -393,12 +365,7 @@ async function deleteAttachment(attachment) {
   successMessage.value = ""
 
   try {
-    await announcementService.deleteAttachment(
-      announcement.value.id,
-      attachment.id,
-      attachmentCsrfToken.value,
-      getContextParams(),
-    )
+    await announcementService.deleteAttachment(announcement.value.id, attachment.id, getContextParams())
     successMessage.value = t("Attachment has been deleted")
     await loadAnnouncement()
   } catch (error) {
@@ -427,8 +394,6 @@ async function loadAnnouncement() {
     canManage.value = Boolean(response.canManage)
     canViewRecipients.value = Boolean(response.canViewRecipients)
     attachmentsEnabled.value = Boolean(response.attachmentsEnabled)
-    csrfToken.value = response.csrfToken || ""
-    attachmentCsrfToken.value = response.attachmentCsrfToken || ""
   } catch (error) {
     console.error("Error loading announcement", error)
     announcement.value = null
@@ -440,8 +405,7 @@ async function loadAnnouncement() {
 
 onMounted(loadAnnouncement)
 
-watch(
-  () => [route.params.id, route.query.cid, route.query.sid, route.query.gid, route.query.isStudentView],
-  loadAnnouncement,
-)
+useStudentViewRefresh(loadAnnouncement)
+
+watch(() => [route.params.id, route.query.cid, route.query.sid, route.query.gid], loadAnnouncement)
 </script>

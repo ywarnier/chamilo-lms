@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\Controller\Admin;
 use Chamilo\CoreBundle\Entity\User;
 use Chamilo\CoreBundle\Entity\Usergroup;
 use Chamilo\CoreBundle\Entity\UsergroupRelUser;
+use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CGroupRelUser;
 use Chamilo\CourseBundle\Entity\CGroupRelUsergroup;
 use Doctrine\DBAL\Types\Types;
@@ -20,7 +21,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[IsGranted('ROLE_ADMIN')]
@@ -37,7 +37,7 @@ class UsergroupAddUsersController extends AbstractController
 
     public function __construct(
         private readonly EntityManagerInterface $em,
-        private readonly CsrfTokenManagerInterface $csrfTokenManager,
+        private readonly SettingsManager $settingsManager,
     ) {}
 
     #[Route('', name: 'admin_usergroup_add_users_data', methods: ['GET'])]
@@ -49,7 +49,7 @@ class UsergroupAddUsersController extends AbstractController
         }
 
         $isSocialGroup = Usergroup::SOCIAL_CLASS === $usergroup->getGroupType();
-        $relationType = (int) $request->query->get('relation', Usergroup::GROUP_USER_PERMISSION_READER);
+        $relationType = (int) $request->query->get('relation', (string) Usergroup::GROUP_USER_PERMISSION_READER);
         if (!\in_array($relationType, self::ALLOWED_RELATION_TYPES, true)) {
             $relationType = Usergroup::GROUP_USER_PERMISSION_READER;
         }
@@ -79,6 +79,11 @@ class UsergroupAddUsersController extends AbstractController
         $keyword = trim((string) $request->query->get('keyword', ''));
         $firstLetter = trim((string) $request->query->get('firstLetter', ''));
 
+        $orderByOfficialCode = 'true' === $this->settingsManager->getSetting(
+            'display.order_user_list_by_official_code',
+            true,
+        );
+
         $qb = $this->em->createQueryBuilder()
             ->select('u.id, u.firstname, u.lastname, u.username, u.officialCode')
             ->from(User::class, 'u')
@@ -86,9 +91,20 @@ class UsergroupAddUsersController extends AbstractController
             ->setParameter('anonymous', User::ANONYMOUS, Types::INTEGER)
             ->andWhere('u.active != :softDeleted')
             ->setParameter('softDeleted', User::SOFT_DELETED, Types::INTEGER)
-            ->orderBy('u.lastname', 'ASC')
-            ->addOrderBy('u.firstname', 'ASC')
         ;
+
+        if ($orderByOfficialCode) {
+            $qb
+                ->orderBy('u.officialCode', 'ASC')
+                ->addOrderBy('u.lastname', 'ASC')
+                ->addOrderBy('u.firstname', 'ASC')
+            ;
+        } else {
+            $qb
+                ->orderBy('u.lastname', 'ASC')
+                ->addOrderBy('u.firstname', 'ASC')
+            ;
+        }
 
         if ('' !== $keyword) {
             $qb->andWhere(
@@ -111,15 +127,31 @@ class UsergroupAddUsersController extends AbstractController
 
         foreach ($allUsers as $user) {
             $userId = (int) $user['id'];
-            $label = $user['lastname'].', '.$user['firstname'].' ('.$user['username'].')';
-            if (!empty($user['officialCode'])) {
-                $label .= ' - '.$user['officialCode'];
+            $firstName = (string) $user['firstname'];
+            $lastName = (string) $user['lastname'];
+            $username = (string) $user['username'];
+            $officialCode = trim((string) ($user['officialCode'] ?? ''));
+            $label = $lastName.', '.$firstName.' ('.$username.')';
+
+            if ('' !== $officialCode) {
+                $label = $orderByOfficialCode
+                    ? $officialCode.' - '.$label
+                    : $label.' - '.$officialCode;
             }
 
+            $userData = [
+                'id' => $userId,
+                'label' => $label,
+                'officialCode' => $officialCode,
+                'lastName' => $lastName,
+                'firstName' => $firstName,
+                'username' => $username,
+            ];
+
             if (\in_array($userId, $memberIds, true)) {
-                $usersInGroup[] = ['id' => $userId, 'label' => $label];
+                $usersInGroup[] = $userData;
             } else {
-                $usersNotInGroup[] = ['id' => $userId, 'label' => $label];
+                $usersNotInGroup[] = $userData;
             }
         }
 
@@ -128,9 +160,9 @@ class UsergroupAddUsersController extends AbstractController
             'groupTitle' => $usergroup->getTitle(),
             'isSocialGroup' => $isSocialGroup,
             'relationType' => $relationType,
+            'orderByOfficialCode' => $orderByOfficialCode,
             'usersInGroup' => $usersInGroup,
             'usersNotInGroup' => $usersNotInGroup,
-            'csrfToken' => $this->csrfTokenManager->getToken('usergroup_add_users')->getValue(),
         ]);
     }
 
@@ -140,11 +172,6 @@ class UsergroupAddUsersController extends AbstractController
         $usergroup = $this->em->find(Usergroup::class, $id);
         if (null === $usergroup) {
             return $this->json(['error' => 'Not found'], Response::HTTP_NOT_FOUND);
-        }
-
-        $token = (string) $request->request->get('_token', '');
-        if (!$this->isCsrfTokenValid('usergroup_add_users', $token)) {
-            return $this->json(['error' => 'Invalid CSRF token'], Response::HTTP_FORBIDDEN);
         }
 
         $isSocialGroup = Usergroup::SOCIAL_CLASS === $usergroup->getGroupType();

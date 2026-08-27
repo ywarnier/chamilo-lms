@@ -1,5 +1,7 @@
 <template>
   <section class="space-y-6">
+    <SectionHeader :title="t('Course progress')" />
+
     <BaseToolbar class="mb-4 border-b border-gray-25 bg-white">
       <template #start>
         <div class="flex items-center gap-2">
@@ -172,6 +174,8 @@ import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
 import courseProgressService from "../../services/courseProgressService"
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 
 const { t } = useI18n()
 const route = useRoute()
@@ -181,7 +185,6 @@ const { requireConfirmation } = useConfirmation()
 const advances = ref([])
 const thematicTitle = ref("")
 const thematicContent = ref("")
-const csrfToken = ref("")
 const canEdit = ref(false)
 const isLoading = ref(false)
 const deletingId = ref(null)
@@ -225,9 +228,6 @@ function getContextParams() {
     params.gid = gid
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    params.isStudentView = getQueryValue(route.query.isStudentView)
-  }
 
   return params
 }
@@ -261,12 +261,7 @@ async function deleteAdvance(advance) {
   successMessage.value = ""
 
   try {
-    await courseProgressService.removeThematicAdvance(
-      thematicId.value,
-      advance.iid,
-      { csrfToken: csrfToken.value },
-      getContextParams(),
-    )
+    await courseProgressService.removeThematicAdvance(thematicId.value, advance.iid, getContextParams())
 
     await loadAdvances()
     successMessage.value = t("Deleted")
@@ -305,7 +300,6 @@ async function loadAdvances() {
     advances.value = Array.isArray(response.items) ? response.items : []
     thematicTitle.value = response.thematicTitle || ""
     thematicContent.value = response.thematicContent || ""
-    csrfToken.value = response.csrfToken || ""
     canEdit.value = Boolean(response.canEdit)
   } catch (error) {
     console.error("Error loading thematic advances", error)
@@ -321,8 +315,10 @@ onMounted(async () => {
   await consumeSavedMessage()
 })
 
+useStudentViewRefresh(loadAdvances)
+
 watch(
-  () => [route.params.thematicId, route.query.cid, route.query.sid, route.query.gid, route.query.isStudentView],
+  () => [route.params.thematicId, route.query.cid, route.query.sid, route.query.gid],
   loadAdvances,
 )
 </script>

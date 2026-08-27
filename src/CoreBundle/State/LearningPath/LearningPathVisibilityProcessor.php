@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\State\LearningPath;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\Entity\ResourceLink;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CourseBundle\Entity\CLp;
 use Chamilo\CourseBundle\Entity\CLpCategory;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,7 +17,6 @@ use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProcessorInterface<object, JsonResponse>
@@ -29,7 +29,7 @@ final readonly class LearningPathVisibilityProcessor implements ProcessorInterfa
         private EntityManagerInterface $entityManager,
         private RequestStack $requestStack,
         private Security $security,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): JsonResponse
@@ -44,16 +44,15 @@ final readonly class LearningPathVisibilityProcessor implements ProcessorInterfa
         }
 
         $payload = $this->getJsonData($request);
-        $this->validateActionToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
 
         if ($data instanceof CLp && 1 === $data->getSubscribeUsers()) {
             throw new BadRequestHttpException('Visibility is managed by learning path subscriptions.');
         }
         $this->assertLearningPathTeacher($this->security);
 
-        $course = $this->getContextCourse($this->entityManager, $request);
-        $session = $this->getContextSession($this->entityManager, $request, $course);
-        $group = $this->getContextGroup($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getContextGroup($this->entityManager, $this->cidReqHelper, $course);
         $resourceLink = $this->getEditableResourceLink($data, $course, $session, $group, $this->security);
         $visible = $this->getTargetVisibility($payload, $resourceLink);
 

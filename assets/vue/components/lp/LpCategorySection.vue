@@ -3,6 +3,7 @@ import { computed, onMounted, ref, watch } from "vue"
 import { useRoute, useRouter } from "vue-router"
 import Draggable from "vuedraggable"
 import LpCardItem from "./LpCardItem.vue"
+import BaseButton from "../basecomponents/BaseButton.vue"
 import BaseDropdownMenu from "../basecomponents/BaseDropdownMenu.vue"
 import lpService from "../../services/lpService"
 import { useI18n } from "vue-i18n"
@@ -32,7 +33,6 @@ const props = defineProps({
   ringValue: { type: Function, required: true },
   buildDates: { type: Function, required: false },
   isSessionCategory: { type: Boolean, default: false },
-  csrfToken: { type: String, default: "" },
 })
 
 const emit = defineEmits([
@@ -81,8 +81,14 @@ const categoryIsVisible = computed(() => {
   return typeof value === "undefined" || value === null ? true : Boolean(value)
 })
 
+const categoryVisibilityAction = computed(() => ({
+  label: categoryIsVisible.value ? t("Hide") : t("Show"),
+  icon: categoryIsVisible.value ? "eye-on" : "eye-off",
+  disabled: !props.canEdit,
+}))
+
 const onCatToggleVisibility = async () => {
-  if (!props.csrfToken) {
+  if (!props.canEdit) {
     return
   }
 
@@ -96,7 +102,6 @@ const onCatToggleVisibility = async () => {
       },
       {
         visible: !categoryIsVisible.value,
-        csrfToken: props.csrfToken,
       },
     )
     emit("visibility-changed")
@@ -106,7 +111,7 @@ const onCatToggleVisibility = async () => {
 }
 
 const onCatTogglePublish = async () => {
-  if (!props.csrfToken) {
+  if (!props.canEdit) {
     return
   }
 
@@ -114,7 +119,7 @@ const onCatTogglePublish = async () => {
     await lpService.manageCategory(
       props.category.iid,
       { cid: cid.value || 0, sid: sid.value || 0, gid: gid.value || 0 },
-      { action: "toggle_publish", csrfToken: props.csrfToken },
+      { action: "toggle_publish" },
     )
     emit("management-changed")
   } catch (error) {
@@ -128,11 +133,11 @@ const onCatDelete = () => {
     message: t("Are you sure you want to delete {0}?", [label]),
     accept: async () => {
       try {
-        await lpService.deleteCategory(
-          props.category.iid,
-          { cid: cid.value || 0, sid: sid.value || 0, gid: gid.value || 0 },
-          props.csrfToken,
-        )
+        await lpService.deleteCategory(props.category.iid, {
+          cid: cid.value || 0,
+          sid: sid.value || 0,
+          gid: gid.value || 0,
+        })
         emit("management-changed")
       } catch (error) {
         showErrorNotification(error)
@@ -208,6 +213,17 @@ const toggleOpen = () => {
       <div class="flex items-center gap-2">
         <div class="text-tiny text-gray-50">{{ list.length }} {{ t("Learning paths") }}</div>
 
+        <BaseButton
+          v-if="canManageCategory"
+          :disabled="categoryVisibilityAction.disabled"
+          :label="categoryVisibilityAction.label"
+          :icon="categoryVisibilityAction.icon"
+          only-icon
+          size="small"
+          type="tertiary-alternative-text"
+          @click="onCatToggleVisibility"
+        />
+
         <BaseDropdownMenu
           v-if="canManageCategory"
           :dropdown-id="`category-${category.iid}`"
@@ -246,13 +262,6 @@ const toggleOpen = () => {
               </button>
 
               <div class="my-1 h-px bg-gray-15"></div>
-
-              <button
-                class="w-full text-left px-3 py-2 rounded hover:bg-gray-15"
-                @click="onCatToggleVisibility"
-              >
-                {{ t("Toggle visibility") }}
-              </button>
 
               <button
                 class="w-full text-left px-3 py-2 rounded hover:bg-gray-15"
@@ -338,7 +347,6 @@ const toggleOpen = () => {
             :canExportChamilo="canExportChamilo"
             :canExportScorm="canExportScorm"
             :canSeriousGame="canSeriousGame"
-            :csrf-token="csrfToken"
             :lp="element"
             :ringDash="ringDash"
             :ringValue="ringValue"

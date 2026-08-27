@@ -10,7 +10,9 @@ use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\ApiResource\Wiki\WikiDiscussion;
 use Chamilo\CoreBundle\Entity\User;
-use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
+use Chamilo\CoreBundle\Helpers\WikiHelper;
 use Chamilo\CourseBundle\Entity\CWiki;
 use Chamilo\CourseBundle\Entity\CWikiDiscuss;
 use Chamilo\CourseBundle\Repository\CWikiRepository;
@@ -24,25 +26,22 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProcessorInterface<WikiDiscussion, WikiDiscussion>
  */
 final readonly class WikiDiscussionProcessor implements ProcessorInterface
 {
-    use WikiAccessHelperTrait;
-
     public function __construct(
+        private CidReqHelper $cidReqHelper,
+        private StudentViewHelper $studentViewHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CWikiRepository $wikiRepository,
         private Security $security,
-        private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private WikiDiscussionScoreCalculator $scoreCalculator,
         private WikiNotificationService $notificationService,
+        private WikiHelper $wikiHelper,
     ) {}
 
     /**
@@ -60,19 +59,19 @@ final readonly class WikiDiscussionProcessor implements ProcessorInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getWikiCourse($this->entityManager, $request);
-        $this->assertWikiToolEnabled($this->entityManager, $course);
-        $this->assertWikiRouteNode($course, $request);
-        $session = $this->getWikiSession($this->entityManager, $request);
-        $this->assertWikiSessionBelongsToCourse($session, $course);
-        $group = $this->getWikiGroup($this->entityManager, $request);
-        $this->assertWikiGroupBelongsToContext($group, $course, $session);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->wikiHelper->assertToolEnabled($course);
+        $this->wikiHelper->assertRouteNode($course, $request);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->wikiHelper->assertSessionBelongsToCourse($session, $course);
+        $group = $this->cidReqHelper->getDoctrineGroupEntity();
+        $this->wikiHelper->assertGroupBelongsToContext($group, $course, $session);
 
-        if (!$this->canReadWikiContext($this->security, $this->settingsManager, $course, $session, $group)) {
+        if (!$this->wikiHelper->canRead($course, $session, $group)) {
             throw new AccessDeniedHttpException('You are not allowed to use Wiki discussions in this context.');
         }
 
-        if ($this->isWikiStudentView($request)) {
+        if ($this->studentViewHelper->isActive()) {
             throw new AccessDeniedHttpException('Wiki discussion comments are not available in student view.');
         }
 
@@ -90,10 +89,7 @@ final readonly class WikiDiscussionProcessor implements ProcessorInterface
             throw new NotFoundHttpException('The requested Wiki discussion was not found in the current context.');
         }
 
-        $canManage = $this->canManageWikiContext(
-            $this->entityManager,
-            $this->security,
-            $this->settingsManager,
+        $canManage = $this->wikiHelper->canManage(
             $course,
             $session,
             $group,
@@ -103,7 +99,7 @@ final readonly class WikiDiscussionProcessor implements ProcessorInterface
             throw new AccessDeniedHttpException('Wiki discussions in sessions are available to session editors only.');
         }
 
-        $this->assertWikiPageVisible($this->security, $latest, $canManage);
+        $this->wikiHelper->assertPageVisible($latest, $canManage);
 
         $user = $this->security->getUser();
         if (!$user instanceof User) {
@@ -118,8 +114,6 @@ final readonly class WikiDiscussionProcessor implements ProcessorInterface
         if (1 !== $latest->getAddlockDisc() && !$canManage) {
             throw new AccessDeniedHttpException('New comments are blocked in this Wiki discussion.');
         }
-
-        $this->validateCsrfToken($data->writeCsrfToken);
 
         $commentText = trim($data->comment);
         if ('' === $commentText) {
@@ -174,12 +168,5 @@ final readonly class WikiDiscussionProcessor implements ProcessorInterface
         $this->notificationService->notifyDiscussionComment($latest, $course, $session, $group, $user);
 
         return $data;
-    }
-
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(WikiDiscussion::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('The Wiki discussion CSRF token is invalid.');
-        }
     }
 }

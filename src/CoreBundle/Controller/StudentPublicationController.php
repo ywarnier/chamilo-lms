@@ -39,6 +39,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -174,12 +175,21 @@ class StudentPublicationController extends AbstractController
         $user = $security->getUser();
         $course = $this->cidReqHelper->getCourseEntity();
         $session = $this->cidReqHelper->getSessionEntity();
+        $groupId = (int) ($this->cidReqHelper->getGroupId() ?? 0);
+        $group = $this->cidReqHelper->getGroupEntity();
         $assignment = $repo->find($assignmentId);
 
-        if (
-            !$assignment instanceof CStudentPublication
-            || null === $assignment->getFirstResourceLinkFromCourseSession($course, $session)
-        ) {
+        if (!$assignment instanceof CStudentPublication) {
+            return new JsonResponse(['error' => 'Assignment not found.'], Response::HTTP_NOT_FOUND);
+        }
+
+        $resourceNode = $assignment->getResourceNode();
+        $contextLink = $resourceNode?->getResourceLinkByContext($course, $session, $group);
+        if (null === $contextLink && null !== $session && null === $group) {
+            $contextLink = $resourceNode?->getResourceLinkByContext($course);
+        }
+
+        if (null === $contextLink) {
             return new JsonResponse(['error' => 'Assignment not found.'], Response::HTTP_NOT_FOUND);
         }
 
@@ -196,17 +206,24 @@ class StudentPublicationController extends AbstractController
                 $managementContext['session'],
             );
         } catch (AccessDeniedHttpException|NotFoundHttpException) {
+            if (!$security->isGranted('EDIT', $resourceNode)) {
+                return new JsonResponse(['error' => 'Assignment not found.'], Response::HTTP_NOT_FOUND);
+            }
+
             // Reading the assignment remains available to teachers and administrators.
             // Management capabilities are exposed only when the student context is valid.
         }
 
-        $page = (int) $request->query->get('page', 1);
-        $itemsPerPage = (int) $request->query->get('itemsPerPage', 10);
+        $page = (int) $request->query->get('page', '1');
+        $itemsPerPage = (int) $request->query->get('itemsPerPage', '10');
         $order = $request->query->all('order');
 
         [$submissions, $total] = $repo->findAssignmentSubmissionsPaginated(
             $assignmentId,
             $user,
+            $course,
+            $session,
+            $groupId,
             $page,
             $itemsPerPage,
             $order
@@ -256,8 +273,8 @@ class StudentPublicationController extends AbstractController
         // Teacher-only listing: must be allowed to edit the assignment's course resource.
         $this->denyAccessUnlessGranted('EDIT', $assignment->getResourceNode());
 
-        $page = (int) $request->query->get('page', 1);
-        $itemsPerPage = (int) $request->query->get('itemsPerPage', 10);
+        $page = (int) $request->query->get('page', '1');
+        $itemsPerPage = (int) $request->query->get('itemsPerPage', '10');
         $order = $request->query->all('order');
 
         [$submissions, $total] = $repo->findAllSubmissionsByAssignment(
@@ -277,6 +294,62 @@ class StudentPublicationController extends AbstractController
             'hydra:member' => $data,
             'hydra:totalItems' => $total,
         ]);
+    }
+
+    #[Route('/submissions/{id}/download', name: 'chamilo_core_assignment_submission_download', methods: ['GET'])]
+    public function downloadSubmission(
+        int $id,
+        CStudentPublicationRepository $repo,
+        ResourceNodeRepository $resourceNodeRepository,
+        SettingsManager $settingsManager
+    ): Response {
+        $submission = $repo->find($id);
+
+        if (!$submission) {
+            throw $this->createNotFoundException('Submission not found.');
+        }
+
+        $this->denyAccessUnlessGranted('VIEW', $submission->getResourceNode());
+
+        $resourceNode = $submission->getResourceNode();
+        $resourceFile = $resourceNode?->getFirstResourceFile();
+
+        if (!$resourceFile) {
+            throw $this->createNotFoundException('No file attached to this submission.');
+        }
+
+        try {
+            $path = $resourceNodeRepository->getFilename($resourceFile);
+            $content = $resourceNodeRepository->getFileSystem()->read($path);
+        } catch (Throwable) {
+            throw $this->createNotFoundException('File could not be read.');
+        }
+
+        $originalName = $resourceFile->getOriginalName();
+        $addFullname = 'true' === $settingsManager->getSetting('work.add_fullname_in_file_download');
+
+        if ($addFullname) {
+            $user = $submission->getUser();
+            $fullname = $this->cleanFilename(
+                trim(($user->getFirstname() ?? '').' '.($user->getLastname() ?? ''))
+            );
+            $filename = $fullname.'_'.$originalName;
+        } else {
+            $filename = $originalName;
+        }
+
+        $asciiFilename = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $filename) ?: $filename;
+
+        $response = new Response($content);
+        $disposition = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            $asciiFilename,
+            $asciiFilename
+        );
+        $response->headers->set('Content-Disposition', $disposition);
+        $response->headers->set('Content-Type', $resourceFile->getMimeType() ?: 'application/octet-stream');
+
+        return $response;
     }
 
     #[Route('/submissions/{id}', name: 'chamilo_core_assignment_student_submission_delete', methods: ['DELETE'])]
@@ -569,7 +642,8 @@ class StudentPublicationController extends AbstractController
     public function downloadAssignmentPackage(
         int $assignmentId,
         CStudentPublicationRepository $repo,
-        ResourceNodeRepository $resourceNodeRepository
+        ResourceNodeRepository $resourceNodeRepository,
+        SettingsManager $settingsManager
     ): Response {
         $assignment = $repo->find($assignmentId);
 
@@ -577,6 +651,7 @@ class StudentPublicationController extends AbstractController
             throw $this->createNotFoundException('Assignment not found.');
         }
 
+        $addFullname = 'true' === $settingsManager->getSetting('work.add_fullname_in_file_download');
         // Teacher-only: downloading every student's submission requires edit rights on
         // the assignment's course resource.
         $this->denyAccessUnlessGranted('EDIT', $assignment->getResourceNode());
@@ -600,7 +675,15 @@ class StudentPublicationController extends AbstractController
                     $path = $resourceNodeRepository->getFilename($resourceFile);
                     $content = $resourceNodeRepository->getFileSystem()->read($path);
 
-                    $filename = \sprintf('%s_%s_%s', $sentDate, $user->getUsername(), $resourceFile->getOriginalName());
+                    if ($addFullname) {
+                        $fullname = $this->cleanFilename(
+                            trim(($user->getFirstname() ?? '').' '.($user->getLastname() ?? ''))
+                        );
+                        $filename = \sprintf('%s_%s_%s', $sentDate, $fullname, $resourceFile->getOriginalName());
+                    } else {
+                        $filename = \sprintf('%s_%s_%s', $sentDate, $user->getUsername(), $resourceFile->getOriginalName());
+                    }
+
                     $zip->addFromString($filename, $content);
                 } catch (Throwable) {
                     continue;

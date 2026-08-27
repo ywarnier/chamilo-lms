@@ -42,6 +42,7 @@ final readonly class ExerciseAttemptScoringService
     private const PAGE_BREAK = 31;
     private const ORAL_EXPRESSION = 13;
     private const UPLOAD_ANSWER = 23;
+    private const ANSWER_IN_OFFICE_DOC = 30;
     private const ANNOTATION = 20;
     private const MULTIPLE_ANSWER_COMBINATION = 9;
     private const UNIQUE_ANSWER_NO_OPTION = 10;
@@ -86,6 +87,7 @@ final readonly class ExerciseAttemptScoringService
         self::DRAGGABLE => 'Sequence ordering',
         self::ORAL_EXPRESSION => 'Oral expression',
         self::UPLOAD_ANSWER => 'Upload answer',
+        self::ANSWER_IN_OFFICE_DOC => 'Answer in Office document',
         self::ANNOTATION => 'Annotation',
         self::MEDIA_QUESTION => 'Media question',
         self::READING_COMPREHENSION => 'Reading comprehension',
@@ -367,6 +369,7 @@ final readonly class ExerciseAttemptScoringService
             self::FREE_ANSWER,
             self::ORAL_EXPRESSION,
             self::UPLOAD_ANSWER,
+            self::ANSWER_IN_OFFICE_DOC,
             self::ANNOTATION => $this->scoreManualAnswer($rows),
             default => 0.0,
         };
@@ -767,7 +770,8 @@ final readonly class ExerciseAttemptScoringService
      *     words_with_bracket: array<int, string>,
      *     system_string: string,
      *     blank_separator_start: string,
-     *     blank_separator_end: string
+     *     blank_separator_end: string,
+     *     ...
      * } $teacherInfo
      * @param array<int, string> $studentAnswers
      * @param array<int, string> $studentScores
@@ -1030,7 +1034,7 @@ final readonly class ExerciseAttemptScoringService
     }
 
     /**
-     * @param array{x: float, y: float} $point
+     * @param array{x: float, y: float, ...} $point
      */
     private function isPointInHotspot(array $point, string $hotspotType, string $coordinates): bool
     {
@@ -1043,7 +1047,7 @@ final readonly class ExerciseAttemptScoringService
     }
 
     /**
-     * @param array{x: float, y: float} $point
+     * @param array{x: float, y: float, ...} $point
      */
     private function isPointInSquare(array $point, string $coordinates): bool
     {
@@ -1059,7 +1063,7 @@ final readonly class ExerciseAttemptScoringService
     }
 
     /**
-     * @param array{x: float, y: float} $point
+     * @param array{x: float, y: float, ...} $point
      */
     private function isPointInEllipse(array $point, string $coordinates): bool
     {
@@ -1091,7 +1095,7 @@ final readonly class ExerciseAttemptScoringService
     }
 
     /**
-     * @param array{x: float, y: float} $point
+     * @param array{x: float, y: float, ...} $point
      */
     private function isPointInPolygon(array $point, string $coordinates): bool
     {
@@ -1237,12 +1241,9 @@ final readonly class ExerciseAttemptScoringService
         return $positions;
     }
 
-    /**
-     * @return array<int, int>
-     */
     private function requiresManualCorrection(CQuizQuestion $question): bool
     {
-        return \in_array((int) $question->getType(), [self::FREE_ANSWER, self::ORAL_EXPRESSION, self::UPLOAD_ANSWER, self::ANNOTATION], true);
+        return \in_array((int) $question->getType(), [self::FREE_ANSWER, self::ORAL_EXPRESSION, self::UPLOAD_ANSWER, self::ANSWER_IN_OFFICE_DOC, self::ANNOTATION], true);
     }
 
     private function getSavedAnswerIds(array $rows): array

@@ -23,13 +23,14 @@ use Chamilo\CoreBundle\Entity\Asset;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ExtraField;
 use Chamilo\CoreBundle\Entity\ExtraFieldValues;
-use Chamilo\CoreBundle\Entity\GradebookCategory;
 use Chamilo\CoreBundle\Entity\ResourceFile;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Repository\ExtraFieldRepository;
 use Chamilo\CoreBundle\Repository\ResourceNodeRepository;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CDocument;
 use Chamilo\CourseBundle\Entity\CForum;
@@ -54,7 +55,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 use const ENT_HTML5;
@@ -81,12 +81,13 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
         private EntityManagerInterface $entityManager,
         private RequestStack $requestStack,
         private Security $security,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private SettingsManager $settingsManager,
         private CLpRepository $lpRepository,
         private CLpItemRepository $lpItemRepository,
         private ResourceNodeRepository $resourceNodeRepository,
+        private GradebookLinkManager $gradebookLinkManager,
         private ExtraFieldRepository $extraFieldRepository,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     /**
@@ -101,9 +102,9 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
         }
 
         $this->assertLearningPathTeacher($this->security);
-        $course = $this->getContextCourse($this->entityManager, $request);
-        $session = $this->getContextSession($this->entityManager, $request, $course);
-        $group = $this->getContextGroup($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getContextGroup($this->entityManager, $this->cidReqHelper, $course);
 
         if ($data instanceof LearningPathBuilderItemUpdateInput
             && 'update_learning_path_builder_item_form' === $operation->getName()
@@ -222,7 +223,6 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
         CLp $lp,
         CLpItem $root,
     ): LearningPathBuilderItemInput {
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
         $parent = $this->resolveParent($lp, $root, $data->parentId);
         $title = $this->sanitizeTitle($data->title);
 
@@ -263,7 +263,6 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
         Request $request,
         int $itemId,
     ): LearningPathBuilderItemUpdateInput {
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
         $item = $this->findValidatedItem($lp, $itemId);
         $this->assertEditableItem($item);
 
@@ -328,7 +327,6 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
         ?CGroup $group,
         int $itemId,
     ): LearningPathBuilderItemAudioInput {
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
         $item = $this->findValidatedItem($lp, $itemId);
         $this->assertEditableItem($item);
 
@@ -379,7 +377,6 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
         CLp $lp,
         int $itemId,
     ): LearningPathBuilderItemPrerequisiteInput {
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
         $item = $this->findValidatedItem($lp, $itemId);
         if ('dir' === $item->getItemType() || 'root' === $item->getItemType()) {
             throw new BadRequestHttpException('Prerequisites cannot be assigned to this learning path item.');
@@ -453,7 +450,6 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
         ?Session $session,
         ?CGroup $group,
     ): LearningPathBuilderResourceInput {
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
         $resource = $this->findValidatedResource(
             $data->resourceType,
             $data->resourceId,
@@ -527,7 +523,6 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
         ?Session $session,
         ?CGroup $group,
     ): LearningPathBuilderFinalItemInput {
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
         $title = $this->sanitizeTitle($data->title);
         $resource = $this->findValidatedResource('document', $data->documentId, $course, $session, $group);
         if (!$resource instanceof CDocument || 'certificate' !== strtolower(trim($resource->getFiletype()))) {
@@ -595,29 +590,7 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
             return null;
         }
 
-        $queryBuilder = $this->entityManager->createQueryBuilder()
-            ->select('category')
-            ->from(GradebookCategory::class, 'category')
-            ->andWhere('category.id = :categoryId')
-            ->andWhere('IDENTITY(category.course) = :courseId')
-            ->andWhere('category.gradeModel IS NULL')
-            ->setParameter('categoryId', $categoryId, Types::INTEGER)
-            ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
-        ;
-
-        if ($session instanceof Session) {
-            $queryBuilder
-                ->andWhere('IDENTITY(category.session) = :sessionId')
-                ->setParameter('sessionId', (int) $session->getId(), Types::INTEGER)
-            ;
-        } else {
-            $queryBuilder->andWhere('category.session IS NULL');
-        }
-
-        $category = $queryBuilder->getQuery()->getOneOrNullResult();
-        if (!$category instanceof GradebookCategory) {
-            throw new BadRequestHttpException('The selected gradebook category is invalid.');
-        }
+        $category = $this->gradebookLinkManager->requireCategory($course, $session, $categoryId, true);
 
         return (int) $category->getId();
     }
@@ -628,7 +601,6 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
         CLpItem $root,
         int $itemId,
     ): LearningPathBuilderDeleteInput {
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
         $item = $this->findValidatedItem($lp, $itemId);
         if ('root' === $item->getItemType()) {
             throw new BadRequestHttpException('The learning path root item cannot be deleted.');
@@ -658,7 +630,6 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
         CLp $lp,
         CLpItem $root,
     ): LearningPathBuilderOrderInput {
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
         if ([] === $data->order) {
             throw new BadRequestHttpException('The item order is required.');
         }
@@ -711,7 +682,6 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
         LearningPathBuilderPrerequisiteInput $data,
         CLp $lp,
     ): LearningPathBuilderPrerequisiteInput {
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
         $items = array_values($this->getItemsById($lp));
 
         if ('clear' === $data->action) {
@@ -796,14 +766,12 @@ final readonly class LearningPathBuilderMutationProcessor implements ProcessorIn
             : null;
         $data->exportAllowed = filter_var($payload['exportAllowed'] ?? false, FILTER_VALIDATE_BOOLEAN);
         $data->extraFields = \is_array($payload['extraFields'] ?? null) ? $payload['extraFields'] : [];
-        $data->csrfToken = (string) ($payload['csrfToken'] ?? '');
     }
 
     private function updateBulkAuthorPrice(
         LearningPathBuilderBulkAuthorPriceInput $data,
         CLp $lp,
     ): LearningPathBuilderBulkAuthorPriceInput {
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
         if (!$this->security->isGranted('ROLE_ADMIN')) {
             throw new AccessDeniedHttpException('Only platform administrators can update learning path authors and prices.');
         }

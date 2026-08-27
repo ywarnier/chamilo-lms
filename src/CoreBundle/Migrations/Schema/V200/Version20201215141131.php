@@ -21,9 +21,9 @@ use Throwable;
 final class Version20201215141131 extends AbstractMigrationChamilo
 {
     private const int ORM_FLUSH_BATCH_SIZE = 100;
-    private const string ITEM_PROPERTY_INDEX = 'idx_ricky_migration_item_property_tool_ref_course';
-    private const string CLINK_CATEGORY_CID_INDEX = 'idx_ricky_migration_clink_category_c_id';
-    private const string CLINK_CID_INDEX = 'idx_ricky_migration_clink_c_id';
+    private const string ITEM_PROPERTY_INDEX = 'idx_legacy_migration_item_property_tool_ref_course';
+    private const string CLINK_CATEGORY_CID_INDEX = 'idx_legacy_migration_clink_category_c_id';
+    private const string CLINK_CID_INDEX = 'idx_legacy_migration_clink_c_id';
 
     public function getDescription(): string
     {
@@ -143,7 +143,8 @@ final class Version20201215141131 extends AbstractMigrationChamilo
                     $resource,
                     $course,
                     $items,
-                    $resourceType
+                    $resourceType,
+                    false
                 );
 
                 if (false === $result) {
@@ -251,7 +252,8 @@ final class Version20201215141131 extends AbstractMigrationChamilo
                     $resource,
                     $parent,
                     $items,
-                    $resourceType
+                    $resourceType,
+                    false
                 );
 
                 if (false === $result) {

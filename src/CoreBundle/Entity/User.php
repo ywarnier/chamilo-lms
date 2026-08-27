@@ -21,13 +21,16 @@ use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
 use ApiPlatform\OpenApi\Model\Operation;
 use Chamilo\CoreBundle\Controller\Api\CreateUserOnAccessUrlAction;
+use Chamilo\CoreBundle\Controller\Api\UpdateUserPasswordAction;
 use Chamilo\CoreBundle\Controller\Api\UserSkillsController;
 use Chamilo\CoreBundle\Dto\CreateUserOnAccessUrlInput;
 use Chamilo\CoreBundle\Entity\Listener\UserListener;
 use Chamilo\CoreBundle\Filter\ExtraFieldFilter;
 use Chamilo\CoreBundle\Filter\PartialSearchOrFilter;
 use Chamilo\CoreBundle\Repository\Node\UserRepository;
+use Chamilo\CoreBundle\State\User\UserDeleteProcessor;
 use Chamilo\CoreBundle\State\UserCollectionStateProvider;
+use Chamilo\CoreBundle\State\UserRolesProcessor;
 use Chamilo\CoreBundle\Traits\UserCreatorTrait;
 use Chamilo\CourseBundle\Entity\CGroupRelTutor;
 use Chamilo\CourseBundle\Entity\CGroupRelUser;
@@ -61,18 +64,33 @@ use UserManager;
             ),
             security: "is_granted('VIEW', object)",
         ),
-        new Put(security: "is_granted('EDIT', object)"),
-        new Patch(security: "is_granted('EDIT', object)"), new Delete(security: "is_granted('DELETE', object)"),
+        new Put(security: "is_granted('EDIT', object)", processor: UserRolesProcessor::class),
+        new Patch(security: "is_granted('EDIT', object)", processor: UserRolesProcessor::class),
+        new Delete(
+            security: "is_granted('DELETE', object)",
+            processor: UserDeleteProcessor::class,
+        ),
         new GetCollection(
             security: "is_granted('ROLE_USER')",
             provider: UserCollectionStateProvider::class,
         ),
-        new Post(security: "is_granted('ROLE_ADMIN')"),
+        new Post(security: "is_granted('ROLE_ADMIN')", processor: UserRolesProcessor::class),
         new GetCollection(
             uriTemplate: '/users/{id}/skills',
             controller: UserSkillsController::class,
             normalizationContext: ['groups' => ['user_skills:read']],
+            security: "is_granted('ROLE_ADMIN') or user.getId() == request.attributes.get('id')",
             name: 'get_user_skills'
+        ),
+        new Patch(
+            uriTemplate: '/users/{id}/password',
+            controller: UpdateUserPasswordAction::class,
+            openapi: new Operation(
+                summary: 'Set or reset a user\'s password.'
+            ),
+            security: "is_granted('EDIT', object)",
+            deserialize: false,
+            name: 'update_user_password',
         ),
     ],
     normalizationContext: ['groups' => ['user:read']],
@@ -658,7 +676,8 @@ class User implements UserInterface, EquatableInterface, ResourceInterface, Reso
     protected ?string $theme = null;
     #[ORM\Column(name: 'hr_dept_id', type: 'smallint', unique: false, nullable: true)]
     protected ?int $hrDeptId = null;
-    #[Groups(['user:write'])]
+    // Not writable through the API: its setter creates the AccessUrlRelUser row, which would let
+    // anyone editing their own account join any portal. UserListener sets it on creation instead.
     protected ?AccessUrl $currentUrl = null;
 
     /**
@@ -822,9 +841,9 @@ class User implements UserInterface, EquatableInterface, ResourceInterface, Reso
     public static function getPasswordConstraints(): array
     {
         return [
-            new Assert\Length(['min' => 5]),
-            new Assert\Regex(['pattern' => '/^[a-z\-_0-9]+$/i', 'htmlPattern' => '/^[a-z\-_0-9]+$/i']),
-            new Assert\Regex(['pattern' => '/[0-9]{2}/', 'htmlPattern' => '/[0-9]{2}/']),
+            new Assert\Length(min: 5),
+            new Assert\Regex(pattern: '/^[a-z\-_0-9]+$/i', htmlPattern: '/^[a-z\-_0-9]+$/i'),
+            new Assert\Regex(pattern: '/[0-9]{2}/', htmlPattern: '/[0-9]{2}/'),
         ];
     }
 
@@ -2480,7 +2499,10 @@ class User implements UserInterface, EquatableInterface, ResourceInterface, Reso
             return [];
         }
 
-        return $authSources->map(fn (UserAuthSource $authSource) => $authSource->getAuthentication())->toArray();
+        return array_values(array_filter(
+            $authSources->map(fn (UserAuthSource $authSource) => $authSource->getAuthentication())->toArray(),
+            static fn (?string $authentication): bool => null !== $authentication
+        ));
     }
 
     /**

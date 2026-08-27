@@ -367,11 +367,13 @@ import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseCalendar from "../../components/basecomponents/BaseCalendar.vue"
 import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
 import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
+import { useTranslatedHtml } from "../../composables/useTranslatedHtml"
 import surveyService from "../../services/surveyService"
 
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const { displayTranslatedHtml } = useTranslatedHtml()
 
 const meeting = ref({
   surveyId: null,
@@ -447,7 +449,6 @@ function getContextParams(extra = {}) {
     type: getQueryValue(route.query.type),
     returnToLp: getQueryValue(route.query.returnToLp),
     embedded: getQueryValue(route.query.embedded),
-    isStudentView: getQueryValue(route.query.isStudentView),
     ...extra,
   }
 }
@@ -585,7 +586,6 @@ async function saveMeeting() {
         start: normalizeDateForPayload(slot.start),
         end: normalizeDateForPayload(slot.end),
       })),
-      csrfToken: meeting.value.csrfToken,
     }
 
     const surveyId = isCreateMode.value ? null : Number(route.params.surveyId)
@@ -623,7 +623,6 @@ async function submitAvailability() {
     const response = await surveyService.submitSurveyMeetingAnswer(
       {
         selectedSlots: selectedSlots.value,
-        csrfToken: meeting.value.csrfToken,
       },
       getContextParams({ invitationCode: getQueryValue(route.query.invitationCode) }),
       Number(route.params.surveyId),
@@ -697,7 +696,7 @@ function decodeHtml(value) {
 }
 
 function displayText(value, fallback = "") {
-  const decodedValue = decodeHtml(value)
+  const decodedValue = decodeHtml(displayTranslatedHtml(value))
   const plainValue = decodeHtml(decodedValue.replace(/<[^>]*>/g, " "))
     .replace(/\s+/g, " ")
     .trim()

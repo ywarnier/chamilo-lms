@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\ApiResource\LearningPath;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
 use Chamilo\CoreBundle\State\LearningPath\LearningPathBuilderMutationProcessor;
 use Symfony\Component\Serializer\Attribute\Groups;
 
@@ -20,6 +21,21 @@ use Symfony\Component\Serializer\Attribute\Groups;
             security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_CURRENT_COURSE_TEACHER') or is_granted('ROLE_CURRENT_COURSE_SESSION_TEACHER')",
             read: false,
             name: 'reorder_learning_path_builder_items',
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: LearningPathBuilderMutationProcessor::class,
         ),
     ],
@@ -37,9 +53,6 @@ final class LearningPathBuilderOrderInput
      */
     #[Groups(['learning_path_builder_order:write'])]
     public array $order = [];
-
-    #[Groups(['learning_path_builder_order:write'])]
-    public string $csrfToken = '';
 
     #[Groups(['learning_path_builder_order:read'])]
     public bool $saved = false;

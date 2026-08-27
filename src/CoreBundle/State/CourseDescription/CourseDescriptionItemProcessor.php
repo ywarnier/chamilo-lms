@@ -14,18 +14,17 @@ use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\CourseDescriptionHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CCourseDescription;
 use Chamilo\CourseBundle\Repository\CCourseDescriptionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 use const COURSEMANAGERLOWSECURITY;
 
@@ -34,15 +33,14 @@ use const COURSEMANAGERLOWSECURITY;
  */
 final readonly class CourseDescriptionItemProcessor implements ProcessorInterface
 {
-    use CourseDescriptionAccessHelperTrait;
-
     public function __construct(
-        private RequestStack $requestStack,
+        private CidReqHelper $cidReqHelper,
         private EntityManagerInterface $entityManager,
         private CCourseDescriptionRepository $courseDescriptionRepository,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private CourseDescriptionHelper $courseDescriptionHelper,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -55,27 +53,15 @@ final readonly class CourseDescriptionItemProcessor implements ProcessorInterfac
             throw new BadRequestHttpException('The request payload is invalid.');
         }
 
-        $request = $this->requestStack->getCurrentRequest();
-        if (!$request instanceof Request) {
-            throw new BadRequestHttpException('The current request is required.');
-        }
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->courseDescriptionHelper->assertToolEnabled($course);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->courseDescriptionHelper->assertSessionBelongsToCourse($session, $course);
 
-        $course = $this->getCourse($request);
-        $this->assertCourseDescriptionToolEnabled($this->entityManager, $course);
-        $session = $this->getSession($request);
-        $this->assertSessionBelongsToCourse($session, $course);
-
-        if ($this->isStudentView($request) || !$this->canManageCourseDescriptions(
-            $this->entityManager,
-            $this->security,
-            $this->settingsManager,
-            $course,
-            $session,
-        )) {
+        if (!$this->isAllowedToEditHelper->check(coach: true, course: $course, session: $session)) {
             throw new AccessDeniedHttpException('You are not allowed to manage course descriptions in this context.');
         }
 
-        $this->validateCsrfToken($data->csrfToken);
         $descriptionType = $this->normalizeDescriptionType($data->descriptionType);
         $title = trim($data->title);
         $content = trim($data->content);
@@ -124,36 +110,6 @@ final readonly class CourseDescriptionItemProcessor implements ProcessorInterfac
         $this->courseDescriptionRepository->update($description);
 
         return $this->buildResponse($description);
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
     }
 
     private function normalizeDescriptionType(int $descriptionType): int
@@ -231,13 +187,6 @@ final readonly class CourseDescriptionItemProcessor implements ProcessorInterfac
         return false;
     }
 
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(CourseDescriptionItemProvider::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('The security token is invalid.');
-        }
-    }
-
     private function sanitizeTitle(string $title): string
     {
         if ($this->isSettingEnabled('editor.save_titles_as_html')) {
@@ -291,19 +240,6 @@ final readonly class CourseDescriptionItemProcessor implements ProcessorInterfac
         return true === $value || 'true' === strtolower((string) $value) || '1' === (string) $value;
     }
 
-    private function isStudentView(Request $request): bool
-    {
-        if ($request->query->has('isStudentView')) {
-            return $request->query->getBoolean('isStudentView');
-        }
-
-        if (!$request->hasSession()) {
-            return false;
-        }
-
-        return 'studentview' === $request->getSession()->get('studentview');
-    }
-
     private function buildResponse(CCourseDescription $description): CourseDescriptionItem
     {
         $resourceNode = $description->getResourceNode();
@@ -319,7 +255,6 @@ final readonly class CourseDescriptionItemProcessor implements ProcessorInterfac
         $item->enableSearch = true;
         $item->canEdit = true;
         $item->isNew = false;
-        $item->csrfToken = (string) $this->csrfTokenManager->getToken(CourseDescriptionItemProvider::CSRF_TOKEN_ID);
 
         return $item;
     }

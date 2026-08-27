@@ -10,7 +10,7 @@ use Chamilo\CoreBundle\Entity\AbstractResource;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ResourceNode;
 use Chamilo\CoreBundle\Entity\Session;
-use Chamilo\CoreBundle\Entity\SessionRelCourse;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CourseBundle\Entity\CForum;
 use Chamilo\CourseBundle\Entity\CGroup;
 use DateTimeImmutable;
@@ -46,76 +46,33 @@ trait ForumStateHelperTrait
             || $security->isGranted('ROLE_ADMIN');
     }
 
-    private function isStudentView(Request $request): bool
+    /**
+     * CidReqListener already resolved and validated the course, so a missing entity here
+     * can only mean the request carried no course context at all.
+     */
+    private function getCourse(CidReqHelper $cidReqHelper): Course
     {
-        return 'studentview' === $request->getSession()->get('studentview');
+        return $cidReqHelper->getDoctrineCourseEntity()
+            ?? throw new BadRequestHttpException('Missing course id.');
     }
 
-    private function canManageForumsInCurrentView(Security $security, Request $request): bool
+    /**
+     * SessionVoter proves the course/session pairing for students and course coaches, but not
+     * for general coaches or admins. Assert it before persisting a resource link, so an
+     * unrelated pair can never be written.
+     */
+    private function assertSessionBelongsToCourse(?Session $session, Course $course): void
     {
-        return $this->isTeacher($security) && !$this->isStudentView($request);
+        if (!$session instanceof Session || $session->hasCourse($course)) {
+            return;
+        }
+
+        throw new AccessDeniedHttpException('The requested session is not linked to this course.');
     }
 
-    private function getCourse(EntityManagerInterface $entityManager, Request $request): Course
+    private function getGroup(EntityManagerInterface $entityManager, CidReqHelper $cidReqHelper): ?CGroup
     {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('Missing course id.');
-        }
-
-        $course = $entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new NotFoundHttpException('Course not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(EntityManagerInterface $entityManager, Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new NotFoundHttpException('Session not found.');
-        }
-
-        $courseId = $request->query->getInt('cid');
-        if ($courseId > 0) {
-            $course = $entityManager->getRepository(Course::class)->find($courseId);
-            if (!$course instanceof Course) {
-                throw new NotFoundHttpException('Course not found.');
-            }
-
-            $sessionCourse = $entityManager->getRepository(SessionRelCourse::class)->findOneBy([
-                'course' => $course,
-                'session' => $session,
-            ]);
-
-            if (!$sessionCourse instanceof SessionRelCourse) {
-                throw new AccessDeniedHttpException('The requested session is not linked to this course.');
-            }
-        }
-
-        return $session;
-    }
-
-    private function getGroup(EntityManagerInterface $entityManager, Request $request): ?CGroup
-    {
-        $groupId = $request->query->getInt('gid');
-        if ($groupId <= 0) {
-            return null;
-        }
-
-        $group = $entityManager->getRepository(CGroup::class)->find($groupId);
-        if (!$group instanceof CGroup) {
-            throw new NotFoundHttpException('Group not found.');
-        }
-
-        return $group;
+        return $cidReqHelper->getDoctrineGroupEntity();
     }
 
     private function getParentNode(EntityManagerInterface $entityManager, Request $request): ResourceNode
@@ -191,9 +148,9 @@ trait ForumStateHelperTrait
         }
     }
 
-    private function canListForumWithCurrentSettings(CForum $forum, Request $request, bool $displayGroupForums): bool
+    private function canListForumWithCurrentSettings(CForum $forum, CidReqHelper $cidReqHelper, bool $displayGroupForums): bool
     {
-        if ($displayGroupForums || $request->query->getInt('gid') > 0) {
+        if ($displayGroupForums || (int) ($cidReqHelper->getGroupId() ?? 0) > 0) {
             return true;
         }
 

@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\ApiResource\LearningPath;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
 use Chamilo\CoreBundle\State\LearningPath\LearningPathRuntimeSyncProcessor;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Attribute\Groups;
@@ -23,6 +24,21 @@ use Symfony\Component\Serializer\Attribute\Groups;
             output: false,
             read: false,
             name: 'sync_learning_path_runtime',
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: LearningPathRuntimeSyncProcessor::class,
         ),
     ],
@@ -35,9 +51,6 @@ final class LearningPathRuntimeSyncInput
 
     #[Groups(['learning_path_runtime_sync:write'])]
     public int $itemId = 0;
-
-    #[Groups(['learning_path_runtime_sync:write'])]
-    public string $csrfToken = '';
 
     public function getLpId(): ?int
     {

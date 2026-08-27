@@ -40,7 +40,7 @@ official installation guide in the documentation/ folder.
 ### Hardware
 
 We recommend developing Chamilo on a machine with at least
-- 8GB of RAM
+- 8GB of RAM (or 4GB + 4GB of swap on SSD/NVMe)
 - 2 powerful CPUs
 - about 10GB of disk space
 
@@ -407,8 +407,8 @@ This is a list of structural changes to help developers/maintainers of Chamilo 1
 
 ### Libraries
 
-* Integration with Symfony 6
-* PHPMailer replaced with Symfony Mailer
+* Integration with Symfony 7.4
+* PHPMailer replaced with Symfony's Mailer
 * Bower replaced by [yarn](https://yarnpkg.com)
 
 
@@ -433,9 +433,11 @@ with this purpose into your own repository, forked from the original Chamilo rep
 As new major features are added, automated tests should be added that ensure
 that the feature continues to work for the foreseeable future.
 
-In Chamilo, we rely on "Behat":http://docs.behat.org/en/latest/ to do
-Automated Behavior Testing. You can find examples and information on how to
-run Behat tests in the tests/behat/ folder of your Chamilo installation.
+In Chamilo, we rely on "Playwright":https://playwright.dev/ (with
+"playwright-bdd":https://vitalets.github.io/playwright-bdd/, so the scenarios
+stay plain Gherkin) to do Automated Behavior Testing. You can find the feature
+files in tests/playwright/features/, the shared step definitions in
+tests/playwright/steps/, and run them with `yarn test:playwright`.
 
 Tests are run automatically for every new contribution, courtesy of Github
 actions, so you can follow your feature in time and see whether something
@@ -451,7 +453,7 @@ proceed. You will then need to submit these changes as explained above.
 
 If your changes are about structure, you want to follow these steps:
 1. Create or modify an entity in src/*something*Bundle/Entity/
-2. Create a new Migration in src/CoreBundle/Migrations/Schema/*something*/
+2. Create a new Migration in src/CoreBundle/Migrations/Schema/V{VERSION}/Version{time-stamp}.php
 
 This second step is most easily done by copying one of the current migration
 files in that directory. For example, if you're doing it on the 14th of July 2019 at noon:

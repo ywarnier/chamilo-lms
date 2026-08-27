@@ -217,7 +217,6 @@ export function useSidebarMenu() {
   const displayTabs = computed(() => resolveDisplayTabsConfig(platformConfigStore, securityStore))
 
   const isMenuTabEnabled = (key) => displayTabs.value?.menu?.[key] === true
-  const isTopbarTabEnabled = (key) => displayTabs.value?.topbar?.[key] === true // kept for completeness
 
   const rawShowCatalogue = platformConfigStore.getSetting("catalog.show_courses_sessions")
   const showCatalogue = Number(rawShowCatalogue)
@@ -352,10 +351,8 @@ export function useSidebarMenu() {
         extraMenuFromWebserviceTitle.value = data.title
       }
 
-      extraMenuFromWebserviceItems.value = data.enabled
-        ? normalizeExtraMenuFromWebserviceItems(data.items)
-        : []
-    } catch (error) {
+      extraMenuFromWebserviceItems.value = data.enabled ? normalizeExtraMenuFromWebserviceItems(data.items) : []
+    } catch {
       extraMenuFromWebserviceItems.value = []
     }
   }
@@ -540,17 +537,17 @@ export function useSidebarMenu() {
       if (securityStore.isGranted("ROLE_TEACHER") || securityStore.isGranted("ROLE_SESSION_MANAGER")) {
         subItems.push({
           label: securityStore.isHRM ? t("Course sessions") : t("Reporting"),
-          url: "/main/my_space/" + (securityStore.isHRM ? "session.php" : "index.php"),
+          url: securityStore.isHRM ? "/reporting/sessions" : "/reporting",
         })
       } else if (securityStore.isStudentBoss) {
         subItems.push({
           label: t("Learners"),
-          url: "/main/my_space/student.php",
+          url: "/reporting/learners",
         })
       } else {
         subItems.push({
           label: t("Progress"),
-          url: "/main/auth/my_progress.php",
+          url: "/reporting/my-progress",
         })
       }
 
@@ -640,7 +637,7 @@ export function useSidebarMenu() {
         const questionAdminItems = [
           {
             label: t("Questions"),
-            url: "/main/admin/questions.php",
+            route: { name: "AdminQuestionBank" },
             icon: "mdi mdi-comment-question-outline",
             class: "pl-4",
           },
@@ -703,7 +700,7 @@ export function useSidebarMenu() {
           { label: t("Administration"), route: { name: "AdminIndex" } },
           ...(securityStore.isSessionAdmin &&
           "true" === platformConfigStore.getSetting("session.limit_session_admin_list_users")
-            ? [{ label: t("Add user"), url: "/main/admin/user_add.php" }]
+            ? [{ label: t("Add user"), route: { name: "AdminUserAdd" } }]
             : [{ label: t("Users"), route: { name: "AdminUserList" } }]),
           { label: t("Courses"), route: { name: "AdminCourseList" } },
           { label: t("Sessions"), route: { name: "AdminSessionList" } },

@@ -10,17 +10,19 @@ use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\ApiResource\LearningPath\LearningPathManagementInput;
 use Chamilo\CoreBundle\Entity\Course;
-use Chamilo\CoreBundle\Entity\GradebookLink;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\ResourceNode;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\SkillRelItem;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Helpers\ResourceHelper;
 use Chamilo\CoreBundle\Repository\AssetRepository;
 use Chamilo\CoreBundle\Repository\ResourceLinkRepository;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
 use Chamilo\CoreBundle\Service\LearningPath\LearningPathCopyService;
 use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\State\Gradebook\GradebookLinkResourceResolver;
 use Chamilo\CourseBundle\Entity\CGroup;
 use Chamilo\CourseBundle\Entity\CLp;
 use Chamilo\CourseBundle\Repository\CDocumentRepository;
@@ -31,11 +33,9 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 /** @implements ProcessorInterface<LearningPathManagementInput, void> */
@@ -57,16 +57,16 @@ final readonly class LearningPathManagementProcessor implements ProcessorInterfa
         private LearningPathCopyService $learningPathCopyService,
         private CLpRepository $learningPathRepository,
         private CShortcutRepository $shortcutRepository,
-        private RequestStack $requestStack,
         private Security $security,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private SettingsManager $settingsManager,
         private SettingsCourseManager $settingsCourseManager,
         private ResourceLinkRepository $resourceLinkRepository,
+        private GradebookLinkManager $gradebookLinkManager,
         private AssetRepository $assetRepository,
         private ResourceHelper $resourceHelper,
         private CDocumentRepository $documentRepository,
         private LoggerInterface $logger,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): void
@@ -75,17 +75,11 @@ final readonly class LearningPathManagementProcessor implements ProcessorInterfa
             throw new BadRequestHttpException('Learning path management data is required.');
         }
 
-        $request = $this->requestStack->getCurrentRequest();
-        if (null === $request) {
-            throw new BadRequestHttpException('Request is missing.');
-        }
-
         $this->assertLearningPathTeacher($this->security);
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
 
-        $course = $this->getContextCourse($this->entityManager, $request);
-        $session = $this->getContextSession($this->entityManager, $request, $course);
-        $group = $this->getContextGroup($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getContextGroup($this->entityManager, $this->cidReqHelper, $course);
 
         $lpId = (int) ($uriVariables['lpId'] ?? $data->lpId ?? 0);
         if ($lpId <= 0) {
@@ -239,7 +233,12 @@ final readonly class LearningPathManagementProcessor implements ProcessorInterfa
         }
 
         $this->shortcutRepository->removeShortCutFromCourse($learningPath, $course);
-        $this->removeGradebookLinks($learningPathId, $course, $session);
+        $this->gradebookLinkManager->removeLinks(
+            $course,
+            $session,
+            GradebookLinkResourceResolver::LINK_LEARNING_PATH,
+            $learningPathId,
+        );
 
         if (!$hasOtherActiveLinks) {
             foreach ($this->entityManager->getRepository(SkillRelItem::class)->findBy([
@@ -276,26 +275,6 @@ final readonly class LearningPathManagementProcessor implements ProcessorInterfa
                 'learningPathId' => $learningPathId,
                 'exception' => $exception,
             ]);
-        }
-    }
-
-    private function removeGradebookLinks(int $learningPathId, Course $course, ?Session $session): void
-    {
-        foreach ($this->entityManager->getRepository(GradebookLink::class)->findBy([
-            'course' => $course,
-            'type' => 4,
-            'refId' => $learningPathId,
-        ]) as $gradebookLink) {
-            if (!$gradebookLink instanceof GradebookLink) {
-                continue;
-            }
-
-            $linkSession = $gradebookLink->getCategory()->getSession();
-            if ($linkSession?->getId() !== $session?->getId()) {
-                continue;
-            }
-
-            $this->entityManager->remove($gradebookLink);
         }
     }
 

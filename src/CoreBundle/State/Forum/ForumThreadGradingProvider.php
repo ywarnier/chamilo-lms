@@ -11,12 +11,13 @@ use ApiPlatform\State\ProviderInterface;
 use Chamilo\CoreBundle\ApiResource\Forum\ForumThreadGrading;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\CourseRelUser;
-use Chamilo\CoreBundle\Entity\GradebookCategory;
-use Chamilo\CoreBundle\Entity\GradebookLink;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\SessionRelCourseRelUser;
 use Chamilo\CoreBundle\Entity\User;
-use Chamilo\CoreBundle\Repository\GradeBookCategoryRepository;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
+use Chamilo\CoreBundle\State\Gradebook\GradebookLinkResourceResolver;
 use Chamilo\CourseBundle\Entity\CForum;
 use Chamilo\CourseBundle\Entity\CForumPost;
 use Chamilo\CourseBundle\Entity\CForumThread;
@@ -39,14 +40,14 @@ final class ForumThreadGradingProvider implements ProviderInterface
 {
     use ForumStateHelperTrait;
 
-    private const int LINK_FORUM_THREAD = 5;
-
     public function __construct(
         private readonly RequestStack $requestStack,
         private readonly EntityManagerInterface $entityManager,
         private readonly CForumThreadRepository $threadRepository,
-        private readonly GradeBookCategoryRepository $gradebookCategoryRepository,
+        private readonly GradebookLinkManager $gradebookLinkManager,
         private readonly Security $security,
+        private readonly CidReqHelper $cidReqHelper,
+        private readonly IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -71,23 +72,24 @@ final class ForumThreadGradingProvider implements ProviderInterface
             throw new NotFoundHttpException('Forum not found.');
         }
 
-        $course = $this->getCourse($this->entityManager, $request);
-        $session = $this->getSession($this->entityManager, $request);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->gradebookLinkManager->assertSessionBelongsToCourse($course, $session);
         $currentUser = $this->security->getUser();
         if (!$currentUser instanceof User) {
             throw new AccessDeniedHttpException('A valid user is required.');
         }
 
-        $canManage = $this->canManageForumsInCurrentView($this->security, $request);
+        $canManage = $this->isAllowedToEditHelper->check(coach: true);
         $canPeerGrade = $this->canPeerGradeThread($thread, $forum, $course, $session, $currentUser);
         if (!$canManage && !$canPeerGrade) {
             throw new AccessDeniedHttpException('You are not allowed to grade this forum thread.');
         }
 
-        $link = $this->findGradebookLink($course, $thread);
+        $link = $this->gradebookLinkManager->findLink($course, $session, GradebookLinkResourceResolver::LINK_FORUM_THREAD, (int) $thread->getIid());
 
         return ForumThreadGrading::fromArray($threadId, [
-            'enabled' => $link instanceof GradebookLink || $thread->getThreadQualifyMax() > 0,
+            'enabled' => null !== $link || $thread->getThreadQualifyMax() > 0,
             'categoryId' => $link?->getCategory()->getId(),
             'title' => $thread->getThreadTitleQualify() ?: $thread->getTitle(),
             'maxScore' => $thread->getThreadQualifyMax(),
@@ -95,7 +97,7 @@ final class ForumThreadGradingProvider implements ProviderInterface
             'peerQualify' => $thread->isThreadPeerQualify(),
             'canManage' => $canManage,
             'canPeerGrade' => $canPeerGrade,
-            'categories' => $canManage ? $this->getGradebookCategories((int) $course->getId(), $session?->getId()) : [],
+            'categories' => $canManage ? $this->getGradebookCategories($course, $session) : [],
             'students' => $this->getThreadStudents($thread, $course, $session, $canManage, $currentUser),
         ]);
     }
@@ -140,37 +142,18 @@ final class ForumThreadGradingProvider implements ProviderInterface
         return true;
     }
 
-    private function findGradebookLink(Course $course, CForumThread $thread): ?GradebookLink
-    {
-        return $this->entityManager->getRepository(GradebookLink::class)->findOneBy([
-            'course' => $course,
-            'type' => self::LINK_FORUM_THREAD,
-            'refId' => (int) $thread->getIid(),
-        ]);
-    }
-
     /**
      * @return array<int, array<string, mixed>>
      */
-    private function getGradebookCategories(int $courseId, ?int $sessionId): array
+    private function getGradebookCategories(Course $course, ?Session $session): array
     {
-        $this->gradebookCategoryRepository->createDefaultCategory($courseId, $sessionId);
-
-        $categories = [];
-        foreach ($this->gradebookCategoryRepository->getCategoriesForCourse($courseId, $sessionId) as $category) {
-            if (!$category instanceof GradebookCategory) {
-                continue;
-            }
-
-            $categories[] = [
-                'id' => $category->getId(),
-                'title' => $category->getParent() instanceof GradebookCategory
-                    ? $category->getParent()->getTitle().' / '.$category->getTitle()
-                    : $category->getTitle(),
-            ];
-        }
-
-        return $categories;
+        return array_map(
+            static fn (array $option): array => [
+                'id' => $option['value'],
+                'title' => $option['label'],
+            ],
+            $this->gradebookLinkManager->getCategoryOptions($course, $session),
+        );
     }
 
     /**

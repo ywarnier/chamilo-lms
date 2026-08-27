@@ -9,8 +9,8 @@ namespace Chamilo\CoreBundle\ApiResource\CourseDescription;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
-use ApiPlatform\OpenApi\Model\Parameter;
 use Chamilo\CoreBundle\State\CourseDescription\CourseDescriptionListProvider;
 use Symfony\Component\Serializer\Attribute\Groups;
 
@@ -19,39 +19,20 @@ use Symfony\Component\Serializer\Attribute\Groups;
         new Get(
             uriTemplate: '/course-description/list',
             openapi: new Operation(
-                parameters: [
-                    new Parameter(
-                        name: 'cid',
-                        in: 'query',
-                        description: 'Course id',
-                        required: true,
-                        schema: ['type' => 'integer'],
-                    ),
-                    new Parameter(
-                        name: 'sid',
-                        in: 'query',
-                        description: 'Session id',
-                        required: false,
-                        schema: ['type' => 'integer'],
-                    ),
-                    new Parameter(
-                        name: 'gid',
-                        in: 'query',
-                        description: 'Group id',
-                        required: false,
-                        schema: ['type' => 'integer'],
-                    ),
-                    new Parameter(
-                        name: 'isStudentView',
-                        in: 'query',
-                        description: 'Force the read-only student view',
-                        required: false,
-                        schema: ['type' => 'boolean'],
-                    ),
-                ],
             ),
             name: 'get_course_description_list',
             provider: CourseDescriptionListProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+            ],
         ),
     ],
     normalizationContext: [
@@ -84,9 +65,6 @@ final class CourseDescriptionList
 
     #[Groups(['course_description_list:read'])]
     public bool $studentView = false;
-
-    #[Groups(['course_description_list:read'])]
-    public string $csrfToken = '';
 
     /**
      * @var array<int, array<string, mixed>>

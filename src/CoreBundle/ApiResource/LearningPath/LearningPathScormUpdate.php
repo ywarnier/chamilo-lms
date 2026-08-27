@@ -8,6 +8,7 @@ namespace Chamilo\CoreBundle\ApiResource\LearningPath;
 
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\RequestBody;
 use ArrayObject;
@@ -32,9 +33,8 @@ use Chamilo\CoreBundle\State\LearningPath\LearningPathScormUpdateProcessor;
                                         'type' => 'string',
                                         'format' => 'binary',
                                     ],
-                                    'csrfToken' => ['type' => 'string'],
                                 ],
-                                'required' => ['package', 'csrfToken'],
+                                'required' => ['package'],
                             ],
                         ],
                     ]),
@@ -45,6 +45,21 @@ use Chamilo\CoreBundle\State\LearningPath\LearningPathScormUpdateProcessor;
             output: false,
             read: false,
             deserialize: false,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: LearningPathScormUpdateProcessor::class,
         ),
     ],

@@ -101,7 +101,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref, watch } from "vue"
+import { computed, onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
 import { useRoute, useRouter } from "vue-router"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
@@ -113,6 +113,7 @@ import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue"
 import SectionHeader from "../../components/layout/SectionHeader.vue"
 import courseProgressService from "../../services/courseProgressService"
 import { usePlatformConfig } from "../../store/platformConfig"
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
 
 const { t } = useI18n()
 const route = useRoute()
@@ -125,7 +126,7 @@ const loadErrorMessage = ref("")
 const formErrorMessage = ref("")
 const selectedFile = ref(null)
 const replaceCurrentProgress = ref(false)
-const csrfToken = ref("")
+const canManage = ref(false)
 const fileInputKey = ref(0)
 
 const listRoute = computed(() => ({
@@ -153,9 +154,6 @@ function getContextParams() {
     params.gid = gid
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    params.isStudentView = getQueryValue(route.query.isStudentView)
-  }
 
   return params
 }
@@ -175,12 +173,12 @@ async function loadImportForm() {
 
     if (!response.canManage || platformConfigStore.isStudentViewActive) {
       loadErrorMessage.value = t("Access denied")
-      csrfToken.value = ""
+      canManage.value = false
 
       return
     }
 
-    csrfToken.value = response.csrfToken || ""
+    canManage.value = true
   } catch (error) {
     console.error("Error loading course progress import form", error)
     loadErrorMessage.value =
@@ -197,7 +195,7 @@ async function importCourseProgress() {
 
   formErrorMessage.value = ""
 
-  if (!(selectedFile.value instanceof File) || !csrfToken.value) {
+  if (!(selectedFile.value instanceof File) || !canManage.value) {
     formErrorMessage.value = t("Please fill all required fields")
 
     return
@@ -206,12 +204,7 @@ async function importCourseProgress() {
   isImporting.value = true
 
   try {
-    await courseProgressService.importCsv(
-      selectedFile.value,
-      replaceCurrentProgress.value,
-      csrfToken.value,
-      getContextParams(),
-    )
+    await courseProgressService.importCsv(selectedFile.value, replaceCurrentProgress.value, getContextParams())
 
     await router.push({
       ...listRoute.value,
@@ -231,13 +224,11 @@ async function importCourseProgress() {
 
 onMounted(loadImportForm)
 
-watch(
-  () => platformConfigStore.isStudentViewActive,
-  async () => {
+useStudentViewRefresh(loadImportForm, {
+  before: () => {
     selectedFile.value = null
     replaceCurrentProgress.value = false
     fileInputKey.value += 1
-    await loadImportForm()
   },
-)
+})
 </script>

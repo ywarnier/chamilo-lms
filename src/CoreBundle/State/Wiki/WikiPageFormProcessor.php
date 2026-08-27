@@ -13,7 +13,9 @@ use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\User;
-use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
+use Chamilo\CoreBundle\Helpers\WikiHelper;
 use Chamilo\CourseBundle\Entity\CGroup;
 use Chamilo\CourseBundle\Entity\CWiki;
 use Chamilo\CourseBundle\Entity\CWikiCategory;
@@ -31,8 +33,6 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 use const COURSEMANAGERLOWSECURITY;
@@ -44,19 +44,18 @@ use const ENT_SUBSTITUTE;
  */
 final readonly class WikiPageFormProcessor implements ProcessorInterface
 {
-    use WikiAccessHelperTrait;
-
     public function __construct(
+        private CidReqHelper $cidReqHelper,
+        private StudentViewHelper $studentViewHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CWikiRepository $wikiRepository,
         private Security $security,
-        private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private WikiPageRenderer $renderer,
         private WikiNotificationService $notificationService,
         private WikiAssignmentService $assignmentService,
         private WikiCategoryService $categoryService,
+        private WikiHelper $wikiHelper,
     ) {}
 
     /**
@@ -74,23 +73,21 @@ final readonly class WikiPageFormProcessor implements ProcessorInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getWikiCourse($this->entityManager, $request);
-        $this->assertWikiToolEnabled($this->entityManager, $course);
-        $this->assertWikiRouteNode($course, $request);
-        $session = $this->getWikiSession($this->entityManager, $request);
-        $this->assertWikiSessionBelongsToCourse($session, $course);
-        $group = $this->getWikiGroup($this->entityManager, $request);
-        $this->assertWikiGroupBelongsToContext($group, $course, $session);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->wikiHelper->assertToolEnabled($course);
+        $this->wikiHelper->assertRouteNode($course, $request);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->wikiHelper->assertSessionBelongsToCourse($session, $course);
+        $group = $this->cidReqHelper->getDoctrineGroupEntity();
+        $this->wikiHelper->assertGroupBelongsToContext($group, $course, $session);
 
-        if ($this->isWikiStudentView($request)) {
+        if ($this->studentViewHelper->isActive()) {
             throw new AccessDeniedHttpException('Wiki pages cannot be edited in student view.');
         }
 
-        if (!$this->canReadWikiContext($this->security, $this->settingsManager, $course, $session, $group)) {
+        if (!$this->wikiHelper->canRead($course, $session, $group)) {
             throw new AccessDeniedHttpException('You are not allowed to edit Wiki pages in this context.');
         }
-
-        $this->validateCsrfToken($data->csrfToken);
 
         $user = $this->security->getUser();
         if (!$user instanceof User) {
@@ -100,10 +97,7 @@ final readonly class WikiPageFormProcessor implements ProcessorInterface
         $courseId = (int) $course->getId();
         $sessionId = null !== $session ? (int) $session->getId() : 0;
         $groupId = null !== $group?->getIid() ? (int) $group->getIid() : 0;
-        $canManage = $this->canManageWikiContext(
-            $this->entityManager,
-            $this->security,
-            $this->settingsManager,
+        $canManage = $this->wikiHelper->canManage(
             $course,
             $session,
             $group,
@@ -129,12 +123,9 @@ final readonly class WikiPageFormProcessor implements ProcessorInterface
                 throw new NotFoundHttpException('The requested Wiki page was not found in the current context.');
             }
 
-            $this->assertWikiPageVisible($this->security, $latest, $canManage);
+            $this->wikiHelper->assertPageVisible($latest, $canManage);
 
-            if (!$this->canEditWikiPage(
-                $this->entityManager,
-                $this->security,
-                $this->settingsManager,
+            if (!$this->wikiHelper->canEditPage(
                 $course,
                 $session,
                 $group,
@@ -169,10 +160,7 @@ final readonly class WikiPageFormProcessor implements ProcessorInterface
 
         if (!$isUpdate) {
             $addLock = $this->wikiRepository->findContextAddLock($courseId, $groupId, $sessionId);
-            if (!$this->canCreateWikiPage(
-                $this->entityManager,
-                $this->security,
-                $this->settingsManager,
+            if (!$this->wikiHelper->canCreatePage(
                 $course,
                 $session,
                 $group,
@@ -203,7 +191,7 @@ final readonly class WikiPageFormProcessor implements ProcessorInterface
                     );
 
                     if ($templatePage instanceof CWiki) {
-                        $this->assertWikiPageVisible($this->security, $templatePage, $canManage);
+                        $this->wikiHelper->assertPageVisible($templatePage, $canManage);
                     }
                 }
             }
@@ -213,8 +201,7 @@ final readonly class WikiPageFormProcessor implements ProcessorInterface
         $content = $this->sanitizeContent($data->content);
         $comment = trim(strip_tags($data->comment));
         $this->prepareAssignmentConfiguration($data, $canManage, $reflink);
-        $categoriesEnabled = $this->isWikiCourseSettingEnabled(
-            $this->entityManager,
+        $categoriesEnabled = $this->wikiHelper->isCourseSettingEnabled(
             $course,
             'wiki_categories_enabled',
             false,
@@ -530,13 +517,6 @@ final readonly class WikiPageFormProcessor implements ProcessorInterface
         }
     }
 
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(WikiPageFormProvider::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('The security token is invalid.');
-        }
-    }
-
     private function normalizeProgress(int $progress): int
     {
         if ($progress < 0 || $progress > 100 || 0 !== $progress % 10) {
@@ -561,7 +541,7 @@ final readonly class WikiPageFormProcessor implements ProcessorInterface
             return htmlspecialchars($content, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
         }
 
-        if ($this->resolveWikiBoolean($this->settingsManager->getSetting('editor.htmlpurifier_wiki', true), false)) {
+        if ($this->wikiHelper->isPlatformSettingEnabled('editor.htmlpurifier_wiki', false)) {
             return (string) LegacySecurity::remove_XSS($content);
         }
 

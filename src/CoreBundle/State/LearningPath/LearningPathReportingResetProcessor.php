@@ -14,6 +14,7 @@ use Chamilo\CoreBundle\Entity\ExtraField;
 use Chamilo\CoreBundle\Entity\ExtraFieldValues;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Repository\ExtraFieldValuesRepository;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CLp;
@@ -31,7 +32,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 /** @implements ProcessorInterface<LearningPathReportingResetInput, void> */
@@ -43,10 +43,10 @@ final readonly class LearningPathReportingResetProcessor implements ProcessorInt
         private EntityManagerInterface $entityManager,
         private RequestStack $requestStack,
         private Security $security,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private SettingsManager $settingsManager,
         private LearningPathReportingProvider $reportingProvider,
         private ExtraFieldValuesRepository $extraFieldValuesRepository,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     /**
@@ -69,12 +69,11 @@ final readonly class LearningPathReportingResetProcessor implements ProcessorInt
         }
 
         $this->assertLearningPathTeacher($this->security);
-        $course = $this->getContextCourse($this->entityManager, $request);
-        $session = $this->getContextSession($this->entityManager, $request, $course);
-        $group = $this->getContextGroup($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getContextGroup($this->entityManager, $this->cidReqHelper, $course);
         $lp = $this->getLearningPath($uriVariables);
         $this->getEditableResourceLink($lp, $course, $session, $group, $this->security);
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
 
         $userIds = $this->normalizeIds($data->userIds);
         if ([] === $userIds) {

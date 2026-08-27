@@ -28,7 +28,9 @@ use Chamilo\CoreBundle\Traits\AccessUrlListenerTrait;
 use Chamilo\CourseBundle\Entity\CCalendarEvent;
 use Chamilo\CourseBundle\Entity\CDocument;
 use Chamilo\CourseBundle\Entity\CGroup;
+use Chamilo\CourseBundle\Entity\CLpItem;
 use Cocur\Slugify\SlugifyInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
@@ -202,9 +204,10 @@ class ResourceListener
         if (null !== $request && null === $parentNode) {
             $currentRequest = $request->getCurrentRequest();
             if (null !== $currentRequest) {
+                $bodyParentResourceNodeId = $currentRequest->request->get('parentResourceNodeId');
                 $resourceNodeIdFromRequest = $currentRequest->query->get(
                     'parentResourceNodeId',
-                    $currentRequest->request->get('parentResourceNodeId')
+                    null !== $bodyParentResourceNodeId ? (string) $bodyParentResourceNodeId : null
                 );
                 if (empty($resourceNodeIdFromRequest)) {
                     $contentData = $request->getCurrentRequest()->getContent();
@@ -613,10 +616,15 @@ class ResourceListener
         }
 
         $em = $args->getObjectManager();
-        $docID = $resource->getIid();
-        $em->createQuery('DELETE FROM Chamilo\CourseBundle\Entity\CLpItem i WHERE i.path = :path AND i.itemType = :type')
-            ->setParameter('path', $docID)
+        \assert($em instanceof EntityManagerInterface);
+        $em->createQueryBuilder()
+            ->delete(CLpItem::class, 'i')
+            ->where('i.path = :path')
+            ->andWhere('i.itemType = :type')
+            ->setParameter('path', $resource->getIid())
             ->setParameter('type', 'document')
-            ->execute();
+            ->getQuery()
+            ->execute()
+        ;
     }
 }

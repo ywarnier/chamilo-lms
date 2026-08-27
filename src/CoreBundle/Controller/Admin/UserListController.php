@@ -60,8 +60,8 @@ class UserListController extends AbstractController
     #[Route('', name: 'admin_user_list_data', methods: ['GET'])]
     public function list(Request $request): JsonResponse
     {
-        $page = max(1, (int) $request->query->get('page', 1));
-        $limit = max(1, min(200, (int) $request->query->get('limit', 20)));
+        $page = max(1, (int) $request->query->get('page', '1'));
+        $limit = max(1, min(200, (int) $request->query->get('limit', '20')));
         $sortField = (string) $request->query->get('sortField', 'lastname');
         $sortOrder = 'DESC' === strtoupper((string) $request->query->get('sortOrder', 'ASC')) ? 'DESC' : 'ASC';
         $view = (string) $request->query->get('view', 'all');
@@ -74,7 +74,7 @@ class UserListController extends AbstractController
         $keywordRoles = $request->query->all('keyword_roles');
         $keywordActive = $request->query->get('keyword_active');
         $keywordInactive = $request->query->get('keyword_inactive');
-        $classId = (int) $request->query->get('class_id', 0);
+        $classId = (int) $request->query->get('class_id', '0');
 
         $dqlSortField = self::ALLOWED_SORT_FIELDS[$sortField] ?? 'u.lastname';
         $showDeleted = 'deleted' === $view;
@@ -244,7 +244,10 @@ class UserListController extends AbstractController
                 'isSessionAdmin' => $isSessionAdmin,
             ],
             'roleLabels' => array_map(fn (string $label): string => $this->translator->trans($label), self::ROLE_LABELS),
-            'csrfToken' => $this->csrfTokenManager->getToken('user_list_action')->getValue(),
+            // "Login as" is a GET route, which the central CSRF listener never
+            // inspects (it skips safe methods), so this token stays: it is the
+            // only thing standing between an admin session and an attacker-chosen
+            // impersonation triggered by a plain <img> tag.
             'loginAsToken' => $this->csrfTokenManager->getToken('login_as')->getValue(),
         ]);
     }

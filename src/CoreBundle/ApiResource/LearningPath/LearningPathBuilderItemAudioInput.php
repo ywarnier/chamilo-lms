@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\ApiResource\LearningPath;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\QueryParameter;
 use Chamilo\CoreBundle\State\LearningPath\LearningPathBuilderMutationProcessor;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Attribute\Groups;
@@ -23,6 +24,21 @@ use Symfony\Component\Serializer\Attribute\Groups;
             output: false,
             read: false,
             name: 'update_learning_path_builder_item_audio',
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: LearningPathBuilderMutationProcessor::class,
         ),
     ],
@@ -40,9 +56,6 @@ final class LearningPathBuilderItemAudioInput
 
     #[Groups(['learning_path_builder_item_audio:read', 'learning_path_builder_item_audio:write'])]
     public ?int $documentId = null;
-
-    #[Groups(['learning_path_builder_item_audio:write'])]
-    public string $csrfToken = '';
 
     #[Groups(['learning_path_builder_item_audio:read'])]
     public bool $saved = false;

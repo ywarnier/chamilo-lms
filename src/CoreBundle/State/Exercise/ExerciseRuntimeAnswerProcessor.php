@@ -21,6 +21,8 @@ use Chamilo\CoreBundle\Entity\Tool;
 use Chamilo\CoreBundle\Entity\TrackEAttempt;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Repository\ResourceNodeRepository;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CLpItem;
@@ -84,12 +86,14 @@ final readonly class ExerciseRuntimeAnswerProcessor implements ProcessorInterfac
     private const ONLYOFFICE_ALLOWED_EXTENSIONS = ['doc', 'docx', 'xls', 'xlsx'];
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CQuizRepository $quizRepository,
         private Security $security,
         private SettingsManager $settingsManager,
         private ResourceNodeRepository $resourceNodeRepository,
+        private UserHelper $userHelper,
     ) {}
 
     /**
@@ -116,8 +120,14 @@ final readonly class ExerciseRuntimeAnswerProcessor implements ProcessorInterfac
             throw new AccessDeniedHttpException('A valid authenticated user is required.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        // Draft-save is called on every Next click while the player also
+        // polls. Holding the session lock here leaves the Vue Next button
+        // stuck on "Saving" for the rest of the test timeout.
+        if (\function_exists('session_write_close')) {
+            session_write_close();
+        }
         $exerciseId = isset($uriVariables['exerciseId']) ? (int) $uriVariables['exerciseId'] : (int) ($data->exerciseId ?? 0);
         $attemptId = isset($uriVariables['attemptId']) ? (int) $uriVariables['attemptId'] : (int) ($data->attemptId ?? 0);
         $questionId = (int) ($data->questionId ?? 0);
@@ -126,7 +136,7 @@ final readonly class ExerciseRuntimeAnswerProcessor implements ProcessorInterfac
             throw new BadRequestHttpException('A valid exercise, attempt and question are required.');
         }
 
-        $quiz = $this->getExerciseFromCurrentContext($exerciseId, $course, $session, $this->canManageExercises());
+        $quiz = $this->getExerciseFromCurrentContext($exerciseId, $course, $session, $this->userHelper->isTeacherOfCurrentCourse());
         $attempt = $this->getIncompleteAttempt($attemptId, $quiz, $course, $session, $user);
         $question = $this->getQuestionFromExercise($questionId, $quiz);
 
@@ -187,7 +197,7 @@ final readonly class ExerciseRuntimeAnswerProcessor implements ProcessorInterfac
             $response->message = 'Office document prepared';
             $response->feedback = [
                 'onlyoffice' => [
-                    'editorUrl' => $this->getOnlyofficeEditorUrl($attemptRow, $course, $session),
+                    'editorUrl' => $this->getOnlyofficeEditorUrl($operation, $attemptRow, $course, $session),
                     'manualCorrection' => true,
                 ],
             ];
@@ -518,43 +528,7 @@ final readonly class ExerciseRuntimeAnswerProcessor implements ProcessorInterfac
     {
         return $this->security->isGranted('ROLE_CURRENT_COURSE_STUDENT')
             || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_STUDENT')
-            || $this->canManageExercises();
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
+            || $this->userHelper->isTeacherOfCurrentCourse();
     }
 
     private function isVisibleThroughLearnpath(CQuiz $quiz, Course $course, ?Session $session): bool
@@ -1039,7 +1013,7 @@ final readonly class ExerciseRuntimeAnswerProcessor implements ProcessorInterfac
         };
     }
 
-    private function getOnlyofficeEditorUrl(TrackEAttempt $attemptRow, Course $course, ?Session $session): string
+    private function getOnlyofficeEditorUrl(Operation $operation, TrackEAttempt $attemptRow, Course $course, ?Session $session): string
     {
         $resourceNode = $this->getFirstAttemptResourceNode($attemptRow);
         $attempt = $attemptRow->getTrackEExercise();
@@ -1056,7 +1030,7 @@ final readonly class ExerciseRuntimeAnswerProcessor implements ProcessorInterfac
             'questionId' => (int) $attemptRow->getQuestionId(),
             'cid' => (int) $course->getId(),
             'sid' => (int) ($session?->getId() ?? 0),
-            'gid' => (int) ($request?->query->getInt('gid', 0) ?? 0),
+            'gid' => (int) $this->cidReqHelper->getGroupId(),
             'origin' => 'exercise',
             'embedded' => 1,
             'forceEdit' => 'true',

@@ -10,6 +10,7 @@ use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\ApiResource\LearningPath\LearningPathRuntimeItemInput;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Service\LearningPath\LearningPathFinalItemManager;
 use Chamilo\CourseBundle\Entity\CLp;
 use Chamilo\CourseBundle\Entity\CLpItem;
@@ -36,12 +37,12 @@ final readonly class LearningPathRuntimeItemProcessor implements ProcessorInterf
         private EntityManagerInterface $entityManager,
         private RequestStack $requestStack,
         private Security $security,
-        private LearningPathRuntimeWriteProtection $writeProtection,
         private LearningPathRuntimeProvider $runtimeProvider,
         private LearningPathRuntimeProgressManager $progressManager,
         private LearningPathFinalItemManager $finalItemManager,
         private CLpRepository $lpRepository,
         private CLpItemRepository $lpItemRepository,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): void
@@ -54,8 +55,6 @@ final readonly class LearningPathRuntimeItemProcessor implements ProcessorInterf
         if (!$request instanceof Request) {
             throw new BadRequestHttpException('Request is missing.');
         }
-
-        $this->writeProtection->assertWriteAllowed($data->csrfToken);
 
         $lpId = (int) ($uriVariables['lpId'] ?? 0);
         if ($lpId <= 0 || $data->itemId <= 0) {
@@ -74,8 +73,8 @@ final readonly class LearningPathRuntimeItemProcessor implements ProcessorInterf
             throw new AccessDeniedHttpException('The learning path item is not available.');
         }
 
-        $course = $this->getContextCourse($this->entityManager, $request);
-        $session = $this->getContextSession($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $lp = $this->lpRepository->find($lpId);
         $item = $this->lpItemRepository->find($data->itemId);
         $user = $this->security->getUser();

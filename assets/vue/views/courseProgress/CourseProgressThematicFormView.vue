@@ -138,7 +138,6 @@ const form = ref({
   title: "",
   content: "",
   language: "",
-  csrfToken: "",
   languages: [],
 })
 
@@ -192,9 +191,6 @@ function getContextParams() {
     params.gid = gid
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    params.isStudentView = getQueryValue(route.query.isStudentView)
-  }
 
   return params
 }
@@ -223,7 +219,6 @@ async function loadForm() {
       title: response.title || "",
       content: response.content || "",
       language: response.language || "",
-      csrfToken: response.csrfToken || "",
       languages: Array.isArray(response.languages) ? response.languages : [],
     }
     settings.value = {
@@ -253,7 +248,6 @@ async function saveThematic() {
     title: form.value.title,
     content: form.value.content,
     language: form.value.language,
-    csrfToken: form.value.csrfToken,
   }
 
   isSaving.value = true
@@ -283,5 +277,5 @@ async function saveThematic() {
 
 onMounted(loadForm)
 
-watch(() => [route.params.id, route.query.cid, route.query.sid, route.query.gid, route.query.isStudentView], loadForm)
+watch(() => [route.params.id, route.query.cid, route.query.sid, route.query.gid], loadForm)
 </script>

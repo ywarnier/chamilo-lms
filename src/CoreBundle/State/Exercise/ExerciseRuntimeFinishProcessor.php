@@ -15,6 +15,8 @@ use Chamilo\CoreBundle\Entity\TrackEAttempt;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
 use Chamilo\CoreBundle\Entity\TrackEExerciseConfirmation;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CLpItem;
 use Chamilo\CourseBundle\Entity\CLpItemView;
@@ -126,11 +128,13 @@ final readonly class ExerciseRuntimeFinishProcessor implements ProcessorInterfac
     ];
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CQuizRepository $quizRepository,
         private Security $security,
         private SettingsManager $settingsManager,
+        private UserHelper $userHelper,
     ) {}
 
     /**
@@ -157,8 +161,11 @@ final readonly class ExerciseRuntimeFinishProcessor implements ProcessorInterfac
             throw new AccessDeniedHttpException('A valid authenticated user is required.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        if (\function_exists('session_write_close')) {
+            session_write_close();
+        }
         $exerciseId = isset($uriVariables['exerciseId']) ? (int) $uriVariables['exerciseId'] : (int) ($data->exerciseId ?? 0);
         $attemptId = isset($uriVariables['attemptId']) ? (int) $uriVariables['attemptId'] : (int) ($data->attemptId ?? 0);
 
@@ -166,7 +173,7 @@ final readonly class ExerciseRuntimeFinishProcessor implements ProcessorInterfac
             throw new BadRequestHttpException('A valid exercise and attempt are required.');
         }
 
-        $quiz = $this->getExerciseFromCurrentContext($exerciseId, $course, $session, $this->canManageExercises());
+        $quiz = $this->getExerciseFromCurrentContext($exerciseId, $course, $session, $this->userHelper->isTeacherOfCurrentCourse());
         $attempt = $this->getIncompleteAttempt($attemptId, $quiz, $course, $session, $user);
         $questionIds = $this->parseQuestionIds((string) $attempt->getDataTracking());
         if ([] === $questionIds) {
@@ -416,26 +423,18 @@ final readonly class ExerciseRuntimeFinishProcessor implements ProcessorInterfac
 
     private function getLearnpathExerciseStatus(CQuiz $quiz, float $score, float $maxScore): string
     {
-        $status = self::STATUS_COMPLETED;
-        $passPercentage = $quiz->getPassPercentage();
-
-        if (
-            !\in_array(
-                (int) $quiz->getFeedbackType(),
-                [self::FEEDBACK_TYPE_DIRECT, self::FEEDBACK_TYPE_POPUP],
-                true,
-            )
-            && null !== $passPercentage
-            && $passPercentage > 0
-        ) {
-            $status = self::LP_STATUS_FAILED;
-            $percentage = $maxScore > 0.0 ? ($score / $maxScore) * 100 : 0.0;
-            if ($percentage >= (float) $passPercentage) {
-                $status = self::LP_STATUS_PASSED;
-            }
+        $passPercentage = (float) ($quiz->getPassPercentage() ?? 0);
+        if ($passPercentage <= 0.0) {
+            return self::LP_STATUS_PASSED;
         }
 
-        return $status;
+        if ($maxScore <= 0.0) {
+            return self::STATUS_COMPLETED;
+        }
+
+        $percentage = ($score / $maxScore) * 100;
+
+        return $percentage >= $passPercentage ? self::LP_STATUS_PASSED : self::LP_STATUS_FAILED;
     }
 
     /**
@@ -535,43 +534,7 @@ final readonly class ExerciseRuntimeFinishProcessor implements ProcessorInterfac
     {
         return $this->security->isGranted('ROLE_CURRENT_COURSE_STUDENT')
             || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_STUDENT')
-            || $this->canManageExercises();
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
+            || $this->userHelper->isTeacherOfCurrentCourse();
     }
 
     private function isVisibleThroughLearnpath(CQuiz $quiz, Course $course, ?Session $session): bool
@@ -1510,7 +1473,8 @@ final readonly class ExerciseRuntimeFinishProcessor implements ProcessorInterfac
      *     words_with_bracket: array<int, string>,
      *     system_string: string,
      *     blank_separator_start: string,
-     *     blank_separator_end: string
+     *     blank_separator_end: string,
+     *     ...
      * } $teacherInfo
      * @param array<int, string> $studentAnswers
      * @param array<int, string> $studentScores
@@ -2023,7 +1987,7 @@ final readonly class ExerciseRuntimeFinishProcessor implements ProcessorInterfac
     }
 
     /**
-     * @param array{x: float, y: float} $point
+     * @param array{x: float, y: float, ...} $point
      */
     private function isPointInHotspot(array $point, string $hotspotType, string $coordinates): bool
     {
@@ -2036,7 +2000,7 @@ final readonly class ExerciseRuntimeFinishProcessor implements ProcessorInterfac
     }
 
     /**
-     * @param array{x: float, y: float} $point
+     * @param array{x: float, y: float, ...} $point
      */
     private function isPointInSquare(array $point, string $coordinates): bool
     {
@@ -2052,7 +2016,7 @@ final readonly class ExerciseRuntimeFinishProcessor implements ProcessorInterfac
     }
 
     /**
-     * @param array{x: float, y: float} $point
+     * @param array{x: float, y: float, ...} $point
      */
     private function isPointInEllipse(array $point, string $coordinates): bool
     {
@@ -2084,7 +2048,7 @@ final readonly class ExerciseRuntimeFinishProcessor implements ProcessorInterfac
     }
 
     /**
-     * @param array{x: float, y: float} $point
+     * @param array{x: float, y: float, ...} $point
      */
     private function isPointInPolygon(array $point, string $coordinates): bool
     {
@@ -2230,9 +2194,6 @@ final readonly class ExerciseRuntimeFinishProcessor implements ProcessorInterfac
         return $positions;
     }
 
-    /**
-     * @return array<int, int>
-     */
     private function requiresManualCorrection(CQuizQuestion $question): bool
     {
         return \in_array((int) $question->getType(), [self::FREE_ANSWER, self::ORAL_EXPRESSION, self::UPLOAD_ANSWER, self::ANSWER_IN_OFFICE_DOC, self::ANNOTATION], true);

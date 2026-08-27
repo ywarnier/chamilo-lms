@@ -16,6 +16,7 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
 use ApiPlatform\OpenApi\Model\RequestBody;
@@ -63,9 +64,8 @@ use Symfony\Component\Validator\Constraints as Assert;
                                     'parentPostId' => ['type' => 'integer'],
                                     'title' => ['type' => 'string'],
                                     'text' => ['type' => 'string'],
-                                    'csrfToken' => ['type' => 'string'],
                                 ],
-                                'required' => ['forumId', 'threadId', 'title', 'text', 'csrfToken'],
+                                'required' => ['forumId', 'threadId', 'title', 'text'],
                             ],
                         ],
                         'multipart/form-data' => [
@@ -77,13 +77,12 @@ use Symfony\Component\Validator\Constraints as Assert;
                                     'parentPostId' => ['type' => 'integer'],
                                     'title' => ['type' => 'string'],
                                     'text' => ['type' => 'string'],
-                                    'csrfToken' => ['type' => 'string'],
                                     'attachments' => [
                                         'type' => 'array',
                                         'items' => ['type' => 'string', 'format' => 'binary'],
                                     ],
                                 ],
-                                'required' => ['forumId', 'threadId', 'title', 'text', 'csrfToken'],
+                                'required' => ['forumId', 'threadId', 'title', 'text'],
                             ],
                         ],
                     ]),
@@ -92,6 +91,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             security: "is_granted('ROLE_CURRENT_COURSE_STUDENT') or is_granted('ROLE_CURRENT_COURSE_SESSION_STUDENT')",
             input: ForumPostWriteInput::class,
             provider: ForumPostCreateStateProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: ForumPostProcessor::class,
             deserialize: false,
             read: true,
@@ -103,6 +117,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             deserialize: false,
             name: 'update_forum_post',
             provider: ForumPostActionProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: ForumPostProcessor::class,
         ),
         new Patch(
@@ -111,6 +140,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             deserialize: false,
             name: 'toggle_forum_post_visibility',
             provider: ForumPostActionProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: ForumPostProcessor::class,
         ),
         new Patch(
@@ -119,6 +163,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             deserialize: false,
             name: 'approve_forum_post',
             provider: ForumPostActionProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: ForumPostProcessor::class,
         ),
         new Patch(
@@ -127,6 +186,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             deserialize: false,
             name: 'reject_forum_post',
             provider: ForumPostActionProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: ForumPostProcessor::class,
         ),
         new Patch(
@@ -135,6 +209,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             deserialize: false,
             name: 'move_forum_post',
             provider: ForumPostActionProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: ForumPostProcessor::class,
         ),
         new Patch(
@@ -143,6 +232,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             deserialize: false,
             name: 'ask_forum_post_revision',
             provider: ForumPostActionProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: ForumPostProcessor::class,
         ),
         new Patch(
@@ -151,6 +255,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             deserialize: false,
             name: 'report_forum_post',
             provider: ForumPostActionProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: ForumPostProcessor::class,
         ),
         new Delete(
@@ -159,6 +278,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             deserialize: false,
             name: 'delete_forum_post',
             provider: ForumPostActionProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: ForumPostProcessor::class,
         ),
         new Get(security: "is_granted('VIEW', object.resourceNode)"),
@@ -294,7 +428,7 @@ class CForumPost extends AbstractResource implements ResourceInterface, Stringab
     protected Collection $children;
 
     /**
-     * @var Collection|CForumAttachment[]
+     * @var Collection<int, CForumAttachment>
      */
     #[Groups(['forum_post:read'])]
     #[ORM\OneToMany(targetEntity: CForumAttachment::class, mappedBy: 'post', cascade: ['persist', 'remove'], orphanRemoval: true)]

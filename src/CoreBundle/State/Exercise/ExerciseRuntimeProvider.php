@@ -19,6 +19,9 @@ use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\TrackEAttempt;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
+use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CGlossary;
 use Chamilo\CourseBundle\Entity\CLpItem;
@@ -83,6 +86,8 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
     private const LEGACY_RUNTIME_REASON_UNSUPPORTED_QUESTION = 'This exercise contains a question type that requires a different test player.';
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
+        private StudentViewHelper $studentViewHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CQuizRepository $quizRepository,
@@ -90,6 +95,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
         private CGlossaryRepository $glossaryRepository,
         private Security $security,
         private SettingsManager $settingsManager,
+        private UserHelper $userHelper,
     ) {}
 
     /**
@@ -103,9 +109,9 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
-        $canManagePermission = $this->canManageExercises();
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $canManagePermission = $this->userHelper->isTeacherOfCurrentCourse();
         $runsAsLearner = !$canManagePermission || $this->isLearnerRuntimeRequest($request);
         $canManage = $canManagePermission && !$runsAsLearner;
 
@@ -121,7 +127,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
         $quiz = $this->getExerciseFromCurrentContext($exerciseId, $course, $session, $canManagePermission);
         $attempt = $this->getRuntimeAttempt($request, $quiz, $course, $session, !$runsAsLearner);
         $attemptQuestionIds = $attempt instanceof TrackEExercise ? $this->parseQuestionIds((string) $attempt->getDataTracking()) : null;
-        $questions = $this->getRuntimeQuestions($quiz, $course, $session, $canManage, $attemptQuestionIds, $attempt);
+        $questions = $this->getRuntimeQuestions($operation, $quiz, $course, $session, $canManage, $attemptQuestionIds, $attempt);
         $runtimePages = $this->buildRuntimePages($quiz, $questions);
         $settings = $this->getRuntimeSettings($quiz, $course, $session);
         $legacyRuntimeReasons = $this->getLegacyRuntimeReasons($quiz);
@@ -138,21 +144,23 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
         $response->description = (string) $quiz->getDescription();
         $response->settings = $settings;
         $response->questions = $questions;
-        $response->legacyUrls = $this->getLegacyUrls($quiz, $course, $session);
+        $response->legacyUrls = $this->getLegacyUrls($operation, $quiz, $course, $session, $request);
         $response->questionCount = $this->countAnswerableQuestions($questions);
         $response->totalScore = $this->getTotalScore($questions);
         $requiresLegacyRuntime = true === ($settings['requiresLegacyRuntime'] ?? false);
+        $hasRuntimeQuestions = [] !== $questions;
         $canSubmit = $runsAsLearner
+            && $hasRuntimeQuestions
             && !$requiresLegacyRuntime
             && $attempt instanceof TrackEExercise
             && self::STATUS_INCOMPLETE === (string) $attempt->getStatus()
             && $this->canFinishWithVue($questions);
 
         $response->canManage = $canManage;
-        $response->attempt = $attempt instanceof TrackEExercise ? $this->normalizeAttempt($attempt, $questions, $quiz) : null;
-        $response->canStartAttempt = $runsAsLearner;
+        $response->attempt = $attempt instanceof TrackEExercise ? $this->normalizeAttempt($operation, $attempt, $questions, $quiz) : null;
+        $response->canStartAttempt = $runsAsLearner && $hasRuntimeQuestions;
         $response->canSubmit = $canSubmit;
-        $response->usesLegacySubmit = $requiresLegacyRuntime || !$canSubmit;
+        $response->usesLegacySubmit = $requiresLegacyRuntime;
 
         return $response;
     }
@@ -245,7 +253,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
      *
      * @return array<string, mixed>
      */
-    private function normalizeAttempt(TrackEExercise $attempt, array $questions, CQuiz $quiz): array
+    private function normalizeAttempt(Operation $operation, TrackEExercise $attempt, array $questions, CQuiz $quiz): array
     {
         $questionIds = $this->parseQuestionIds((string) $attempt->getDataTracking());
         $expiredAt = null;
@@ -273,7 +281,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
             'totalQuestions' => \count($questions),
             'expiredAt' => $expiredAt,
             'remainingSeconds' => $remainingSeconds,
-            'savedAnswers' => $this->getSavedAnswers((int) $attempt->getExeId(), $attempt->getCourse(), $attempt->getSession()),
+            'savedAnswers' => $this->getSavedAnswers($operation, (int) $attempt->getExeId(), $attempt->getCourse(), $attempt->getSession()),
             'reviewQuestionIds' => $this->parseQuestionIds((string) $attempt->getQuestionsToCheck()),
         ];
     }
@@ -342,7 +350,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
     /**
      * @return array<int|string, array<int, array<string, mixed>>>
      */
-    private function getSavedAnswers(int $attemptId, Course $course, ?Session $session): array
+    private function getSavedAnswers(Operation $operation, int $attemptId, Course $course, ?Session $session): array
     {
         $rows = $this->entityManager->createQueryBuilder()
             ->select('saved')
@@ -376,7 +384,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
                 'secondsSpent' => method_exists($row, 'getSecondsSpent') ? (int) $row->getSecondsSpent() : 0,
             ];
 
-            $files = $this->normalizeSavedAttemptFiles($row, $course, $session);
+            $files = $this->normalizeSavedAttemptFiles($operation, $row, $course, $session);
             if ([] !== $files) {
                 $savedRow['files'] = $files;
             }
@@ -388,9 +396,9 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
     }
 
     /**
-     * @return array<int, array{id: int, name: string, size: int, mimeType: string, url: string, inlineUrl: string}>
+     * @return array<int, array{id: int, name: string, size: int, mimeType: string, url: string, inlineUrl: string, onlyofficeEditorUrl: string}>
      */
-    private function normalizeSavedAttemptFiles(TrackEAttempt $attemptRow, Course $course, ?Session $session): array
+    private function normalizeSavedAttemptFiles(Operation $operation, TrackEAttempt $attemptRow, Course $course, ?Session $session): array
     {
         $files = [];
         foreach ($attemptRow->getAttemptFiles() as $attemptFile) {
@@ -420,7 +428,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
                 'mimeType' => $mimeType,
                 'url' => $this->getAttemptFileDownloadUrl($attemptRow, $resourceNode, $course, $session),
                 'inlineUrl' => $this->getAttemptFileDownloadUrl($attemptRow, $resourceNode, $course, $session, true),
-                'onlyofficeEditorUrl' => $this->getOnlyofficeEditorUrl($attemptRow, $resourceNode, $course, $session),
+                'onlyofficeEditorUrl' => $this->getOnlyofficeEditorUrl($operation, $attemptRow, $resourceNode, $course, $session),
             ];
         }
 
@@ -471,7 +479,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
         );
     }
 
-    private function getOnlyofficeEditorUrl(TrackEAttempt $attemptRow, ResourceNode $resourceNode, Course $course, ?Session $session): string
+    private function getOnlyofficeEditorUrl(Operation $operation, TrackEAttempt $attemptRow, ResourceNode $resourceNode, Course $course, ?Session $session): string
     {
         $attempt = $attemptRow->getTrackEExercise();
         $quiz = $attempt->getQuiz();
@@ -488,7 +496,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
             'questionId' => (int) $attemptRow->getQuestionId(),
             'cid' => (int) $course->getId(),
             'sid' => (int) ($session?->getId() ?? 0),
-            'gid' => (int) ($request?->query->getInt('gid', 0) ?? 0),
+            'gid' => (int) $this->cidReqHelper->getGroupId(),
             'origin' => 'exercise',
             'embedded' => 1,
             'forceEdit' => 'true',
@@ -509,60 +517,22 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
         return array_values(array_filter(array_map(static fn (string $id): int => (int) trim($id), explode(',', $value))));
     }
 
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
     private function canViewExercises(): bool
     {
         return $this->security->isGranted('ROLE_CURRENT_COURSE_STUDENT')
             || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_STUDENT')
-            || $this->canManageExercises();
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
+            || $this->userHelper->isTeacherOfCurrentCourse();
     }
 
     private function isLearnerRuntimeRequest(Request $request): bool
     {
         $origin = (string) $request->query->get('origin', '');
-        $isStudentView = strtolower(trim((string) $request->query->get('isStudentView', '')));
         $preview = strtolower(trim((string) $request->query->get('preview', '')));
 
         return 'learnpath' === $origin
             || $request->query->has('lp_init')
             || $request->query->has('learnpath_id')
-            || \in_array($isStudentView, ['1', 'true', 'yes'], true)
-            || str_starts_with($isStudentView, 'true')
+            || $this->studentViewHelper->isActive()
             || \in_array($preview, ['1', 'true', 'yes'], true)
             || str_starts_with($preview, 'true');
     }
@@ -996,7 +966,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
      *
      * @return array<int, array<string, mixed>>
      */
-    private function getRuntimeQuestions(CQuiz $quiz, Course $course, ?Session $session, bool $canManage, ?array $questionIds = null, ?TrackEExercise $attempt = null): array
+    private function getRuntimeQuestions(Operation $operation, CQuiz $quiz, Course $course, ?Session $session, bool $canManage, ?array $questionIds = null, ?TrackEExercise $attempt = null): array
     {
         $relations = $this->getOrderedQuestionRelations($quiz);
         $selectedQuestionIds = null !== $questionIds && [] !== $questionIds
@@ -1038,6 +1008,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
             }
 
             $item = $this->normalizeQuestion(
+                $operation,
                 $question,
                 $relation,
                 $course,
@@ -1119,7 +1090,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
     /**
      * @return array<string, mixed>
      */
-    private function normalizeQuestion(CQuizQuestion $question, CQuizRelQuestion $relation, Course $course, ?Session $session, bool $canManage, ?TrackEExercise $attempt = null, bool $shuffleAnswers = false, string $answerShuffleSeed = ''): array
+    private function normalizeQuestion(Operation $operation, CQuizQuestion $question, CQuizRelQuestion $relation, Course $course, ?Session $session, bool $canManage, ?TrackEExercise $attempt = null, bool $shuffleAnswers = false, string $answerShuffleSeed = ''): array
     {
         $type = (int) $question->getType();
 
@@ -1149,9 +1120,9 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
             'draggable' => $this->getDraggableRuntime($question, $shuffleAnswers, $answerShuffleSeed),
             'dropdown' => $this->getDropdownRuntime($question, $shuffleAnswers, $answerShuffleSeed),
             'calculated' => $this->getCalculatedRuntime($question, $attempt),
-            'annotation' => $this->getImageRuntime($question, $course, $session, [20]),
-            'hotspot' => $this->getHotspotRuntime($question, $course, $session, $canManage),
-            'onlyoffice' => $this->getOnlyofficeRuntime($question, $course, $session, $attempt),
+            'annotation' => $this->getImageRuntime($operation, $question, $course, $session, [20]),
+            'hotspot' => $this->getHotspotRuntime($operation, $question, $course, $session, $canManage),
+            'onlyoffice' => $this->getOnlyofficeRuntime($operation, $question, $relation->getQuiz(), $course, $session, $attempt, $canManage),
             'reading' => $this->getReadingRuntime($question),
             'content' => $this->getContentRuntime($question),
             'isContent' => \in_array($type, self::STRUCTURAL_CONTENT_TYPES, true),
@@ -1849,14 +1820,14 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
     /**
      * @return array<string, mixed>|null
      */
-    private function getHotspotRuntime(CQuizQuestion $question, Course $course, ?Session $session, bool $canManage): ?array
+    private function getHotspotRuntime(Operation $operation, CQuizQuestion $question, Course $course, ?Session $session, bool $canManage): ?array
     {
         $questionType = (int) $question->getType();
         if (!\in_array($questionType, self::HOTSPOT_TYPES, true)) {
             return null;
         }
 
-        $image = $this->getImageRuntime($question, $course, $session, self::HOTSPOT_TYPES) ?? [
+        $image = $this->getImageRuntime($operation, $question, $course, $session, self::HOTSPOT_TYPES) ?? [
             'imageName' => '',
             'imageUrl' => '',
         ];
@@ -1904,7 +1875,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
      *
      * @return array<string, mixed>|null
      */
-    private function getImageRuntime(CQuizQuestion $question, Course $course, ?Session $session, array $allowedTypes): ?array
+    private function getImageRuntime(Operation $operation, CQuizQuestion $question, Course $course, ?Session $session, array $allowedTypes): ?array
     {
         if (!\in_array((int) $question->getType(), $allowedTypes, true)) {
             return null;
@@ -1917,7 +1888,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
             $resourceFile = $resourceNode->getResourceFiles()->first();
             if ($resourceFile instanceof ResourceFile) {
                 $imageName = (string) $resourceFile->getOriginalName();
-                $imageUrl = $this->appendCourseContextToUrl($this->questionRepository->getHotSpotImageUrl($question), $course, $session);
+                $imageUrl = $this->appendCourseContextToUrl($operation, $this->questionRepository->getHotSpotImageUrl($question), $course, $session);
             }
         }
 
@@ -1930,8 +1901,15 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
     /**
      * @return array<string, mixed>|null
      */
-    private function getOnlyofficeRuntime(CQuizQuestion $question, Course $course, ?Session $session, ?TrackEExercise $attempt): ?array
-    {
+    private function getOnlyofficeRuntime(
+        Operation $operation,
+        CQuizQuestion $question,
+        CQuiz $quiz,
+        Course $course,
+        ?Session $session,
+        ?TrackEExercise $attempt,
+        bool $canManage,
+    ): ?array {
         if (self::ANSWER_IN_OFFICE_DOC !== (int) $question->getType()) {
             return null;
         }
@@ -1943,7 +1921,12 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
             $resourceFile = $resourceNode->getResourceFiles()->first();
             if ($resourceFile instanceof ResourceFile) {
                 $templateName = (string) ($resourceFile->getOriginalName() ?: $templateName ?: $resourceNode->getTitle());
-                $templateUrl = $this->appendCourseContextToUrl($this->questionRepository->getHotSpotImageUrl($question), $course, $session);
+                $templateUrl = $this->appendCourseContextToUrl(
+                    $operation,
+                    $this->questionRepository->getResourceFileUrl($question),
+                    $course,
+                    $session
+                );
             }
         }
 
@@ -1954,12 +1937,14 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
                 foreach ($attemptRow->getAttemptFiles() as $attemptFile) {
                     $attemptResourceNode = $attemptFile->getResourceNode();
                     if ($attemptResourceNode instanceof ResourceNode) {
-                        $editorUrl = $this->getOnlyofficeEditorUrl($attemptRow, $attemptResourceNode, $course, $session);
+                        $editorUrl = $this->getOnlyofficeEditorUrl($operation, $attemptRow, $attemptResourceNode, $course, $session);
 
                         break;
                     }
                 }
             }
+        } elseif ($canManage && $resourceNode instanceof ResourceNode) {
+            $editorUrl = $this->getOnlyofficePreviewEditorUrl($operation, $quiz, $question, $resourceNode, $course, $session);
         }
 
         return [
@@ -1968,6 +1953,39 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
             'editorUrl' => $editorUrl,
             'manualCorrection' => true,
         ];
+    }
+
+    private function getOnlyofficePreviewEditorUrl(
+        Operation $operation,
+        CQuiz $quiz,
+        CQuizQuestion $question,
+        ResourceNode $resourceNode,
+        Course $course,
+        ?Session $session,
+    ): string {
+        $exerciseId = (int) ($quiz->getIid() ?? 0);
+        $questionId = (int) ($question->getIid() ?? 0);
+        $resourceNodeId = (int) ($resourceNode->getId() ?? 0);
+
+        if ($exerciseId <= 0 || $questionId <= 0 || $resourceNodeId <= 0) {
+            return '';
+        }
+
+        $request = $this->requestStack->getCurrentRequest();
+        $query = [
+            'resourceNodeId' => $resourceNodeId,
+            'exerciseId' => $exerciseId,
+            'questionId' => $questionId,
+            'cid' => (int) $course->getId(),
+            'sid' => (int) ($session?->getId() ?? 0),
+            'gid' => (int) $this->cidReqHelper->getGroupId(),
+            'origin' => 'exercise',
+            'embedded' => 1,
+            'readOnly' => 1,
+            'exercisePreview' => 1,
+        ];
+
+        return '/plugin/Onlyoffice/editor.php?'.http_build_query($query);
     }
 
     private function getOnlyofficeAttemptRow(int $attemptId, int $questionId): ?TrackEAttempt
@@ -2090,7 +2108,7 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
         return $answers[0] ?? null;
     }
 
-    private function appendCourseContextToUrl(string $url, Course $course, ?Session $session): string
+    private function appendCourseContextToUrl(Operation $operation, string $url, Course $course, ?Session $session): string
     {
         if ('' === $url) {
             return '';
@@ -2099,8 +2117,8 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
         $request = $this->requestStack->getCurrentRequest();
         $params = [
             'cid' => (int) $course->getId(),
-            'sid' => (int) ($session?->getId() ?? $request?->query->getInt('sid', 0) ?? 0),
-            'gid' => (int) ($request?->query->getInt('gid', 0) ?? 0),
+            'sid' => (int) ($session?->getId() ?? $this->cidReqHelper->getSessionId() ?? 0),
+            'gid' => (int) $this->cidReqHelper->getGroupId(),
         ];
 
         return $url.(str_contains($url, '?') ? '&' : '?').http_build_query($params);
@@ -2225,16 +2243,69 @@ final readonly class ExerciseRuntimeProvider implements ProviderInterface
         };
     }
 
+    private function isEmbeddedRuntimeWithoutLearnpathItem(Request $request): bool
+    {
+        if ('learnpath' !== $request->query->getString('origin') || !$request->query->getBoolean('embedded')) {
+            return false;
+        }
+
+        return $request->query->getInt('learnpath_id') <= 0
+            && $request->query->getInt('lp_id') <= 0
+            && $request->query->getInt('learnpath_item_id') <= 0
+            && $request->query->getInt('lp_item_id') <= 0
+            && $request->query->getInt('item_id') <= 0
+            && $request->query->getInt('learnpath_item_view_id') <= 0
+            && $request->query->getInt('lp_item_view_id') <= 0;
+    }
+
     /**
      * @return array<string, string>
      */
-    private function getLegacyUrls(CQuiz $quiz, Course $course, ?Session $session): array
+    private function getLegacyUrls(Operation $operation, CQuiz $quiz, Course $course, ?Session $session, Request $request): array
     {
         $baseParams = [
             'exerciseId' => (int) $quiz->getIid(),
             'cid' => (int) $course->getId(),
             'sid' => (int) ($session?->getId() ?? 0),
+            'gid' => (int) $this->cidReqHelper->getGroupId(),
+            'legacy' => 1,
         ];
+
+        foreach (
+            [
+                'origin',
+                'learnpath_id',
+                'learnpath_item_id',
+                'learnpath_item_view_id',
+                'lp_id',
+                'lp_init',
+                'item_id',
+                'returnToLp',
+                'embedded',
+                'gradebook',
+                'isStudentView',
+                'preview',
+                'attemptId',
+            ] as $key
+        ) {
+            $value = $request->query->get($key);
+            if (null !== $value && '' !== (string) $value) {
+                $baseParams[$key] = (string) $value;
+            }
+        }
+
+        if ($this->isEmbeddedRuntimeWithoutLearnpathItem($request)) {
+            $baseParams['origin'] = 'embeddable';
+            unset(
+                $baseParams['learnpath_id'],
+                $baseParams['learnpath_item_id'],
+                $baseParams['learnpath_item_view_id'],
+                $baseParams['lp_id'],
+                $baseParams['lp_init'],
+                $baseParams['item_id'],
+                $baseParams['returnToLp'],
+            );
+        }
 
         return [
             'overview' => '/main/exercise/overview.php?'.http_build_query($baseParams),

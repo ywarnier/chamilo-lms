@@ -92,7 +92,6 @@
 <script setup>
 import { computed, onMounted, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
-import { useToast } from "primevue/usetoast"
 import { useRoute, useRouter } from "vue-router"
 import BaseAdvancedSettingsButton from "../../components/basecomponents/BaseAdvancedSettingsButton.vue"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
@@ -101,11 +100,12 @@ import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
 import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
 import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTinyEditor from "../../components/basecomponents/BaseTinyEditor.vue"
+import { useNotification } from "../../composables/notification"
 import { useResourceLanguageVisibility } from "../../composables/useResourceLanguageVisibility"
 import notebookService from "../../services/notebookService"
 
 const { t } = useI18n()
-const toast = useToast()
+const { showWarningNotification, showErrorNotification } = useNotification()
 const route = useRoute()
 const router = useRouter()
 const { resourceLanguageEnabled } = useResourceLanguageVisibility()
@@ -121,7 +121,6 @@ const form = ref({
   title: "",
   content: "",
   language: "",
-  csrfToken: "",
   canWrite: false,
   isNew: true,
   fullEditor: false,
@@ -175,9 +174,6 @@ function getContextParams() {
     params.gid = gid
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    params.isStudentView = getQueryValue(route.query.isStudentView)
-  }
 
   return params
 }
@@ -193,15 +189,6 @@ function getFormParams() {
   return params
 }
 
-function showToast(severity, summaryKey, detail, life = 3500) {
-  toast.add({
-    severity,
-    summary: t(summaryKey),
-    detail,
-    life,
-  })
-}
-
 async function loadForm() {
   isLoading.value = true
   loadErrorMessage.value = ""
@@ -213,7 +200,6 @@ async function loadForm() {
       title: response.title || "",
       content: response.content || "",
       language: response.language || "",
-      csrfToken: response.csrfToken || "",
       canWrite: Boolean(response.canWrite),
       isNew: Boolean(response.isNew ?? true),
       fullEditor: Boolean(response.fullEditor),
@@ -232,7 +218,7 @@ async function saveNote() {
   formSubmitted.value = true
 
   if (!form.value.title.trim()) {
-    showToast("warn", "Warning", t("Please complete all required fields."), 5000)
+    showWarningNotification(t("Please complete all required fields."))
 
     return
   }
@@ -242,7 +228,6 @@ async function saveNote() {
     title: form.value.title,
     content: form.value.content,
     language: form.value.language,
-    csrfToken: form.value.csrfToken,
   }
 
   isSaving.value = true
@@ -263,9 +248,7 @@ async function saveNote() {
     })
   } catch (error) {
     console.error("Error saving notebook entry", error)
-    const message =
-      error?.response?.data?.detail || error?.response?.data?.["hydra:description"] || t("An error occurred")
-    showToast("error", "Error", message, 5000)
+    showErrorNotification(error)
   } finally {
     isSaving.value = false
   }
@@ -274,7 +257,7 @@ async function saveNote() {
 onMounted(loadForm)
 
 watch(
-  () => [route.params.id, route.query.cid, route.query.sid, route.query.gid, route.query.isStudentView],
+  () => [route.params.id, route.query.cid, route.query.sid, route.query.gid],
   loadForm,
 )
 </script>

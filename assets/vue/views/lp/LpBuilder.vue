@@ -16,6 +16,7 @@ import LpCertificateForm from "../../components/lp/LpCertificateForm.vue"
 import LpInlineDocumentForm from "../../components/lp/LpInlineDocumentForm.vue"
 import LpInlineDocumentUpload from "../../components/lp/LpInlineDocumentUpload.vue"
 import LpItemAudioForm from "../../components/lp/LpItemAudioForm.vue"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
 import { useNotification } from "../../composables/notification"
 import lpService from "../../services/lpService"
@@ -145,25 +146,6 @@ const previewUrl = computed(() =>
     isStudentView: "false",
   }),
 )
-
-const newTestUrl = computed(() => {
-  const search = new URLSearchParams({
-    cid: String(context.value.cid),
-    sid: String(context.value.sid),
-    gid: String(context.value.gid),
-    lp_id: String(lpId.value),
-    origin: "learnpath",
-    returnToLp: "1",
-    node: String(nodeId.value),
-    parent: String(selectedSectionId.value || route.query.parent || ""),
-    type: "step",
-    isStudentView: "false",
-    gradebook: String(Number(route.query.gradebook || 0)),
-    lpTool: "tests",
-  })
-
-  return `/main/exercise/exercise_admin.php?${search.toString()}`
-})
 
 const learningPathQuery = computed(() => ({
   ...route.query,
@@ -370,24 +352,6 @@ function selectItem(id) {
   }
 }
 
-function buildExerciseEditUrl(item) {
-  const search = new URLSearchParams({
-    cid: String(context.value.cid),
-    sid: String(context.value.sid),
-    gid: String(context.value.gid),
-    modifyExercise: "yes",
-    exerciseId: String(Number(item?.resourceId || 0)),
-    origin: "learnpath",
-    lp_id: String(lpId.value),
-    lp_item_id: String(Number(item?.id || 0)),
-    node: String(nodeId.value),
-    returnToLp: "1",
-    gradebook: String(Number(route.query.gradebook || 0)),
-  })
-
-  return `/main/exercise/exercise_admin.php?${search.toString()}`
-}
-
 function openItemEditor(id) {
   const item = findItem(tree.value, id)
   if (!item) {
@@ -395,7 +359,15 @@ function openItemEditor(id) {
   }
 
   if (item.itemType === "quiz" && Number(item.resourceId || 0) > 0) {
-    window.location.assign(buildExerciseEditUrl(item))
+    router.push({
+      name: "ExerciseEdit",
+      params: { node: nodeId.value, exerciseId: Number(item.resourceId) },
+      query: {
+        ...learningPathQuery.value,
+        lp_item_id: Number(item.id || 0) || undefined,
+        lpTool: "tests",
+      },
+    })
     return
   }
 
@@ -482,7 +454,6 @@ async function createSection() {
     const created = await lpService.createBuilderSection(lpId.value, context.value, {
       title: sectionForm.title,
       parentId: sectionForm.parentId,
-      csrfToken: builder.value.csrfToken,
     })
     sectionForm.title = ""
     selectedId.value = Number(created.id || 0)
@@ -505,9 +476,7 @@ function confirmDeleteItem(id) {
     message: t("Are you sure you want to delete this item?"),
     accept: async () => {
       try {
-        await lpService.deleteBuilderItem(lpId.value, id, context.value, {
-          csrfToken: builder.value.csrfToken,
-        })
+        await lpService.deleteBuilderItem(lpId.value, id, context.value)
         if (selectedId.value === id) {
           selectedId.value = 0
           panelMode.value = ""
@@ -534,7 +503,6 @@ async function addResource(resource, parentId = selectedSectionId.value, exportA
       resourceId: Number(resource.id),
       parentId: parentId || null,
       exportAllowed: Boolean(exportAllowed),
-      csrfToken: builder.value.csrfToken,
     })
     selectedId.value = Number(created.id || 0)
     showSuccessNotification(t("Added"))
@@ -564,7 +532,6 @@ async function addResources(resourceItems, parentId = selectedSectionId.value, e
         resourceId: Number(resource.id),
         parentId: parentId || null,
         exportAllowed: Boolean(exportAllowed),
-        csrfToken: builder.value.csrfToken,
       })
       lastCreatedId = Number(created.id || lastCreatedId)
       addedCount += 1
@@ -631,7 +598,6 @@ async function onStructureChanged() {
   try {
     await lpService.reorderBuilderItems(lpId.value, context.value, {
       order: flattenTree(tree.value),
-      csrfToken: builder.value.csrfToken,
     })
     showSuccessNotification(t("Updated"))
   } catch (error) {
@@ -670,7 +636,6 @@ async function applyPrerequisiteAction() {
   try {
     await lpService.updateBuilderPrerequisites(lpId.value, context.value, {
       action,
-      csrfToken: builder.value.csrfToken,
     })
     showSuccessNotification(t("Updated"))
     await loadBuilder()
@@ -761,53 +726,53 @@ function goBack() {
 
 <template>
   <div class="space-y-4">
-    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-gray-20 pb-3">
-      <div class="flex items-center gap-1">
-        <BaseButton
-          :label="t('Back')"
-          icon="back"
-          only-icon
-          type="primary-text"
-          @click="goBack"
-        />
-        <BaseButton
-          :label="t('Preview')"
-          :to-url="previewUrl"
-          icon="eye-on"
-          only-icon
-          type="primary-text"
-        />
-        <BaseButton
-          :label="t('Settings')"
-          :route="{ name: 'LpSettings', params: { lpId }, query: route.query }"
-          icon="settings"
-          only-icon
-          type="secondary-text"
-        />
-        <BaseButton
-          v-if="builder?.bulkAuthorPrice?.enabled"
-          :label="t('Author')"
-          icon="join-group"
-          only-icon
-          type="secondary-text"
-          @click="openBulkAuthorPrice"
-        />
-      </div>
+    <SectionHeader
+      :show-student-view-button="false"
+      :title="t('Edit learnpath')"
+    >
+      <BaseButton
+        :label="t('Back')"
+        icon="back"
+        only-icon
+        type="primary-text"
+        @click="goBack"
+      />
+      <BaseButton
+        :label="t('Preview')"
+        :to-url="previewUrl"
+        icon="eye-on"
+        only-icon
+        type="primary-text"
+      />
+      <BaseButton
+        :label="t('Settings')"
+        :route="{ name: 'LpSettings', params: { lpId }, query: route.query }"
+        icon="settings"
+        only-icon
+        type="secondary-text"
+      />
+      <BaseButton
+        v-if="builder?.bulkAuthorPrice?.enabled"
+        :label="t('Author')"
+        icon="join-group"
+        only-icon
+        type="secondary-text"
+        @click="openBulkAuthorPrice"
+      />
 
-      <div class="w-full sm:w-80">
-        <BaseSelect
-          id="lp-builder-prerequisite-options"
-          v-model="prerequisiteAction"
-          :disabled="!canManage"
-          :label="t('Prerequisites options')"
-          :options="prerequisiteOptions"
-          name="prerequisiteAction"
-          option-label="label"
-          option-value="value"
-          @change="applyPrerequisiteAction"
-        />
-      </div>
-    </div>
+      <BaseSelect
+        id="lp-builder-prerequisite-options"
+        v-model="prerequisiteAction"
+        class="!mb-0 w-full sm:w-80"
+        :disabled="!canManage"
+        :label="t('Prerequisites options')"
+        :options="prerequisiteOptions"
+        name="prerequisiteAction"
+        option-label="label"
+        option-value="value"
+        @change="applyPrerequisiteAction"
+      />
+    </SectionHeader>
 
     <div
       v-if="loading"
@@ -931,7 +896,6 @@ function goBack() {
               v-if="panelMode === 'edit' && selectedItem?.isFinal"
               :certificate="builder?.certificate || {}"
               :context="context"
-              :csrf-token="builder?.csrfToken || ''"
               :documents-root-node-id="
                 Number(builder?.defaultDocumentParentNodeId || builder?.documentsRootNodeId || 0)
               "
@@ -944,7 +908,6 @@ function goBack() {
               :ai-quick-test-enabled="Boolean(builder?.aiQuickTestEnabled)"
               :ai-quick-test-providers="builder?.aiQuickTestProviders || []"
               :context="context"
-              :csrf-token="builder?.csrfToken || ''"
               :item="selectedItem"
               :lp-id="lpId"
               :parent-options="selectedParentOptions"
@@ -956,7 +919,6 @@ function goBack() {
             <LpBuilderPrerequisiteForm
               v-else-if="panelMode === 'prerequisite' && selectedItem"
               :context="context"
-              :csrf-token="builder?.csrfToken || ''"
               :item="selectedItem"
               :items="tree"
               :lp-id="lpId"
@@ -967,7 +929,6 @@ function goBack() {
               v-else-if="panelMode === 'audio' && selectedItem"
               :audio-items="resources.audio?.items || []"
               :context="context"
-              :csrf-token="builder?.csrfToken || ''"
               :documents-root-node-id="
                 Number(builder?.defaultDocumentParentNodeId || builder?.documentsRootNodeId || 0)
               "
@@ -980,7 +941,6 @@ function goBack() {
               v-else-if="panelMode === 'author-price' && builder?.bulkAuthorPrice?.enabled"
               :configuration="builder.bulkAuthorPrice"
               :context="context"
-              :csrf-token="builder?.csrfToken || ''"
               :items="tree"
               :lp-id="lpId"
               @saved="handleBulkAuthorPriceSaved"
@@ -1060,9 +1020,9 @@ function goBack() {
               <div class="flex justify-end">
                 <BaseButton
                   :label="t('New test')"
-                  :to-url="newTestUrl"
                   icon="multiple-marked"
                   type="success"
+                  @click="openRoute('ExerciseCreate', {}, { lpTool: 'tests' })"
                 />
               </div>
               <LpBuilderResourceList
@@ -1211,7 +1171,6 @@ function goBack() {
               v-else-if="activeTool === 'certificate'"
               :certificate="builder?.certificate || {}"
               :context="context"
-              :csrf-token="builder?.csrfToken || ''"
               :documents-root-node-id="Number(builder?.documentsRootNodeId || 0)"
               :lp-id="lpId"
               @saved="handleCertificateSaved"

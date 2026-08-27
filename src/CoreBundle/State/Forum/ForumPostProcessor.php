@@ -12,10 +12,12 @@ use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ResourceNode;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Helpers\MessageHelper;
 use Chamilo\CoreBundle\Repository\ExtraFieldRepository;
 use Chamilo\CoreBundle\Repository\ExtraFieldValuesRepository;
 use Chamilo\CoreBundle\Security\Upload\UploadFilenamePolicy;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CForum;
 use Chamilo\CourseBundle\Entity\CForumAttachment;
@@ -40,7 +42,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 use const FILTER_VALIDATE_BOOLEAN;
 use const JSON_THROW_ON_ERROR;
@@ -67,12 +68,13 @@ final class ForumPostProcessor implements ProcessorInterface
         private readonly EntityManagerInterface $entityManager,
         private readonly RequestStack $requestStack,
         private readonly Security $security,
-        private readonly CsrfTokenManagerInterface $csrfTokenManager,
         private readonly UploadFilenamePolicy $uploadFilenamePolicy,
         private readonly SettingsManager $settingsManager,
         private readonly MessageHelper $messageHelper,
         private readonly ExtraFieldRepository $extraFieldRepository,
         private readonly ExtraFieldValuesRepository $extraFieldValuesRepository,
+        private readonly CidReqHelper $cidReqHelper,
+        private readonly GradebookLinkManager $gradebookLinkManager,
     ) {}
 
     public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): JsonResponse
@@ -97,7 +99,6 @@ final class ForumPostProcessor implements ProcessorInterface
     private function createReply(Request $request): JsonResponse
     {
         $data = $this->getRequestData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $data['csrfToken'] ?? null);
 
         $forum = $this->forumRepository->find($this->getRequiredInt($data, 'forumId'));
         if (!$forum instanceof CForum) {
@@ -127,9 +128,10 @@ final class ForumPostProcessor implements ProcessorInterface
 
         $title = $this->getRequiredText($data, 'title', 250);
         $text = $this->getRequiredHtmlText($data, 'text');
-        $course = $this->getCourse($this->entityManager, $request);
-        $session = $this->getSession($this->entityManager, $request);
-        $group = $this->getGroup($this->entityManager, $request);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->assertSessionBelongsToCourse($session, $course);
+        $group = $this->getGroup($this->entityManager, $this->cidReqHelper);
         $this->assertResourceNodeInForumContext(
             $forum->getResourceNode(),
             $course,
@@ -191,7 +193,7 @@ final class ForumPostProcessor implements ProcessorInterface
         }
 
         if ($visible) {
-            $this->sendForumSubscriptionNotifications($this->entityManager, $request, $course, $session, $forum, $thread, $post, $user, $this->messageHelper);
+            $this->sendForumSubscriptionNotifications($this->entityManager, $request, $course, $session, $forum, $thread, $post, $user, $this->messageHelper, $this->cidReqHelper);
         }
 
         $this->registerForumEventLog('reply-thread', 'post', (string) $post->getIid());
@@ -208,7 +210,6 @@ final class ForumPostProcessor implements ProcessorInterface
     private function updatePost(Request $request, mixed $data): JsonResponse
     {
         $payload = $this->getJsonData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
 
         if (!$data instanceof CForumPost) {
             throw new NotFoundHttpException('Forum post not found.');
@@ -223,8 +224,9 @@ final class ForumPostProcessor implements ProcessorInterface
         $this->assertVisibleResource($data->getResourceNode());
         $this->assertVisibleResource($thread->getResourceNode());
         $this->assertPostCanBeEdited($data, $forum, $thread);
-        $course = $this->getCourse($this->entityManager, $request);
-        $this->assertForumThreadNotLockedByGradebook($this->entityManager, $this->settingsManager, $this->security, $course, $thread);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->assertForumThreadNotLockedByGradebook($this->gradebookLinkManager, $course, $session, $thread);
 
         $title = $this->getRequiredText($payload, 'title', 250);
         $text = trim((string) ($payload['text'] ?? ''));
@@ -258,7 +260,6 @@ final class ForumPostProcessor implements ProcessorInterface
     private function deletePost(Request $request, mixed $data): JsonResponse
     {
         $payload = $this->getJsonData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
 
         if (!$data instanceof CForumPost) {
             throw new NotFoundHttpException('Forum post not found.');
@@ -273,8 +274,9 @@ final class ForumPostProcessor implements ProcessorInterface
         $this->assertVisibleResource($data->getResourceNode());
         $this->assertVisibleResource($thread->getResourceNode());
         $this->assertPostCanBeDeleted($data, $forum, $thread);
-        $course = $this->getCourse($this->entityManager, $request);
-        $this->assertForumThreadNotLockedByGradebook($this->entityManager, $this->settingsManager, $this->security, $course, $thread);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->assertForumThreadNotLockedByGradebook($this->gradebookLinkManager, $course, $session, $thread);
 
         $postId = (int) $data->getIid();
         $postCount = $this->countThreadPosts($thread);
@@ -333,13 +335,9 @@ final class ForumPostProcessor implements ProcessorInterface
         ]);
     }
 
-    /**
-     * @return array<string, mixed>
-     */
     private function togglePostVisibility(Request $request, mixed $data): JsonResponse
     {
         $payload = $this->getJsonData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
         $this->assertTeacher($this->security);
 
         if (!$data instanceof CForumPost) {
@@ -350,8 +348,9 @@ final class ForumPostProcessor implements ProcessorInterface
         $this->assertEditableForumResource($data->getResourceNode(), $this->security);
         $this->assertEditableForumResource($thread->getResourceNode(), $this->security);
         $this->assertEditableForumResource($forum->getResourceNode(), $this->security);
-        $course = $this->getCourse($this->entityManager, $request);
-        $this->assertForumThreadNotLockedByGradebook($this->entityManager, $this->settingsManager, $this->security, $course, $thread);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->assertForumThreadNotLockedByGradebook($this->gradebookLinkManager, $course, $session, $thread);
 
         $targetVisible = \array_key_exists('visible', $payload)
             ? filter_var($payload['visible'], FILTER_VALIDATE_BOOLEAN)
@@ -372,7 +371,6 @@ final class ForumPostProcessor implements ProcessorInterface
     private function approvePost(Request $request, mixed $data): JsonResponse
     {
         $payload = $this->getJsonData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
         $this->assertTeacher($this->security);
 
         if (!$data instanceof CForumPost) {
@@ -383,8 +381,9 @@ final class ForumPostProcessor implements ProcessorInterface
         $this->assertEditableForumResource($data->getResourceNode(), $this->security);
         $this->assertEditableForumResource($thread->getResourceNode(), $this->security);
         $this->assertEditableForumResource($forum->getResourceNode(), $this->security);
-        $course = $this->getCourse($this->entityManager, $request);
-        $this->assertForumThreadNotLockedByGradebook($this->entityManager, $this->settingsManager, $this->security, $course, $thread);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->assertForumThreadNotLockedByGradebook($this->gradebookLinkManager, $course, $session, $thread);
 
         $wasVisible = $data->getVisible();
         $data
@@ -408,10 +407,9 @@ final class ForumPostProcessor implements ProcessorInterface
         $this->entityManager->persist($forum);
         $this->entityManager->flush();
 
-        $session = $this->getSession($this->entityManager, $request);
         $author = $data->getUser();
         if (!$wasVisible && $author instanceof User) {
-            $this->sendForumSubscriptionNotifications($this->entityManager, $request, $course, $session, $forum, $thread, $data, $author, $this->messageHelper);
+            $this->sendForumSubscriptionNotifications($this->entityManager, $request, $course, $session, $forum, $thread, $data, $author, $this->messageHelper, $this->cidReqHelper);
         }
 
         $this->registerForumEventLog('approve-post', 'post', (string) $data->getIid());
@@ -428,7 +426,6 @@ final class ForumPostProcessor implements ProcessorInterface
     private function rejectPost(Request $request, mixed $data): JsonResponse
     {
         $payload = $this->getJsonData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
         $this->assertTeacher($this->security);
 
         if (!$data instanceof CForumPost) {
@@ -439,8 +436,9 @@ final class ForumPostProcessor implements ProcessorInterface
         $this->assertEditableForumResource($data->getResourceNode(), $this->security);
         $this->assertEditableForumResource($thread->getResourceNode(), $this->security);
         $this->assertEditableForumResource($forum->getResourceNode(), $this->security);
-        $course = $this->getCourse($this->entityManager, $request);
-        $this->assertForumThreadNotLockedByGradebook($this->entityManager, $this->settingsManager, $this->security, $course, $thread);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->assertForumThreadNotLockedByGradebook($this->gradebookLinkManager, $course, $session, $thread);
 
         $wasVisible = $data->getVisible();
         $data
@@ -478,7 +476,6 @@ final class ForumPostProcessor implements ProcessorInterface
     private function askPostRevision(Request $request, mixed $data): JsonResponse
     {
         $payload = $this->getJsonData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
 
         if (!$data instanceof CForumPost) {
             throw new NotFoundHttpException('Forum post not found.');
@@ -513,7 +510,6 @@ final class ForumPostProcessor implements ProcessorInterface
     private function reportPost(Request $request, mixed $data): JsonResponse
     {
         $payload = $this->getJsonData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
 
         if (!$data instanceof CForumPost) {
             throw new NotFoundHttpException('Forum post not found.');
@@ -524,7 +520,7 @@ final class ForumPostProcessor implements ProcessorInterface
         $this->assertVisibleResource($thread->getResourceNode());
         $this->assertVisibleResource($forum->getResourceNode());
 
-        $course = $this->getCourse($this->entityManager, $request);
+        $course = $this->getCourse($this->cidReqHelper);
         if (!$this->isReportAvailable((int) $course->getId())) {
             throw new AccessDeniedHttpException('Forum post reporting is disabled.');
         }
@@ -557,7 +553,6 @@ final class ForumPostProcessor implements ProcessorInterface
     private function movePost(Request $request, mixed $data): JsonResponse
     {
         $payload = $this->getJsonData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
         $this->assertTeacher($this->security);
 
         if (!$data instanceof CForumPost) {
@@ -569,9 +564,10 @@ final class ForumPostProcessor implements ProcessorInterface
         $this->assertEditableForumResource($sourceThread->getResourceNode(), $this->security);
         $this->assertEditableForumResource($sourceForum->getResourceNode(), $this->security);
 
-        $course = $this->getCourse($this->entityManager, $request);
-        $session = $this->getSession($this->entityManager, $request);
-        $group = $this->getGroup($this->entityManager, $request);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->assertSessionBelongsToCourse($session, $course);
+        $group = $this->getGroup($this->entityManager, $this->cidReqHelper);
         $this->assertResourceNodeInForumContext(
             $sourceForum->getResourceNode(),
             $course,
@@ -586,7 +582,7 @@ final class ForumPostProcessor implements ProcessorInterface
             $group,
             'The source thread does not belong to this context.',
         );
-        $this->assertForumThreadNotLockedByGradebook($this->entityManager, $this->settingsManager, $this->security, $course, $sourceThread);
+        $this->assertForumThreadNotLockedByGradebook($this->gradebookLinkManager, $course, $session, $sourceThread);
 
         if ($this->isFirstPost($data, $sourceThread)) {
             throw new BadRequestHttpException('The first post of a thread cannot be moved. Move the thread instead.');
@@ -643,7 +639,7 @@ final class ForumPostProcessor implements ProcessorInterface
                 throw new BadRequestHttpException('The post is already in the selected thread.');
             }
 
-            $this->assertForumThreadNotLockedByGradebook($this->entityManager, $this->settingsManager, $this->security, $course, $targetThread);
+            $this->assertForumThreadNotLockedByGradebook($this->gradebookLinkManager, $course, $session, $targetThread);
         }
 
         foreach ($data->getChildren() as $child) {

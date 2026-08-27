@@ -9,24 +9,22 @@ namespace Chamilo\CoreBundle\State\Wiki;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
 use Chamilo\CoreBundle\ApiResource\Wiki\WikiSettings;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\SecurityBundle\Security;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
+use Chamilo\CoreBundle\Helpers\WikiHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /** @implements ProviderInterface<WikiSettings> */
 final readonly class WikiSettingsProvider implements ProviderInterface
 {
-    use WikiAccessHelperTrait;
-
     public function __construct(
+        private CidReqHelper $cidReqHelper,
+        private StudentViewHelper $studentViewHelper,
         private RequestStack $requestStack,
-        private EntityManagerInterface $entityManager,
-        private Security $security,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private WikiHelper $wikiHelper,
     ) {}
 
     /**
@@ -40,38 +38,34 @@ final readonly class WikiSettingsProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getWikiCourse($this->entityManager, $request);
-        $this->assertWikiRouteNode($course, $request);
-        $session = $this->getWikiSession($this->entityManager, $request);
-        $this->assertWikiSessionBelongsToCourse($session, $course);
-        $group = $this->getWikiGroup($this->entityManager, $request);
-        $this->assertWikiGroupBelongsToContext($group, $course, $session);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->wikiHelper->assertRouteNode($course, $request);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->wikiHelper->assertSessionBelongsToCourse($session, $course);
+        $group = $this->cidReqHelper->getDoctrineGroupEntity();
+        $this->wikiHelper->assertGroupBelongsToContext($group, $course, $session);
 
-        if ($this->isWikiStudentView($request) || !$this->canManageWikiCourseSettings($this->security, $course)) {
+        if ($this->studentViewHelper->isActive() || !$this->wikiHelper->canManageCourseSettings($course)) {
             throw new AccessDeniedHttpException('You are not allowed to manage Wiki settings.');
         }
 
         $settings = new WikiSettings();
         $settings->courseId = (int) $course->getId();
-        $settings->enabled = $this->isWikiCourseSettingEnabled(
-            $this->entityManager,
+        $settings->enabled = $this->wikiHelper->isCourseSettingEnabled(
             $course,
             'enabled',
             true,
         );
-        $settings->categoriesEnabled = $this->isWikiCourseSettingEnabled(
-            $this->entityManager,
+        $settings->categoriesEnabled = $this->wikiHelper->isCourseSettingEnabled(
             $course,
             'wiki_categories_enabled',
             false,
         );
-        $settings->htmlStrictFiltering = $this->isWikiCourseSettingEnabled(
-            $this->entityManager,
+        $settings->htmlStrictFiltering = $this->wikiHelper->isCourseSettingEnabled(
             $course,
             'wiki_html_strict_filtering',
             false,
         );
-        $settings->csrfToken = (string) $this->csrfTokenManager->getToken(WikiSettings::CSRF_TOKEN_ID);
 
         return $settings;
     }

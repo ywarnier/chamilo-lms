@@ -345,7 +345,10 @@
             v-if="form.showSkills"
             class="field"
           >
-            <FloatLabel variant="on">
+            <FloatLabel
+              v-if="form.skillOptions.length > 0"
+              variant="on"
+            >
               <MultiSelect
                 v-model="form.skillIds"
                 display="chip"
@@ -358,6 +361,17 @@
               />
               <label for="lp-skills">{{ t("Skills") }}</label>
             </FloatLabel>
+            <div
+              v-else
+              class="rounded-lg border border-gray-30 px-4 py-3"
+            >
+              <div class="text-sm font-medium text-gray-90">
+                {{ t("Skills") }}
+              </div>
+              <div class="mt-1 text-sm text-gray-50">
+                {{ t("No results found") }}
+              </div>
+            </div>
           </div>
         </div>
       </BaseAdvancedSettingsButton>
@@ -490,7 +504,6 @@ const form = reactive({
   extraFields: [],
   skillOptions: [],
   skillIds: [],
-  csrfToken: "",
 })
 
 const context = computed(() => ({
@@ -628,7 +641,6 @@ function buildPayload() {
     removePicture: form.removePicture,
     extraFields: serializeExtraFields(),
     skillIds: form.skillIds.map(Number),
-    csrfToken: form.csrfToken,
   }
 }
 

@@ -14,6 +14,8 @@ use Chamilo\CoreBundle\Entity\CourseRelUser;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\SessionRelCourseRelUser;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\SurveyHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CGroup;
 use Chamilo\CourseBundle\Entity\CGroupRelUser;
@@ -28,8 +30,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 /**
@@ -37,16 +37,16 @@ use Throwable;
  */
 final readonly class SurveyInvitationProcessor implements ProcessorInterface
 {
-    use SurveyCsrfTokenValidationTrait;
     use SurveyPersonalitySupportTrait;
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CGroupRepository $groupRepository,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private SurveyInvitationProvider $surveyInvitationProvider,
         private SettingsManager $settingsManager,
+        private SurveyHelper $surveyHelper,
     ) {}
 
     /**
@@ -60,12 +60,12 @@ final readonly class SurveyInvitationProcessor implements ProcessorInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        if (!$this->surveyInvitationProvider->canManageSurveys()) {
+        if (!$this->surveyHelper->canManage()) {
             throw new AccessDeniedHttpException('You are not allowed to manage survey invitations in this context.');
         }
 
-        $course = $this->surveyInvitationProvider->getCourse($request);
-        $session = $this->surveyInvitationProvider->getSession($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $surveyId = isset($uriVariables['surveyId']) ? (int) $uriVariables['surveyId'] : 0;
         if ($surveyId <= 0) {
             throw new BadRequestHttpException('A valid survey id is required.');
@@ -74,7 +74,6 @@ final readonly class SurveyInvitationProcessor implements ProcessorInterface
         $survey = $this->surveyInvitationProvider->getSurveyFromCurrentContext($surveyId, $course, $session);
         $this->assertPersonalitySurveySupported($survey);
         $payload = $this->getPayload($request, $data);
-        $this->validateSubmittedCsrfToken($request, $this->csrfTokenManager, SurveyInvitationProvider::CSRF_TOKEN_ID, $payload);
         $additionalEmails = $this->normalizeStringList($payload['additionalEmails'] ?? []);
         if ([] !== $additionalEmails) {
             throw new BadRequestHttpException('External email invitations are not supported by the current survey invitation entity.');
@@ -153,7 +152,6 @@ final readonly class SurveyInvitationProcessor implements ProcessorInterface
     {
         if ($data instanceof SurveyInvitation) {
             return [
-                'csrfToken' => $data->csrfToken,
                 'mailSubject' => $data->mailSubject,
                 'mailText' => $data->mailText,
                 'sendMail' => $data->sendMail,
@@ -177,13 +175,6 @@ final readonly class SurveyInvitationProcessor implements ProcessorInterface
         }
 
         return $payload;
-    }
-
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(SurveyInvitationProvider::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('Invalid CSRF token.');
-        }
     }
 
     /**

@@ -392,11 +392,13 @@ import { useI18n } from "vue-i18n"
 import { useRoute, useRouter } from "vue-router"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
+import { useTranslatedHtml } from "../../composables/useTranslatedHtml"
 import surveyService from "../../services/surveyService"
 
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const { displayTranslatedHtml } = useTranslatedHtml()
 
 const survey = ref({})
 const questions = ref([])
@@ -405,7 +407,6 @@ const answers = ref({})
 const otherAnswers = ref({})
 const profileFields = ref([])
 const profileValues = ref({})
-const csrfToken = ref("")
 const settings = ref({})
 const canSubmit = ref(false)
 const isAnswered = ref(false)
@@ -468,7 +469,6 @@ function getContextParams() {
     type: getQueryValue(route.query.type),
     returnToLp: getQueryValue(route.query.returnToLp),
     embedded: getQueryValue(route.query.embedded),
-    isStudentView: getQueryValue(route.query.isStudentView),
     preview: previewMode.value ? 1 : undefined,
   }
 }
@@ -504,7 +504,6 @@ function normalizeResponse(data) {
   survey.value = data.survey || {}
   questions.value = Array.isArray(data.questions) ? data.questions : []
   pages.value = Array.isArray(data.pages) && data.pages.length ? data.pages : [[]]
-  csrfToken.value = data.csrfToken || csrfToken.value
   settings.value = data.settings || {}
   canSubmit.value = true === data.canSubmit
   isAnswered.value = true === data.isAnswered
@@ -600,7 +599,7 @@ function displayText(value, fallback = "") {
   }
 
   const textarea = document.createElement("textarea")
-  textarea.innerHTML = String(value).replace(/<[^>]*>/g, " ")
+  textarea.innerHTML = displayTranslatedHtml(String(value)).replace(/<[^>]*>/g, " ")
 
   return textarea.value.replace(/\s+/g, " ").trim() || fallback
 }
@@ -802,7 +801,6 @@ async function submitSurvey() {
         answers: answers.value,
         otherAnswers: otherAnswers.value,
         profileValues: profileValues.value,
-        csrfToken: csrfToken.value,
       },
       getContextParams(),
       surveyId.value,

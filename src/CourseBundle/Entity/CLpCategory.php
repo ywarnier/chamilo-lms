@@ -13,6 +13,7 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\RequestBody;
 use ArrayObject;
@@ -42,6 +43,21 @@ use Symfony\Component\Validator\Constraints as Assert;
                 summary: 'List LP categories by course (resourceNode.parent) or sid',
             ),
             security: "is_granted('ROLE_CURRENT_COURSE_STUDENT') or is_granted('ROLE_CURRENT_COURSE_SESSION_STUDENT')",
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             provider: LearningPathCategoryCollectionProvider::class,
         ),
         new Get(security: "is_granted('VIEW', object.resourceNode)"),
@@ -50,6 +66,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             security: "is_granted('EDIT', object.resourceNode)",
             deserialize: false,
             validate: false,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             name: 'toggle_learning_path_category_visibility',
             processor: LearningPathVisibilityProcessor::class,
         ),
@@ -60,7 +91,7 @@ use Symfony\Component\Validator\Constraints as Assert;
                 summary: 'Reorder learning path categories in the current course context',
                 description: 'Persists the complete category order for the current course, session and group context.',
                 requestBody: new RequestBody(
-                    description: 'Ordered category IDs and CSRF token',
+                    description: 'Ordered category IDs',
                     content: new ArrayObject([
                         'application/json' => [
                             'schema' => [
@@ -70,9 +101,8 @@ use Symfony\Component\Validator\Constraints as Assert;
                                         'type' => 'array',
                                         'items' => ['type' => 'integer'],
                                     ],
-                                    'csrfToken' => ['type' => 'string'],
                                 ],
-                                'required' => ['order', 'csrfToken'],
+                                'required' => ['order'],
                             ],
                         ],
                     ]),
@@ -83,6 +113,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             deserialize: false,
             validate: false,
             name: 'lp_category_reorder',
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: LearningPathCategoryReorderProcessor::class,
         ),
     ],

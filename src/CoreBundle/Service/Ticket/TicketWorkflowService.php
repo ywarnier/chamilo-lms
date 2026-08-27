@@ -48,7 +48,6 @@ use const STR_PAD_LEFT;
 
 final readonly class TicketWorkflowService
 {
-    public const string CSRF_TOKEN_ID = 'ticket_workflow';
     public const int MAX_ATTACHMENTS = 6;
 
     private const int PRIORITY_NORMAL = 1;
@@ -104,10 +103,12 @@ final readonly class TicketWorkflowService
 
         $userId = (int) $user->getId();
         $projectId = (int) $ticket->getProject()->getId();
+        $categoryId = (int) $ticket->getCategory()->getId();
         $isCreator = $userId === $ticket->getInsertUserId();
         $isAssignee = $userId === (int) ($ticket->getAssignedLastUser()?->getId() ?? 0);
+        $managesCategory = \in_array($categoryId, $this->ticketProjectHelper->getManagedCategoryIds($projectId), true);
 
-        if ($this->ticketProjectHelper->userIsAllowInProject($projectId) || $isCreator || $isAssignee) {
+        if ($managesCategory || $isCreator || $isAssignee) {
             return;
         }
 

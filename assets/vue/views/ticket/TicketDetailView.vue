@@ -256,7 +256,7 @@
             :label="t('Yes')"
             size="small"
             type="success-text"
-            @click="confirmReporterResponse(true)"
+            @click="respondToConfirmation(true)"
           />
           <BaseButton
             icon="close"
@@ -265,10 +265,18 @@
             :label="t('No')"
             size="small"
             type="danger-text"
-            @click="confirmReporterResponse(false)"
+            @click="respondToConfirmation(false)"
           />
         </div>
       </section>
+
+      <div
+        v-if="Number(detail.ticket.status?.id) === 4"
+        class="rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm text-gray-700"
+        role="status"
+      >
+        {{ t("Ticket closed") }}
+      </div>
 
       <form
         v-if="detail.canReply"
@@ -391,14 +399,6 @@
         </div>
       </form>
 
-      <div
-        v-else-if="Number(detail.ticket.status?.id) === 4"
-        class="rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm text-gray-700"
-        role="status"
-      >
-        {{ t("Ticket closed") }}
-      </div>
-
       <BaseDialog
         v-model:is-visible="historyVisible"
         :title="t('Assignment history')"
@@ -483,8 +483,14 @@ const unconfirmedStatusId = computed(() => {
 })
 
 const listQuery = computed(() => {
+  const query = { ...route.query }
   const projectId = detail.value?.ticket?.project?.id
-  return projectId ? { project_id: String(projectId) } : {}
+
+  if (projectId && !query.project_id) {
+    query.project_id = String(projectId)
+  }
+
+  return query
 })
 
 watch(
@@ -549,8 +555,8 @@ async function toggleSubscription() {
   isActionLoading.value = true
   try {
     const response = detail.value.isSubscribed
-      ? await ticketService.unsubscribe(detail.value.id, detail.value.csrfToken)
-      : await ticketService.subscribe(detail.value.id, detail.value.csrfToken)
+      ? await ticketService.unsubscribe(detail.value.id)
+      : await ticketService.subscribe(detail.value.id)
     detail.value.isSubscribed = Boolean(response.subscribed)
     showSuccessNotification(response.message)
   } catch (error) {
@@ -575,7 +581,7 @@ async function closeTicket() {
 
   isActionLoading.value = true
   try {
-    const response = await ticketService.close(detail.value.id, detail.value.csrfToken)
+    const response = await ticketService.close(detail.value.id)
     showSuccessNotification(response.message)
     await loadDetail()
   } catch (error) {
@@ -584,17 +590,6 @@ async function closeTicket() {
   } finally {
     isActionLoading.value = false
   }
-}
-
-function confirmReporterResponse(confirmed) {
-  const message = confirmed
-    ? `${t("Are you sure")}: ${t("Yes")}. ${t("If you are certain, the ticket will be closed.")}`
-    : `${t("Are you sure")}: ${t("No")}`
-
-  requireConfirmation({
-    message,
-    accept: () => respondToConfirmation(confirmed),
-  })
 }
 
 async function respondToConfirmation(confirmed) {
@@ -606,7 +601,7 @@ async function respondToConfirmation(confirmed) {
   pendingConfirmationValue.value = confirmed
 
   try {
-    const response = await ticketService.respondToConfirmation(detail.value.id, confirmed, detail.value.csrfToken)
+    const response = await ticketService.respondToConfirmation(detail.value.id, confirmed)
     showSuccessNotification(response.message || t("Saved."))
     await loadDetail()
   } catch (error) {
@@ -651,7 +646,6 @@ async function submitReply() {
   isSubmitting.value = true
   try {
     const payload = new FormData()
-    payload.append("csrfToken", detail.value.csrfToken)
     payload.append("subject", reply.subject || "")
     payload.append("content", reply.content || "")
     payload.append("statusId", String(reply.statusId || 0))
@@ -685,12 +679,24 @@ function formatDate(value) {
     return "-"
   }
 
-  const intlLocale = String(locale.value || "en-US").replace(/_/g, "-")
+  // Only the first segment is a real BCP-47 primary language subtag (e.g.
+  // "fr" out of "fr_FR"). Some accounts carry a corrupted locale value (e.g.
+  // legacy "fr_69" instead of "fr_FR"), and passing that whole string to
+  // Intl.DateTimeFormat throws a RangeError that would otherwise crash this
+  // component's render with no visible error.
+  const intlLocale = String(locale.value || "en-US").split(/[_-]/)[0] || "en"
 
-  return new Intl.DateTimeFormat(intlLocale, {
-    dateStyle: "medium",
-    timeStyle: "short",
-  }).format(date)
+  try {
+    return new Intl.DateTimeFormat(intlLocale, {
+      dateStyle: "medium",
+      timeStyle: "short",
+    }).format(date)
+  } catch {
+    return new Intl.DateTimeFormat("en", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    }).format(date)
+  }
 }
 
 function formatFileSize(bytes) {

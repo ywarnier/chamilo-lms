@@ -382,6 +382,7 @@ import LpImpressRuntime from "../../components/lp/LpImpressRuntime.vue"
 import LpReporting from "./LpReporting.vue"
 import { useNotification } from "../../composables/notification"
 import { usePlatformConfig } from "../../store/platformConfig"
+import { useSecurityStore } from "../../store/securityStore"
 import lpService from "../../services/lpService"
 import permissionService from "../../services/permissionService"
 import platformConfigService from "../../services/platformConfigService"
@@ -391,6 +392,7 @@ const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 const platformConfig = usePlatformConfig()
+const securityStore = useSecurityStore()
 const { showErrorNotification } = useNotification()
 
 const runtime = ref(null)
@@ -430,13 +432,26 @@ const shouldRestoreTeacherView = computed(() => Boolean(runtime.value?.canEdit))
 const isReportingMode = computed(() =>
   ["1", "true", "yes", "on"].includes(String(route.query.reporting || "").toLowerCase()),
 )
+// Opening a lesson shows it as a learner: the lesson embeds content from other
+// tools, so the state has to live in the session where each of them reads it,
+// not in a client-side flag. The URL only carries the intent; entering the
+// runtime asks /toggle_student_view for it explicitly.
+//
+// Hence the default: the LP list links here without saying anything, because
+// "open the lesson" always means "as a learner", and a learner is gated out of
+// the toggle anyway. Only the callers that mean the opposite say so — the
+// builder and the import screens pass "false" to preview as a teacher.
+const wantsStudentView = computed(
+  () =>
+    isCStudioPreview.value ||
+    ["1", "true", "yes", "on"].includes(String(route.query.isStudentView ?? "true").toLowerCase()),
+)
 const contextParams = computed(() => ({
   cid: Number(route.query.cid || 0),
   sid: Number(route.query.sid || 0),
   gid: Number(route.query.gid || 0),
   gradebook: Number(route.query.gradebook || 0),
   origin: String(route.query.origin || "learnpath"),
-  isStudentView: isCStudioPreview.value ? "true" : String(route.query.isStudentView || "true"),
 }))
 const cStudioEditorUrl = computed(() => {
   if (!isCStudioPreview.value || lpId.value <= 0) {
@@ -564,6 +579,33 @@ function handlePreviewImageError() {
   previewImageFailed.value = true
 }
 
+/**
+ * Enters the student view before the runtime is fetched.
+ *
+ * It has to happen first: the provider resolves canManage from the session, and
+ * every tool embedded inside the lesson reads the same key. Only users the
+ * backend would let toggle are asked, so a learner never triggers a 403.
+ * @returns {Promise<void>}
+ */
+async function enterStudentViewForRuntime() {
+  if (!wantsStudentView.value || !securityStore.isCourseAdmin || platformConfig.isStudentViewActive) {
+    return
+  }
+
+  try {
+    const nextView = await permissionService.toogleStudentView({
+      cid: contextParams.value.cid,
+      sid: contextParams.value.sid,
+      isStudentView: true,
+    })
+
+    platformConfig.setStudentViewEnabled("studentview" === String(nextView || "").toLowerCase())
+  } catch (error) {
+    // Not fatal: the runtime still renders, just with the teacher's own rights.
+    console.error("Unable to enter the student view for the learning path runtime.", error)
+  }
+}
+
 function restoreTeacherViewAfterRuntime() {
   if (!shouldRestoreTeacherView.value) {
     return Promise.resolve()
@@ -579,7 +621,15 @@ function restoreTeacherViewAfterRuntime() {
       const sessionView = String(configuration?.studentview || "").toLowerCase()
 
       if ("studentview" === sessionView) {
-        const nextView = await permissionService.toogleStudentView()
+        // The course context is required: the backend authorizes the change through
+        // the contextual roles it resolves from cid/sid, so without it a teacher who
+        // is not a platform admin gets a 403 and stays stuck in the student view.
+        const nextView = await permissionService.toogleStudentView({
+          cid: contextParams.value.cid,
+          sid: contextParams.value.sid,
+          isStudentView: false,
+        })
+
         platformConfig.setStudentViewEnabled("studentview" === String(nextView || "").toLowerCase())
 
         return
@@ -851,7 +901,6 @@ function installScormRuntime(data, { forceRecreate = false } = {}) {
 
   clearScormRuntime()
 
-  const csrfToken = String(data.csrfToken || "")
   scormRuntimeContext = createScormRuntimeApi({
     version,
     initialValues: config.values || {},
@@ -872,7 +921,6 @@ function installScormRuntime(data, { forceRecreate = false } = {}) {
         itemId,
         itemViewId,
         version,
-        csrfToken,
       })
     },
     beacon: (payload) =>
@@ -881,7 +929,6 @@ function installScormRuntime(data, { forceRecreate = false } = {}) {
         itemId,
         itemViewId,
         version,
-        csrfToken,
       }),
     onCommitted: scheduleRuntimeRefresh,
     onNavigate: (navRequest) => handleScormNavigate(navRequest, data),
@@ -951,7 +998,7 @@ async function fetchRuntime(itemId = 0) {
 
 async function syncRuntimeState() {
   if (
-    !runtime.value?.csrfToken ||
+    !runtime.value ||
     isReportingMode.value ||
     isChangingItem.value ||
     isSyncingRuntime.value ||
@@ -966,7 +1013,6 @@ async function syncRuntimeState() {
   try {
     await lpService.syncRuntime(lpId.value, contextParams.value, {
       itemId: Number(runtime.value.currentItemId),
-      csrfToken: runtime.value.csrfToken,
     })
   } catch (error) {
     console.error("[LearningPathRuntime] Unable to synchronize runtime progress.", error)
@@ -1011,11 +1057,10 @@ async function loadRuntime({ recordCurrent = true } = {}) {
       return
     }
 
-    if (recordCurrent && data.runtimeSupported && data.currentItemId > 0 && data.csrfToken) {
+    if (recordCurrent && data.runtimeSupported && data.currentItemId > 0) {
       await lpService.openRuntimeItem(lpId.value, contextParams.value, {
         itemId: data.currentItemId,
         allowNewAttempt: false,
-        csrfToken: data.csrfToken,
       })
       const refreshedData = await fetchRuntime(data.currentItemId)
       const contentChanged =
@@ -1034,7 +1079,7 @@ async function loadRuntime({ recordCurrent = true } = {}) {
 
 async function openItem(itemId) {
   const id = Number(itemId || 0)
-  if (!id || isChangingItem.value || !runtime.value?.csrfToken) {
+  if (!id || isChangingItem.value || !runtime.value) {
     return
   }
 
@@ -1047,7 +1092,6 @@ async function openItem(itemId) {
     await lpService.openRuntimeItem(lpId.value, contextParams.value, {
       itemId: id,
       allowNewAttempt: true,
-      csrfToken: runtime.value.csrfToken,
     })
     const query = { ...route.query, item_id: id }
     for (const key of ["reporting", "self", "returnItemId", "studentId", "groupFilter", "showTeachers"]) {
@@ -1111,19 +1155,13 @@ function handleVisibilityChange() {
 function handlePageHide() {
   const now = Date.now()
   scormRuntimeContext?.flushBeacon("pagehide")
-  if (
-    isSyncingRuntime.value ||
-    now - lastBeaconAt < 1000 ||
-    !runtime.value?.csrfToken ||
-    !runtime.value.currentItemId
-  ) {
+  if (isSyncingRuntime.value || now - lastBeaconAt < 1000 || !runtime.value || !runtime.value.currentItemId) {
     return
   }
 
   lastBeaconAt = now
   lpService.syncRuntimeBeacon(lpId.value, contextParams.value, {
     itemId: Number(runtime.value.currentItemId),
-    csrfToken: runtime.value.csrfToken,
   })
 }
 
@@ -1147,7 +1185,7 @@ onMounted(() => {
   trackingTimer = window.setInterval(() => {
     void syncRuntimeState()
   }, 30000)
-  loadRuntime()
+  void enterStudentViewForRuntime().then(loadRuntime)
 })
 
 onBeforeUnmount(() => {
@@ -1638,6 +1676,10 @@ body.lp-runtime-document {
   color: #333333;
   font-size: 13px;
   text-decoration: none;
+}
+
+button.lp-runtime-menu-link {
+  width: 100%;
 }
 
 .lp-runtime-menu-link:hover {

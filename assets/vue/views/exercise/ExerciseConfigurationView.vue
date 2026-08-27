@@ -3,8 +3,11 @@
     <div class="flex flex-wrap items-center gap-1 rounded-xl border border-gray-20 bg-white px-2 py-1 shadow-sm w-fit">
       <BaseButton
         :label="backButtonLabel"
-        :route="learningPathContext ? null : { name: 'ExerciseList', params: route.params, query: getContextParams() }"
-        :to-url="learningPathContext ? learningPathBackUrl : null"
+        :route="
+          learningPathContext
+            ? learningPathBackRoute
+            : { name: 'ExerciseList', params: route.params, query: getContextParams() }
+        "
         icon="back"
         only-icon
         size="small"
@@ -52,6 +55,20 @@
       <h1 class="text-2xl font-semibold text-gray-90">
         {{ isEditMode ? t("Edit test") : t("Create a new test") }}
       </h1>
+
+      <div
+        v-if="!isEditMode && settings.showBuyCoursesUpgradeCta"
+        class="rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900"
+      >
+        {{ t("Tired of writing questions?") }}
+        <a
+          class="font-semibold text-primary underline"
+          href="/resources/courses/new"
+        >
+          {{ t("Upgrade your plan") }}
+        </a>
+        {{ t("to a pro plan to get help from an AI to generate quality questions for you.") }}
+      </div>
 
       <div class="border-b border-gray-20" />
 
@@ -196,7 +213,7 @@
               />
 
               <BaseSelect
-                v-if="showCategorySelectionOptions"
+                v-if="showRandomByCategoryOptions"
                 id="exercise-random-by-category"
                 v-model="form.randomByCategory"
                 :label="t('Random by category')"
@@ -518,6 +535,7 @@
               class="grid gap-4 md:grid-cols-3"
             >
               <BaseSelect
+                v-if="gradebookCategoryOptions.length > 1"
                 id="exercise-gradebook-category"
                 v-model="form.gradebookCategoryId"
                 :label="t('Assessment')"
@@ -747,8 +765,11 @@
       <div class="flex flex-col-reverse items-stretch gap-3 pt-4 md:flex-row md:items-center md:justify-end">
         <BaseButton
           :label="learningPathContext ? t('Cancel and return to learning path') : t('Cancel')"
-          :route="learningPathContext ? null : { name: 'ExerciseList', params: route.params, query: getContextParams() }"
-          :to-url="learningPathContext ? learningPathBackUrl : null"
+          :route="
+            learningPathContext
+              ? learningPathBackRoute
+              : { name: 'ExerciseList', params: route.params, query: getContextParams() }
+          "
           icon="close"
           type="black"
         />
@@ -795,7 +816,6 @@ const showAdvancedSettings = ref(false)
 const showMetadata = ref(false)
 const errorMessage = ref("")
 const successMessage = ref("")
-const csrfToken = ref("")
 const questionsUrl = ref("")
 const settings = ref({})
 const options = ref({})
@@ -946,7 +966,7 @@ const questionsRoute = computed(() => ({
   query: getContextParams(),
 }))
 const learningPathContext = computed(() => isLearningPathContext())
-const learningPathBackUrl = computed(() => buildLearningPathBackUrl())
+const learningPathBackRoute = computed(() => buildLearningPathBackRoute())
 const backButtonLabel = computed(() => (learningPathContext.value ? t("Back to learning path") : t("Return to exercises list")))
 const typeOptions = computed(() => {
   const items = (options.value.typeOptions || []).map((option) => ({
@@ -1008,7 +1028,10 @@ const questionSelectionTypeOptions = computed(() => mapTranslatedOptions(options
 const randomByCategoryOptions = computed(() => mapTranslatedOptions(options.value.randomByCategoryOptions || []))
 const notificationOptions = computed(() => mapTranslatedOptions(options.value.notificationOptions || []))
 const saveCorrectAnswerOptions = computed(() => mapTranslatedOptions(options.value.saveCorrectAnswerOptions || []))
-const showRandomQuestionCount = computed(() => [2, 3, 4, 5, 6].includes(Number(form.questionSelectionType)))
+const showRandomQuestionCount = computed(() => 2 === Number(form.questionSelectionType))
+const showRandomByCategoryOptions = computed(
+  () => showRandomQuestionCount.value && 0 !== Number(form.random),
+)
 const showCategorySelectionOptions = computed(() => 3 <= Number(form.questionSelectionType))
 const showCategoryDestinations = computed(
   () => Number(form.feedbackType || 0) === 4 && true === settings.value.quizQuestionCategoryDestinations,
@@ -1077,7 +1100,19 @@ function getContextParams() {
     gid: getQueryValue(route.query.gid),
   }
 
-  for (const key of ["origin", "lp_id", "learnpath_id", "node", "type", "returnToLp", "isStudentView", "gradebook"]) {
+  for (const key of [
+    "origin",
+    "lp_id",
+    "learnpath_id",
+    "node",
+    "parent",
+    "lp_parent_id",
+    "lp_item_id",
+    "type",
+    "returnToLp",
+    "gradebook",
+    "lpTool",
+  ]) {
     const value = getQueryValue(route.query[key])
     if (value !== undefined && value !== null && String(value) !== "") {
       params[key] = value
@@ -1095,20 +1130,35 @@ function isLearningPathContext() {
   return lpId > 0 && (origin === "learnpath" || ["1", "true", "yes"].includes(returnToLp))
 }
 
-function buildLearningPathBackUrl() {
-  const params = new URLSearchParams()
-  params.set("action", "build")
-  params.set("type", getQueryValue(route.query.type) || "step")
-  params.set("lp_id", getQueryValue(route.query.lp_id) || getQueryValue(route.query.learnpath_id) || "0")
+function buildLearningPathBackRoute() {
+  const lpId = Number(getQueryValue(route.query.lp_id) || getQueryValue(route.query.learnpath_id) || 0)
+  const node = Number(getQueryValue(route.query.node) || route.params.node || 0)
+  const query = {}
 
-  for (const key of ["cid", "sid", "gid", "gradebook", "origin", "node", "isStudentView"]) {
+  for (const key of ["cid", "sid", "gid", "gradebook"]) {
     const value = getQueryValue(route.query[key])
     if (value !== undefined && value !== null && String(value) !== "") {
-      params.set(key, String(value))
+      query[key] = value
     }
   }
 
-  return `/main/lp/lp_controller.php?${params.toString()}#resource_tab-2`
+  query.lpTool = String(getQueryValue(route.query.lpTool) || "tests")
+
+  const parentId = Number(getQueryValue(route.query.lp_parent_id) || getQueryValue(route.query.parent) || 0)
+  if (parentId > 0) {
+    query.parent = parentId
+  }
+
+  const lpItemId = Number(getQueryValue(route.query.lp_item_id) || 0)
+  if (lpItemId > 0) {
+    query.item_id = lpItemId
+  }
+
+  return {
+    name: "LpBuilder",
+    params: { node, lpId },
+    query,
+  }
 }
 
 function fillForm(data) {
@@ -1161,7 +1211,6 @@ function fillForm(data) {
   form.pageResultConfiguration = buildPageResultConfiguration(data.pageResultConfiguration || {})
   form.textWhenFinished = data.textWhenFinished || ""
   form.textWhenFinishedFailure = data.textWhenFinishedFailure || ""
-  csrfToken.value = data.csrfToken || ""
   questionsUrl.value = data.questionsUrl || ""
   settings.value = data.settings || {}
   options.value = data.options || {}
@@ -1437,7 +1486,9 @@ function buildPayload() {
     hideAttemptsTable: form.hideAttemptsTable,
     autoLaunch: form.autoLaunch,
     addToGradebook: form.addToGradebook,
-    gradebookCategoryId: form.addToGradebook ? Number(form.gradebookCategoryId || 0) : null,
+    gradebookCategoryId: form.addToGradebook
+      ? Number(form.gradebookCategoryId || gradebookCategoryOptions.value[0]?.value || 0)
+      : null,
     gradebookWeight: Number(form.gradebookWeight || 0),
     gradebookVisible: form.gradebookVisible,
     notifications: normalizeNotificationValues(form.notifications),
@@ -1461,7 +1512,6 @@ function buildPayload() {
     pageResultConfiguration: buildPageResultConfiguration(form.pageResultConfiguration),
     textWhenFinished: form.textWhenFinished,
     textWhenFinishedFailure: form.textWhenFinishedFailure,
-    csrfToken: csrfToken.value,
   }
 }
 
@@ -1530,7 +1580,17 @@ watch(
 watch(
   () => form.questionSelectionType,
   (selectionType) => {
-    if (3 > Number(selectionType)) {
+    if (2 !== Number(selectionType)) {
+      form.random = 0
+      form.randomByCategory = 0
+    }
+  },
+)
+
+watch(
+  () => form.random,
+  (randomCount) => {
+    if (0 === Number(randomCount)) {
       form.randomByCategory = 0
     }
   },

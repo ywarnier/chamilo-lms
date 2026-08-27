@@ -11,6 +11,8 @@ use ApiPlatform\State\ProviderInterface;
 use Chamilo\CoreBundle\ApiResource\Survey\SurveyQuestion;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\SurveyHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CSurvey;
 use Chamilo\CourseBundle\Entity\CSurveyAnswer;
@@ -19,13 +21,10 @@ use Chamilo\CourseBundle\Entity\CSurveyQuestionOption;
 use Chamilo\CourseBundle\Repository\CSurveyRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProviderInterface<SurveyQuestion>
@@ -33,8 +32,6 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 final readonly class SurveyQuestionProvider implements ProviderInterface
 {
     use SurveyPersonalitySupportTrait;
-
-    public const string CSRF_TOKEN_ID = 'survey_question';
 
     /**
      * @var array<int, string>
@@ -54,12 +51,12 @@ final readonly class SurveyQuestionProvider implements ProviderInterface
     ];
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CSurveyRepository $surveyRepository,
-        private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private SurveyHelper $surveyHelper,
     ) {}
 
     /**
@@ -73,9 +70,9 @@ final readonly class SurveyQuestionProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
-        if (!$this->canManageSurveys()) {
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        if (!$this->surveyHelper->canManage()) {
             throw new AccessDeniedHttpException('You are not allowed to manage surveys in this context.');
         }
 
@@ -99,53 +96,9 @@ final readonly class SurveyQuestionProvider implements ProviderInterface
         $response->choices = $this->getChoices($survey);
         $response->hasAnswers = $this->surveyHasAnswers($survey);
         $response->canEdit = $this->canWriteSurvey($survey);
-        $response->csrfToken = (string) $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID);
         $response->questions = $this->getQuestions($survey, $response->canEdit, $response->hasAnswers);
 
         return $response;
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
-    private function canManageSurveys(): bool
-    {
-        if ($this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')) {
-            return true;
-        }
-
-        if (!$this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER')) {
-            return false;
-        }
-
-        return $this->isSettingEnabled('survey.extend_rights_for_coach_on_survey');
     }
 
     private function canWriteSurvey(CSurvey $survey): bool
@@ -323,7 +276,7 @@ final readonly class SurveyQuestionProvider implements ProviderInterface
     }
 
     /**
-     * @return array<string, array<int, array<string, mixed>>>
+     * @return array<string, array<array-key, mixed>>
      */
     private function getChoices(CSurvey $survey): array
     {
@@ -376,7 +329,7 @@ final readonly class SurveyQuestionProvider implements ProviderInterface
     }
 
     /**
-     * @return array<int, array<string, mixed>>
+     * @return array<int, array<int, array{value: int, label: string}>>
      */
     private function getParentOptionChoices(CSurvey $survey): array
     {

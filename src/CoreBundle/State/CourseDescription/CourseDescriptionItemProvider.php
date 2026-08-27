@@ -13,6 +13,9 @@ use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\CourseDescriptionHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CCourseDescription;
 use Chamilo\CourseBundle\Repository\CCourseDescriptionRepository;
@@ -23,17 +26,12 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProviderInterface<CourseDescriptionItem>
  */
 final readonly class CourseDescriptionItemProvider implements ProviderInterface
 {
-    use CourseDescriptionAccessHelperTrait;
-
-    public const string CSRF_TOKEN_ID = 'course_description_item';
-
     /**
      * @var array<int, string>
      */
@@ -89,12 +87,14 @@ final readonly class CourseDescriptionItemProvider implements ProviderInterface
     ];
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CCourseDescriptionRepository $courseDescriptionRepository,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private CourseDescriptionHelper $courseDescriptionHelper,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -108,18 +108,12 @@ final readonly class CourseDescriptionItemProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
-        $this->assertCourseDescriptionToolEnabled($this->entityManager, $course);
-        $session = $this->getSession($request);
-        $this->assertSessionBelongsToCourse($session, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->courseDescriptionHelper->assertToolEnabled($course);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->courseDescriptionHelper->assertSessionBelongsToCourse($session, $course);
 
-        if ($this->isStudentView($request) || !$this->canManageCourseDescriptions(
-            $this->entityManager,
-            $this->security,
-            $this->settingsManager,
-            $course,
-            $session,
-        )) {
+        if (!$this->isAllowedToEditHelper->check(coach: true, course: $course, session: $session)) {
             throw new AccessDeniedHttpException('You are not allowed to manage course descriptions in this context.');
         }
         $descriptionId = isset($uriVariables['iid'])
@@ -141,7 +135,6 @@ final readonly class CourseDescriptionItemProvider implements ProviderInterface
 
         $item = new CourseDescriptionItem();
         $item->descriptionType = $descriptionType;
-        $item->csrfToken = (string) $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID);
         $item->canEdit = true;
         $item->isNew = !$description instanceof CCourseDescription;
         $item->defaultTitle = self::TYPE_LABELS[$descriptionType] ?? self::TYPE_LABELS[CCourseDescription::TYPE_CUSTOM];
@@ -161,36 +154,6 @@ final readonly class CourseDescriptionItemProvider implements ProviderInterface
         }
 
         return $item;
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
     }
 
     private function getDescriptionFromOwnContext(int $descriptionId, Course $course, ?Session $session): CCourseDescription
@@ -320,19 +283,6 @@ final readonly class CourseDescriptionItemProvider implements ProviderInterface
         $value = $this->settingsManager->getSetting($name, true);
 
         return true === $value || 'true' === strtolower((string) $value) || '1' === (string) $value;
-    }
-
-    private function isStudentView(Request $request): bool
-    {
-        if ($request->query->has('isStudentView')) {
-            return $request->query->getBoolean('isStudentView');
-        }
-
-        if (!$request->hasSession()) {
-            return false;
-        }
-
-        return 'studentview' === $request->getSession()->get('studentview');
     }
 
     private function getResourceLanguage(CCourseDescription $description): string

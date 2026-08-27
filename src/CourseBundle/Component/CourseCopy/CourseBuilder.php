@@ -322,13 +322,40 @@ class CourseBuilder
             $path = $decoded;
         }
 
-        // Most common patterns:
+        // Modern Chamilo resource viewer:
+        // /r/document/files/{uuid}/view|download|link
+        $trimmed = trim($path, '/');
+        if (preg_match(
+            '~^(?:r/)?document/files/(?P<uuid>[0-9a-fA-F-]{16,64})/(?:view|download|link)/?$~i',
+            $trimmed,
+            $m
+        )) {
+            $fromUuid = $this->resolveDocumentRelPathFromResourceUuid((string) $m['uuid']);
+            if ('' !== $fromUuid) {
+                return $fromUuid;
+            }
+        }
+
+        // Most common legacy patterns:
         // - /courses/COURSECODE/document/Folder/file.png
         // - /document/Folder/file.png
         // - document/Folder/file.png
         $pos = stripos($path, '/document/');
         if (false !== $pos) {
-            return substr($path, $pos + \strlen('/document/')) ?: '';
+            $tail = substr($path, $pos + \strlen('/document/')) ?: '';
+            // Avoid treating modern files/{uuid}/view as a relative path.
+            if (preg_match('~^files/[0-9a-fA-F-]{16,64}/(?:view|download|link)/?$~i', $tail)) {
+                if (preg_match('~^files/(?P<uuid>[0-9a-fA-F-]{16,64})/~i', $tail, $m2)) {
+                    $fromUuid = $this->resolveDocumentRelPathFromResourceUuid((string) $m2['uuid']);
+                    if ('' !== $fromUuid) {
+                        return $fromUuid;
+                    }
+                }
+
+                return '';
+            }
+
+            return $tail;
         }
 
         if (str_starts_with($path, 'document/')) {
@@ -404,16 +431,20 @@ class CourseBuilder
         $docs = $qb->getQuery()->getResult();
 
         $documentsRoot = $this->docRepo->getCourseDocumentsRootNode($course);
+        $courseRoot = $course->getResourceNode();
 
         $iids = [];
 
         foreach ($docs as $doc) {
-            $rel = $this->getLogicalDocumentRelativePath(
+            $documentBase = $this->resolveDocumentExportBaseNode(
                 $doc,
-                $documentsRoot instanceof ResourceNode ? $documentsRoot : null
+                $documentsRoot instanceof ResourceNode ? $documentsRoot : null,
+                $courseRoot instanceof ResourceNode ? $courseRoot : null
             );
 
+            $rel = $this->getLogicalDocumentRelativePath($doc, $documentBase);
             $rel = $this->normalizeDocumentRelPath($rel);
+            $rel = $this->applyDocumentOriginalFilename($doc, $rel);
 
             if ('' === $rel) {
                 continue;
@@ -808,6 +839,12 @@ class CourseBuilder
                     'next_item_id' => null !== $it->getNextItemId() ? (int) $it->getNextItemId() : null,
                     'display_order' => (int) $it->getDisplayOrder(),
                     'prerequisite' => (string) ($it->getPrerequisite() ?? ''),
+                    'prerequisite_min_score' => null !== $it->getPrerequisiteMinScore()
+                        ? (float) $it->getPrerequisiteMinScore()
+                        : null,
+                    'prerequisite_max_score' => null !== $it->getPrerequisiteMaxScore()
+                        ? (float) $it->getPrerequisiteMaxScore()
+                        : null,
                     'parameters' => (string) ($it->getParameters() ?? ''),
                     'launch_data' => (string) $it->getLaunchData(),
                     'audio' => (string) ($it->getAudio() ?? ''),
@@ -3153,6 +3190,7 @@ class CourseBuilder
         $docs = $qb->getQuery()->getResult();
 
         $documentsRoot = $this->docRepo->getCourseDocumentsRootNode($course);
+        $courseRoot = $course->getResourceNode();
 
         foreach ($docs as $doc) {
             $node = $doc->getResourceNode();
@@ -3178,12 +3216,15 @@ class CourseBuilder
                 }
             }
 
+            $documentBase = $this->resolveDocumentExportBaseNode(
+                $doc,
+                $documentsRoot instanceof ResourceNode ? $documentsRoot : null,
+                $courseRoot instanceof ResourceNode ? $courseRoot : null
+            );
+
             $logicalRel = '';
             try {
-                $logicalRel = $this->getLogicalDocumentRelativePath(
-                    $doc,
-                    $documentsRoot instanceof ResourceNode ? $documentsRoot : null
-                );
+                $logicalRel = $this->getLogicalDocumentRelativePath($doc, $documentBase);
             } catch (Throwable $e) {
                 error_log(sprintf(
                     '[MOODLE EXPORT] Failed to resolve logical document path. doc_iid=%d node_id=%d title="%s" error="%s"',
@@ -3201,7 +3242,7 @@ class CourseBuilder
                     $rel = $this->normalizeDocumentRelativePathForMoodleExport(
                         (string) ($node->getPath() ?? ''),
                         $course,
-                        $documentsRoot instanceof ResourceNode ? (string) ($documentsRoot->getPath() ?? '') : '',
+                        $documentBase instanceof ResourceNode ? (string) ($documentBase->getPath() ?? '') : '',
                         $title,
                         'folder' === $filetype
                     );
@@ -3221,6 +3262,8 @@ class CourseBuilder
                 $rel = trim($title, '/');
             }
 
+            $rel = $this->applyDocumentOriginalFilename($doc, $rel);
+
             if ('' === $rel) {
                 continue;
             }
@@ -3230,13 +3273,41 @@ class CourseBuilder
                 $pathForSelector = rtrim($pathForSelector, '/').'/';
             }
 
+            // Preserve learner-facing visibility (ResourceLink) for restore confidentiality.
+            $visibility = null;
+            try {
+                $link = $doc->getFirstResourceLinkFromCourseSession($course, $session);
+                if (null === $link && null !== $session) {
+                    // Session export of base content may only have a base-course link.
+                    $link = $doc->getFirstResourceLinkFromCourseSession($course, null);
+                }
+                if (null !== $link) {
+                    $visibility = (int) $link->getVisibility();
+                }
+            } catch (Throwable $e) {
+                // Keep export resilient; missing visibility defaults to published on restore.
+            }
+
+            // ResourceNode UUID powers modern HTML embeds: /r/document/files/{uuid}/view
+            $resourceNodeUuid = null;
+            try {
+                $uuidObj = $node->getUuid();
+                if (null !== $uuidObj) {
+                    $resourceNodeUuid = (string) $uuidObj;
+                }
+            } catch (Throwable $e) {
+                // optional
+            }
+
             $exportDoc = new Document(
                 $iid,
                 $pathForSelector,
                 $comment,
                 $title,
                 $filetype,
-                (string) $size
+                (string) $size,
+                $visibility,
+                $resourceNodeUuid
             );
 
             $this->course->add_resource($exportDoc);
@@ -3560,6 +3631,99 @@ class CourseBuilder
         }
 
         error_log($message);
+    }
+
+    /**
+     * Resolve the structural base node used to build a document export path.
+     *
+     * Modern course documents can live directly under the course ResourceNode,
+     * while system/legacy documents can live below a dedicated Documents root.
+     * Never use the document node itself as its own base.
+     */
+    private function resolveDocumentExportBaseNode(
+        CDocument $doc,
+        ?ResourceNode $documentsRoot,
+        ?ResourceNode $courseRoot
+    ): ?ResourceNode {
+        $node = $doc->getResourceNode();
+        if (!$node instanceof ResourceNode) {
+            return null;
+        }
+
+        if (
+            $documentsRoot instanceof ResourceNode
+            && $node !== $documentsRoot
+            && $this->isResourceNodeDescendantOf($node, $documentsRoot)
+        ) {
+            return $documentsRoot;
+        }
+
+        if (
+            $courseRoot instanceof ResourceNode
+            && $node !== $courseRoot
+            && $this->isResourceNodeDescendantOf($node, $courseRoot)
+        ) {
+            return $courseRoot;
+        }
+
+        return null;
+    }
+
+    private function isResourceNodeDescendantOf(ResourceNode $node, ResourceNode $ancestor): bool
+    {
+        $parent = $node->getParent();
+
+        while ($parent instanceof ResourceNode) {
+            if ($parent === $ancestor) {
+                return true;
+            }
+
+            $parent = $parent->getParent();
+        }
+
+        return false;
+    }
+
+    /**
+     * Keep the logical folder hierarchy but use the stored ResourceFile name for files.
+     *
+     * ResourceNode titles are display labels and may omit the real extension (for
+     * example an HTML document titled "Module 1" whose ResourceFile is "Module 1.html").
+     */
+    private function applyDocumentOriginalFilename(CDocument $doc, string $relativePath): string
+    {
+        $relativePath = trim(str_replace('\\', '/', $relativePath), '/');
+
+        if ('' === $relativePath || 'folder' === (string) $doc->getFiletype()) {
+            return $relativePath;
+        }
+
+        $node = $doc->getResourceNode();
+        if (!$node instanceof ResourceNode) {
+            return $relativePath;
+        }
+
+        $files = $node->getResourceFiles();
+        if (0 === $files->count()) {
+            return $relativePath;
+        }
+
+        $first = $files->first();
+        if (!$first instanceof ResourceFile) {
+            return $relativePath;
+        }
+
+        $originalName = trim(str_replace('\\', '/', (string) ($first->getOriginalName() ?? '')));
+        $originalName = basename($originalName);
+
+        if ('' === $originalName || '.' === $originalName || '..' === $originalName) {
+            return $relativePath;
+        }
+
+        $segments = explode('/', $relativePath);
+        $segments[array_key_last($segments)] = $originalName;
+
+        return implode('/', $segments);
     }
 
     /**

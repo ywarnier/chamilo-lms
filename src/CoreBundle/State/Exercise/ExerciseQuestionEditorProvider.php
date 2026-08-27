@@ -12,7 +12,10 @@ use Chamilo\CoreBundle\ApiResource\Exercise\ExerciseQuestionEditor;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ResourceFile;
 use Chamilo\CoreBundle\Entity\ResourceLink;
+use Chamilo\CoreBundle\Entity\ResourceNode;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CLpItem;
 use Chamilo\CourseBundle\Entity\CQuiz;
@@ -33,7 +36,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 use const ENT_HTML5;
@@ -46,7 +48,6 @@ use const SYS_PLUGIN_PATH;
  */
 final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
 {
-    private const CSRF_TOKEN_ID = 'exercise_question_editor';
     private const UNIQUE_ANSWER = 1;
     private const MULTIPLE_ANSWER = 2;
     private const FILL_IN_BLANKS = 3;
@@ -83,13 +84,14 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
     private const LP_READ_ONLY_MESSAGE = 'This exercise has been included in a learning path, so it cannot be accessed by students directly from here. If you want to put the same exercise available through the exercises tool, please make a copy of the current exercise using the copy icon.';
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CQuizQuestionRepository $questionRepository,
         private CQuizRepository $quizRepository,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -103,9 +105,12 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
-        if (!$this->canManageExercises()) {
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        // The global question bank is not course scoped, so a question manager keeps access
+        // even where the course rules would deny it.
+        if (!$this->isAllowedToEditHelper->check(coach: true)
+            && !$this->security->isGranted('ROLE_QUESTION_MANAGER')) {
             throw new AccessDeniedHttpException('You are not allowed to manage exercise questions in this context.');
         }
 
@@ -115,10 +120,10 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
 
         if ($questionId > 0) {
             if ($quiz instanceof CQuiz) {
-                return $this->buildExistingQuestionResponse($quiz, $questionId, $course, $session);
+                return $this->buildExistingQuestionResponse($operation, $quiz, $questionId, $course, $session);
             }
 
-            return $this->buildGlobalExistingQuestionResponse($questionId, $course, $session);
+            return $this->buildGlobalExistingQuestionResponse($operation, $questionId, $course, $session);
         }
 
         $type = $request->query->getInt('type', self::UNIQUE_ANSWER);
@@ -252,7 +257,7 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
         return $response;
     }
 
-    private function buildExistingQuestionResponse(CQuiz $quiz, int $questionId, Course $course, ?Session $session): ExerciseQuestionEditor
+    private function buildExistingQuestionResponse(Operation $operation, CQuiz $quiz, int $questionId, Course $course, ?Session $session): ExerciseQuestionEditor
     {
         $question = $this->getQuestionFromExercise($quiz, $questionId);
         $type = (int) $question->getType();
@@ -281,9 +286,9 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
         $response->categoryId = $this->getFirstCategoryId($question);
         $response->parentMediaId = (int) ($question->getParentMediaId() ?? 0);
         $response->answers = $this->getAnswers($question);
-        $this->addAnnotationData($response, $question, $course, $session);
-        $this->addOnlyofficeData($response, $quiz, $question, $course, $session);
-        $this->addHotspotData($response, $quiz, $question, $course, $session);
+        $this->addAnnotationData($operation, $response, $question, $course, $session);
+        $this->addOnlyofficeData($operation, $response, $quiz, $question, $course, $session);
+        $this->addHotspotData($operation, $response, $quiz, $question, $course, $session);
         if (!$this->usesHotspot($type) && $this->isAdaptiveScenarioQuestionType($type) && $this->isHotspotDelineationQuestionAllowed($quiz)) {
             $this->addHotspotScenarioOptions($response, $quiz, $question);
         }
@@ -293,6 +298,53 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
         $this->addDraggableData($response, $question);
         $response->noNegativeScore = self::GLOBAL_MULTIPLE_ANSWER === $type && $this->hasNoNegativeScore($response->answers);
         $this->addSharedEditorData($response, $quiz, $question, $course, $session);
+
+        return $response;
+    }
+
+    private function buildGlobalExistingQuestionResponse(
+        Operation $operation,
+        int $questionId,
+        Course $course,
+        ?Session $session,
+    ): ExerciseQuestionEditor {
+        $question = $this->getQuestionFromCurrentContext($questionId, $course, $session);
+        $type = (int) $question->getType();
+        if (!$this->isVueSupportedQuestionType($type)) {
+            throw new BadRequestHttpException('This question type is still managed by the legacy exercise tool.');
+        }
+        if (self::ANSWER_IN_OFFICE_DOC === $type) {
+            throw new BadRequestHttpException('OnlyOffice questions must be edited from an exercise context.');
+        }
+
+        $response = new ExerciseQuestionEditor();
+        $response->exerciseId = 0;
+        $response->questionId = $questionId;
+        $response->type = $type;
+        $response->typeLabel = $this->getQuestionTypeLabel($type);
+        $response->title = $question->getQuestion();
+        $response->description = (string) $question->getDescription();
+        $response->feedback = (string) $question->getFeedback();
+        $response->dropdownListText = $this->buildDropdownListText($question);
+        $response->score = (float) $question->getPonderation();
+        $response->globalScore = $this->usesGlobalScore($type) ? (float) $question->getPonderation() : 0.0;
+        [$response->correctScore, $response->wrongScore, $response->unknownScore] = $this->getTrueFalseScores($question);
+        $response->usesGlobalScore = $this->usesGlobalScore($type);
+        $response->hasFixedUnknownAnswer = self::UNIQUE_ANSWER_NO_OPTION === $type;
+        $response->mandatory = 1 === (int) $question->getMandatory();
+        $response->duration = $question->getDuration();
+        $response->difficulty = max(1, (int) $question->getLevel());
+        $response->categoryId = $this->getFirstCategoryId($question);
+        $response->parentMediaId = (int) ($question->getParentMediaId() ?? 0);
+        $response->answers = $this->getAnswers($question);
+        $this->addAnnotationData($operation, $response, $question, $course, $session);
+        $this->addHotspotData($operation, $response, null, $question, $course, $session);
+        $this->addCalculatedData($response, $question);
+        $this->addFillBlanksData($response, $question);
+        $this->addMatchingData($response, $question);
+        $this->addDraggableData($response, $question);
+        $response->noNegativeScore = self::GLOBAL_MULTIPLE_ANSWER === $type && $this->hasNoNegativeScore($response->answers);
+        $this->addGlobalSharedEditorData($response, $course, $session);
 
         return $response;
     }
@@ -314,7 +366,6 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
             $response->attachedQuestions = $this->getAttachedQuestions($quiz, $question);
         }
         $response->legacyUrls = $this->getLegacyUrls($quiz, $course, $session);
-        $response->csrfToken = $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID)->getValue();
         $response->allowQuestionFeedback = $this->isQuestionFeedbackEnabled();
         $response->imageZoomEnabled = $this->isImageZoomEnabled();
         $response->allowMandatoryQuestion = $this->isMandatoryQuestionInCategoryEnabled($quiz);
@@ -335,7 +386,6 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
         $response->mediaOptions = [];
         $response->attachedQuestions = [];
         $response->legacyUrls = [];
-        $response->csrfToken = $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID)->getValue();
         $response->allowQuestionFeedback = $this->isQuestionFeedbackEnabled();
         $response->imageZoomEnabled = $this->isImageZoomEnabled();
         $response->allowMandatoryQuestion = false;
@@ -427,42 +477,6 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
         } catch (Throwable) {
             return false;
         }
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
     }
 
     private function getExerciseFromCurrentContext(int $exerciseId, Course $course, ?Session $session): CQuiz
@@ -1054,7 +1068,7 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
         return true === $value || 'true' === strtolower((string) $value) || '1' === (string) $value;
     }
 
-    private function addHotspotData(ExerciseQuestionEditor $response, CQuiz $quiz, CQuizQuestion $question, Course $course, ?Session $session): void
+    private function addHotspotData(Operation $operation, ExerciseQuestionEditor $response, ?CQuiz $quiz, CQuizQuestion $question, Course $course, ?Session $session): void
     {
         if (!$this->usesHotspot((int) $question->getType())) {
             return;
@@ -1066,6 +1080,7 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
             if ($resourceFile instanceof ResourceFile) {
                 $response->hotspotImageName = (string) $resourceFile->getOriginalName();
                 $response->hotspotImageUrl = $this->appendCourseContextToUrl(
+                    $operation,
                     $this->questionRepository->getHotSpotImageUrl($question),
                     $course,
                     $session
@@ -1297,6 +1312,7 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
     }
 
     private function addOnlyofficeData(
+        Operation $operation,
         ExerciseQuestionEditor $response,
         CQuiz $quiz,
         CQuizQuestion $question,
@@ -1319,11 +1335,51 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
 
         $response->onlyofficeTemplateName = (string) ($resourceFile->getOriginalName() ?: $question->getExtra() ?: $resourceNode->getTitle());
         $response->onlyofficeTemplateUrl = $this->appendCourseContextToUrl(
+            $operation,
             $this->questionRepository->getHotSpotImageUrl($question),
             $course,
             $session
         );
+        $response->onlyofficeEditorUrl = $this->getOnlyofficeTemplateEditorUrl(
+            $operation,
+            $quiz,
+            $question,
+            $resourceNode,
+            $course,
+            $session
+        );
         $response->answers = [];
+    }
+
+    private function getOnlyofficeTemplateEditorUrl(
+        Operation $operation,
+        CQuiz $quiz,
+        CQuizQuestion $question,
+        ResourceNode $resourceNode,
+        Course $course,
+        ?Session $session,
+    ): string {
+        $exerciseId = (int) ($quiz->getIid() ?? 0);
+        $questionId = (int) ($question->getIid() ?? 0);
+        $resourceNodeId = (int) ($resourceNode->getId() ?? 0);
+        if ($exerciseId <= 0 || $questionId <= 0 || $resourceNodeId <= 0) {
+            return '';
+        }
+
+        $request = $this->requestStack->getCurrentRequest();
+        $query = [
+            'resourceNodeId' => $resourceNodeId,
+            'exerciseId' => $exerciseId,
+            'questionId' => $questionId,
+            'cid' => (int) $course->getId(),
+            'sid' => (int) ($session?->getId() ?? 0),
+            'gid' => (int) $this->cidReqHelper->getGroupId(),
+            'origin' => 'exercise',
+            'embedded' => 1,
+            'forceEdit' => 'true',
+        ];
+
+        return '/plugin/Onlyoffice/editor.php?'.http_build_query($query);
     }
 
     private function isOnlyofficePluginEnabled(): bool
@@ -1351,7 +1407,7 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
         }
     }
 
-    private function addAnnotationData(ExerciseQuestionEditor $response, CQuizQuestion $question, Course $course, ?Session $session): void
+    private function addAnnotationData(Operation $operation, ExerciseQuestionEditor $response, CQuizQuestion $question, Course $course, ?Session $session): void
     {
         if (self::ANNOTATION !== (int) $question->getType()) {
             return;
@@ -1369,13 +1425,14 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
 
         $response->annotationImageName = (string) $resourceFile->getOriginalName();
         $response->annotationImageUrl = $this->appendCourseContextToUrl(
+            $operation,
             $this->questionRepository->getHotSpotImageUrl($question),
             $course,
             $session
         );
     }
 
-    private function appendCourseContextToUrl(string $url, Course $course, ?Session $session): string
+    private function appendCourseContextToUrl(Operation $operation, string $url, Course $course, ?Session $session): string
     {
         if ('' === $url) {
             return '';
@@ -1384,8 +1441,8 @@ final readonly class ExerciseQuestionEditorProvider implements ProviderInterface
         $request = $this->requestStack->getCurrentRequest();
         $params = [
             'cid' => (int) $course->getId(),
-            'sid' => (int) ($session?->getId() ?? $request?->query->getInt('sid', 0) ?? 0),
-            'gid' => (int) ($request?->query->getInt('gid', 0) ?? 0),
+            'sid' => (int) ($session?->getId() ?? $this->cidReqHelper->getSessionId() ?? 0),
+            'gid' => (int) $this->cidReqHelper->getGroupId(),
         ];
 
         return $url.(str_contains($url, '?') ? '&' : '?').http_build_query($params);

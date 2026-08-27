@@ -183,6 +183,7 @@
         <BaseTinyEditor
           v-model="form.description"
           editor-id="ticket-setting-description"
+          :editor-config="descriptionEditorConfig"
           :full-page="false"
           :title="t('Description')"
         />
@@ -268,7 +269,6 @@ const projects = ref([])
 const categories = ref([])
 const statuses = ref([])
 const priorities = ref([])
-const csrfToken = ref("")
 const allowCategoryEdition = ref(false)
 const isLoading = ref(false)
 const isSaving = ref(false)
@@ -280,6 +280,19 @@ const editingCategory = ref(null)
 const selectedUsers = ref([])
 const formSubmitted = ref(false)
 const form = reactive({ title: "", description: "" })
+
+// Projects/categories/statuses/priorities only ever need a short plain-text-ish
+// description, not the platform's full ~45-plugin editor — trimming the plugin/
+// toolbar surface here cuts tinymce.init()'s own DOM-building work substantially,
+// which directly narrows the window for a confirmed CI-only race documented in
+// "I create a ticket setting with title ... and description ..." (common.steps.ts):
+// under load, this init() occasionally never completes.
+const descriptionEditorConfig = {
+  menubar: false,
+  plugins: "lists link autolink",
+  toolbar: "bold italic | bullist numlist | link",
+  height: 200,
+}
 
 const sectionOptions = computed(() => [
   { value: "projects", label: t("Projects") },
@@ -321,7 +334,6 @@ async function loadConfiguration() {
     statuses.value = response.statuses || []
     priorities.value = response.priorities || []
     selectedProjectId.value = Number(response.projectId || 0) || null
-    csrfToken.value = response.csrfToken || ""
     allowCategoryEdition.value = Boolean(response.allowCategoryEdition)
     syncRoute()
   } catch (error) {
@@ -371,7 +383,7 @@ async function saveItem() {
   if (!form.title.trim()) return
   isSaving.value = true
   try {
-    const payload = { title: form.title.trim(), description: form.description, csrfToken: csrfToken.value }
+    const payload = { title: form.title.trim(), description: form.description }
     const response = editingItem.value
       ? await ticketService.updateAdminItem(section.value, editingItem.value.id, payload)
       : await ticketService.createAdminItem(section.value, selectedProjectId.value, payload)
@@ -400,7 +412,7 @@ function confirmDelete(item) {
 
 async function deleteItem(item) {
   try {
-    const response = await ticketService.deleteAdminItem(section.value, item.id, csrfToken.value)
+    const response = await ticketService.deleteAdminItem(section.value, item.id)
     showSuccessNotification(response.message || t("Deleted"))
     await loadConfiguration()
   } catch (error) {
@@ -427,7 +439,6 @@ async function saveCategoryUsers() {
     const response = await ticketService.updateCategoryUsers(
       editingCategory.value.id,
       selectedUsers.value.map((user) => Number(user.id)),
-      csrfToken.value,
     )
     showSuccessNotification(response.message || t("Update successful"))
     isUsersDialogVisible.value = false

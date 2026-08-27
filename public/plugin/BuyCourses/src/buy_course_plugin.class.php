@@ -502,7 +502,8 @@ class BuyCoursesPlugin extends Plugin
         return $tableExists[$tableName];
     }
 
-    private function hasSubscriptionCourseInfrastructure(): bool
+    // Public because BuyCoursesCourseDeletedEventSubscriber checks it too
+    public function hasSubscriptionCourseInfrastructure(): bool
     {
         return $this->hasPluginTable(self::TABLE_SERVICES_SALE)
             && $this->hasPluginTable(self::TABLE_SUBSCRIPTION_COURSE);
@@ -527,38 +528,6 @@ class BuyCoursesPlugin extends Plugin
     public function isEnabled(): bool
     {
         return $this->get('paypal_enable') || $this->get('transfer_enable') || $this->get('culqi_enable') || $this->get('stripe_enable') || $this->get('cecabank_enable');
-    }
-
-    /**
-     * Mark the BuyCourses course relation as deleted when Chamilo removes a course.
-     *
-     * The service sale is intentionally preserved as purchase history.
-     *
-     * @param int $courseId
-     */
-    public function doWhenDeletingCourse($courseId)
-    {
-        $courseId = (int) $courseId;
-
-        if ($courseId <= 0 || !$this->hasSubscriptionCourseInfrastructure()) {
-            return;
-        }
-
-        $table = Database::get_main_table(self::TABLE_SUBSCRIPTION_COURSE);
-        $now = api_get_utc_datetime();
-
-        Database::update(
-            $table,
-            [
-                'status' => 'deleted',
-                'updated_at' => $now,
-                'deleted_at' => $now,
-                'last_action' => 'course_deleted',
-            ],
-            ['course_id = ?' => [$courseId]]
-        );
-
-        $this->clearFrozenEnrollmentsForCourse($courseId);
     }
 
     /**
@@ -11551,6 +11520,108 @@ class BuyCoursesPlugin extends Plugin
         }
 
         return $options;
+    }
+
+    /**
+     * Check whether an active visible course-creation service increases a numeric benefit.
+     */
+    public function hasActiveDisplayedCourseCreationServiceBenefit(string $variable, int $greaterThan = 0): bool
+    {
+        if ('true' !== $this->get('include_services') || !$this->hasCourseCreationServiceInfrastructure()) {
+            return false;
+        }
+
+        $availableFields = $this->getAvailableBenefitExtraFields();
+        $extraFieldId = (int) ($availableFields[$variable]['id'] ?? 0);
+        if ($extraFieldId <= 0) {
+            return false;
+        }
+
+        $servicesTable = Database::get_main_table(self::TABLE_SERVICES);
+        $serviceRelTable = Database::get_main_table(self::TABLE_SERVICE_REL_EXTRA_FIELD);
+        $greaterThan = max(0, $greaterThan);
+
+        $sql = "SELECT 1
+            FROM $servicesTable s
+            INNER JOIN $serviceRelTable rel ON rel.service_id = s.id
+            WHERE s.display_on_course_creation_page = 1
+              AND s.applies_to = ".self::SERVICE_TYPE_USER."
+              AND s.visibility = 1
+              AND s.active = 1
+              AND rel.extra_field_id = $extraFieldId
+              AND rel.granted_value > $greaterThan
+            LIMIT 1";
+        $result = Database::query($sql);
+
+        return false !== $result && Database::num_rows($result) > 0;
+    }
+
+    /**
+     * Check whether an active visible course-creation service includes an AI course feature.
+     */
+    public function hasActiveDisplayedCourseCreationServiceAiFeature(string $feature): bool
+    {
+        $features = $this->normalizeAiCourseFeatures([$feature]);
+        if (empty($features)
+            || 'true' !== $this->get('include_services')
+            || !$this->hasCourseCreationServiceInfrastructure()) {
+            return false;
+        }
+
+        $servicesTable = Database::get_main_table(self::TABLE_SERVICES);
+        $sql = "SELECT ai_course_features_json
+            FROM $servicesTable
+            WHERE display_on_course_creation_page = 1
+              AND applies_to = ".self::SERVICE_TYPE_USER."
+              AND visibility = 1
+              AND active = 1
+            ORDER BY id ASC";
+        $result = Database::query($sql);
+        if (false === $result) {
+            return false;
+        }
+
+        $feature = $features[0];
+        while ($row = Database::fetch_array($result, 'ASSOC')) {
+            $serviceFeatures = $this->normalizeAiCourseFeatures($row['ai_course_features_json'] ?? []);
+            if (in_array($feature, $serviceFeatures, true)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check whether a user already owns an active service including an AI course feature.
+     */
+    public function userHasActiveAiCourseFeatureService(int $userId, string $feature): bool
+    {
+        $userId = (int) $userId;
+        $features = $this->normalizeAiCourseFeatures([$feature]);
+        if ($userId <= 0 || empty($features)) {
+            return false;
+        }
+
+        $feature = $features[0];
+        foreach ($this->getHighestActiveUserServiceSales($userId) as $serviceSale) {
+            $serviceId = (int) ($serviceSale['service_id'] ?? 0);
+            if ($serviceId <= 0) {
+                continue;
+            }
+
+            $service = $this->getService($serviceId);
+            if (empty($service)) {
+                continue;
+            }
+
+            $serviceFeatures = $this->normalizeAiCourseFeatures($service['ai_course_features_json'] ?? []);
+            if (in_array($feature, $serviceFeatures, true)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

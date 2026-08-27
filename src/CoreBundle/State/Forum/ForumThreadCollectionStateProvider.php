@@ -12,9 +12,12 @@ use Chamilo\CoreBundle\ApiResource\Forum\ForumThreadsByForum;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
 use Chamilo\CoreBundle\Repository\Node\IllustrationRepository;
 use Chamilo\CoreBundle\Security\Authorization\Voter\ResourceNodeVoter;
 use Chamilo\CoreBundle\Security\CourseAccessResolver;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CForum;
 use Chamilo\CourseBundle\Entity\CForumCategory;
@@ -52,8 +55,11 @@ final class ForumThreadCollectionStateProvider implements ProviderInterface
         private readonly CForumRepository $forumRepository,
         private readonly Security $security,
         private readonly SettingsManager $settingsManager,
+        private readonly GradebookLinkManager $gradebookLinkManager,
         private readonly IllustrationRepository $illustrationRepository,
         private readonly CourseAccessResolver $courseAccessResolver,
+        private readonly CidReqHelper $cidReqHelper,
+        private readonly IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -93,9 +99,9 @@ final class ForumThreadCollectionStateProvider implements ProviderInterface
     {
         $this->assertForumMemberAccess($this->security, 'You are not allowed to access this forum.');
 
-        $course = $this->getCourse($this->entityManager, $request);
-        $session = $this->getSession($this->entityManager, $request);
-        $group = $this->getGroup($this->entityManager, $request);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getGroup($this->entityManager, $this->cidReqHelper);
         $forum = $this->forumRepository->find($forumId);
         if (!$forum instanceof CForum) {
             throw new NotFoundHttpException('Forum not found.');
@@ -110,7 +116,7 @@ final class ForumThreadCollectionStateProvider implements ProviderInterface
             throw new AccessDeniedHttpException('You are not allowed to access this forum category.');
         }
 
-        $showHidden = $this->canManageForumsInCurrentView($this->security, $request);
+        $showHidden = $this->isAllowedToEditHelper->check(coach: true);
         $showPosterAvatar = $this->arePosterImagesAllowed($course);
         $user = $this->getCurrentUser();
         $canSubscribe = !$this->areForumPostNotificationsHidden($course);
@@ -145,7 +151,7 @@ final class ForumThreadCollectionStateProvider implements ProviderInterface
                 $showHidden ? $this->countPendingPosts($thread) : 0,
                 $canSubscribe && $this->isSubscribedToThread($course, $user, (int) $thread->getIid()),
                 $canSubscribe,
-                $this->isForumThreadLockedByGradebook($this->entityManager, $this->settingsManager, $this->security, $course, $thread),
+                $this->isForumThreadLockedByGradebook($this->gradebookLinkManager, $course, $session, $thread),
                 $showPosterAvatar,
                 $course,
                 $session,

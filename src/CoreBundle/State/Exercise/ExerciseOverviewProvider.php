@@ -14,6 +14,9 @@ use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\TrackEAttemptQualify;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
+use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CLpItem;
 use Chamilo\CourseBundle\Entity\CLpItemView;
@@ -53,10 +56,13 @@ final readonly class ExerciseOverviewProvider implements ProviderInterface
     private const STATUS_INCOMPLETE = 'incomplete';
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private Security $security,
         private SettingsManager $settingsManager,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
+        private UserHelper $userHelper,
     ) {}
 
     /**
@@ -70,10 +76,19 @@ final readonly class ExerciseOverviewProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $user = $this->getCurrentUser();
-        $canManage = $this->canManageExercises();
+        $canManage = $this->isAllowedToEditHelper->check(coach: true);
+
+        // Overview is a read-only payload; release the native session file
+        // lock so sibling XHRs from the same browser are not blocked. Do not
+        // call Symfony Session::save() here — that can start a second empty
+        // session in the same request and the kernel then persists it over
+        // the real login ("Your session details have been lost").
+        if (PHP_SESSION_ACTIVE === session_status()) {
+            session_write_close();
+        }
 
         if (!$canManage && !$this->canViewExercises()) {
             throw new AccessDeniedHttpException('You are not allowed to view exercises in this context.');
@@ -146,36 +161,6 @@ final readonly class ExerciseOverviewProvider implements ProviderInterface
         return $overview;
     }
 
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
     private function getCurrentUser(): User
     {
         $user = $this->security->getUser();
@@ -190,13 +175,7 @@ final readonly class ExerciseOverviewProvider implements ProviderInterface
     {
         return $this->security->isGranted('ROLE_CURRENT_COURSE_STUDENT')
             || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_STUDENT')
-            || $this->canManageExercises();
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
+            || $this->userHelper->isTeacherOfCurrentCourse();
     }
 
     private function isVisibleThroughLearnpath(CQuiz $quiz, Course $course, ?Session $session): bool
@@ -424,9 +403,6 @@ final readonly class ExerciseOverviewProvider implements ProviderInterface
         return round((float) ($queryBuilder->getQuery()->getSingleScalarResult() ?? 0), 2);
     }
 
-    /**
-     * @return array<int, array<string, mixed>>
-     */
     private function findIncompleteAttempt(
         CQuiz $quiz,
         Course $course,

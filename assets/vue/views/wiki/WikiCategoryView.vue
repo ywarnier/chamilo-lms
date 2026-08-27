@@ -1,5 +1,7 @@
 <template>
   <section class="space-y-6">
+    <SectionHeader :title="t('Wiki')" />
+
     <BaseToolbar class="border-b border-gray-25 bg-white">
       <template #start>
         <div class="flex items-center gap-2">
@@ -223,6 +225,8 @@ import BaseSelect from "../../components/basecomponents/BaseSelect.vue";
 import BaseTable from "../../components/basecomponents/BaseTable.vue";
 import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue";
 import wikiService from "../../services/wikiService";
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 
 const { t } = useI18n();
 const route = useRoute();
@@ -268,7 +272,6 @@ function createEmptyCategoryData() {
   return {
     enabled: false,
     canManage: false,
-    csrfToken: "",
     categories: [],
   };
 }
@@ -293,9 +296,6 @@ function getContextParams() {
     params.gid = gid;
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    params.isStudentView = getQueryValue(route.query.isStudentView);
-  }
 
   return params;
 }
@@ -313,9 +313,6 @@ function getSharedQuery() {
     query.gid = gid;
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    query.isStudentView = getQueryValue(route.query.isStudentView);
-  }
 
   return query;
 }
@@ -381,7 +378,6 @@ async function saveCategory() {
     const payload = {
       title,
       parentId: Number(categoryForm.parentId || 0) || null,
-      csrfToken: categoryData.csrfToken,
     };
 
     if (editingCategoryId.value > 0) {
@@ -438,11 +434,7 @@ async function deleteCategory(category) {
   successMessage.value = "";
 
   try {
-    await wikiService.deleteCategory(
-      Number(category.id),
-      getContextParams(),
-      categoryData.csrfToken,
-    );
+    await wikiService.deleteCategory(Number(category.id), getContextParams());
     if (Number(editingCategoryId.value) === Number(category.id)) {
       resetForm();
     }
@@ -485,4 +477,6 @@ async function loadCategories(showLoading = true) {
 }
 
 onMounted(loadCategories);
+
+useStudentViewRefresh(loadCategories);
 </script>

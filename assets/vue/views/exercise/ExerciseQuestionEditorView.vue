@@ -285,6 +285,18 @@
           <span v-else>{{ form.onlyofficeTemplateName }}</span>
         </div>
 
+        <div
+          v-if="form.onlyofficeEditorUrl"
+          class="overflow-hidden rounded-lg border border-gray-20 bg-white shadow-sm"
+        >
+          <iframe
+            :key="form.onlyofficeEditorUrl"
+            :src="form.onlyofficeEditorUrl"
+            class="h-[78vh] min-h-[680px] w-full border-0"
+            :title="form.onlyofficeTemplateName || t('Office document')"
+          />
+        </div>
+
         <div class="rounded-lg border border-yellow-100 bg-yellow-50 px-4 py-3 text-sm text-yellow-800">
           {{ t("This question is corrected manually after the learner submits the edited document.") }}
         </div>
@@ -1786,7 +1798,6 @@ const UNKNOWN_ANSWER_POSITION = 666
 const isLoading = ref(false)
 const isSaving = ref(false)
 const errorMessage = ref("")
-const csrfToken = ref("")
 const typeLabel = ref("")
 const questionCount = ref(0)
 const totalScore = ref(0)
@@ -1943,6 +1954,7 @@ const form = reactive({
   hotspotScenarioFailureType: "",
   hotspotScenarioFailureUrl: "",
   onlyofficeTemplateUrl: "",
+  onlyofficeEditorUrl: "",
   onlyofficeTemplateName: "",
   onlyofficeTemplateData: "",
   onlyofficeTemplateMimeType: "",
@@ -2143,7 +2155,19 @@ function getContextParams() {
     gid: getQueryValue(route.query.gid),
   }
 
-  for (const key of ["origin", "lp_id", "learnpath_id", "node", "type", "returnToLp", "isStudentView", "gradebook"]) {
+  for (const key of [
+    "origin",
+    "lp_id",
+    "learnpath_id",
+    "node",
+    "parent",
+    "lp_parent_id",
+    "lp_item_id",
+    "type",
+    "returnToLp",
+    "gradebook",
+    "lpTool",
+  ]) {
     const value = getQueryValue(route.query[key])
     if (value !== undefined && value !== null && String(value) !== "") {
       params[key] = value
@@ -2539,6 +2563,7 @@ function fillForm(data) {
   form.hotspotImageName = data.hotspotImageName || ""
   form.hotspotImageMimeType = ""
   form.onlyofficeTemplateUrl = data.onlyofficeTemplateUrl || ""
+  form.onlyofficeEditorUrl = data.onlyofficeEditorUrl || ""
   form.onlyofficeTemplateName = data.onlyofficeTemplateName || ""
   form.onlyofficeTemplateData = ""
   form.onlyofficeTemplateMimeType = ""
@@ -2566,7 +2591,6 @@ function fillForm(data) {
   categoryOptions.value = Array.isArray(data.categoryOptions) ? data.categoryOptions.map(normalizeOption) : []
   mediaOptions.value = Array.isArray(data.mediaOptions) ? data.mediaOptions.map(normalizeOption) : []
   attachedQuestions.value = Array.isArray(data.attachedQuestions) ? data.attachedQuestions : []
-  csrfToken.value = data.csrfToken || ""
   allowQuestionFeedback.value = true === data.allowQuestionFeedback
   imageZoomEnabled.value = true === data.imageZoomEnabled
   allowMandatoryQuestion.value = true === data.allowMandatoryQuestion
@@ -3129,6 +3153,7 @@ function selectOnlyofficeTemplate(file) {
     form.onlyofficeTemplateName = ""
     form.onlyofficeTemplateMimeType = ""
     form.onlyofficeTemplateUrl = ""
+    form.onlyofficeEditorUrl = ""
     return
   }
 
@@ -3137,6 +3162,7 @@ function selectOnlyofficeTemplate(file) {
     form.onlyofficeTemplateData = String(reader.result || "")
     form.onlyofficeTemplateName = file.name || "office_document"
     form.onlyofficeTemplateUrl = ""
+    form.onlyofficeEditorUrl = ""
     form.onlyofficeTemplateMimeType = file.type || getOnlyofficeMimeTypeFromExtension(file.name)
     errorMessage.value = ""
   }
@@ -3551,7 +3577,6 @@ function buildPayload() {
           isUnknown: true === answer.isUnknown,
         }))
       : [],
-    submittedCsrfToken: csrfToken.value,
   }
 }
 

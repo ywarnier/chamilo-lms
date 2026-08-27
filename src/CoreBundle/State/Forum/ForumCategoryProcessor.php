@@ -10,6 +10,7 @@ use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\Entity\ExtraField;
 use Chamilo\CoreBundle\Entity\ExtraFieldValues;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Repository\ExtraFieldRepository;
 use Chamilo\CoreBundle\Repository\ExtraFieldValuesRepository;
 use Chamilo\CoreBundle\Repository\LanguageRepository;
@@ -20,7 +21,6 @@ use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProcessorInterface<mixed, CForumCategory|JsonResponse>
@@ -36,10 +36,10 @@ final class ForumCategoryProcessor implements ProcessorInterface
         private readonly CForumCategoryRepository $categoryRepository,
         private readonly RequestStack $requestStack,
         private readonly Security $security,
-        private readonly CsrfTokenManagerInterface $csrfTokenManager,
         private readonly ExtraFieldRepository $extraFieldRepository,
         private readonly ExtraFieldValuesRepository $extraFieldValuesRepository,
         private readonly LanguageRepository $languageRepository,
+        private readonly CidReqHelper $cidReqHelper,
     ) {}
 
     public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): CForumCategory|JsonResponse
@@ -50,13 +50,12 @@ final class ForumCategoryProcessor implements ProcessorInterface
         }
 
         $payload = $this->getJsonData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
         $this->assertTeacher($this->security);
 
         if ('create_forum_category' === $operation->getName()) {
-            $course = $this->getCourse($this->entityManager, $request);
-            $session = $this->getSession($this->entityManager, $request);
-            $group = $this->getGroup($this->entityManager, $request);
+            $course = $this->getCourse($this->cidReqHelper);
+            $session = $this->cidReqHelper->getDoctrineSessionEntity();
+            $group = $this->getGroup($this->entityManager, $this->cidReqHelper);
             $parentResourceNodeId = $this->getRequiredInt($payload, 'parentResourceNodeId');
             $this->assertParentResourceNodeIsWritableInForumContext(
                 $this->entityManager,
@@ -146,8 +145,8 @@ final class ForumCategoryProcessor implements ProcessorInterface
             throw new BadRequestHttpException('Request is missing.');
         }
 
-        $course = $this->getCourse($this->entityManager, $request);
-        $session = $this->getSession($this->entityManager, $request);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $targetVisible = $this->getTargetVisibility($payload, $category, $course, $session);
         $visible = $this->setForumResourceVisibility($category, $this->categoryRepository, $course, $session, $targetVisible);
         $this->entityManager->flush();
@@ -173,9 +172,9 @@ final class ForumCategoryProcessor implements ProcessorInterface
             throw new BadRequestHttpException('Request is missing.');
         }
 
-        $course = $this->getCourse($this->entityManager, $request);
-        $session = $this->getSession($this->entityManager, $request);
-        $group = $this->getGroup($this->entityManager, $request);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getGroup($this->entityManager, $this->cidReqHelper);
         $position = $this->moveForumResource($category, $course, $session, $group, (string) ($payload['direction'] ?? ''));
         $this->entityManager->flush();
 

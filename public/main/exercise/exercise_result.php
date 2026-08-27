@@ -101,7 +101,9 @@ if (empty($objExercise)) {
             && !empty($exercise_stat_info)
             && isset($exercise_stat_info['exe_exo_id'])
         ) {
-            header('Location: overview.php?exerciseId='.$exercise_stat_info['exe_exo_id'].'&'.api_get_cidreq().'&origin='.$origin);
+            // api_get_cidreq() already appends "&origin=..." (defaults to
+            // api_get_origin(), same value as $origin) - do not add it twice.
+            header('Location: overview.php?exerciseId='.$exercise_stat_info['exe_exo_id'].'&'.api_get_cidreq());
 
             exit;
         }
@@ -163,6 +165,20 @@ if (api_is_course_admin() && !in_array($origin, ['learnpath', 'embeddable'])) {
     );
 }
 $exercise_stat_info = $objExercise->get_stat_track_exercise_info_by_exe_id($exeId);
+
+// An attempt belongs to one course and is readable by its author and the course staff only:
+// exe_id is a sequential integer, so anything else would let it be walked.
+if (!empty($exercise_stat_info)) {
+    $attemptCourseId = (int) ($exercise_stat_info['c_id'] ?? 0);
+    $attemptUserId = (int) ($exercise_stat_info['exe_user_id'] ?? 0);
+
+    if ($attemptCourseId !== api_get_course_int_id()
+        || ($attemptUserId !== $currentUserId && !api_is_allowed_to_edit(true, true, true))
+    ) {
+        api_not_allowed(true);
+    }
+}
+
 $learnpath_id = (int) ($exercise_stat_info['orig_lp_id'] ?? $requestedLearnpathId);
 $learnpath_item_id = (int) ($exercise_stat_info['orig_lp_item_id'] ?? $requestedLearnpathItemId);
 $learnpath_item_view_id = (int) ($exercise_stat_info['orig_lp_item_view_id'] ?? $requestedLearnpathItemViewId);

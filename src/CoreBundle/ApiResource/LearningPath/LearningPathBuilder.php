@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\ApiResource\LearningPath;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\QueryParameter;
 use Chamilo\CoreBundle\State\LearningPath\LearningPathBuilderProvider;
 use Symfony\Component\Serializer\Attribute\Groups;
 
@@ -19,6 +20,29 @@ use Symfony\Component\Serializer\Attribute\Groups;
             requirements: ['lpId' => '\d+'],
             security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_CURRENT_COURSE_TEACHER') or is_granted('ROLE_CURRENT_COURSE_SESSION_TEACHER')",
             name: 'get_learning_path_builder',
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+                'includeLaunchUrls' => new QueryParameter(
+                    schema: ['type' => 'boolean'],
+                    description: 'Include resolved launch URLs for course resources',
+                ),
+                'catalogOnly' => new QueryParameter(
+                    schema: ['type' => 'boolean'],
+                    description: 'Return the course resource catalog without builder-side setup',
+                ),
+            ],
             provider: LearningPathBuilderProvider::class,
         ),
     ],
@@ -41,9 +65,6 @@ final class LearningPathBuilder
 
     #[Groups(['learning_path_builder:read'])]
     public bool $titleAsHtml = false;
-
-    #[Groups(['learning_path_builder:read'])]
-    public string $csrfToken = '';
 
     /**
      * @var array<int, array<string, mixed>>

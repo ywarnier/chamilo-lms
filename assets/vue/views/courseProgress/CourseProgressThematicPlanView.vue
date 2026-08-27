@@ -1,5 +1,7 @@
 <template>
   <section class="space-y-6">
+    <SectionHeader :title="t('Course progress')" />
+
     <div
       v-if="isLoading"
       class="rounded-xl border border-gray-20 bg-white p-6 text-center text-sm text-gray-600 shadow-sm"
@@ -160,6 +162,8 @@ import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
 import BaseTinyEditor from "../../components/basecomponents/BaseTinyEditor.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
 import courseProgressService from "../../services/courseProgressService"
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 
 const { t } = useI18n()
 const route = useRoute()
@@ -174,7 +178,6 @@ const formErrorMessage = ref("")
 const successMessage = ref("")
 const thematicTitle = ref("")
 const thematicContent = ref("")
-const csrfToken = ref("")
 const items = ref([])
 
 const editorConfig = {
@@ -210,9 +213,6 @@ function getContextParams() {
     params.gid = gid
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    params.isStudentView = getQueryValue(route.query.isStudentView)
-  }
 
   return params
 }
@@ -232,7 +232,6 @@ function normalizeItems(responseItems) {
 function applyResponse(response) {
   thematicTitle.value = response.thematicTitle || ""
   thematicContent.value = response.thematicContent || ""
-  csrfToken.value = response.csrfToken || ""
   items.value = normalizeItems(response.items)
 }
 
@@ -286,7 +285,6 @@ async function savePlans(addNewItem) {
         title: item.title,
         description: item.description,
       })),
-      csrfToken: csrfToken.value,
       addNewItem,
     }
 
@@ -319,8 +317,10 @@ async function savePlans(addNewItem) {
 
 onMounted(loadPlans)
 
+useStudentViewRefresh(loadPlans)
+
 watch(
-  () => [route.params.thematicId, route.query.cid, route.query.sid, route.query.gid, route.query.isStudentView],
+  () => [route.params.thematicId, route.query.cid, route.query.sid, route.query.gid],
   loadPlans,
 )
 </script>

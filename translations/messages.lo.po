@@ -1,14 +1,5 @@
 msgid ""
-msgstr ""
-"Project-Id-Version: chamilo\n"
-"PO-Revision-Date: 2025-11-21 16:30+0700\n"
-"Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
-"Language-Team: Lao <https://translation.chamilo.org/projects/chamilo/messages/lo/>\n"
-"Language: lo\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4.2\n"
+msgstr "Project-Id-Version: chamilo\nPO-Revision-Date: 2025-11-21 16:30+0700\nLast-Translator: Bone NI <bounkirdni@gmail.com>\nLanguage-Team: Lao <https://translation.chamilo.org/projects/chamilo/messages/lo/>\nLanguage: lo\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.4.2\n"
 
 msgid "You can generate badges for the skills learnt by your users, to give them recognition for their effort, through which they will be able to show off their acquired skills and competencies with icons that will be shown on their user profile. For more information on OpenBadges, check <a href='http://openbadges.org'>http://openbadges.org/</a>."
 msgstr "ທ່ານສາມາດສ້າງໃບຢັ້ງຢືນ (badges) ສໍາລັບທັກສະທີ່ຜູ້ໃຊ້ຂອງທ່ານໄດ້ຮຽນຮູ້, ເພື່ອເປັນການຮັບຮູ້ຄວາມພະຍາຍາມຂອງພວກເຂົາ, ໂດຍຜ່ານໃບຢັ້ງຢືນນີ້ ພວກເຂົາຈະສາມາດສະແດງທັກສະ ແລະ ຄວາມສາມາດທີ່ໄດ້ມາດ້ວຍໄອຄອນທີ່ຈະສະແດງຢູ່ໃນໂປຣໄຟລ໌ຜູ້ໃຊ້ຂອງພວກເຂົາ. ສໍາລັບຂໍ້ມູນເພີ່ມເຕີມກ່ຽວກັບ OpenBadges, ກວດສອບໄດ້ທີ່ <a href='http://openbadges.org'>http://openbadges.org/</a>."
@@ -107,10 +98,7 @@ msgid ""
 "In order for this site to work and be able to measure the use of content, this platform uses cookies.<br /><br />\n"
 "If needed, the Help section of your browser indicates how to configure cookies.<br /><br />\n"
 "For more information on cookies, you can visit the <a href=\"http://www.aboutcookies.org/\">About Cookies</a> website."
-msgstr ""
-"ເພື່ອໃຫ້ເວັບໄຊນີ້ສາມາດເຮັດວຽກໄດ້ ແລະ ສາມາດວັດແທກການນໍາໃຊ້ເນື້ອຫາ, ແພລດຟອມນີ້ໃຊ້ຄຸກກີ້.<br /><br />\n"
-"ຖ້າຈໍາເປັນ, ສ່ວນຊ່ວຍເຫຼືອຂອງເບົາເຊີຂອງທ່ານຈະບອກວິທີການຕັ້ງຄ່າຄຸກກີ້.<br /><br />\n"
-"ສໍາລັບຂໍ້ມູນເພີ່ມເຕີມກ່ຽວກັບຄຸກກີ້, ທ່ານສາມາດເຂົ້າເບິ່ງເວັບໄຊ <a href=\"http://www.aboutcookies.org/\">ກ່ຽວກັບຄຸກກີ້</a>."
+msgstr "ເພື່ອໃຫ້ເວັບໄຊນີ້ສາມາດເຮັດວຽກໄດ້ ແລະ ສາມາດວັດແທກການນໍາໃຊ້ເນື້ອຫາ, ແພລດຟອມນີ້ໃຊ້ຄຸກກີ້.<br /><br />\nຖ້າຈໍາເປັນ, ສ່ວນຊ່ວຍເຫຼືອຂອງເບົາເຊີຂອງທ່ານຈະບອກວິທີການຕັ້ງຄ່າຄຸກກີ້.<br /><br />\nສໍາລັບຂໍ້ມູນເພີ່ມເຕີມກ່ຽວກັບຄຸກກີ້, ທ່ານສາມາດເຂົ້າເບິ່ງເວັບໄຊ <a href=\"http://www.aboutcookies.org/\">ກ່ຽວກັບຄຸກກີ້</a>."
 
 msgid "By continuing to use this site, you declare you accept its use of cookies."
 msgstr "ໂດຍການນຳໃຊ້ເວັບໄຊນີ້ຕໍ່ໄປ, ທ່ານຍອມຮັບການນຳໃຊ້ຄຸກກີ້ຂອງພວກເຮົາ."
@@ -350,7 +338,7 @@ msgid "Sincerely"
 msgstr "ດ້ວຍຄວາມຈິງໃຈ"
 
 msgid "Formula sample: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
-msgstr "ຕົວอย่างສູດ: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
+msgstr "ຕົວຢ່າງສູດ: sqrt( [x] / [y] ) * ( e ^ ( ln(pi) ) )"
 
 msgid "Variable ranges"
 msgstr "ຊ່ວງຂອງຕົວປ່ຽນ"
@@ -808,9 +796,7 @@ msgstr "ເຄື່ອງມືນີ້ຊ່ວຍໃຫ້ທ່ານສາ
 msgid ""
 "<p> The forum is an discussion tool for asynchronous written work.  In contrast to e-mail, a forum is for public, or semi-public, group discussion. </p>To use the Chamilo forum, members can simply use their browser - they do not require any distinct client software. </p>To organize forums, click on the Forums tool. Discussions are organized hierarchically according to the following structure: </ p><b> Category> Forum> Topic> Post</ b> </ p> To ensure members can participate in the forum tidily and effectively, it is essential in the first instance to create categories and forums; it's then up to the participants to create topics and posts. By default, the forum contains a single (public) category, an example topic and an example post. You can add forums to the category,  change its title or create other categories within which you could then create new forums. (Don't confuse categories and forums, and remember that a category that contains no forum is useless and not displayed.)</p>\n"
 "<p>The forum description might include a list of its members, a definition of its purpose, a target a task, a theme etc.</p><p>Group forums should not be created via the Forum tool but instead via the Groups tool, where you can determine whether your group forums should be private or public, at the same time providing a location for sharing groups of documents.</p><b> Teaching Tips</ b></ p> A learning forum is not quite the same as the forums you are used to seeing on the internet. For one thing, it is not possible for learners to alter their posts once they have been published as the course is logically archived to allow tracking of what has been said in the past. Furthermore, Chamilo forums allow for specific uses  relevant to teaching. For example, some teachers/trainers publish corrections directly within forums in the following way: <li> A learner is asked to post a report directly into the forum, </ li> The teacher corrects it by clicking Edit (yellow pencil) and marking it using the graphics editor (color, underlining, etc.) </ li> Finally, other learners benefit from viewing the corrections was made on the production of one of of them, </ li> Note that the same principle can be applied between learners, but will require his copying/pasting the message of his fellow student because students / trainees can not edit one another's posts. <. li> </ ul>"
-msgstr ""
-"<p> ເວທີສົນທະນາແມ່ນເຄື່ອງມືສົນທະນາສຳລັບການເຮັດວຽກທີ່ຂຽນແບບບໍ່ພ້ອມກັນ. ແຕກຕ່າງຈາກອີເມລ, ເວທີສົນທະນາແມ່ນສຳລັບການສົນທະນາກຸ່ມແບບສາທາລະນະ ຫຼື ເຄິ່ງສາທາລະນະ. </p>ເພື່ອໃຊ້ເວທີສົນທະນາຂອງ Chamilo, ສະມາຊິກສາມາດໃຊ້ເບົາເຊີຂອງພວກເຂົາໄດ້ - ໂດຍບໍ່ຈຳເປັນຕ້ອງມີຊອບແວລູກຂ່າຍທີ່ແຕກຕ່າງ. </p>ເພື່ອຈັດການເວທີສົນທະນາ, ໃຫ້ຄລິກທີ່ເຄື່ອງມື Forums. ການສົນທະນາຈະຖືກຈັດລຽງຕາມລຳດັບຊັ້ນຕາມໂຄງສ້າງຕໍ່ໄປນີ້: </ p><b> ໝວດໝູ່> ເວທີສົນທະນາ> ຫົວຂໍ້> ໂພສ</ b> </ p> ເພື່ອຮັບປະກັນວ່າສະມາຊິກສາມາດເຂົ້າຮ່ວມເວທີສົນທະນາໄດ້ຢ່າງເປັນລະບຽບ ແລະ ມີປະສິດທິພາບ, ສິ່ງສຳຄັນໃນເບື້ອງຕົ້ນແມ່ນການສ້າງໝວດໝູ່ ແລະ ເວທີສົນທະນາ; ຈາກນັ້ນຜູ້ເຂົ້າຮ່ວມຈະເປັນຜູ້ສ້າງຫົວຂໍ້ ແລະ ໂພສ. ໂດຍຄ່າເລີ່ມຕົ້ນ, ເວທີສົນທະນາຈະມີໝວດໝູ່ (ສາທາລະນະ) ໜຶ່ງອັນ, ຫົວຂໍ້ຕົວຢ່າງໜຶ່ງອັນ ແລະ ໂພສຕົວຢ່າງໜຶ່ງອັນ. ທ່ານສາມາດເພີ່ມເວທີສົນທະນາເຂົ້າໃນໝວດໝູ່, ປ່ຽນຊື່ຂອງມັນ ຫຼື ສ້າງໝວດໝູ່ອື່ນໆເພື່ອສ້າງເວທີສົນທະນາໃໝ່ພາຍໃນນັ້ນ. (ຢ່າສັບສົນລະຫວ່າງໝວດໝູ່ ແລະ ເວທີສົນທະນາ, ແລະ ຈື່ໄວ້ວ່າໝວດໝູ່ທີ່ບໍ່ມີເວທີສົນທະນາແມ່ນບໍ່ມີປະໂຫຍດ ແລະ ຈະບໍ່ຖືກສະແດງ.)</p>\n"
-"<p>ຄຳອະທິບາຍຂອງເວທີສົນທະນາອາດຈະລວມເຖິງລາຍຊື່ສະມາຊິກ, ຄຳນິຍາມຈຸດປະສົງ, ເປົ້າໝາຍ, ວຽກ, ຫົວຂໍ້ຫຼັກ ແລະ ອື່ນໆ.</p><p>ເວທີສົນທະນາກຸ່ມບໍ່ຄວນສ້າງຜ່ານເຄື່ອງມື Forum ແຕ່ຄວນສ້າງຜ່ານເຄື່ອງມື Groups, ບ່ອນທີ່ທ່ານສາມາດກຳນົດວ່າເວທີສົນທະນາກຸ່ມຂອງທ່ານຄວນເປັນສ່ວນຕົວ ຫຼື ສາທາລະນະ, ໃນຂະນະດຽວກັນກໍເປັນບ່ອນສຳລັບແບ່ງປັນເອກະສານຂອງກຸ່ມ.</p><b> ເຄັດລັບການສອນ</ b></ p> ເວທີສົນທະນາເພື່ອການຮຽນຮູ້ບໍ່ຄືກັບເວທີສົນທະນາທີ່ທ່ານເຄີຍເຫັນໃນອິນເຕີເນັດ. ຢ່າງໜຶ່ງແມ່ນຜູ້ຮຽນບໍ່ສາມາດປ່ຽນແປງໂພສຂອງຕົນເອງໄດ້ຫຼັງຈາກທີ່ໄດ້ເຜີຍແຜ່ໄປແລ້ວ ເນື່ອງຈາກຫຼັກສູດຈະຖືກເກັບມ້ຽນຢ່າງມີເຫດຜົນເພື່ອໃຫ້ສາມາດຕິດຕາມສິ່ງທີ່ໄດ້ເວົ້າໄປໃນອະດີດ. ນອກຈາກນີ້, ເວທີສົນທະນາຂອງ Chamilo ຍັງອະນຸຍາດໃຫ້ມີການນຳໃຊ້ສະເພາະທີ່ກ່ຽວຂ້ອງກັບການສອນ. ຕົວຢ່າງ, ຄູ/ຜູ້ຝຶກສອນບາງຄົນເຜີຍແຜ່ການແກ້ໄຂໂດຍກົງພາຍໃນເວທີສົນທະນາດ້ວຍວິທີຕໍ່ໄປນີ້: <li> ຜູ້ຮຽນຖືກຂໍໃຫ້ໂພສລາຍງານໂດຍກົງໃນເວທີສົນທະນາ, </li> <li> ຄູແກ້ໄຂໂດຍການຄລິກ ແກ້ໄຂ (ສໍສີເຫຼືອງ) ແລະ ໝາຍໂດຍໃຊ້ຕົວແກ້ໄຂກຣາຟິກ (ສີ, ຂີດກ້ອງ, ແລະ ອື່ນໆ) </li> <li> ສຸດທ້າຍ, ຜູ້ຮຽນຄົນອື່ນໆຈະໄດ້ຮັບປະໂຫຍດຈາກການເບິ່ງການແກ້ໄຂທີ່ເຮັດໃນຜົນງານຂອງໜຶ່ງໃນພວກເຂົາ, </li> <li> ໝາຍເຫດວ່າຫຼັກການດຽວກັນນີ້ສາມາດນຳໃຊ້ລະຫວ່າງຜູ້ຮຽນໄດ້, ແຕ່ຈະຕ້ອງມີການສຳເນົາ/ວາງຂໍ້ຄວາມຂອງເພື່ອນຮ່ວມຮຽນ ເນື່ອງຈາກນັກຮຽນ/ຜູ້ເຂົ້າຝຶກອົບຮົມບໍ່ສາມາດແກ້ໄຂໂພສຂອງກັນແລະກັນໄດ້. </li> </ul>"
+msgstr "<p> ເວທີສົນທະນາແມ່ນເຄື່ອງມືສົນທະນາສຳລັບການເຮັດວຽກທີ່ຂຽນແບບບໍ່ພ້ອມກັນ. ແຕກຕ່າງຈາກອີເມລ, ເວທີສົນທະນາແມ່ນສຳລັບການສົນທະນາກຸ່ມແບບສາທາລະນະ ຫຼື ເຄິ່ງສາທາລະນະ. </p>ເພື່ອໃຊ້ເວທີສົນທະນາຂອງ Chamilo, ສະມາຊິກສາມາດໃຊ້ເບົາເຊີຂອງພວກເຂົາໄດ້ - ໂດຍບໍ່ຈຳເປັນຕ້ອງມີຊອບແວລູກຂ່າຍທີ່ແຕກຕ່າງ. </p>ເພື່ອຈັດການເວທີສົນທະນາ, ໃຫ້ຄລິກທີ່ເຄື່ອງມື Forums. ການສົນທະນາຈະຖືກຈັດລຽງຕາມລຳດັບຊັ້ນຕາມໂຄງສ້າງຕໍ່ໄປນີ້: </ p><b> ໝວດໝູ່> ເວທີສົນທະນາ> ຫົວຂໍ້> ໂພສ</ b> </ p> ເພື່ອຮັບປະກັນວ່າສະມາຊິກສາມາດເຂົ້າຮ່ວມເວທີສົນທະນາໄດ້ຢ່າງເປັນລະບຽບ ແລະ ມີປະສິດທິພາບ, ສິ່ງສຳຄັນໃນເບື້ອງຕົ້ນແມ່ນການສ້າງໝວດໝູ່ ແລະ ເວທີສົນທະນາ; ຈາກນັ້ນຜູ້ເຂົ້າຮ່ວມຈະເປັນຜູ້ສ້າງຫົວຂໍ້ ແລະ ໂພສ. ໂດຍຄ່າເລີ່ມຕົ້ນ, ເວທີສົນທະນາຈະມີໝວດໝູ່ (ສາທາລະນະ) ໜຶ່ງອັນ, ຫົວຂໍ້ຕົວຢ່າງໜຶ່ງອັນ ແລະ ໂພສຕົວຢ່າງໜຶ່ງອັນ. ທ່ານສາມາດເພີ່ມເວທີສົນທະນາເຂົ້າໃນໝວດໝູ່, ປ່ຽນຊື່ຂອງມັນ ຫຼື ສ້າງໝວດໝູ່ອື່ນໆເພື່ອສ້າງເວທີສົນທະນາໃໝ່ພາຍໃນນັ້ນ. (ຢ່າສັບສົນລະຫວ່າງໝວດໝູ່ ແລະ ເວທີສົນທະນາ, ແລະ ຈື່ໄວ້ວ່າໝວດໝູ່ທີ່ບໍ່ມີເວທີສົນທະນາແມ່ນບໍ່ມີປະໂຫຍດ ແລະ ຈະບໍ່ຖືກສະແດງ.)</p>\n<p>ຄຳອະທິບາຍຂອງເວທີສົນທະນາອາດຈະລວມເຖິງລາຍຊື່ສະມາຊິກ, ຄຳນິຍາມຈຸດປະສົງ, ເປົ້າໝາຍ, ວຽກ, ຫົວຂໍ້ຫຼັກ ແລະ ອື່ນໆ.</p><p>ເວທີສົນທະນາກຸ່ມບໍ່ຄວນສ້າງຜ່ານເຄື່ອງມື Forum ແຕ່ຄວນສ້າງຜ່ານເຄື່ອງມື Groups, ບ່ອນທີ່ທ່ານສາມາດກຳນົດວ່າເວທີສົນທະນາກຸ່ມຂອງທ່ານຄວນເປັນສ່ວນຕົວ ຫຼື ສາທາລະນະ, ໃນຂະນະດຽວກັນກໍເປັນບ່ອນສຳລັບແບ່ງປັນເອກະສານຂອງກຸ່ມ.</p><b> ເຄັດລັບການສອນ</ b></ p> ເວທີສົນທະນາເພື່ອການຮຽນຮູ້ບໍ່ຄືກັບເວທີສົນທະນາທີ່ທ່ານເຄີຍເຫັນໃນອິນເຕີເນັດ. ຢ່າງໜຶ່ງແມ່ນຜູ້ຮຽນບໍ່ສາມາດປ່ຽນແປງໂພສຂອງຕົນເອງໄດ້ຫຼັງຈາກທີ່ໄດ້ເຜີຍແຜ່ໄປແລ້ວ ເນື່ອງຈາກຫຼັກສູດຈະຖືກເກັບມ້ຽນຢ່າງມີເຫດຜົນເພື່ອໃຫ້ສາມາດຕິດຕາມສິ່ງທີ່ໄດ້ເວົ້າໄປໃນອະດີດ. ນອກຈາກນີ້, ເວທີສົນທະນາຂອງ Chamilo ຍັງອະນຸຍາດໃຫ້ມີການນຳໃຊ້ສະເພາະທີ່ກ່ຽວຂ້ອງກັບການສອນ. ຕົວຢ່າງ, ຄູ/ຜູ້ຝຶກສອນບາງຄົນເຜີຍແຜ່ການແກ້ໄຂໂດຍກົງພາຍໃນເວທີສົນທະນາດ້ວຍວິທີຕໍ່ໄປນີ້: <li> ຜູ້ຮຽນຖືກຂໍໃຫ້ໂພສລາຍງານໂດຍກົງໃນເວທີສົນທະນາ, </li> <li> ຄູແກ້ໄຂໂດຍການຄລິກ ແກ້ໄຂ (ສໍສີເຫຼືອງ) ແລະ ໝາຍໂດຍໃຊ້ຕົວແກ້ໄຂກຣາຟິກ (ສີ, ຂີດກ້ອງ, ແລະ ອື່ນໆ) </li> <li> ສຸດທ້າຍ, ຜູ້ຮຽນຄົນອື່ນໆຈະໄດ້ຮັບປະໂຫຍດຈາກການເບິ່ງການແກ້ໄຂທີ່ເຮັດໃນຜົນງານຂອງໜຶ່ງໃນພວກເຂົາ, </li> <li> ໝາຍເຫດວ່າຫຼັກການດຽວກັນນີ້ສາມາດນຳໃຊ້ລະຫວ່າງຜູ້ຮຽນໄດ້, ແຕ່ຈະຕ້ອງມີການສຳເນົາ/ວາງຂໍ້ຄວາມຂອງເພື່ອນຮ່ວມຮຽນ ເນື່ອງຈາກນັກຮຽນ/ຜູ້ເຂົ້າຝຶກອົບຮົມບໍ່ສາມາດແກ້ໄຂໂພສຂອງກັນແລະກັນໄດ້. </li> </ul>"
 
 msgid "Forum help"
 msgstr "ຊ່ວຍເຫຼືອເວທີສົນທະນາ"
@@ -2031,7 +2017,7 @@ msgid ":yes:copyright,, no:no copyright"
 msgstr ":ແມ່ນ:ມີລິຂະສິດ,, ບໍ່:ບໍ່ມີລິຂະສິດ"
 
 msgid ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
-msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:Folder,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
+msgstr ":text/plain;iso-8859-1:text/plain;iso-8859-1,, text/plain;utf-8:text/plain;utf-8,, text/html;iso-8859-1:text/html;iso-8859-1,, text/html;utf-8:text/html;utf-8,, inode/directory:ໂຟລເດີ,, application/msword:MsWord,, application/octet-stream:Octet stream,, application/pdf:PDF,, application/postscript:PostScript,, application/rtf:RTF,, application/vnd.ms-excel:MsExcel,, application/vnd.ms-powerpoint:MsPowerpoint,, application/xml;iso-8859-1:XML;iso-8859-1,, application/xml;utf-8:XML;utf-8,, application/zip:ZIP"
 
 msgid ":exercise:exercise,,      simulation:simulation,,      questionnaire:questionnaire,,      diagram:diagram,,      figure:figure,,      graph:graf,,      index:index,,      slide:slide,,      table:table,,      narrative text:narrative text,,      exam:exam,,      experiment:experiment,,      problem statement:problem statement,,      self assessment:self assessment,,      lecture:lecture"
 msgstr ":ບົດເຝິກຫັດ:ບົດເຝິກຫັດ,,      ຈຳລອງ:ຈຳລອງ,,      ແບບສອບຖາມ:ແບບສອບຖາມ,,      ແຜນວາດ:ແຜນວາດ,,      ຮູບ:ຮູບ,,      ກຣາຟ:ກຣາຟ,,      ດັດຊະນີ:ດັດຊະນີ,,      ສະໄລ້:ສະໄລ້,,      ຕາຕະລາງ:ຕາຕະລາງ,,      ຂໍ້ຄວາມບັນຍາຍ:ຂໍ້ຄວາມບັນຍາຍ,,      ສອບເສັງ:ສອບເສັງ,,      ທົດລອງ:ທົດລອງ,,      ບັນຫາ:ບັນຫາ,,      ປະເມີນຕົນເອງ:ປະເມີນຕົນເອງ,,      ບັນຍາຍ:ບັນຍາຍ"
@@ -2442,10 +2428,7 @@ msgid ""
 "Dear ((firstname)) ((lastname)),\n"
 "\n"
 "You are registered on"
-msgstr ""
-"ຮຽນ ((firstname)) ((lastname)),\n"
-"\n"
-"ທ່ານໄດ້ລົງທະບຽນໃນ"
+msgstr "ຮຽນ ((firstname)) ((lastname)),\n\nທ່ານໄດ້ລົງທະບຽນໃນ"
 
 msgid "Once you click on \"Create a course\", a course is created with a section for Tests, Project based learning, Assessments, Courses, Dropbox, Agenda and much more. Logging in as teacher provides you with editing privileges for this course."
 msgstr "ເມື່ອທ່ານຄລິກທີ່ \"ສ້າງຫຼັກສູດ\", ຫຼັກສູດຈະຖືກສ້າງຂຶ້ນພ້ອມກັບສ່ວນສຳລັບການທົດສອບ, ການຮຽນຮູ້ແບບໂຄງການ, ການປະເມີນ, ຫຼັກສູດ, Dropbox, ວາລະ ແລະ ອື່ນໆ. ການເຂົ້າສູ່ລະບົບໃນຖານະຄູຈະໃຫ້ສິດທ່ານໃນການແກ້ໄຂຫຼັກສູດນີ້."
@@ -3140,9 +3123,7 @@ msgstr "ລຶບໝວດໝູ່"
 msgid ""
 "When deleting a category, all links of this category are also deleted.\n"
 "Do you really want to delete this category and its links ?"
-msgstr ""
-"ເມື່ອລຶບໝວດໝູ່, ລິ້ງທັງໝົດຂອງໝວດໝູ່ນີ້ກໍຈະຖືກລຶບໄປນຳ.\n"
-"ທ່ານຕ້ອງການລຶບໝວດໝູ່ ແລະ ລິ້ງຂອງມັນແທ້ບໍ່?"
+msgstr "ເມື່ອລຶບໝວດໝູ່, ລິ້ງທັງໝົດຂອງໝວດໝູ່ນີ້ກໍຈະຖືກລຶບໄປນຳ.\nທ່ານຕ້ອງການລຶບໝວດໝູ່ ແລະ ລິ້ງຂອງມັນແທ້ບໍ່?"
 
 msgid "Delete all categories and all links"
 msgstr "ລຶບທຸກໝວດໝູ່ ແລະ ທຸກລິ້ງ"
@@ -8571,6 +8552,9 @@ msgstr "ບໍລິສັດ"
 msgid "Reporting"
 msgstr "ການລາຍງານ"
 
+msgid "Analytics"
+msgstr "Analytics"
+
 msgid "Update"
 msgstr "ອັບເດດ"
 
@@ -10356,18 +10340,7 @@ msgid ""
 "with a grade of\n"
 "\n"
 " '%s'"
-msgstr ""
-"%s ຂໍຢັ້ງຢືນວ່າ\n"
-"\n"
-" %s \n"
-"\n"
-"ໄດ້ສຳເລັດຫຼັກສູດ \n"
-"\n"
-" '%s' \n"
-"\n"
-"ດ້ວຍຄະແນນ\n"
-"\n"
-" '%s'"
+msgstr "%s ຂໍຢັ້ງຢືນວ່າ\n\n %s \n\nໄດ້ສຳເລັດຫຼັກສູດ \n\n '%s' \n\nດ້ວຍຄະແນນ\n\n '%s'"
 
 msgid "Minimum certification score"
 msgstr "ຄະແນນຂັ້ນຕ່ຳສຳລັບການຢັ້ງຢືນ"
@@ -12691,9 +12664,7 @@ msgstr "ສ້າງໂຟນເດີ"
 msgid ""
 "INFORMATION VISIBLE TO THE TEACHER ONLY:\n"
 "This folder contains the default archives. You can clear files or add new ones, but if a file is hidden when it is inserted in a web document, the students will not be able to see it in this document. When inserting a file in a web document, first make sure it is visible. The folders can remain hidden."
-msgstr ""
-"ຂໍ້ມູນທີ່ເຫັນໄດ້ໂດຍອາຈານເທົ່ານັ້ນ:\n"
-"ໂຟນເດີນີ້ບັນຈຸໄຟລ໌ເກັບຂໍ້ມູນເລີ່ມຕົ້ນ. ທ່ານສາມາດລຶບໄຟລ໌ ຫຼື ເພີ່ມໄຟລ໌ໃໝ່ໄດ້, ແຕ່ຖ້າໄຟລ໌ຖືກເຊື່ອງໄວ້ເມື່ອຖືກແຊກໃນເອກະສານເວັບ, ນັກຮຽນຈະບໍ່ສາມາດເຫັນມັນໃນເອກະສານນີ້. ເມື່ອແຊກໄຟລ໌ໃນເອກະສານເວັບ, ໃຫ້ແນ່ໃຈວ່າມັນເບິ່ງເຫັນໄດ້ກ່ອນ. ໂຟນເດີສາມາດຖືກເຊື່ອງໄວ້ໄດ້."
+msgstr "ຂໍ້ມູນທີ່ເຫັນໄດ້ໂດຍອາຈານເທົ່ານັ້ນ:\nໂຟນເດີນີ້ບັນຈຸໄຟລ໌ເກັບຂໍ້ມູນເລີ່ມຕົ້ນ. ທ່ານສາມາດລຶບໄຟລ໌ ຫຼື ເພີ່ມໄຟລ໌ໃໝ່ໄດ້, ແຕ່ຖ້າໄຟລ໌ຖືກເຊື່ອງໄວ້ເມື່ອຖືກແຊກໃນເອກະສານເວັບ, ນັກຮຽນຈະບໍ່ສາມາດເຫັນມັນໃນເອກະສານນີ້. ເມື່ອແຊກໄຟລ໌ໃນເອກະສານເວັບ, ໃຫ້ແນ່ໃຈວ່າມັນເບິ່ງເຫັນໄດ້ກ່ອນ. ໂຟນເດີສາມາດຖືກເຊື່ອງໄວ້ໄດ້."
 
 msgid "This folder contains the files that other learners (or yourself) sent into a course through the editor (if they didn't do it from the groups tool). By default, they will be visible by any trainer, but will be hidden from other learners (unless they access the files directly). If you make one user folder visible, other users will see all its content."
 msgstr "ໂຟນເດີນີ້ບັນຈຸໄຟລ໌ທີ່ຜູ້ຮຽນຄົນອື່ນ (ຫຼື ຕົວທ່ານເອງ) ສົ່ງເຂົ້າມາໃນລາຍວິຊາຜ່ານຕົວແກ້ໄຂ (ຖ້າພວກເຂົາບໍ່ໄດ້ເຮັດຜ່ານເຄື່ອງມືກຸ່ມ). ໂດຍຄ່າເລີ່ມຕົ້ນ, ມັນຈະເຫັນໄດ້ໂດຍຜູ້ຝຶກສອນທຸກຄົນ, ແຕ່ຈະຖືກເຊື່ອງຈາກຜູ້ຮຽນຄົນອື່ນ (ເວັ້ນເສຍແຕ່ວ່າພວກເຂົາເຂົ້າເຖິງໄຟລ໌ໂດຍກົງ). ຖ້າທ່ານເຮັດໃຫ້ໂຟນເດີຜູ້ໃຊ້ໜຶ່ງເບິ່ງເຫັນໄດ້, ຜູ້ໃຊ້ອື່ນຈະເຫັນເນື້ອໃນທັງໝົດຂອງມັນ."
@@ -13076,9 +13047,7 @@ msgstr "ຊ່ວຍເຫຼືອເວທີສົນທະນາ"
 msgid ""
 "<p> The forum is an discussion tool for asynchronous written work.  In contrast to e-mail, a forum is for public, or semi-public, group discussion. </p>To use the Chamilo forum, members can simply use their browser - they do not require any distinct client software. </p>To organize forums, click on the Forums tool. Discussions are organized hierarchically according to the following structure: </ p><b> Category> Forum> Topic> Post</ b> </ p> To ensure members can participate in the forum tidily and effectively, it is essential in the first instance to create categories and forums; it's then up to the participants to create topics and posts. By default, the forum contains a single (public) category, an example topic and an example post. You can add forums to the category,  change its title or create other categories within which you could then create new forums. (Don't confuse categories and forums, and remember that a category that contains no forum is useless and is not displayed.)</p>\n"
 "<p>The forum description might include a list of its members, a definition of its purpose, a target a task, a theme etc.</p><p>Group forums should not be created via the Forum tool but instead via the Groups tool, where you can determine whether your group forums should be private or public, at the same time providing a location for sharing groups of documents.</p><b> Teaching Tips</ b></ p> A learning forum is not quite the same as the forums you are used to seeing on the internet. For one thing, it is not possible for learners to alter their posts once they have been published as the course is logically archived to allow tracking of what has been said in the past. Furthermore, Chamilo forums allow for specific uses  relevant to teaching. For example, some teachers/trainers publish corrections directly within forums in the following way: <li> A learner is asked to post a report directly into the forum, </ li> The teacher corrects it by clicking Edit (yellow pencil) and marking it using the graphics editor (color, underlining, etc.) </ li> Finally, other learners benefit from viewing the corrections was made on the production of one of of them, </ li> Note that the same principle can be applied between learners, but will require his copying/pasting the message of his fellow student because students / trainees can not edit one another's posts. <. li> </ ul>"
-msgstr ""
-"<p> ເວທີສົນທະນາແມ່ນເຄື່ອງມືສຳລັບການສົນທະນາແບບບໍ່ພ້ອມກັນ. ແຕກຕ່າງຈາກອີເມວ, ເວທີສົນທະນາແມ່ນສຳລັບການສົນທະນາກຸ່ມແບບສາທາລະນະ ຫຼື ເຄິ່ງສາທາລະນະ. </p>ເພື່ອໃຊ້ເວທີສົນທະນາຂອງ Chamilo, ສະມາຊິກສາມາດໃຊ້ເບຣົາເຊີຂອງພວກເຂົາໄດ້ - ບໍ່ຈຳເປັນຕ້ອງມີຊອບແວພິເສດ. </p>ເພື່ອຈັດການເວທີສົນທະນາ, ຄລິກທີ່ເຄື່ອງມືເວທີສົນທະນາ. ການສົນທະນາຖືກຈັດລຽງຕາມລຳດັບຊັ້ນດັ່ງນີ້: </ p><b> ໝວດໝູ່ > ເວທີສົນທະນາ > ຫົວຂໍ້ > ໂພສ</ b> </ p> ເພື່ອຮັບປະກັນວ່າສະມາຊິກສາມາດເຂົ້າຮ່ວມໃນເວທີສົນທະນາຢ່າງເປັນລະບຽບ ແລະ ມີປະສິດທິພາບ, ສິ່ງສຳຄັນທຳອິດແມ່ນການສ້າງໝວດໝູ່ ແລະ ເວທີສົນທະນາ; ຫຼັງຈາກນັ້ນຜູ້ເຂົ້າຮ່ວມຈະສ້າງຫົວຂໍ້ ແລະ ໂພສ. ໂດຍຄ່າເລີ່ມຕົ້ນ, ເວທີສົນທະນາຈະມີໝວດໝູ່ (ສາທາລະນະ) ດຽວ, ຫົວຂໍ້ຕົວຢ່າງ ແລະ ໂພສຕົວຢ່າງ. ທ່ານສາມາດເພີ່ມເວທີສົນທະນາເຂົ້າໃນໝວດໝູ່, ປ່ຽນຊື່ຂອງມັນ ຫຼື ສ້າງໝວດໝູ່ອື່ນໆເພື່ອສ້າງເວທີສົນທະນາໃໝ່. (ຢ່າສັບສົນລະຫວ່າງໝວດໝູ່ ແລະ ເວທີສົນທະນາ, ແລະ ຈື່ໄວ້ວ່າໝວດໝູ່ທີ່ບໍ່ມີເວທີສົນທະນາຈະບໍ່ມີປະໂຫຍດ ແລະ ບໍ່ສະແດງ.)</p>\n"
-"<p>ຄຳອະທິບາຍຂອງເວທີສົນທະນາອາດລວມມີລາຍຊື່ສະມາຊິກ, ຄຳນິຍາມຂອງຈຸດປະສົງ, ເປົ້າໝາຍ, ວຽກ, ຫົວຂໍ້ ແລະ ອື່ນໆ.</p><p>ເວທີສົນທະນາຂອງກຸ່ມບໍ່ຄວນສ້າງຜ່ານເຄື່ອງມືເວທີສົນທະນາ ແຕ່ຄວນສ້າງຜ່ານເຄື່ອງມືກຸ່ມ, ບ່ອນທີ່ທ່ານສາມາດກຳນົດໄດ້ວ່າເວທີສົນທະນາຂອງກຸ່ມຂອງທ່ານຄວນເປັນແບບສ່ວນຕົວ ຫຼື ສາທາລະນະ, ພ້ອມທັງເປັນບ່ອນສຳລັບແບ່ງປັນເອກະສານຂອງກຸ່ມ.</p><b> ເຄັດລັບການສອນ</ b></ p> ເວທີສົນທະນາເພື່ອການຮຽນຮູ້ບໍ່ຄືກັບເວທີສົນທະນາທົ່ວໄປທີ່ທ່ານເຫັນໃນອິນເຕີເນັດ. ສິ່ງໜຶ່ງແມ່ນຜູ້ຮຽນບໍ່ສາມາດແກ້ໄຂໂພສຂອງຕົນເອງໄດ້ຫຼັງຈາກທີ່ໄດ້ເຜີຍແຜ່ແລ້ວ ເພາະວ່າລາຍວິຊາຖືກເກັບໄວ້ຢ່າງມີເຫດຜົນເພື່ອໃຫ້ສາມາດຕິດຕາມສິ່ງທີ່ໄດ້ກ່າວໄປແລ້ວ. ນອກຈາກນີ້, ເວທີສົນທະນາຂອງ Chamilo ຍັງອະນຸຍາດໃຫ້ມີການນຳໃຊ້ສະເພາະທີ່ກ່ຽວຂ້ອງກັບການສອນ. ຕົວຢ່າງ, ອາຈານ/ຜູ້ຝຶກສອນບາງຄົນເຜີຍແຜ່ການກວດແກ້ໂດຍກົງໃນເວທີສົນທະນາດັ່ງນີ້: <li> ຂໍໃຫ້ຜູ້ຮຽນໂພສລາຍງານໂດຍກົງໃນເວທີສົນທະນາ, </ li> ອາຈານກວດແກ້ໂດຍການຄລິກ ແກ້ໄຂ (ສໍສີເຫຼືອງ) ແລະ ໝາຍໂດຍໃຊ້ເຄື່ອງມືແກ້ໄຂກຣາຟິກ (ສີ, ຂີດກ້ອງ, ແລະອື່ນໆ) </ li> ສຸດທ້າຍ, ຜູ້ຮຽນຄົນອື່ນໆກໍ່ໄດ້ຮັບປະໂຫຍດຈາກການເບິ່ງການກວດແກ້ທີ່ເຮັດໃນຜົນງານຂອງໝູ່, </ li> ໃຫ້ສັງເກດວ່າຫຼັກການດຽວກັນນີ້ສາມາດນຳໃຊ້ລະຫວ່າງຜູ້ຮຽນໄດ້, ແຕ່ຈະຕ້ອງໄດ້ສຳເນົາ/ວາງຂໍ້ຄວາມຂອງໝູ່ຮ່ວມຫ້ອງ ເພາະນັກຮຽນ/ຜູ້ເຂົ້າຝຶກອົບຮົມບໍ່ສາມາດແກ້ໄຂໂພສຂອງກັນແລະກັນໄດ້. <. li> </ ul>"
+msgstr "<p> ເວທີສົນທະນາແມ່ນເຄື່ອງມືສຳລັບການສົນທະນາແບບບໍ່ພ້ອມກັນ. ແຕກຕ່າງຈາກອີເມວ, ເວທີສົນທະນາແມ່ນສຳລັບການສົນທະນາກຸ່ມແບບສາທາລະນະ ຫຼື ເຄິ່ງສາທາລະນະ. </p>ເພື່ອໃຊ້ເວທີສົນທະນາຂອງ Chamilo, ສະມາຊິກສາມາດໃຊ້ເບຣົາເຊີຂອງພວກເຂົາໄດ້ - ບໍ່ຈຳເປັນຕ້ອງມີຊອບແວພິເສດ. </p>ເພື່ອຈັດການເວທີສົນທະນາ, ຄລິກທີ່ເຄື່ອງມືເວທີສົນທະນາ. ການສົນທະນາຖືກຈັດລຽງຕາມລຳດັບຊັ້ນດັ່ງນີ້: </ p><b> ໝວດໝູ່ > ເວທີສົນທະນາ > ຫົວຂໍ້ > ໂພສ</ b> </ p> ເພື່ອຮັບປະກັນວ່າສະມາຊິກສາມາດເຂົ້າຮ່ວມໃນເວທີສົນທະນາຢ່າງເປັນລະບຽບ ແລະ ມີປະສິດທິພາບ, ສິ່ງສຳຄັນທຳອິດແມ່ນການສ້າງໝວດໝູ່ ແລະ ເວທີສົນທະນາ; ຫຼັງຈາກນັ້ນຜູ້ເຂົ້າຮ່ວມຈະສ້າງຫົວຂໍ້ ແລະ ໂພສ. ໂດຍຄ່າເລີ່ມຕົ້ນ, ເວທີສົນທະນາຈະມີໝວດໝູ່ (ສາທາລະນະ) ດຽວ, ຫົວຂໍ້ຕົວຢ່າງ ແລະ ໂພສຕົວຢ່າງ. ທ່ານສາມາດເພີ່ມເວທີສົນທະນາເຂົ້າໃນໝວດໝູ່, ປ່ຽນຊື່ຂອງມັນ ຫຼື ສ້າງໝວດໝູ່ອື່ນໆເພື່ອສ້າງເວທີສົນທະນາໃໝ່. (ຢ່າສັບສົນລະຫວ່າງໝວດໝູ່ ແລະ ເວທີສົນທະນາ, ແລະ ຈື່ໄວ້ວ່າໝວດໝູ່ທີ່ບໍ່ມີເວທີສົນທະນາຈະບໍ່ມີປະໂຫຍດ ແລະ ບໍ່ສະແດງ.)</p>\n<p>ຄຳອະທິບາຍຂອງເວທີສົນທະນາອາດລວມມີລາຍຊື່ສະມາຊິກ, ຄຳນິຍາມຂອງຈຸດປະສົງ, ເປົ້າໝາຍ, ວຽກ, ຫົວຂໍ້ ແລະ ອື່ນໆ.</p><p>ເວທີສົນທະນາຂອງກຸ່ມບໍ່ຄວນສ້າງຜ່ານເຄື່ອງມືເວທີສົນທະນາ ແຕ່ຄວນສ້າງຜ່ານເຄື່ອງມືກຸ່ມ, ບ່ອນທີ່ທ່ານສາມາດກຳນົດໄດ້ວ່າເວທີສົນທະນາຂອງກຸ່ມຂອງທ່ານຄວນເປັນແບບສ່ວນຕົວ ຫຼື ສາທາລະນະ, ພ້ອມທັງເປັນບ່ອນສຳລັບແບ່ງປັນເອກະສານຂອງກຸ່ມ.</p><b> ເຄັດລັບການສອນ</ b></ p> ເວທີສົນທະນາເພື່ອການຮຽນຮູ້ບໍ່ຄືກັບເວທີສົນທະນາທົ່ວໄປທີ່ທ່ານເຫັນໃນອິນເຕີເນັດ. ສິ່ງໜຶ່ງແມ່ນຜູ້ຮຽນບໍ່ສາມາດແກ້ໄຂໂພສຂອງຕົນເອງໄດ້ຫຼັງຈາກທີ່ໄດ້ເຜີຍແຜ່ແລ້ວ ເພາະວ່າລາຍວິຊາຖືກເກັບໄວ້ຢ່າງມີເຫດຜົນເພື່ອໃຫ້ສາມາດຕິດຕາມສິ່ງທີ່ໄດ້ກ່າວໄປແລ້ວ. ນອກຈາກນີ້, ເວທີສົນທະນາຂອງ Chamilo ຍັງອະນຸຍາດໃຫ້ມີການນຳໃຊ້ສະເພາະທີ່ກ່ຽວຂ້ອງກັບການສອນ. ຕົວຢ່າງ, ອາຈານ/ຜູ້ຝຶກສອນບາງຄົນເຜີຍແຜ່ການກວດແກ້ໂດຍກົງໃນເວທີສົນທະນາດັ່ງນີ້: <li> ຂໍໃຫ້ຜູ້ຮຽນໂພສລາຍງານໂດຍກົງໃນເວທີສົນທະນາ, </ li> ອາຈານກວດແກ້ໂດຍການຄລິກ ແກ້ໄຂ (ສໍສີເຫຼືອງ) ແລະ ໝາຍໂດຍໃຊ້ເຄື່ອງມືແກ້ໄຂກຣາຟິກ (ສີ, ຂີດກ້ອງ, ແລະອື່ນໆ) </ li> ສຸດທ້າຍ, ຜູ້ຮຽນຄົນອື່ນໆກໍ່ໄດ້ຮັບປະໂຫຍດຈາກການເບິ່ງການກວດແກ້ທີ່ເຮັດໃນຜົນງານຂອງໝູ່, </ li> ໃຫ້ສັງເກດວ່າຫຼັກການດຽວກັນນີ້ສາມາດນຳໃຊ້ລະຫວ່າງຜູ້ຮຽນໄດ້, ແຕ່ຈະຕ້ອງໄດ້ສຳເນົາ/ວາງຂໍ້ຄວາມຂອງໝູ່ຮ່ວມຫ້ອງ ເພາະນັກຮຽນ/ຜູ້ເຂົ້າຝຶກອົບຮົມບໍ່ສາມາດແກ້ໄຂໂພສຂອງກັນແລະກັນໄດ້. <. li> </ ul>"
 
 msgid "Dropbox Help"
 msgstr "ຊ່ວຍເຫຼືອດຣັອບບັອກ"
@@ -16179,9 +16148,7 @@ msgstr "ນຳເຂົ້າຜູ້ໃຊ້"
 msgid ""
 "INFORMATION VISIBLE TO THE TEACHER ONLY:\n"
 "This folder contains documents which are created by the Learning Path tool. Inside this folder you can edit the HTML file which are generated by importing content from the Learning Path, as the ones imported by Chamilo Rapid, for example. We recommend hiding this folder to your students."
-msgstr ""
-"ຂໍ້ມູນທີ່ເບິ່ງເຫັນໄດ້ໂດຍອາຈານເທົ່ານັ້ນ:\n"
-"ໂຟລເດີນີ້ບັນຈຸເອກະສານທີ່ສ້າງຂຶ້ນໂດຍເຄື່ອງມືເສັ້ນທາງການຮຽນຮູ້. ພາຍໃນໂຟລເດີນີ້ ທ່ານສາມາດແກ້ໄຂໄຟລ໌ HTML ທີ່ສ້າງຂຶ້ນຈາກການນຳເຂົ້າເນື້ອຫາຈາກເສັ້ນທາງການຮຽນຮູ້, ເຊັ່ນດຽວກັບອັນທີ່ນຳເຂົ້າໂດຍ Chamilo Rapid, ຕົວຢ່າງ. ພວກເຮົາແນະນຳໃຫ້ເຊື່ອງໂຟລເດີນີ້ຈາກນັກຮຽນຂອງທ່ານ."
+msgstr "ຂໍ້ມູນທີ່ເບິ່ງເຫັນໄດ້ໂດຍອາຈານເທົ່ານັ້ນ:\nໂຟລເດີນີ້ບັນຈຸເອກະສານທີ່ສ້າງຂຶ້ນໂດຍເຄື່ອງມືເສັ້ນທາງການຮຽນຮູ້. ພາຍໃນໂຟລເດີນີ້ ທ່ານສາມາດແກ້ໄຂໄຟລ໌ HTML ທີ່ສ້າງຂຶ້ນຈາກການນຳເຂົ້າເນື້ອຫາຈາກເສັ້ນທາງການຮຽນຮູ້, ເຊັ່ນດຽວກັບອັນທີ່ນຳເຂົ້າໂດຍ Chamilo Rapid, ຕົວຢ່າງ. ພວກເຮົາແນະນຳໃຫ້ເຊື່ອງໂຟລເດີນີ້ຈາກນັກຮຽນຂອງທ່ານ."
 
 msgid "Just a moment, please. You will be redirected in %s seconds..."
 msgstr "ກະລຸນາລໍຖ້າຈັກຄາວ. ທ່ານຈະຖືກສົ່ງຕໍ່ໃນ %s ວິນາທີ..."
@@ -16790,10 +16757,7 @@ msgid ""
 "We have received your request for a new course with code %s. Before we consider it for approval, we need some additional information.\n"
 "\n"
 "Please, provide brief information about the course content (description), the objectives, the learners or the users that are to be involved in the proposed course. If it is applicable, mention the name of the institution or the unit on which behalf you made the course request."
-msgstr ""
-"ພວກເຮົາໄດ້ຮັບຄຳຂໍລາຍວິຊາໃໝ່ຂອງທ່ານດ້ວຍລະຫັດ %s. ກ່ອນທີ່ພວກເຮົາຈະພິຈາລະນາອະນຸມັດ, ພວກເຮົາຕ້ອງການຂໍ້ມູນເພີ່ມເຕີມ.\n"
-"\n"
-"ກະລຸນາໃຫ້ຂໍ້ມູນໂດຍຫຍໍ້ກ່ຽວກັບເນື້ອໃນລາຍວິຊາ (ຄຳອະທິບາຍ), ຈຸດປະສົງ, ຜູ້ຮຽນ ຫຼື ຜູ້ໃຊ້ທີ່ຈະເຂົ້າຮ່ວມໃນລາຍວິຊາທີ່ສະເໜີ. ຖ້າເປັນໄປໄດ້, ກະລຸນາລະບຸຊື່ສະຖາບັນ ຫຼື ໜ່ວຍງານທີ່ທ່ານໄດ້ຍື່ນຄຳຂໍໃນນາມ."
+msgstr "ພວກເຮົາໄດ້ຮັບຄຳຂໍລາຍວິຊາໃໝ່ຂອງທ່ານດ້ວຍລະຫັດ %s. ກ່ອນທີ່ພວກເຮົາຈະພິຈາລະນາອະນຸມັດ, ພວກເຮົາຕ້ອງການຂໍ້ມູນເພີ່ມເຕີມ.\n\nກະລຸນາໃຫ້ຂໍ້ມູນໂດຍຫຍໍ້ກ່ຽວກັບເນື້ອໃນລາຍວິຊາ (ຄຳອະທິບາຍ), ຈຸດປະສົງ, ຜູ້ຮຽນ ຫຼື ຜູ້ໃຊ້ທີ່ຈະເຂົ້າຮ່ວມໃນລາຍວິຊາທີ່ສະເໜີ. ຖ້າເປັນໄປໄດ້, ກະລຸນາລະບຸຊື່ສະຖາບັນ ຫຼື ໜ່ວຍງານທີ່ທ່ານໄດ້ຍື່ນຄຳຂໍໃນນາມ."
 
 msgid "%s The course request %s has been approved"
 msgstr "%s ຄຳຂໍລາຍວິຊາ %s ໄດ້ຖືກອະນຸມັດແລ້ວ"
@@ -16802,10 +16766,7 @@ msgid ""
 "Your course request %s has been approved. A new course %s has been created and you are registered in it as a teacher.\n"
 "\n"
 "You can access your newly created course from: %s"
-msgstr ""
-"ຄຳຂໍລາຍວິຊາ %s ຂອງທ່ານໄດ້ຖືກອະນຸມັດແລ້ວ. ລາຍວິຊາໃໝ່ %s ໄດ້ຖືກສ້າງຂຶ້ນ ແລະ ທ່ານໄດ້ຖືກລົງທະບຽນເປັນຄູສອນ.\n"
-"\n"
-"ທ່ານສາມາດເຂົ້າເຖິງລາຍວິຊາໃໝ່ຂອງທ່ານໄດ້ຈາກ: %s"
+msgstr "ຄຳຂໍລາຍວິຊາ %s ຂອງທ່ານໄດ້ຖືກອະນຸມັດແລ້ວ. ລາຍວິຊາໃໝ່ %s ໄດ້ຖືກສ້າງຂຶ້ນ ແລະ ທ່ານໄດ້ຖືກລົງທະບຽນເປັນຄູສອນ.\n\nທ່ານສາມາດເຂົ້າເຖິງລາຍວິຊາໃໝ່ຂອງທ່ານໄດ້ຈາກ: %s"
 
 msgid "%s The course request %s has been rejected"
 msgstr "%s ຄຳຂໍລາຍວິຊາ %s ໄດ້ຖືກປະຕິເສດ"
@@ -16978,23 +16939,17 @@ msgstr "ໂຟນເດີຜູ້ໃຊ້"
 msgid ""
 "INFORMATION VISIBLE TO THE TEACHER ONLY:\n"
 "The users folder contains a folder for each user who has accessed it through the documents tool, or when any file has been sent in the course through the online editor. If neither circumstances has occurred, then no user folder will have been created. In the case of groups, files that are sent through the editor will be added in the folder of each group, which is only accessible by students from this group."
-msgstr ""
-"ຂໍ້ມູນທີ່ເບິ່ງເຫັນໄດ້ສະເພາະຄູສອນ:\n"
-"ໂຟນເດີຜູ້ໃຊ້ບັນຈຸໂຟນເດີສຳລັບຜູ້ໃຊ້ແຕ່ລະຄົນທີ່ໄດ້ເຂົ້າເຖິງຜ່ານເຄື່ອງມືເອກະສານ, ຫຼື ເມື່ອມີໄຟລ໌ໃດຖືກສົ່ງໃນລາຍວິຊາຜ່ານຕົວແກ້ໄຂອອນລາຍ. ຖ້າບໍ່ມີເຫດການໃດເກີດຂຶ້ນ, ຈະບໍ່ມີໂຟນເດີຜູ້ໃຊ້ຖືກສ້າງ. ໃນກໍລະນີຂອງກຸ່ມ, ໄຟລ໌ທີ່ຖືກສົ່ງຜ່ານຕົວແກ້ໄຂຈະຖືກເພີ່ມໃສ່ໃນໂຟນເດີຂອງແຕ່ລະກຸ່ມ, ເຊິ່ງສາມາດເຂົ້າເຖິງໄດ້ໂດຍນັກຮຽນຈາກກຸ່ມນັ້ນເທົ່ານັ້ນ."
+msgstr "ຂໍ້ມູນທີ່ເບິ່ງເຫັນໄດ້ສະເພາະຄູສອນ:\nໂຟນເດີຜູ້ໃຊ້ບັນຈຸໂຟນເດີສຳລັບຜູ້ໃຊ້ແຕ່ລະຄົນທີ່ໄດ້ເຂົ້າເຖິງຜ່ານເຄື່ອງມືເອກະສານ, ຫຼື ເມື່ອມີໄຟລ໌ໃດຖືກສົ່ງໃນລາຍວິຊາຜ່ານຕົວແກ້ໄຂອອນລາຍ. ຖ້າບໍ່ມີເຫດການໃດເກີດຂຶ້ນ, ຈະບໍ່ມີໂຟນເດີຜູ້ໃຊ້ຖືກສ້າງ. ໃນກໍລະນີຂອງກຸ່ມ, ໄຟລ໌ທີ່ຖືກສົ່ງຜ່ານຕົວແກ້ໄຂຈະຖືກເພີ່ມໃສ່ໃນໂຟນເດີຂອງແຕ່ລະກຸ່ມ, ເຊິ່ງສາມາດເຂົ້າເຖິງໄດ້ໂດຍນັກຮຽນຈາກກຸ່ມນັ້ນເທົ່ານັ້ນ."
 
 msgid ""
 "INFORMATION VISIBLE TO THE TEACHER ONLY:\n"
 "This folder contains all sessions that have been opened in the chat. Although the chat sessions can often be trivial, others can be really interesting and worthy of being incorporated as an additional work document. To do this without changing the visibility of this folder, make the file visible and link it from where you deem appropriate. It is not recommended to make this folder visible to all."
-msgstr ""
-"ຂໍ້ມູນທີ່ເບິ່ງເຫັນໄດ້ສະເພາະຄູສອນ:\n"
-"ໂຟນເດີນີ້ບັນຈຸທຸກການສົນທະນາທີ່ໄດ້ເປີດໃນຫ້ອງສົນທະນາ. ເຖິງແມ່ນວ່າການສົນທະນາອາດຈະເປັນເລື່ອງທຳມະດາ, ແຕ່ບາງຄັ້ງກໍ່ໜ້າສົນໃຈ ແລະ ສາມາດນຳໄປໃຊ້ເປັນເອກະສານເພີ່ມເຕີມໄດ້. ເພື່ອເຮັດສິ່ງນີ້ໂດຍບໍ່ປ່ຽນແປງການເບິ່ງເຫັນຂອງໂຟນເດີນີ້, ໃຫ້ເຮັດໃຫ້ໄຟລ໌ເບິ່ງເຫັນໄດ້ ແລະ ເຊື່ອມໂຍງຈາກບ່ອນທີ່ທ່ານເຫັນສົມຄວນ. ບໍ່ແນະນຳໃຫ້ເຮັດໃຫ້ໂຟນເດີນີ້ເບິ່ງເຫັນໄດ້ສຳລັບທຸກຄົນ."
+msgstr "ຂໍ້ມູນທີ່ເບິ່ງເຫັນໄດ້ສະເພາະຄູສອນ:\nໂຟນເດີນີ້ບັນຈຸທຸກການສົນທະນາທີ່ໄດ້ເປີດໃນຫ້ອງສົນທະນາ. ເຖິງແມ່ນວ່າການສົນທະນາອາດຈະເປັນເລື່ອງທຳມະດາ, ແຕ່ບາງຄັ້ງກໍ່ໜ້າສົນໃຈ ແລະ ສາມາດນຳໄປໃຊ້ເປັນເອກະສານເພີ່ມເຕີມໄດ້. ເພື່ອເຮັດສິ່ງນີ້ໂດຍບໍ່ປ່ຽນແປງການເບິ່ງເຫັນຂອງໂຟນເດີນີ້, ໃຫ້ເຮັດໃຫ້ໄຟລ໌ເບິ່ງເຫັນໄດ້ ແລະ ເຊື່ອມໂຍງຈາກບ່ອນທີ່ທ່ານເຫັນສົມຄວນ. ບໍ່ແນະນຳໃຫ້ເຮັດໃຫ້ໂຟນເດີນີ້ເບິ່ງເຫັນໄດ້ສຳລັບທຸກຄົນ."
 
 msgid ""
 "INFORMATION VISIBLE TO THE TEACHER ONLY:\n"
 "This folder contains the various certificates templates that have been created for the rating tool. It is not recommended to make this folder visible to all."
-msgstr ""
-"ຂໍ້ມູນທີ່ເບິ່ງເຫັນໄດ້ສະເພາະຄູສອນ:\n"
-"ໂຟນເດີນີ້ບັນຈຸແມ່ແບບໃບຢັ້ງຢືນຕ່າງໆທີ່ໄດ້ສ້າງຂຶ້ນສຳລັບເຄື່ອງມືໃຫ້ຄະແນນ. ບໍ່ແນະນຳໃຫ້ເຮັດໃຫ້ໂຟນເດີນີ້ເບິ່ງເຫັນໄດ້ສຳລັບທຸກຄົນ."
+msgstr "ຂໍ້ມູນທີ່ເບິ່ງເຫັນໄດ້ສະເພາະຄູສອນ:\nໂຟນເດີນີ້ບັນຈຸແມ່ແບບໃບຢັ້ງຢືນຕ່າງໆທີ່ໄດ້ສ້າງຂຶ້ນສຳລັບເຄື່ອງມືໃຫ້ຄະແນນ. ບໍ່ແນະນຳໃຫ້ເຮັດໃຫ້ໂຟນເດີນີ້ເບິ່ງເຫັນໄດ້ສຳລັບທຸກຄົນ."
 
 msgid "Destination folder"
 msgstr "ໂຟນເດີປາຍທາງ"
@@ -18457,9 +18412,7 @@ msgstr "ເບຣົາເຊີຂອງທ່ານບໍ່ຮອງຮັບ
 msgid ""
 "Your browser has a Java version not supported by this tool.\n"
 "To use it you have to install a Java Sun version higher than 24"
-msgstr ""
-"ເບຣົາເຊີຂອງທ່ານມີ Java ເວີຊັນທີ່ບໍ່ຮອງຮັບໂດຍເຄື່ອງມືນີ້.\n"
-"ເພື່ອໃຊ້ມັນ ທ່ານຕ້ອງຕິດຕັ້ງ Java Sun ເວີຊັນທີ່ສູງກວ່າ 24"
+msgstr "ເບຣົາເຊີຂອງທ່ານມີ Java ເວີຊັນທີ່ບໍ່ຮອງຮັບໂດຍເຄື່ອງມືນີ້.\nເພື່ອໃຊ້ມັນ ທ່ານຕ້ອງຕິດຕັ້ງ Java Sun ເວີຊັນທີ່ສູງກວ່າ 24"
 
 msgid "If you do not want to see this message again during this session, click here"
 msgstr "ຖ້າທ່ານບໍ່ຕ້ອງການເຫັນຂໍ້ຄວາມນີ້ອີກໃນລະຫວ່າງເຊດຊັນນີ້, ກົດທີ່ນີ້"
@@ -22818,10 +22771,7 @@ msgid ""
 "The user %s is waiting for an action about it's personal data request. \n"
 "\n"
 " To manage personal data requests you can follow this link : %s"
-msgstr ""
-"ຜູ້ໃຊ້ %s ກຳລັງລໍຖ້າການກະທຳກ່ຽວກັບຄຳຂໍຂໍ້ມູນສ່ວນຕົວຂອງມັນ. \n"
-"\n"
-" ເພື່ອຈັດການຄຳຂໍຂໍ້ມູນສ່ວນຕົວ ທ່ານສາມາດຕິດຕາມລິ້ງນີ້: %s"
+msgstr "ຜູ້ໃຊ້ %s ກຳລັງລໍຖ້າການກະທຳກ່ຽວກັບຄຳຂໍຂໍ້ມູນສ່ວນຕົວຂອງມັນ. \n\n ເພື່ອຈັດການຄຳຂໍຂໍ້ມູນສ່ວນຕົວ ທ່ານສາມາດຕິດຕາມລິ້ງນີ້: %s"
 
 msgid "Request type"
 msgstr "ປະເພດຄຳຂໍ"
@@ -23885,9 +23835,7 @@ msgstr "ກຳລັງສົ່ງຂໍ້ຄວາມໄປຍັງເຊີ
 msgid ""
 "This is a text sending test to the Compilatio server via its API.\n"
 "Compilatio key used: %s"
-msgstr ""
-"ນີ້ແມ່ນການທົດສອບການສົ່ງຂໍ້ຄວາມໄປຍັງເຊີບເວີ Compilatio ຜ່ານ API ຂອງມັນ.\n"
-"ລະຫັດ Compilatio ທີ່ໃຊ້: %s"
+msgstr "ນີ້ແມ່ນການທົດສອບການສົ່ງຂໍ້ຄວາມໄປຍັງເຊີບເວີ Compilatio ຜ່ານ API ຂອງມັນ.\nລະຫັດ Compilatio ທີ່ໃຊ້: %s"
 
 msgid "Transfer successful."
 msgstr "ການໂອນຍ້າຍສຳເລັດ."
@@ -35584,36 +35532,7 @@ msgid "%s results"
 msgstr "%s ຜົນການຄົ້ນຫາ"
 
 msgid "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\" style=\"\" height:=\"\">    <tbody>        <tr>            <td colspan=\"2\">            <h3>Example fill the form activity : calculate the Body Mass Index</h3>            </td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Age</strong></td>            <td width=\"75%\" style=\"\">[25] years old</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Sex</strong></td>            <td style=\"\" text-align:=\"\">[M] (M or F)</td>        </tr>        <tr>            <td style=\"text-align: right;\"><strong>Weight</strong></td>            <td style=\"\" text-align:=\"\">95 Kg</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Height</strong></td>            <td style=\"vertical-align: top;\">1.81 m</td>        </tr>        <tr>            <td style=\"vertical-align: top; text-align: right;\"><strong>Body Mass Index</strong></td>            <td style=\"vertical-align: top;\">[29] BMI =Weight/Size<sup>2</sup> (Cf.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> Wikipedia article</a>)</td>        </tr>    </tbody></table>"
-msgstr ""
-"<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\">\n"
-"    <tbody>\n"
-"        <tr>\n"
-"            <td colspan=\"2\">\n"
-"            <h3>ຕົວຢ່າງກິດຈະກຳການຕື່ມແບບຟອມ: ຄິດໄລ່ດັດຊະນີມວນກາຍ</h3>\n"
-"            </td>\n"
-"        </tr>\n"
-"        <tr>\n"
-"            <td style=\"text-align: right;\"><strong>ອາຍຸ</strong></td>\n"
-"            <td width=\"75%\">[25] ປີ</td>\n"
-"        </tr>\n"
-"        <tr>\n"
-"            <td style=\"text-align: right;\"><strong>ເພດ</strong></td>\n"
-"            <td>[M] (M ຫຼື F)</td>\n"
-"        </tr>\n"
-"        <tr>\n"
-"            <td style=\"text-align: right;\"><strong>ນ້ຳໜັກ</strong></td>\n"
-"            <td>95 ກິໂລກຣາມ</td>\n"
-"        </tr>\n"
-"        <tr>\n"
-"            <td style=\"vertical-align: top; text-align: right;\"><strong>ສ່ວນສູງ</strong></td>\n"
-"            <td style=\"vertical-align: top;\">1.81 ແມັດ</td>\n"
-"        </tr>\n"
-"        <tr>\n"
-"            <td style=\"vertical-align: top; text-align: right;\"><strong>ດັດຊະນີມວນກາຍ</strong></td>\n"
-"            <td style=\"vertical-align: top;\">[29] BMI = ນ້ຳໜັກ/ສ່ວນສູງ<sup>2</sup> (ເບິ່ງ.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> ບົດຄວາມ Wikipedia</a>)</td>\n"
-"        </tr>\n"
-"    </tbody>\n"
-"</table>"
+msgstr "<table cellspacing=\"0\" cellpadding=\"10\" border=\"1\" width=\"720\">\n    <tbody>\n        <tr>\n            <td colspan=\"2\">\n            <h3>ຕົວຢ່າງກິດຈະກຳການຕື່ມແບບຟອມ: ຄິດໄລ່ດັດຊະນີມວນກາຍ</h3>\n            </td>\n        </tr>\n        <tr>\n            <td style=\"text-align: right;\"><strong>ອາຍຸ</strong></td>\n            <td width=\"75%\">[25] ປີ</td>\n        </tr>\n        <tr>\n            <td style=\"text-align: right;\"><strong>ເພດ</strong></td>\n            <td>[M] (M ຫຼື F)</td>\n        </tr>\n        <tr>\n            <td style=\"text-align: right;\"><strong>ນ້ຳໜັກ</strong></td>\n            <td>95 ກິໂລກຣາມ</td>\n        </tr>\n        <tr>\n            <td style=\"vertical-align: top; text-align: right;\"><strong>ສ່ວນສູງ</strong></td>\n            <td style=\"vertical-align: top;\">1.81 ແມັດ</td>\n        </tr>\n        <tr>\n            <td style=\"vertical-align: top; text-align: right;\"><strong>ດັດຊະນີມວນກາຍ</strong></td>\n            <td style=\"vertical-align: top;\">[29] BMI = ນ້ຳໜັກ/ສ່ວນສູງ<sup>2</sup> (ເບິ່ງ.<a href=\"http://en.wikipedia.org/wiki/Body_mass_index\" onclick=\"window.open(this.href,'','resizable=yes,location=yes,menubar=no,scrollbars=yes,status=yes,toolbar=no,fullscreen=no,dependent=no,width=800,height=600,left=40,top=40,status'); return false\"> ບົດຄວາມ Wikipedia</a>)</td>\n        </tr>\n    </tbody>\n</table>"
 
 msgid "Removed"
 msgstr "ລຶບອອກແລ້ວ"
@@ -35801,44 +35720,13 @@ msgid ""
 "\n"
 "%s\n"
 "%s"
-msgstr ""
-"ຮຽນ %s,\n"
-"\n"
-"ຂະບວນການກວດສອບຄວາມປອດໄພຂອງພວກເຮົາພົບວ່າ ທ່ານນຳໃຊ້ລະຫັດຜ່ານທີ່ຖືກນຳໃຊ້ຢ່າງແຜ່ຫຼາຍໃນອິນເຕີເນັດ, ເຊິ່ງໝາຍຄວາມວ່າບັນຊີຂອງທ່ານອາດຈະຖືກລັກໄປໄດ້ງ່າຍ.\n"
-"\n"
-"ມັນອາດຈະເປັນລຳດັບຕົວເລກທີ່ງ່າຍ ຫຼື ຄຳສັບທີ່ຄົນນິຍົມໃຊ້ທົ່ວໄປ, ພວກເຮົາເອງກໍບໍ່ຊາບຄັກແນ່ (ພວກເຮົາບໍ່ສາມາດເຫັນລະຫັດຜ່ານຂອງທ່ານ), ແຕ່ພວກເຮົາຂໍໃຫ້ທ່ານກະລຸນາເຂົ້າສູ່ລະບົບ ແລະ ສົ່ງຄຳຮ້ອງຂໍປ່ຽນລະຫັດຜ່ານ.\n"
-"\n"
-"ທ່ານສາມາດກົດເຂົ້າໄປທີ່ລິ້ງນີ້: %s ເພື່ອດຳເນີນການດັ່ງກ່າວດຽວນີ້.\n"
-"\n"
-"ກະລຸນາຮັບຊາບວ່າ ພວກເຮົາຈະບໍ່ຖາມຫາລະຫັດຜ່ານຂອງທ່ານໃນຂະບວນການນີ້ຢ່າງເດັດຂາດ.\n"
-"\n"
-"ທ່ານພຽງແຕ່ປ້ອນຊື່ຜູ້ໃຊ້ ຫຼື ອີເມວຂອງທ່ານ ແລ້ວພວກເຮົາຈະສົ່ງລິ້ງໃຫ້ທ່ານ.\n"
-"\n"
-"ຖ້າຫາກທ່ານຖືກຮ້ອງຂໍໃຫ້ປ້ອນລະຫັດຜ່ານປັດຈຸບັນເພື່ອດຳເນີນການດັ່ງກ່າວ, ສະແດງວ່າອາດຈະມີຜູ້ບໍ່ຫວັງດີກຳລັງພະຍາຍາມຫຼອກລວງ (Phishing) ເອົາຂໍ້ມູນບັນຊີຂອງທ່ານ.\n"
-"\n"
-"ເພື່ອຄວາມປອດໄພ, ປ່ຽນລະຫັດຜ່ານຂອງທ່ານດຽວນີ້!\n"
-"\n"
-"\n"
-"%s\n"
-"%s"
+msgstr "ຮຽນ %s,\n\nຂະບວນການກວດສອບຄວາມປອດໄພຂອງພວກເຮົາພົບວ່າ ທ່ານນຳໃຊ້ລະຫັດຜ່ານທີ່ຖືກນຳໃຊ້ຢ່າງແຜ່ຫຼາຍໃນອິນເຕີເນັດ, ເຊິ່ງໝາຍຄວາມວ່າບັນຊີຂອງທ່ານອາດຈະຖືກລັກໄປໄດ້ງ່າຍ.\n\nມັນອາດຈະເປັນລຳດັບຕົວເລກທີ່ງ່າຍ ຫຼື ຄຳສັບທີ່ຄົນນິຍົມໃຊ້ທົ່ວໄປ, ພວກເຮົາເອງກໍບໍ່ຊາບຄັກແນ່ (ພວກເຮົາບໍ່ສາມາດເຫັນລະຫັດຜ່ານຂອງທ່ານ), ແຕ່ພວກເຮົາຂໍໃຫ້ທ່ານກະລຸນາເຂົ້າສູ່ລະບົບ ແລະ ສົ່ງຄຳຮ້ອງຂໍປ່ຽນລະຫັດຜ່ານ.\n\nທ່ານສາມາດກົດເຂົ້າໄປທີ່ລິ້ງນີ້: %s ເພື່ອດຳເນີນການດັ່ງກ່າວດຽວນີ້.\n\nກະລຸນາຮັບຊາບວ່າ ພວກເຮົາຈະບໍ່ຖາມຫາລະຫັດຜ່ານຂອງທ່ານໃນຂະບວນການນີ້ຢ່າງເດັດຂາດ.\n\nທ່ານພຽງແຕ່ປ້ອນຊື່ຜູ້ໃຊ້ ຫຼື ອີເມວຂອງທ່ານ ແລ້ວພວກເຮົາຈະສົ່ງລິ້ງໃຫ້ທ່ານ.\n\nຖ້າຫາກທ່ານຖືກຮ້ອງຂໍໃຫ້ປ້ອນລະຫັດຜ່ານປັດຈຸບັນເພື່ອດຳເນີນການດັ່ງກ່າວ, ສະແດງວ່າອາດຈະມີຜູ້ບໍ່ຫວັງດີກຳລັງພະຍາຍາມຫຼອກລວງ (Phishing) ເອົາຂໍ້ມູນບັນຊີຂອງທ່ານ.\n\nເພື່ອຄວາມປອດໄພ, ປ່ຽນລະຫັດຜ່ານຂອງທ່ານດຽວນີ້!\n\n\n%s\n%s"
 
 msgid "[%s] Your password has been reset"
 msgstr "[%s] ລະຫັດຜ່ານຂອງທ່ານຖືກຕັ້ງໃໝ່ແລ້ວ"
 
-msgid ""
-"Dear %s,\n"
-"\n"
-"Our security enforcing process flagged you as using a password that is commonly used on the internet, which means your account could easily be stolen. As a prevention measure, we have decided to initiate a password reset process. Your new, automatically generated password is now:\n"
-"\n"
-"%s\n"
-"\n"
-"Please login to the platform soon (using this new password) to set your own, personal and secure, password.\n"
-"\n"
-"Be safe.\n"
-"\n"
-"%s\n"
-"%s"
-msgstr ""
+msgid "Dear %s,\n\nOur security enforcing process flagged you as using a password that is commonly used on the internet, which means your account could easily be stolen. As a prevention measure, we have decided to initiate a password reset process. Your new, automatically generated password is now:\n\n%s\n\nPlease login to the platform soon (using this new password) to set your own, personal and secure, password.\n\nBe safe.\n\n%s\n%s"
+msgstr "ຮຽນ %s,\n\nຂະບວນການຮັກສາຄວາມປອດໄພຂອງພວກເຮົາກວດພົບວ່າ ທ່ານກຳລັງນຳໃຊ້ລະຫັດຜ່ານທີ່ຖືກໃຊ້ທົ່ວໄປໃນອິນເຕີເນັດ, ເຊິ່ງໝາຍຄວາມວ່າບັນຊີຂອງທ່ານອາດຖືກລັກໄປໄດ້ງ່າຍ. ເພື່ອເປັນມາດຕະການປ້ອງກັນ, ພວກເຮົາຈຶ່ງໄດ້ຕັດສິນໃຈເລີ່ມຂັ້ນຕອນການຕັ້ງລະຫັດຜ່ານໃໝ່. ລະຫັດຜ່ານໃໝ່ຂອງທ່ານທີ່ຖືກສ້າງຂຶ້ນແບບອັດຕະໂນມັດແມ່ນ:\n\n%s\n\nກະລຸນາເຂົ້າສູ່ລະບົບ (ໂດຍໃຊ້ລະຫັດຜ່ານໃໝ່ນີ້) ໃນໄວໆນີ້ ເພື່ອຕັ້ງລະຫັດຜ່ານສ່ວນຕົວທີ່ມີຄວາມປອດໄພຂອງທ່ານເອງ.\n\nດ້ວຍຄວາມປອດໄພ.\n\n%s\n%s"
 
 msgid "Signature saved successfully"
 msgstr "ບັນທຶກລາຍເຊັນສຳເລັດແລ້ວ"
@@ -36657,454 +36545,454 @@ msgid "You must add at least one question"
 msgstr "ທ່ານຕ້ອງເພີ່ມຢ່າງໜ້ອຍໜຶ່ງຄຳຖາມ"
 
 msgid "Advanced actions"
-msgstr ""
+msgstr "ການດຳເນີນການຂັ້ນສູງ"
 
 msgid "Application path"
-msgstr ""
+msgstr "ເສັ້ນທາງແອັບພລິເຄຊັນ"
 
 msgid "Apply files details"
-msgstr ""
+msgstr "ລາຍລະອຽດການນຳໃຊ້ໄຟລ໌"
 
 msgid "Apply plan details"
-msgstr ""
+msgstr "ລາຍລະອຽດແຜນການນຳໃຊ້"
 
 msgid "Apply plan failed"
-msgstr ""
+msgstr "ການນຳໃຊ້ແຜນການລົ້ມເຫຼວ"
 
 msgid "Apply plan ready"
-msgstr ""
+msgstr "ແຜນການນຳໃຊ້ພ້ອມແລ້ວ"
 
 msgid "Apply preparation"
-msgstr ""
+msgstr "ການກຽມການນຳໃຊ້"
 
 msgid "Apply staged files"
-msgstr ""
+msgstr "ນຳໃຊ້ໄຟລ໌ທີ່ກຽມໄວ້"
 
 msgid "Applying files..."
-msgstr ""
+msgstr "ກຳລັງນຳໃຊ້ໄຟລ໌..."
 
 msgid "Audit file"
-msgstr ""
+msgstr "ໄຟລ໌ກວດສອບ"
 
 msgid "Backup directory"
-msgstr ""
+msgstr "ໂຟນເດີສຳຮອງຂໍ້ມູນ"
 
 msgid "Baseline clean"
-msgstr ""
+msgstr "ຄ່າເລີ່ມຕົ້ນປົກກະຕິ"
 
 msgid "Baseline warnings"
-msgstr ""
+msgstr "ຄຳເຕືອນຄ່າເລີ່ມຕົ້ນ"
 
 msgid "Build a safe apply plan from the staged package. This only checks files, permissions, backup path and lock status. It does not replace files."
-msgstr ""
+msgstr "ສ້າງແຜນການນຳໃຊ້ທີ່ປອດໄພຈາກແພັກເກດທີ່ກຽມໄວ້. ສິ່ງນີ້ຈະກວດສອບພຽງແຕ່ໄຟລ໌, ການອະນຸຍາດ, ເສັ້ນທາງສຳຮອງ ແລະ ສະຖານະການລັອກເທົ່ານັ້ນ. ມັນຈະບໍ່ມີການປ່ຽນແທນໄຟລ໌."
 
 msgid "Build production frontend assets."
-msgstr ""
+msgstr "ສ້າງໄຟລ໌ລະບົບສ່ວນໜ້າ (Frontend assets) ສຳລັບການນຳໃຊ້ຈິງ."
 
 msgid "Building plan..."
-msgstr ""
+msgstr "ກຳລັງສ້າງແຜນການ..."
 
 msgid "Channel"
-msgstr ""
+msgstr "ຊ່ອງທາງ"
 
 msgid "Check"
-msgstr ""
+msgstr "ກວດສອບ"
 
 msgid "Check for available Chamilo updates, verify packages, stage files and run controlled post-update steps."
-msgstr ""
+msgstr "ກວດສອບການອັບເດດ Chamilo ທີ່ມີ, ກວດສອບແພັກເກດ, ກຽມໄຟລ໌ ແລະ ດຳເນີນຂັ້ນຕອນຫຼັງການອັບເດດ."
 
 msgid "Check manifest"
-msgstr ""
+msgstr "ກວດສອບ Manifest"
 
 msgid "Checking post-apply actions..."
-msgstr ""
+msgstr "ກຳລັງກວດສອບການດຳເນີນການຫຼັງການນຳໃຊ້..."
 
 msgid "Checking..."
-msgstr ""
+msgstr "ກຳລັງກວດສອບ..."
 
 msgid "Composer install"
-msgstr ""
+msgstr "ຕິດຕັ້ງ Composer"
 
 msgid "Composer, Yarn and database migration actions can modify dependencies, generated assets or the database. Select them only after confirming backups and permissions."
-msgstr ""
+msgstr "ການດຳເນີນການຂອງ Composer, Yarn ແລະ ການຍ້າຍຖານຂໍ້ມູນ ສາມາດປ່ຽນແປງຂໍ້ມູນພາກສ່ວນກ່ຽວຂ້ອງ, ໄຟລ໌ລະບົບ ຫຼື ຖານຂໍ້ມູນໄດ້. ເລືອກພວກມັນຫຼັງຈາກຢືນຢັນການສຳຮອງຂໍ້ມູນ ແລະ ການອະນຸຍາດແລ້ວເທົ່ານັ້ນ."
 
 msgid "Configure CHAMILO_UPDATE_MANIFEST_URL on the server or provide an HTTPS manifest URL."
-msgstr ""
+msgstr "ຕັ້ງຄ່າ CHAMILO_UPDATE_MANIFEST_URL ເທິງເຊີເວີ ຫຼື ລະບຸ HTTPS manifest URL."
 
 msgid "Configured"
-msgstr ""
+msgstr "ຕັ້ງຄ່າແລ້ວ"
 
 msgid "Current migration"
-msgstr ""
+msgstr "ການຍ້າຍຂໍ້ມູນປະຈຸບັນ"
 
 msgid "Database baseline"
-msgstr ""
+msgstr "ຄ່າເລີ່ມຕົ້ນຖານຂໍ້ມູນ"
 
 msgid "Database migration safety review"
-msgstr ""
+msgstr "ກວດສອບຄວາມປອດໄພຂອງການຍ້າຍຖານຂໍ້ມູນ"
 
 msgid "Database migrations"
-msgstr ""
+msgstr "ການຍ້າຍຖານຂໍ້ມູນ"
 
 msgid "Development mode"
-msgstr ""
+msgstr "ໂໝດນັກພັດທະນາ"
 
 msgid "Do not enable this unless the update backup and server permissions were reviewed."
-msgstr ""
+msgstr "ຫ້າມເປີດໃຊ້ງານສິ່ງນີ້ ຈົນກວ່າຈະໄດ້ກວດສອບການສຳຮອງຂໍ້ມູນອັບເດດ ແລະ ການອະນຸຍາດຂອງເຊີເວີແລ້ວ."
 
 msgid "Doctrine dry-run command"
-msgstr ""
+msgstr "ຄຳສັ່ງ Doctrine dry-run"
 
 msgid "Doctrine reported historical baseline warnings. The updater will still execute only staged V210 migrations after explicit confirmation."
-msgstr ""
+msgstr "Doctrine ລາຍງານຄຳເຕືອນກ່ຽວກັບຄ່າເລີ່ມຕົ້ນໃນອະດີດ. ຕົວອັບເດດຈະຍັງຄົງດຳເນີນການສະເພາະການຍ້າຍຂໍ້ມູນ V210 ທີ່ກຽມໄວ້ ຫຼັງຈາກການຢືນຢັນທີ່ຊັດເຈນ."
 
 msgid "Doctrine will execute only the staged V210 migrations explicitly after the safety review passes."
-msgstr ""
+msgstr "Doctrine ຈະດຳເນີນການສະເພາະການຍ້າຍຂໍ້ມູນ V210 ທີ່ກຽມໄວ້ ຫຼັງຈາກການກວດສອບຄວາມປອດໄພຜ່ານແລ້ວ."
 
 msgid "Dry-run exit code"
-msgstr ""
+msgstr "ລະຫັດອອກຂອງການທົດລອງລັນ (Dry-run exit code)"
 
 msgid "Executed unavailable migrations"
-msgstr ""
+msgstr "ດຳເນີນການຍ້າຍຂໍ້ມູນທີ່ບໍ່ພ້ອມໃຊ້ງານ"
 
 msgid "Extract the verified update package into a staging directory for inspection. This does not replace files, run migrations, or modify the database."
-msgstr ""
+msgstr "ແຕກໄຟລ໌ແພັກເກດອັບເດດທີ່ກວດສອບແລ້ວ ໄປໄວ້ໃນໂຟນເດີພັກຂໍ້ມູນເພື່ອທຳການກວດສອບ. ສິ່ງນີ້ຈະບໍ່ປ່ຽນແທນໄຟລ໌, ບໍ່ລັນການຍ້າຍຂໍ້ມູນ ຫຼື ແກ້ໄຂຖານຂໍ້ມູນ."
 
 msgid "File apply available"
-msgstr ""
+msgstr "ມີໄຟລ໌ທີ່ພ້ອມນຳໃຊ້"
 
 msgid "Files to replace"
-msgstr ""
+msgstr "ໄຟລ໌ທີ່ຈະປ່ຽນແທນ"
 
 msgid "I confirm that a database backup exists and was verified before running migrations."
-msgstr ""
+msgstr "ຂ້ອຍຢືນຢັນວ່າໄດ້ສຳຮອງຖານຂໍ້ມູນ ແລະ ກວດສອບຄວາມຖືກຕ້ອງແລ້ວກ່ອນທີ່ຈະເລີ່ມການຍ້າຍຂໍ້ມູນ."
 
 msgid "I understand that advanced actions can modify dependencies, generated assets or the database."
-msgstr ""
+msgstr "ຂ້ອຍເຂົ້າໃຈວ່າການດຳເນີນການຂັ້ນສູງສາມາດປ່ຽນແປງຂໍ້ມູນພາກສ່ວນກ່ຽວຂ້ອງ, ໄຟລ໌ລະບົບ ຫຼື ຖານຂໍ້ມູນໄດ້."
 
 msgid "I understand this will replace files in the Chamilo installation."
-msgstr ""
+msgstr "ຂ້ອຍເຂົ້າໃຈວ່າສິ່ງນີ້ຈະປ່ຽນແທນໄຟລ໌ໃນການຕິດຕັ້ງ Chamilo."
 
 msgid "I understand this will run update commands on the server."
-msgstr ""
+msgstr "ຂ້ອຍເຂົ້າໃຈວ່າສິ່ງນີ້ຈະລັນຄຳສັ່ງອັບເດດເທິງເຊີເວີ."
 
 msgid "Install frontend dependencies before rebuilding assets."
-msgstr ""
+msgstr "ຕິດຕັ້ງ frontend dependencies ກ່ອນທີ່ຈະສ້າງໄຟລ໌ລະບົບໃໝ່."
 
 msgid "Installed version"
-msgstr ""
+msgstr "ເວີຊັນທີ່ຕິດຕັ້ງແລ້ວ"
 
 msgid "Latest migration"
-msgstr ""
+msgstr "ການຍ້າຍຂໍ້ມູນຫຼ້າສຸດ"
 
 msgid "Leave package and signature paths empty to download them from the verified manifest URLs. Local paths are only available for development tests."
-msgstr ""
+msgstr "ປ່ອຍໃຫ້ເສັ້ນທາງແພັກເກດ ແລະ ລາຍເຊັນວ່າງໄວ້ເພື່ອດາວໂຫລດຈາກ manifest URL ທີ່ກວດສອບແລ້ວ. ເສັ້ນທາງພາຍໃນເຄື່ອງ (Local paths) ໃຊ້ໄດ້ສະເພາະການທົດສອບໃນການພັດທະນາເທົ່ານັ້ນ."
 
 msgid "Live command log"
-msgstr ""
+msgstr "ບັນທຶກຄຳສັ່ງແບບສົດ"
 
 msgid "Live update log"
-msgstr ""
+msgstr "ບັນທຶກການອັບເດດແບບສົດ"
 
 msgid "Local test options"
-msgstr ""
+msgstr "ຕົວເລືອກການທົດສອບພາຍໃນ"
 
 msgid "Local test update notice link"
-msgstr ""
+msgstr "ລິ້ງແຈ້ງເຕືອນການອັບເດດທົດສອບພາຍໃນ"
 
 msgid "Local update notice simulation"
-msgstr ""
+msgstr "ການຈຳລອງການແຈ້ງເຕືອນອັບເດດພາຍໃນ"
 
 msgid "Local update notice simulation is only available in development mode."
-msgstr ""
+msgstr "ການຈຳລອງການແຈ້ງເຕືອນອັບເດດພາຍໃນ ສາມາດໃຊ້ໄດ້ສະເພາະໃນໂໝດນັກພັດທະນາເທົ່ານັ້ນ."
 
 msgid "Manifest"
-msgstr ""
+msgstr "Manifest"
 
 msgid "Manifest source"
-msgstr ""
+msgstr "ແຫຼ່ງທີ່ມາຂອງ Manifest"
 
 msgid "Migration safety details"
-msgstr ""
+msgstr "ລາຍລະອຽດຄວາມປອດໄພຂອງການຍ້າຍຂໍ້ມູນ"
 
 msgid "Migration safety review failed"
-msgstr ""
+msgstr "ການກວດສອບຄວາມປອດໄພຂອງການຍ້າຍຂໍ້ມູນລົ້ມເຫຼວ"
 
 msgid "Migration safety review ready"
-msgstr ""
+msgstr "ການກວດສອບຄວາມປອດໄພຂອງການຍ້າຍຂໍ້ມູນພ້ອມແລ້ວ"
 
 msgid "Migration target"
-msgstr ""
+msgstr "ເປົ້າໝາຍການຍ້າຍຂໍ້ມູນ"
 
 msgid "New files"
-msgstr ""
+msgstr "ໄຟລ໌ໃໝ່"
 
 msgid "New migrations reported by Doctrine"
-msgstr ""
+msgstr "ການຍ້າຍຂໍ້ມູນໃໝ່ທີ່ລາຍງານໂດຍ Doctrine"
 
 msgid "Next migration"
-msgstr ""
+msgstr "ການຍ້າຍຂໍ້ມູນຖັດໄປ"
 
 msgid "No executed unavailable migration was reported."
-msgstr ""
+msgstr "ບໍ່ມີລາຍງານການຍ້າຍຂໍ້ມູນທີ່ບໍ່ພ້ອມໃຊ້ງານທີ່ຖືກດຳເນີນການ."
 
 msgid "No official manifest URL is configured yet. Use an HTTPS URL or a local path for development tests."
-msgstr ""
+msgstr "ຍັງບໍ່ທັນໄດ້ຕັ້ງຄ່າ manifest URL ຢ່າງເປັນທາງການ. ໃຫ້ໃຊ້ HTTPS URL ຫຼື ເສັ້ນທາງພາຍໃນເຄື່ອງສຳລັບການທົດສອບພັດທະນາ."
 
 msgid "No pending migration was detected before the staged update target."
-msgstr ""
+msgstr "ບໍ່ພົບການຍ້າຍຂໍ້ມູນທີ່ຄ້າງຢູ່ກ່ອນເປົ້າໝາຍການອັບເດດທີ່ກຽມໄວ້."
 
 msgid "Not configured"
-msgstr ""
+msgstr "ບໍ່ໄດ້ຕັ້ງຄ່າ"
 
 msgid "Not detected"
-msgstr ""
+msgstr "ກວດບໍ່ພົບ"
 
 msgid "Official Chamilo update channel"
-msgstr ""
+msgstr "ຊ່ອງທາງການອັບເດດ Chamilo ຢ່າງເປັນທາງການ"
 
 msgid "Package SHA-256"
-msgstr ""
+msgstr "SHA-256 ຂອງແພັກເກດ"
 
 msgid "Package URL"
-msgstr ""
+msgstr "URL ຂອງແພັກເກດ"
 
 msgid "Package and signature files will be downloaded from the manifest. Local paths are disabled in this environment."
-msgstr ""
+msgstr "ໄຟລ໌ແພັກເກດ ແລະ ລາຍເຊັນຈະຖືກດາວໂຫລດຈາກ manifest. ເສັ້ນທາງພາຍໃນເຄື່ອງຖືກປິດໃຊ້ງານໃນສະພາບແວດລ້ອມນີ້."
 
 msgid "Package path"
-msgstr ""
+msgstr "ເສັ້ນທາງແພັກເກດ"
 
 msgid "Package staged successfully"
-msgstr ""
+msgstr "ກຽມແພັກເກດສຳເລັດແລ້ວ"
 
 msgid "Package staging failed"
-msgstr ""
+msgstr "ການກຽມແພັກເກດລົ້ມເຫຼວ"
 
 msgid "Package verification"
-msgstr ""
+msgstr "ການກວດສອບແພັກເກດ"
 
 msgid "Package verification failed"
-msgstr ""
+msgstr "ການກວດສອບແພັກເກດລົ້ມເຫຼວ"
 
 msgid "Package verified successfully"
-msgstr ""
+msgstr "ກວດສອບແພັກເກດສຳເລັດແລ້ວ"
 
 msgid "Pending migrations before this update"
-msgstr ""
+msgstr "ການຍ້າຍຂໍ້ມູນທີ່ຄ້າງຢູ່ກ່ອນການອັບເດດນີ້"
 
 msgid "Planned backup path"
-msgstr ""
+msgstr "ເສັ້ນທາງສຳຮອງຂໍ້ມູນທີ່ວາງແຜນໄວ້"
 
 msgid "Post-apply actions completed"
-msgstr ""
+msgstr "ການດຳເນີນການຫຼັງການນຳໃຊ້ສຳເລັດແລ້ວ"
 
 msgid "Post-apply actions failed"
-msgstr ""
+msgstr "ການດຳເນີນການຫຼັງການນຳໃຊ້ລົ້ມເຫຼວ"
 
 msgid "Post-apply actions ready"
-msgstr ""
+msgstr "ການດຳເນີນການຫຼັງການນຳໃຊ້ພ້ອມແລ້ວ"
 
 msgid "Post-apply checks"
-msgstr ""
+msgstr "ການກວດສອບຫຼັງການນຳໃຊ້"
 
 msgid "Post-apply checks failed"
-msgstr ""
+msgstr "ການກວດສອບຫຼັງການນຳໃຊ້ລົ້ມເຫຼວ"
 
 msgid "Post-apply details"
-msgstr ""
+msgstr "ລາຍລະອຽດຫຼັງການນຳໃຊ້"
 
 msgid "Post-apply run details"
-msgstr ""
+msgstr "ລາຍລະອຽດການລັນຫຼັງການນຳໃຊ້"
 
 msgid "Preflight checks"
-msgstr ""
+msgstr "ການກວດສອບກ່ອນເລີ່ມ (Preflight)"
 
 msgid "Preflight checks completed"
-msgstr ""
+msgstr "ການກວດສອບກ່ອນເລີ່ມສຳເລັດແລ້ວ"
 
 msgid "Preflight checks failed"
-msgstr ""
+msgstr "ການກວດສອບກ່ອນເລີ່ມລົ້ມເຫຼວ"
 
 msgid "Preflight details"
-msgstr ""
+msgstr "ລາຍລະອຽດການກວດສອບກ່ອນເລີ່ມ"
 
 msgid "Prepare staging"
-msgstr ""
+msgstr "ກຽມພື້ນທີ່ພັກຂໍ້ມູນ"
 
 msgid "Preparing staging..."
-msgstr ""
+msgstr "ກຳລັງກຽມພື້ນທີ່ພັກຂໍ້ມູນ..."
 
 msgid "Production mode"
-msgstr ""
+msgstr "ໂໝດໃຊ້ງານຈິງ"
 
 msgid "Released at"
-msgstr ""
+msgstr "ອອກເມື່ອວັນທີ"
 
 msgid "Replace Chamilo files from the staged package using the reviewed apply plan. This does not run database migrations, Composer, Yarn or cache commands."
-msgstr ""
+msgstr "ປ່ຽນແທນໄຟລ໌ Chamilo ຈາກແພັກເກດທີ່ກຽມໄວ້ໂດຍໃຊ້ແຜນການທີ່ກວດສອບແລ້ວ. ສິ່ງນີ້ຈະບໍ່ລັນການຍ້າຍຖານຂໍ້ມູນ, Composer, Yarn ຫຼື ຄຳສັ່ງແຄດ."
 
 msgid "Review apply plan"
-msgstr ""
+msgstr "ກວດສອບແຜນການນຳໃຊ້"
 
 msgid "Review database migrations"
-msgstr ""
+msgstr "ກວດສອບການຍ້າຍຖານຂໍ້ມູນ"
 
 msgid "Review post-apply actions"
-msgstr ""
+msgstr "ກວດສອບການດຳເນີນການຫຼັງການນຳໃຊ້"
 
 msgid "Review recommended manual commands after applying update files. This step does not run Composer, Yarn, migrations or cache commands."
-msgstr ""
+msgstr "ກວດສອບຄຳສັ່ງທີ່ແນະນຳໃຫ້ເຮັດດ້ວຍຕົນເອງຫຼັງຈາກນຳໃຊ້ໄຟລ໌ອັບເດດ. ຂັ້ນຕອນນີ້ຈະບໍ່ລັນ Composer, Yarn, ການຍ້າຍຂໍ້ມູນ ຫຼື ຄຳສັ່ງແຄດ."
 
 msgid "Review staged Doctrine migrations and dry-run output before running database migrations."
-msgstr ""
+msgstr "ກວດສອບການຍ້າຍຂໍ້ມູນ Doctrine ທີ່ກຽມໄວ້ ແລະ ຜົນການທົດລອງລັນ ກ່ອນທີ່ຈະລັນການຍ້າຍຖານຂໍ້ມູນຈິງ."
 
 msgid "Reviewing database migrations..."
-msgstr ""
+msgstr "ກຳລັງກວດສອບການຍ້າຍຖານຂໍ້ມູນ..."
 
 msgid "Run and pass the migration safety review before executing database migrations."
-msgstr ""
+msgstr "ລັນ ແລະ ຜ່ານການກວດສອບຄວາມປອດໄພຂອງການຍ້າຍຂໍ້ມູນ ກ່ອນທີ່ຈະດຳເນີນການຍ້າຍຖານຂໍ້ມູນ."
 
 msgid "Run environment checks before any future update application step. This does not modify files or the database."
-msgstr ""
+msgstr "ລັນການກວດສອບສະພາບແວດລ້ອມກ່ອນຂັ້ນຕອນການອັບເດດໃນອະນາຄົດ. ສິ່ງນີ້ຈະບໍ່ແກ້ໄຂໄຟລ໌ ຫຼື ຖານຂໍ້ມູນ."
 
 msgid "Run post-apply actions"
-msgstr ""
+msgstr "ລັນການດຳເນີນການຫຼັງການນຳໃຊ້"
 
 msgid "Run preflight checks"
-msgstr ""
+msgstr "ລັນການກວດສອບກ່ອນເລີ່ມ"
 
 msgid "Run selected post-apply actions"
-msgstr ""
+msgstr "ລັນການດຳເນີນການຫຼັງການນຳໃຊ້ທີ່ເລືອກ"
 
 msgid "Run selected post-apply commands from the server using a controlled allowlist. No custom shell commands are accepted."
-msgstr ""
+msgstr "ລັນຄຳສັ່ງຫຼັງການນຳໃຊ້ທີ່ເລືອກຈາກເຊີເວີໂດຍໃຊ້ລາຍການທີ່ໄດ້ຮັບອະນຸຍາດ. ບໍ່ອະນຸຍາດຄຳສັ່ງ shell ແບບກຳນົດເອງ."
 
 msgid "Run these commands manually from the server after confirming the file update result and backups."
-msgstr ""
+msgstr "ລັນຄຳສັ່ງເຫຼົ່ານີ້ດ້ວຍຕົນເອງຈາກເຊີເວີ ຫຼັງຈາກຢືນຢັນຜົນການອັບເດດໄຟລ໌ ແລະ ການສຳຮອງຂໍ້ມູນແລ້ວ."
 
 msgid "Running post-apply actions from the UI is disabled in production mode."
-msgstr ""
+msgstr "ການລັນການດຳເນີນການຫຼັງການນຳໃຊ້ຜ່ານ UI ຖືກປິດໃຊ້ງານໃນໂໝດໃຊ້ງານຈິງ."
 
 msgid "Running post-apply actions..."
-msgstr ""
+msgstr "ກຳລັງລັນການດຳເນີນການຫຼັງການນຳໃຊ້..."
 
 msgid "Safe actions"
-msgstr ""
+msgstr "ການດຳເນີນການທີ່ປອດໄພ"
 
 msgid "Signature path"
-msgstr ""
+msgstr "ເສັ້ນທາງລາຍເຊັນ"
 
 msgid "Signature verification cannot be skipped in this environment."
-msgstr ""
+msgstr "ບໍ່ສາມາດຂ້າມການກວດສອບລາຍເຊັນໄດ້ໃນສະພາບແວດລ້ອມນີ້."
 
 msgid "Skip signature verification for local development tests"
-msgstr ""
+msgstr "ຂ້າມການກວດສອບລາຍເຊັນສຳລັບການທົດສອບພັດທະນາພາຍໃນ"
 
 msgid "Staged file application failed"
-msgstr ""
+msgstr "ການນຳໃຊ້ໄຟລ໌ທີ່ກຽມໄວ້ລົ້ມເຫຼວ"
 
 msgid "Staged files applied successfully"
-msgstr ""
+msgstr "ນຳໃຊ້ໄຟລ໌ທີ່ກຽມໄວ້ສຳເລັດແລ້ວ"
 
 msgid "Staging details"
-msgstr ""
+msgstr "ລາຍລະອຽດການກຽມຂໍ້ມູນ"
 
 msgid "Staging directory"
-msgstr ""
+msgstr "ໂຟນເດີພັກຂໍ້ມູນ"
 
 msgid "Staging extraction"
-msgstr ""
+msgstr "ການແຕກໄຟລ໌ໄປຍັງພື້ນທີ່ພັກ"
 
 msgid "Symfony cache clear"
-msgstr ""
+msgstr "ລ້າງແຄດ Symfony"
 
 msgid "System update"
-msgstr ""
+msgstr "ອັບເດດລະບົບ"
 
 msgid "Target version"
-msgstr ""
+msgstr "ເວີຊັນເປົ້າໝາຍ"
 
 msgid "The configured official manifest URL is prefilled. You can change it to another HTTPS manifest if needed."
-msgstr ""
+msgstr "ລະບົບໄດ້ຕື່ມ manifest URL ຢ່າງເປັນທາງການໄວ້ໃຫ້ແລ້ວ. ທ່ານສາມາດປ່ຽນເປັນ HTTPS manifest ອື່ນໄດ້ຖ້າຕ້ອງການ."
 
 msgid "The database migration baseline is clean."
-msgstr ""
+msgstr "ຄ່າເລີ່ມຕົ້ນຂອງການຍ້າຍຖານຂໍ້ມູນແມ່ນປົກກະຕິ."
 
 msgid "The final HTTP response failed after the operation completed. This is usually caused by runtime cache permissions or a web server restart during the request."
-msgstr ""
+msgstr "ການຕອບສະໜອງ HTTP ສຸດທ້າຍລົ້ມເຫຼວຫຼັງຈາກການດຳເນີນການສຳເລັດ. ສິ່ງນີ້ມັກຈະເກີດຈາກການອະນຸຍາດແຄດ ຫຼື ເຊີເວີຣີສະຕາດໃນລະຫວ່າງການຮ້ອງຂໍ."
 
 msgid "The operation log reports that post-apply actions completed successfully."
-msgstr ""
+msgstr "ບັນທຶກການດຳເນີນການລາຍງານວ່າ ການດຳເນີນການຫຼັງການນຳໃຊ້ສຳເລັດແລ້ວ."
 
 msgid "The selected post-apply commands completed successfully, but the final HTTP response failed. Refresh the page and verify runtime cache permissions if the page does not load correctly."
-msgstr ""
+msgstr "ຄຳສັ່ງຫຼັງການນຳໃຊ້ທີ່ເລືອກສຳເລັດແລ້ວ, ແຕ່ການຕອບສະໜອງ HTTP ສຸດທ້າຍລົ້ມເຫຼວ. ໃຫ້ຣີເຟຣດໜ້າເວັບ ແລະ ກວດສອບການອະນຸຍາດແຄດ ຖ້າໜ້າເວັບໂຫລດບໍ່ຖືກຕ້ອງ."
 
 msgid "The updater does not create or restore database backups."
-msgstr ""
+msgstr "ຕົວອັບເດດຈະບໍ່ສ້າງ ຫຼື ກູ້ຄືນການສຳຮອງຖານຂໍ້ມູນ."
 
 msgid "These actions are safe to run from the UI after reviewing the update result."
-msgstr ""
+msgstr "ການດຳເນີນການເຫຼົ່ານີ້ປອດໄພທີ່ຈະລັນຈາກ UI ຫຼັງຈາກກວດສອບຜົນການອັບເດດແລ້ວ."
 
 msgid "These commands can modify dependencies, generated assets, cache or the database. Confirm backups before continuing."
-msgstr ""
+msgstr "ຄຳສັ່ງເຫຼົ່ານີ້ສາມາດປ່ຽນແປງຂໍ້ມູນພາກສ່ວນກ່ຽວຂ້ອງ, ໄຟລ໌ລະບົບ, ແຄດ ຫຼື ຖານຂໍ້ມູນໄດ້. ໃຫ້ຢືນຢັນການສຳຮອງຂໍ້ມູນກ່ອນດຳເນີນການຕໍ່."
 
 msgid "This action modifies files in the Chamilo installation. Make sure the apply plan was reviewed and backups are enabled before continuing."
-msgstr ""
+msgstr "ການດຳເນີນການນີ້ຈະແກ້ໄຂໄຟລ໌ໃນການຕິດຕັ້ງ Chamilo. ກະລຸນາກວດສອບໃຫ້ແນ່ໃຈວ່າໄດ້ກວດສອບແຜນການນຳໃຊ້ ແລະ ເປີດການສຳຮອງຂໍ້ມູນແລ້ວກ່ອນດຳເນີນການຕໍ່."
 
 msgid "This development entry simulates the future Chamilo.org update notice using local test package paths."
-msgstr ""
+msgstr "ຂໍ້ມູນການພັດທະນານີ້ຈຳລອງການແຈ້ງເຕືອນອັບເດດ Chamilo.org ໃນອະນາຄົດ ໂດຍໃຊ້ເສັ້ນທາງແພັກເກດທົດສອບພາຍໃນ."
 
 msgid "This screen was opened from an official update notice, but no official manifest source is configured yet."
-msgstr ""
+msgstr "ໜ້ານີ້ຖືກເປີດຈາກການແຈ້ງເຕືອນອັບເດດຢ່າງເປັນທາງການ, ແຕ່ຍັງບໍ່ທັນໄດ້ຕັ້ງຄ່າແຫຼ່ງທີ່ມາຂອງ manifest ຢ່າງເປັນທາງການ."
 
 msgid "This screen was opened from an update notice. Only the manifest check is started automatically."
-msgstr ""
+msgstr "ໜ້ານີ້ຖືກເປີດຈາກການແຈ້ງເຕືອນອັບເດດ. ມີພຽງແຕ່ການກວດສອບ manifest ເທົ່ານັ້ນທີ່ເລີ່ມຕົ້ນໂດຍອັດຕະໂນມັດ."
 
 msgid "This step prepares a review only. File replacement happens later in the Apply staged files step, with lock, backup and rollback protection."
-msgstr ""
+msgstr "ຂັ້ນຕອນນີ້ເປັນພຽງການກຽມການກວດສອບເທົ່ານັ້ນ. ການປ່ຽນແທນໄຟລ໌ຈະເກີດຂຶ້ນໃນຂັ້ນຕອນ 'ນຳໃຊ້ໄຟລ໌ທີ່ກຽມໄວ້' ພ້ອມກັບການປ້ອງກັນດ້ວຍລະບົບລັອກ, ສຳຮອງຂໍ້ມູນ ແລະ ການຍ້ອນກັບ (Rollback)."
 
 msgid "This updater does not create a database backup. Create and verify a backup before running migrations."
-msgstr ""
+msgstr "ຕົວອັບເດດນີ້ບໍ່ໄດ້ສ້າງການສຳຮອງຖານຂໍ້ມູນ. ກະລຸນາສ້າງ ແລະ ກວດສອບການສຳຮອງຂໍ້ມູນກ່ອນທີ່ຈະລັນການຍ້າຍຂໍ້ມູນ."
 
 msgid "Trusted public key"
-msgstr ""
+msgstr "Public key ທີ່ເຊື່ອຖືໄດ້"
 
 msgid "Trusted signing key"
-msgstr ""
+msgstr "ລາຍເຊັນຄີ (Signing key) ທີ່ເຊື່ອຖືໄດ້"
 
 msgid "Type APPLY UPDATE FILES to confirm"
-msgstr ""
+msgstr "ພິມ APPLY UPDATE FILES ເພື່ອຢືນຢັນ"
 
 msgid "Type RUN DATABASE MIGRATIONS to confirm database migrations"
-msgstr ""
+msgstr "ພິມ RUN DATABASE MIGRATIONS ເພື່ອຢືນຢັນການຍ້າຍຖານຂໍ້ມູນ"
 
 msgid "Type RUN POST UPDATE ACTIONS to confirm"
-msgstr ""
+msgstr "ພິມ RUN POST UPDATE ACTIONS ເພື່ອຢືນຢັນ"
 
 msgid "Unknown update notice source."
-msgstr ""
+msgstr "ບໍ່ຮູ້ແຫຼ່ງທີ່ມາຂອງການແຈ້ງເຕືອນອັບເດດ."
 
 msgid "Update availability"
-msgstr ""
+msgstr "ການອັບເດດທີ່ມີໃຫ້"
 
 msgid "Update directory"
-msgstr ""
+msgstr "ໂຟນເດີອັບເດດ"
 
 msgid "Update lock path"
-msgstr ""
+msgstr "ເສັ້ນທາງລັອກການອັບເດດ"
 
 msgid "Use the staging directory generated by the previous step. The backend only accepts directories inside var/update/staging."
-msgstr ""
+msgstr "ໃຊ້ໂຟນເດີພັກຂໍ້ມູນທີ່ສ້າງຂຶ້ນຈາກຂັ້ນຕອນກ່ອນໜ້າ. ລະບົບຫຼັງບ້ານຈະຍອມຮັບສະເພາະໂຟນເດີທີ່ຢູ່ພາຍໃນ var/update/staging ເທົ່ານັ້ນ."
 
 msgid "Use this link to simulate the future Chamilo.org update notice during development tests."
-msgstr ""
+msgstr "ໃຊ້ລິ້ງນີ້ເພື່ອຈຳລອງການແຈ້ງເຕືອນອັບເດດ Chamilo.org ໃນລະຫວ່າງການທົດສອບພັດທະນາ."
 
 msgid "Use this only for local development tests. Production updates must use the server configured key."
-msgstr ""
+msgstr "ໃຊ້ສິ່ງນີ້ສະເພາະການທົດສອບພັດທະນາພາຍໃນເທົ່ານັ້ນ. ການອັບເດດໃນລະບົບຈິງຕ້ອງໃຊ້ຄີທີ່ຕັ້ງຄ່າໄວ້ໃນເຊີເວີ."
 
 msgid "Verification details"
-msgstr ""
+msgstr "ລາຍລະອຽດການກວດສອບ"
 
 msgid "Verify package"
 msgstr "ກວດສອບແພັກເກັດ"
@@ -37407,232 +37295,2237 @@ msgid "The print window could not be opened"
 msgstr "ບໍ່ສາມາດເປີດໜ້າຕ່າງການພິມໄດ້"
 
 msgid "The start date is invalid"
-msgstr ""
+msgstr "ວັນທີເລີ່ມຕົ້ນບໍ່ຖືກຕ້ອງ"
 
 msgid "These settings apply to the whole course, including its sessions and groups."
-msgstr ""
+msgstr "ການຕັ້ງຄ່າເຫຼົ່ານີ້ຈະນຳໃຊ້ກັບທັງໝົດຫຼັກສູດ, ລວມທັງວາລະການຮຽນ ແລະ ກຸ່ມ."
 
 msgid "This announcement has already been sent by email."
-msgstr ""
+msgstr "ແຈ້ງການນີ້ໄດ້ຖືກສົ່ງຜ່ານອີເມລແລ້ວ."
 
 msgid "This discussion is hidden from learners"
-msgstr ""
+msgstr "ການສົນທະນານີ້ຖືກຊ່ອນຈາກຜູ້ຮຽນ"
 
 msgid "This generative AI tool allows you to create images and short videos to illustrate your course. By explaining (in text) what you want in the prompt section, you will give the configured AI model the elements necessary to generate an image or a video. Please be patient. The AI model will take some time and generate some result, which you might want to keep by saving the media in your documents folder, and then embed inside an HTML document. Not all AI models are equal in terms of speed or quality. The AI model might also give you a modified prompt, which is a more detailed interpretation of your request. You can then use this modified prompt to finetune your request. Please be aware that this tool, in particular for videos, might generate considerable costs to your organization, even if you decide not to save the generated media. Please use it accordingly. If you have issues obtaining what you are looking for, please take some time to research prompting tricks online for the AI model at your disposal."
-msgstr ""
+msgstr "ເຄື່ອງມື AI ສ້າງສັນ (Generative AI) ນີ້ ຊ່ວຍໃຫ້ທ່ານສ້າງຮູບພາບ ແລະ ວິດີໂອສັ້ນເພື່ອປະກອບເຂົ້າໃນຫຼັກສູດຂອງທ່ານ. ໂດຍການອະທິບາຍ (ເປັນຂໍ້ຄວາມ) ສິ່ງທີ່ທ່ານຕ້ອງການໃນສ່ວນໃສ່ຄຳສັ່ງ (Prompt), ທ່ານຈະໃຫ້ຂໍ້ມູນທີ່ຈຳເປັນແກ່ຕົວແບບ AI ເພື່ອສ້າງຮູບພາບ ຫຼື ວິດີໂອ. ກະລຸນາລໍຖ້າດ້ວຍຄວາມອົດທົນ, ເນື່ອງຈາກຕົວແບບ AI ຕ້ອງໃຊ້ເວລາໃນການປະມວນຜົນ. ທ່ານສາມາດບັນທຶກສື່ທີ່ສ້າງຂຶ້ນໄວ້ໃນໂຟນເດີເອກະສານຂອງທ່ານ ແລະ ນຳໄປຝັງໄວ້ໃນເອກະສານ HTML ໄດ້. ຕົວແບບ AI ແຕ່ລະຕົວມີຄວາມໄວ ແລະ ຄຸນນະພາບທີ່ແຕກຕ່າງກັນ. ບາງຄັ້ງ AI ອາດແນະນຳຄຳສັ່ງທີ່ຖືກປັບປຸງໃໝ່ ເພື່ອໃຫ້ໄດ້ຜົນລັດທີ່ລະອຽດກວ່າ ເຊິ່ງທ່ານສາມາດນຳໄປໃຊ້ເພື່ອປັບແຕ່ງຄວາມຕ້ອງການຂອງທ່ານໃຫ້ດີຂຶ້ນ. ກະລຸນາຮັບຊາບວ່າເຄື່ອງມືນີ້, ໂດຍສະເພາະການສ້າງວິດີໂອ, ອາດມີຄ່າໃຊ້ຈ່າຍສູງຕໍ່ອົງກອນຂອງທ່ານ ເຖິງແມ່ນວ່າທ່ານຈະບໍ່ໄດ້ບັນທຶກສື່ນັ້ນກໍຕາມ. ກະລຸນານຳໃຊ້ຢ່າງເໝາະສົມ. ຫາກທ່ານພົບຫາບັນຫາໃນການສ້າງສິ່ງທີ່ຕ້ອງການ, ກະລຸນາສຶກສາເຕັກນິກການຂຽນຄຳສັ່ງ (Prompting tricks) ທາງອອນໄລນ໌ເພີ່ມເຕີມ."
 
 msgid "This history belongs to the base course. Restore is available after creating a session version."
-msgstr ""
+msgstr "ປະຫວັດນີ້ເປັນຂອງຫຼັກສູດພື້ນຖານ. ສາມາດກູ້ຄືນໄດ້ຫຼັງຈາກສ້າງເວີຊັນວາລະການຮຽນແລ້ວ."
 
 msgid "This image replaces the default forum icon shown next to the forum title."
-msgstr ""
+msgstr "ຮູບນີ້ຈະປ່ຽນແທນໄອຄອນຟໍຣຳມາດຕະຖານທີ່ສະແດງຢູ່ຂ້າງຫົວຂໍ້ຟໍຣຳ."
 
 msgid "This page comes from the base course. Saving it will create a version for the current session."
-msgstr ""
+msgstr "ໜ້ານີ້ມາຈາກຫຼັກສູດພື້ນຖານ. ການບັນທຶກຈະເປັນການສ້າງເວີຊັນໃໝ່ສຳລັບວາລະການຮຽນປັດຈຸບັນ."
 
 msgid "This will also delete %s subcategories."
-msgstr ""
+msgstr "ນີ້ຈະລຶບ %s ໝວດໝູ່ຍ່ອຍນຳ."
 
 msgid "This will create individual work pages for %s learners."
-msgstr ""
+msgstr "ນີ້ຈະສ້າງໜ້າວຽກສ່ວນບຸກຄົນສຳລັບຜູ້ຮຽນ %s ຄົນ."
 
 msgid "Thread history"
-msgstr ""
+msgstr "ປະຫວັດຫົວຂໍ້ສົນທະນາ"
 
 msgid "Title and content"
-msgstr ""
+msgstr "ຫົວຂໍ້ ແລະ ເນື້ອໃນ"
 
 msgid "Unable to cancel renewal right now."
-msgstr ""
+msgstr "ບໍ່ສາມາດຍົກເລີກການຕໍ່ອາຍຸໄດ້ໃນເວລານີ້."
 
 msgid "Unable to restore renewal right now."
-msgstr ""
+msgstr "ບໍ່ສາມາດກູ້ຄືນການຕໍ່ອາຍຸໄດ້ໃນເວລານີ້."
 
 msgid "Unlock page"
-msgstr ""
+msgstr "ປົດລັອກໜ້າ"
 
 msgid "Use [[Page]] or [[Page|Visible text]] to create internal Wiki links."
-msgstr ""
+msgstr "ໃຊ້ [[Page]] ຫຼື [[Page|Visible text]] ເພື່ອສ້າງລິງກ໌ Wiki ພາຍໃນ."
 
 msgid "Use a spacebar or arrow keys to navigate"
-msgstr ""
+msgstr "ໃຊ້ປຸ່ມ spacebar ຫຼື ປຸ່ມລູກສອນເພື່ອເລື່ອນເບິ່ງ"
 
 msgid "View version"
-msgstr ""
+msgstr "ເບິ່ງເວີຊັນ"
 
 msgid "Visible only to teachers"
-msgstr ""
+msgstr "ເຫັນໄດ້ສະເພາະຄູສອນເທົັ້ນນັ້ນ"
 
 msgid "Weight is required"
-msgstr ""
+msgstr "ຈຳເປັນຕ້ອງໃສ່ນ້ຳໜັກຄະແນນ"
 
 msgid "Wiki categories are disabled for this course."
-msgstr ""
+msgstr "ໝວດໝູ່ Wiki ຖືກປິດນຳໃຊ້ສຳລັບຫຼັກສູດນີ້."
 
 msgid "Wiki categories enabled"
-msgstr ""
+msgstr "ເປີດໃຊ້ໝວດໝູ່ Wiki"
 
 msgid "Wiki html strict filtering"
-msgstr ""
+msgstr "ການກັ່ນຕອງ HTML Wiki ແບບເຂັ້ມງວດ"
 
 msgid "Wiki settings"
-msgstr ""
+msgstr "ການຕັ້ງຄ່າ Wiki"
 
 msgid "Wiki settings updated"
-msgstr ""
+msgstr "ອັບເດດການຕັ້ງຄ່າ Wiki ແລ້ວ"
 
 msgid "You are viewing a historical version of this page"
-msgstr ""
+msgstr "ທ່ານກຳລັງເບິ່ງເວີຊັນເກົ່າຂອງໜ້ານີ້"
 
 msgid "You can attach one or more files to this reply."
-msgstr ""
+msgstr "ທ່ານສາມາດຄັດຕິດໄຟລ໌ໜຶ່ງ ຫຼື ຫຼາຍໄຟລ໌ໃນການຕອບກັບນີ້."
 
 msgid "You can edit this assignment page, but learner work pages will not be modified."
-msgstr ""
+msgstr "ທ່ານສາມາດແກ້ໄຂໜ້າວຽກມອບໝາຍນີ້ໄດ້, ແຕ່ໜ້າວຽກຂອງຜູ້ຮຽນຈະບໍ່ຖືກປ່ຽນແປງ."
 
 msgid "You can use the tags {{class_name}} and {{student_full_name}} in the question."
-msgstr ""
+msgstr "ທ່ານສາມາດໃຊ້ແທັກ {{class_name}} ແລະ {{student_full_name}} ໃນຄຳຖາມໄດ້."
 
 msgid "You have 20 minutes to edit this page before the editing lock expires."
-msgstr ""
+msgstr "ທ່ານມີເວລາ 20 ນາທີໃນການແກ້ໄຂໜ້ານີ້ ກ່ອນທີ່ການລັອກການແກ້ໄຂຈະໝົດອາຍຸ."
 
 msgid "by"
-msgstr ""
+msgstr "ໂດຍ"
 
 msgid "required"
-msgstr ""
+msgstr "ຈຳເປັນ"
 
 msgid "Incorrect password."
-msgstr ""
+msgstr "ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ."
 
 msgid "File integrity alerting paused for 1 hour."
-msgstr ""
+msgstr "ຢຸດການແຈ້ງເຕືອນຄວາມຖືກຕ້ອງຂອງໄຟລ໌ຊົ່ວຄາວເປັນເວລາ 1 ຊົ່ວໂມງ."
 
 msgid "New baseline established: %s files."
-msgstr ""
+msgstr "ກຳນົດຈຸດອ້າງອີງໃໝ່ແລ້ວ: %s ໄຟລ໌."
 
 msgid "Scan complete: changes were detected."
-msgstr ""
+msgstr "ການກວດສອບສຳເລັດ: ພົບການປ່ຽນແປງ."
 
 msgid "Scan complete: no changes were detected."
-msgstr ""
+msgstr "ການກວດສອບສຳເລັດ: ບໍ່ພົບການປ່ຽນແປງ."
 
 msgid "File integrity"
-msgstr ""
+msgstr "ຄວາມຖືກຕ້ອງສົມບູນຂອງໄຟລ໌"
 
 msgid "This report compares the installed files (everything except var/ and .git/, though .git/config is still watched to catch a hijacked remote) against a trusted baseline, to detect unexpected additions, modifications or deletions."
-msgstr ""
+msgstr "ລາຍງານນີ້ປຽບທຽບໄຟລ໌ທີ່ຕິດຕັ້ງ (ທັງໝົດຍົກເວັ້ນ var/ ແລະ .git/, ເຖິງແມ່ນວ່າ .git/config ຍັງຖືກຕິດຕາມຢູ່ເພື່ອປ້ອງກັນການລັກລະບົບ) ກັບຈຸດອ້າງອີງທີ່ເຊື່ອຖືໄດ້, ເພື່ອຄົ້ນຫາການເພີ່ມ, ການແກ້ໄຂ ຫຼື ການລຶບທີ່ບໍ່ຄາດຄິດ."
 
 msgid "You can review the latest report below. Running a scan, pausing alerting, or establishing a new baseline requires a global administrator."
-msgstr ""
+msgstr "ທ່ານສາມາດກວດສອບລາຍງານຫຼ້າສຸດໄດ້ຢູ່ດ້ານລຸ່ມ. ການກວດສອບ, ການຢຸດການແຈ້ງເຕືອນ ຫຼື ການກຳນົດຈຸດອ້າງອີງໃໝ່ ຕ້ອງດຳເນີນການໂດຍຜູ້ດູແລລະບົບສູງສຸດ."
 
 msgid "Alerting is currently paused for maintenance. It will automatically resume at %date%."
-msgstr ""
+msgstr "ການແຈ້ງເຕືອນຖືກຢຸດຊົ່ວຄາວເພື່ອບຳລຸງຮັກສາ. ມັນຈະກັບມາເຮັດວຽກໂດຍອັດຕະໂນມັດໃນວັນທີ %date%."
 
 msgid "No scan has run yet. Run one from here, or from the command line with app:file-integrity:scan."
-msgstr ""
+msgstr "ຍັງບໍ່ທັນມີການກວດສອບເທື່ອ. ໃຫ້ເລີ່ມກວດສອບຈາກບ່ອນນີ້ ຫຼື ຜ່ານຄຳສັ່ງ app:file-integrity:scan."
 
 msgid "Last scan"
-msgstr ""
+msgstr "ການກວດສອບຫຼ້າສຸດ"
 
 msgid "Files scanned"
-msgstr ""
+msgstr "ໄຟລ໌ທີ່ຖືກກວດສອບແລ້ວ"
 
 msgid "No baseline existed yet: this scan established one. Changes will be reported starting from the next scan."
-msgstr ""
+msgstr "ຍັງບໍ່ມີຈຸດອ້າງອີງມາກ່ອນ: ການກວດສອບນີ້ໄດ້ສ້າງຈຸດອ້າງອີງຂຶ້ນມາ. ການປ່ຽນແປງຈະຖືກລາຍງານເລີ່ມແຕ່ການກວດສອບຄັ້ງຕໍ່ໄປ."
 
 msgid "No changes detected since the baseline."
-msgstr ""
+msgstr "ບໍ່ພົບການປ່ຽນແປງນັບຕັ້ງແຕ່ການກຳນົດຈຸດອ້າງອີງ."
 
 msgid "The Git remote configuration (.git/config) has changed. Verify this was expected."
-msgstr ""
+msgstr "ການຕັ້ງຄ່າ Git remote (.git/config) ມີການປ່ຽນແປງ. ກະລຸນາກວດສອບວ່າເປັນສິ່ງທີ່ຄາດໄວ້ຫຼືບໍ່."
 
 msgid "The scan stopped early because a subdirectory could not be read (check file permissions). Results below may be partial."
-msgstr ""
+msgstr "ການກວດສອບຢຸດກ່ອນກຳນົດຍ້ອນວ່າບໍ່ສາມາດອ່ານໂຟນເດີຍ່ອຍໄດ້ (ກະລຸນາກວດສອບສິດການເຂົ້າເຖິງໄຟລ໌). ຜົນລາຍງານດ້ານລຸ່ມອາດບໍ່ຄົບຖ້ວນ."
+
+msgid "Too many changes to list in full; only the first entries of each category are shown below. See the CEF log for the complete list."
+msgstr "ມີການປ່ຽນແປງຫຼາຍເກີນໄປທີ່ຈະສະແດງທັງໝົດ; ສະແດງພຽງລາຍການທຳອິດຂອງແຕ່ລະໝວດຂ້າງລຸ່ມນີ້. ເບິ່ງບັນທຶກ CEF ເພື່ອເບິ່ງລາຍການທັງໝົດ."
 
 msgid "%count% file(s) could not be read (permissions) and were skipped."
-msgstr ""
+msgstr "ບໍ່ສາມາດອ່ານໄດ້ %count% ໄຟລ໌ (ສິດການເຂົ້າເຖິງ) ແລະ ຖືກຂ້າມໄປ."
 
 msgid "Run a scan now"
-msgstr ""
+msgstr "ເລີ່ມການກວດສອບດຽວນີ້"
 
 msgid "Pause alerting for 1 hour (for maintenance)"
-msgstr ""
+msgstr "ຢຸດການແຈ້ງເຕືອນເປັນເວລາ 1 ຊົ່ວໂມງ (ເພື່ອບຳລຸງຮັກສາ)"
 
 msgid "Pause for 1 hour"
-msgstr ""
+msgstr "ຢຸດຊົ່ວຄາວ 1 ຊົ່ວໂມງ"
 
 msgid "Trust the current file tree as the new baseline"
-msgstr ""
+msgstr "ເຊື່ອຖືໂຄງສ້າງໄຟລ໌ປັດຈຸບັນເປັນຈຸດອ້າງອີງໃໝ່"
 
 msgid "This will trust every current file as correct, including any unreviewed change. Continue?"
-msgstr ""
+msgstr "ນີ້ຈະຖືວ່າທຸກໄຟລ໌ປັດຈຸບັນຖືກຕ້ອງ, ລວມທັງການປ່ຽນແປງທີ່ຍັງບໍ່ໄດ້ກວດສອບ. ຕ້ອງການດຳເນີນການຕໍ່ຫຼືບໍ່?"
 
 msgid "Establish new baseline"
-msgstr ""
+msgstr "ກຳນົດຈຸດອ້າງອີງໃໝ່"
 
 msgid "Schedule the scan from a system crontab, for example"
-msgstr ""
+msgstr "ຕັ້ງເວລາການກວດສອບຈາກ system crontab, ຕົວຢ່າງ"
 
 msgid "File integrity alert on %platform%"
-msgstr ""
+msgstr "ການແຈ້ງເຕືອນຄວາມຖືກຕ້ອງຂອງໄຟລ໌ໃນ %platform%"
 
 msgid "A file integrity scan detected changes on the platform:"
-msgstr ""
+msgstr "ການກວດສອບຄວາມຖືກຕ້ອງຂອງໄຟລ໌ພົບການປ່ຽນແປງໃນລະບົບ:"
 
 msgid "Added files"
-msgstr ""
+msgstr "ໄຟລ໌ທີ່ເພີ່ມເຂົ້າ"
 
 msgid "Modified files"
-msgstr ""
+msgstr "ໄຟລ໌ທີ່ຖືກແກ້ໄຂ"
 
 msgid "Deleted files"
-msgstr ""
+msgstr "ໄຟລ໌ທີ່ຖືກລຶບ"
 
 msgid "Review the full report from Administration > Security > File integrity."
-msgstr ""
+msgstr "ກວດສອບລາຍງານທັງໝົດໄດ້ທີ່ ການບໍລິຫານລະບົບ > ຄວາມປອດໄພ > ຄວາມຖືກຕ້ອງຂອງໄຟລ໌."
 
 msgid "Password to confirm pausing alerts"
-msgstr ""
+msgstr "ລະຫັດຜ່ານເພື່ອຢືນຢັນການຢຸດການແຈ້ງເຕືອນ"
 
 msgid "Password to confirm the new baseline"
-msgstr ""
+msgstr "ລະຫັດຜ່ານເພື່ອຢືນຢັນຈຸດອ້າງອີງໃໝ່"
 
 msgid "A scan is already running. Please wait for it to finish before starting another one."
-msgstr ""
+msgstr "ກຳລັງມີການກວດສອບດຳເນີນຢູ່. ກະລຸນາລໍຖ້າໃຫ້ສຳເລັດກ່ອນທີ່ຈະເລີ່ມການກວດສອບໃໝ່."
 
 msgid "A scan is currently running (started at %date%). A full scan can take several minutes; this page can be safely reloaded to check progress."
-msgstr ""
+msgstr "ຂະນະນີ້ກຳລັງມີການກວດສອບດຳເນີນຢູ່ (ເລີ່ມເມື່ອ %date%). ການກວດສອບທັງໝົດອາດໃຊ້ເວລາຫຼາຍນາທີ; ທ່ານສາມາດໂຫຼດໜ້ານີ້ໃໝ່ເພື່ອເບິ່ງຄວາມຄືບໜ້າໄດ້."
 
 msgid "Currently processing"
-msgstr ""
+msgstr "ກຳລັງປະມວນຜົນ"
 
 msgid "A previous scan (started at %date%) was interrupted before it finished — the process is no longer running. You can safely start a new one."
-msgstr ""
+msgstr "ການກວດສອບກ່ອນໜ້ານີ້ (ເລີ່ມເມື່ອ %date%) ຖືກຂັດຈັງຫວະກ່ອນຈະສຳເລັດ — ຂະບວນການບໍ່ໄດ້ເຮັດວຽກແລ້ວ. ທ່ານສາມາດເລີ່ມການກວດສອບໃໝ່ໄດ້."
 
 msgid "files"
-msgstr ""
+msgstr "ໄຟລ໌"
 
 msgid "Permissions changed"
-msgstr ""
+msgstr "ສິດການເຂົ້າເຖິງປ່ຽນແປງ"
 
 msgid "Files with changed permissions"
-msgstr ""
+msgstr "ໄຟລ໌ທີ່ມີການປ່ຽນແປງສິດການເຂົ້າເຖິງ"
 
 msgid "Alert history"
-msgstr ""
+msgstr "ປະຫວັດການແຈ້ງເຕືອນ"
 
 msgid "Every scan that found something, kept even after the drift is resolved or a new baseline is established — unlike the report above, a clean scan or a rebaseline never clears this."
-msgstr ""
+msgstr "ທຸກໆການກວດສອບທີ່ພົບຄວາມຜິດປົກກະຕິຈະຖືກເກັບໄວ້ ເຖິງແມ່ນວ່າການຄາດເຄື່ອນຈະຖືກແກ້ໄຂ ຫຼື ມີການກຳນົດຈຸດອ້າງອີງໃໝ່ແລ້ວກໍຕາມ — ບໍ່ຄືກັບລາຍງານຂ້າງເທິງ, ການກວດສອບທີ່ສະອາດ ຫຼື ການກຳນົດຈຸດອ້າງອີງໃໝ່ຈະບໍ່ລຶບຂໍ້ມູນສ່ວນນີ້."
 
 msgid "This entry was truncated at capture time; see the CEF log for the complete list."
-msgstr ""
+msgstr "ຂໍ້ມູນນີ້ຖືກຕັດໃຫ້ສັ້ນລົງໃນຂະນະທີ່ບັນທຶກ; ເບິ່ງບັນທຶກ CEF ສຳລັບລາຍການທີ່ສົມບູນ."
 
 msgid "No alert has been recorded yet."
-msgstr ""
+msgstr "ຍັງບໍ່ທັນມີການບັນທຶກການແຈ້ງເຕືອນເທື່ອ."
 
 msgid "Git remote changed"
+msgstr "Git remote ມີການປ່ຽນແປງ"
+
+msgid "Press enter to select"
+msgstr "ກົດ Enter ເພື່ອເລືອກ"
+
+msgid "Press enter to remove"
+msgstr "ກົດ Enter ເພື່ອລຶບ"
+
+msgid "No elements found. Consider changing the search query."
+msgstr "ບໍ່ພົບອົງປະກອບ. ລອງປ່ຽນຄຳຄົ້ນຫາ."
+
+msgid "List is empty."
+msgstr "ລາຍການວ່າງເປົ່າ."
+
+msgid "Your session has expired. Please try again."
+msgstr "ເຊດຊັນຂອງທ່ານໝົດອາຍຸແລ້ວ. ກະລຸນາລອງໃໝ່."
+
+msgid "Generate with AI"
+msgstr "ສ້າງດ້ວຍ AI"
+
+msgid "A modern, welcoming illustration representing this course's topic, in a clean flat-design style, using my platform's colors as accents."
+msgstr "ຮູບປະກອບທັນສະໄໝ ທີ່ສະແດງເຖິງຫົວຂໍ້ຂອງຫຼັກສູດນີ້ ໃນຮູບແບບຮາບຮຽບ ໂດຍໃຊ້ສີຂອງແພລດຟອມເປັນສີເນັ້ນ."
+
+msgid "Back to account"
+msgstr "ກັບໄປບັນຊີ"
+
+msgid "Your feedback will help us improve future training sessions."
+msgstr "ຄຳເຫັນຂອງທ່ານຈະຊ່ວຍໃຫ້ພວກເຮົາປັບປຸງການຝຶກອົບຮົມໃນອະນາຄົດ."
+
+msgid "Thank you for sharing your feedback."
+msgstr "ຂອບໃຈສຳລັບການແບ່ງປັນຄຳເຫັນຂອງທ່ານ."
+
+msgid "How satisfied are you with the overall quality of the training?"
+msgstr "ທ່ານພໍໃຈກັບຄຸນນະພາບໂດຍລວມຂອງການຝຶກອົບຮົມຫຼາຍປານໃດ?"
+
+msgid "How satisfied are you with the relevance of the content?"
+msgstr "ທ່ານພໍໃຈກັບຄວາມກ່ຽວຂ້ອງຂອງເນື້ອຫາຫຼາຍປານໃດ?"
+
+msgid "How satisfied are you with the clarity of the explanations?"
+msgstr "ທ່ານພໍໃຈກັບຄວາມຊັດເຈນຂອງຄຳອະທິບາຍຫຼາຍປານໃດ?"
+
+msgid "How satisfied are you with the organization and pace of the training?"
+msgstr "ທ່ານພໍໃຈກັບການຈັດຕັ້ງ ແລະ ຈັງຫວະຂອງການຝຶກອົບຮົມຫຼາຍປານໃດ?"
+
+msgid "How satisfied are you with the practical usefulness of what you learned?"
+msgstr "ທ່ານພໍໃຈກັບປະໂຫຍດຕົວຈິງຂອງສິ່ງທີ່ທ່ານໄດ້ຮຽນຮູ້ຫຼາມປານໃດ?"
+
+msgid "Would you recommend this training to other people?"
+msgstr "ທ່ານຈະແນະນຳການຝຶກອົບຮົມນີ້ໃຫ້ກັບບຸກຄົນອື່ນໆບໍ?"
+
+msgid "What should we improve in future editions?"
+msgstr "ພວກເຮົາຄວນປັບປຸງຫຍັງໃນການຈັດຕັ້ງຄັ້ງຕໍ່ໄປ?"
+
+msgid "Very satisfied"
+msgstr "ພໍໃຈຫຼາຍ"
+
+msgid "Satisfied"
+msgstr "ພໍໃຈ"
+
+msgid "Neutral"
+msgstr "ປານກາງ"
+
+msgid "Dissatisfied"
+msgstr "ບໍ່ພໍໃຈ"
+
+msgid "Very dissatisfied"
+msgstr "ບໍ່ພໍໃຈເລີຍ"
+
+msgid "Add destination"
+msgstr "ເພີ່ມປາຍທາງ"
+
+msgid "Add this test to the assessment tool"
+msgstr "ເພີ່ມການທົດສອບນີ້ໄປຍັງເຄື່ອງມືການປະເມີນ"
+
+msgid "Attempts and timing"
+msgstr "ການພະຍາຍາມ ແລະ ເວລາ"
+
+msgid "Available questions"
+msgstr "ຄຳຖາມທີ່ມີຢູ່"
+
+msgid "Cancel and return to learning path"
+msgstr "ຍົກເລີກ ແລະ ກັບໄປຍັງເສັ້ນທາງການຮຽນ"
+
+msgid "Category destinations"
+msgstr "ປາຍທາງປະເພດ"
+
+msgid "Classification"
+msgstr "ການຈັດປະເພດ"
+
+msgid "Context"
+msgstr "ບໍລິບົດ"
+
+msgid "Could not load exercise configuration"
+msgstr "ບໍ່ສາມາດໂຫຼດການຕັ້ງຄ່າແບບຝຶກຫັດ"
+
+msgid "Could not save exercise"
+msgstr "ບໍ່ສາມາດບັນທຶກແບບຝຶກຫັດ"
+
+msgid "Display and learning path"
+msgstr "ການສະແດງ ແລະ ເສັ້ນທາງການຮຽນ"
+
+msgid "Edit test"
+msgstr "ແກ້ໄຂການທົດສອບ"
+
+msgid "Exercise settings saved."
+msgstr "ບັນທຶກການຕັ້ງຄ່າແບບຝຶກຫັດແລ້ວ."
+
+msgid "Extra settings"
+msgstr "ການຕັ້ງຄ່າເພີ່ມເຕີມ"
+
+msgid "Feedback and results"
+msgstr "ຄຳເຫັນ ແລະ ຜົນໄດ້ຮັບ"
+
+msgid "Finish exercise"
+msgstr "ສຳເລັດແບບຝຶກຫັດ"
+
+msgid "Identifies the language of this exercise as resource metadata. It does not enable search indexing by itself."
+msgstr "ກຳນົດພາສາຂອງແບບຝຶກຫັດນີ້ເປັນຂໍ້ມູນເມຕາຂອງຊັບພະຍາກອນ. ມັນບໍ່ເປີດໃຊ້ການຈັດດັດສະນີການຊອກຫາໂດຍຕົນເອງ."
+
+msgid "Maximum score (%)"
+msgstr "ຄະແນນສູງສຸດ (%)"
+
+msgid "Metadata contains skills and additional fields configured for exercises. It is optional and remains hidden until opened."
+msgstr "ຂໍ້ມູນເມຕາປະກອບມີທັກສະ ແລະ ຊ່ອງຂໍ້ມູນເພີ່ມເຕີມທີ່ຕັ້ງຄ່າສຳລັບແບບຝຶກຫັດ. ມັນເປັນທາງເລືອກ ແລະ ຍັງເຊື່ອງຢູ່ຈົນກວ່າຈະເປີດ."
+
+msgid "No question categories are available for this exercise yet."
+msgstr "ຍັງບໍ່ມີປະເພດຄຳຖາມທີ່ໃຊ້ໄດ້ສຳລັບແບບຝຶກຫັດນີ້."
+
+msgid "Question categories matrix"
+msgstr "ແມທຣິກສະປະເພດຄຳຖາມ"
+
+msgid "Questions behavior"
+msgstr "ພຶດຕິກຳຄຳຖາມ"
+
+msgid "Random by category"
+msgstr "ສຸ່ມຕາມປະເພດ"
+
+msgid "Remove destination"
+msgstr "ລຶບປາຍທາງ"
+
+msgid "Rules are evaluated by score percentage in ascending order. Select Finish exercise to end the test."
+msgstr "ກົດລະບຽບຖືກປະເມີນຕາມເປີເຊັນຄະແນນໃນລຳດັບຈາກນ້ອຍໄປຫາໃຫຍ່. ເລືອກ ສຳເລັດແບບຝຶກຫັດ ເພື່ອສິ້ນສຸດການທົດສອບ."
+
+msgid "Score and final messages"
+msgstr "ຄະແນນ ແລະ ຂໍ້ຄວາມສຸດທ້າຍ"
+
+msgid "Some options are locked after the exercise has been created."
+msgstr "ບາງຕົວເລືອກຖືກລັອກຫຼັງຈາກສ້າງແບບຝຶກຫັດແລ້ວ."
+
+msgid "This value is stored as total duration in minutes."
+msgstr "ຄ່ານີ້ຖືກເກັບເປັນໄລຍະເວລາທັງໝົດເປັນນາທີ."
+
+msgid "Use 0 to keep all available questions. Use -1 where all available questions are allowed."
+msgstr "ໃຊ້ 0 ເພື່ອເກັບຄຳຖາມທັງໝົດທີ່ມີຢູ່. ໃຊ້ -1 ເພື່ອອະນຸຍາດຄຳຖາມທັງໝົດທີ່ມີຢູ່."
+
+msgid "Use these fields to classify the exercise independently from its display options."
+msgstr "ໃຊ້ຊ່ອງຂໍ້ມູນເຫຼົ່ານີ້ເພື່ອຈັດປະເພດແບບຝຶກຫັດໂດຍບໍ່ຂຶ້ນກັບຕົວເລືອກການສະແດງຜົນ."
+
+msgid "Invite by email"
+msgstr "ເຊີນໂດຍອີເມວ"
+
+msgid "Invitation has been sent"
+msgstr "ການເຊີນໄດ້ຖືກສົ່ງແລ້ວ"
+
+msgid "Sent on"
+msgstr "ສົ່ງເມື່ອ"
+
+msgid "Accepted on"
+msgstr "ຍອມຮັບເມື່ອ"
+
+msgid "This course is opened in a session. Sending an invitation here will subscribe the recipient to the entire session %s, not just this course."
+msgstr "ຫຼັກສູດນີ້ເປີດໃນພາກການສຶກສາ. ການສົ່ງການເຊີນທີ່ນີ້ຈະສະໝັກຜູ້ຮັບເຂົ້າພາກການສຶກສາທັງໝົດ %s, ບໍ່ແມ່ນພຽງແຕ່ຫຼັກສູດນີ້."
+
+msgid "Revoke"
+msgstr "ຖອນການເຊີນ"
+
+msgid "Revoked"
+msgstr "ຖອນການເຊີນແລ້ວ"
+
+msgid "Invitation has been revoked"
+msgstr "ການເຊີນໄດ້ຖືກຖອນແລ້ວ"
+
+msgid "Are you sure you want to revoke the invitation sent to %s?"
+msgstr "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຖອນການເຊີນທີ່ສົ່ງໄປຫາ %s?"
+
+msgid "No default room"
+msgstr "ບໍ່ມີຫ້ອງເລີ່ມຕົ້ນ"
+
+msgid "Floor"
+msgstr "ຊັ້ນ"
+
+msgid "Capacity"
+msgstr "ຄວາມສາມາດ"
+
+msgid "Use attendance default room"
+msgstr "ໃຊ້ຫ້ອງເລີ່ມຕົ້ນສຳລັບການເຂົ້າຮຽນ"
+
+msgid "Floor number"
+msgstr "ເລກຊັ້ນ"
+
+msgid "Copy to students"
+msgstr "ສຳເນົາໃຫ້ນັກຮຽນ"
+
+msgid "Generate a quick test on this topic"
+msgstr "ສ້າງການທົດສອບໄວສຳລັບຫົວຂໍ້ນີ້"
+
+msgid "The saved document content will be sent to an AI model for processing."
+msgstr "ເນື້ອຫາເອກະສານທີ່ບັນທຶກຈະຖືກສົ່ງໄປຫາແບບຈຳລອງ AI ເພື່ອປະມວນຜົນ."
+
+msgid "MCP API key"
+msgstr "ກະແຈ API MCP"
+
+msgid "Authorized applications"
+msgstr "ແອັບພລິເຄຊັນທີ່ໄດ້ຮັບອະນຸຍາດ"
+
+msgid "Your session is about to expire"
+msgstr "ພາກການສຶກສາຂອງທ່ານກຳລັງຈະໝົດອາຍຸ"
+
+msgid "Do you want to continue your session?"
+msgstr "ທ່ານຕ້ອງການສືບຕໍ່ພາກການສຶກສາຂອງທ່ານບໍ?"
+
+msgid "Your session details have been lost, please login again."
 msgstr ""
 
-msgid "Too many changes to list in full; only the first entries of each category are shown below. See the %link_start%CEF log%link_end% for the complete list."
+msgid "Access to this resource has been denied. You don't seem to have the necessary permissions to access it."
 msgstr ""
+
+msgid "Stay connected"
+msgstr "ຢູ່ເຊື່ອມຕໍ່"
+
+msgid "You will be signed out in %s seconds."
+msgstr "ທ່ານຈະຖືກອອກຈາກລະບົບໃນ %s ວິນາທີ."
+
+msgid "No descriptions available yet."
+msgstr "ຍັງບໍ່ມີຄຳອະທິບາຍ."
+
+msgid "%s users selected"
+msgstr "ເລືອກ %s ຜູ້ໃຊ້"
+
+msgid "The selected users have been subscribed to the course"
+msgstr "ຜູ້ໃຊ້ທີ່ເລືອກໄດ້ຖືກສະໝັກເຂົ້າຫຼັກສູດແລ້ວ"
+
+msgid "Import teachers"
+msgstr "ນຳເຂົ້າຄູອາຈານ"
+
+msgid "Import learners"
+msgstr "ນຳເຂົ້ານັກຮຽນ"
+
+msgid "Select CSV file"
+msgstr "ເລືອກໄຟລ໌ CSV"
+
+msgid "Some users could not be subscribed"
+msgstr "ບາງຜູ້ໃຊ້ບໍ່ສາມາດສະໝັກໄດ້"
+
+msgid "Browse available classes"
+msgstr "ຊອກຫາຫ້ອງຮຽນທີ່ມີ"
+
+msgid "Back to linked classes"
+msgstr "ກັບໄປຫ້ອງຮຽນທີ່ເຊື່ອມໂຍງ"
+
+msgid "No classes are currently linked to this course."
+msgstr "ບໍ່ມີຫ້ອງຮຽນໃດເຊື່ອມໂຍງກັບຫຼັກສູດນີ້ໃນປັດຈຸບັນ."
+
+msgid "No available classes were found for this course."
+msgstr "ບໍ່ພົບຫ້ອງຮຽນທີ່ມີສຳລັບຫຼັກສູດນີ້."
+
+msgid "Are you sure you want to unsubscribe the selected users?"
+msgstr "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຍົກເລີກການສະໝັກຜູ້ໃຊ້ທີ່ເລືອກ?"
+
+msgid "Learning path access"
+msgstr "ການເຂົ້າເຖິງເສັ້ນທາງການຮຽນ"
+
+msgid "Only selected users and groups can access this learning path. Manage them after saving."
+msgstr "ມີພຽງແຕ່ຜູ້ໃຊ້ແລະກຸ່ມທີ່ເລືອກເທົ່ານັ້ນທີ່ສາມາດເຂົ້າເຖິງເສັ້ນທາງການຮຽນນີ້. ຈັດການພວກເຂົາຫຼັງຈາກບັນທຶກ."
+
+msgid "All current and future course users can access this learning path."
+msgstr "ຜູ້ໃຊ້ຫຼັກສູດທັງໝົດໃນປັດຈຸບັນແລະອະນາຄົດສາມາດເຂົ້າເຖິງເສັ້ນທາງການຮຽນນີ້."
+
+msgid "All course users"
+msgstr "ຜູ້ໃຊ້ຫຼັກສູດທັງໝົດ"
+
+msgid "Selected users and groups"
+msgstr "ຜູ້ໃຊ້ແລະກຸ່ມທີ່ເລືອກ"
+
+msgid "No access"
+msgstr "ບໍ່ມີການເຂົ້າເຖິງ"
+
+msgid "Only users and groups added here can access this learning path."
+msgstr "ມີພຽງແຕ່ຜູ້ໃຊ້ແລະກຸ່ມທີ່ເພີ່ມທີ່ນີ້ເທົ່ານັ້ນທີ່ສາມາດເຂົ້າເຖິງເສັ້ນທາງການຮຽນນີ້."
+
+msgid "Number of questions limited to a maximum of %s"
+msgstr "ຈຳນວນຄຳຖາມຖືກຈຳກັດສູງສຸດ %s"
+
+msgid "Open exercise player"
+msgstr "ເປີດຕົວຫຼິ້ນແບບຝຶກຫັດ"
+
+msgid "The score is hidden for this exercise."
+msgstr "ຄະແນນຖືກເຊື່ອງໄວ້ສຳລັບແບບຝຶກຫັດນີ້."
+
+msgid "Corrections are hidden according to the exercise result settings."
+msgstr "ການແກ້ໄຂຖືກເຊື່ອງໄວ້ຕາມການຕັ້ງຄ່າຜົນແບບຝຶກຫັດ."
+
+msgid "Progressive adaptive result"
+msgstr "ຜົນການປັບຕົວແບບກ້າວໜ້າ"
+
+msgid "Achieved level"
+msgstr "ລະດັບທີ່ບັນລຸ"
+
+msgid "Correction history"
+msgstr "ປະຫວັດການແກ້ໄຂ"
+
+msgid "History of manual corrections made for this attempt."
+msgstr "ປະຫວັດການແກ້ໄຂດ້ວຍມືທີ່ເຮັດສຳລັບການພະຍາຍາມນີ້."
+
+msgid "This exercise uses the radar/spiderweb result mode. The chart is not available on this page."
+msgstr "ແບບຝຶກຫັດນີ້ໃຊ້ຮູບແບບຜົນໄດ້ຮັບ radar/spiderweb. ບໍ່ສາມາດສະແດງຕາຕະລາງໃນໜ້ານີ້ໄດ້."
+
+msgid "Question details are hidden according to the exercise result settings."
+msgstr "ລາຍລະອຽດຄຳຖາມຖືກເຊື່ອງໄວ້ຕາມການຕັ້ງຄ່າຜົນໄດ້ຮັບຂອງແບບຝຶກຫັດ."
+
+msgid "Media question"
+msgstr "ຄຳຖາມສື່ມວນຊົນ"
+
+msgid "Pending correction"
+msgstr "ລໍຖ້າການແກ້ໄຂ"
+
+msgid "No answer"
+msgstr "ບໍ່ມີຄຳຕອບ"
+
+msgid "Blank %s"
+msgstr "ວ່າງ %s"
+
+msgid "Your order"
+msgstr "ລຳດັບຂອງທ່ານ"
+
+msgid "Correct order"
+msgstr "ລຳດັບທີ່ຖືກຕ້ອງ"
+
+msgid "Delineation review"
+msgstr "ການກວດສອບການກຳນົດເຂດ"
+
+msgid "Learner clicks"
+msgstr "ຜູ້ຮຽນກົດ"
+
+msgid "Question image"
+msgstr "ຮູບພາບຄຳຖາມ"
+
+msgid "No hotspot image available"
+msgstr "ບໍ່ມີຮູບພາບ hotspot"
+
+msgid "Learner delineation"
+msgstr "ການກຳນົດເຂດຂອງຜູ້ຮຽນ"
+
+msgid "Expected delineation"
+msgstr "ການກຳນົດເຂດທີ່ຄາດຫວັງ"
+
+msgid "Expected zones"
+msgstr "ເຂດທີ່ຄາດຫວັງ"
+
+msgid "Zone"
+msgstr "ເຂດ"
+
+msgid "Learner annotation"
+msgstr "ຄຳອະທິບາຍຂອງຜູ້ຮຽນ"
+
+msgid "No annotation image available"
+msgstr "ບໍ່ມີຮູບພາບຄຳອະທິບາຍ"
+
+msgid "This answer is pending teacher correction."
+msgstr "ຄຳຕອບນີ້ລໍຖ້າການແກ້ໄຂຂອງຄູ."
+
+msgid "Teacher comment"
+msgstr "ຄຳເຫັນຂອງຄູ"
+
+msgid "Teacher correction"
+msgstr "ການແກ້ໄຂຂອງຄູ"
+
+msgid "Save correction"
+msgstr "ບັນທຶກການແກ້ໄຂ"
+
+msgid "Learner audio"
+msgstr "ສຽງຂອງຜູ້ຮຽນ"
+
+msgid "Download audio"
+msgstr "ດາວໂຫຼດສຽງ"
+
+msgid "No uploaded audio"
+msgstr "ບໍ່ມີສຽງທີ່ອັບໂຫຼດ"
+
+msgid "Learner Office document"
+msgstr "ເອກະສານ Office ຂອງຜູ້ຮຽນ"
+
+msgid "Learner file"
+msgstr "ໄຟລ໌ຂອງຜູ້ຮຽນ"
+
+msgid "Download Office document"
+msgstr "ດາວໂຫຼດເອກະສານ Office"
+
+msgid "No submitted document"
+msgstr "ບໍ່ມີເອກະສານທີ່ສົ່ງ"
+
+msgid "No uploaded file"
+msgstr "ບໍ່ມີໄຟລ໌ທີ່ອັບໂຫຼດ"
+
+msgid "Content item"
+msgstr "ລາຍການເນື້ອຫາ"
+
+msgid "This question type cannot be reviewed on this page."
+msgstr "ບໍ່ສາມາດກວດສອບປະເພດຄຳຖາມນີ້ໃນໜ້ານີ້ໄດ້."
+
+msgid "Exercise completed"
+msgstr "ແບບຝຶກຫັດສຳເລັດແລ້ວ"
+
+msgid "Could not start the attempt"
+msgstr "ບໍ່ສາມາດເລີ່ມການພະຍາຍາມໄດ້"
+
+msgid "Invalid exercise attempt"
+msgstr "ການພະຍາຍາມແບບຝຶກຫັດບໍ່ຖືກຕ້ອງ"
+
+msgid "Could not load exercise result"
+msgstr "ບໍ່ສາມາດໂຫຼດຜົນໄດ້ຮັບແບບຝຶກຫັດໄດ້"
+
+msgid "Could not load AI providers"
+msgstr "ບໍ່ສາມາດໂຫຼດຜູ້ໃຫ້ບໍລິການ AI ໄດ້"
+
+msgid "Could not generate AI suggestion"
+msgstr "ບໍ່ສາມາດສ້າງຄຳແນະນຳ AI ໄດ້"
+
+msgid "Correction saved"
+msgstr "ບັນທຶກການແກ້ໄຂແລ້ວ"
+
+msgid "Could not save correction"
+msgstr "ບໍ່ສາມາດບັນທຶກການແກ້ໄຂໄດ້"
+
+msgid "Create exercise"
+msgstr "ສ້າງແບບຝຶກຫັດ"
+
+msgid "Exercise categories"
+msgstr "ໝວດໝູ່ແບບຝຶກຫັດ"
+
+msgid "Question categories"
+msgstr "ໝວດໝູ່ຄຳຖາມ"
+
+msgid "Search by exercise title or description."
+msgstr "ຄົ້ນຫາຕາມຊື່ຫຼືລາຍລະອຽດແບບຝຶກຫັດ."
+
+msgid "Search exercises"
+msgstr "ຄົ້ນຫາແບບຝຶກຫັດ"
+
+msgid "No exercises found"
+msgstr "ບໍ່ພົບແບບຝຶກຫັດ"
+
+msgid "Open exercise"
+msgstr "ເປີດແບບຝຶກຫັດ"
+
+msgid "Disable autolaunch"
+msgstr "ປິດການເປີດອັດຕະໂນມັດ"
+
+msgid "Enable autolaunch"
+msgstr "ເປີດການເປີດອັດຕະໂນມັດ"
+
+msgid "Export QTI2"
+msgstr "ສົ່ງອອກ QTI2"
+
+msgid "Bulk actions"
+msgstr "ການດຳເນີນການຈຳນວນຫຼາຍ"
+
+msgid "Selected exercises"
+msgstr "ແບບຝຶກຫັດທີ່ເລືອກ"
+
+msgid "No exercises selected"
+msgstr "ບໍ່ມີແບບຝຶກຫັດທີ່ເລືອກ"
+
+msgid "Are you sure you want to apply this action to the selected exercises?"
+msgstr "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການນຳໃຊ້ການດຳເນີນການນີ້ກັບແບບຝຶກຫັດທີ່ເລືອກ?"
+
+msgid "Bulk action completed"
+msgstr "ການດຳເນີນການຈຳນວນຫຼາຍສຳເລັດແລ້ວ"
+
+msgid "Could not update exercises"
+msgstr "ບໍ່ສາມາດອັບເດດແບບຝຶກຫັດໄດ້"
+
+msgid "Could not update exercise"
+msgstr "ບໍ່ສາມາດອັບເດດແບບຝຶກຫັດໄດ້"
+
+msgid "Copy exercise"
+msgstr "ສຳເນົາແບບຝຶກຫັດ"
+
+msgid "Delete exercise"
+msgstr "ລຶບແບບຝຶກຫັດ"
+
+msgid "Could not load exercises"
+msgstr "ບໍ່ສາມາດໂຫຼດແບບຝຶກຫັດໄດ້"
+
+msgid "No limit"
+msgstr "ບໍ່ຈຳກັດ"
+
+msgid "Add selected questions to the test"
+msgstr "ເພີ່ມຄຳຖາມທີ່ເລືອກໄປຫາການທົດສອບ"
+
+msgid "This question is used in an active test and cannot be edited here."
+msgstr "ຄຳຖາມນີ້ຖືກໃຊ້ໃນການທົດສອບທີ່ກຳລັງດຳເນີນ ແລະບໍ່ສາມາດແກ້ໄຂໄດ້ທີ່ນີ້."
+
+msgid "This question cannot be edited here."
+msgstr "ຄຳຖາມນີ້ບໍ່ສາມາດແກ້ໄຂໄດ້ທີ່ນີ້."
+
+msgid "This question is used in an active test and cannot be deleted here."
+msgstr "ຄຳຖາມນີ້ຖືກໃຊ້ໃນການທົດສອບທີ່ກຳລັງດຳເນີນ ແລະບໍ່ສາມາດລຶບໄດ້ທີ່ນີ້."
+
+msgid "This question cannot be deleted because your access is limited by the platform settings."
+msgstr "ຄຳຖາມນີ້ບໍ່ສາມາດລຶບໄດ້ ເນື່ອງຈາກການເຂົ້າເຖິງຂອງທ່ານຖືກຈຳກັດໂດຍການຕັ້ງຄ່າຂອງລະບົບ."
+
+msgid "Already in test"
+msgstr "ມີໃນການທົດສອບແລ້ວ"
+
+msgid "Select at least one question."
+msgstr "ກະລຸນາເລືອກຄຳຖາມຢ່າງໜ້ອຍໜຶ່ງຂໍ້."
+
+msgid "Question bank updated"
+msgstr "ອັບເດດຄັງຄຳຖາມແລ້ວ"
+
+msgid "Could not update the question bank"
+msgstr "ບໍ່ສາມາດອັບເດດຄັງຄຳຖາມໄດ້"
+
+msgid "Could not load the question bank"
+msgstr "ບໍ່ສາມາດໂຫຼດຄັງຄຳຖາມໄດ້"
+
+msgid "Total score"
+msgstr "ຄະແນນລວມ"
+
+msgid "Starting"
+msgstr "ກຳລັງເລີ່ມ"
+
+msgid "Attempt history"
+msgstr "ປະຫວັດການພະຍາຍາມ"
+
+msgid "No attempts yet"
+msgstr "ຍັງບໍ່ມີການພະຍາຍາມ"
+
+msgid "Invalid exercise"
+msgstr "ແບບຝຶກຫັດບໍ່ຖືກຕ້ອງ"
+
+msgid "Could not load exercise overview"
+msgstr "ບໍ່ສາມາດໂຫຼດພາບລວມແບບຝຶກຫັດໄດ້"
+
+msgid "Open test"
+msgstr "ເປີດການທົດສອບ"
+
+msgid "Random answers"
+msgstr "ຄຳຕອບແບບສຸ່ມ"
+
+msgid "Prevent moving backwards"
+msgstr "ປ້ອງກັນການຖອຍຫຼັງ"
+
+msgid "Previous button hidden"
+msgstr "ເຊື່ອງປຸ່ມກ່ອນໜ້າ"
+
+msgid "This exercise uses options that require a different test player."
+msgstr "ແບບຝຶກຫັດນີ້ໃຊ້ຕົວເລືອກທີ່ຕ້ອງການຜູ້ຫຼິ້ນການທົດສອບແບບອື່ນ."
+
+msgid "Continue test"
+msgstr "ສືບຕໍ່ການທົດສອບ"
+
+msgid "Attempt started"
+msgstr "ເລີ່ມການພະຍາຍາມ"
+
+msgid "Teacher preview does not create a tracked attempt."
+msgstr "ການສະແດງຕົວຢ່າງຂອງຄູບໍ່ສ້າງການພະຍາຍາມທີ່ຖືກຕິດຕາມ."
+
+msgid "Start or resume an exercise attempt. Draft answers can be saved before final submission."
+msgstr "ເລີ່ມ ຫຼື ສືບຕໍ່ການພະຍາຍາມແບບຝຶກຫັດ. ສາມາດບັນທຶກຄຳຕອບຮ່າງກ່ອນສົ່ງສຸດທ້າຍ."
+
+msgid "Time limit reached. Finishing the attempt."
+msgstr "ເຖິງຂີດຈຳກັດເວລາແລ້ວ. ກຳລັງສິ້ນສຸດການພະຍາຍາມ."
+
+msgid "Question time reached. Saving your answer."
+msgstr "ເຖິງເວລາຄຳຖາມແລ້ວ. ກຳລັງບັນທຶກຄຳຕອບຂອງທ່ານ."
+
+msgid "Finishing"
+msgstr "ກຳລັງສິ້ນສຸດ"
+
+msgid "Draft saved"
+msgstr "ບັນທຶກຮ່າງແລ້ວ"
+
+msgid "Statement"
+msgstr "ຄຳຖະແຫຼງ"
+
+msgid "Drop each option on the matching answer"
+msgstr "ວາງຕົວເລືອກແຕ່ລະຂໍ້ໃສ່ຄຳຕອບທີ່ກົງກັນ"
+
+msgid "Clear match"
+msgstr "ລຶບການຈັບຄູ່"
+
+msgid "Click to place the selected option here"
+msgstr "ຄລິກເພື່ອວາງຕົວເລືອກທີ່ເລືອກໄວ້ທີ່ນີ້"
+
+msgid "Select an option, then click here"
+msgstr "ເລືອກຕົວເລືອກ, ຫຼັງຈາກນັ້ນຄລິກທີ່ນີ້"
+
+msgid "Already matched"
+msgstr "ຈັບຄູ່ແລ້ວ"
+
+msgid "You can drag an option to an answer, or select an option and then click a target box."
+msgstr "ທ່ານສາມາດລາກຕົວເລືອກໄປຫາຄຳຕອບ, ຫຼືເລືອກຕົວເລືອກແລ້ວຄລິກໃສ່ກ່ອງເປົ້າໝາຍ."
+
+msgid "Put the items in the correct order."
+msgstr "ຈັດລາຍການໃຫ້ຖືກຕ້ອງຕາມລຳດັບ."
+
+msgid "Move left"
+msgstr "ຍ້າຍໄປຊ້າຍ"
+
+msgid "Move right"
+msgstr "ຍ້າຍໄປຂວາ"
+
+msgid "You can drag items left or right, or use the move buttons to change the order."
+msgstr "ທ່ານສາມາດລາກລາຍການໄປຊ້າຍ ຫຼື ຂວາ ຫຼື ໃຊ້ປຸ່ມຍ້າຍເພື່ອປ່ຽນລຳດັບ."
+
+msgid "You can drag items or use the move buttons to change the order."
+msgstr "ທ່ານສາມາດລາກລາຍການ ຫຼື ໃຊ້ປຸ່ມຍ້າຍເພື່ອປ່ຽນລຳດັບ."
+
+msgid "Or upload an audio file"
+msgstr "ຫຼື ອັບໂຫຼດໄຟລ໌ສຽງ"
+
+msgid "Selected audio"
+msgstr "ສຽງທີ່ເລືອກ"
+
+msgid "Uploaded audio"
+msgstr "ສຽງທີ່ອັບໂຫຼດ"
+
+msgid "Office document"
+msgstr "ເອກະສານ Office"
+
+msgid "Complete the document in the editor below. The file will be attached to this attempt for teacher correction."
+msgstr "ຕອບເອກະສານໃນຕົວແກ້ໄຂຂ້າງລຸ່ມນີ້. ໄຟລ໌ຈະຖືກແນບກັບການພະຍາຍາມນີ້ເພື່ອໃຫ້ອາຈານກວດ."
+
+msgid "Reload Office editor"
+msgstr "ໂຫຼດຕົວແກ້ໄຂ Office ໃໝ່"
+
+msgid "Prepare Office document"
+msgstr "ກະກຽມເອກະສານ Office"
+
+msgid "Open in new tab"
+msgstr "ເປີດໃນແທັບໃໝ່"
+
+msgid "Preparing Office document"
+msgstr "ກຳລັງກະກຽມເອກະສານ Office"
+
+msgid "Submitted document"
+msgstr "ເອກະສານທີ່ສົ່ງ"
+
+msgid "Annotation tools"
+msgstr "ເຄື່ອງມືບັນທຶກ"
+
+msgid "Text to place"
+msgstr "ຂໍ້ຄວາມທີ່ຈະວາງ"
+
+msgid "Click the image to place the text annotation."
+msgstr "ຄລິກຮູບເພື່ອວາງຂໍ້ຄວາມບັນທຶກ."
+
+msgid "Click the image to add path points. Use Start new path to separate paths."
+msgstr "ຄລິກຮູບເພື່ອເພີ່ມຈຸດເສັ້ນທາງ. ໃຊ້ເລີ່ມເສັ້ນທາງໃໝ່ເພື່ອແຍກເສັ້ນທາງ."
+
+msgid "Start new path"
+msgstr "ເລີ່ມເສັ້ນທາງໃໝ່"
+
+msgid "Current annotations"
+msgstr "ບັນທຶກປັດຈຸບັນ"
+
+msgid "Remove point"
+msgstr "ລຶບຈຸດ"
+
+msgid "Click the image to draw the delineation polygon."
+msgstr "ຄລິກຮູບເພື່ອວາດຮູບຫຼາຍຫຼ່ຽມ."
+
+msgid "Click a marker to remove it."
+msgstr "ຄລິກເຄື່ອງໝາຍເພື່ອລຶບ."
+
+msgid "Placed"
+msgstr "ວາງແລ້ວ"
+
+msgid "Select an answer, then click on the image to mark it."
+msgstr "ເລືອກຄຳຕອບ ຫຼັງຈາກນັ້ນຄລິກຮູບເພື່ອໝາຍ."
+
+msgid "Reading speed"
+msgstr "ຄວາມໄວໃນການອ່ານ"
+
+msgid "This question type cannot be displayed in this player."
+msgstr "ປະເພດຄຳຖາມນີ້ບໍ່ສາມາດສະແດງໃນຕົວຫຼິ້ນນີ້ໄດ້."
+
+msgid "Save draft"
+msgstr "ບັນທຶກສະບັບຮ່າງ"
+
+msgid "I confirm that my answers were saved."
+msgstr "ຂ້ອຍຢືນຢັນວ່າຄຳຕອບຂອງຂ້ອຍຖືກບັນທຶກແລ້ວ."
+
+msgid "Finish test"
+msgstr "ສຳເລັດການທົດສອບ"
+
+msgid "Attempt finished"
+msgstr "ການພະຍາຍາມສຳເລັດແລ້ວ"
+
+msgid "Question category"
+msgstr "ໝວດຄຳຖາມ"
+
+msgid "You finished the questions related to this question category, it is your last chance to go back and revise those questions."
+msgstr "ທ່ານໄດ້ສຳເລັດຄຳຖາມທີ່ກ່ຽວຂ້ອງກັບໝວດນີ້ ນີ້ແມ່ນໂອກາດສຸດທ້າຍຂອງທ່ານທີ່ຈະກັບໄປແກ້ໄຂຄຳຖາມເຫຼົ່ານັ້ນ."
+
+msgid "Question time left"
+msgstr "ເວລາຄຳຖາມທີ່ເຫຼືອ"
+
+msgid "Time left"
+msgstr "ເວລາທີ່ເຫຼືອ"
+
+msgid "Current attempt"
+msgstr "ການພະຍາຍາມປັດຈຸບັນ"
+
+msgid "Could not save draft answer"
+msgstr "ບໍ່ສາມາດບັນທຶກຄຳຕອບສະບັບຮ່າງ"
+
+msgid "Could not load exercise"
+msgstr "ບໍ່ສາມາດໂຫຼດແບບຝຶກຫັດ"
+
+msgid "Draft answer saved"
+msgstr "ບັນທຶກຄຳຕອບສະບັບຮ່າງແລ້ວ"
+
+msgid "Could not finish the attempt"
+msgstr "ບໍ່ສາມາດສຳເລັດການພະຍາຍາມ"
+
+msgid "Could not prepare Office document"
+msgstr "ບໍ່ສາມາດກະກຽມເອກະສານ Office"
+
+msgid "Back to learner score"
+msgstr "ກັບໄປຄະແນນຜູ້ຮຽນ"
+
+msgid "Disable auto refresh"
+msgstr "ປິດການຟື້ນຟູອັດຕະໂນມັດ"
+
+msgid "Enable auto refresh"
+msgstr "ເປີດການຟື້ນຟູອັດຕະໂນມັດ"
+
+msgid "Live window"
+msgstr "ໜ້າຕ່າງສົດ"
+
+msgid "Ongoing attempts"
+msgstr "ການພະຍາຍາມທີ່ກຳລັງດຳເນີນ"
+
+msgid "Completed attempts"
+msgstr "ການພະຍາຍາມທີ່ສຳເລັດ"
+
+msgid "Started"
+msgstr "ເລີ່ມແລ້ວ"
+
+msgid "Last activity"
+msgstr "ກິດຈະກຳຫຼ້າສຸດ"
+
+msgid "Could not load live results"
+msgstr "ບໍ່ສາມາດໂຫຼດຜົນໄດ້ຮັບສົດ"
+
+msgid "This exercise is read-only because it is included in a learning path."
+msgstr "ແບບຝຶກຫັດນີ້ເປັນແບບອ່ານຢ່າງດຽວເພາະຖືກລວມໃນເສັ້ນທາງການຮຽນ."
+
+msgid "Select a question type to create a question."
+msgstr "ເລືອກປະເພດຄຳຖາມເພື່ອສ້າງຄຳຖາມ."
+
+msgid "Click to preview"
+msgstr "ກົດເພື່ອເບິ່ງຕົວຢ່າງ"
+
+msgid "Hide preview"
+msgstr "ເຊື່ອງຕົວຢ່າງ"
+
+msgid "Shape"
+msgstr "ຮູບຮ່າງ"
+
+msgid "Coordinates"
+msgstr "ພິກັດ"
+
+msgid "Blanks"
+msgstr "ຊ່ອງຫວ່າງ"
+
+msgid "Switchable blanks"
+msgstr "ຊ່ອງຫວ່າງສາມາດປ່ຽນໄດ້"
+
+msgid "Blank"
+msgstr "ຊ່ອງຫວ່າງ"
+
+msgid "Input width"
+msgstr "ຄວາມກວ້າງຂອງການປ້ອນ"
+
+msgid "Orientation"
+msgstr "ທິດທາງ"
+
+msgid "Not available with the current exercise feedback mode"
+msgstr "ບໍ່ສາມາດໃຊ້ໄດ້ກັບໂໝດຕອບກັບແບບຝຶກຫັດປັດຈຸບັນ"
+
+msgid "Not available in the learning path creation flow"
+msgstr "ບໍ່ສາມາດໃຊ້ໄດ້ໃນການສ້າງເສັ້ນທາງການຮຽນ"
+
+msgid "Delete question"
+msgstr "ລຶບຄຳຖາມ"
+
+msgid "Could not update exercise questions"
+msgstr "ບໍ່ສາມາດອັບເດດຄຳຖາມແບບຝຶກຫັດ"
+
+msgid "Could not add the exercise to the learning path"
+msgstr "ບໍ່ສາມາດເພີ່ມແບບຝຶກຫັດໃສ່ເສັ້ນທາງການຮຽນ"
+
+msgid "A valid exercise id is required."
+msgstr "ຕ້ອງການ ID ແບບຝຶກຫັດທີ່ຖືກຕ້ອງ."
+
+msgid "Could not load exercise questions"
+msgstr "ບໍ່ສາມາດໂຫຼດຄຳຖາມແບບຝຶກຫັດ"
+
+msgid "Delete selected attempts"
+msgstr "ລຶບການພະຍາຍາມທີ່ເລືອກ"
+
+msgid "Before date"
+msgstr "ກ່ອນວັນທີ"
+
+msgid "Pending corrections"
+msgstr "ການແກ້ໄຂທີ່ຍັງຄ້າງ"
+
+msgid "This exercise is locked by gradebook. Attempt cleanup actions are disabled."
+msgstr "ແບບຝຶກຫັດນີ້ຖືກລັອກໂດຍປື້ມຄະແນນ. ການດຳເນີນການລ້າງຂໍ້ມູນການພະຍາຍາມຖືກປິດໃຊ້ງານ."
+
+msgid "No attempts found"
+msgstr "ບໍ່ພົບການພະຍາຍາມ"
+
+msgid "Review"
+msgstr "ກວດສອບ"
+
+msgid "Print/PDF"
+msgstr "ພິມ/PDF"
+
+msgid "Could not load exercise report"
+msgstr "ບໍ່ສາມາດໂຫຼດບົດລາຍງານແບບຝຶກຫັດ"
+
+msgid "Select at least one attempt"
+msgstr "ເລືອກການພະຍາຍາມຢ່າງໜ້ອຍໜຶ່ງຄັ້ງ"
+
+msgid "Delete selected attempts?"
+msgstr "ລຶບການພະຍາຍາມທີ່ເລືອກ?"
+
+msgid "Send reviewed attempt result emails?"
+msgstr "ສົ່ງອີເມວຜົນການພະຍາຍາມທີ່ກວດສອບແລ້ວ?"
+
+msgid "Could not send emails"
+msgstr "ບໍ່ສາມາດສົ່ງອີເມວ"
+
+msgid "Exercise result emails sent"
+msgstr "ສົ່ງອີເມວຜົນແບບຝຶກຫັດແລ້ວ"
+
+msgid "Skipped"
+msgstr "ຂ້າມ"
+
+msgid "Close attempt?"
+msgstr "ປິດການພະຍາຍາມ?"
+
+msgid "Attempt closed"
+msgstr "ປິດການພະຍາຍາມແລ້ວ"
+
+msgid "Could not close attempt"
+msgstr "ບໍ່ສາມາດປິດການພະຍາຍາມ"
+
+msgid "Send this attempt result by email to the learner?"
+msgstr "ສົ່ງຜົນການພະຍາຍາມນີ້ຜ່ານອີເມວໃຫ້ນັກຮຽນ?"
+
+msgid "Email sent"
+msgstr "ສົ່ງອີເມວແລ້ວ"
+
+msgid "Could not send email"
+msgstr "ບໍ່ສາມາດສົ່ງອີເມວ"
+
+msgid "Attempt deleted"
+msgstr "ລຶບການພະຍາຍາມແລ້ວ"
+
+msgid "Could not delete attempt"
+msgstr "ບໍ່ສາມາດລຶບການພະຍາຍາມ"
+
+msgid "Select a CSV file containing title and description columns."
+msgstr "ເລືອກໄຟລ໌ CSV ທີ່ມີຖັນຊື່ຫົວຂໍ້ ແລະ ຄຳອະທິບາຍ."
+
+msgid "Manage categories used to classify questions."
+msgstr "ຈັດການປະເພດທີ່ໃຊ້ຈັດປະເພດຄຳຖາມ."
+
+msgid "Manage categories used to classify exercises."
+msgstr "ຈັດການປະເພດທີ່ໃຊ້ຈັດປະເພດແບບຝຶກຫັດ."
+
+msgid "Could not load categories"
+msgstr "ບໍ່ສາມາດໂຫຼດປະເພດ"
+
+msgid "Imported categories: %s. Skipped rows: %s."
+msgstr "ນຳເຂົ້າປະເພດ: %s. ແຖວທີ່ຂ້າມ: %s."
+
+msgid "Imported categories: %s."
+msgstr "ນຳເຂົ້າປະເພດ: %s."
+
+msgid "Could not import categories"
+msgstr "ບໍ່ສາມາດນຳເຂົ້າປະເພດ"
+
+msgid "Could not save category"
+msgstr "ບໍ່ສາມາດບັນທຶກປະເພດ"
+
+msgid "Answer distribution"
+msgstr "ການແຈກຢາຍຄຳຕອບ"
+
+msgid "Configured answers"
+msgstr "ຄຳຕອບທີ່ຕັ້ງຄ່າແລ້ວ"
+
+msgid "Detailed answer counting for some question types is not available in the migrated report yet."
+msgstr "ການນັບຄຳຕອບລາຍລະອຽດສຳລັບບາງປະເພດຄຳຖາມຍັງບໍ່ມີໃນບົດລາຍງານທີ່ຍ້າຍມາໃໝ່."
+
+msgid "No report by question data found"
+msgstr "ບໍ່ພົບຂໍ້ມູນບົດລາຍງານຕາມຄຳຖາມ"
+
+msgid "Detailed answer counting for this question type is not available in the migrated report yet."
+msgstr ""
+
+msgid "No answer distribution found"
+msgstr ""
+
+msgid "Could not load report by question"
+msgstr ""
+
+msgid "Question settings"
+msgstr ""
+
+msgid "Leave empty or 0 for no time limit."
+msgstr ""
+
+msgid "Time limit in seconds"
+msgstr ""
+
+msgid "Attached questions"
+msgstr ""
+
+msgid "Only questions attached to this media question inside the current exercise are listed here."
+msgstr ""
+
+msgid "No questions are attached to this media question in the current exercise."
+msgstr ""
+
+msgid "Upload the Office document template that learners will edit with OnlyOffice."
+msgstr ""
+
+msgid "Replace Office document"
+msgstr ""
+
+msgid "Current Office document"
+msgstr ""
+
+msgid "This question is corrected manually after the learner submits the edited document."
+msgstr ""
+
+msgid "Total score is calculated as the sum of hotspot scores."
+msgstr ""
+
+msgid "Global score"
+msgstr ""
+
+msgid "Select a hotspot row, choose its shape, then draw over the image. For polygons, click each point and finish the polygon, or double-click to finish."
+msgstr ""
+
+msgid "Finish polygon"
+msgstr ""
+
+msgid "Calculated answer"
+msgstr ""
+
+msgid "Please type your text below and use square brackets [...] to define one or more blanks."
+msgstr ""
+
+msgid "Lowest value"
+msgstr ""
+
+msgid "Highest value"
+msgstr ""
+
+msgid "Fill in blanks"
+msgstr ""
+
+msgid "Use the selected markers to define blanks. Example: The capital of Peru is [Lima]."
+msgstr ""
+
+msgid "Enter the dropdown options, one answer by line. Then mark the expected answers below, like the legacy tool."
+msgstr ""
+
+msgid "Refresh answers"
+msgstr ""
+
+msgid "This dropdown combination question uses one global score, like legacy."
+msgstr ""
+
+msgid "Please enter at least two dropdown options."
+msgstr ""
+
+msgid "Create destination options first, then link each item to the correct option."
+msgstr ""
+
+msgid "This matching combination question uses one global score, like legacy."
+msgstr ""
+
+msgid "Create the steps and choose the expected position for each one, like legacy Draggable."
+msgstr ""
+
+msgid "Learners will choose True or False and then select their degree of certainty during the attempt. The editor stores the same Correct/Wrong scores and certainty levels as legacy."
+msgstr ""
+
+msgid "Hotspot combination"
+msgstr ""
+
+msgid "Add delineation"
+msgstr ""
+
+msgid "This Office document question has no answer options. Its score is assigned during correction/results review."
+msgstr ""
+
+msgid "This upload question has no answer options. Its score is assigned during correction/results review."
+msgstr ""
+
+msgid "This oral expression question has no answer options. Its score is assigned during correction/results review."
+msgstr ""
+
+msgid "This open question has no answer options. Its score is assigned during correction/results review."
+msgstr ""
+
+msgid "Add a reading text with scrolling speed settings."
+msgstr ""
+
+msgid "Add content, media or reading context without adding score."
+msgstr ""
+
+msgid "Insert a page break without adding score."
+msgstr ""
+
+msgid "Could not save question"
+msgstr ""
+
+msgid "Only DOC, DOCX, XLS or XLSX documents are allowed."
+msgstr ""
+
+msgid "Please select an Office document."
+msgstr ""
+
+msgid "Please draw at least one hotspot."
+msgstr ""
+
+msgid "Please draw at least one delineation."
+msgstr ""
+
+msgid "The fill in blanks text is required."
+msgstr ""
+
+msgid "At least one expected answer is required."
+msgstr ""
+
+msgid "At least two draggable items are required."
+msgstr ""
+
+msgid "Each draggable item must be linked to a valid target position."
+msgstr ""
+
+msgid "At least two matching options are required."
+msgstr ""
+
+msgid "At least two matching pairs are required."
+msgstr "ຕ້ອງມີຄູ່ທີ່ກົງກັນຢ່າງໜ້ອຍສອງຄູ່."
+
+msgid "Each matching pair must be linked to a valid option."
+msgstr "ແຕ່ລະຄູ່ທີ່ກົງກັນຕ້ອງເຊື່ອມຕໍ່ກັບຕົວເລືອກທີ່ຖືກຕ້ອງ."
+
+msgid "At least two answers are required."
+msgstr "ຕ້ອງມີຄຳຕອບຢ່າງໜ້ອຍສອງຄຳ."
+
+msgid "Each true/false answer must have True or False selected."
+msgstr "ແຕ່ລະຄຳຕອບຖືກ/ຜິດຕ້ອງເລືອກຖືກ ຫຼື ຜິດ."
+
+msgid "A unique answer question must have exactly one correct answer."
+msgstr "ຄຳຖາມຄຳຕອບທີ່ຖືກຕ້ອງຕ້ອງມີຄຳຕອບທີ່ຖືກຕ້ອງພຽງຄຳດຽວ."
+
+msgid "At least one correct answer is required."
+msgstr "ຕ້ອງມີຄຳຕອບທີ່ຖືກຕ້ອງຢ່າງໜ້ອຍໜຶ່ງຄຳ."
+
+msgid "Could not load question"
+msgstr "ບໍ່ສາມາດໂຫຼດຄຳຖາມໄດ້"
+
+msgid "Select a course and export the global exercise results report as CSV."
+msgstr "ເລືອກຫຼັກສູດ ແລະ ສົ່ງອອກບົດລາຍງານຜົນແບບຝຶກຫັດທັງໝົດເປັນ CSV."
+
+msgid "Back to reports catalog"
+msgstr "ກັບໄປທີ່ລາຍການບົດລາຍງານ"
+
+msgid "Could not load exercise global report"
+msgstr "ບໍ່ສາມາດໂຫຼດບົດລາຍງານທັງໝົດຂອງແບບຝຶກຫັດໄດ້"
+
+msgid "Imported questions"
+msgstr "ຄຳຖາມທີ່ນຳເຂົ້າແລ້ວ"
+
+msgid "Aiken content"
+msgstr "ເນື້ອຫາ Aiken"
+
+msgid "Could not load AI Aiken generator"
+msgstr "ບໍ່ສາມາດໂຫຼດເຄື່ອງມືສ້າງ AI Aiken ໄດ້"
+
+msgid "Could not generate Aiken content"
+msgstr "ບໍ່ສາມາດສ້າງເນື້ອຫາ Aiken ໄດ້"
+
+msgid "Could not import generated Aiken content"
+msgstr "ບໍ່ສາມາດນຳເຂົ້າເນື້ອຫາ Aiken ທີ່ສ້າງແລ້ວໄດ້"
+
+msgid "Back to my courses"
+msgstr "ກັບໄປຫຼັກສູດຂອງຂ້ອຍ"
+
+msgid "Open report"
+msgstr "ເປີດບົດລາຍງານ"
+
+msgid "Questions with no automatic correction"
+msgstr "ຄຳຖາມທີ່ບໍ່ມີການແກ້ໄຂອັດຕະໂນມັດ"
+
+msgid "Could not load pending attempts"
+msgstr "ບໍ່ສາມາດໂຫຼດການພະຍາຍາມທີ່ຍັງຄ້າງຢູ່ໄດ້"
+
+msgid "Skipped questions"
+msgstr "ຄຳຖາມທີ່ຂ້າມ"
+
+msgid "Aiken import distributes this total weight across imported questions unless a question defines SCORE."
+msgstr "ການນຳເຂົ້າ Aiken ຈະແຈກຢາຍນ້ຳໜັກທັງໝົດນີ້ໃຫ້ກັບຄຳຖາມທີ່ນຳເຂົ້າ ເວັ້ນເສຍແຕ່ຄຳຖາມທີ່ກຳນົດ SCORE."
+
+msgid "Import warnings"
+msgstr "ຄຳເຕືອນການນຳເຂົ້າ"
+
+msgid "Could not import questions"
+msgstr "ບໍ່ສາມາດນຳເຂົ້າຄຳຖາມໄດ້"
+
+msgid "No question statistics found"
+msgstr "ບໍ່ພົບສະຖິຕິຄຳຖາມ"
+
+msgid "Could not load question statistics"
+msgstr "ບໍ່ສາມາດໂຫຼດສະຖິຕິຄຳຖາມໄດ້"
+
+msgid "You can also connect an MCP client directly by pointing it to the following endpoint:"
+msgstr "ທ່ານຍັງສາມາດເຊື່ອມຕໍ່ໄຄລເອັນ MCP ໂດຍກົງໄດ້ໂດຍຊີ້ໄປຫາຈຸດເຊື່ອມຕໍ່ຕໍ່ໄປນີ້:"
+
+msgid "No applications are currently connected to your account."
+msgstr "ບໍ່ມີແອັບພລິເຄຊັນທີ່ເຊື່ອມຕໍ່ກັບບັນຊີຂອງທ່ານໃນປັດຈຸບັນ."
+
+msgid "Connected on"
+msgstr "ເຊື່ອມຕໍ່ເມື່ອ"
+
+msgid "Last used"
+msgstr "ໃຊ້ຄັ້ງສຸດທ້າຍ"
+
+msgid "%s will no longer be able to access your Chamilo account. Continue?"
+msgstr "%s ຈະບໍ່ສາມາດເຂົ້າເຖິງບັນຊີ Chamilo ຂອງທ່ານອີກຕໍ່ໄປ. ດຳເນີນການຕໍ່ບໍ?"
+
+msgid "Application revoked"
+msgstr "ແອັບພລິເຄຊັນຖືກຖອນການເຂົ້າເຖິງ"
+
+msgid "Copied to clipboard"
+msgstr "ຄັດລອກໄປຍັງຄລິບບອດແລ້ວ"
+
+msgid "Could not copy the MCP endpoint"
+msgstr "ບໍ່ສາມາດຄັດລອກຈຸດເຊື່ອມຕໍ່ MCP ໄດ້"
+
+msgid "MCP endpoint"
+msgstr "ຈຸດເຊື່ອມຕໍ່ MCP"
+
+msgid "API key"
+msgstr "ກະແຈ API"
+
+msgid "Last used at"
+msgstr "ໃຊ້ຄັ້ງສຸດທ້າຍເມື່ອ"
+
+msgid "Copy this key now. It will not be shown again."
+msgstr "ຄັດລອກກະແຈນີ້ດຽວນີ້. ມັນຈະບໍ່ສະແດງອີກ."
+
+msgid "Rotate API key"
+msgstr "ໝຸນວຽນກະແຈ API"
+
+msgid "Revoke API key"
+msgstr "ຖອນການເຂົ້າເຖິງກະແຈ API"
+
+msgid "Remote MCP connection"
+msgstr "ການເຊື່ອມຕໍ່ MCP ທາງໄກ"
+
+msgid "Configure your MCP client with the following values:"
+msgstr "ຕັ້ງຄ່າໄຄລເອັນ MCP ຂອງທ່ານດ້ວຍຄ່າຕ່າງໆດັ່ງຕໍ່ໄປນີ້:"
+
+msgid "The current key will stop working immediately. Continue?"
+msgstr "ກະແຈປັດຈຸບັນຈະຢຸດເຮັດວຽກທັນທີ. ດຳເນີນການຕໍ່ບໍ?"
+
+msgid "A new personal MCP API key will be generated. Continue?"
+msgstr "ກະແຈ API MCP ສ່ວນຕົວໃໝ່ຈະຖືກສ້າງຂຶ້ນ. ດຳເນີນການຕໍ່ບໍ?"
+
+msgid "MCP API key generated"
+msgstr "ສ້າງກະແຈ API MCP ແລ້ວ"
+
+msgid "Connected MCP clients using this key will stop working immediately. Continue?"
+msgstr "ໄຄລເອັນ MCP ທີ່ເຊື່ອມຕໍ່ໂດຍໃຊ້ກະແຈນີ້ຈະຢຸດເຮັດວຽກທັນທີ. ດຳເນີນການຕໍ່ບໍ?"
+
+msgid "MCP API key revoked"
+msgstr "ຖອນການເຂົ້າເຖິງກະແຈ API MCP ແລ້ວ"
+
+msgid "Could not copy the API key"
+msgstr "ບໍ່ສາມາດຄັດລອກກະແຈ API ໄດ້"
+
+msgid "Project"
+msgstr "ໂຄງການ"
+
+msgid "Close old tickets"
+msgstr "ປິດປີ້ເກົ່າ"
+
+msgid "Close tickets older than seven days?"
+msgstr "ປິດປີ້ທີ່ເກົ່າກວ່າເຈັດມື້ບໍ?"
+
+msgid "Assignment history"
+msgstr "ປະຫວັດການມອບໝາຍ"
+
+msgid "Translate with AI"
+msgstr "ແປດ້ວຍ AI"
+
+msgid "Target language"
+msgstr "ພາສາເປົ້າໝາຍ"
+
+msgid "Please select a provider"
+msgstr "ກະລຸນາເລືອກຜູ້ໃຫ້ບໍລິການ"
+
+msgid "Generate translation"
+msgstr "ສ້າງການແປ"
+
+msgid "At least one terms and conditions section must contain text."
+msgstr "ຢ່າງໜ້ອຍຕ້ອງມີຂໍ້ຄວາມໃນສ່ວນເງື່ອນໄຂ ແລະ ຂໍ້ກຳນົດຢ່າງໜຶ່ງ."
+
+msgid "No active target languages are available."
+msgstr "ບໍ່ມີພາສາເປົ້າໝາຍທີ່ເຄື່ອນໄຫວ."
+
+msgid "Tutor"
+msgstr "ຜູ້ຊ່ວຍສອນ"
+
+msgid "Access dates"
+msgstr "ວັນທີເຂົ້າເຖິງ"
+
+msgid "Coach access dates"
+msgstr "ວັນທີເຂົ້າເຖິງຂອງຜູ້ຊ່ວຍສອນ"
+
+msgid "No sessions found"
+msgstr "ບໍ່ພົບພາກຮຽນ"
+
+msgid "Select the courses that this user must not be able to access in this session."
+msgstr "ເລືອກຫຼັກສູດທີ່ຜູ້ໃຊ້ນີ້ບໍ່ສາມາດເຂົ້າເຖິງໄດ້ໃນພາກຮຽນນີ້."
+
+msgid "A user cannot be blocked from every course in the session. Unsubscribe the user instead."
+msgstr "ບໍ່ສາມາດບລັອກຜູ້ໃຊ້ອອກຈາກທຸກຫຼັກສູດໃນພາກຮຽນໄດ້. ກະລຸນາຍົກເລີກການສະໝັກແທນ."
+
+msgid "Users subscribed to this session"
+msgstr "ຜູ້ໃຊ້ທີ່ສະໝັກໃນພາກຮຽນນີ້"
+
+msgid "No available users found"
+msgstr "ບໍ່ພົບຜູ້ໃຊ້ທີ່ມີຢູ່"
+
+msgid "Subscribe this user to the session?"
+msgstr "ສະໝັກຜູ້ໃຊ້ນີ້ເຂົ້າໃນພາກຮຽນ?"
+
+msgid "Subscribe the selected users to the session?"
+msgstr "ສະໝັກຜູ້ໃຊ້ທີ່ເລືອກເຂົ້າໃນພາກຮຽນ?"
+
+msgid "General tutor planning"
+msgstr "ການວາງແຜນຜູ້ຊ່ວຍສອນທົ່ວໄປ"
+
+msgid "User is already registered by another tutor."
+msgstr "ຜູ້ໃຊ້ນີ້ລົງທະບຽນໂດຍຜູ້ຊ່ວຍສອນອື່ນແລ້ວ."
+
+msgid "You're receiving a copy because you're a course tutor"
+msgstr "ທ່ານໄດ້ຮັບສຳເນົາເພາະທ່ານເປັນຜູ້ຊ່ວຍສອນຫຼັກສູດ"
+
+msgid "General tutor"
+msgstr "ຜູ້ຊ່ວຍສອນທົ່ວໄປ"
+
+msgid "Consider the courses, tutors, a technical helpdesk, teachers, and/or materials available."
+msgstr "ພິຈາລະນາຫຼັກສູດ, ຜູ້ຊ່ວຍສອນ, ສູນຊ່ວຍເຫຼືອດ້ານເຕັກນິກ, ຄູອາຈານ ແລະ/ຫຼື ວັດສະດຸທີ່ມີຢູ່."
+
+msgid "Tutors subscribed as teachers in course %s"
+msgstr "ຜູ້ຊ່ວຍສອນທີ່ລົງທະບຽນເປັນຄູອາຈານໃນຫຼັກສູດ %s"
+
+msgid "Tutor name"
+msgstr "ຊື່ຜູ້ຊ່ວຍສອນ"
+
+msgid "Session tutors are coordinators for the session and can act as tutors for each course in the session. Only users with the teacher role can be selected as session tutors."
+msgstr "ຜູ້ຊ່ວຍສອນພາກຮຽນເປັນຜູ້ປະສານງານຂອງພາກຮຽນ ແລະ ສາມາດເຮັດໜ້າທີ່ເປັນຜູ້ຊ່ວຍສອນໃນທຸກຫຼັກສູດພາຍໃນພາກຮຽນ. ມີພຽງຜູ້ໃຊ້ທີ່ມີບົດບາດເປັນຄູອາຈານເທົ່ານັ້ນທີ່ສາມາດເລືອກເປັນຜູ້ຊ່ວຍສອນພາກຮຽນໄດ້."
+
+msgid "Access start date for tutors"
+msgstr "ວັນທີເລີ່ມເຂົ້າເຖິງສຳລັບຜູ້ຊ່ວຍສອນ"
+
+msgid "Date on which the session is made available to tutors, so they can prepare it before the students get connected"
+msgstr "ວັນທີທີ່ພາກຮຽນຖືກເປີດໃຫ້ຜູ້ຊ່ວຍສອນເພື່ອກະກຽມກ່ອນທີ່ນັກສຶກສາຈະເຂົ້າເຖິງ"
+
+msgid "Access end date for tutors"
+msgstr "ວັນທີສິ້ນສຸດການເຂົ້າເຖິງສຳລັບຜູ້ຊ່ວຍສອນ"
+
+msgid "Date on which the session is closed to tutors. The additional delay will allow them to export all relevant tracking information"
+msgstr "ວັນທີທີ່ພາກຮຽນຖືກປິດສຳລັບຜູ້ຊ່ວຍສອນ. ໄລຍະເວລາເພີ່ມເຕີມຈະຊ່ວຍໃຫ້ພວກເຂົາສາມາດສົ່ງອອກຂໍ້ມູນການຕິດຕາມທັງໝົດ"
+
+msgid "Tutor and student"
+msgstr "ຜູ້ຊ່ວຍສອນ ແລະ ນັກສຶກສາ"
+
+msgid "This report shows the weekly distribution of sessions per general tutor in the selected date range."
+msgstr "ບົດລາຍງານນີ້ສະແດງການແຈກຢາຍປະຈຳອາທິດຂອງພາກຮຽນຕາມຜູ້ຊ່ວຍສອນທົ່ວໄປໃນຊ່ວງວັນທີທີ່ເລືອກ."
+
+msgid "User is general tutor in some sessions"
+msgstr "ຜູ້ໃຊ້ເປັນຜູ້ຊ່ວຍສອນທົ່ວໄປໃນບາງພາກຮຽນ"
+
+msgid "Teachers will be added as tutors in all course sessions."
+msgstr "ຄູອາຈານຈະຖືກເພີ່ມເປັນຜູ້ຊ່ວຍສອນໃນທຸກພາກຮຽນຂອງຫຼັກສູດ."
+
+msgid "Delete failed: invalid question id."
+msgstr "ລົບລ້າງບໍ່ສຳເລັດ: ລະຫັດຄຳຖາມບໍ່ຖືກຕ້ອງ."
+
+msgid "Average number of sessions per general session tutor"
+msgstr "ຈຳນວນສະເລ່ຍຂອງພາກຮຽນຕໍ່ຜູ້ຊ່ວຍສອນພາກຮຽນທົ່ວໄປ"
+
+msgid "No room"
+msgstr "ບໍ່ມີຫ້ອງ"
+
+msgid "Import course teachers as course tutors in the session"
+msgstr "ນຳເຂົ້າຄູອາຈານຫຼັກສູດເປັນຜູ້ຊ່ວຍສອນຫຼັກສູດໃນພາກຮຽນ"
+
+msgid "Clean and update course tutors"
+msgstr "ລ້າງ ແລະ ອັບເດດຜູ້ຊ່ວຍສອນຫຼັກສູດ"
+
+msgid "Add me as tutor"
+msgstr "ເພີ່ມຂ້ອຍເປັນຜູ້ຊ່ວຍສອນ"
+
+msgid "Unable to add the survey to the learning path"
+msgstr "ບໍ່ສາມາດເພີ່ມແບບສຳຫຼວດເຂົ້າໃນເສັ້ນທາງການຮຽນ"
+
+msgid "Access dates for tutors"
+msgstr "ວັນທີເຂົ້າເຖິງສຳລັບຜູ້ຊ່ວຍສອນ"
+
+msgid "Tutor and group member"
+msgstr "ຜູ້ຊ່ວຍສອນ ແລະ ສະມາຊິກກຸ່ມ"
+
+msgid "Your daily AI token limit has been reached. Please try again tomorrow."
+msgstr "ທ່ານໄດ້ເຖິງຂີດຈຳກັດໂທເຄັນ AI ປະຈຳວັນແລ້ວ. ກະລຸນາລອງໃໝ່ມື້ອື່ນ."
+
+msgid "Your monthly AI token limit has been reached. Please try again next month."
+msgstr "ທ່ານໄດ້ເຖິງຂີດຈຳກັດໂທເຄັນ AI ປະຈຳເດືອນແລ້ວ. ກະລຸນາລອງໃໝ່ເດືອນໜ້າ."
+
+msgid "This course code already exists, please choose another code."
+msgstr "ລະຫັດຫຼັກສູດນີ້ມີຢູ່ແລ້ວ, ກະລຸນາເລືອກລະຫັດອື່ນ."
+
+msgid "This course title already exists, please choose another title."
+msgstr "ຊື່ຫຼັກສູດນີ້ມີຢູ່ແລ້ວ, ກະລຸນາເລືອກຊື່ອື່ນ."
+
+msgid "This tool visibility cannot be changed"
+msgstr "ບໍ່ສາມາດປ່ຽນການເບິ່ງເຫັນຂອງເຄື່ອງມືນີ້ໄດ້"
+
+msgid "Invalid visibility"
+msgstr "ການເບິ່ງເຫັນບໍ່ຖືກຕ້ອງ"
+
+msgid "You are receiving a copy because you are one of the course tutors"
+msgstr "ທ່ານໄດ້ຮັບສຳເນົາເພາະທ່ານເປັນໜຶ່ງໃນບັນດາຜູ້ຊ່ວຍສອນຫຼັກສູດ"
+
+msgid "You are receiving a copy because you are the course tutor"
+msgstr "ທ່ານໄດ້ຮັບສຳເນົາເພາະທ່ານເປັນຜູ້ຊ່ວຍສອນຫຼັກສູດ"
+
+msgid "Manual completion"
+msgstr "ການສຳເລັດດ້ວຍຕົນເອງ"
+
+msgid "Send to tutors"
+msgstr "ສົ່ງໃຫ້ຜູ້ສອນ"
+
+msgid "Lab title"
+msgstr "ຊື່ຫ້ອງທົດລອງ"
+
+msgid "Lab week"
+msgstr "ອາທິດຫ້ອງທົດລອງ"
+
+msgid "Final exam access rule"
+msgstr "ກົດລະບຽບການເຂົ້າເຖິງການສອບເສັງສຸດທ້າຍ"
+
+msgid "Course completion rule"
+msgstr "ກົດລະບຽບການສຳເລັດຫຼັກສູດ"
+
+msgid "You have been invited to join a course"
+msgstr "ທ່ານໄດ້ຮັບການເຊີນເຂົ້າຮ່ວມຫຼັກສູດ"
+
+msgid "No user has been found"
+msgstr "ບໍ່ພົບຜູ້ໃຊ້"
+
+msgid "The selected user cannot be subscribed in this context"
+msgstr "ຜູ້ໃຊ້ທີ່ເລືອກບໍ່ສາມາດລົງທະບຽນໃນບໍລິບົດນີ້ໄດ້"
+
+msgid "No change has been made"
+msgstr "ບໍ່ມີການປ່ຽນແປງ"
+
+msgid "Back to group list"
+msgstr "ກັບໄປລາຍການກຸ່ມ"
+
+msgid "Remove class link"
+msgstr "ລຶບການເຊື່ອມຕໍ່ຫ້ອງຮຽນ"
+
+msgid "Group settings"
+msgstr "ການຕັ້ງຄ່າກຸ່ມ"
+
+msgid "Self-registration allowed"
+msgstr "ອະນຸຍາດການລົງທະບຽນດ້ວຍຕົນເອງ"
+
+msgid "Self-unregistration allowed"
+msgstr "ອະນຸຍາດການຍົກເລີກການລົງທະບຽນດ້ວຍຕົນເອງ"
+
+msgid "This group is linked to the class"
+msgstr "ກຸ່ມນີ້ເຊື່ອມຕໍ່ກັບຫ້ອງຮຽນ"
+
+msgid "Create one or more empty course groups"
+msgstr "ສ້າງກຸ່ມຫຼັກສູດຫວ່າງເປົ່າໜຶ່ງ ຫຼື ຫຼາຍກຸ່ມ"
+
+msgid "Number of places"
+msgstr "ຈຳນວນບ່ອນ"
+
+msgid "Base group"
+msgstr "ກຸ່ມພື້ນຖານ"
+
+msgid "Share"
+msgstr "ແບ່ງປັນ"
+
+msgid "Collaboration"
+msgstr "ການຮ່ວມມື"
+
+msgid "The group title is required."
+msgstr "ຕ້ອງການຊື່ກຸ່ມ."
+
+msgid "Back to group area"
+msgstr "ກັບໄປພື້ນທີ່ກຸ່ມ"
+
+msgid "Members are managed by the linked class"
+msgstr "ສະມາຊິກຖືກຈັດການໂດຍຫ້ອງຮຽນທີ່ເຊື່ອມຕໍ່"
+
+msgid "%s groups selected"
+msgstr "ເລືອກກຸ່ມ %s"
+
+msgid "Fill selected groups"
+msgstr "ຕື່ມກຸ່ມທີ່ເລືອກ"
+
+msgid "Empty selected groups"
+msgstr "ລ້າງກຸ່ມທີ່ເລືອກ"
+
+msgid "Fill group"
+msgstr "ຕື່ມກຸ່ມ"
+
+msgid "Empty group"
+msgstr "ລ້າງກຸ່ມ"
+
+msgid "Groups per user"
+msgstr "ກຸ່ມຕໍ່ຜູ້ໃຊ້"
+
+msgid "No tutors"
+msgstr "ບໍ່ມີຜູ້ສອນ"
+
+msgid "No users"
+msgstr "ບໍ່ມີຜູ້ໃຊ້"
+
+msgid "Calculation mode"
+msgstr ""
+
+msgid "Weighted average"
+msgstr ""
+
+msgid "Points sum"
+msgstr ""
+
+msgid "Weighted average normalizes by the sum of weights; points sum treats each weight as maximum points and adds them up without normalizing."
+msgstr ""
+
+msgid "Each item weight is treated as its maximum points; the grade is the sum of points, not normalized."
+msgstr ""
+
+msgid "The grade is the weighted average of items, normalized by the sum of weights."
+msgstr ""
+
+msgid "Forum participation"
+msgstr ""
+
+msgid "Forum thread"
+msgstr ""
+
+msgid "Points for one message"
+msgstr ""
+
+msgid "Points for two or more messages"
+msgstr ""
+
+msgid "Points awarded when the student posted exactly one message in the thread."
+msgstr ""
+
+msgid "Points awarded when the student posted two or more messages in the thread."
+msgstr ""
+
+msgid "Optional. If left empty, one or more messages award the points for one message."
+msgstr ""
+
+msgid "Current password is required to change your password."
+msgstr ""
+
+msgid "The 2FA code is required."
+msgstr ""
+
+msgid "Invalid 2FA configuration."
+msgstr ""
+
+msgid "The 2FA code is invalid or expired."
+msgstr ""
+
+msgid "Database load"
+msgstr ""
+
+msgid "Live MySQL and MariaDB server load metrics"
+msgstr ""
+
+msgid "Click to show database server load metrics"
+msgstr ""
+
+msgid "Threads connected"
+msgstr ""
+
+msgid "Temporary tables on disk"
+msgstr ""
+
+msgid "Privilege scope"
+msgstr ""
+
+msgid "Not measurable with the current database user"
+msgstr ""
+
+msgid "Uptime"
+msgstr ""
+
+msgid "Queries per second"
+msgstr ""
+
+msgid "Slow queries"
+msgstr ""
+
+msgid "Slow query time limit"
+msgstr "ຂີດຈຳກັດເວລາຄຳສອບຖາມຊ້າ"
+
+msgid "Slow query log"
+msgstr "ບັນທຶກຄຳສອບຖາມຊ້າ"
+
+msgid "Slow queries per second"
+msgstr "ການສອບຖາມຊ້າຕໍ່ວິນາທີ"
+
+msgid "Threads running"
+msgstr "ກະທູ້ກຳລັງເຮັດວຽກ"
+
+msgid "Threads cached"
+msgstr "ກະທູ້ທີ່ເກັບໄວ້"
+
+msgid "Table lock waits"
+msgstr "ການລໍຖ້າລັອກຕາຕະລາງ"
+
+msgid "Row lock waits"
+msgstr "ການລໍຖ້າລັອກແຖວ"
+
+msgid "Aborted connections"
+msgstr "ການເຊື່ອມຕໍ່ທີ່ຖືກຍົກເລີກ"
+
+msgid "Opened tables"
+msgstr "ຕາຕະລາງທີ່ເປີດແລ້ວ"
+
+msgid "Query cache"
+msgstr "ແຄຊສອບຖາມ"
+
+msgid "Database load metrics are only available for MySQL and MariaDB."
+msgstr "ຕົວຊີ້ວັດການໂຫຼດຖານຂໍ້ມູນມີໃຫ້ສະເພາະ MySQL ແລະ MariaDB ເທົ່ານັ້ນ."
+
+msgid "Inserts"
+msgstr "ການໃສ່ຂໍ້ມູນ"
+
+msgid "Hit rate"
+msgstr "ອັດຕາການຕີ"
+
+msgid "Auto-refresh every 5 seconds"
+msgstr "ໂຫຼດອັດຕະໂນມັດທຸກ 5 ວິນາທີ"
+
+msgid "Web server load"
+msgstr "ການໂຫຼດເວັບເຊີບເວີ"
+
+msgid "Live Apache or Nginx status metrics"
+msgstr "ຕົວຊີ້ວັດສະຖານະ Apache ຫຼື Nginx ສົດ"
+
+msgid "Click to show web server load metrics"
+msgstr "ຄລິກເພື່ອສະແດງຕົວຊີ້ວັດການໂຫຼດເວັບເຊີບເວີ"
+
+msgid "Requires a local web server status module"
+msgstr "ຕ້ອງການໂມດູນສະຖານະເວັບເຊີບເວີທ້ອງຖິ່ນ"
+
+msgid "Web server load is read from Apache mod_status or Nginx stub_status on localhost only. The status page must allow requests from 127.0.0.1 (or ::1)."
+msgstr "ການໂຫຼດເວັບເຊີບເວີອ່ານຈາກ Apache mod_status ຫຼື Nginx stub_status ສະເພາະ localhost ເທົ່ານັ້ນ. ໜ້າສະຖານະຕ້ອງອະນຸຍາດການຮ້ອງຂໍຈາກ 127.0.0.1 (ຫຼື ::1)."
+
+msgid "Paths scanned"
+msgstr "ເສັ້ນທາງທີ່ສະແກນແລ້ວ"
+
+msgid "Detected"
+msgstr "ກວດພົບແລ້ວ"
+
+msgid "Status path"
+msgstr "ເສັ້ນທາງສະຖານະ"
+
+msgid "Web server load metrics are only available for Apache and Nginx."
+msgstr "ຕົວຊີ້ວັດການໂຫຼດເວັບເຊີບເວີມີໃຫ້ສະເພາະ Apache ແລະ Nginx ເທົ່ານັ້ນ."
+
+msgid "None of the scanned status paths responded on localhost."
+msgstr "ບໍ່ມີເສັ້ນທາງສະຖານະທີ່ສະແກນແລ້ວຕອບສະໜອງຢູ່ localhost."
+
+msgid "Busy workers"
+msgstr "ພະນັກງານທີ່ບໍ່ວ່າງ"
+
+msgid "Idle workers"
+msgstr "ພະນັກງານທີ່ວ່າງ"
+
+msgid "Graceful workers"
+msgstr "ພະນັກງານທີ່ສະຫງ່າງາມ"
+
+msgid "Server MPM"
+msgstr "ເຊີບເວີ MPM"
+
+msgid "Requests per second (live)"
+msgstr "ການຮ້ອງຂໍຕໍ່ວິນາທີ (ສົດ)"
+
+msgid "Requests per second (since start)"
+msgstr "ການຮ້ອງຂໍຕໍ່ວິນາທີ (ນັບຕັ້ງແຕ່ເລີ່ມ)"
+
+msgid "Bytes per second (live)"
+msgstr "ໄບຕ໌ຕໍ່ວິນາທີ (ສົດ)"
+
+msgid "Bytes per second (since start)"
+msgstr "ໄບຕ໌ຕໍ່ວິນາທີ (ນັບຕັ້ງແຕ່ເລີ່ມ)"
+
+msgid "Bytes per request"
+msgstr "ໄບຕ໌ຕໍ່ການຮ້ອງຂໍ"
+
+msgid "Total accesses"
+msgstr "ການເຂົ້າເຖິງທັງໝົດ"
+
+msgid "Total traffic"
+msgstr "ການສັນຈອນທັງໝົດ"
+
+msgid "CPU load"
+msgstr "ການໂຫຼດ CPU"
+
+msgid "Load average (1 min)"
+msgstr "ຄ່າສະເລ່ຍການໂຫຼດ (1 ນາທີ)"
+
+msgid "Load average (5 min)"
+msgstr "ຄ່າສະເລ່ຍການໂຫຼດ (5 ນາທີ)"
+
+msgid "Load average (15 min)"
+msgstr "ຄ່າສະເລ່ຍການໂຫຼດ (15 ນາທີ)"
+
+msgid "Scoreboard sending"
+msgstr "ກະດານຄະແນນກຳລັງສົ່ງ"
+
+msgid "Scoreboard reading"
+msgstr "ກະດານຄະແນນກຳລັງອ່ານ"
+
+msgid "Scoreboard keepalive"
+msgstr "ກະດານຄະແນນ keepalive"
+
+msgid "Scoreboard waiting"
+msgstr "ກະດານຄະແນນກຳລັງລໍຖ້າ"
+
+msgid "Scoreboard open slots"
+msgstr "ຊ່ອງເປີດກະດານຄະແນນ"
+
+msgid "Active connections"
+msgstr "ການເຊື່ອມຕໍ່ທີ່ເຄື່ອນໄຫວ"
+
+msgid "Reading"
+msgstr "ກຳລັງອ່ານ"
+
+msgid "Writing"
+msgstr "ກຳລັງຂຽນ"
+
+msgid "Total requests"
+msgstr "ການຮ້ອງຂໍທັງໝົດ"
+
+msgid "Accepts"
+msgstr "ຍອມຮັບ"
+
+msgid "Handled"
+msgstr "ຈັດການແລ້ວ"
+
+msgid "Apache: enable mod_status (ExtendedStatus On) and allow localhost to /server-status. Nginx: enable stub_status on a localhost-only location such as /nginx_status or /stub_status."
+msgstr "Apache: ເປີດໃຊ້ mod_status (ExtendedStatus On) ແລະອະນຸຍາດ localhost ເຂົ້າ /server-status. Nginx: ເປີດໃຊ້ stub_status ຢູ່ຕຳແໜ່ງສະເພາະ localhost ເຊັ່ນ /nginx_status ຫຼື /stub_status."
+
+msgid "Grade percentage distribution"
+msgstr "ການແຈກຢາຍເປີເຊັນເກຣດ"
+
+msgid "Top learners"
+msgstr "ຜູ້ຮຽນດີເດັ່ນ"
+
+msgid "This progress combines learning path progress and the learner's average exercise result"
+msgstr "ຄວາມຄືບໜ້ານີ້ປະສົມປະສານການຄືບໜ້າຂອງເສັ້ນທາງການຮຽນ ແລະ ຜົນການສອບເສັງສະເລ່ຍຂອງຜູ້ຮຽນ"
+
+msgid "Additional profile fields"
+msgstr "ຊ່ອງຂໍ້ມູນໂປຣໄຟລ໌ເພີ່ມເຕີມ"
+
+msgid "Visible columns"
+msgstr "ຖັນທີ່ສະແດງ"
+
+msgid "Learning path completion"
+msgstr "ການສຳເລັດເສັ້ນທາງການຮຽນ"
+
+msgid "Number of certificates"
+msgstr "ຈຳນວນໃບຢັ້ງຢືນ"
+
+msgid "Could not export the report"
+msgstr "ບໍ່ສາມາດສົ່ງອອກບົດລາຍງານໄດ້"
+
+msgid "Second learner"
+msgstr "ຜູ້ຮຽນອັນດັບສອງ"
+
+msgid "Results by learner"
+msgstr "ຜົນການສອບເສັງຕາມຜູ້ຮຽນ"
+
+msgid "Use filters to narrow down questions."
+msgstr "ໃຊ້ຕົວກອງເພື່ອຈຳກັດຄຳຖາມ."
+
+msgid "Try adjusting your filters and search again."
+msgstr "ລອງປັບຕົວກອງ ແລະ ຄົ້ນຫາອີກຄັ້ງ."
+
+msgid "Results per page"
+msgstr "ຜົນການສອບເສັງຕໍ່ໜ້າ"
+
+msgid "No answers"
+msgstr "ບໍ່ມີຄຳຕອບ"
+
+msgid "Tests using this question"
+msgstr "ການສອບເສັງທີ່ໃຊ້ຄຳຖາມນີ້"
+
+msgid "Delete failed"
+msgstr "ລົບບໍ່ສຳເລັດ"
+
+msgid "PHP cache"
+msgstr "ແຄຊ PHP"
+
+msgid "Live OPcache and APCu diagnostics"
+msgstr "ການວິນິດໄສ OPcache ແລະ APCu ແບບສົດ"
+
+msgid "Click to show OPcache and APCu diagnostics"
+msgstr "ຄລິກເພື່ອສະແດງການວິນິດໄສ OPcache ແລະ APCu"
+
+msgid "Memory used"
+msgstr "ໜ່ວຍຄວາມຈຳທີ່ໃຊ້"
+
+msgid "OPcache is installed but not enabled."
+msgstr "OPcache ຖືກຕິດຕັ້ງແລ້ວ ແຕ່ຍັງບໍ່ໄດ້ເປີດໃຊ້ງານ."
+
+msgid "OPcache extension is not available on this server."
+msgstr "ສ່ວນຂະຫຍາຍ OPcache ບໍ່ມີຢູ່ໃນເຊີເວີນີ້."
+
+msgid "APCu is installed but not enabled."
+msgstr "APCu ຖືກຕິດຕັ້ງແລ້ວ ແຕ່ຍັງບໍ່ໄດ້ເປີດໃຊ້ງານ."
+
+msgid "APCu extension is not available on this server."
+msgstr "ສ່ວນຂະຫຍາຍ APCu ບໍ່ມີຢູ່ໃນເຊີເວີນີ້."
+
+msgid "Constant"
+msgstr "ຄ່າຄົງທີ່"
+
+msgid "Space used on disk (MB)"
+msgstr "ພື້ນທີ່ທີ່ໃຊ້ໃນດິສກ໌ (MB)"
+
+msgid "Set max course space (MB)"
+msgstr "ກຳນົດພື້ນທີ່ຫຼັກສູດສູງສຸດ (MB)"
+
+msgid "Memory free"
+msgstr "ໜ່ວຍຄວາມຈຳທີ່ຫວ່າງ"
+
+msgid "Memory wasted"
+msgstr "ໜ່ວຍຄວາມຈຳທີ່ສູນເສຍ"
+
+msgid "Memory used %"
+msgstr "ໜ່ວຍຄວາມຈຳທີ່ໃຊ້ %"
+
+msgid "Cached scripts"
+msgstr "ສະຄຣິບທີ່ແຄຊໄວ້"
+
+msgid "Cached keys"
+msgstr "ກະແຈທີ່ແຄຊໄວ້"
+
+msgid "Misses"
+msgstr "ພາດ"
+
+msgid "Cache full"
+msgstr "ແຄຊເຕັມ"
+
+msgid "OOM restarts"
+msgstr "ເລີ່ມໃໝ່ OOM"
+
+msgid "Hash restarts"
+msgstr "ເລີ່ມໃໝ່ແຮຊ"
+
+msgid "Manual restarts"
+msgstr "ເລີ່ມໃໝ່ດ້ວຍມື"
+
+msgid "Interned strings used"
+msgstr "ສະຕຣິງພາຍໃນທີ່ໃຊ້"
+
+msgid "Interned strings free"
+msgstr "ສະຕຣິງພາຍໃນທີ່ຫວ່າງ"
+
+msgid "Interned strings count"
+msgstr "ຈຳນວນສະຕຣິງພາຍໃນ"
+
+msgid "Memory available"
+msgstr "ໜ່ວຍຄວາມຈຳທີ່ມີໃຫ້ໃຊ້"
+
+msgid "Memory size"
+msgstr "ຂະໜາດໜ່ວຍຄວາມຈຳ"
+
+msgid "Entries"
+msgstr "ລາຍການ"
+
+msgid "Slots"
+msgstr "ຊ່ອງ"
+
+msgid "Expunges"
+msgstr "ການລຶບຂໍ້ມູນ"
+
+msgid "Cache start time"
+msgstr "ເວລາເລີ່ມແຄຊ"
+
+msgid "Time zone"
+msgstr "ເຂດເວລາ"
+
+msgid "Not registered"
+msgstr "ຍັງບໍ່ໄດ້ລົງທະບຽນ"
+
+msgid "Filter and list learner certificates by session, course, date or learner, then export them when needed."
+msgstr "ກັ່ນຕອງ ແລະ ສະແດງໃບຢັ້ງຢືນຂອງນັກຮຽນ ຕາມພາກສ່ວນ, ຫຼັກສູດ, ວັນທີ ຫຼື ນັກຮຽນ, ຫຼັງຈາກນັ້ນສົ່ງອອກເມື່ອຕ້ອງການ."
+
+msgid "Filter by session and course"
+msgstr "ກັ່ນຕອງຕາມພາກສ່ວນ ແລະ ຫຼັກສູດ"
+
+msgid "Choose a session, course and optional date to list the generated certificates."
+msgstr "ເລືອກພາກສ່ວນ, ຫຼັກສູດ ແລະ ວັນທີທາງເລືອກ ເພື່ອສະແດງໃບຢັ້ງຢືນທີ່ສ້າງແລ້ວ."
+
+msgid "Filter by learner"
+msgstr "ກັ່ນຕອງຕາມນັກຮຽນ"
+
+msgid "Find certificates for a specific learner across sessions and courses."
+msgstr "ຊອກຫາໃບຢັ້ງຢືນສຳລັບນັກຮຽນສະເພາະ ທົ່ວພາກສ່ວນ ແລະ ຫຼັກສູດ."
+
+msgid "Certificates found"
+msgstr "ພົບໃບຢັ້ງຢືນ"
+
+msgid "Open certificate"
+msgstr "ເປີດໃບຢັ້ງຢືນ"
+
+msgid "Certificate file not available"
+msgstr "ບໍ່ມີໄຟລ໌ໃບຢັ້ງຢືນ"
+
+msgid "Export to CSV"
+msgstr "ສົ່ງອອກເປັນ CSV"
+
+msgid "Acquired skills"
+msgstr "ທັກສະທີ່ໄດ້ຮັບ"
+
+msgid "No acquired skill"
+msgstr "ບໍ່ມີທັກສະທີ່ໄດ້ຮັບ"
+
+msgid "Absences"
+msgstr "ການຂາດຮຽນ"
+
+msgid "No courses"
+msgstr "ບໍ່ມີຫຼັກສູດ"
+
+msgid "No session matched"
+msgstr "ບໍ່ພົບພາກສ່ວນທີ່ກົງກັນ"
+
+msgid "Unable to load the report"
+msgstr "ບໍ່ສາມາດໂຫຼດບົດລາຍງານໄດ້"
+
+msgid "Please select a profile"
+msgstr "ກາລຸນາເລືອກໂປຣໄຟລ໌"
+
+msgid "Please select a session"
+msgstr "ກາລຸນາເລືອກພາກສ່ວນ"
+
+msgid "Please select a user"
+msgstr "ກາລຸນາເລືອກຜູ້ໃຊ້"
+
+msgid "Unable to export the report"
+msgstr "ບໍ່ສາມາດສົ່ງອອກບົດລາຍງານໄດ້"
+
+msgid "Accepted on web"
+msgstr "ຍອມຮັບຜ່ານເວັບ"
+
+msgid "Accepted by e-mail"
+msgstr "ຍອມຮັບຜ່ານອີເມລ"
+
+msgid "The course title is required"
+msgstr "ຕ້ອງການຊື່ຫຼັກສູດ"
+
+msgid "Unexpected error"
+msgstr "ເກີດຂໍ້ຜິດພາດທີ່ບໍ່ຄາດຄິດ"
+
+msgid "Separate tags with commas"
+msgstr "ແຍກແທັກດ້ວຍເຄື່ອງໝາຍຈຸດ"
+
+msgid "Open link"
+msgstr "ເປີດລິ້ງ"
+
+msgid "Describe the course picture to generate"
+msgstr "ອະທິບາຍຮູບພາບຫຼັກສູດທີ່ຈະສ້າງ"
+
+msgid "Generate picture"
+msgstr "ສ້າງຮູບພາບ"
+
+msgid "PDF watermark"
+msgstr "ລາຍນ້ຳຂອງ PDF"
+
+msgid "No watermark image"
+msgstr "ບໍ່ມີຮູບລາຍນ້ຳ"
+
+msgid "Upload watermark"
+msgstr "ອັບໂຫຼດລາຍນ້ຳ"
+
+msgid "Delete watermark"
+msgstr "ລຶບລາຍນ້ຳ"
+
+msgid "Course legal agreement file"
+msgstr "ໄຟລ໌ຂໍ້ຕົກລົງຫຼັກສູດ"
+
+msgid "Upload agreement file"
+msgstr "ອັບໂຫຼດໄຟລ໌ຂໍ້ຕົກລົງ"
+
+msgid "Download agreement file"
+msgstr "ດາວໂຫຼດໄຟລ໌ຂໍ້ຕົກລົງ"
+
+msgid "Delete agreement file"
+msgstr "ລຶບໄຟລ໌ຂໍ້ຕົກລົງ"
+
+msgid "Custom certificate images"
+msgstr "ຮູບພາບໃບຢັ້ງຢືນແບບກຳນົດເອງ"
+
+msgid "Course picture updated"
+msgstr "ອັບເດດຮູບພາບຫຼັກສູດແລ້ວ"
+
+msgid "The course picture could not be uploaded"
+msgstr "ບໍ່ສາມາດອັບໂຫຼດຮູບພາບຫຼັກສູດໄດ້"
+
+msgid "Course picture deleted"
+msgstr "ລຶບຮູບພາບຫຼັກສູດແລ້ວ"
+
+msgid "Enter a description for the image"
+msgstr "ປ້ອນຄຳອະທິບາຍສຳລັບຮູບພາບ"
+
+msgid "The image generator returned an empty response"
+msgstr "ເຄື່ອງສ້າງຮູບພາບສົ່ງຄຳຕອບວ່າງເປົ່າ"
+
+msgid "Course picture generated"
+msgstr "ສ້າງຮູບພາບຫຼັກສູດແລ້ວ"
+
+msgid "Watermark updated"
+msgstr "ອັບເດດລາຍນ້ຳແລ້ວ"
+
+msgid "Watermark deleted"
+msgstr "ລຶບລາຍນ້ຳແລ້ວ"
+
+msgid "Agreement file updated"
+msgstr "ອັບເດດໄຟລ໌ຂໍ້ຕົກລົງແລ້ວ"
+
+msgid "Agreement file deleted"
+msgstr "ລຶບໄຟລ໌ຂໍ້ຕົກລົງແລ້ວ"
+
+msgid "Certificate image updated"
+msgstr "ອັບເດດຮູບພາບໃບຢັ້ງຢືນແລ້ວ"
+
+msgid "Certificate image deleted"
+msgstr "ລຶບຮູບພາບໃບຢັ້ງຢືນແລ້ວ"
+
+msgid "Use the image editor before uploading to crop, rotate or resize the course picture."
+msgstr "ໃຊ້ຕົວແກ້ໄຂຮູບພາບກ່ອນອັບໂຫຼດ ເພື່ອຕັດ, ໝູນ ຫຼື ປັບຂະໜາດຮູບພາບຫຼັກສູດ."
+
+msgid "This invitation link is invalid or has expired."
+msgstr "ລິ້ງເຊີນຊວນນີ້ບໍ່ຖືກຕ້ອງ ຫຼື ໝົດອາຍຸແລ້ວ."
+
+msgid "This invitation was sent to a different user. Please log in with the invited account."
+msgstr "ການເຊີນນີ້ຖືກສົ່ງໄປຫາຜູ້ໃຊ້ອື່ນ. ກາລຸນາເຂົ້າສູ່ລະບົບດ້ວຍບັນຊີທີ່ຖືກເຊີນ."
+
+msgid "The invitation could not be accepted."
+msgstr "ບໍ່ສາມາດຍອມຮັບການເຊີນໄດ້."
+
+msgid "You have been subscribed successfully."
+msgstr "ທ່ານໄດ້ສະໝັກສະມາຊິກສຳເລັດແລ້ວ."
+
+msgid "This email address cannot be invited."
+msgstr "ບໍ່ສາມາດເຊີນທີ່ຢູ່ອີເມວນີ້ໄດ້."
+
+msgid "This user is already subscribed to the session."
+msgstr "ຜູ້ໃຊ້ນີ້ໄດ້ສະໝັກສະມາຊິກໃນຊຸດການສຶກສາແລ້ວ."
+
+msgid "This user is already subscribed to the course."
+msgstr "ຜູ້ໃຊ້ນີ້ໄດ້ສະໝັກສະມາຊິກໃນຫຼັກສູດແລ້ວ."
+

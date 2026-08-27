@@ -2,6 +2,7 @@
 
 /* For licensing terms, see /license.txt */
 
+use Chamilo\CoreBundle\Entity\AccessUrlRelUser;
 use Chamilo\CoreBundle\Entity\Asset;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ExtraField;
@@ -18,6 +19,7 @@ use Chamilo\CoreBundle\Enums\StateIcon;
 use Chamilo\CoreBundle\Event\AbstractEvent;
 use Chamilo\CoreBundle\Event\CourseUserSubscriptionCheckEvent;
 use Chamilo\CoreBundle\Event\Events;
+use Chamilo\CoreBundle\Event\SessionDeletedEvent;
 use Chamilo\CoreBundle\Framework\Container;
 use Chamilo\CourseBundle\Entity\CStudentPublication;
 use Chamilo\CourseBundle\Entity\CSurvey;
@@ -1548,7 +1550,9 @@ class SessionManager
             // Overall Total
             $overall_total = ($course_description_progress + $exercises_progress + $forums_progress + $assignments_progress + $wiki_progress + $surveys_progress) / 6;
 
-            $link = '<a href="'.api_get_path(WEB_CODE_PATH).'my_space/myStudents.php?student='.$user[0].'&details=true&course='.$course['code'].'&sid='.$sessionId.'"> %s </a>';
+            $link = '<a href="'.api_get_path(WEB_PATH).'reporting/learners/'.(int) $user[0].'/courses/'.(int) $course['real_id'].'?'.http_build_query([
+                'sid' => (int) $sessionId,
+            ]).'"> %s </a>';
             $linkForum = '<a href="'.api_get_path(WEB_CODE_PATH).'forum/index.php?cid='.$course['real_id'].'&sid='.$sessionId.'"> %s </a>';
             $linkWork = '<a href="'.api_get_path(WEB_CODE_PATH).'work/work.php?cid='.$course['real_id'].'&sid='.$sessionId.'"> %s </a>';
             $linkSurvey = '<a href="'.api_get_path(WEB_CODE_PATH).'survey/survey_list.php?cid='.$course['real_id'].'&sid='.$sessionId.'"> %s </a>';
@@ -2078,6 +2082,11 @@ class SessionManager
             }
         }
 
+        Container::getEventDispatcher()->dispatch(
+            new SessionDeletedEvent(['session' => $sessionEntity], AbstractEvent::TYPE_PRE),
+            Events::SESSION_DELETED
+        );
+
         // Delete Picture Session
         SessionManager::deleteAsset($sessionId);
 
@@ -2164,11 +2173,11 @@ class SessionManager
      * @author Carlos Vargas from existing code
      * @author Julio Montoya. Cleaning code.
      *
-     * @param int   $sessionId
-     * @param array $userList
-     * @param int   $session_visibility
-     * @param bool  $empty_users
-     * @param bool  $registerUsersToAllCourses
+     * @param int      $sessionId
+     * @param array    $userList
+     * @param int|null $session_visibility null falls back to the session's own visibility
+     * @param bool     $empty_users
+     * @param bool     $registerUsersToAllCourses
      *
      * @return bool
      */
@@ -2244,10 +2253,23 @@ class SessionManager
                     false,
                     false
                 );
-                $layoutSubject = $tplSubject->get_template(
-                    'mail/subject_subscription_to_session_confirmation.tpl'
+                $subject = '';
+                $mailTemplateManagerSubject = new MailTemplateManager();
+                $subjectTemplateText = $mailTemplateManagerSubject->getTemplateByType(
+                    'subject_subscription_to_session_confirmation.html.twig'
                 );
-                $subject = $tplSubject->fetch($layoutSubject);
+                if (!empty($subjectTemplateText)) {
+                    // Stored mail templates are admin-edited and therefore untrusted: render
+                    // them through a sandboxed Twig environment instead of compiling the raw
+                    // string with the full application Twig (which would allow SSTI → RCE).
+                    $subject = MailTemplateManager::renderSandboxedTemplate($subjectTemplateText, $tplSubject->params);
+                }
+                if (empty($subject)) {
+                    $layoutSubject = $tplSubject->get_template(
+                        'mail/subject_subscription_to_session_confirmation.tpl'
+                    );
+                    $subject = $tplSubject->fetch($layoutSubject);
+                }
 
                 $user_info = api_get_user_info($user_id);
 
@@ -2278,10 +2300,23 @@ class SessionManager
                 $tplContent->assign('lost_password_url', $lostPasswordUrl);
                 $tplContent->assign('lost_password_link_label', get_lang('Recover your password'));
 
-                $layoutContent = $tplContent->get_template(
-                    'mail/content_subscription_to_session_confirmation.tpl'
+                $content = '';
+                $mailTemplateManager = new MailTemplateManager();
+                $templateText = $mailTemplateManager->getTemplateByType(
+                    'content_subscription_to_session_confirmation.html.twig'
                 );
-                $content = $tplContent->fetch($layoutContent);
+                if (!empty($templateText)) {
+                    // Stored mail templates are admin-edited and therefore untrusted: render
+                    // them through a sandboxed Twig environment instead of compiling the raw
+                    // string with the full application Twig (which would allow SSTI → RCE).
+                    $content = MailTemplateManager::renderSandboxedTemplate($templateText, $tplContent->params);
+                }
+                if (empty($content)) {
+                    $layoutContent = $tplContent->get_template(
+                        'mail/content_subscription_to_session_confirmation.tpl'
+                    );
+                    $content = $tplContent->fetch($layoutContent);
+                }
 
                 // Send email.
                 api_mail_html(
@@ -6850,8 +6885,8 @@ class SessionManager
             $lastConnectionDate = Database::escape_string($lastConnectionDate);
             $userConditions .= " AND (
             u.last_login IS NULL OR
-            u.last_login = '0000-00-00 00:00:00' OR
-            u.last_login = '0000-00-00' OR
+            CAST(u.last_login AS CHAR(20)) = '0000-00-00 00:00:00' OR
+            CAST(u.last_login AS CHAR(20)) = '0000-00-00' OR
             u.last_login <= '$lastConnectionDate'
         ) ";
         }
@@ -9048,10 +9083,10 @@ class SessionManager
         $query_rows = "SELECT count(*) as total_rows, c.title as course_title, s.title,
                         IF (
                             (s.access_start_date <= '$today' AND '$today' < s.access_end_date) OR
-                            (s.access_start_date = '0000-00-00 00:00:00' AND s.access_end_date = '0000-00-00 00:00:00' ) OR
+                            (CAST(s.access_start_date AS CHAR(20)) = '0000-00-00 00:00:00' AND CAST(s.access_end_date AS CHAR(20)) = '0000-00-00 00:00:00' ) OR
                             (s.access_start_date IS NULL AND s.access_end_date IS NULL) OR
-                            (s.access_start_date <= '$today' AND ('0000-00-00 00:00:00' = s.access_end_date OR s.access_end_date IS NULL )) OR
-                            ('$today' < s.access_end_date AND ('0000-00-00 00:00:00' = s.access_start_date OR s.access_start_date IS NULL) )
+                            (s.access_start_date <= '$today' AND ('0000-00-00 00:00:00' = CAST(s.access_end_date AS CHAR(20)) OR s.access_end_date IS NULL )) OR
+                            ('$today' < s.access_end_date AND ('0000-00-00 00:00:00' = CAST(s.access_start_date AS CHAR(20)) OR s.access_start_date IS NULL) )
                         , 1, 0) as session_active
                        FROM $extraFieldTables $tbl_session s
                        LEFT JOIN  $tbl_session_category sc
@@ -9711,10 +9746,10 @@ class SessionManager
                     SELECT DISTINCT
                         IF (
                             (s.access_start_date <= '$today' AND '$today' < s.access_end_date) OR
-                            (s.access_start_date = '0000-00-00 00:00:00' AND s.access_end_date = '0000-00-00 00:00:00' ) OR
+                            (CAST(s.access_start_date AS CHAR(20)) = '0000-00-00 00:00:00' AND CAST(s.access_end_date AS CHAR(20)) = '0000-00-00 00:00:00' ) OR
                             (s.access_start_date IS NULL AND s.access_end_date IS NULL) OR
-                            (s.access_start_date <= '$today' AND ('0000-00-00 00:00:00' = s.access_end_date OR s.access_end_date IS NULL )) OR
-                            ('$today' < s.access_end_date AND ('0000-00-00 00:00:00' = s.access_start_date OR s.access_start_date IS NULL) )
+                            (s.access_start_date <= '$today' AND ('0000-00-00 00:00:00' = CAST(s.access_end_date AS CHAR(20)) OR s.access_end_date IS NULL )) OR
+                            ('$today' < s.access_end_date AND ('0000-00-00 00:00:00' = CAST(s.access_start_date AS CHAR(20)) OR s.access_start_date IS NULL) )
                         , 1, 0) as session_active,
                 s.title,
                 s.nbr_courses,
@@ -10240,11 +10275,11 @@ class SessionManager
         return Database::getManager()
             ->createQuery("
                 SELECT COUNT(scu)
-                FROM Chamilo\CoreBundle\Entity\SessionRelCourseRelUser scu
-                INNER JOIN Chamilo\CoreBundle\Entity\SessionRelUser su
+                FROM ".SessionRelCourseRelUser::class." scu
+                INNER JOIN ".SessionRelUser::class." su
                     WITH scu.user = su.user
                     AND scu.session = su.session
-                INNER JOIN Chamilo\CoreBundle\Entity\AccessUrlRelUser a
+                INNER JOIN ".AccessUrlRelUser::class." a
                     WITH a.user = su.user
                 WHERE
                     scu.course = :course AND

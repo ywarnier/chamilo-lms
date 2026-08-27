@@ -10,10 +10,11 @@ use AnnouncementManager;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
 use Chamilo\CoreBundle\ApiResource\Announcement\AnnouncementForm;
-use Chamilo\CoreBundle\Controller\AnnouncementAttachmentController;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CAnnouncement;
 use Chamilo\CourseBundle\Entity\CAnnouncementAttachment;
@@ -28,7 +29,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Tracking;
 
 /**
@@ -38,9 +38,8 @@ final readonly class AnnouncementFormProvider implements ProviderInterface
 {
     use AnnouncementAccessHelperTrait;
 
-    public const string CSRF_TOKEN_ID = 'announcement_form';
-
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CAnnouncementRepository $announcementRepository,
@@ -48,7 +47,7 @@ final readonly class AnnouncementFormProvider implements ProviderInterface
         private AnnouncementScheduleManager $scheduleManager,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private StudentViewHelper $studentViewHelper,
     ) {}
 
     /**
@@ -62,16 +61,16 @@ final readonly class AnnouncementFormProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
         $this->assertAnnouncementToolEnabled($this->entityManager, $course);
 
-        $session = $this->getSession($request);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $this->assertSessionBelongsToCourse($session, $course);
 
-        $group = $this->getGroup($request);
+        $group = $this->cidReqHelper->getDoctrineGroupEntity();
         $this->assertGroupBelongsToContext($group, $course, $session);
 
-        if ($this->isStudentView($request) || !$this->canManageAnnouncements(
+        if ($this->studentViewHelper->isActive() || !$this->canManageAnnouncements(
             $this->entityManager,
             $this->security,
             $this->settingsManager,
@@ -90,7 +89,6 @@ final readonly class AnnouncementFormProvider implements ProviderInterface
 
         $formData = $this->recipientResolver->getFormData($course, $session, $group);
         $result = new AnnouncementForm();
-        $result->csrfToken = (string) $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID);
         $result->canEdit = true;
         $result->isNew = !$announcement instanceof CAnnouncement;
         $result->groupContext = $group instanceof CGroup;
@@ -101,7 +99,6 @@ final readonly class AnnouncementFormProvider implements ProviderInterface
         $result->tags = $this->getTags();
         $result->recipients = ['everyone'];
         $result->sendByEmail = true;
-        $result->emailCsrfToken = (string) $this->csrfTokenManager->getToken(AnnouncementEmailProcessor::CSRF_TOKEN_ID);
         $result->sendToSessionsAvailable = !$session instanceof Session;
         $result->sendToHrmAvailable = !$this->isSettingEnabled(
             $this->settingsManager->getSetting('announcement.announcements_hide_send_to_hrm_users', true),
@@ -117,9 +114,6 @@ final readonly class AnnouncementFormProvider implements ProviderInterface
         $result->attachmentsEnabled = !$this->isSettingEnabled(
             $this->settingsManager->getSetting('announcement.disable_announcement_attachment', true),
         );
-        $result->attachmentCsrfToken = $result->attachmentsEnabled
-            ? (string) $this->csrfTokenManager->getToken(AnnouncementAttachmentController::CSRF_TOKEN_ID)
-            : '';
 
         if ($announcement instanceof CAnnouncement) {
             $result->id = $announcementId;
@@ -154,51 +148,6 @@ final readonly class AnnouncementFormProvider implements ProviderInterface
         $this->registerAnnouncementEventLog('add', $course, $session, details: 'form');
 
         return $result;
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
-    private function getGroup(Request $request): ?CGroup
-    {
-        $groupId = $request->query->getInt('gid');
-        if ($groupId <= 0) {
-            return null;
-        }
-
-        $group = $this->entityManager->getRepository(CGroup::class)->find($groupId);
-        if (!$group instanceof CGroup) {
-            throw new BadRequestHttpException('The requested group was not found.');
-        }
-
-        return $group;
     }
 
     private function getAnnouncementForEdit(

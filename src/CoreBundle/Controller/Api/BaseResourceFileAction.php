@@ -321,6 +321,13 @@ class BaseResourceFileAction
         ];
     }
 
+    /**
+     * @template TResource of object
+     *
+     * @param ResourceRepository<TResource> $resourceRepository
+     *
+     * @return array<string, mixed>
+     */
     public function handleCreateFileRequest(
         AbstractResource $resource,
         ResourceRepository $resourceRepository,
@@ -407,7 +414,7 @@ class BaseResourceFileAction
                     // Handle overwrite/rename/nothing when same title already exists under parent
                     if (!empty($fileExistsOption)) {
                         $existingDocument = $resourceRepository->findByTitleAndParentResourceNode($title, $parentResourceNodeId);
-                        if ($existingDocument) {
+                        if ($existingDocument instanceof CDocument) {
                             if ('overwrite' === $fileExistsOption) {
                                 // Quota check with delta: new - old
                                 $oldBytes = 0;
@@ -496,7 +503,9 @@ class BaseResourceFileAction
                 }
 
                 // HTML/SVG contentFile => create an UploadedFile from content.
-                if (!$fileParsed && !empty($content)) {
+                // An HTML editor save always sends contentFile (possibly empty);
+                // treat that as a real create rather than requiring a binary upload.
+                if (!$fileParsed && $request->request->has('contentFile')) {
                     $contentFileInfo = $this->getContentFileUploadInfo($request, (string) $title);
                     $content = $this->sanitizeContentFile((string) $content, $contentFileInfo['extension']);
 
@@ -628,6 +637,11 @@ class BaseResourceFileAction
         ];
     }
 
+    /**
+     * @template TResource of object
+     *
+     * @param ResourceRepository<TResource> $repo
+     */
     protected function handleUpdateRequest(AbstractResource $resource, ResourceRepository $repo, Request $request, EntityManager $em): AbstractResource
     {
         $contentData = $request->getContent();

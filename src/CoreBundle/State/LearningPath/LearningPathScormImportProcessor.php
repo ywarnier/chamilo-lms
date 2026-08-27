@@ -8,6 +8,7 @@ namespace Chamilo\CoreBundle\State\LearningPath;
 
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProcessorInterface;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Service\LearningPath\ScormPackageImporter;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -15,10 +16,12 @@ use RuntimeException;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /** @implements ProcessorInterface<mixed, JsonResponse> */
 final readonly class LearningPathScormImportProcessor implements ProcessorInterface
@@ -29,9 +32,9 @@ final readonly class LearningPathScormImportProcessor implements ProcessorInterf
         private EntityManagerInterface $entityManager,
         private RequestStack $requestStack,
         private Security $security,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private SettingsManager $settingsManager,
         private ScormPackageImporter $packageImporter,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     public function process(
@@ -46,17 +49,18 @@ final readonly class LearningPathScormImportProcessor implements ProcessorInterf
         }
 
         $this->assertLearningPathTeacher($this->security);
-        $this->validateActionToken($this->csrfTokenManager, $request->request->get('csrfToken'));
 
-        $course = $this->getContextCourse($this->entityManager, $request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
         $requestedNodeId = $request->query->getInt('node');
         $courseNodeId = (int) ($course->getResourceNode()?->getId() ?? 0);
         if ($requestedNodeId > 0 && $requestedNodeId !== $courseNodeId) {
             throw new AccessDeniedHttpException('The requested resource node does not belong to this course.');
         }
 
-        $session = $this->getContextSession($this->entityManager, $request, $course);
-        $group = $this->getContextGroup($this->entityManager, $request, $course);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getContextGroup($this->entityManager, $this->cidReqHelper, $course);
+
+        $this->assertRequestBodyWithinPostLimit($request);
 
         $package = $request->files->get('package');
         if (!$package instanceof UploadedFile) {
@@ -98,6 +102,39 @@ final readonly class LearningPathScormImportProcessor implements ProcessorInterf
             'count' => \count($created),
             'items' => $created,
         ], JsonResponse::HTTP_CREATED);
+    }
+
+    private function assertRequestBodyWithinPostLimit(Request $request): void
+    {
+        $contentLength = (int) $request->server->get('CONTENT_LENGTH', 0);
+        $postMaxSize = $this->iniSizeToBytes((string) \ini_get('post_max_size'));
+
+        if ($contentLength <= 0 || $postMaxSize <= 0 || $contentLength <= $postMaxSize) {
+            return;
+        }
+
+        $limitMiB = max(1, (int) floor($postMaxSize / 1024 / 1024));
+
+        throw new HttpException(Response::HTTP_REQUEST_ENTITY_TOO_LARGE, 'The uploaded SCORM package exceeds the server request limit of '.$limitMiB.' MiB.');
+    }
+
+    private function iniSizeToBytes(string $value): int
+    {
+        $value = strtolower(trim($value));
+        if ('' === $value) {
+            return 0;
+        }
+
+        $bytes = (float) $value;
+        $unit = substr($value, -1);
+
+        return match ($unit) {
+            't' => (int) ($bytes * 1024 * 1024 * 1024 * 1024),
+            'g' => (int) ($bytes * 1024 * 1024 * 1024),
+            'm' => (int) ($bytes * 1024 * 1024),
+            'k' => (int) ($bytes * 1024),
+            default => (int) $bytes,
+        };
     }
 
     private function toBoolean(mixed $value): bool

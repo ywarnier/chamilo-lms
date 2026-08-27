@@ -18,6 +18,7 @@ use Chamilo\CoreBundle\Entity\PortfolioComment;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\Tag;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Repository\Node\PortfolioCommentRepository;
 use Chamilo\CoreBundle\Repository\Node\PortfolioRepository;
@@ -36,7 +37,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProviderInterface<PortfolioList>
@@ -55,7 +55,7 @@ final readonly class PortfolioListProvider implements ProviderInterface
         private Security $security,
         private UserHelper $userHelper,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     /**
@@ -70,8 +70,8 @@ final readonly class PortfolioListProvider implements ProviderInterface
         }
 
         $currentUser = $this->getPortfolioCurrentUser($this->userHelper);
-        $course = $this->getPortfolioCourse($this->entityManager, $request);
-        $session = $this->getPortfolioSession($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->getDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
 
         if ($course instanceof Course
             && !$this->canReadPortfolioCourse(
@@ -200,7 +200,6 @@ final readonly class PortfolioListProvider implements ProviderInterface
         $result->tags = $this->loadAvailableTags($course, $session);
         $result->authors = $authors;
         $result->filters = $filters;
-        $result->csrfToken = $this->csrfTokenManager->getToken('portfolio_action')->getValue();
         $result->maxScore = $course instanceof Course ? (float) $this->getCourseSettingInt('portfolio_max_score', $course) : 0.0;
         $result->canQualifyItems = $canManageCourse
             && $course instanceof Course

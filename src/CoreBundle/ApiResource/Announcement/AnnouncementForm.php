@@ -11,6 +11,7 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
 use Chamilo\CoreBundle\State\Announcement\AnnouncementFormProcessor;
@@ -26,11 +27,7 @@ use Symfony\Component\Serializer\Attribute\Groups;
             openapi: new Operation(
                 summary: 'Announcement create or edit form data',
                 parameters: [
-                    new Parameter(name: 'cid', in: 'query', required: true, schema: ['type' => 'integer']),
-                    new Parameter(name: 'sid', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'gid', in: 'query', required: false, schema: ['type' => 'integer']),
                     new Parameter(name: 'id', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'isStudentView', in: 'query', required: false, schema: ['type' => 'boolean']),
                     new Parameter(name: 'remind_inactive', in: 'query', required: false, schema: ['type' => 'integer']),
                     new Parameter(name: 'remindallinactives', in: 'query', required: false, schema: ['type' => 'boolean']),
                     new Parameter(name: 'since', in: 'query', required: false, schema: ['type' => 'string']),
@@ -39,38 +36,71 @@ use Symfony\Component\Serializer\Attribute\Groups;
             security: "is_granted('IS_AUTHENTICATED_FULLY')",
             name: 'get_announcement_form',
             provider: AnnouncementFormProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
         ),
         new Post(
             uriTemplate: '/announcement/preview',
             openapi: new Operation(
                 summary: 'Preview announcement recipients',
-                parameters: [
-                    new Parameter(name: 'cid', in: 'query', required: true, schema: ['type' => 'integer']),
-                    new Parameter(name: 'sid', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'gid', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'isStudentView', in: 'query', required: false, schema: ['type' => 'boolean']),
-                ],
             ),
             read: false,
             security: "is_granted('IS_AUTHENTICATED_FULLY')",
             name: 'post_announcement_preview',
             processor: AnnouncementFormProcessor::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
         ),
         new Post(
             uriTemplate: '/announcement',
             openapi: new Operation(
                 summary: 'Create an announcement',
-                parameters: [
-                    new Parameter(name: 'cid', in: 'query', required: true, schema: ['type' => 'integer']),
-                    new Parameter(name: 'sid', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'gid', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'isStudentView', in: 'query', required: false, schema: ['type' => 'boolean']),
-                ],
             ),
             read: false,
             security: "is_granted('IS_AUTHENTICATED_FULLY')",
             name: 'post_announcement',
             processor: AnnouncementFormProcessor::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
         ),
         new Patch(
             uriTemplate: '/announcement/{id}',
@@ -79,16 +109,27 @@ use Symfony\Component\Serializer\Attribute\Groups;
                 summary: 'Update an announcement',
                 parameters: [
                     new Parameter(name: 'id', in: 'path', required: true, schema: ['type' => 'integer']),
-                    new Parameter(name: 'cid', in: 'query', required: true, schema: ['type' => 'integer']),
-                    new Parameter(name: 'sid', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'gid', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'isStudentView', in: 'query', required: false, schema: ['type' => 'boolean']),
                 ],
             ),
             security: "is_granted('IS_AUTHENTICATED_FULLY')",
             read: false,
             name: 'put_announcement',
             processor: AnnouncementFormProcessor::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
         ),
     ],
     normalizationContext: ['groups' => ['announcement_form:read']],
@@ -114,9 +155,6 @@ final class AnnouncementForm
      */
     #[Groups(['announcement_form:read', 'announcement_form:write'])]
     public array $recipients = [];
-
-    #[Groups(['announcement_form:read', 'announcement_form:write'])]
-    public string $csrfToken = '';
 
     #[Groups(['announcement_form:read'])]
     public bool $canEdit = false;
@@ -182,9 +220,6 @@ final class AnnouncementForm
     public bool $sendToHrmAvailable = false;
 
     #[Groups(['announcement_form:read'])]
-    public string $emailCsrfToken = '';
-
-    #[Groups(['announcement_form:read'])]
     public bool $scheduleAvailable = false;
 
     #[Groups(['announcement_form:read', 'announcement_form:write'])]
@@ -219,9 +254,6 @@ final class AnnouncementForm
 
     #[Groups(['announcement_form:read'])]
     public bool $attachmentsEnabled = false;
-
-    #[Groups(['announcement_form:read'])]
-    public string $attachmentCsrfToken = '';
 
     /**
      * @var array<int, array<string, mixed>>

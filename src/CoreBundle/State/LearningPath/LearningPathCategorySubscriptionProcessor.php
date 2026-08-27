@@ -17,6 +17,7 @@ use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\SessionRelCourseRelUser;
 use Chamilo\CoreBundle\Entity\User;
 use Chamilo\CoreBundle\Entity\Usergroup;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CGroup;
 use Chamilo\CourseBundle\Entity\CLpCategory;
@@ -33,7 +34,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /** @implements ProcessorInterface<LearningPathCategorySubscription, void> */
 final readonly class LearningPathCategorySubscriptionProcessor implements ProcessorInterface
@@ -50,7 +50,7 @@ final readonly class LearningPathCategorySubscriptionProcessor implements Proces
         private RequestStack $requestStack,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     /**
@@ -69,10 +69,9 @@ final readonly class LearningPathCategorySubscriptionProcessor implements Proces
         }
 
         $this->assertLearningPathTeacher($this->security);
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfTokenInput);
-        $course = $this->getContextCourse($this->entityManager, $request);
-        $session = $this->getContextSession($this->entityManager, $request, $course);
-        $group = $this->getContextGroup($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getContextGroup($this->entityManager, $this->cidReqHelper, $course);
         $category = $this->getCategory($uriVariables);
         $this->assertCategoryContext($category, $course, $session, $group);
         $this->assertCategorySubscriptionsEnabled();
@@ -305,7 +304,10 @@ final readonly class LearningPathCategorySubscriptionProcessor implements Proces
         if (null === $session) {
             foreach ($course->getStudentSubscriptions() as $subscription) {
                 if ($subscription instanceof CourseRelUser) {
-                    $users[(int) $subscription->getUser()->getId()] = $subscription->getUser();
+                    $user = $subscription->getUser();
+                    if ($user instanceof User) {
+                        $users[(int) $user->getId()] = $user;
+                    }
                 }
             }
 
@@ -319,7 +321,10 @@ final readonly class LearningPathCategorySubscriptionProcessor implements Proces
             ) {
                 continue;
             }
-            $users[(int) $subscription->getUser()->getId()] = $subscription->getUser();
+            $user = $subscription->getUser();
+            if ($user instanceof User) {
+                $users[(int) $user->getId()] = $user;
+            }
         }
 
         return $users;

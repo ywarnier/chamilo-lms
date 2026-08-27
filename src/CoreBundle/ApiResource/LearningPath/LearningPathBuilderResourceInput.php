@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\ApiResource\LearningPath;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
 use Chamilo\CoreBundle\State\LearningPath\LearningPathBuilderMutationProcessor;
 use Symfony\Component\Serializer\Attribute\Groups;
 
@@ -20,6 +21,21 @@ use Symfony\Component\Serializer\Attribute\Groups;
             security: "is_granted('ROLE_ADMIN') or is_granted('ROLE_CURRENT_COURSE_TEACHER') or is_granted('ROLE_CURRENT_COURSE_SESSION_TEACHER')",
             read: false,
             name: 'add_learning_path_builder_resource',
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: LearningPathBuilderMutationProcessor::class,
         ),
     ],
@@ -43,9 +59,6 @@ final class LearningPathBuilderResourceInput
 
     #[Groups(['learning_path_builder_resource:read', 'learning_path_builder_resource:write'])]
     public bool $exportAllowed = false;
-
-    #[Groups(['learning_path_builder_resource:write'])]
-    public string $csrfToken = '';
 
     #[ApiProperty(identifier: false)]
     #[Groups(['learning_path_builder_resource:read'])]

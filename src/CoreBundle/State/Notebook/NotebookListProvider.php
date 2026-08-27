@@ -12,6 +12,8 @@ use Chamilo\CoreBundle\ApiResource\Notebook\NotebookList;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
 use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CNotebook;
@@ -23,7 +25,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 use const COURSEMANAGERLOWSECURITY;
 use const DATE_ATOM;
@@ -38,13 +39,14 @@ final readonly class NotebookListProvider implements ProviderInterface
     use NotebookAccessHelperTrait;
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CNotebookRepository $notebookRepository,
         private Security $security,
         private UserHelper $userHelper,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private StudentViewHelper $studentViewHelper,
     ) {}
 
     /**
@@ -58,8 +60,8 @@ final readonly class NotebookListProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getNotebookCourse($this->entityManager, $request);
-        $session = $this->getNotebookSession($this->entityManager, $request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $this->assertNotebookSessionBelongsToCourse($session, $course);
 
         if (!$this->canReadNotebook(
@@ -73,7 +75,7 @@ final readonly class NotebookListProvider implements ProviderInterface
         }
 
         $user = $this->getNotebookUser($this->userHelper);
-        $studentView = $this->isNotebookStudentView($request);
+        $studentView = $this->studentViewHelper->isActive();
         $canWrite = $this->canWriteNotebook(
             $this->entityManager,
             $this->security,
@@ -91,9 +93,6 @@ final readonly class NotebookListProvider implements ProviderInterface
         $list->sessionId = null !== $session ? (int) $session->getId() : null;
         $list->canWrite = $canWrite;
         $list->studentView = $studentView;
-        $list->csrfToken = $canWrite
-            ? (string) $this->csrfTokenManager->getToken(NotebookItemProvider::CSRF_TOKEN_ID)
-            : '';
         $list->sort = $sort;
         $list->direction = $direction;
 

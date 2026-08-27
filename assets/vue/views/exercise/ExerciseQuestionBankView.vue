@@ -315,7 +315,6 @@ const exerciseOptions = ref([])
 const difficultyOptions = ref([])
 const questionTypeOptions = ref([])
 const selectedQuestionIds = ref([])
-const csrfToken = ref("")
 const totalItems = ref(0)
 const isLoading = ref(false)
 const isSaving = ref(false)
@@ -355,7 +354,19 @@ function getContextParams() {
     gid: getQueryValue(route.query.gid),
   }
 
-  for (const key of ["origin", "lp_id", "learnpath_id", "node", "type", "returnToLp", "isStudentView", "gradebook"]) {
+  for (const key of [
+    "origin",
+    "lp_id",
+    "learnpath_id",
+    "node",
+    "parent",
+    "lp_parent_id",
+    "lp_item_id",
+    "type",
+    "returnToLp",
+    "gradebook",
+    "lpTool",
+  ]) {
     const value = getQueryValue(route.query[key])
     if (value !== undefined && value !== null && String(value) !== "") {
       params[key] = value
@@ -511,7 +522,6 @@ async function runBankAction(action, questionIds) {
         exerciseId,
         action,
         questionIds: safeQuestionIds,
-        submittedCsrfToken: csrfToken.value,
       },
       getContextParams(),
       isGlobalMode.value ? null : exerciseId,
@@ -539,7 +549,6 @@ async function loadQuestionBank() {
     exerciseOptions.value = Array.isArray(response.exerciseOptions) ? response.exerciseOptions : []
     difficultyOptions.value = Array.isArray(response.difficultyOptions) ? response.difficultyOptions : []
     questionTypeOptions.value = Array.isArray(response.questionTypeOptions) ? response.questionTypeOptions : []
-    csrfToken.value = response.csrfToken || ""
     totalItems.value = Number(response.totalItems || 0)
     filters.page = Number(response.page || filters.page || 1)
     filters.itemsPerPage = Number(response.itemsPerPage || filters.itemsPerPage || 20)

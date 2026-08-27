@@ -76,13 +76,44 @@ function getReachableRoles(roles) {
 
 export const useSecurityStore = defineStore("security", () => {
   const user = ref(null)
-  const isLoading = ref(true)
+  // Must default to false: it means "a checkSession() call is currently in
+  // flight", consumed by the router guard as "skip calling checkSession()
+  // again, one is already running". Defaulting it to true made the guard
+  // believe a check was already in progress on the very first navigation
+  // (nothing was), so it never called checkSession() at all and treated a
+  // freshly-booted, not-yet-hydrated store as "definitely not logged in" -
+  // bouncing valid, already-authenticated deep links through /login.
+  const isLoading = ref(false)
   const isAuthenticated = computed(() => !isEmpty(user.value))
+
+  // Set when the server rejected a request from a client that believed it was
+  // authenticated, i.e. the session died mid-browsing. It only drives the
+  // one-off warning: the user object is left untouched on purpose, so the UI
+  // does not rearrange itself (topbar, session expiration watcher) under a user
+  // who may be in the middle of filling a form. The store is actually cleared by
+  // checkSession() the next time the router guard runs.
+  const sessionLost = ref(false)
 
   const platformConfigStore = usePlatformConfig()
 
   function setUser(newUserInfo) {
     user.value = newUserInfo
+  }
+
+  /**
+   * Flags that the server no longer recognizes this session.
+   * @returns {void}
+   */
+  function markSessionLost() {
+    sessionLost.value = true
+  }
+
+  /**
+   * Clears the lost-session flag, so a later episode can warn again.
+   * @returns {void}
+   */
+  function clearSessionLost() {
+    sessionLost.value = false
   }
 
   const hasRole = computed(() => (role) => {
@@ -186,16 +217,22 @@ export const useSecurityStore = defineStore("security", () => {
 
   const isSessionAdmin = computed(() => hasRole.value("ROLE_SESSION_MANAGER"))
 
-  async function checkSession() {
-    // Only check user session when user info is stored
-    if (!isAuthenticated.value) {
+  async function checkSession(context = {}, { force = false } = {}) {
+    // Skip the network call for visitors the client already knows are
+    // anonymous (avoids pinging /check-session on every public page view).
+    // The router guard passes force:true because it calls this precisely to
+    // find out whether a not-yet-hydrated store actually has a valid server
+    // session (e.g. a fresh full-page load / deep link) - in that case
+    // isAuthenticated.value can't be trusted yet and must not short-circuit
+    // the check.
+    if (!force && !isAuthenticated.value) {
       isLoading.value = false
       return
     }
 
     isLoading.value = true
     try {
-      const response = await securityService.checkSession()
+      const response = await securityService.checkSession(context)
       if (response.isAuthenticated) {
         user.value = response.user
       } else {
@@ -214,6 +251,9 @@ export const useSecurityStore = defineStore("security", () => {
     setUser,
     isLoading,
     isAuthenticated,
+    sessionLost,
+    markSessionLost,
+    clearSessionLost,
     hasRole,
     isGranted,
     removeRole,

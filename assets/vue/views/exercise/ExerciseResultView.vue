@@ -74,7 +74,7 @@
               <div
                 v-if="description"
                 class="exercise-result-html text-sm text-gray-700"
-                v-html="description"
+                v-html="displayTranslatedHtml(description)"
               />
             </div>
 
@@ -94,7 +94,7 @@
           <div
             v-if="attempt.textWhenFinished"
             class="exercise-result-html mt-4 rounded-lg border border-info/30 bg-support-1 p-3 text-sm text-support-4"
-            v-html="attempt.textWhenFinished"
+            v-html="displayTranslatedHtml(attempt.textWhenFinished)"
           />
 
           <div class="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -361,12 +361,12 @@
             <h2
               v-if="question.parent?.title"
               class="exercise-result-html text-lg font-semibold text-gray-90"
-              v-html="question.parent.title"
+              v-html="displayTranslatedHtml(question.parent.title)"
             />
             <div
               v-if="question.parent?.description || question.parent?.content?.description"
               class="exercise-result-html mt-2 text-sm text-gray-700"
-              v-html="question.parent.description || question.parent.content?.description"
+              v-html="displayTranslatedHtml(question.parent.description || question.parent.content?.description)"
             />
           </div>
 
@@ -385,12 +385,12 @@
                   </div>
                   <h2
                     class="exercise-result-html text-lg font-semibold text-gray-90"
-                    v-html="question.title"
+                    v-html="displayTranslatedHtml(question.title)"
                   />
                   <div
                     v-if="question.description"
                     class="exercise-result-html text-sm text-gray-700"
-                    v-html="question.description"
+                    v-html="displayTranslatedHtml(question.description)"
                   />
                 </div>
               </div>
@@ -434,7 +434,7 @@
                       class="mdi mt-0.5 text-base"
                       :class="choiceIconClass(choice)"
                     />
-                    <div class="exercise-result-html flex-1" v-html="choice.answer" />
+                    <div class="exercise-result-html flex-1" v-html="displayTranslatedHtml(choice.answer)" />
                   </div>
                   <div class="flex flex-wrap gap-2 text-xs font-semibold">
                     <span
@@ -454,7 +454,7 @@
                 <div
                   v-if="choice.comment"
                   class="exercise-result-html mt-2 rounded bg-white/70 p-2 text-xs text-gray-700"
-                  v-html="choice.comment"
+                  v-html="displayTranslatedHtml(choice.comment)"
                 />
               </div>
             </template>
@@ -467,7 +467,7 @@
                 :class="trueFalseClass(choice)"
               >
                 <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-                  <div class="exercise-result-html font-medium text-gray-90" v-html="choice.answer" />
+                  <div class="exercise-result-html font-medium text-gray-90" v-html="displayTranslatedHtml(choice.answer)" />
                   <span
                     class="mdi text-base"
                     :class="trueFalseIconClass(choice)"
@@ -496,7 +496,7 @@
                 <div
                   v-if="choice.comment"
                   class="exercise-result-html mt-2 rounded bg-white/70 p-2 text-xs text-gray-700"
-                  v-html="choice.comment"
+                  v-html="displayTranslatedHtml(choice.comment)"
                 />
               </div>
             </template>
@@ -539,7 +539,7 @@
                 :class="matchingClass(prompt)"
               >
                 <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-                  <div class="exercise-result-html font-medium text-gray-90" v-html="prompt.answer" />
+                  <div class="exercise-result-html font-medium text-gray-90" v-html="displayTranslatedHtml(prompt.answer)" />
                   <span
                     class="mdi text-base"
                     :class="matchingIconClass(prompt)"
@@ -564,7 +564,7 @@
                 <div
                   v-if="prompt.comment"
                   class="exercise-result-html mt-2 rounded bg-white/70 p-2 text-xs text-gray-700"
-                  v-html="prompt.comment"
+                  v-html="displayTranslatedHtml(prompt.comment)"
                 />
               </div>
             </template>
@@ -595,7 +595,7 @@
                       >
                         {{ index + 1 }}
                       </span>
-                      <span class="exercise-result-html" v-html="item.answer" />
+                      <span class="exercise-result-html" v-html="displayTranslatedHtml(item.answer)" />
                     </li>
                   </ol>
                   <p v-if="!question.answer.studentItems?.length" class="text-sm text-gray-500">
@@ -626,7 +626,7 @@
                       >
                         {{ index + 1 }}
                       </span>
-                      <span class="exercise-result-html" v-html="item.answer" />
+                      <span class="exercise-result-html" v-html="displayTranslatedHtml(item.answer)" />
                     </li>
                   </ol>
                 </div>
@@ -638,7 +638,7 @@
                 <div
                   v-if="question.answer.text"
                   class="exercise-result-html rounded bg-white p-3 text-gray-800"
-                  v-html="question.answer.text"
+                  v-html="displayTranslatedHtml(question.answer.text)"
                 />
                 <div class="grid gap-2 md:grid-cols-2">
                   <div
@@ -1204,6 +1204,17 @@
                     {{ question.answer.kind === 'onlyoffice' ? t("Learner Office document") : t("Learner file") }}
                   </div>
                   <div
+                    v-if="question.answer.kind === 'onlyoffice' && question.answer.editorUrl"
+                    class="mb-3 overflow-hidden rounded-lg border border-gray-20 bg-white shadow-sm"
+                  >
+                    <iframe
+                      :key="question.answer.editorUrl"
+                      :src="question.answer.editorUrl"
+                      class="h-[78vh] min-h-[680px] w-full border-0"
+                      :title="t('Learner Office document')"
+                    />
+                  </div>
+                  <div
                     v-if="question.answer.files?.length"
                     class="space-y-2"
                   >
@@ -1393,7 +1404,7 @@
               <div
                 v-if="question.answer.description"
                 class="exercise-result-html rounded-lg border border-gray-20 bg-gray-10 p-4 text-gray-800"
-                v-html="question.answer.description"
+                v-html="displayTranslatedHtml(question.answer.description)"
               />
               <div
                 v-else
@@ -1588,7 +1599,7 @@
             <div
               v-if="question.feedback"
               class="exercise-result-html rounded-lg border border-info/30 bg-support-1 p-3 text-sm text-support-4"
-              v-html="question.feedback"
+              v-html="displayTranslatedHtml(question.feedback)"
             />
           </div>
         </article>
@@ -1644,10 +1655,12 @@ import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
 import BaseInputNumber from "../../components/basecomponents/BaseInputNumber.vue"
 import BaseTextArea from "../../components/basecomponents/BaseTextArea.vue"
 import exerciseService from "../../services/exerciseService"
+import { useTranslatedHtml } from "../../composables/useTranslatedHtml"
 
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const { displayTranslatedHtml } = useTranslatedHtml()
 
 const isLoading = ref(false)
 const errorMessage = ref("")
@@ -1686,7 +1699,12 @@ function getContextParams() {
     learnpath_id: getQueryValue(route.query.learnpath_id),
     learnpath_item_id: getQueryValue(route.query.learnpath_item_id),
     learnpath_item_view_id: getQueryValue(route.query.learnpath_item_view_id),
-    isStudentView: getQueryValue(route.query.isStudentView),
+    lp_id: getQueryValue(route.query.lp_id),
+    item_id: getQueryValue(route.query.item_id),
+    returnToLp: getQueryValue(route.query.returnToLp),
+    embedded: getQueryValue(route.query.embedded),
+    gradebook: getQueryValue(route.query.gradebook),
+    preview: getQueryValue(route.query.preview),
     review: getQueryValue(route.query.review),
     mode: getQueryValue(route.query.mode),
   }
@@ -1703,13 +1721,16 @@ function isEmbeddedInLearnpath() {
       const parentPath = window.parent.location?.pathname || ""
       const referrer = document.referrer || ""
 
-      return parentPath.includes("/main/lp/")
+      return parentPath.includes("/resources/lp/")
+        || parentPath.includes("/main/lp/")
         || parentPath.includes("/main/newscorm/")
+        || referrer.includes("/resources/lp/")
         || referrer.includes("/main/lp/")
         || referrer.includes("/main/newscorm/")
     }
   } catch (error) {
-    return (document.referrer || "").includes("/main/lp/")
+    return (document.referrer || "").includes("/resources/lp/")
+      || (document.referrer || "").includes("/main/lp/")
       || (document.referrer || "").includes("/main/newscorm/")
   }
 
@@ -2634,6 +2655,7 @@ watch(
 }
 
 .exercise-result-html :deep(p) {
+  margin-top: 0;
   margin-bottom: 0.25rem;
 }
 

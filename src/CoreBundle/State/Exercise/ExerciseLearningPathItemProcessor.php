@@ -11,6 +11,9 @@ use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\ApiResource\Exercise\ExerciseLearningPathItem;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
+use Chamilo\CoreBundle\Service\Exercise\ExerciseLearningPathItemFactory;
 use Chamilo\CourseBundle\Entity\CLp;
 use Chamilo\CourseBundle\Entity\CLpItem;
 use Chamilo\CourseBundle\Entity\CQuiz;
@@ -18,30 +21,27 @@ use Chamilo\CourseBundle\Repository\CQuizRepository;
 use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProcessorInterface<ExerciseLearningPathItem, ExerciseLearningPathItem>
  */
 final readonly class ExerciseLearningPathItemProcessor implements ProcessorInterface
 {
-    private const CSRF_TOKEN_ID = 'exercise_question_action';
     private const LP_ITEM_TYPE_QUIZ = 'quiz';
     private const LP_ITEM_TYPE_DIR = 'dir';
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CQuizRepository $quizRepository,
-        private Security $security,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
+        private ExerciseLearningPathItemFactory $learningPathItemFactory,
     ) {}
 
     /**
@@ -59,11 +59,9 @@ final readonly class ExerciseLearningPathItemProcessor implements ProcessorInter
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $this->validateCsrfToken($data->submittedCsrfToken);
-
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
-        if (!$this->canManageExercises()) {
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        if (!$this->isAllowedToEditHelper->check(coach: true)) {
             throw new AccessDeniedHttpException('You are not allowed to manage exercises in this context.');
         }
 
@@ -101,55 +99,12 @@ final readonly class ExerciseLearningPathItemProcessor implements ProcessorInter
         return $response;
     }
 
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(self::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('Invalid CSRF token.');
-        }
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
-    }
-
     private function isLearningPathCreationContext(Request $request): bool
     {
         $origin = strtolower((string) $request->query->get('origin', ''));
         $returnToLp = strtolower((string) $request->query->get('returnToLp', ''));
 
         return 'learnpath' === $origin || \in_array($returnToLp, ['1', 'true', 'yes'], true);
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
     }
 
     private function getExerciseFromCurrentContext(int $exerciseId, Course $course, ?Session $session): CQuiz
@@ -240,7 +195,7 @@ final readonly class ExerciseLearningPathItemProcessor implements ProcessorInter
             ->andWhere('item.lp = :lp')
             ->andWhere('item.itemType = :itemType')
             ->andWhere('item.path = :path')
-            ->setParameter('lp', $lp)
+            ->setParameter('lp', (int) $lp->getIid())
             ->setParameter('itemType', self::LP_ITEM_TYPE_QUIZ)
             ->setParameter('path', (string) $exerciseId)
             ->setMaxResults(1)
@@ -253,34 +208,18 @@ final readonly class ExerciseLearningPathItemProcessor implements ProcessorInter
 
     private function createLearningPathExerciseItem(CLp $lp, CQuiz $quiz, int $exerciseId, CLpItem $parent): CLpItem
     {
-        $lpItem = (new CLpItem())
-            ->setTitle($quiz->getTitle())
-            ->setDescription('')
-            ->setPath((string) $exerciseId)
-            ->setRef('')
-            ->setLp($lp)
-            ->setItemType(self::LP_ITEM_TYPE_QUIZ)
-            ->setMaxScore($this->getExerciseMaxScore($quiz))
-            ->setMaxTimeAllowed('0')
-            ->setPrerequisite('0')
-            ->setDisplayOrder($this->getNextDisplayOrder($lp, $parent))
-            ->setParent($parent)
-        ;
+        $lpItem = $this->learningPathItemFactory->create(
+            $lp,
+            $quiz,
+            $exerciseId,
+            $parent,
+            $this->getNextDisplayOrder($lp, $parent),
+        );
 
         $this->entityManager->persist($lpItem);
         $this->entityManager->flush();
 
         return $lpItem;
-    }
-
-    private function getExerciseMaxScore(CQuiz $quiz): float
-    {
-        $maxScore = 0.0;
-        foreach ($quiz->getQuestions() as $relQuestion) {
-            $maxScore += (float) $relQuestion->getQuestion()->getPonderation();
-        }
-
-        return $maxScore;
     }
 
     private function getLearningPathRootItem(CLp $lp): CLpItem
@@ -290,7 +229,7 @@ final readonly class ExerciseLearningPathItemProcessor implements ProcessorInter
             ->from(CLpItem::class, 'item')
             ->andWhere('item.lp = :lp')
             ->andWhere('item.path = :path')
-            ->setParameter('lp', $lp)
+            ->setParameter('lp', (int) $lp->getIid())
             ->setParameter('path', 'root')
             ->setMaxResults(1)
             ->getQuery()
@@ -311,8 +250,8 @@ final readonly class ExerciseLearningPathItemProcessor implements ProcessorInter
             ->from(CLpItem::class, 'item')
             ->andWhere('item.lp = :lp')
             ->andWhere('item.parent = :parent')
-            ->setParameter('lp', $lp)
-            ->setParameter('parent', $parent)
+            ->setParameter('lp', (int) $lp->getIid())
+            ->setParameter('parent', (int) $parent->getIid())
             ->getQuery()
             ->getSingleScalarResult()
         ;
@@ -334,7 +273,7 @@ final readonly class ExerciseLearningPathItemProcessor implements ProcessorInter
                 ->andWhere('item.iid = :itemId')
                 ->andWhere('item.lp = :lp')
                 ->setParameter('itemId', $candidateId, Types::INTEGER)
-                ->setParameter('lp', $lp)
+                ->setParameter('lp', (int) $lp->getIid())
                 ->setMaxResults(1)
                 ->getQuery()
                 ->getOneOrNullResult()

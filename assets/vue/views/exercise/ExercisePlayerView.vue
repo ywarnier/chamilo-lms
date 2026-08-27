@@ -57,7 +57,7 @@
           <div
             v-if="description"
             class="exercise-runtime-html text-sm text-gray-700"
-            v-html="description"
+            v-html="displayTranslatedHtml(description)"
           />
         </div>
 
@@ -114,7 +114,14 @@
       </header>
 
       <div
-        v-if="showLegacyRuntimeFallback"
+        v-if="!hasRuntimeQuestions"
+        class="rounded-xl border border-gray-20 bg-white p-4 text-sm text-gray-700 shadow-sm"
+      >
+        {{ t("This exercise has no questions.") }}
+      </div>
+
+      <div
+        v-else-if="showLegacyRuntimeFallback"
         class="rounded-xl border border-info/30 bg-support-1 p-4 text-sm text-support-4"
       >
         <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
@@ -145,7 +152,7 @@
       </div>
 
       <div
-        v-if="!showLegacyRuntimeFallback"
+        v-else
         class="rounded-xl border border-gray-20 bg-white p-4 shadow-sm"
       >
         <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
@@ -300,7 +307,7 @@
       </div>
 
       <form
-        v-if="!isPreviewFinished && !showReviewReminderScreen && (canManage || activeAttempt)"
+        v-if="hasRuntimeQuestions && !isPreviewFinished && !showReviewReminderScreen && (canManage || activeAttempt)"
         class="space-y-4"
         @submit.prevent="submitDisabled"
       >
@@ -315,12 +322,12 @@
             <div
               v-if="currentRuntimePage.pageBreak.title"
               class="exercise-runtime-html text-lg font-semibold text-gray-90"
-              v-html="currentRuntimePage.pageBreak.title"
+              v-html="displayTranslatedHtml(currentRuntimePage.pageBreak.title)"
             />
             <div
               v-if="currentRuntimePage.pageBreak.description"
               class="exercise-runtime-html mt-2 text-sm text-gray-700"
-              v-html="currentRuntimePage.pageBreak.description"
+              v-html="displayTranslatedHtml(currentRuntimePage.pageBreak.description)"
             />
           </div>
 
@@ -334,12 +341,12 @@
             <h2
               v-if="currentRuntimePage.media.title"
               class="exercise-runtime-html text-lg font-semibold text-gray-90"
-              v-html="currentRuntimePage.media.title"
+              v-html="displayTranslatedHtml(currentRuntimePage.media.title)"
             />
             <div
               v-if="currentRuntimePage.media.description || currentRuntimePage.media.content?.description"
               class="exercise-runtime-html mt-2 text-sm text-gray-700"
-              v-html="currentRuntimePage.media.description || currentRuntimePage.media.content?.description"
+              v-html="displayTranslatedHtml(currentRuntimePage.media.description || currentRuntimePage.media.content?.description)"
             />
           </div>
         </div>
@@ -357,12 +364,12 @@
               <h2
                 v-if="!settings.hideQuestionTitle"
                 class="exercise-runtime-html text-lg font-semibold text-gray-90"
-                v-html="question.title"
+                v-html="displayTranslatedHtml(question.title)"
               />
               <div
                 v-if="question.description && !isReadingQuestion(question)"
                 class="exercise-runtime-html text-sm text-gray-700"
-                v-html="question.description"
+                v-html="displayTranslatedHtml(question.description)"
               />
             </div>
             <div class="flex flex-wrap gap-2">
@@ -383,7 +390,7 @@
               <div
                 v-if="isReadingQuestion(question) && question.reading?.text"
                 class="exercise-runtime-html rounded-lg border border-gray-20 bg-gray-10 p-4 text-gray-800"
-                v-html="question.reading.text"
+                v-html="displayTranslatedHtml(question.reading.text)"
               />
               <label
                 v-for="choice in question.choices"
@@ -397,7 +404,7 @@
                   type="radio"
                   :value="choice.id"
                 />
-                <span class="exercise-runtime-html flex-1" v-html="choice.answer" />
+                <div class="exercise-runtime-html min-w-0 flex-1" v-html="displayTranslatedHtml(choice.answer)" />
               </label>
             </div>
 
@@ -414,7 +421,7 @@
                   type="checkbox"
                   :value="choice.id"
                 />
-                <span class="exercise-runtime-html flex-1" v-html="choice.answer" />
+                <div class="exercise-runtime-html min-w-0 flex-1" v-html="displayTranslatedHtml(choice.answer)" />
               </label>
             </div>
 
@@ -451,7 +458,7 @@
                       :key="choice.id"
                     >
                       <td class="min-w-[18rem] px-4 py-3 align-top">
-                        <div class="exercise-runtime-html font-medium text-gray-90" v-html="choice.answer" />
+                        <div class="exercise-runtime-html font-medium text-gray-90" v-html="displayTranslatedHtml(choice.answer)" />
                       </td>
                       <td
                         v-for="option in trueFalseChoiceOptions(question)"
@@ -490,7 +497,7 @@
                   :key="choice.id"
                   class="rounded-lg border border-gray-20 p-3"
                 >
-                  <div class="exercise-runtime-html mb-3 font-medium text-gray-90" v-html="choice.answer" />
+                  <div class="exercise-runtime-html mb-3 font-medium text-gray-90" v-html="displayTranslatedHtml(choice.answer)" />
                   <div class="flex flex-wrap gap-3">
                     <label
                       v-for="option in trueFalseChoiceOptions(question)"
@@ -532,7 +539,7 @@
                     @dragover.prevent
                     @drop.prevent="onMatchingDrop(question, prompt.id)"
                   >
-                    <div class="exercise-runtime-html min-w-0 text-gray-900" v-html="prompt.answer" />
+                    <div class="exercise-runtime-html min-w-0 text-gray-900" v-html="displayTranslatedHtml(prompt.answer)" />
 
                     <button
                       type="button"
@@ -548,7 +555,7 @@
                         </span>
                         <span
                           class="exercise-runtime-html block"
-                          v-html="selectedMatchingOption(question, prompt.id).answer"
+                          v-html="displayTranslatedHtml(selectedMatchingOption(question, prompt.id).answer)"
                         />
                         <span
                           class="mt-2 inline-flex text-xs text-danger"
@@ -584,7 +591,7 @@
                     <span class="mb-1 block text-xs font-semibold uppercase">
                       {{ matchingOptionDisplayLabel(option) }}
                     </span>
-                    <span class="exercise-runtime-html block" v-html="option.answer" />
+                    <span class="exercise-runtime-html block" v-html="displayTranslatedHtml(option.answer)" />
                     <span v-if="isMatchingOptionAssigned(question, option.id)" class="mt-1 block text-xs text-gray-500">
                       {{ t("Already matched") }}
                     </span>
@@ -603,7 +610,7 @@
                 :key="prompt.id"
                 class="grid gap-3 rounded-lg border border-gray-20 p-3 md:grid-cols-[1fr_16rem] md:items-center"
               >
-                <div class="exercise-runtime-html" v-html="prompt.answer" />
+                <div class="exercise-runtime-html" v-html="displayTranslatedHtml(prompt.answer)" />
                 <select
                   v-model="answers[question.id].matching[prompt.id]"
                   class="rounded border border-gray-30 px-3 py-2 text-sm"
@@ -644,7 +651,7 @@
                       <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
                         {{ index + 1 }}
                       </span>
-                      <span class="exercise-runtime-html min-w-0 flex-1" v-html="item.answer" />
+                      <span class="exercise-runtime-html min-w-0 flex-1" v-html="displayTranslatedHtml(item.answer)" />
                     </div>
 
                     <div class="flex shrink-0 flex-wrap gap-2">
@@ -684,7 +691,7 @@
                       <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
                         {{ index + 1 }}
                       </span>
-                      <span class="exercise-runtime-html min-w-0 flex-1" v-html="item.answer" />
+                      <span class="exercise-runtime-html min-w-0 flex-1" v-html="displayTranslatedHtml(item.answer)" />
                     </div>
 
                     <div class="flex shrink-0 flex-wrap gap-2">
@@ -737,7 +744,7 @@
               <div
                 v-if="currentCalculatedVariation(question).text"
                 class="exercise-runtime-html rounded-lg border border-gray-20 p-3 text-sm text-gray-800"
-                v-html="currentCalculatedVariation(question).text"
+                v-html="displayTranslatedHtml(currentCalculatedVariation(question).text)"
               />
               <input
                 v-model="answers[question.id].calculated"
@@ -860,14 +867,17 @@
                 <p v-if="question.onlyoffice?.templateName" class="mb-3">
                   {{ t("Template") }}: {{ question.onlyoffice.templateName }}
                 </p>
-                <p class="mb-3">
+                <p v-if="!canManage" class="mb-3">
                   {{ t("Complete the document in the editor below. The file will be attached to this attempt for teacher correction.") }}
                 </p>
-                <div class="flex flex-wrap gap-2">
+                <div
+                  v-if="onlyofficeEditorUrl(question) || (answers[question.id]?.onlyofficeError && !canManage)"
+                  class="flex flex-wrap gap-2"
+                >
                   <BaseButton
+                    v-if="answers[question.id]?.onlyofficeError && !canManage"
                     :disabled="answers[question.id]?.onlyofficePreparing || isSavingDraft"
-                    :label="onlyofficeEditorUrl(question) ? t('Reload Office editor') : t('Prepare Office document')"
-                    icon="onlyoffice"
+                    :label="t('Prepare Office document')"
                     size="small"
                     type="primary"
                     @click="prepareOnlyofficeDocument(question, true)"
@@ -902,7 +912,7 @@
                 <iframe
                   :key="onlyofficeEditorUrl(question)"
                   :src="onlyofficeEditorUrl(question)"
-                  class="h-[72vh] min-h-[560px] w-full"
+                  class="h-[78vh] min-h-[680px] w-full border-0"
                   :title="question.onlyoffice?.templateName || t('Office document')"
                 />
               </div>
@@ -1165,7 +1175,7 @@
                             {{ zone.position || zoneIndex + 1 }}
                           </span>
                           <span class="min-w-0 flex-1">
-                            <span class="exercise-runtime-html block font-medium" v-html="zone.answer" />
+                            <span class="exercise-runtime-html block font-medium" v-html="displayTranslatedHtml(zone.answer)" />
                             <span
                               v-if="hotspotPointByAnswer(question, zone.id)"
                               class="mt-1 block text-xs text-success"
@@ -1191,7 +1201,7 @@
               <div
                 v-if="question.content?.description || question.description"
                 class="exercise-runtime-html rounded-lg border border-gray-20 bg-gray-10 p-4 text-gray-800"
-                v-html="question.content?.description || question.description"
+                v-html="displayTranslatedHtml(question.content?.description || question.description)"
               />
               <div
                 v-else
@@ -1207,7 +1217,7 @@
               </div>
               <div
                 class="exercise-runtime-html rounded-lg border border-gray-20 p-4 text-gray-800"
-                v-html="question.reading.text || question.description"
+                v-html="displayTranslatedHtml(question.reading.text || question.description)"
               />
             </div>
 
@@ -1215,7 +1225,7 @@
               <div
                 v-if="question.content?.description || question.description"
                 class="exercise-runtime-html rounded-lg border border-gray-20 bg-gray-10 p-4 text-gray-800"
-                v-html="question.content?.description || question.description"
+                v-html="displayTranslatedHtml(question.content?.description || question.description)"
               />
               <div
                 v-else
@@ -1298,12 +1308,12 @@
                 <div
                   v-if="entry.answer"
                   class="exercise-runtime-html font-medium text-gray-90"
-                  v-html="entry.answer"
+                  v-html="displayTranslatedHtml(entry.answer)"
                 />
                 <div
                   v-if="entry.comment"
                   class="exercise-runtime-html mt-1 text-gray-700"
-                  v-html="entry.comment"
+                  v-html="displayTranslatedHtml(entry.comment)"
                 />
               </div>
             </div>
@@ -1456,12 +1466,12 @@
             <div
               v-if="entry.answer"
               class="exercise-runtime-html font-medium text-gray-90"
-              v-html="entry.answer"
+              v-html="displayTranslatedHtml(entry.answer)"
             />
             <div
               v-if="entry.comment"
               class="exercise-runtime-html mt-1 text-gray-700"
-              v-html="entry.comment"
+              v-html="displayTranslatedHtml(entry.comment)"
             />
           </div>
         </div>
@@ -1604,10 +1614,12 @@ import BaseDialog from "../../components/basecomponents/BaseDialog.vue"
 import AudioRecorder from "../../components/AudioRecorder.vue"
 import ExerciseFillBlanksRuntime from "./components/ExerciseFillBlanksRuntime.vue"
 import exerciseService from "../../services/exerciseService"
+import { useTranslatedHtml } from "../../composables/useTranslatedHtml"
 
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const { displayTranslatedHtml } = useTranslatedHtml()
 
 const isLoading = ref(false)
 const errorMessage = ref("")
@@ -1689,8 +1701,11 @@ const usesPagedNavigation = computed(() => {
   return true === settings.value.oneQuestionPerPage
 })
 
+const hasRuntimeQuestions = computed(() => questions.value.length > 0)
+
 const showLegacyRuntimeFallback = computed(() => {
-  return !canManage.value
+  return hasRuntimeQuestions.value
+    && !canManage.value
     && Boolean(legacyUrls.value?.overview)
     && (true === settings.value.requiresLegacyRuntime || (Boolean(activeAttempt.value) && true === usesLegacySubmit.value))
 })
@@ -2439,10 +2454,12 @@ function getContextParams() {
   addOptionalQueryParam(params, "learnpath_item_id")
   addOptionalQueryParam(params, "learnpath_item_view_id")
   addOptionalQueryParam(params, "lp_id")
+  addOptionalQueryParam(params, "item_id")
   addOptionalQueryParam(params, "node")
   addOptionalQueryParam(params, "type")
   addOptionalQueryParam(params, "returnToLp")
-  addOptionalQueryParam(params, "isStudentView")
+  addOptionalQueryParam(params, "embedded")
+  addOptionalQueryParam(params, "gradebook")
   addOptionalQueryParam(params, "preview")
   addOptionalQueryParam(params, "attemptId")
 
@@ -2459,13 +2476,16 @@ function isEmbeddedInLearnpath() {
       const parentPath = window.parent.location?.pathname || ""
       const referrer = document.referrer || ""
 
-      return parentPath.includes("/main/lp/")
+      return parentPath.includes("/resources/lp/")
+        || parentPath.includes("/main/lp/")
         || parentPath.includes("/main/newscorm/")
+        || referrer.includes("/resources/lp/")
         || referrer.includes("/main/lp/")
         || referrer.includes("/main/newscorm/")
     }
   } catch (error) {
-    return (document.referrer || "").includes("/main/lp/")
+    return (document.referrer || "").includes("/resources/lp/")
+      || (document.referrer || "").includes("/main/lp/")
       || (document.referrer || "").includes("/main/newscorm/")
   }
 
@@ -2527,6 +2547,19 @@ function syncLearnpathParentFromFinish(response) {
   } catch (error) {
     console.warn("Could not update learning path navigation after exercise finish", error)
   }
+
+  try {
+    parentWindow.postMessage(
+      {
+        type: "chamilo:learning-path-runtime-refresh",
+        itemId,
+        status,
+      },
+      window.location.origin,
+    )
+  } catch (error) {
+    console.warn("Could not request learning path runtime refresh after exercise finish", error)
+  }
 }
 
 function getExerciseId() {
@@ -2554,7 +2587,7 @@ async function loadRuntime() {
     totalScore.value = Number(response.totalScore || 0)
     canManage.value = true === response.canManage
     isPreviewFinished.value = false
-    canStartAttempt.value = true === response.canStartAttempt && true !== settings.value.requiresLegacyRuntime
+    canStartAttempt.value = hasRuntimeQuestions.value && true === response.canStartAttempt && true !== settings.value.requiresLegacyRuntime
     activeAttempt.value = response.attempt || null
     canSubmit.value = true === response.canSubmit
     usesLegacySubmit.value = true === response.usesLegacySubmit && Boolean(activeAttempt.value)
@@ -2599,7 +2632,7 @@ async function startAttempt() {
     if (response.success) {
       activeAttempt.value = response
       canSubmit.value = true === response.canFinish && true !== response.usesLegacyRuntime
-      usesLegacySubmit.value = true === response.usesLegacyRuntime || false === response.canFinish
+      usesLegacySubmit.value = true === response.usesLegacyRuntime
       attemptMessage.value = response.message || t("Attempt started")
       confirmedSavedAnswers.value = false
       applyAttemptState(response)
@@ -4666,7 +4699,6 @@ watch(
     route.query.gid,
     route.query.attemptId,
     route.query.preview,
-    route.query.isStudentView,
   ],
   () => loadRuntime(),
 )
@@ -4716,6 +4748,7 @@ watch(
 }
 
 .exercise-runtime-html :deep(p) {
+  margin-top: 0;
   margin-bottom: 0.5rem;
 }
 

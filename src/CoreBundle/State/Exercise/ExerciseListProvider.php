@@ -10,11 +10,15 @@ use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
 use Chamilo\CoreBundle\ApiResource\Exercise\ExerciseList;
 use Chamilo\CoreBundle\Entity\Course;
-use Chamilo\CoreBundle\Entity\GradebookLink;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
+use Chamilo\CoreBundle\Helpers\UserHelper;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
 use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\State\Gradebook\GradebookLinkResourceResolver;
 use Chamilo\CourseBundle\Entity\CLpItem;
 use Chamilo\CourseBundle\Entity\CQuiz;
 use Chamilo\CourseBundle\Entity\CQuizCategory;
@@ -29,7 +33,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProviderInterface<ExerciseList>
@@ -37,17 +40,18 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 final readonly class ExerciseListProvider implements ProviderInterface
 {
     private const VISIBILITY_PUBLISHED = 2;
-    private const CSRF_TOKEN_ID = 'exercise_list_action';
-    private const LINK_TYPE_EXERCISE = 1;
     private const LP_ITEM_TYPE_QUIZ = 'quiz';
     private const LP_READ_ONLY_MESSAGE = 'This exercise has been included in a learning path, so it cannot be accessed by students directly from here. If you want to put the same exercise available through the exercises tool, please make a copy of the current exercise using the copy icon.';
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private GradebookLinkManager $gradebookLinkManager,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
+        private UserHelper $userHelper,
     ) {}
 
     /**
@@ -61,9 +65,9 @@ final readonly class ExerciseListProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
-        $canManage = $this->canManageExercises();
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $canManage = $this->isAllowedToEditHelper->check(coach: true);
         $canCreate = $canManage;
 
         if (!$canManage && !$this->canViewExercises()) {
@@ -76,7 +80,6 @@ final readonly class ExerciseListProvider implements ProviderInterface
         $response->items = $items;
         $response->categories = $this->getCategories($course);
         $response->settings = $this->getSettings($course);
-        $response->submittedCsrfToken = (string) $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID);
         $response->totalItems = \count($items);
         $response->canManage = $canManage;
         $response->canCreate = $canCreate;
@@ -85,47 +88,11 @@ final readonly class ExerciseListProvider implements ProviderInterface
         return $response;
     }
 
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
     private function canViewExercises(): bool
     {
         return $this->security->isGranted('ROLE_CURRENT_COURSE_STUDENT')
             || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_STUDENT')
-            || $this->canManageExercises();
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
+            || $this->userHelper->isTeacherOfCurrentCourse();
     }
 
     /**
@@ -236,6 +203,7 @@ final readonly class ExerciseListProvider implements ProviderInterface
                 $attemptCounts[$quizId] ?? 0,
                 $canManage,
                 $course,
+                $session,
                 $latestAttempts[$quizId] ?? null,
                 $isLinkedToLearningPath,
                 $forceEditLearningPathExercises,
@@ -479,6 +447,7 @@ final readonly class ExerciseListProvider implements ProviderInterface
         int $attemptCount,
         bool $canManage,
         Course $course,
+        ?Session $session,
         ?TrackEExercise $latestAttempt = null,
         bool $isLinkedToLearningPath = false,
         bool $forceEditLearningPathExercises = false,
@@ -490,14 +459,14 @@ final readonly class ExerciseListProvider implements ProviderInterface
         $availabilityStatus = $this->getAvailabilityStatus($startTime, $endTime);
         $canRunRestrictedActions = $this->canRunRestrictedActions();
         $canCleanResults = $this->canCleanResults();
-        $isGradebookLocked = $this->isGradebookLocked((int) $quiz->getIid(), $course);
+        $isGradebookLocked = $this->isGradebookLocked((int) $quiz->getIid(), $course, $session);
         $isLimitTeacherAccess = $this->isSettingEnabled('exercise.limit_exercise_teacher_access');
         $isReadOnlyFromLearningPath = $isLinkedToLearningPath && !$forceEditLearningPathExercises;
 
         return [
             'iid' => (int) $quiz->getIid(),
             'title' => $quiz->getTitle(),
-            'description' => (string) $quiz->getDescription(),
+            'description' => api_get_filtered_multilingual_HTML_string((string) $quiz->getDescription()),
             'categoryId' => null !== $category && null !== $category->getId() ? (int) $category->getId() : 0,
             'categoryTitle' => null !== $category ? $category->getTitle() : '',
             'visible' => $visible,
@@ -594,33 +563,14 @@ final readonly class ExerciseListProvider implements ProviderInterface
             && !$this->isSettingEnabled('exercise.disable_clean_exercise_results_for_teachers');
     }
 
-    private function isGradebookLocked(int $exerciseId, Course $course): bool
+    private function isGradebookLocked(int $exerciseId, Course $course, ?Session $session): bool
     {
-        if ($this->security->isGranted('ROLE_ADMIN')) {
-            return false;
-        }
-
-        if (!$this->isSettingEnabled('gradebook.gradebook_locking_enabled')) {
-            return false;
-        }
-
-        $lockedLink = $this->entityManager->createQueryBuilder()
-            ->select('link.id')
-            ->from(GradebookLink::class, 'link')
-            ->andWhere('link.locked = :locked')
-            ->andWhere('link.refId = :exerciseId')
-            ->andWhere('link.type = :linkType')
-            ->andWhere('IDENTITY(link.course) = :courseId')
-            ->setParameter('locked', 1, Types::INTEGER)
-            ->setParameter('exerciseId', $exerciseId, Types::INTEGER)
-            ->setParameter('linkType', self::LINK_TYPE_EXERCISE, Types::INTEGER)
-            ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-
-        return null !== $lockedLink;
+        return $this->gradebookLinkManager->isResourceLocked(
+            $course,
+            $session,
+            GradebookLinkResourceResolver::LINK_EXERCISE,
+            $exerciseId,
+        );
     }
 
     private function formatDate(?DateTimeInterface $date): ?string

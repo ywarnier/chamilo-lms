@@ -1,10 +1,10 @@
 <template>
   <section class="space-y-6">
-    <div class="flex flex-wrap items-center justify-between gap-3">
-      <div
-        v-if="!isLearnpathContext"
-        class="exercise-overview-toolbar flex flex-wrap items-center gap-1 rounded-xl border border-gray-20 bg-white px-2 py-1 shadow-sm"
-      >
+    <SectionHeader
+      v-if="!isLearnpathContext"
+      :title="t('Tests')"
+    >
+      <div class="exercise-overview-toolbar flex flex-wrap items-center gap-1">
         <BaseButton
           :label="t('Return to exercises list')"
           :route="{ name: 'ExerciseList', params: route.params, query: getContextParams() }"
@@ -32,7 +32,7 @@
           type="primary-text"
         />
       </div>
-    </div>
+    </SectionHeader>
 
     <div
       v-if="errorMessage"
@@ -213,14 +213,20 @@
 import { computed, onMounted, reactive, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
 import { useRoute, useRouter } from "vue-router"
+import { useTranslatedHtml } from "../../composables/useTranslatedHtml"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import { chamiloIconToClass } from "../../components/basecomponents/ChamiloIcons"
 import exerciseService from "../../services/exerciseService"
+import { usePlatformConfig } from "../../store/platformConfig"
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const { displayTranslatedHtml } = useTranslatedHtml()
+const platformConfig = usePlatformConfig()
 
 const isLoading = ref(false)
 const isStartingAttempt = ref(false)
@@ -295,11 +301,14 @@ function getContextParams() {
   addOptionalQueryParam(params, "learnpath_item_id")
   addOptionalQueryParam(params, "learnpath_item_view_id")
   addOptionalQueryParam(params, "lp_id")
+  addOptionalQueryParam(params, "item_id")
   addOptionalQueryParam(params, "node")
   addOptionalQueryParam(params, "type")
   addOptionalQueryParam(params, "returnToLp")
-  addOptionalQueryParam(params, "isStudentView")
+  addOptionalQueryParam(params, "embedded")
+  addOptionalQueryParam(params, "gradebook")
   addOptionalQueryParam(params, "preview")
+  addOptionalQueryParam(params, "attemptId")
 
   return params
 }
@@ -315,13 +324,16 @@ function isEmbeddedInLearnpath() {
       const parentPath = window.parent.location?.pathname || ""
       const referrer = document.referrer || ""
 
-      return parentPath.includes("/main/lp/")
+      return parentPath.includes("/resources/lp/")
+        || parentPath.includes("/main/lp/")
         || parentPath.includes("/main/newscorm/")
+        || referrer.includes("/resources/lp/")
         || referrer.includes("/main/lp/")
         || referrer.includes("/main/newscorm/")
     }
   } catch (error) {
-    return (document.referrer || "").includes("/main/lp/")
+    return (document.referrer || "").includes("/resources/lp/")
+      || (document.referrer || "").includes("/main/lp/")
       || (document.referrer || "").includes("/main/newscorm/")
   }
 
@@ -357,10 +369,10 @@ function getRuntimeStartContextParams() {
   const params = { ...getContextParams() }
 
   if (
-    overview.canManage
-    && !isLearnpathContext.value
-    && !Object.prototype.hasOwnProperty.call(params, "preview")
-    && !Object.prototype.hasOwnProperty.call(params, "isStudentView")
+    overview.canManage &&
+    !isLearnpathContext.value &&
+    !platformConfig.isStudentViewActive &&
+    !Object.prototype.hasOwnProperty.call(params, "preview")
   ) {
     params.preview = 1
   }
@@ -470,6 +482,8 @@ async function startAndOpenPlayer() {
   }
 }
 
+let loadOverviewToken = 0
+
 async function loadOverview() {
   const exerciseId = getExerciseId()
   if (exerciseId <= 0) {
@@ -478,20 +492,34 @@ async function loadOverview() {
     return
   }
 
+  const cid = getQueryValue(route.query.cid)
+  if (!cid) {
+    return
+  }
+
+  const token = ++loadOverviewToken
   isLoading.value = true
   errorMessage.value = ""
 
   try {
-    const response = await exerciseService.getExerciseOverview(getContextParams(), exerciseId)
+    const response = await exerciseService.getExerciseOverview(getContextParams(), exerciseId, { timeout: 15_000 })
+    if (token !== loadOverviewToken) {
+      return
+    }
     Object.assign(overview, response || {})
     overview.currentUserAttempts = Array.isArray(response?.currentUserAttempts) ? response.currentUserAttempts : []
     browserCheckStatus.value = "idle"
     browserCheckMessage.value = ""
   } catch (error) {
+    if (token !== loadOverviewToken) {
+      return
+    }
     console.error("Error loading exercise overview", error)
     errorMessage.value = t("Could not load exercise overview")
   } finally {
-    isLoading.value = false
+    if (token === loadOverviewToken) {
+      isLoading.value = false
+    }
   }
 }
 
@@ -565,7 +593,7 @@ function decodeHtml(value) {
 }
 
 function displayText(value, fallback = "") {
-  const decodedValue = decodeHtml(value)
+  const decodedValue = decodeHtml(displayTranslatedHtml(value))
   const plainValue = decodeHtml(decodedValue.replace(/<[^>]*>/g, " "))
     .replace(/\s+/g, " ")
     .trim()
@@ -574,6 +602,8 @@ function displayText(value, fallback = "") {
 }
 
 onMounted(loadOverview)
+
+useStudentViewRefresh(loadOverview)
 
 watch(
   () => [route.params.exerciseId, route.query.cid, route.query.sid, route.query.gid],

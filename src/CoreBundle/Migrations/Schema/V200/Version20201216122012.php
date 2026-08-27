@@ -24,9 +24,9 @@ use Throwable;
 final class Version20201216122012 extends AbstractMigrationChamilo
 {
     private const int ORM_FLUSH_BATCH_SIZE = 100;
-    private const string ITEM_PROPERTY_INDEX = 'idx_ricky_migration_item_property_tool_ref_course';
-    private const string CLP_CATEGORY_CID_INDEX = 'idx_ricky_migration_clp_category_c_id';
-    private const string CLP_CID_INDEX = 'idx_ricky_migration_clp_c_id';
+    private const string ITEM_PROPERTY_INDEX = 'idx_legacy_migration_item_property_tool_ref_course';
+    private const string CLP_CATEGORY_CID_INDEX = 'idx_legacy_migration_clp_category_c_id';
+    private const string CLP_CID_INDEX = 'idx_legacy_migration_clp_c_id';
 
     public function getDescription(): string
     {
@@ -163,6 +163,7 @@ final class Version20201216122012 extends AbstractMigrationChamilo
             $ids
         );
         $processed = 0;
+        $legacyCategoryFallbacks = 0;
         [$course, $admin, $resourceType] = $this->reloadContext(
             $courseId,
             $adminId,
@@ -184,13 +185,18 @@ final class Version20201216122012 extends AbstractMigrationChamilo
 
                 $items = $itemProperties[$id] ?? [];
                 if ([] === $items) {
-                    $this->logItemPropertyInconsistency('learnpath_category', $id, (string) $resource);
-                    $this->getLogger()->warning('Learning-path category skipped: missing c_item_property.', [
-                        'course_id' => $courseId,
-                        'category_id' => $id,
-                    ]);
-
-                    continue;
+                    // Chamilo 1.11.x LP categories were persisted directly in c_lp_category
+                    // and had no independent visibility setting. They were listed by course,
+                    // while visibility was evaluated on each child LP. Preserve that legacy
+                    // behavior as a published course-level category instead of skipping it.
+                    $items = [[
+                        'visibility' => 1,
+                        'insert_user_id' => $adminId,
+                        'session_id' => 0,
+                        'to_group_id' => 0,
+                        'lastedit_date' => null,
+                    ]];
+                    ++$legacyCategoryFallbacks;
                 }
 
                 $result = $this->fixItemProperty(
@@ -201,7 +207,8 @@ final class Version20201216122012 extends AbstractMigrationChamilo
                     $resource,
                     $course,
                     $items,
-                    $resourceType
+                    $resourceType,
+                    false
                 );
 
                 if (false === $result) {
@@ -225,6 +232,7 @@ final class Version20201216122012 extends AbstractMigrationChamilo
             'course_id' => $courseId,
             'candidates' => \count($ids),
             'migrated' => $processed,
+            'legacy_without_item_property' => $legacyCategoryFallbacks,
         ]);
     }
 
@@ -292,7 +300,8 @@ final class Version20201216122012 extends AbstractMigrationChamilo
                     $resource,
                     $course,
                     $items,
-                    $resourceType
+                    $resourceType,
+                    false
                 );
 
                 if (false === $result) {

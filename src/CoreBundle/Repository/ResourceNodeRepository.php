@@ -167,7 +167,14 @@ class ResourceNodeRepository extends MaterializedPathRepository
         $params['parentNode'] = $resourceNode;
         $params['type'] = $type;
 
-        $qb->setParameters(new ArrayCollection(array_map(static fn ($name, $value) => new Parameter($name, $value), array_keys($params), array_values($params))));
+        /** @var ArrayCollection<int, Parameter> $parameters */
+        $parameters = new ArrayCollection(array_map(
+            static fn ($name, $value): Parameter => new Parameter($name, $value),
+            array_keys($params),
+            array_values($params)
+        ));
+
+        $qb->setParameters($parameters);
 
         return (int) $qb->getQuery()->getSingleScalarResult();
     }
@@ -182,7 +189,7 @@ class ResourceNodeRepository extends MaterializedPathRepository
             ->where($qb->expr()->eq('resourceType.title', ':resourceType'))
             ->andWhere($qb->expr()->eq('resourceLinks.course', ':course'))
             ->setParameter('resourceType', $type)
-            ->setParameter('course', $course)
+            ->setParameter('course', (int) $course->getId())
             ->getQuery()
             ->getResult()
         ;

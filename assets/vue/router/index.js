@@ -27,11 +27,19 @@ import links from "./links"
 import forum from "./forum"
 import survey from "./survey"
 import exercise from "./exercise"
+import gradebook from "./gradebook"
 import courseDescription from "./courseDescription"
+import courseInvitation from "./courseInvitation"
 import notebook from "./notebook"
 import portfolio from "./portfolio"
 import wiki from "./wiki"
 import courseProgress from "./courseProgress"
+import courseSettings from "./courseSettings"
+import courseReporting from "./courseReporting"
+import globalReporting from "./globalReporting"
+import courseUser from "./courseUser"
+import courseSession from "./courseSession"
+import myClass from "./myClass"
 import announcement from "./announcement"
 import ticket from "./ticket"
 import glossary from "./glossary"
@@ -61,6 +69,7 @@ import { usePlatformConfig } from "../store/platformConfig"
 import courseService from "../services/courseService"
 import { checkIsAllowedToEdit } from "../composables/userPermissions"
 import securityService from "../services/securityService"
+import globalReportingService from "../services/globalReportingService"
 import { customVueTemplateEnabled } from "../config/env"
 import { resolveCourseIdFromRoute } from "../utils/courseContext"
 
@@ -229,6 +238,10 @@ function derivePageTypeClasses(to) {
 
   if (p.startsWith("/admin")) {
     return ["page-administration", "page-administration-platform"]
+  }
+
+  if (p.startsWith("/reporting")) {
+    return ["page-reporting"]
   }
 
   if (p.startsWith("/tracking")) {
@@ -401,6 +414,7 @@ const router = createRouter({
       name: "AccessUrlDelete",
       component: () => import("../views/accessurl/DeleteAccessUrl.vue"),
       props: (route) => ({ id: Number(route.params.id) }),
+      meta: { requiresGlobalAdmin: true, showBreadcrumb: true, breadcrumb: "Delete access" },
     },
     {
       path: "/home",
@@ -512,6 +526,25 @@ const router = createRouter({
         breadcrumb: "Pending surveys",
       },
     },
+    {
+      path: "/my-certificates",
+      name: "MyCertificates",
+      component: () => import("../views/gradebook/MyCertificatesView.vue"),
+      meta: {
+        requiresAuth: true,
+        showBreadcrumb: true,
+        breadcrumb: "My certificates",
+      },
+    },
+    {
+      path: "/certificates/search",
+      name: "CertificateSearch",
+      component: () => import("../views/gradebook/CertificateSearchView.vue"),
+      meta: {
+        showBreadcrumb: true,
+        breadcrumb: "Search certificates",
+      },
+    },
     fileManagerRoutes,
     ...portfolio,
     socialNetworkRoutes,
@@ -524,10 +557,18 @@ const router = createRouter({
     forum,
     survey,
     exercise,
+    gradebook,
     courseDescription,
+    courseInvitation,
     notebook,
     wiki,
     courseProgress,
+    courseSettings,
+    courseReporting,
+    globalReporting,
+    courseUser,
+    courseSession,
+    myClass,
     announcement,
     ticket,
     glossary,
@@ -555,6 +596,17 @@ const router = createRouter({
     roomRoutes,
     buycoursesRoutes,
   ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+
+    if (to.hash) {
+      return { el: to.hash }
+    }
+
+    return { top: 0 }
+  },
 })
 
 // ---------------------------------------------------------------------------
@@ -640,13 +692,26 @@ router.beforeEach(async (to, from, next) => {
   const allowsAnonymousAccess = to.matched.some((record) => record.meta?.allowAnonymousAccess === true)
   const needsAuth = to.matched.some((record) => record.meta?.requiresAuth === true)
   const wantsAdmin = to.matched.some((record) => record.meta?.requiresAdmin === true)
+  const wantsGlobalAdmin = to.matched.some((record) => record.meta?.requiresGlobalAdmin === true)
   const wantsSessionAdmin = to.matched.some((record) => record.meta?.requiresSessionAdmin === true)
   const wantsHR = to.matched.some((record) => record.meta?.requiresHR === true)
+  const wantsQuestionManager = to.matched.some((record) => record.meta?.requiresQuestionManager === true)
 
-  const mustBeLogged = !allowsAnonymousAccess && (needsAuth || wantsAdmin || wantsSessionAdmin || wantsHR)
+  const mustBeLogged =
+    !allowsAnonymousAccess &&
+    (needsAuth || wantsAdmin || wantsGlobalAdmin || wantsSessionAdmin || wantsHR || wantsQuestionManager)
 
   if (mustBeLogged && !securityStore.isLoading) {
-    await securityStore.checkSession()
+    // force:true - a protected route needs a real answer from the server,
+    // not the client's not-yet-hydrated guess (see securityStore.checkSession).
+    await securityStore.checkSession(
+      {
+        cid,
+        sid: parseInt(to.query?.sid ?? 0) || 0,
+        gid: parseInt(to.query?.gid ?? 0) || 0,
+      },
+      { force: true },
+    )
   }
 
   // If user must be logged but is not, send to login
@@ -657,11 +722,15 @@ router.beforeEach(async (to, from, next) => {
     return
   }
 
-  // Role-based access control: admin / session-admin / HR
-  if (wantsAdmin || wantsSessionAdmin || wantsHR) {
+  // Role-based access control: admin / global-admin / session-admin / HR / question manager
+  if (wantsAdmin || wantsGlobalAdmin || wantsSessionAdmin || wantsHR || wantsQuestionManager) {
     let allowed = true
 
-    if (wantsAdmin && wantsSessionAdmin) {
+    if (wantsGlobalAdmin) {
+      // Only global admins (ROLE_GLOBAL_ADMIN), e.g. the Multi URLs dashboard.
+      // A plain ROLE_ADMIN is not enough here, unlike requiresAdmin/isAdmin below.
+      allowed = securityStore.isGranted("ROLE_GLOBAL_ADMIN")
+    } else if (wantsAdmin && wantsSessionAdmin) {
       // Route can be accessed by platform admins OR session admins
       allowed = securityStore.isGranted("ROLE_SESSION_MANAGER")
     } else if (wantsAdmin && wantsHR) {
@@ -676,6 +745,9 @@ router.beforeEach(async (to, from, next) => {
     } else if (wantsHR) {
       // Only HR users
       allowed = !!securityStore.isHRM
+    } else if (wantsQuestionManager) {
+      // Platform administrators and dedicated question managers.
+      allowed = !!securityStore.isAdmin || securityStore.isGranted("ROLE_QUESTION_MANAGER")
     }
 
     if (!allowed) {
@@ -683,6 +755,23 @@ router.beforeEach(async (to, from, next) => {
       next({ name: "Home", replace: true })
 
       return
+    }
+  }
+
+  // Resolve the global reporting landing page before mounting the Overview component.
+  // This prevents users without global-report access from briefly seeing the overview UI
+  // while its component waits for the dashboard API response and redirects afterwards.
+  if (to.name === "GlobalReportingOverview") {
+    try {
+      const dashboard = await globalReportingService.getDashboard(true)
+
+      if (dashboard.redirectUrl && dashboard.redirectUrl !== "/reporting") {
+        next({ path: dashboard.redirectUrl, replace: true })
+
+        return
+      }
+    } catch (error) {
+      console.error("[Router] Failed to resolve the global reporting landing page", error)
     }
   }
 

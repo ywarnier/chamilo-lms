@@ -16,6 +16,7 @@ import courseRelUserService from "../../services/courseRelUserService"
 import { useCourseRequirementStatus } from "../../composables/course/useCourseRequirementStatus"
 import { useLocale } from "../../composables/locale"
 import baseService from "../../services/baseService"
+import { useTranslatedHtml } from "../../composables/useTranslatedHtml"
 
 const { t } = useI18n()
 const { getOriginalLanguageName } = useLocale()
@@ -45,6 +46,10 @@ const ratingResetKey = ref(0)
 
 const localCourse = ref(JSON.parse(JSON.stringify(props.course || {})))
 const localVote = ref(props.course?.userVote?.vote || 0)
+
+// This card's own course language is the correct fallback here — not cidReq's
+// course, which may hold a different course visited earlier in the SPA session.
+const { displayTranslatedHtml } = useTranslatedHtml(() => localCourse.value?.courseLanguage)
 
 localCourse.value.ratingAvg = Number(localCourse.value.ratingAvg ?? 0)
 localCourse.value.ratingCount = Number(
@@ -627,13 +632,13 @@ onMounted(() => {
         <h3
           v-if="item.title"
           class="text-lg font-semibold"
-          v-html="item.title"
+          v-html="displayTranslatedHtml(item.title)"
         ></h3>
 
         <div
           v-if="item.content"
           class="rich-html-content"
-          v-html="item.content"
+          v-html="displayTranslatedHtml(item.content)"
         />
       </section>
     </div>

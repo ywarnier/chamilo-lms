@@ -24,16 +24,11 @@ use const PATHINFO_EXTENSION;
 
 final class Version20201212203625 extends AbstractMigrationChamilo
 {
-    /**
-     * System folder filetypes (no file upload for these).
-     *
-     * @var string[]
-     */
     private const int DOCUMENT_BATCH_SIZE = 100;
     private const int AUDIO_ASSET_FLUSH_BATCH_SIZE = 50;
-    private const string ITEM_PROPERTY_INDEX = 'idx_ricky_migration_item_property_tool_ref_course';
-    private const string CDOCUMENT_CID_INDEX = 'idx_ricky_migration_cdocument_c_id';
-    private const string TRACK_E_ATTEMPT_LOOKUP_INDEX = 'idx_ricky_migration_track_e_attempt_uid_qid_fn';
+    private const string ITEM_PROPERTY_INDEX = 'idx_legacy_migration_item_property_tool_ref_course';
+    private const string CDOCUMENT_CID_INDEX = 'idx_legacy_migration_cdocument_c_id';
+    private const string TRACK_E_ATTEMPT_LOOKUP_INDEX = 'idx_legacy_migration_track_e_attempt_uid_qid_fn';
 
     private const array FOLDER_LIKE_FILETYPES = [
         'folder',
@@ -54,7 +49,14 @@ final class Version20201212203625 extends AbstractMigrationChamilo
         $this->ensureCDocumentFiletypeVarchar15();
         $this->ensureItemPropertyMigrationIndex();
         $this->ensureCDocumentCidIndex();
-        $this->ensureTrackEAttemptLookupIndex();
+
+        // The composite track_e_attempt index is only needed by the student
+        // exercise-audio lookup. Avoid building it on large tracking tables
+        // when the legacy database has no such documents.
+        $hasStudentExerciseAudioDocuments = $this->hasStudentExerciseAudioDocuments();
+        if ($hasStudentExerciseAudioDocuments) {
+            $this->ensureTrackEAttemptLookupIndex();
+        }
 
         /** @var CDocumentRepository $documentRepo */
         $documentRepo = $this->container->get(CDocumentRepository::class);
@@ -192,7 +194,7 @@ final class Version20201212203625 extends AbstractMigrationChamilo
         // --------------------------
         $pendingFileRows = [];
 
-        foreach ($courses as $courseData) {
+        foreach ($hasStudentExerciseAudioDocuments ? $courses : [] as $courseData) {
             $courseId = (int) ($courseData['id'] ?? 0);
             $courseDirectory = (string) ($courseData['directory'] ?? '');
 
@@ -450,7 +452,8 @@ final class Version20201212203625 extends AbstractMigrationChamilo
                             $document,
                             $admin,
                             $parent,
-                            $documentResourceType
+                            $documentResourceType,
+                            false
                         );
                         $this->entityManager->persist($resourceNode);
                         $this->entityManager->persist($document);
@@ -466,7 +469,8 @@ final class Version20201212203625 extends AbstractMigrationChamilo
                         $document,
                         $parent,
                         $items,
-                        $documentResourceType
+                        $documentResourceType,
+                        false
                     );
                     if (false === $ok) {
                         continue;
@@ -697,6 +701,23 @@ final class Version20201212203625 extends AbstractMigrationChamilo
                 'error' => $exception->getMessage(),
             ]);
         }
+    }
+
+    private function hasStudentExerciseAudioDocuments(): bool
+    {
+        $value = $this->connection->fetchOne(
+            'SELECT 1
+             FROM c_document
+             WHERE path LIKE :pattern
+               AND path NOT LIKE :teacherPattern
+             LIMIT 1',
+            [
+                'pattern' => '/../exercises/%',
+                'teacherPattern' => '/../exercises/teacher_audio%',
+            ]
+        );
+
+        return false !== $value;
     }
 
     private function ensureTrackEAttemptLookupIndex(): void

@@ -17,6 +17,7 @@ use Chamilo\CourseBundle\Entity\CLpCategory;
 use Chamilo\CourseBundle\Entity\CQuiz;
 use Chamilo\CourseBundle\Entity\CStudentPublication;
 use ChamiloSession as Session;
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 if (!isset($_GET['course'])) {
     $cidReset = true;
@@ -129,8 +130,13 @@ if (!empty($details)) {
         ];
     } else {
         if ('tracking_course' === $origin) {
+            $courseReportingUrl = api_get_path(WEB_PATH).'resources/course-reporting/?'.http_build_query([
+                'cid' => (int) $courseId,
+                'sid' => (int) api_get_session_id(),
+                'gid' => 0,
+            ]);
             $interbreadcrumb[] = [
-                'url' => '../tracking/courseLog.php?cid='.$courseId.'&sid='.api_get_session_id(),
+                'url' => $courseReportingUrl,
                 'name' => get_lang('Reporting'),
             ];
         } else {
@@ -185,7 +191,7 @@ if (!empty($details)) {
         }
     } elseif ('teacher_details' === $origin) {
         $this_section = SECTION_TRACKING;
-        $interbreadcrumb[] = ['url' => 'index.php', 'name' => get_lang('Reporting')];
+        $interbreadcrumb[] = ['url' => api_get_path(WEB_PATH).'reporting', 'name' => get_lang('Reporting')];
         $interbreadcrumb[] = ['url' => 'teachers.php', 'name' => get_lang('Trainers')];
         $nameTools = $completeName;
     } else {
@@ -1005,8 +1011,9 @@ if ($notebookTeacherEnable && !empty($studentId) && !empty($courseCode)) {
 }
 
 if (api_can_login_as($studentId)) {
-    $actions .= '<a href="'.api_get_path(WEB_CODE_PATH).'admin/user_list.php?action=login_as&user_id='.$studentId
-        .'&sec_token='.$token.'">'
+    $loginAsToken = Container::$container->get(CsrfTokenManagerInterface::class)->getToken('login_as')->getValue();
+    $actions .= '<a href="'.api_get_path(WEB_PATH).'admin/user-list-login-as?user_id='.$studentId
+        .'&sec_token='.urlencode($loginAsToken).'">'
         .Display::getMdiIcon(ActionIcon::LOGIN_AS, 'ch-tool-icon', null, ICON_SIZE_MEDIUM, get_lang('Login as')).'</a>&nbsp;&nbsp;';
 }
 

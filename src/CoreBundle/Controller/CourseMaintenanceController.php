@@ -313,11 +313,15 @@ class CourseMaintenanceController extends AbstractCourseMaintenanceController
                 )
             );
 
+            $restoreCourseSettings = $isMoodle
+                && 'full_backup' === $importOption
+                && !empty($course->resources['course_settings']);
+
             $restorer = new CourseRestorer($course);
             $restorer->set_file_option($this->mapSameNameOption($sameFileNameOption));
             $restorer->setResourcesAllSnapshot($resourcesAll);
             $restorer->setDebug($this->debug);
-            $restorer->restore();
+            $restorer->restore('', 0, $restoreCourseSettings);
 
             CourseArchiver::cleanBackupDir();
 
@@ -792,7 +796,9 @@ class CourseMaintenanceController extends AbstractCourseMaintenanceController
             $exporter = new MoodleExport($course, $selectionMode);
             $exporter->setAdminUserData($adminId, $adminLogin, $adminEmail);
 
-            $exportDir = 'moodle_export_'.date('Ymd_His');
+            $courseCode = api_replace_dangerous_char((string) ($course->code ?? ''));
+            $exportPrefix = '' !== $courseCode ? $courseCode : 'course_export';
+            $exportDir = $exportPrefix.'_'.date('Ymd_His');
             $versionNum = ('3' === $moodleVersion) ? 3 : 4;
 
             $this->logDebug('[moodleExportExecute] starting exporter', [
@@ -1339,7 +1345,7 @@ class CourseMaintenanceController extends AbstractCourseMaintenanceController
             $payload = CourseArchiver::preprocessSerializedPayloadForTypedProps($payload);
             CourseArchiver::ensureLegacyAliases();
 
-            set_error_handler(static function (): void {});
+            set_error_handler(static fn (int $errno, string $errstr): bool => true);
 
             try {
                 if (class_exists(UnserializeApi::class)) {

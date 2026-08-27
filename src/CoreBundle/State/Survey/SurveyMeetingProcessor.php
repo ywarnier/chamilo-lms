@@ -11,6 +11,8 @@ use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\ApiResource\Survey\SurveyMeeting;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\SurveyHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CoreBundle\State\LearningPath\LearningPathSurveyCompletionManager;
 use Chamilo\CourseBundle\Entity\CSurvey;
@@ -21,13 +23,10 @@ use DateTime;
 use DateTimeZone;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 /**
@@ -35,17 +34,15 @@ use Throwable;
  */
 final readonly class SurveyMeetingProcessor implements ProcessorInterface
 {
-    use SurveyCsrfTokenValidationTrait;
-
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CSurveyRepository $surveyRepository,
         private SurveyMeetingProvider $surveyMeetingProvider,
-        private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private LearningPathSurveyCompletionManager $learningPathSurveyCompletionManager,
+        private SurveyHelper $surveyHelper,
     ) {}
 
     /**
@@ -60,18 +57,17 @@ final readonly class SurveyMeetingProcessor implements ProcessorInterface
         }
 
         $payload = $this->getPayload($request, $data);
-        $this->validateSubmittedCsrfToken($request, $this->csrfTokenManager, SurveyMeetingProvider::CSRF_TOKEN_ID, $payload);
 
-        $course = $this->surveyMeetingProvider->getCourse($request);
-        $session = $this->surveyMeetingProvider->getSession($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $operationName = (string) $operation->getName();
         $surveyId = isset($uriVariables['surveyId']) ? (int) $uriVariables['surveyId'] : 0;
 
         if ('post_survey_meeting_answer' === $operationName) {
-            return $this->submitAnswer($surveyId, $payload, $course, $session, $request);
+            return $this->submitAnswer($operation, $surveyId, $payload, $course, $session, $request);
         }
 
-        if (!$this->canManageSurveys()) {
+        if (!$this->surveyHelper->canManage()) {
             throw new AccessDeniedHttpException('You are not allowed to manage meeting polls in this context.');
         }
 
@@ -84,6 +80,7 @@ final readonly class SurveyMeetingProcessor implements ProcessorInterface
             $this->entityManager->flush();
 
             return $this->surveyMeetingProvider->buildResponse(
+                $operation,
                 $survey,
                 $course,
                 $session,
@@ -100,6 +97,7 @@ final readonly class SurveyMeetingProcessor implements ProcessorInterface
             $this->entityManager->flush();
 
             return $this->surveyMeetingProvider->buildResponse(
+                $operation,
                 $survey,
                 $course,
                 $session,
@@ -138,18 +136,10 @@ final readonly class SurveyMeetingProcessor implements ProcessorInterface
                 'surveyLanguage' => $data->surveyLanguage,
                 'slots' => $data->slots,
                 'selectedSlots' => $data->selectedSlots,
-                'csrfToken' => $data->csrfToken,
             ];
         }
 
         return [];
-    }
-
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(SurveyMeetingProvider::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('The security token is invalid.');
-        }
     }
 
     /**
@@ -330,7 +320,7 @@ final readonly class SurveyMeetingProcessor implements ProcessorInterface
     /**
      * @param array<string, mixed> $payload
      */
-    private function submitAnswer(int $surveyId, array $payload, Course $course, ?Session $session, Request $request): SurveyMeeting
+    private function submitAnswer(Operation $operation, int $surveyId, array $payload, Course $course, ?Session $session, Request $request): SurveyMeeting
     {
         if ($surveyId <= 0) {
             throw new BadRequestHttpException('A valid survey id is required.');
@@ -348,7 +338,7 @@ final readonly class SurveyMeetingProcessor implements ProcessorInterface
         $slotIds = array_map(static fn (CSurveyQuestion $slot): int => (int) $slot->getIid(), $slots);
         $selectedSlots = array_values(array_intersect($selectedSlots, $slotIds));
 
-        $this->removeExistingAnswers($survey, (string) $user->getId(), $request);
+        $this->removeExistingAnswers($operation, $survey, (string) $user->getId(), $request);
 
         foreach ($slots as $slot) {
             if (!\in_array((int) $slot->getIid(), $selectedSlots, true)) {
@@ -363,7 +353,7 @@ final readonly class SurveyMeetingProcessor implements ProcessorInterface
                 ->setOptionId('1')
                 ->setValue(1)
                 ->setLpItemId($request->query->getInt('lpItemId'))
-                ->setSessionId($request->query->getInt('sid') > 0 ? $request->query->getInt('sid') : null)
+                ->setSessionId((int) $this->cidReqHelper->getSessionId() > 0 ? (int) $this->cidReqHelper->getSessionId() : null)
             ;
             $this->entityManager->persist($answer);
         }
@@ -387,6 +377,7 @@ final readonly class SurveyMeetingProcessor implements ProcessorInterface
         );
 
         return $this->surveyMeetingProvider->buildResponse(
+            $operation,
             $survey,
             $course,
             $session,
@@ -397,7 +388,7 @@ final readonly class SurveyMeetingProcessor implements ProcessorInterface
         );
     }
 
-    private function removeExistingAnswers(CSurvey $survey, string $userId, Request $request): void
+    private function removeExistingAnswers(Operation $operation, CSurvey $survey, string $userId, Request $request): void
     {
         $queryBuilder = $this->entityManager->createQueryBuilder()
             ->delete(CSurveyAnswer::class, 'answer')
@@ -409,7 +400,7 @@ final readonly class SurveyMeetingProcessor implements ProcessorInterface
             ->setParameter('lpItemId', $request->query->getInt('lpItemId'), Types::INTEGER)
         ;
 
-        $sessionId = $request->query->getInt('sid');
+        $sessionId = (int) $this->cidReqHelper->getSessionId();
         if ($sessionId > 0) {
             $queryBuilder
                 ->andWhere('answer.sessionId = :sessionId')
@@ -485,35 +476,11 @@ final readonly class SurveyMeetingProcessor implements ProcessorInterface
         }
     }
 
-    private function canManageSurveys(): bool
-    {
-        if ($this->security->isGranted('ROLE_ADMIN')) {
-            return true;
-        }
-
-        if ($this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')) {
-            return true;
-        }
-
-        if (!$this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER')) {
-            return false;
-        }
-
-        return $this->isSettingEnabled('survey.extend_rights_for_coach_on_survey');
-    }
-
     private function isSurveyEditionGloballyHidden(): bool
     {
         $value = $this->settingsManager->getSetting('survey.hide_survey_edition', true);
 
         return true === $value || 'true' === $value || '*' === $value;
-    }
-
-    private function isSettingEnabled(string $name): bool
-    {
-        $value = $this->settingsManager->getSetting($name, true);
-
-        return true === $value || 'true' === strtolower((string) $value) || '1' === (string) $value;
     }
 
     private function getCourseLanguage(Course $course): string

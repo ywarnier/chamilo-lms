@@ -11,6 +11,8 @@ use Chamilo\CoreBundle\Helpers\FileIntegrityChecker;
 use Chamilo\CoreBundle\Helpers\MailHelper;
 use Chamilo\CoreBundle\Repository\Node\UserRepository;
 use Chamilo\CoreBundle\Settings\SettingsManager;
+use Database;
+use Doctrine\ORM\EntityManager;
 use RuntimeException;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -18,6 +20,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 
@@ -36,6 +39,8 @@ class FileIntegrityScanCommand extends Command
         private readonly MailHelper $mailHelper,
         private readonly Environment $twig,
         private readonly UrlGeneratorInterface $urlGenerator,
+        private readonly EntityManager $em,
+        private readonly KernelInterface $kernel,
     ) {
         parent::__construct();
     }
@@ -60,7 +65,12 @@ class FileIntegrityScanCommand extends Command
         // MailHelper::send() goes through the legacy Notification class, which reads
         // settings via the Container::getSettingsManager() static bridge. That bridge is
         // normally populated by a request listener, which never runs for console commands.
-        Container::setContainer($this->getApplication()->getKernel()->getContainer());
+        Container::setContainer($this->kernel->getContainer());
+
+        // Same story for Event::addEvent() (called from FileIntegrityChecker::scan() to
+        // trace the run): it needs Database::getManager(), normally wired up by that same
+        // request listener.
+        Database::setManager($this->em);
 
         $io = new SymfonyStyle($input, $output);
         $debug = true === $input->getOption('debug');

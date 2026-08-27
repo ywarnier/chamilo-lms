@@ -12,6 +12,8 @@ use Chamilo\CoreBundle\ApiResource\Forum\ForumSearchResult;
 use Chamilo\CoreBundle\Entity\AbstractResource;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CForum;
 use Chamilo\CourseBundle\Entity\CForumCategory;
@@ -43,6 +45,8 @@ final class ForumSearchStateProvider implements ProviderInterface
         private readonly EntityManagerInterface $entityManager,
         private readonly Security $security,
         private readonly SettingsManager $settingsManager,
+        private readonly CidReqHelper $cidReqHelper,
+        private readonly IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -86,10 +90,10 @@ final class ForumSearchStateProvider implements ProviderInterface
             ];
         }
 
-        $course = $this->getCourse($this->entityManager, $request);
-        $session = $this->getSession($this->entityManager, $request);
-        $showHidden = $this->canManageForumsInCurrentView($this->security, $request);
-        $displayGroupForums = $this->shouldDisplayGroupForumsInGeneralTool($request);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $showHidden = $this->isAllowedToEditHelper->check(coach: true);
+        $displayGroupForums = $this->shouldDisplayGroupForumsInGeneralTool($this->cidReqHelper);
         $terms = $this->getSearchTerms($query);
         if ([] === $terms) {
             throw new BadRequestHttpException('Invalid search query.');
@@ -114,18 +118,18 @@ final class ForumSearchStateProvider implements ProviderInterface
         ];
     }
 
-    private function shouldDisplayGroupForumsInGeneralTool(Request $request): bool
+    private function shouldDisplayGroupForumsInGeneralTool(CidReqHelper $cidReqHelper): bool
     {
-        if ($request->query->getInt('gid') > 0) {
+        if ((int) ($cidReqHelper->getGroupId() ?? 0) > 0) {
             return true;
         }
 
         return 'false' !== (string) $this->settingsManager->getSetting('forum.display_groups_forum_in_general_tool', true);
     }
 
-    private function canListForumWithCurrentSettings(CForum $forum, Request $request, bool $displayGroupForums): bool
+    private function canListForumWithCurrentSettings(CForum $forum, CidReqHelper $cidReqHelper, bool $displayGroupForums): bool
     {
-        if ($displayGroupForums || $request->query->getInt('gid') > 0) {
+        if ($displayGroupForums || (int) ($cidReqHelper->getGroupId() ?? 0) > 0) {
             return true;
         }
 
@@ -173,7 +177,7 @@ final class ForumSearchStateProvider implements ProviderInterface
         $items = [];
         foreach ($queryBuilder->getQuery()->getResult() as $forum) {
             if (!$forum instanceof CForum
-                || !$this->canListForumWithCurrentSettings($forum, $request, $displayGroupForums)
+                || !$this->canListForumWithCurrentSettings($forum, $this->cidReqHelper, $displayGroupForums)
                 || !$this->canReadForum($forum, $course, $session, $showHidden)
             ) {
                 continue;
@@ -235,7 +239,7 @@ final class ForumSearchStateProvider implements ProviderInterface
             }
 
             $forum = $thread->getForum();
-            if (!$forum instanceof CForum || !$this->canListForumWithCurrentSettings($forum, $request, $displayGroupForums)) {
+            if (!$forum instanceof CForum || !$this->canListForumWithCurrentSettings($forum, $this->cidReqHelper, $displayGroupForums)) {
                 continue;
             }
 
@@ -298,7 +302,7 @@ final class ForumSearchStateProvider implements ProviderInterface
             $thread = $post->getThread();
             if (!$forum instanceof CForum
                 || !$thread instanceof CForumThread
-                || !$this->canListForumWithCurrentSettings($forum, $request, $displayGroupForums)
+                || !$this->canListForumWithCurrentSettings($forum, $this->cidReqHelper, $displayGroupForums)
             ) {
                 continue;
             }

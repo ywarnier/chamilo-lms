@@ -109,6 +109,16 @@ function resolveParentNodeId() {
 
   return routeNode || routeId || courseNodeId || userNodeId || 0
 }
+
+/**
+ * Personal-files image uploads must always target the authenticated user's
+ * personal resource root — never a course or route node. Parenting under a
+ * course triggers ResourceListener's "cannot add a file to another user" check.
+ */
+function resolvePersonalParentNodeId() {
+  return Number(securityStore.user?.resourceNode?.id || 0)
+}
+
 parentResourceNodeId.value = resolveParentNodeId()
 
 /* Language resolution */
@@ -400,7 +410,7 @@ const enableUploadImageInEditor = computed(() => {
   return (
     securityStore.isAuthenticated === true &&
     toBool(platformConfigStore.getSetting("editor.enable_uploadimage_editor")) &&
-    Number(parentResourceNodeId.value || 0) > 0
+    resolvePersonalParentNodeId() > 0
   )
 })
 
@@ -414,10 +424,13 @@ async function uploadEditorImage(blobInfo, progress) {
   }
 
   const filename = blobInfo?.filename?.() || `editor-image-${Date.now()}.png`
-  const nodeId = Number(parentResourceNodeId.value || 0)
+  // Always upload into the current user's personal space (/api/personal_files).
+  // Do not reuse resolveParentNodeId() here: that prefers course/route nodes and
+  // ResourceListener rejects PersonalFile parents outside the user's tree.
+  const nodeId = resolvePersonalParentNodeId()
 
   if (nodeId <= 0) {
-    throw new Error("A valid parent resource node is required.")
+    throw new Error("A valid personal resource node is required for image upload.")
   }
 
   const formData = new FormData()
@@ -784,11 +797,15 @@ function buildManagerUrl(meta) {
 
   try {
     const hasCourse = Boolean(course.value?.id)
+    // FileManagerList has My files + Documents tabs. Do not pass the course
+    // resource node as :node — that polluted personal_files listing (parent=course).
+    // Each tab resolves its own root (user vs course) inside useFileManager.
+    const personalNodeId = resolvePersonalParentNodeId()
     const resolved = router.resolve({
       name: "FileManagerList",
-      params: { node: Number(parentResourceNodeId.value || 0) },
+      params: personalNodeId > 0 ? { node: personalNodeId } : {},
       query: hasCourse
-        ? { cid: course.value.id, sid: 0, gid: 0, type, picker: "tinymce" }
+        ? { cid: course.value.id, sid: 0, gid: 0, type, picker: "tinymce", loadNode: 1 }
         : { loadNode: 1, type, picker: "tinymce" },
     })
     return resolved.href

@@ -17,6 +17,9 @@ use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\TrackEAttempt;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
+use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Repository\ResourceNodeRepository;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CLpItem;
@@ -50,6 +53,7 @@ use Throwable;
 final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
 {
     private const STATUS_COMPLETED = 'completed';
+    private const STATUS_LEGACY_COMPLETED = '';
     private const ANNOTATION = 20;
     private const ANSWER_IN_OFFICE_DOC = 30;
     private const HOTSPOT_DELINEATION = 8;
@@ -71,12 +75,15 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
     private const RESULT_SHOW_SCORE_ATTEMPT_SHOW_ANSWERS_LAST_ATTEMPT_NO_FEEDBACK = 10;
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CQuizRepository $quizRepository,
         private ResourceNodeRepository $resourceNodeRepository,
         private Security $security,
         private SettingsManager $settingsManager,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
+        private UserHelper $userHelper,
     ) {}
 
     /**
@@ -90,22 +97,22 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $exerciseId = isset($uriVariables['exerciseId']) ? (int) $uriVariables['exerciseId'] : 0;
         $attemptId = isset($uriVariables['attemptId']) ? (int) $uriVariables['attemptId'] : 0;
         if ($exerciseId <= 0 || $attemptId <= 0) {
             throw new BadRequestHttpException('A valid exercise and attempt are required.');
         }
 
-        $canManage = $this->canManageExercises();
+        $canManage = $this->isAllowedToEditHelper->check(coach: true);
         if (!$canManage && !$this->canViewExercises()) {
             throw new AccessDeniedHttpException('You are not allowed to view this exercise result.');
         }
 
         $quiz = $this->getExerciseFromCurrentContext($exerciseId, $course, $session, $canManage);
         $attempt = $this->getAttempt($attemptId, $quiz, $course, $session, $canManage);
-        if (self::STATUS_COMPLETED !== (string) $attempt->getStatus()) {
+        if (!$this->isCompletedAttempt($attempt)) {
             throw new BadRequestHttpException('The requested attempt has not been completed yet.');
         }
 
@@ -129,7 +136,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
 
         $questions = [];
         if ($canManage || true === ($visibility['showQuestionDetails'] ?? false)) {
-            $questions = $this->getQuestions($quiz, $questionIds, $rowsByQuestion, $visibility, $pendingQuestionIds, $canManage, $isReviewMode);
+            $questions = $this->getQuestions($operation, $quiz, $questionIds, $rowsByQuestion, $visibility, $pendingQuestionIds, $canManage, $isReviewMode);
             if (
                 true === ($visibility['hideCorrectAnsweredQuestions'] ?? false)
                 && true === ($visibility['showQuestionScore'] ?? false)
@@ -265,47 +272,11 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
         ];
     }
 
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
     private function canViewExercises(): bool
     {
         return $this->security->isGranted('ROLE_CURRENT_COURSE_STUDENT')
             || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_STUDENT')
-            || $this->canManageExercises();
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
+            || $this->userHelper->isTeacherOfCurrentCourse();
     }
 
     private function isReviewMode(TrackEExercise $attempt, bool $canManage, Request $request): bool
@@ -575,6 +546,15 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
         return $attempt;
     }
 
+    private function isCompletedAttempt(TrackEExercise $attempt): bool
+    {
+        return \in_array(
+            (string) $attempt->getStatus(),
+            [self::STATUS_LEGACY_COMPLETED, self::STATUS_COMPLETED],
+            true,
+        );
+    }
+
     /**
      * @return array<int, int>
      */
@@ -823,11 +803,12 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
             ->andWhere('IDENTITY(completedAttempt.quiz) = :exerciseId')
             ->andWhere('IDENTITY(completedAttempt.course) = :courseId')
             ->andWhere('IDENTITY(completedAttempt.user) = :userId')
-            ->andWhere('completedAttempt.status = :status')
+            ->andWhere('(completedAttempt.status = :legacyCompletedStatus OR completedAttempt.status = :completedStatus)')
             ->setParameter('exerciseId', (int) $quiz->getIid(), Types::INTEGER)
             ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
             ->setParameter('userId', (int) $attempt->getUser()->getId(), Types::INTEGER)
-            ->setParameter('status', self::STATUS_COMPLETED)
+            ->setParameter('legacyCompletedStatus', self::STATUS_LEGACY_COMPLETED, Types::STRING)
+            ->setParameter('completedStatus', self::STATUS_COMPLETED, Types::STRING)
         ;
 
         if (null !== $session) {
@@ -858,7 +839,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
 
         return [
             'attemptId' => (int) $attempt->getExeId(),
-            'status' => (string) $attempt->getStatus(),
+            'status' => self::STATUS_COMPLETED,
             'score' => true === ($visibility['showTotalScore'] ?? false) ? $score : null,
             'maxScore' => true === ($visibility['showTotalScore'] ?? false) ? $maxScore : null,
             'percentage' => true === ($visibility['showTotalScore'] ?? false) ? $percentage : null,
@@ -1061,7 +1042,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
      *
      * @return array<int, array<string, mixed>>
      */
-    private function getQuestions(CQuiz $quiz, array $questionIds, array $rowsByQuestion, array $visibility, array $pendingQuestionIds, bool $canManage, bool $isReviewMode): array
+    private function getQuestions(Operation $operation, CQuiz $quiz, array $questionIds, array $rowsByQuestion, array $visibility, array $pendingQuestionIds, bool $canManage, bool $isReviewMode): array
     {
         $relations = $this->entityManager->createQueryBuilder()
             ->select('relQuestion')
@@ -1089,6 +1070,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
 
             $questionId = (int) $question->getIid();
             $questions[$questionId] = $this->normalizeQuestion(
+                $operation,
                 $question,
                 $rowsByQuestion[$questionId] ?? [],
                 $visibility,
@@ -1118,7 +1100,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
      *
      * @return array<string, mixed>
      */
-    private function normalizeQuestion(CQuizQuestion $question, array $rows, array $visibility, bool $pendingCorrection, bool $canManage, bool $isReviewMode): array
+    private function normalizeQuestion(Operation $operation, CQuizQuestion $question, array $rows, array $visibility, bool $pendingCorrection, bool $canManage, bool $isReviewMode): array
     {
         $questionScore = $this->getQuestionScore($rows);
         $maxScore = $this->getQuestionMaxScore($question);
@@ -1150,7 +1132,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
             'pendingCorrection' => $pendingCorrection,
             'canCorrect' => $isReviewMode && $canManage && $requiresManualCorrection,
             'feedback' => $feedback,
-            'answer' => $this->normalizeQuestionAnswer($question, $rows, $visibility, $showQuestionCorrection),
+            'answer' => $this->normalizeQuestionAnswer($operation, $question, $rows, $visibility, $showQuestionCorrection),
         ];
     }
 
@@ -1261,7 +1243,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
      *
      * @return array<string, mixed>
      */
-    private function normalizeQuestionAnswer(CQuizQuestion $question, array $rows, array $visibility, bool $showQuestionCorrection): array
+    private function normalizeQuestionAnswer(Operation $operation, CQuizQuestion $question, array $rows, array $visibility, bool $showQuestionCorrection): array
     {
         $type = (int) $question->getType();
         if (\in_array($type, [1, 2, 9, 10, 11, 12, 14, 17, 21, 22], true)) {
@@ -1305,7 +1287,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
         }
 
         if (self::ANSWER_IN_OFFICE_DOC === $type) {
-            return $this->normalizeOnlyofficeAnswer($rows, $visibility);
+            return $this->normalizeOnlyofficeAnswer($operation, $rows, $visibility);
         }
 
         if (self::ANNOTATION === $type) {
@@ -1966,7 +1948,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
      *
      * @return array<string, mixed>
      */
-    private function normalizeOnlyofficeAnswer(array $rows, array $visibility): array
+    private function normalizeOnlyofficeAnswer(Operation $operation, array $rows, array $visibility): array
     {
         $row = $rows[0] ?? null;
         if (!$row instanceof TrackEAttempt) {
@@ -1983,10 +1965,55 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
         return [
             'kind' => 'onlyoffice',
             'files' => $showStudentAnswers ? $this->normalizeAttemptFiles($row) : [],
+            'editorUrl' => $showStudentAnswers ? $this->getOnlyofficeReviewEditorUrl($operation, $row) : '',
             'teacherComment' => true === ($visibility['showFeedback'] ?? false) && '' !== $row->getTeacherComment() ? $row->getTeacherComment() : null,
             'marks' => (float) $row->getMarks(),
             'showStudentAnswers' => $showStudentAnswers,
         ];
+    }
+
+    private function getOnlyofficeReviewEditorUrl(Operation $operation, TrackEAttempt $row): string
+    {
+        $attempt = $row->getTrackEExercise();
+        $quiz = $attempt->getQuiz();
+        $course = $attempt->getCourse();
+        if (null === $quiz || null === $quiz->getIid() || null === $course || null === $course->getId()) {
+            return '';
+        }
+
+        $resourceNode = null;
+        foreach ($row->getAttemptFiles() as $attemptFile) {
+            if (!$attemptFile instanceof AttemptFile) {
+                continue;
+            }
+
+            $candidate = $attemptFile->getResourceNode();
+            if ($candidate instanceof ResourceNode) {
+                $resourceNode = $candidate;
+
+                break;
+            }
+        }
+
+        if (!$resourceNode instanceof ResourceNode || null === $resourceNode->getId()) {
+            return '';
+        }
+
+        $request = $this->requestStack->getCurrentRequest();
+        $query = [
+            'resourceNodeId' => (int) $resourceNode->getId(),
+            'exerciseId' => (int) $quiz->getIid(),
+            'exeId' => (int) $attempt->getExeId(),
+            'questionId' => (int) $row->getQuestionId(),
+            'cid' => (int) $course->getId(),
+            'sid' => (int) ($attempt->getSession()?->getId() ?? 0),
+            'gid' => (int) $this->cidReqHelper->getGroupId(),
+            'origin' => 'exercise',
+            'embedded' => 1,
+            'readOnly' => 1,
+        ];
+
+        return '/plugin/Onlyoffice/editor.php?'.http_build_query($query);
     }
 
     /**
@@ -2019,7 +2046,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
     }
 
     /**
-     * @return array<int, array{id: int, name: string, size: int, mimeType: string, url: string}>
+     * @return array<int, array{id: int, name: string, size: int, mimeType: string, url: string, inlineUrl: string}>
      */
     private function normalizeAttemptFiles(TrackEAttempt $row, bool $withInlineUrl = false): array
     {
@@ -2341,7 +2368,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
 
     private function requiresManualCorrection(CQuizQuestion $question): bool
     {
-        return \in_array((int) $question->getType(), [5, 13, 20, 23], true);
+        return \in_array((int) $question->getType(), [5, 13, 20, 23, self::ANSWER_IN_OFFICE_DOC], true);
     }
 
     private function getQuestionTypeLabel(int $type): string
@@ -2371,6 +2398,7 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
             27 => 'Fill in blanks combination',
             28 => 'Multiple answer dropdown combination',
             29 => 'Multiple answer dropdown',
+            self::ANSWER_IN_OFFICE_DOC => 'Answer in Office document',
             31 => 'Page break',
             default => 'Question',
         };
@@ -2422,8 +2450,8 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
             ->setParameter('exerciseId', (int) $quiz->getIid(), Types::INTEGER)
             ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
             ->setParameter('userId', (int) $attempt->getUser()->getId(), Types::INTEGER)
-            ->setParameter('emptyStatus', '')
-            ->setParameter('completedStatus', self::STATUS_COMPLETED)
+            ->setParameter('emptyStatus', self::STATUS_LEGACY_COMPLETED, Types::STRING)
+            ->setParameter('completedStatus', self::STATUS_COMPLETED, Types::STRING)
             ->setParameter('learnpathId', (int) $attempt->getOrigLpId(), Types::INTEGER)
             ->setParameter('learnpathItemId', (int) $attempt->getOrigLpItemId(), Types::INTEGER)
             ->setParameter('learnpathItemViewId', (int) $attempt->getOrigLpItemViewId(), Types::INTEGER)
@@ -2467,10 +2495,11 @@ final readonly class ExerciseRuntimeResultProvider implements ProviderInterface
             ->from(TrackEExercise::class, 'attempt')
             ->andWhere('IDENTITY(attempt.quiz) = :exerciseId')
             ->andWhere('IDENTITY(attempt.course) = :courseId')
-            ->andWhere('attempt.status = :status')
+            ->andWhere('(attempt.status = :legacyCompletedStatus OR attempt.status = :completedStatus)')
             ->setParameter('exerciseId', (int) $quiz->getIid(), Types::INTEGER)
             ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
-            ->setParameter('status', self::STATUS_COMPLETED)
+            ->setParameter('legacyCompletedStatus', self::STATUS_LEGACY_COMPLETED, Types::STRING)
+            ->setParameter('completedStatus', self::STATUS_COMPLETED, Types::STRING)
             ->orderBy('attempt.score', 'DESC')
             ->addOrderBy('attempt.exeDate', 'ASC')
         ;

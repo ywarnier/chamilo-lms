@@ -8,6 +8,7 @@ namespace Chamilo\CoreBundle\Controller;
 
 use ApiPlatform\Metadata\Get;
 use Chamilo\CoreBundle\Entity\ResourceLink;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Repository\AssetRepository;
 use Chamilo\CoreBundle\Service\LearningPath\ScormRuntimeManager;
 use Chamilo\CoreBundle\State\LearningPath\LearningPathRuntimeProvider;
@@ -57,6 +58,7 @@ final class LearningPathScormContentController extends AbstractController
         string $path,
         Request $request,
         EntityManagerInterface $entityManager,
+        CidReqHelper $cidReqHelper,
         Security $security,
         LearningPathRuntimeProvider $runtimeProvider,
         ScormRuntimeManager $runtimeManager,
@@ -80,9 +82,9 @@ final class LearningPathScormContentController extends AbstractController
             throw new NotFoundHttpException('SCORM content not found.');
         }
 
-        $course = $this->getContextCourse($entityManager, $request);
-        $session = $this->getContextSession($entityManager, $request, $course);
-        $group = $this->getContextGroup($entityManager, $request, $course);
+        $course = $cidReqHelper->requireDoctrineCourseEntity();
+        $session = $cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getContextGroup($entityManager, $cidReqHelper, $course);
         $resourceNode = $lp->getResourceNode();
         if (null === $resourceNode || !$security->isGranted('VIEW', $resourceNode)) {
             throw new AccessDeniedHttpException('The SCORM learning path is not available.');
@@ -133,7 +135,11 @@ final class LearningPathScormContentController extends AbstractController
             fpassthru($stream);
             fclose($stream);
         });
-        $disposition = $response->headers->makeDisposition(ResponseHeaderBag::DISPOSITION_INLINE, $fileName);
+        $disposition = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_INLINE,
+            $fileName,
+            $this->createAsciiFilenameFallback($fileName),
+        );
         $response->headers->set('Content-Disposition', $disposition);
         $response->headers->set('Content-Type', $mimeType);
         $response->headers->set('Content-Length', (string) $filesystem->fileSize($filePath));
@@ -148,5 +154,20 @@ final class LearningPathScormContentController extends AbstractController
         $extension = strtolower((string) pathinfo($path, PATHINFO_EXTENSION));
 
         return \in_array($extension, ['htm', 'html', 'xht', 'xhtml'], true);
+    }
+
+    private function createAsciiFilenameFallback(string $fileName): string
+    {
+        $fallback = '';
+        $length = \strlen($fileName);
+
+        for ($i = 0; $i < $length; ++$i) {
+            $character = $fileName[$i];
+            $code = \ord($character);
+
+            $fallback .= '%' === $character || $code < 32 || $code > 126 ? '_' : $character;
+        }
+
+        return $fallback;
     }
 }

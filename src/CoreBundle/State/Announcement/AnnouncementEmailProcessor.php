@@ -12,6 +12,8 @@ use Chamilo\CoreBundle\ApiResource\Announcement\AnnouncementEmailAction;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CAnnouncement;
 use Chamilo\CourseBundle\Entity\CGroup;
@@ -24,8 +26,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProcessorInterface<AnnouncementEmailAction, AnnouncementEmailAction>
@@ -34,9 +34,8 @@ final readonly class AnnouncementEmailProcessor implements ProcessorInterface
 {
     use AnnouncementAccessHelperTrait;
 
-    public const string CSRF_TOKEN_ID = 'announcement_email';
-
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CAnnouncementRepository $announcementRepository,
@@ -46,7 +45,7 @@ final readonly class AnnouncementEmailProcessor implements ProcessorInterface
         private AnnouncementScheduleManager $scheduleManager,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private StudentViewHelper $studentViewHelper,
     ) {}
 
     /**
@@ -64,16 +63,16 @@ final readonly class AnnouncementEmailProcessor implements ProcessorInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
         $this->assertAnnouncementToolEnabled($this->entityManager, $course);
 
-        $session = $this->getSession($request);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $this->assertSessionBelongsToCourse($session, $course);
 
-        $group = $this->getGroup($request);
+        $group = $this->cidReqHelper->getDoctrineGroupEntity();
         $this->assertGroupBelongsToContext($group, $course, $session);
 
-        if ($this->isStudentView($request) || !$this->canManageAnnouncements(
+        if ($this->studentViewHelper->isActive() || !$this->canManageAnnouncements(
             $this->entityManager,
             $this->security,
             $this->settingsManager,
@@ -83,8 +82,6 @@ final readonly class AnnouncementEmailProcessor implements ProcessorInterface
         )) {
             throw new AccessDeniedHttpException('You are not allowed to manage announcements in this context.');
         }
-
-        $this->validateCsrfToken($data->csrfToken);
 
         if (!$data->sendByEmail && !$data->sendCopyToSelf) {
             throw new BadRequestHttpException('At least one email delivery option is required.');
@@ -204,51 +201,6 @@ final readonly class AnnouncementEmailProcessor implements ProcessorInterface
         return $result;
     }
 
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
-    private function getGroup(Request $request): ?CGroup
-    {
-        $groupId = $request->query->getInt('gid');
-        if ($groupId <= 0) {
-            return null;
-        }
-
-        $group = $this->entityManager->getRepository(CGroup::class)->find($groupId);
-        if (!$group instanceof CGroup) {
-            throw new BadRequestHttpException('The requested group was not found.');
-        }
-
-        return $group;
-    }
-
     private function getEditableAnnouncement(
         int $announcementId,
         Course $course,
@@ -289,13 +241,6 @@ final readonly class AnnouncementEmailProcessor implements ProcessorInterface
         }
 
         return $announcement;
-    }
-
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(self::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('The security token is invalid.');
-        }
     }
 
     private function buildResultMessage(AnnouncementEmailAction $result): string

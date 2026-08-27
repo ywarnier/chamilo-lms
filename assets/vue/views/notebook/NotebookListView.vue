@@ -1,5 +1,7 @@
 <template>
   <section class="space-y-6">
+    <SectionHeader :title="t('Notebook')" />
+
     <BaseToolbar class="mb-4 border-b border-gray-25 bg-white">
       <template #start>
         <BaseButton
@@ -147,18 +149,20 @@
 <script setup>
 import { computed, onMounted, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
-import { useToast } from "primevue/usetoast"
 import { useRoute, useRouter } from "vue-router"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseCard from "../../components/basecomponents/BaseCard.vue"
 import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
 import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue"
+import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
 import notebookService from "../../services/notebookService"
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 
 const { t } = useI18n()
-const toast = useToast()
+const { showSuccessNotification, showWarningNotification, showErrorNotification } = useNotification()
 const route = useRoute()
 const router = useRouter()
 const { requireConfirmation } = useConfirmation()
@@ -167,7 +171,6 @@ const notes = ref([])
 const isLoading = ref(false)
 const errorMessage = ref("")
 const canWrite = ref(false)
-const csrfToken = ref("")
 const deletingId = ref(null)
 const sortField = ref(normalizeSort(getQueryValue(route.query.sort)))
 const sortDirection = ref(normalizeDirection(getQueryValue(route.query.direction)))
@@ -219,9 +222,6 @@ function getContextParams() {
     params.gid = gid
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    params.isStudentView = getQueryValue(route.query.isStudentView)
-  }
 
   return params
 }
@@ -272,17 +272,8 @@ function confirmDelete(note) {
   })
 }
 
-function showToast(severity, summaryKey, detail, life = 3500) {
-  toast.add({
-    severity,
-    summary: t(summaryKey),
-    detail,
-    life,
-  })
-}
-
 function showSuccessMessage(messageKey) {
-  showToast("success", "Success", t(messageKey))
+  showSuccessNotification(t(messageKey))
 }
 
 async function deleteNote(note) {
@@ -293,14 +284,12 @@ async function deleteNote(note) {
   deletingId.value = note.iid
 
   try {
-    await notebookService.remove(note.iid, { csrfToken: csrfToken.value }, getContextParams())
+    await notebookService.remove(note.iid, getContextParams())
     notes.value = notes.value.filter((item) => item.iid !== note.iid)
     showSuccessMessage("Deleted")
   } catch (error) {
     console.error("Error deleting notebook entry", error)
-    const message =
-      error?.response?.data?.detail || error?.response?.data?.["hydra:description"] || t("An error occurred")
-    showToast("error", "Error", message, 5000)
+    showErrorNotification(error)
   } finally {
     deletingId.value = null
   }
@@ -344,7 +333,7 @@ function loadResultMessage() {
   }
 
   if (legacyAction === "deletenote") {
-    showToast("warn", "Warning", t("NotAllowed"), 5000)
+    showWarningNotification(t("NotAllowed"))
   }
 
   if (result || legacyAction) {
@@ -360,7 +349,6 @@ async function loadNotes() {
     const response = await notebookService.getList(getListParams())
     notes.value = Array.isArray(response.items) ? response.items : []
     canWrite.value = Boolean(response.canWrite)
-    csrfToken.value = response.csrfToken || ""
     sortField.value = normalizeSort(response.sort)
     sortDirection.value = normalizeDirection(response.direction)
   } catch (error) {
@@ -377,12 +365,13 @@ onMounted(async () => {
   loadResultMessage()
 })
 
+useStudentViewRefresh(loadNotes)
+
 watch(
   () => [
     route.query.cid,
     route.query.sid,
     route.query.gid,
-    route.query.isStudentView,
     route.query.sort,
     route.query.direction,
   ],

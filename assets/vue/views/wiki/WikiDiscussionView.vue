@@ -1,5 +1,7 @@
 <template>
   <section class="space-y-6">
+    <SectionHeader :title="t('Wiki')" />
+
     <BaseToolbar class="border-b border-gray-25 bg-white">
       <template #start>
         <div class="flex items-center gap-2">
@@ -300,6 +302,8 @@ import BaseCard from "../../components/basecomponents/BaseCard.vue";
 import BaseIcon from "../../components/basecomponents/BaseIcon.vue";
 import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue";
 import wikiService from "../../services/wikiService";
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 
 const { t } = useI18n();
 const route = useRoute();
@@ -335,7 +339,6 @@ function createEmptyDiscussion() {
     canComment: false,
     canRate: false,
     canSubscribe: false,
-    csrfToken: "",
     commentCount: 0,
     scoredCommentCount: 0,
     averageRating: 0,
@@ -360,9 +363,6 @@ function getSharedQuery() {
     query.gid = gid;
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    query.isStudentView = getQueryValue(route.query.isStudentView);
-  }
 
   return query;
 }
@@ -442,15 +442,10 @@ async function submitComment() {
   successMessage.value = "";
 
   try {
-    await wikiService.addDiscussionComment(
-      Number(route.params.pageId),
-      getContextParams(),
-      {
-        comment: form.comment,
-        rating: "" === form.rating ? null : Number(form.rating),
-        writeCsrfToken: discussion.csrfToken,
-      },
-    );
+    await wikiService.addDiscussionComment(Number(route.params.pageId), getContextParams(), {
+      comment: form.comment,
+      rating: "" === form.rating ? null : Number(form.rating),
+    });
     form.comment = "";
     form.rating = "";
     successMessage.value = t("Comment added");
@@ -482,13 +477,7 @@ async function executeAction(action, message) {
 
 function changeVisibility() {
   return executeAction(
-    () =>
-      wikiService.setDiscussionVisibility(
-        Number(route.params.pageId),
-        !discussion.visible,
-        getContextParams(),
-        discussion.csrfToken,
-      ),
+    () => wikiService.setDiscussionVisibility(Number(route.params.pageId), !discussion.visible, getContextParams()),
     discussion.visible ? "Discussion hidden" : "Discussion shown",
   );
 }
@@ -496,12 +485,7 @@ function changeVisibility() {
 function changeCommenting() {
   return executeAction(
     () =>
-      wikiService.setDiscussionCommenting(
-        Number(route.params.pageId),
-        !discussion.commentsOpen,
-        getContextParams(),
-        discussion.csrfToken,
-      ),
+      wikiService.setDiscussionCommenting(Number(route.params.pageId), !discussion.commentsOpen, getContextParams()),
     discussion.commentsOpen
       ? "Discussion comments blocked"
       : "Discussion comments allowed",
@@ -510,13 +494,7 @@ function changeCommenting() {
 
 function changeRating() {
   return executeAction(
-    () =>
-      wikiService.setDiscussionRating(
-        Number(route.params.pageId),
-        !discussion.ratingsOpen,
-        getContextParams(),
-        discussion.csrfToken,
-      ),
+    () => wikiService.setDiscussionRating(Number(route.params.pageId), !discussion.ratingsOpen, getContextParams()),
     discussion.ratingsOpen
       ? "Discussion ratings blocked"
       : "Discussion ratings allowed",
@@ -526,12 +504,7 @@ function changeRating() {
 function changeSubscription() {
   return executeAction(
     () =>
-      wikiService.setDiscussionSubscription(
-        Number(route.params.pageId),
-        !discussion.subscribed,
-        getContextParams(),
-        discussion.csrfToken,
-      ),
+      wikiService.setDiscussionSubscription(Number(route.params.pageId), !discussion.subscribed, getContextParams()),
     discussion.subscribed
       ? "Discussion notifications disabled"
       : "Discussion notifications enabled",
@@ -540,6 +513,8 @@ function changeSubscription() {
 
 onMounted(loadDiscussion);
 
+useStudentViewRefresh(loadDiscussion);
+
 watch(
   () => [
     route.params.node,
@@ -547,7 +522,6 @@ watch(
     route.query.cid,
     route.query.sid,
     route.query.gid,
-    route.query.isStudentView,
   ],
   loadDiscussion,
 );

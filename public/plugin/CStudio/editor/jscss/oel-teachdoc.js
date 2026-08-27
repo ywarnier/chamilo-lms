@@ -561,10 +561,13 @@ function cstudioTranslateBlockLabels() {
         }
 
         var rawTitle = block.attr('title');
+        var translatedTitle = translatedLabel;
         if (rawTitle) {
-            var translatedTitle = cstudioTranslateTerm($.trim(rawTitle).replace(/\s+/g, ' '));
-            block.attr('title', translatedTitle);
+            translatedTitle = cstudioTranslateTerm($.trim(rawTitle).replace(/\s+/g, ' '));
         }
+
+        block.attr('title', translatedTitle);
+        block.attr('aria-label', translatedTitle);
     });
 }
 
@@ -1887,7 +1890,7 @@ function deleteAllTopMenu(){
 function getMenuR(){
 	
 	var h = '<div class="ludimenu" onMouseMove="if(windowEditorIsOpen==false){$(this).css(\'z-index\',\'1000\');displayToolsCarre();}" >';
-	h += '<div class="luditopheader" ></div>';
+	h += '<div class="luditopheader" ><i class="mdi mdi-table-of-contents cstudio-mdi-icon" aria-hidden="true"></i><i class="fa fa-list cstudio-legacy-icon" aria-hidden="true"></i></div>';
 	
 	h += '<div class="ludimenuteachdoc" >';
 	
@@ -1949,7 +1952,8 @@ function getMenuR(){
 
 	h += '<a class="cstudio-delete-page-action" title="Delete this page" aria-label="Delete this page" onClick="deleteContextMenuSub();" ';
 	h += ' style="position:absolute;bottom:10px;left:5px;"  >';
-	h += '<img src="icon/delete-icon-24.png" /></a>';
+	h += '<i class="mdi mdi-delete cstudio-mdi-icon" aria-hidden="true"></i>';
+	h += '<img class="cstudio-legacy-icon" src="icon/delete-icon-24.png" /></a>';
 
 	h += '<a onClick="closeAllEditWindows();" ';
 	h += ' style="position:absolute;bottom:10px;right:120px;" ';
@@ -2005,7 +2009,7 @@ function refreshMenu(refEditNode){
 			success: function(data,textStatus,jqXHR){
 				if(data.indexOf("ul")!=-1){
 					$('.ludimenuteachdoc').html(data);
-					$('.addli').html(getISVG('addbutton',0));
+					$('.addli').html('<span class="mdi mdi-plus cstudio-mdi-icon cstudio-add-page-icon" aria-hidden="true"></span><span class="fa fa-plus cstudio-legacy-icon cstudio-add-page-icon" aria-hidden="true"></span>');
 					if (refEditNode!=-1) {
 						$('#labelMenuLudi'+refEditNode).css('background','#F3E2A9');
 					}
@@ -3043,6 +3047,47 @@ var refPosiPageLudi = 0;
 var refLedtAddPage = 0;
 var tplSelectPg = -1;
 var reftypeNodeV = 0;
+var addSubPageRequestPending = false;
+
+function resetSubPageEditorState(clearTitle){
+
+	var addPageEditor = $('#pageEditAdd');
+
+	refLedtAddPage = 0;
+	tplSelectPg = -1;
+	reftypeNodeV = 0;
+
+	if(clearTitle){
+		addPageEditor.find('#inputTitlePage').val('');
+	}
+
+	addPageEditor.find('#inputAddSubPage').prop('disabled', false);
+	addPageEditor.find('.oelTitlePage').css('display','');
+	addPageEditor.find('.oelChosePage').css('display','none');
+	addPageEditor.find('.oelChoseTemplatesPage').css('display','none');
+	addPageEditor.find('.oelInputAdd1').css('display','');
+	addPageEditor.find('.oelInputAdd2').css('display','none');
+	addPageEditor.find('#oelTitleload').css('display','none');
+	addPageEditor.find('.tpl-page-loader').css('display','none');
+	addPageEditor.find('.tpl-page-select').css('display','');
+	addPageEditor.find('.tpl-page-title').css('display','');
+	addPageEditor.find('.contain-pagetpl-select').css('display','');
+	addPageEditor.find('.pageDefautTplRight').css('display','none');
+	addPageEditor.find('.pageTemplateRight').css('display','none');
+
+	addPageEditor.find('#typenode2').prop('checked', true);
+	addPageEditor.find('#typenode3').prop('checked', false);
+	addPageEditor.find('#typenode4').prop('checked', false);
+
+}
+
+function restoreSubPageEditorAfterFailure(){
+
+	$('#loadsave').css('display','none');
+	resetSubPageEditorState(false);
+	$('#inputTitlePage').focus();
+
+}
 
 function selectTplPage(i){
 	tplSelectPg = i;
@@ -3051,6 +3096,10 @@ function selectTplPage(i){
 }
 
 function saveNextSubLudi(){
+
+	if(addSubPageRequestPending){
+		return false;
+	}
 	
 	var inputTitlePageStr = $('#inputTitlePage').val();	
 	
@@ -3076,8 +3125,9 @@ function saveNextSubLudi(){
 		}
 		reftypeNodeV = typeNodeV;
 		
-		// $('#inputAddSubPage').css("display","none");
 		$('#loadsave').css("display","block");
+		$('#inputAddSubPage').prop('disabled', true);
+		addSubPageRequestPending = true;
 
 		updateMenuEvent = true;
 		var formData = {
@@ -3112,37 +3162,49 @@ function saveNextSubLudi(){
 			type : "POST",
 			data : formData,
 			success : function(data,textStatus,jqXHR) {
-				if (data.indexOf("KO")==-1&&data.indexOf("error")==-1) {
-					var idNp = parseInt(data);
-					if (isNaN(idNp)) {
-					} else {
-						$('#loadsave').css("display","none");
-						refLedtAddPage = idNp;
-						//title section
-						if (reftypeNodeV==3) {
-							refreshMenu(-1);
-							$('#oelTitleload').css("display","none");
-							$('.oelInputAdd2').css("display","none");
-							$('.tpl-page-select').css("display","none");
-							$('.tpl-page-title').css("display","none");
-							$('.tpl-page-loader').css("display","block");
-							closeAllEditWindows();
-						}
-						if (reftypeNodeV==4) {
-							tplSelectPg = 1;
-							saveNextSubLudiFinal();
-						}
-					}
+				var response = $.trim(String(data));
+				var idNp = parseInt(response, 10);
+
+				if (response.indexOf("KO")!=-1||response.indexOf("error")!=-1||isNaN(idNp)||idNp<=0) {
+					$('#logMsgLoad').css("display","block");
+					$('#logMsgLoad').html("Error !");
+					restoreSubPageEditorAfterFailure();
+					return;
+				}
+
+				$('#loadsave').css("display","none");
+				refLedtAddPage = idNp;
+				//title section
+				if (reftypeNodeV==3) {
+					refreshMenu(-1);
+					$('#oelTitleload').css("display","none");
+					$('.oelInputAdd2').css("display","none");
+					$('.tpl-page-select').css("display","none");
+					$('.tpl-page-title').css("display","none");
+					$('.tpl-page-loader').css("display","block");
+					closeAllEditWindows();
+				}
+				if (reftypeNodeV==4) {
+					tplSelectPg = 1;
+					saveNextSubLudiFinal();
 				}
 			},
 			error: function (jqXHR, textStatus, errorThrown)
 			{
 				$('#logMsgLoad').css("display","block");
 				$('#logMsgLoad').html("Error !");
+				restoreSubPageEditorAfterFailure();
+			},
+			complete: function()
+			{
+				addSubPageRequestPending = false;
+				$('#inputAddSubPage').prop('disabled', false);
 			}
 		});
 
 	}
+
+	return false;
 
 }
 
@@ -5557,6 +5619,20 @@ editor.on('block:drag:stop', function (droppedComponent) {
 				}
 			}
 		}
+
+		var droppedElement = typeof droppedComponent.getEl === 'function' ? droppedComponent.getEl() : null;
+		if (droppedElement) {
+			var chamiloElement = $(droppedElement).is('.cstudio-chamilo-resource')
+				? droppedElement
+				: $(droppedElement).find('.cstudio-chamilo-resource').get(0);
+
+			if (chamiloElement) {
+				editor.select(droppedComponent);
+				setTimeout(function(){
+					displayChamiloResourceEdit(chamiloElement);
+				}, 0);
+			}
+		}
 	}
 
 });
@@ -5612,9 +5688,17 @@ baseButton += ' type="video/mp4" ></video>';
 //baseButton += '</div>';
 //baseButton += '</div>';
 
+function cstudioBlockIconClasses(legacyClasses, mdiClass) {
+	if (document.documentElement.classList.contains('cstudio-mdi-ready')) {
+		return 'mdi ' + mdiClass + ' cstudio-block-mdi';
+	}
+
+	return legacyClasses;
+}
+
 editor.BlockManager.add('VideoTeach',{
 	label: 'Video',
-	attributes: {class: 'fa fa-text icon-action', title: 'Video'},
+	attributes: {class: cstudioBlockIconClasses('fa fa-text icon-action', 'mdi-file-video'), title: 'Video'},
 	category: 'Basic',
 	content: {
 		content: baseButton,
@@ -5648,7 +5732,7 @@ baseButtonAudio += ' controls controlsList="nodownload" ></audio>';
   
 editor.BlockManager.add('AudioTeach',{
 	label: 'Audio',
-	attributes: {class: 'fa fa-text icon-audio', title: 'Audio'},
+	attributes: {class: cstudioBlockIconClasses('fa fa-text icon-audio', 'mdi-file-music'), title: 'Audio'},
 	category: 'Basic',
 	content: {
 		content: baseButtonAudio,
@@ -5766,7 +5850,7 @@ editor.BlockManager.add('spaceteach',{
 editor.BlockManager.add('sectionSeparator',{
 	label: 'Separator',
 	attributes: {
-		class: 'fa fa-text icon-plugTeach',
+		class: cstudioBlockIconClasses('fa fa-text icon-plugTeach', 'mdi-minus'),
         style: "background-image: url('icon/separator.png');background-repeat:no-repeat;background-position:center center;"
 	},
     category: 'Basic',
@@ -5814,7 +5898,7 @@ bTxt +='</table>';
 
 editor.BlockManager.add('TxtTeach',{
 	label: 'Text Block',
-	attributes: {class: 'fa fa-text icon-txtteach'},
+	attributes: {class: cstudioBlockIconClasses('fa fa-text icon-txtteach', 'mdi-file-document')},
 	category: 'Basic',
 	content: {
 		content: bTxt,
@@ -5908,7 +5992,7 @@ editor.BlockManager.add('buttonbar',{
 	label : 'Button Bar',
 	attributes : {
 		title : 'Button Bar',
-		class : 'fa fa-text icon-plugTeach',
+		class : cstudioBlockIconClasses('fa fa-text icon-plugTeach', 'mdi-table'),
         style : "background-image: url('icon/buttonbar.png');background-repeat:no-repeat;background-position:center center;"
 	},
     category : 'Basic',
@@ -6735,6 +6819,11 @@ function displayPlugTeachEdit(myObj){
 		displayImageMapEdit(myObj);
 		return false;
 	}
+
+	if (typesource=='chamilo-resource') {
+		displayChamiloResourceEdit(myObj);
+		return false;
+	}
 	
 	contentSourceEdition = '';
 	identSourceEdition++;
@@ -7414,7 +7503,7 @@ var firstSrcT = GplugSrcT.replace("{content}",renderplugincard('',''));
 editor.BlockManager.add('plugTeachCard',{
 	label: 'Card',
 	attributes: {
-		class: 'fa fa-text icon-plugTeach',
+		class: cstudioBlockIconClasses('fa fa-text icon-plugTeach', 'mdi-view-gallery'),
 		style: "background-image: url('icon/plug-card.png');background-repeat:no-repeat;background-position:center center;"
 	},
 	category: 'Basic',
@@ -7449,7 +7538,7 @@ bCMQ = baseRenderLUDIQcm;
 
 editor.BlockManager.add('CmqTeach',{
 	label: 'Quiz',
-	attributes: {class: 'fa fa-text qlab icon-cmq'},
+	attributes: {class: cstudioBlockIconClasses('fa fa-text qlab icon-cmq', 'mdi-check-circle')},
 	category: 'Basic',
 	content: {
 		content: bCMQ,
@@ -7466,7 +7555,7 @@ firstSrcT = GplugSrcT.replace("{content}",renderpluginblank('',''));
 editor.BlockManager.add('plugTeachBlank',{
 	label: 'Drag Drop',
 	attributes: {
-		class: 'fa fa-text qlab icon-plugTeach',
+		class: cstudioBlockIconClasses('fa fa-text qlab icon-plugTeach', 'mdi-cursor-move'),
 		style: "background-image: url('icon/plug-blank.png');background-repeat:no-repeat;background-position:center center;"
 	},
 	category: 'Basic',
@@ -7485,7 +7574,7 @@ firstSrcT = GplugSrcT.replace("{content}",renderpluginfilltext('',''));
 editor.BlockManager.add('plugTeachFillText',{
 	label: 'Fill text',
 	attributes: {
-		class: 'fa fa-text qlab icon-plugTeach',
+		class: cstudioBlockIconClasses('fa fa-text qlab icon-plugTeach', 'mdi-form-textarea'),
 		style: "background-image: url('icon/plug-filltext.png');background-repeat:no-repeat;background-position:center center;"
 	},
 	category: 'Basic',
@@ -7518,6 +7607,81 @@ editor.BlockManager.add('plugTeachIframe',{
 		}
 	}
 });
+
+function cstudioChamiloContentEnabled(){
+	var config = window.cstudioChamiloContentConfig || {};
+
+	return config.enabled === true
+		&& parseInt(config.lpId || 0, 10) > 0
+		&& parseInt(config.cid || 0, 10) > 0;
+}
+
+function cstudioChamiloResourcePlaceholder(resourceTool, label){
+	var h = '<div class="cstudio-chamilo-resource-placeholder" ';
+	h += 'style="min-height:220px;padding:55px 20px;text-align:center;background:#f4f6f7;border:2px dashed #aab7b8;">';
+	h += '<strong>' + cstudioEscapeHtml(label) + '</strong><br/>';
+	h += '<span style="display:inline-block;margin-top:12px;">Select a Chamilo course resource</span>';
+	h += '</div>';
+	h += cstudioChamiloResourceMetadata(resourceTool, '', '', '', 650);
+
+	return h;
+}
+
+function cstudioChamiloResourceMetadata(resourceTool, resourceKey, title, launchUrl, height){
+	var h = '';
+	h += '<span class="chamiloResourceTool" style="display:none;">' + cstudioEscapeHtml(resourceTool) + '</span>';
+	h += '<span class="chamiloResourceKey" style="display:none;">' + cstudioEscapeHtml(resourceKey) + '</span>';
+	h += '<span class="chamiloResourceTitle" style="display:none;">' + cstudioEscapeHtml(title) + '</span>';
+	h += '<span class="datatext1" style="display:none;">' + cstudioEscapeHtml(launchUrl) + '</span>';
+	h += '<span class="datatext2" style="display:none;">' + parseInt(height || 650, 10) + '</span>';
+	h += '<span class="typesource" style="display:none;">chamilo-resource</span>';
+
+	return h;
+}
+
+function cstudioEscapeHtml(value){
+	return String(value === undefined || value === null ? '' : value)
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#039;');
+}
+
+function cstudioAddChamiloResourceBlock(id, label, resourceTool, iconClass, mdiClass){
+	if (!cstudioChamiloContentEnabled()) {
+		return;
+	}
+
+	var chamiloTop = '<table class="teachdocplugteach cstudio-chamilo-resource" ';
+	chamiloTop += 'onMouseDown="parent.displayEditButon(this);" ';
+	chamiloTop += 'style="width:100%;text-align:center;">';
+	var chamiloContent = GplugSrcT.replace(
+		'{content}',
+		cstudioChamiloResourcePlaceholder(resourceTool, label)
+	);
+
+	editor.BlockManager.add(id,{
+		label: label,
+		attributes: {class: cstudioBlockIconClasses('fa ' + iconClass, mdiClass), title: label},
+		category: 'Basic',
+		content: {
+			content: chamiloTop + chamiloContent + GplugSrcBottom,
+			script: '',
+			style: {
+				width: '100%',
+				minHeight: '300px'
+			}
+		}
+	});
+}
+
+cstudioAddChamiloResourceBlock('chamiloDocuments', 'Chamilo documents', 'documents', 'fa-folder-open', 'mdi-folder-open');
+cstudioAddChamiloResourceBlock('chamiloTests', 'Chamilo tests', 'tests', 'fa-check-square-o', 'mdi-check-circle');
+cstudioAddChamiloResourceBlock('chamiloLinks', 'Chamilo links', 'links', 'fa-link', 'mdi-link');
+cstudioAddChamiloResourceBlock('chamiloAssignments', 'Chamilo assignments', 'assignments', 'fa-inbox', 'mdi-inbox');
+cstudioAddChamiloResourceBlock('chamiloForums', 'Chamilo forums', 'forums', 'fa-comments', 'mdi-forum-outline');
+cstudioAddChamiloResourceBlock('chamiloSurveys', 'Chamilo surveys', 'surveys', 'fa-list-alt', 'mdi-format-list-bulleted');
 
 
 firstSrcT = GplugSrcT.replace("{content}",renderplugminidia('',''));
@@ -7752,6 +7916,301 @@ function renderpluginblank(var1,var2) {
     
     return h;
 
+}
+
+var cstudioChamiloCatalogCache = null;
+var cstudioChamiloCatalogRequest = null;
+var cstudioChamiloCurrentResources = [];
+var cstudioChamiloCurrentObject = null;
+
+function cstudioChamiloBuilderUrl(){
+	var config = window.cstudioChamiloContentConfig || {};
+	var apiBase = String(config.apiBase || '/api').replace(/\/$/, '');
+	var params = new URLSearchParams();
+	params.set('cid', String(parseInt(config.cid || 0, 10)));
+	params.set('sid', String(parseInt(config.sid || 0, 10)));
+	params.set('gid', String(parseInt(config.gid || 0, 10)));
+	params.set('includeLaunchUrls', '1');
+	params.set('catalogOnly', '1');
+
+	return apiBase + '/learning_paths/' + parseInt(config.lpId || 0, 10) + '/builder?' + params.toString();
+}
+
+function cstudioLoadChamiloCatalog(){
+	if (cstudioChamiloCatalogCache) {
+		return $.Deferred().resolve(cstudioChamiloCatalogCache).promise();
+	}
+	if (cstudioChamiloCatalogRequest) {
+		return cstudioChamiloCatalogRequest;
+	}
+
+	cstudioChamiloCatalogRequest = $.ajax({
+		url: cstudioChamiloBuilderUrl(),
+		type: 'GET',
+		dataType: 'json',
+		cache: false
+	}).done(function(data){
+		cstudioChamiloCatalogCache = data || {};
+	}).always(function(){
+		cstudioChamiloCatalogRequest = null;
+	});
+
+	return cstudioChamiloCatalogRequest;
+}
+
+function cstudioFlattenChamiloResources(items, prefix, target){
+	(items || []).forEach(function(item){
+		if (!item) {
+			return;
+		}
+
+		var title = String(item.title || '');
+		var itemPrefix = prefix ? prefix + ' / ' : '';
+		var children = Array.isArray(item.children) ? item.children : [];
+		if (item.isFolder || item.canAdd === false) {
+			cstudioFlattenChamiloResources(children, itemPrefix + title, target);
+			return;
+		}
+
+		if (String(item.launchUrl || '') !== '') {
+			target.push({
+				key: String(item.resourceType || '') + ':' + String(item.id || ''),
+				id: parseInt(item.id || 0, 10),
+				title: itemPrefix + title,
+				resourceType: String(item.resourceType || ''),
+				launchUrl: String(item.launchUrl || '')
+			});
+		}
+
+		cstudioFlattenChamiloResources(children, itemPrefix + title, target);
+	});
+}
+
+function cstudioChamiloResourcesForTool(catalog, resourceTool){
+	var resources = catalog && catalog.resources ? catalog.resources : {};
+	var result = [];
+
+	if (resourceTool === 'documents') {
+		cstudioFlattenChamiloResources(resources.documents ? resources.documents.files : [], '', result);
+		cstudioFlattenChamiloResources(resources.documents ? resources.documents.videos : [], '', result);
+	}
+	if (resourceTool === 'tests') {
+		cstudioFlattenChamiloResources(resources.tests ? resources.tests.items : [], '', result);
+	}
+	if (resourceTool === 'links') {
+		cstudioFlattenChamiloResources(resources.links ? resources.links.items : [], '', result);
+	}
+	if (resourceTool === 'assignments') {
+		cstudioFlattenChamiloResources(resources.assignments ? resources.assignments.items : [], '', result);
+	}
+	if (resourceTool === 'surveys') {
+		cstudioFlattenChamiloResources(resources.surveys ? resources.surveys.items : [], '', result);
+	}
+	if (resourceTool === 'forums') {
+		(resources.forums && resources.forums.items ? resources.forums.items : []).forEach(function(forum){
+			if (!forum) {
+				return;
+			}
+			if (String(forum.launchUrl || '') !== '') {
+				result.push({
+					key: 'forum:' + String(forum.id || ''),
+					id: parseInt(forum.id || 0, 10),
+					title: String(forum.title || ''),
+					resourceType: 'forum',
+					launchUrl: String(forum.launchUrl || '')
+				});
+			}
+			(forum.threads || []).forEach(function(thread){
+				if (!thread || String(thread.launchUrl || '') === '') {
+					return;
+				}
+				result.push({
+					key: 'thread:' + String(thread.id || ''),
+					id: parseInt(thread.id || 0, 10),
+					title: String(forum.title || '') + ' / ' + String(thread.title || ''),
+					resourceType: 'thread',
+					launchUrl: String(thread.launchUrl || '')
+				});
+			});
+		});
+	}
+
+	return result;
+}
+
+function cstudioChamiloToolLabel(resourceTool){
+	var labels = {
+		documents: 'Chamilo documents',
+		tests: 'Chamilo tests',
+		links: 'Chamilo links',
+		assignments: 'Chamilo assignments',
+		forums: 'Chamilo forums',
+		surveys: 'Chamilo surveys'
+	};
+
+	return labels[resourceTool] || 'Chamilo content';
+}
+
+function cstudioEnsureChamiloResourceDialog(){
+	if ($('#CStudioChamiloResourceWindow').length > 0) {
+		return;
+	}
+
+	var h = '<div id="CStudioChamiloResourceWindow" class="gjs-mdl-container autodestroy-windows" style="display:none;">';
+	h += '<div class="gjs-mdl-dialog-v2 gjs-one-bg gjs-two-color" style="max-width:720px!important;">';
+	h += '<div class="gjs-mdl-header">';
+	h += '<div id="CStudioChamiloResourceTitle" class="gjs-mdl-title">Chamilo content</div>';
+	h += '<div class="gjs-mdl-btn-close" onClick="closeCStudioChamiloResourceEdit()" data-close-modal>⨯</div>';
+	h += '</div>';
+	h += '<div class="gjs-am-add-asset" style="padding:25px;font-size:16px;">';
+	h += '<div id="CStudioChamiloResourceLoading" style="padding:25px;text-align:center;">Loading...</div>';
+	h += '<div id="CStudioChamiloResourceForm" style="display:none;">';
+	h += '<label for="CStudioChamiloResourceSelect" style="display:block;margin-bottom:6px;">Course resource</label>';
+	h += '<select id="CStudioChamiloResourceSelect" style="width:100%;min-height:38px;padding:6px;"></select>';
+	h += '<label for="CStudioChamiloResourceHeight" style="display:block;margin-top:18px;margin-bottom:6px;">Iframe height</label>';
+	h += '<input id="CStudioChamiloResourceHeight" type="number" min="350" max="1600" step="25" value="650" style="width:120px;padding:6px;" />';
+	h += '<div id="CStudioChamiloResourceEmpty" style="display:none;margin-top:18px;padding:12px;background:#f8f9f9;color:#566573;">No available resources were found in this course.</div>';
+	h += '</div>';
+	h += '<div id="CStudioChamiloResourceError" style="display:none;padding:12px;background:#fdecea;color:#922b21;"></div>';
+	h += '<div style="padding-top:22px;text-align:right;">';
+	h += '<input id="CStudioChamiloResourceSave" onClick="saveChamiloResourceSelection()" class="gjs-one-bg ludiButtonSave" type="button" value="Insert" />';
+	h += '</div>';
+	h += '</div>';
+	h += '</div>';
+	h += '<div class="gjs-mdl-collector" style="display:none"></div>';
+	h += '</div>';
+
+	$('body').append(h);
+	$('#CStudioChamiloResourceSelect').on('change', function(){
+		$('#CStudioChamiloResourceError').hide().text('');
+		$('#CStudioChamiloResourceSave').prop('disabled', String($(this).val() || '') === '');
+	});
+}
+
+function closeCStudioChamiloResourceEdit(){
+	cstudioChamiloCurrentObject = null;
+	cstudioChamiloCurrentResources = [];
+	closeAllEditWindows();
+}
+
+function displayChamiloResourceEdit(myObj){
+	if (!cstudioChamiloContentEnabled()) {
+		alert('Chamilo course content is not available in this context.');
+		return false;
+	}
+
+	closeAllEditWindows();
+	cstudioChamiloCurrentObject = $(myObj);
+	tmpObjDom = cstudioChamiloCurrentObject;
+	identchange = getUnikId();
+	tmpObjDom.attr('data-ref', identchange);
+
+	var resourceTool = String(tmpObjDom.find('span.chamiloResourceTool').first().text() || 'documents');
+	var selectedKey = String(tmpObjDom.find('span.chamiloResourceKey').first().text() || '');
+	var storedHeight = parseInt(tmpObjDom.find('span.datatext2').first().text() || 650, 10);
+	if (!Number.isFinite(storedHeight) || storedHeight < 350) {
+		storedHeight = 650;
+	}
+
+	cstudioEnsureChamiloResourceDialog();
+	$('#CStudioChamiloResourceTitle').text(cstudioChamiloToolLabel(resourceTool));
+	$('#CStudioChamiloResourceHeight').val(storedHeight);
+	$('#CStudioChamiloResourceLoading').show();
+	$('#CStudioChamiloResourceForm').hide();
+	$('#CStudioChamiloResourceError').hide().text('');
+	$('#CStudioChamiloResourceSave').prop('disabled', true);
+	$('#CStudioChamiloResourceWindow').css('display', '');
+	$('.ludimenu').css('z-index', '2');
+	windowEditorIsOpen = true;
+	loadaFunction();
+
+	cstudioLoadChamiloCatalog().done(function(catalog){
+		cstudioChamiloCurrentResources = cstudioChamiloResourcesForTool(catalog, resourceTool);
+		var select = $('#CStudioChamiloResourceSelect');
+		select.empty();
+		select.append($('<option>').val('').text('Select a resource'));
+
+		cstudioChamiloCurrentResources.forEach(function(resource){
+			select.append($('<option>').val(resource.key).text(resource.title));
+		});
+
+		if (selectedKey !== '') {
+			select.val(selectedKey);
+		}
+
+		$('#CStudioChamiloResourceLoading').hide();
+		$('#CStudioChamiloResourceForm').show();
+		$('#CStudioChamiloResourceEmpty').toggle(cstudioChamiloCurrentResources.length === 0);
+		$('#CStudioChamiloResourceSave').prop(
+			'disabled',
+			cstudioChamiloCurrentResources.length === 0 || String(select.val() || '') === ''
+		);
+	}).fail(function(jqXHR){
+		var message = 'Unable to load the Chamilo course resources.';
+		if (jqXHR && jqXHR.status) {
+			message += ' HTTP ' + jqXHR.status + '.';
+		}
+		$('#CStudioChamiloResourceLoading').hide();
+		$('#CStudioChamiloResourceError').text(message).show();
+	});
+
+	return false;
+}
+
+function renderpluginchamiloresource(resourceTool, resourceKey, title, launchUrl, height){
+	var safeHeight = parseInt(height || 650, 10);
+	if (!Number.isFinite(safeHeight) || safeHeight < 350) {
+		safeHeight = 650;
+	}
+	safeHeight = Math.min(safeHeight, 1600);
+
+	var h = '<div class="topinactiveteach"></div>';
+	h += '<div style="padding:6px 8px;text-align:left;font-size:13px;background:#f4f6f7;border-bottom:1px solid #d5dbdb;">';
+	h += cstudioEscapeHtml(title);
+	h += '</div>';
+	h += '<iframe class="cstudio-chamilo-resource-frame" style="width:100%;min-height:350px;z-index:1;height:' + safeHeight + 'px;overflow:auto;" ';
+	h += 'title="' + cstudioEscapeHtml(title) + '" frameBorder="0" src="' + cstudioEscapeHtml(launchUrl) + '"></iframe>';
+	h += cstudioChamiloResourceMetadata(resourceTool, resourceKey, title, launchUrl, safeHeight);
+
+	return h;
+}
+
+function saveChamiloResourceSelection(){
+	if (!cstudioChamiloCurrentObject || cstudioChamiloCurrentObject.length === 0) {
+		return false;
+	}
+
+	var selectedKey = String($('#CStudioChamiloResourceSelect').val() || '');
+	var selectedResource = cstudioChamiloCurrentResources.find(function(resource){
+		return resource.key === selectedKey;
+	});
+	if (!selectedResource || selectedResource.launchUrl === '') {
+		$('#CStudioChamiloResourceError').text('Select a valid course resource.').show();
+		return false;
+	}
+
+	var resourceTool = String(cstudioChamiloCurrentObject.find('span.chamiloResourceTool').first().text() || 'documents');
+	var height = parseInt($('#CStudioChamiloResourceHeight').val() || 650, 10);
+	var renderH = renderpluginchamiloresource(
+		resourceTool,
+		selectedResource.key,
+		selectedResource.title,
+		selectedResource.launchUrl,
+		height
+	);
+
+	var row = GplugSrcT.replace('{content}', renderH);
+	if (GlobalTagGrappeObj === 'div') {
+		var chamiloTop = '<table class="teachdocplugteach cstudio-chamilo-resource" ';
+		chamiloTop += 'onMouseDown="parent.displayEditButon(this);" style="width:100%;text-align:center;">';
+		row = chamiloTop + row + GplugSrcBottom;
+	}
+
+	setAbstractObjContent(row);
+	activeEventSave();
+	closeCStudioChamiloResourceEdit();
+
+	return false;
 }
 
 function renderpluginiframe(var1,var2) {
@@ -10162,30 +10621,36 @@ function displayParamsTeachEdit() {
         h += '</div>';
         
         h += '<a class="tool-clean-data tool-base" onClick="displaySubProgressClean();" style="cursor:pointer;" >';
+        h += '<i class="mdi mdi-broom cstudio-tool-mdi" aria-hidden="true"></i>';
         h += '<div class="trd" >Clean data</div>';
         h += '</a>';
         
         // reloadEditorAll();
         
         h += '<a class="tool-play tool-base" onClick="playAllinCore();" style="cursor:pointer;" >';
+        h += '<i class="mdi mdi-play-box-outline cstudio-tool-mdi" aria-hidden="true"></i>';
         h += '<div class="trd" >Preview</div>';
         h += '</a>';
         
         h += '<a class="tool-colors-editor tool-base" onClick="displayEditThemeParamsProject();" style="cursor:pointer;" >';
+        h += '<i class="mdi mdi-format-paint cstudio-tool-mdi" aria-hidden="true"></i>';
         h += '<div class="trd" >Colors</div>';
         h += '</a>';
 
         h += '<a class="tool-colors-params tool-base" onClick="displayGlobalParams();" style="cursor:pointer;" >';
+        h += '<i class="mdi mdi-cog cstudio-tool-mdi" aria-hidden="true"></i>';
         h += '<div class="trd" >Options</div>';
         h += '</a>';
         
         if (cstudioShowExperimentalTabs) {
             h += '<a id="tool-colors-paste" name="tool-colors-paste" class="tool-colors-paste tool-base" onClick="pasteWindowsShow(false);" style="cursor:pointer;" >';
+            h += '<i class="mdi mdi-puzzle cstudio-tool-mdi" aria-hidden="true"></i>';
             h += '<div class="trd" >Integration</div>';
             h += '</a>';
         }
         
         h += '<a id="tool-quit" name="tool-quit" class="tool-quit tool-base" onClick="quitEditorAll();"style="cursor:pointer;" >';
+        h += '<i class="mdi mdi-arrow-left-bold-box cstudio-tool-mdi" aria-hidden="true"></i>';
         h += '<div class="trd" >Quit</div>';
         h += '</a>';
         
@@ -16073,6 +16538,11 @@ function haveSpeedTools(nameObj,nameObj2) {
             r = true;
         }
     }
+    if (typeof window.cstudioAiCanHandleSelection === "function") {
+        if (window.cstudioAiCanHandleSelection(nameObj, nameObj2)) {
+            r = true;
+        }
+    }
     return r;
 }
 
@@ -16099,6 +16569,10 @@ function installSpeedTools() {
         var coolTools = '<a onClick="RapidStyleTxtBox();" ';
         coolTools += ' class="style-over-opt" ></a>';
         $('.ludiSpeedTools').html(coolTools);
+    }
+
+    if (typeof window.cstudioAiInstallSpeedTool === "function") {
+        window.cstudioAiInstallSpeedTool();
     }
 
 }
@@ -17288,21 +17762,13 @@ function displaySubPageEdit(i){
 		
 		windowEditorIsOpen = true;
 		loadaFunction();
+		resetSubPageEditorState(true);
 		
 		getTemplatesPageLst();
 
 		$('.ludimenu').css("display","none");
-		$('#oelTitleload').css("display","none");
-
-		$('.pageDefautTplRight').css("display","none");
-		$('.pageTemplateRight').css("display","none");
-
 		$('.ludiEditMenuContext').css("display","none");
 		$('#pageEditAdd').css("display","");
-
-		$('#typenode2').attr('checked',true);
-		$('#typenode3').attr('checked',false);
-		$('#typenode4').attr('checked',false);
 
 		cstudioFixVisibleEditorLabels();
 		$('#inputTitlePage').focus();

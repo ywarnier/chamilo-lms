@@ -13,6 +13,8 @@ use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ResourceFile;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CLpItem;
 use Chamilo\CourseBundle\Entity\CQuiz;
@@ -28,13 +30,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use OnlyofficePlugin;
 use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 use Webit\Util\EvalMath\EvalMath;
 
@@ -49,7 +48,6 @@ use const SYS_PLUGIN_PATH;
  */
 final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterface
 {
-    private const CSRF_TOKEN_ID = 'exercise_question_editor';
     private const UNIQUE_ANSWER = 1;
     private const MULTIPLE_ANSWER = 2;
     private const FILL_IN_BLANKS = 3;
@@ -85,13 +83,14 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
     private const LP_ITEM_TYPE_QUIZ = 'quiz';
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CQuizRepository $quizRepository,
         private CQuizQuestionRepository $questionRepository,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -109,11 +108,12 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $this->validateCsrfToken($data->submittedCsrfToken);
-
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
-        if (!$this->canManageExercises()) {
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        // The global question bank is not course scoped, so a question manager keeps access
+        // even where the course rules would deny it.
+        if (!$this->isAllowedToEditHelper->check(coach: true)
+            && !$this->security->isGranted('ROLE_QUESTION_MANAGER')) {
             throw new AccessDeniedHttpException('You are not allowed to manage exercise questions in this context.');
         }
 
@@ -144,10 +144,42 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         if ($quiz instanceof CQuiz) {
             $this->syncQuestionCategoryMandatory($quiz, $question, $data);
 
-            return $this->buildResponse($quiz, $question, $course, $session);
+            return $this->buildResponse($operation, $quiz, $question, $course, $session);
         }
 
-        return $this->buildGlobalResponse($question, $course, $session);
+        return $this->buildGlobalResponse($operation, $question, $course, $session);
+    }
+
+    /**
+     * Validate a question payload for trusted internal callers that already
+     * resolved course ownership and AccessUrl scope.
+     */
+    public function validateProgrammaticCreate(CQuiz $quiz, ExerciseQuestionEditor $data): void
+    {
+        $this->assertQuestionTypeAllowedByFeedback($quiz, (int) $data->type);
+        $this->validatePayload($data);
+        $this->validateAnnotationImageOnCreate($data, true);
+        $this->validateHotspotImageOnCreate($data, true);
+        $this->validateOnlyofficeTemplateOnCreate($data, true);
+    }
+
+    /**
+     * Create a question through the same validation and persistence path used
+     * by the Vue editor. Security and course ownership must be checked by the
+     * trusted caller before invoking this method.
+     */
+    public function createProgrammaticQuestion(
+        CQuiz $quiz,
+        ExerciseQuestionEditor $data,
+        Course $course,
+        ?Session $session = null,
+    ): CQuizQuestion {
+        $this->validateProgrammaticCreate($quiz, $data);
+
+        $question = $this->createQuestion($quiz, $data, $course, $session);
+        $this->entityManager->flush();
+
+        return $question;
     }
 
     private function isExerciseReadOnlyFromLearningPath(int $exerciseId): bool
@@ -759,42 +791,6 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         };
     }
 
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
-    }
-
     private function getExerciseFromCurrentContext(int $exerciseId, Course $course, ?Session $session): CQuiz
     {
         $quiz = $this->quizRepository->find($exerciseId);
@@ -879,8 +875,8 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
             ->select('question.iid')
             ->from(CQuizQuestion::class, 'question')
             ->leftJoin('question.resourceNode', 'questionNode')
-            ->andWhere('question = :question')
-            ->setParameter('question', $question)
+            ->andWhere('question.iid = :questionId')
+            ->setParameter('questionId', (int) $question->getIid())
             ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
             ->setMaxResults(1)
         ;
@@ -948,7 +944,7 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
     }
 
     /**
-     * @return array<int, array{answer: string, correct: bool, comment: string, score: float, position: int, isUnknown: bool}>
+     * @return array<int, array{answer: string, correct: bool, comment: string, score: float, position: int, isUnknown: bool, correctChoice?: int}>
      */
     private function getCleanAnswers(ExerciseQuestionEditor $data): array
     {
@@ -1321,13 +1317,6 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         return $value;
     }
 
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(self::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('Invalid CSRF token.');
-        }
-    }
-
     private function isVueSupportedQuestionType(int $type): bool
     {
         return \in_array($type, [
@@ -1436,7 +1425,7 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
     }
 
     /**
-     * @return array<int, array{answer: string, correct: bool, comment: string, score: float, position: int, isUnknown: bool}>
+     * @return array<int, array{answer: string, correct: bool, comment: string, score: float, position: int, isUnknown: bool, correctChoice?: int}>
      */
     private function normalizeAnswersForType(ExerciseQuestionEditor $data, array $optionIidsByPosition = []): array
     {
@@ -1610,6 +1599,57 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         $value = $this->settingsManager->getSetting('exercise.allow_quiz_question_feedback', true);
 
         return true === $value || 'true' === strtolower((string) $value) || '1' === (string) $value;
+    }
+
+    private function isImageZoomEnabled(): bool
+    {
+        $value = $this->settingsManager->getSetting('exercise.quiz_image_zoom', true);
+        if (\is_array($value)) {
+            return isset($value['options']) || true === ($value['value'] ?? false) || '1' === (string) ($value['value'] ?? '');
+        }
+
+        return true === $value || 'true' === strtolower((string) $value) || '1' === (string) $value;
+    }
+
+    /**
+     * @return array<int, array{label: string, value: int}>
+     */
+    private function getCategoryOptions(Course $course, ?Session $session): array
+    {
+        $queryBuilder = $this->entityManager->createQueryBuilder()
+            ->select('category')
+            ->from(CQuizQuestionCategory::class, 'category')
+            ->innerJoin('category.resourceNode', 'node')
+            ->innerJoin('node.resourceLinks', 'links')
+            ->andWhere('IDENTITY(links.course) = :courseId')
+            ->andWhere('links.deletedAt IS NULL')
+            ->andWhere('links.endVisibilityAt IS NULL')
+            ->setParameter('courseId', (int) $course->getId())
+            ->orderBy('category.title', 'ASC')
+        ;
+
+        if (null !== $session) {
+            $queryBuilder
+                ->andWhere('(IDENTITY(links.session) = :sessionId OR links.session IS NULL)')
+                ->setParameter('sessionId', (int) $session->getId())
+            ;
+        } else {
+            $queryBuilder->andWhere('links.session IS NULL');
+        }
+
+        $items = [];
+        foreach ($queryBuilder->getQuery()->getResult() as $category) {
+            if (!$category instanceof CQuizQuestionCategory || null === $category->getIid()) {
+                continue;
+            }
+
+            $items[] = [
+                'label' => $category->getTitle(),
+                'value' => (int) $category->getIid(),
+            ];
+        }
+
+        return $items;
     }
 
     /**
@@ -2066,7 +2106,7 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         return rtrim(rtrim(number_format($result, 2, '.', ''), '0'), '.');
     }
 
-    private function addHotspotData(ExerciseQuestionEditor $response, CQuiz $quiz, CQuizQuestion $question, Course $course, ?Session $session): void
+    private function addHotspotData(Operation $operation, ExerciseQuestionEditor $response, CQuiz $quiz, CQuizQuestion $question, Course $course, ?Session $session): void
     {
         if (!$this->usesHotspot((int) $question->getType())) {
             return;
@@ -2078,6 +2118,7 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
             if ($resourceFile instanceof ResourceFile) {
                 $response->hotspotImageName = (string) $resourceFile->getOriginalName();
                 $response->hotspotImageUrl = $this->appendCourseContextToUrl(
+                    $operation,
                     $this->questionRepository->getHotSpotImageUrl($question),
                     $course,
                     $session
@@ -2468,7 +2509,7 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         return \in_array($type, [self::HOT_SPOT, self::HOT_SPOT_DELINEATION, self::HOT_SPOT_COMBINATION], true);
     }
 
-    private function addAnnotationData(ExerciseQuestionEditor $response, CQuizQuestion $question, Course $course, ?Session $session): void
+    private function addAnnotationData(Operation $operation, ExerciseQuestionEditor $response, CQuizQuestion $question, Course $course, ?Session $session): void
     {
         if (self::ANNOTATION !== (int) $question->getType()) {
             return;
@@ -2486,13 +2527,14 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
 
         $response->annotationImageName = (string) $resourceFile->getOriginalName();
         $response->annotationImageUrl = $this->appendCourseContextToUrl(
+            $operation,
             $this->questionRepository->getHotSpotImageUrl($question),
             $course,
             $session
         );
     }
 
-    private function appendCourseContextToUrl(string $url, Course $course, ?Session $session): string
+    private function appendCourseContextToUrl(Operation $operation, string $url, Course $course, ?Session $session): string
     {
         if ('' === $url) {
             return '';
@@ -2501,8 +2543,8 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         $request = $this->requestStack->getCurrentRequest();
         $params = [
             'cid' => (int) $course->getId(),
-            'sid' => (int) ($session?->getId() ?? $request?->query->getInt('sid', 0) ?? 0),
-            'gid' => (int) ($request?->query->getInt('gid', 0) ?? 0),
+            'sid' => (int) ($session?->getId() ?? $this->cidReqHelper->getSessionId() ?? 0),
+            'gid' => (int) $this->cidReqHelper->getGroupId(),
         ];
 
         return $url.(str_contains($url, '?') ? '&' : '?').http_build_query($params);
@@ -2945,7 +2987,7 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         return implode(PHP_EOL, array_values(array_filter($lines, static fn (string $line): bool => '' !== $line)));
     }
 
-    private function buildGlobalResponse(CQuizQuestion $question, Course $course, ?Session $session): ExerciseQuestionEditor
+    private function buildGlobalResponse(Operation $operation, CQuizQuestion $question, Course $course, ?Session $session): ExerciseQuestionEditor
     {
         $response = new ExerciseQuestionEditor();
         $response->exerciseId = 0;
@@ -2967,7 +3009,7 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         $response->categoryId = $this->getFirstCategoryId($question);
         $response->parentMediaId = 0;
         $response->answers = $this->getResponseAnswers($question);
-        $this->addAnnotationData($response, $question, $course, $session);
+        $this->addAnnotationData($operation, $response, $question, $course, $session);
         $this->addCalculatedData($response, $question);
         $this->addFillBlanksData($response, $question);
         $this->addMatchingData($response, $question);
@@ -2978,7 +3020,6 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         $response->categoryOptions = $this->getCategoryOptions($course, $session);
         $response->mediaOptions = [];
         $response->legacyUrls = [];
-        $response->csrfToken = $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID)->getValue();
         $response->allowQuestionFeedback = $this->isQuestionFeedbackEnabled();
         $response->imageZoomEnabled = $this->isImageZoomEnabled();
         $response->allowMandatoryQuestion = false;
@@ -2986,7 +3027,7 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         return $response;
     }
 
-    private function buildResponse(CQuiz $quiz, CQuizQuestion $question, Course $course, ?Session $session): ExerciseQuestionEditor
+    private function buildResponse(Operation $operation, CQuiz $quiz, CQuizQuestion $question, Course $course, ?Session $session): ExerciseQuestionEditor
     {
         $response = new ExerciseQuestionEditor();
         $response->exerciseId = (int) $quiz->getIid();
@@ -3008,8 +3049,8 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
         $response->categoryId = $this->getFirstCategoryId($question);
         $response->parentMediaId = (int) ($question->getParentMediaId() ?? 0);
         $response->answers = $this->getResponseAnswers($question);
-        $this->addAnnotationData($response, $question, $course, $session);
-        $this->addHotspotData($response, $quiz, $question, $course, $session);
+        $this->addAnnotationData($operation, $response, $question, $course, $session);
+        $this->addHotspotData($operation, $response, $quiz, $question, $course, $session);
         $this->addCalculatedData($response, $question);
         $this->addFillBlanksData($response, $question);
         $this->addMatchingData($response, $question);
@@ -3025,7 +3066,6 @@ final readonly class ExerciseQuestionEditorProcessor implements ProcessorInterfa
                 'sid' => (int) ($session?->getId() ?? 0),
             ]),
         ];
-        $response->csrfToken = $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID)->getValue();
         $response->allowQuestionFeedback = $this->isQuestionFeedbackEnabled();
         $response->allowMandatoryQuestion = $this->isMandatoryQuestionInCategoryEnabled($quiz);
 

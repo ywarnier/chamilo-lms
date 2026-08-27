@@ -9,12 +9,15 @@ namespace Chamilo\CoreBundle\Mcp;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Service\Document\CourseDocumentContentService;
+use Chamilo\CoreBundle\Service\Exercise\ExerciseLearningPathItemFactory;
 use Chamilo\CoreBundle\Service\Mcp\McpTeacherCourseContext;
+use Chamilo\CoreBundle\Service\Survey\CourseSurveyContentService;
 use Chamilo\CourseBundle\Entity\CLp;
 use Chamilo\CourseBundle\Entity\CLpItem;
 use Chamilo\CourseBundle\Entity\CQuiz;
 use Chamilo\CourseBundle\Repository\CLpItemRepository;
 use Chamilo\CourseBundle\Repository\CLpRepository;
+use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\EntityManagerInterface;
 use InvalidArgumentException;
@@ -27,6 +30,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Throwable;
 
 use const DATE_ATOM;
+use const PREG_SPLIT_NO_EMPTY;
 
 final readonly class ManageCourseLearningPathTool
 {
@@ -38,6 +42,8 @@ final readonly class ManageCourseLearningPathTool
         private CLpItemRepository $lpItemRepository,
         private CourseDocumentContentService $documentContentService,
         private CreateCourseDocumentTool $documentTool,
+        private CourseSurveyContentService $surveyContentService,
+        private ExerciseLearningPathItemFactory $exerciseLearningPathItemFactory,
         private EntityManagerInterface $entityManager,
     ) {}
 
@@ -46,7 +52,7 @@ final readonly class ManageCourseLearningPathTool
      */
     #[McpTool(
         name: 'create_empty_learning_path',
-        description: 'Create an empty learning path in a course managed by the authenticated teacher. Use the add_learning_path_page, add_learning_path_document and add_learning_path_test tools afterwards to build it conversationally.',
+        description: 'Create an empty learning path in a course managed by the authenticated teacher. Use the add_learning_path_page, add_learning_path_document, add_learning_path_test and add_learning_path_survey tools afterwards to build it conversationally.',
     )]
     public function createEmptyLearningPath(
         int $courseId,
@@ -291,16 +297,12 @@ final readonly class ManageCourseLearningPathTool
         ?int $afterItemId = null,
     ): array {
         try {
-            $context = $this->courseContext->resolve($courseId);
+            $this->courseContext->resolve($courseId);
             $learningPath = $this->resolveLearningPath($courseId, $learningPathId);
             $quiz = $this->resolveQuiz($courseId, $testId, $testTitle);
-            $this->addItem(
-                $context['course'],
-                (int) $context['user']->getId(),
+            $this->addExerciseItem(
                 $learningPath,
-                TOOL_QUIZ,
-                (int) $quiz->getIid(),
-                $quiz->getTitle(),
+                $quiz,
                 $afterItemId,
             );
 
@@ -315,6 +317,51 @@ final readonly class ManageCourseLearningPathTool
             throw new ToolCallException($exception->getMessage());
         } catch (Throwable $throwable) {
             throw new ToolCallException('The test could not be added to the learning path because of an unexpected server error. Check the Chamilo log for technical details.', 0, $throwable);
+        }
+    }
+
+    /**
+     * @return array{updated: true, learning_path: array<string, mixed>, items: list<array<string, mixed>>}
+     */
+    #[McpTool(
+        name: 'add_learning_path_survey',
+        description: 'Add an existing survey to a learning path as a native step, the same way the Chamilo learning path builder lets a teacher attach a survey. Identify the survey by surveyId or exact title. The survey must already have at least one question. The operation returns the persisted learning path structure.',
+    )]
+    public function addLearningPathSurvey(
+        int $courseId,
+        int $learningPathId,
+        ?int $surveyId = null,
+        ?string $surveyTitle = null,
+        ?int $afterItemId = null,
+    ): array {
+        try {
+            $context = $this->courseContext->resolve($courseId);
+            $learningPath = $this->resolveLearningPath($courseId, $learningPathId);
+            $survey = $this->surveyContentService->resolveSurvey($context['course'], $surveyId, $surveyTitle);
+            if ($survey->getQuestions()->isEmpty()) {
+                throw new InvalidArgumentException('The survey has no questions yet and cannot be added to the learning path.');
+            }
+            $this->addItem(
+                $context['course'],
+                (int) $context['user']->getId(),
+                $learningPath,
+                TOOL_SURVEY,
+                (int) $survey->getIid(),
+                $survey->getTitle(),
+                $afterItemId,
+            );
+
+            return [
+                'updated' => true,
+                'learning_path' => $this->normalizeLearningPath($courseId, $learningPath),
+                'items' => $this->normalizeItems($learningPath),
+            ];
+        } catch (ToolCallException $exception) {
+            throw $exception;
+        } catch (AccessDeniedException|InvalidArgumentException|RuntimeException $exception) {
+            throw new ToolCallException($exception->getMessage());
+        } catch (Throwable $throwable) {
+            throw new ToolCallException('The survey could not be added to the learning path because of an unexpected server error. Check the Chamilo log for technical details.', 0, $throwable);
         }
     }
 
@@ -340,6 +387,7 @@ final readonly class ManageCourseLearningPathTool
                 if ((int) $candidate->getIid() === $itemId) {
                     $item = $candidate;
                     array_splice($items, $index, 1);
+
                     break;
                 }
             }
@@ -616,6 +664,104 @@ final readonly class ManageCourseLearningPathTool
         return $matches[0];
     }
 
+    private function addExerciseItem(CLp $learningPath, CQuiz $quiz, ?int $afterItemId): void
+    {
+        // Exercises can contain modern-only question types. Build the CLpItem
+        // directly instead of routing test attachment through legacy Question classes.
+        $rootItem = $this->lpItemRepository->getRootItem((int) $learningPath->getIid());
+        if (!$rootItem instanceof CLpItem) {
+            throw new RuntimeException('The learning path root item could not be resolved.');
+        }
+
+        $items = $this->getFirstLevelItems($learningPath);
+        if (null !== $afterItemId) {
+            $valid = false;
+            foreach ($items as $item) {
+                if ((int) $item->getIid() === $afterItemId) {
+                    $valid = true;
+
+                    break;
+                }
+            }
+            if (!$valid) {
+                throw new InvalidArgumentException('The afterItemId value does not identify a first-level item in this learning path.');
+            }
+        }
+
+        $exerciseId = (int) $quiz->getIid();
+        if ($exerciseId <= 0) {
+            throw new RuntimeException('The exercise must be persisted before it can be added to a learning path.');
+        }
+
+        $learningPathItem = null;
+        foreach ($learningPath->getItems() as $candidate) {
+            if (TOOL_QUIZ === $candidate->getItemType() && (string) $exerciseId === (string) $candidate->getPath()) {
+                $learningPathItem = $candidate;
+
+                break;
+            }
+        }
+
+        if (!$learningPathItem instanceof CLpItem) {
+            $displayOrder = 2;
+            foreach ($items as $item) {
+                $displayOrder = max($displayOrder, (int) $item->getDisplayOrder() + 1);
+            }
+
+            $learningPathItem = $this->exerciseLearningPathItemFactory->create(
+                $learningPath,
+                $quiz,
+                $exerciseId,
+                $rootItem,
+                $displayOrder,
+            );
+            $this->entityManager->persist($learningPathItem);
+            $this->entityManager->flush();
+        } elseif ((int) $learningPathItem->getParent()?->getIid() !== (int) $rootItem->getIid()) {
+            throw new InvalidArgumentException('The test is already attached inside a nested learning path section.');
+        }
+
+        $itemId = (int) $learningPathItem->getIid();
+        if ($itemId <= 0) {
+            throw new RuntimeException('The exercise learning path item could not be persisted.');
+        }
+
+        $items = $this->getFirstLevelItems($learningPath);
+        $learningPathItem = null;
+        foreach ($items as $index => $item) {
+            if ((int) $item->getIid() === $itemId) {
+                $learningPathItem = $item;
+                array_splice($items, $index, 1);
+
+                break;
+            }
+        }
+        if (!$learningPathItem instanceof CLpItem) {
+            throw new RuntimeException('The persisted exercise item could not be resolved in the learning path.');
+        }
+
+        if (null === $afterItemId) {
+            $items[] = $learningPathItem;
+        } else {
+            $targetIndex = null;
+            foreach ($items as $index => $item) {
+                if ((int) $item->getIid() === $afterItemId) {
+                    $targetIndex = $index + 1;
+
+                    break;
+                }
+            }
+            if (null === $targetIndex) {
+                throw new RuntimeException('The target learning path item could not be resolved after creating the exercise item.');
+            }
+            array_splice($items, $targetIndex, 0, [$learningPathItem]);
+        }
+
+        $learningPath->setModifiedOn(new DateTime());
+        $this->entityManager->persist($learningPath);
+        $this->persistItemOrder($learningPath, $items);
+    }
+
     private function addItem(
         Course $course,
         int $userId,
@@ -638,6 +784,7 @@ final readonly class ManageCourseLearningPathTool
                 if ((int) $item->getIid() === $afterItemId) {
                     $valid = true;
                     $previousItemId = $afterItemId;
+
                     break;
                 }
             }
@@ -650,6 +797,7 @@ final readonly class ManageCourseLearningPathTool
         }
 
         require_once api_get_path(SYS_CODE_PATH).'lp/learnpath.class.php';
+
         require_once api_get_path(SYS_CODE_PATH).'exercise/exercise.class.php';
         $courseInfo = api_get_course_info($course->getCode());
         if (!\is_array($courseInfo) || [] === $courseInfo) {
@@ -675,6 +823,7 @@ final readonly class ManageCourseLearningPathTool
                 if ((int) $item->getIid() === $itemId) {
                     $newItem = $item;
                     array_splice($items, $index, 1);
+
                     break;
                 }
             }
@@ -683,6 +832,7 @@ final readonly class ManageCourseLearningPathTool
                 foreach ($items as $index => $item) {
                     if ((int) $item->getIid() === $afterItemId) {
                         $targetIndex = $index + 1;
+
                         break;
                     }
                 }
@@ -703,7 +853,7 @@ final readonly class ManageCourseLearningPathTool
         }
 
         /** @var list<CLpItem> $items */
-        $items = $this->entityManager->createQueryBuilder()
+        return $this->entityManager->createQueryBuilder()
             ->select('item')
             ->from(CLpItem::class, 'item')
             ->andWhere('IDENTITY(item.lp) = :learningPathId')
@@ -717,8 +867,6 @@ final readonly class ManageCourseLearningPathTool
             ->getQuery()
             ->getResult()
         ;
-
-        return $items;
     }
 
     /**
@@ -804,7 +952,7 @@ final readonly class ManageCourseLearningPathTool
                 'title' => $item->getTitle(),
                 'type' => $item->getItemType(),
                 'resource_id' => (int) ($item->getPath() ?: $item->getRef()),
-                'parent_item_id' => $item->getParent()?->getItemType() === 'root'
+                'parent_item_id' => 'root' === $item->getParent()?->getItemType()
                     ? null
                     : (int) $item->getParent()?->getIid(),
                 'display_order' => (int) $item->getDisplayOrder(),

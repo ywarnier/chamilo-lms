@@ -11,6 +11,7 @@ use ApiPlatform\State\ProviderInterface;
 use Chamilo\CoreBundle\AiProvider\AiProviderFactory;
 use Chamilo\CoreBundle\ApiResource\LearningPath\LearningPathAiGenerator;
 use Chamilo\CoreBundle\Entity\Course;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Settings\SettingsCourseManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -18,7 +19,6 @@ use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /** @implements ProviderInterface<LearningPathAiGenerator> */
 final readonly class LearningPathAiGeneratorProvider implements ProviderInterface
@@ -29,10 +29,10 @@ final readonly class LearningPathAiGeneratorProvider implements ProviderInterfac
         private EntityManagerInterface $entityManager,
         private RequestStack $requestStack,
         private Security $security,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private SettingsManager $settingsManager,
         private SettingsCourseManager $settingsCourseManager,
         private AiProviderFactory $aiProviderFactory,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     /**
@@ -51,17 +51,13 @@ final readonly class LearningPathAiGeneratorProvider implements ProviderInterfac
 
         $this->assertLearningPathTeacher($this->security);
 
-        $course = $this->getContextCourse($this->entityManager, $request);
-        $this->getContextSession($this->entityManager, $request, $course);
-        $this->getContextGroup($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->getContextGroup($this->entityManager, $this->cidReqHelper, $course);
 
         $result = new LearningPathAiGenerator();
         $result->enabled = $this->isFeatureEnabled($course);
         $result->language = $course->getCourseLanguage();
-        $result->csrfToken = $this->csrfTokenManager
-            ->getToken(self::ACTION_TOKEN_INTENTION)
-            ->getValue()
-        ;
 
         if ($result->enabled) {
             $result->providers = $this->getProviderOptions();

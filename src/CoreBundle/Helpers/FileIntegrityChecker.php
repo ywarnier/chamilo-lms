@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace Chamilo\CoreBundle\Helpers;
 
+use Event;
 use FilesystemIterator;
 use JsonException;
 use RecursiveCallbackFilterIterator;
@@ -133,6 +134,9 @@ class FileIntegrityChecker
      * Compares the current tree to the baseline, persists the report, and
      * (when something changed) appends CEF events for external SIEM ingestion.
      *
+     * @param int|null $triggeredByUserId ID of the admin who triggered this scan manually, or
+     *                                    null for an unattended/cron run (logged as a system event)
+     *
      * @return array{
      *     added: array<string, array{size:int,mtime:int,sha256:string,perms:string}>,
      *     modified: array<string, array{old:string,new:string}>,
@@ -153,7 +157,7 @@ class FileIntegrityChecker
      *
      * @throws RuntimeException if a scan/baseline walk is already running
      */
-    public function scan(): array
+    public function scan(?int $triggeredByUserId = null): array
     {
         if (!$this->hasBaseline()) {
             $walk = $this->walkTree();
@@ -178,6 +182,7 @@ class FileIntegrityChecker
             ];
 
             $this->writeJson($this->reportFile, $report);
+            $this->logScanEvent($report, $triggeredByUserId);
 
             return $report;
         }
@@ -249,6 +254,7 @@ class FileIntegrityChecker
         $this->writeJson($this->reportFile, $report);
         $this->writeCefEvents($report);
         $this->appendToHistory($report);
+        $this->logScanEvent($report, $triggeredByUserId);
 
         return $report;
     }
@@ -435,9 +441,11 @@ class FileIntegrityChecker
         }
 
         $this->updateRunProgress($status, $items, null, $completed);
-        flock($this->runLockHandle, LOCK_UN);
-        fclose($this->runLockHandle);
+
+        $handle = $this->runLockHandle;
         $this->runLockHandle = null;
+        flock($handle, LOCK_UN);
+        fclose($handle);
     }
 
     /**
@@ -564,7 +572,11 @@ class FileIntegrityChecker
 
         $filterIterator = new RecursiveCallbackFilterIterator(
             $directoryIterator,
-            static function (SplFileInfo $file, string $key, RecursiveDirectoryIterator $iterator): bool {
+            static function (mixed $file, mixed $key, RecursiveDirectoryIterator $iterator): bool {
+                if (!$file instanceof SplFileInfo) {
+                    return false;
+                }
+
                 // Never follow symlinks: avoids escaping the project root and traversal loops.
                 if ($file->isLink()) {
                     return false;
@@ -728,6 +740,38 @@ class FileIntegrityChecker
         ]);
 
         $this->writeJson($this->historyFile, \array_slice($history, 0, self::MAX_HISTORY_ENTRIES));
+    }
+
+    /**
+     * Traces every scan (clean or not) in track_e_default via the legacy
+     * Event::addEvent(), independently of the CEF log/JSON report/history
+     * above: those exist for SIEM ingestion and the admin UI, while this is
+     * the durable "a scan happened, here's who ran it" record for admin
+     * activity auditing. Requires Database::getManager() to already be
+     * wired up — true for any web request (LegacyListener does this), and
+     * for app:file-integrity:scan because it calls Database::setManager()
+     * itself before invoking scan().
+     *
+     * @param array<string, mixed> $report
+     */
+    private function logScanEvent(array $report, ?int $triggeredByUserId): void
+    {
+        Event::addEvent(
+            LOG_SECURITY_FILE_INTEGRITY_SCAN,
+            LOG_SECURITY_FILE_INTEGRITY_SCAN_RESULT,
+            [
+                'addedCount' => $report['addedCount'],
+                'modifiedCount' => $report['modifiedCount'],
+                'deletedCount' => $report['deletedCount'],
+                'permissionsChangedCount' => $report['permissionsChangedCount'],
+                'gitConfigChanged' => $report['gitConfigChanged'],
+                'scanIncomplete' => $report['scanIncomplete'],
+                'establishedBaseline' => $report['establishedBaseline'],
+                'scannedCount' => $report['scannedCount'],
+            ],
+            api_get_utc_datetime(),
+            $triggeredByUserId ?? 0
+        );
     }
 
     /**

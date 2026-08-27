@@ -21,6 +21,7 @@ use Chamilo\CoreBundle\Entity\SkillRelItem;
 use Chamilo\CoreBundle\Entity\User;
 use Chamilo\CoreBundle\Event\Events;
 use Chamilo\CoreBundle\Event\LearningPathCreatedEvent;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Helpers\ThemeHelper;
 use Chamilo\CoreBundle\Repository\ExtraFieldRepository;
 use Chamilo\CoreBundle\Repository\ExtraFieldValuesRepository;
@@ -45,7 +46,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Throwable;
 
 use const FILTER_VALIDATE_BOOLEAN;
@@ -71,7 +71,6 @@ final readonly class LearningPathConfigurationProcessor implements ProcessorInte
         private EntityManagerInterface $entityManager,
         private RequestStack $requestStack,
         private Security $security,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private CLpRepository $lpRepository,
         private LanguageRepository $languageRepository,
         private ExtraFieldRepository $extraFieldRepository,
@@ -83,6 +82,7 @@ final readonly class LearningPathConfigurationProcessor implements ProcessorInte
         private ThemeHelper $themeHelper,
         #[Autowire(service: 'oneup_flysystem.themes_filesystem')]
         private FilesystemOperator $themesFilesystem,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): LearningPathConfiguration
@@ -93,12 +93,11 @@ final readonly class LearningPathConfigurationProcessor implements ProcessorInte
         }
 
         $payload = $this->getPayload($request);
-        $this->validateActionToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
         $this->assertLearningPathTeacher($this->security);
 
-        $course = $this->getContextCourse($this->entityManager, $request);
-        $session = $this->getContextSession($this->entityManager, $request, $course);
-        $group = $this->getContextGroup($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getContextGroup($this->entityManager, $this->cidReqHelper, $course);
         $lpId = (int) ($uriVariables['id'] ?? 0);
         $isEdit = $lpId > 0;
 
@@ -157,7 +156,6 @@ final readonly class LearningPathConfigurationProcessor implements ProcessorInte
         $result->id = $lpId;
         $result->isEdit = $isEdit;
         $result->title = $lp->getTitle();
-        $result->csrfToken = $this->csrfTokenManager->getToken('learning_path_action')->getValue();
 
         return $result;
     }

@@ -159,7 +159,6 @@ const form = ref({
   progress: 0,
   language: "",
   enableSearch: true,
-  csrfToken: "",
   help: "",
   information: "",
   types: [],
@@ -225,9 +224,6 @@ function getContextParams() {
     params.gid = gid
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    params.isStudentView = getQueryValue(route.query.isStudentView)
-  }
 
   return params
 }
@@ -263,7 +259,6 @@ async function loadForm() {
       progress: Number(response.progress || 0),
       language: response.language || "",
       enableSearch: Boolean(response.enableSearch ?? true),
-      csrfToken: response.csrfToken || "",
       help: response.help || "",
       information: response.information || "",
       types: Array.isArray(response.types) ? response.types : [],
@@ -300,7 +295,6 @@ async function saveDescription() {
     progress: form.value.progress,
     language: form.value.language,
     enableSearch: form.value.enableSearch,
-    csrfToken: form.value.csrfToken,
   }
 
   isSaving.value = true
@@ -331,7 +325,6 @@ watch(
     route.query.cid,
     route.query.sid,
     route.query.gid,
-    route.query.isStudentView,
   ],
   loadForm,
 )

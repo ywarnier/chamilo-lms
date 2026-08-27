@@ -380,11 +380,13 @@ import { useRoute, useRouter } from "vue-router"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
+import { useTranslatedHtml } from "../../composables/useTranslatedHtml"
 import surveyService from "../../services/surveyService"
 
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const { displayTranslatedHtml } = useTranslatedHtml()
 
 const survey = ref({})
 const counts = ref({ invited: 0, answered: 0, unanswered: 0 })
@@ -395,7 +397,6 @@ const settings = ref({})
 const anonymousLink = ref("")
 const selectedUserIds = ref([])
 const selectedGroupIds = ref([])
-const csrfToken = ref("")
 const mailSubject = ref("")
 const mailText = ref("")
 const sendMail = ref(true)
@@ -568,7 +569,6 @@ async function loadInvitationData() {
     }
     selectedUserIds.value = Array.isArray(response.selectedUserIds) ? response.selectedUserIds : []
     selectedGroupIds.value = Array.isArray(response.selectedGroupIds) ? response.selectedGroupIds : []
-    csrfToken.value = response.csrfToken || ""
     mailSubject.value = response.mailSubject || defaultSubject()
     mailText.value = response.mailText || defaultMailText()
 
@@ -598,7 +598,6 @@ async function publishSurvey() {
   try {
     const response = await surveyService.publishSurveyInvitations(
       {
-        csrfToken: csrfToken.value,
         selectedUserIds: selectedUserIds.value,
         selectedGroupIds: selectedGroupIds.value,
         mailSubject: mailSubject.value,
@@ -620,7 +619,6 @@ async function publishSurvey() {
     invitations.value = Array.isArray(response.invitations) ? response.invitations : invitations.value
     selectedUserIds.value = Array.isArray(response.selectedUserIds) ? response.selectedUserIds : selectedUserIds.value
     selectedGroupIds.value = Array.isArray(response.selectedGroupIds) ? response.selectedGroupIds : selectedGroupIds.value
-    csrfToken.value = response.csrfToken || csrfToken.value
     settings.value = response.settings || settings.value
     if (settings.value?.canShowAnsweredDetails === false && activeTab.value === "answered") {
       activeTab.value = "invited"
@@ -676,7 +674,7 @@ function decodeHtml(value) {
 }
 
 function displayText(value, fallback = "") {
-  const decodedValue = decodeHtml(value)
+  const decodedValue = decodeHtml(displayTranslatedHtml(value))
   const plainValue = decodeHtml(decodedValue.replace(/<[^>]*>/g, " "))
     .replace(/\s+/g, " ")
     .trim()

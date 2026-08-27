@@ -449,19 +449,20 @@ import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import BaseTinyEditor from "../../components/basecomponents/BaseTinyEditor.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
+import { useTranslatedHtml } from "../../composables/useTranslatedHtml"
 import lpService from "../../services/lpService"
 import surveyService from "../../services/surveyService"
 
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const { displayTranslatedHtml } = useTranslatedHtml()
 const { requireConfirmation } = useConfirmation()
 
 const survey = ref({})
 const questions = ref([])
 const settings = ref({})
 const choices = ref({})
-const csrfToken = ref("")
 const canEdit = ref(false)
 const hasAnswers = ref(false)
 const isLoading = ref(false)
@@ -588,7 +589,6 @@ function getContextParams(extra = {}) {
     lpItemId: getQueryValue(route.query.lpItemId || route.query.lp_item_id),
     type: getQueryValue(route.query.type),
     returnToLp: getQueryValue(route.query.returnToLp),
-    isStudentView: getQueryValue(route.query.isStudentView),
     parent: getQueryValue(route.query.parent),
     node: getQueryValue(route.query.node),
     gradebook: getQueryValue(route.query.gradebook),
@@ -673,14 +673,11 @@ async function finishLearningPathSurvey() {
         sid: Number(getQueryValue(route.query.sid) || 0),
         gid: Number(getQueryValue(route.query.gid) || 0),
       }
-      const builder = await lpService.getBuilder(learningPathId.value, context)
-
       await lpService.addBuilderResource(learningPathId.value, context, {
         resourceType: "survey",
         resourceId: surveyId.value,
         parentId: Number(getQueryValue(route.query.parent) || 0) || null,
         exportAllowed: false,
-        csrfToken: builder.csrfToken,
       })
     }
 
@@ -705,7 +702,6 @@ function normalizeResponse(data) {
   questions.value = Array.isArray(data.questions) ? data.questions : []
   settings.value = data.settings || {}
   choices.value = data.choices || {}
-  csrfToken.value = data.csrfToken || csrfToken.value
   canEdit.value = true === data.canEdit
   hasAnswers.value = true === data.hasAnswers
 }
@@ -877,7 +873,7 @@ function decodeHtml(value) {
 }
 
 function displayText(value, fallback = "") {
-  const decodedValue = decodeHtml(value)
+  const decodedValue = decodeHtml(displayTranslatedHtml(value))
   const plainValue = decodeHtml(decodedValue.replace(/<[^>]*>/g, " "))
     .replace(/\s+/g, " ")
     .trim()
@@ -927,7 +923,6 @@ function buildPayload() {
       text: option.text,
       value: Number(option.value || 0),
     })),
-    csrfToken: csrfToken.value,
   }
 
   if (showsMandatoryField.value) {
@@ -975,7 +970,7 @@ function confirmDelete(question) {
 
 async function deleteQuestion(question) {
   try {
-    await surveyService.deleteSurveyQuestion(getContextParams(), surveyId.value, question.iid, csrfToken.value)
+    await surveyService.deleteSurveyQuestion(getContextParams(), surveyId.value, question.iid)
     await loadQuestions()
     successMessage.value = t("Deleted")
   } catch (error) {
@@ -986,7 +981,7 @@ async function deleteQuestion(question) {
 
 async function moveQuestion(question, direction) {
   try {
-    const data = await surveyService.moveSurveyQuestion(getContextParams(), surveyId.value, question.iid, direction, csrfToken.value)
+    const data = await surveyService.moveSurveyQuestion(getContextParams(), surveyId.value, question.iid, direction)
     normalizeResponse(data)
     successMessage.value = t("The question has been moved")
   } catch (error) {
@@ -997,7 +992,7 @@ async function moveQuestion(question, direction) {
 
 async function copyQuestion(question) {
   try {
-    const data = await surveyService.copySurveyQuestion(getContextParams(), surveyId.value, question.iid, csrfToken.value)
+    const data = await surveyService.copySurveyQuestion(getContextParams(), surveyId.value, question.iid)
     normalizeResponse(data)
     successMessage.value = t("The question has been added.")
   } catch (error) {

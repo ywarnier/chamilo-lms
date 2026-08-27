@@ -18,7 +18,6 @@ use Chamilo\CoreBundle\Entity\TicketStatus;
 use Chamilo\CoreBundle\Entity\User;
 use Chamilo\CoreBundle\Helpers\AccessUrlHelper;
 use Chamilo\CoreBundle\Helpers\TicketProjectHelper;
-use Chamilo\CoreBundle\Service\Ticket\TicketWorkflowService;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use DateTimeImmutable;
 use DateTimeInterface;
@@ -30,7 +29,6 @@ use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 use const DATE_ATOM;
 
@@ -41,6 +39,9 @@ final readonly class TicketListProvider implements ProviderInterface
 {
     private const int DEFAULT_ITEMS_PER_PAGE = 20;
     private const int MAX_ITEMS_PER_PAGE = 100;
+    private const int STATUS_CLOSED = 4;
+    private const string VIEW_ACTIVE = 'active';
+    private const string VIEW_CLOSED = 'closed';
 
     public function __construct(
         private RequestStack $requestStack,
@@ -49,7 +50,6 @@ final readonly class TicketListProvider implements ProviderInterface
         private SettingsManager $settingsManager,
         private AccessUrlHelper $accessUrlHelper,
         private TicketProjectHelper $ticketProjectHelper,
-        private CsrfTokenManagerInterface $csrfTokenManager,
     ) {}
 
     /**
@@ -81,7 +81,6 @@ final readonly class TicketListProvider implements ProviderInterface
         $result->isAdmin = $isAdmin;
         $result->canCreate = $isAdmin
             || 'true' === $this->settingsManager->getSetting('ticket.ticket_allow_student_add');
-        $result->csrfToken = $this->csrfTokenManager->getToken(TicketWorkflowService::CSRF_TOKEN_ID)->getValue();
         $result->projects = array_map(
             static fn (TicketProject $item): array => [
                 'id' => (int) $item->getId(),
@@ -98,13 +97,15 @@ final readonly class TicketListProvider implements ProviderInterface
         $projectId = (int) $project->getId();
         $userId = (int) $user->getId();
         $canViewAll = $this->ticketProjectHelper->userIsAllowInProject($projectId);
+        $managedCategoryIds = $isAdmin ? [] : $this->ticketProjectHelper->getManagedCategoryIds($projectId);
         $page = max(1, $request->query->getInt('page', 1));
         $itemsPerPage = min(
             self::MAX_ITEMS_PER_PAGE,
             max(1, $request->query->getInt('itemsPerPage', self::DEFAULT_ITEMS_PER_PAGE)),
         );
 
-        $queryBuilder = $this->createTicketQueryBuilder($accessUrl, $project, $userId, $canViewAll);
+        $queryBuilder = $this->createTicketQueryBuilder($accessUrl, $project, $userId, $isAdmin, $managedCategoryIds);
+        $this->applyViewFilter($queryBuilder, $request);
         $this->applyFilters($queryBuilder, $request);
 
         $countQueryBuilder = clone $queryBuilder;
@@ -207,11 +208,15 @@ final readonly class TicketListProvider implements ProviderInterface
         throw new BadRequestHttpException('The requested ticket project is not available for this access URL.');
     }
 
+    /**
+     * @param int[] $managedCategoryIds
+     */
     private function createTicketQueryBuilder(
         AccessUrl $accessUrl,
         TicketProject $project,
         int $userId,
-        bool $canViewAll,
+        bool $isAdmin,
+        array $managedCategoryIds,
     ): QueryBuilder {
         $queryBuilder = $this->entityManager->createQueryBuilder()
             ->from(Ticket::class, 'ticket')
@@ -228,14 +233,61 @@ final readonly class TicketListProvider implements ProviderInterface
             ->setParameter('projectId', (int) $project->getId(), Types::INTEGER)
         ;
 
-        if (!$canViewAll) {
-            $queryBuilder
-                ->andWhere('(ticket.insertUserId = :currentUserId OR assigned.id = :currentUserId)')
-                ->setParameter('currentUserId', $userId, Types::INTEGER)
-            ;
+        if (!$isAdmin) {
+            if ([] !== $managedCategoryIds) {
+                $queryBuilder
+                    ->andWhere(
+                        '(ticket.insertUserId = :currentUserId '
+                        .'OR assigned.id = :currentUserId '
+                        .'OR category.id IN (:managedCategoryIds))'
+                    )
+                    ->setParameter('currentUserId', $userId, Types::INTEGER)
+                    ->setParameter('managedCategoryIds', $managedCategoryIds)
+                ;
+            } else {
+                $queryBuilder
+                    ->andWhere('(ticket.insertUserId = :currentUserId OR assigned.id = :currentUserId)')
+                    ->setParameter('currentUserId', $userId, Types::INTEGER)
+                ;
+            }
         }
 
         return $queryBuilder;
+    }
+
+    private function applyViewFilter(QueryBuilder $queryBuilder, Request $request): void
+    {
+        $view = trim((string) $request->query->get('view', ''));
+
+        if ('' === $view) {
+            // Keep direct legacy/status-filter links working. Without an explicit
+            // status filter, the main ticket list defaults to active tickets.
+            if ($request->query->getInt('statusId') > 0) {
+                return;
+            }
+
+            $view = self::VIEW_ACTIVE;
+        }
+
+        if (self::VIEW_ACTIVE === $view) {
+            $queryBuilder
+                ->andWhere('status.id != :closedStatusId')
+                ->setParameter('closedStatusId', self::STATUS_CLOSED, Types::INTEGER)
+            ;
+
+            return;
+        }
+
+        if (self::VIEW_CLOSED === $view) {
+            $queryBuilder
+                ->andWhere('status.id = :closedStatusId')
+                ->setParameter('closedStatusId', self::STATUS_CLOSED, Types::INTEGER)
+            ;
+
+            return;
+        }
+
+        throw new BadRequestHttpException('The requested ticket view is invalid.');
     }
 
     private function applyFilters(QueryBuilder $queryBuilder, Request $request): void

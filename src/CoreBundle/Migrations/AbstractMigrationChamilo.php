@@ -267,9 +267,12 @@ SQL,
      * Optimized: skip directories, require readable regular files, robust MIME type detection.
      * Logic stays the same: if file missing => warn & return false.
      *
-     * @param mixed $id
-     * @param mixed $fileName
-     * @param mixed $description
+     * @template TResource of object
+     *
+     * @param ResourceRepository<TResource> $repo
+     * @param mixed                         $id
+     * @param mixed                         $fileName
+     * @param mixed                         $description
      */
     public function addLegacyFileToResource(
         string $filePath,
@@ -416,10 +419,13 @@ SQL,
      * - persist($resource) is done once (not inside loop).
      * Logic is the same.
      *
-     * @param mixed $tool
-     * @param mixed $course
-     * @param mixed $admin
-     * @param mixed $parentResource
+     * @template TResource of object
+     *
+     * @param ResourceRepository<TResource> $repo
+     * @param mixed                         $tool
+     * @param mixed                         $course
+     * @param mixed                         $admin
+     * @param mixed                         $parentResource
      */
     public function fixItemProperty(
         $tool,
@@ -430,9 +436,11 @@ SQL,
         $parentResource,
         array $items = [],
         ?ResourceType $resourceType = null,
+        bool $synchronizeInverseCollections = true,
     ) {
         $courseId = (int) $course->getId();
-        $id = (int) $resource->getResourceIdentifier();
+        // c_item_property only ever referenced integer ids; a Uuid-keyed resource yields 0 and is skipped below.
+        $id = (int) (string) $resource->getResourceIdentifier();
         $tool = (string) $tool;
 
         if (empty($items)) {
@@ -596,7 +604,8 @@ SQL,
                     $resource,
                     $user,
                     $parentResource,
-                    $resourceType
+                    $resourceType,
+                    $synchronizeInverseCollections
                 );
                 $this->entityManager->persist($resourceNode);
             }

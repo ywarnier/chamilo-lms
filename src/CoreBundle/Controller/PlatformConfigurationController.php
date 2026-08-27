@@ -10,6 +10,8 @@ use Bbb;
 use BuyCoursesPlugin;
 use Chamilo\CoreBundle\Helpers\AiFeatureAccessHelper;
 use Chamilo\CoreBundle\Helpers\AuthenticationConfigHelper;
+use Chamilo\CoreBundle\Helpers\PluginHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
 use Chamilo\CoreBundle\Helpers\ThemeHelper;
 use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Repository\Node\CourseRepository;
@@ -40,6 +42,7 @@ class PlatformConfigurationController extends AbstractController
     public function __construct(
         private readonly UserHelper $userHelper,
         private readonly ThemeHelper $themeHelper,
+        private readonly StudentViewHelper $studentViewHelper,
     ) {}
 
     #[Route('/list', name: 'platform_config_list', methods: ['GET'])]
@@ -48,6 +51,7 @@ class PlatformConfigurationController extends AbstractController
         AuthenticationConfigHelper $authenticationConfigHelper,
         McpAccessPolicy $mcpAccessPolicy,
         UrlGeneratorInterface $urlGenerator,
+        PluginHelper $pluginHelper,
     ): Response {
         $requestSession = $this->getRequest()->getSession();
 
@@ -73,7 +77,10 @@ class PlatformConfigurationController extends AbstractController
 
         $configuration = [
             'settings' => [],
-            'studentview' => $requestSession->get('studentview'),
+            // Through the helper, so the payload cannot report the student view as active
+            // after an administrator turned course.student_view_enabled off while a session
+            // still carries the key. Keeps the string shape the Vue store compares against.
+            'studentview' => $this->studentViewHelper->isActive() ? 'studentview' : 'teacherview',
             'plugins' => [],
             'visual_theme' => $this->themeHelper->getVisualTheme(),
             'oauth2_providers' => $oauth2Providers,
@@ -205,6 +212,7 @@ class PlatformConfigurationController extends AbstractController
                 'language.show_different_course_language',
                 'workflows.allow_users_to_create_courses',
                 'work.allow_only_one_student_publication_per_user',
+                'work.add_fullname_in_file_download',
                 'course.course_creation_form_hide_course_code',
                 'course.course_creation_form_set_course_category_mandatory',
                 'display.hide_logout_button',
@@ -214,6 +222,7 @@ class PlatformConfigurationController extends AbstractController
                 'agenda.allow_careers_in_global_agenda',
                 'display.display_categories_on_homepage',
                 'security.hide_breadcrumb_if_not_allowed',
+                'security.access_to_personal_file_for_all',
                 'lp.show_invisible_lp_in_course_home',
                 'lp.lp_start_and_end_date_visible_in_student_view',
                 'lp.lp_allow_export_to_students',
@@ -250,6 +259,12 @@ class PlatformConfigurationController extends AbstractController
             ];
 
             $configuration['plugins']['onlyoffice'] = $this->getOnlyofficeFrontendConfig();
+            $configuration['plugins']['extauthchamilologoutbuttonbehaviour'] = [
+                'enabled' => $pluginHelper->isPluginEnabled('ExtAuthChamiloLogoutButtonBehaviour'),
+            ];
+            $configuration['plugins']['justification'] = [
+                'enabled' => $pluginHelper->isPluginEnabled('Justification'),
+            ];
         } else {
             $configuration['settings']['security.allow_captcha'] = $settingsManager->getSetting('security.allow_captcha', true);
         }

@@ -1,5 +1,105 @@
 <template>
   <section class="space-y-4">
+    <SectionHeader :title="t('Announcements')">
+      <BaseButton
+        v-if="canManage"
+        :label="t('Add an announcement')"
+        :route="addRoute"
+        icon="announcement"
+        only-icon
+        type="success-text"
+      />
+
+      <BaseButton
+        :icon="isSearchVisible ? 'close' : 'search'"
+        :label="isSearchVisible ? t('Cancel') : t('Search')"
+        only-icon
+        type="primary-text"
+        @click="toggleSearch"
+      />
+
+      <BaseButton
+        v-if="selectedEditableIds.length"
+        :disabled="hasRowActionInProgress"
+        :is-loading="isManaging"
+        :label="t('Delete')"
+        :tooltip="t('Delete')"
+        icon="delete"
+        only-icon
+        type="danger-text"
+        @click="confirmDeleteSelected"
+      />
+
+      <BaseButton
+        v-else-if="canDeleteAll"
+        :disabled="hasRowActionInProgress"
+        :is-loading="isManaging"
+        :label="t('Delete all')"
+        :tooltip="t('Delete all')"
+        icon="delete-forever"
+        only-icon
+        type="danger-text"
+        @click="confirmDeleteAll"
+      />
+    </SectionHeader>
+
+    <form
+      v-if="isSearchVisible"
+      class="rounded-xl border border-gray-20 bg-white p-4 shadow-sm"
+      @submit.prevent="applyFilters"
+    >
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div class="min-w-0">
+          <BaseInputText
+            id="announcement-title-filter"
+            v-model="pendingTitleFilter"
+            class="w-full"
+            :label="t('Title')"
+            name="announcement_title_filter"
+          />
+        </div>
+
+        <div class="min-w-0">
+          <BaseSelect
+            id="announcement-author-filter"
+            v-model="pendingAuthorFilter"
+            :allow-clear="true"
+            class="w-full"
+            :label="t('Users')"
+            name="announcement_author_filter"
+            option-label="label"
+            option-value="id"
+            :options="authors"
+          />
+        </div>
+      </div>
+
+      <div class="mt-4 flex flex-wrap justify-end gap-2">
+        <BaseButton
+          icon="search"
+          is-submit
+          :label="t('Search')"
+          type="primary"
+        />
+
+        <BaseButton
+          v-if="hasActiveFilters"
+          icon="close"
+          :label="t('Clear')"
+          type="secondary"
+          @click="clearFilters"
+        />
+
+        <BaseButton
+          v-else
+          icon="close"
+          :label="t('Cancel')"
+          type="plain"
+          @click="toggleSearch"
+        />
+      </div>
+    </form>
+
     <div
       v-if="successMessage"
       class="rounded-lg border border-green-200 bg-green-50 p-4 text-sm text-green-700"
@@ -60,248 +160,138 @@
       </div>
     </template>
 
-    <template v-else>
-      <BaseToolbar>
-        <template #start>
-          <div class="flex flex-wrap items-center gap-2">
-            <BaseButton
-              v-if="canManage"
-              icon="announcement"
-              :label="t('Add an announcement')"
-              only-icon
-              size="normal"
-              :route="addRoute"
-              type="success"
+    <BaseTable
+      v-else
+      v-model:selected-items="selectedAnnouncements"
+      data-key="id"
+      :text-for-empty="t('There are no announcements.')"
+      :total-items="filteredAnnouncements.length"
+      :values="filteredAnnouncements"
+    >
+      <Column
+        v-if="canManage"
+        selection-mode="multiple"
+      />
+
+      <Column
+        field="title"
+        :header="t('Title')"
+      >
+        <template #body="{ data }">
+          <div class="flex min-w-0 items-center gap-2">
+            <router-link
+              class="min-w-0 break-words font-semibold text-primary hover:underline"
+              :to="getDetailRoute(data)"
+            >
+              {{ data.title }}
+            </router-link>
+
+            <BaseIcon
+              v-if="data.emailSent"
+              icon="email-unread"
+              size="small"
+              :tooltip="t('Announcement sent by e-mail')"
             />
 
-            <BaseButton
-              :icon="isSearchVisible ? 'close' : 'search'"
-              :label="isSearchVisible ? t('Cancel') : t('Search')"
-              only-icon
-              size="normal"
-              type="primary"
-              @click="toggleSearch"
-            />
-
-            <BaseButton
-              v-if="selectedEditableIds.length"
-              icon="delete"
-              :disabled="hasRowActionInProgress"
-              :is-loading="isManaging"
-              :label="t('Delete')"
-              only-icon
-              size="normal"
-              :tooltip="t('Delete')"
-              type="danger"
-              @click="confirmDeleteSelected"
-            />
-
-            <BaseButton
-              v-else-if="canDeleteAll"
-              icon="delete-forever"
-              :disabled="hasRowActionInProgress"
-              :is-loading="isManaging"
-              :label="t('Delete all')"
-              only-icon
-              size="normal"
-              :tooltip="t('Delete all')"
-              type="danger"
-              @click="confirmDeleteAll"
+            <BaseIcon
+              v-if="data.hasAttachments"
+              icon="attachment"
+              size="small"
+              :tooltip="t('Attachments')"
             />
           </div>
         </template>
-      </BaseToolbar>
+      </Column>
 
-      <form
-        v-if="isSearchVisible"
-        class="rounded-xl border border-gray-20 bg-white p-4 shadow-sm"
-        @submit.prevent="applyFilters"
+      <Column
+        field="author.fullName"
+        :header="t('By')"
       >
-        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <div class="min-w-0">
-            <BaseInputText
-              id="announcement-title-filter"
-              v-model="pendingTitleFilter"
-              class="w-full"
-              :label="t('Title')"
-              name="announcement_title_filter"
+        <template #body="{ data }">
+          <span :title="data.author?.username || ''">
+            {{ data.author?.fullName || data.author?.username || "-" }}
+          </span>
+        </template>
+      </Column>
+
+      <Column
+        field="updatedAt"
+        :header="t('Latest update')"
+      >
+        <template #body="{ data }">
+          {{ abbreviatedDatetime(data.updatedAt) ?? "-" }}
+        </template>
+      </Column>
+
+      <Column :header="t('Actions')">
+        <template #body="{ data }">
+          <div class="flex items-center gap-1">
+            <BaseButton
+              v-if="data.canEdit"
+              icon="edit"
+              :label="t('Edit')"
+              only-icon
+              :route="getEditRoute(data)"
+              size="small"
+              :tooltip="t('Edit')"
+              type="secondary-text"
+            />
+
+            <BaseButton
+              v-if="data.canChangeVisibility"
+              :icon="Number(data.visibility) === 2 ? 'eye-on' : 'eye-off'"
+              :disabled="isManaging || hasRowActionInProgress"
+              :is-loading="isActionLoading(data.id)"
+              :label="Number(data.visibility) === 2 ? t('Visible') : t('Invisible')"
+              only-icon
+              size="small"
+              :tooltip="Number(data.visibility) === 2 ? t('Visible') : t('Invisible')"
+              type="secondary-text"
+              @click="changeVisibility(data)"
+            />
+
+            <BaseButton
+              v-if="data.canMoveUp"
+              icon="arrow-up"
+              :disabled="isManaging || hasRowActionInProgress"
+              :is-loading="isActionLoading(data.id)"
+              :label="t('Move up')"
+              only-icon
+              size="small"
+              :tooltip="t('Move up')"
+              type="secondary-text"
+              @click="moveAnnouncement(data, 'up')"
+            />
+
+            <BaseButton
+              v-if="data.canMoveDown"
+              icon="arrow-down"
+              :disabled="isManaging || hasRowActionInProgress"
+              :is-loading="isActionLoading(data.id)"
+              :label="t('Move down')"
+              only-icon
+              size="small"
+              :tooltip="t('Move down')"
+              type="secondary-text"
+              @click="moveAnnouncement(data, 'down')"
+            />
+
+            <BaseButton
+              v-if="data.canDelete"
+              icon="delete"
+              :disabled="isManaging || hasRowActionInProgress"
+              :is-loading="isActionLoading(data.id)"
+              :label="t('Delete')"
+              only-icon
+              size="small"
+              :tooltip="t('Delete')"
+              type="danger-text"
+              @click="confirmDeleteOne(data)"
             />
           </div>
-
-          <div class="min-w-0">
-            <BaseSelect
-              id="announcement-author-filter"
-              v-model="pendingAuthorFilter"
-              :allow-clear="true"
-              class="w-full"
-              :label="t('Users')"
-              name="announcement_author_filter"
-              option-label="label"
-              option-value="id"
-              :options="authors"
-            />
-          </div>
-        </div>
-
-        <div class="mt-4 flex flex-wrap justify-end gap-2">
-          <BaseButton
-            icon="search"
-            is-submit
-            :label="t('Search')"
-            type="primary"
-          />
-
-          <BaseButton
-            v-if="hasActiveFilters"
-            icon="close"
-            :label="t('Clear')"
-            type="secondary"
-            @click="clearFilters"
-          />
-
-          <BaseButton
-            v-else
-            icon="close"
-            :label="t('Cancel')"
-            type="plain"
-            @click="toggleSearch"
-          />
-        </div>
-      </form>
-
-      <BaseTable
-        v-model:selected-items="selectedAnnouncements"
-        data-key="id"
-        :text-for-empty="t('There are no announcements.')"
-        :total-items="filteredAnnouncements.length"
-        :values="filteredAnnouncements"
-      >
-        <Column
-          v-if="canManage"
-          selection-mode="multiple"
-        />
-
-        <Column
-          field="title"
-          :header="t('Title')"
-        >
-          <template #body="{ data }">
-            <div class="flex min-w-0 items-center gap-2">
-              <router-link
-                class="min-w-0 break-words font-semibold text-primary hover:underline"
-                :to="getDetailRoute(data)"
-              >
-                {{ data.title }}
-              </router-link>
-
-              <BaseIcon
-                v-if="data.emailSent"
-                icon="email-unread"
-                size="small"
-                :tooltip="t('Announcement sent by e-mail')"
-              />
-
-              <BaseIcon
-                v-if="data.hasAttachments"
-                icon="attachment"
-                size="small"
-                :tooltip="t('Attachments')"
-              />
-
-            </div>
-          </template>
-        </Column>
-
-        <Column
-          field="author.fullName"
-          :header="t('By')"
-        >
-          <template #body="{ data }">
-            <span :title="data.author?.username || ''">
-              {{ data.author?.fullName || data.author?.username || "-" }}
-            </span>
-          </template>
-        </Column>
-
-        <Column
-          field="updatedAt"
-          :header="t('Latest update')"
-        >
-          <template #body="{ data }">
-            {{ formatDate(data.updatedAt) }}
-          </template>
-        </Column>
-
-        <Column :header="t('Actions')">
-          <template #body="{ data }">
-            <div class="flex items-center gap-1">
-              <BaseButton
-                v-if="data.canEdit"
-                icon="edit"
-                :label="t('Edit')"
-                only-icon
-                :route="getEditRoute(data)"
-                size="small"
-                :tooltip="t('Edit')"
-                type="secondary-text"
-              />
-
-              <BaseButton
-                v-if="data.canChangeVisibility"
-                :icon="Number(data.visibility) === 2 ? 'eye-on' : 'eye-off'"
-                :disabled="isManaging || hasRowActionInProgress"
-                :is-loading="isActionLoading(data.id)"
-                :label="Number(data.visibility) === 2 ? t('Visible') : t('Invisible')"
-                only-icon
-                size="small"
-                :tooltip="Number(data.visibility) === 2 ? t('Visible') : t('Invisible')"
-                type="secondary-text"
-                @click="changeVisibility(data)"
-              />
-
-              <BaseButton
-                v-if="data.canMoveUp"
-                icon="arrow-up"
-                :disabled="isManaging || hasRowActionInProgress"
-                :is-loading="isActionLoading(data.id)"
-                :label="t('Move up')"
-                only-icon
-                size="small"
-                :tooltip="t('Move up')"
-                type="secondary-text"
-                @click="moveAnnouncement(data, 'up')"
-              />
-
-              <BaseButton
-                v-if="data.canMoveDown"
-                icon="arrow-down"
-                :disabled="isManaging || hasRowActionInProgress"
-                :is-loading="isActionLoading(data.id)"
-                :label="t('Move down')"
-                only-icon
-                size="small"
-                :tooltip="t('Move down')"
-                type="secondary-text"
-                @click="moveAnnouncement(data, 'down')"
-              />
-
-              <BaseButton
-                v-if="data.canDelete"
-                icon="delete"
-                :disabled="isManaging || hasRowActionInProgress"
-                :is-loading="isActionLoading(data.id)"
-                :label="t('Delete')"
-                only-icon
-                size="small"
-                :tooltip="t('Delete')"
-                type="danger-text"
-                @click="confirmDeleteOne(data)"
-              />
-            </div>
-          </template>
-        </Column>
-      </BaseTable>
-    </template>
+        </template>
+      </Column>
+    </BaseTable>
   </section>
 </template>
 
@@ -315,11 +305,14 @@ import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
 import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
 import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
-import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
+import { useFormatDate } from "../../composables/formatDate"
 import announcementService from "../../services/announcementService"
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
+const { abbreviatedDatetime } = useFormatDate()
 const route = useRoute()
 const { requireConfirmation } = useConfirmation()
 
@@ -328,7 +321,6 @@ const authors = ref([])
 const selectedAnnouncements = ref([])
 const canManage = ref(false)
 const canDeleteAll = ref(false)
-const csrfToken = ref("")
 const isLoading = ref(false)
 const isManaging = ref(false)
 const actionLoadingIds = ref(new Set())
@@ -349,9 +341,11 @@ const filteredAnnouncements = computed(() => {
 
   return announcements.value.filter((announcement) => {
     const matchesTitle =
-      normalizedTitle === "" || String(announcement.title || "").toLocaleLowerCase().includes(normalizedTitle)
-    const matchesAuthor =
-      selectedAuthorId === 0 || Number(announcement.author?.id || 0) === selectedAuthorId
+      normalizedTitle === "" ||
+      String(announcement.title || "")
+        .toLocaleLowerCase()
+        .includes(normalizedTitle)
+    const matchesAuthor = selectedAuthorId === 0 || Number(announcement.author?.id || 0) === selectedAuthorId
 
     return matchesTitle && matchesAuthor
   })
@@ -386,7 +380,7 @@ function getContextParams(extraKeys = []) {
     params.gid = gid
   }
 
-  for (const key of ["origin", "page", "isStudentView", "lp_id", "lp_item_id", "lp_view_id", "returnToLp", "embedded", ...extraKeys]) {
+  for (const key of ["origin", "page", "lp_id", "lp_item_id", "lp_view_id", "returnToLp", "embedded", ...extraKeys]) {
     if (Object.prototype.hasOwnProperty.call(route.query, key)) {
       params[key] = getQueryValue(route.query[key])
     }
@@ -415,22 +409,6 @@ function getEditRoute(announcement) {
     },
     query: getContextParams(),
   }
-}
-
-function formatDate(value) {
-  if (!value) {
-    return "-"
-  }
-
-  const date = new Date(value)
-  if (Number.isNaN(date.getTime())) {
-    return value
-  }
-
-  return new Intl.DateTimeFormat(locale.value, {
-    dateStyle: "medium",
-    timeStyle: "short",
-  }).format(date)
 }
 
 function toggleSearch() {
@@ -483,16 +461,13 @@ async function changeVisibility(announcement) {
   const visibility = Number(announcement.visibility) === 2 ? 0 : 2
   await runRowAction(
     announcement.id,
-    () => announcementService.changeVisibility(announcement.id, visibility, csrfToken.value, getContextParams()),
+    () => announcementService.changeVisibility(announcement.id, visibility, getContextParams()),
     t("The visibility has been changed."),
   )
 }
 
 async function moveAnnouncement(announcement, direction) {
-  await runRowAction(
-    announcement.id,
-    () => announcementService.move(announcement.id, direction, csrfToken.value, getContextParams()),
-  )
+  await runRowAction(announcement.id, () => announcementService.move(announcement.id, direction, getContextParams()))
 }
 
 function confirmDeleteOne(announcement) {
@@ -501,7 +476,7 @@ function confirmDeleteOne(announcement) {
     accept: () =>
       runRowAction(
         announcement.id,
-        () => announcementService.deleteOne(announcement.id, csrfToken.value, getContextParams()),
+        () => announcementService.deleteOne(announcement.id, getContextParams()),
         t("Announcement has been deleted"),
       ),
   })
@@ -520,7 +495,7 @@ async function deleteSelected() {
   successMessage.value = ""
 
   try {
-    await announcementService.deleteSelected(selectedEditableIds.value, csrfToken.value, getContextParams())
+    await announcementService.deleteSelected(selectedEditableIds.value, getContextParams())
     successMessage.value = t("Announcement has been deleted")
     await loadAnnouncements()
   } catch (error) {
@@ -544,7 +519,7 @@ async function deleteAll() {
   successMessage.value = ""
 
   try {
-    await announcementService.deleteAll(csrfToken.value, getContextParams())
+    await announcementService.deleteAll(getContextParams())
     successMessage.value = t("Announcement has been deleted")
     await loadAnnouncements()
   } catch (error) {
@@ -563,7 +538,6 @@ async function loadAnnouncements() {
   selectedAnnouncements.value = []
   canManage.value = false
   canDeleteAll.value = false
-  csrfToken.value = ""
 
   try {
     const response = await announcementService.getList(getContextParams())
@@ -571,7 +545,6 @@ async function loadAnnouncements() {
     authors.value = Array.isArray(response.authors) ? response.authors : []
     canManage.value = Boolean(response.canManage)
     canDeleteAll.value = Boolean(response.canDeleteAll)
-    csrfToken.value = response.csrfToken || ""
   } catch (error) {
     console.error("Error loading announcements", error)
     errorMessage.value = getErrorMessage(error)
@@ -582,8 +555,7 @@ async function loadAnnouncements() {
 
 onMounted(loadAnnouncements)
 
-watch(
-  () => [route.query.cid, route.query.sid, route.query.gid, route.query.isStudentView],
-  loadAnnouncements,
-)
+useStudentViewRefresh(loadAnnouncements)
+
+watch(() => [route.query.cid, route.query.sid, route.query.gid], loadAnnouncements)
 </script>

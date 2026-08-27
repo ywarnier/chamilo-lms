@@ -10,17 +10,17 @@ use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
 use Chamilo\CoreBundle\ApiResource\Wiki\WikiPageHistory;
 use Chamilo\CoreBundle\Entity\User;
-use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
+use Chamilo\CoreBundle\Helpers\WikiHelper;
 use Chamilo\CourseBundle\Entity\CWiki;
 use Chamilo\CourseBundle\Repository\CWikiRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 use const DATE_ATOM;
 
@@ -29,19 +29,15 @@ use const DATE_ATOM;
  */
 final readonly class WikiPageHistoryProvider implements ProviderInterface
 {
-    use WikiAccessHelperTrait;
-
-    public const string CSRF_TOKEN_ID = 'wiki_page_restore';
-
     public function __construct(
+        private CidReqHelper $cidReqHelper,
+        private StudentViewHelper $studentViewHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CWikiRepository $wikiRepository,
-        private Security $security,
-        private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private WikiPageRenderer $renderer,
         private WikiPageDiffService $diffService,
+        private WikiHelper $wikiHelper,
     ) {}
 
     /**
@@ -55,15 +51,15 @@ final readonly class WikiPageHistoryProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getWikiCourse($this->entityManager, $request);
-        $this->assertWikiToolEnabled($this->entityManager, $course);
-        $nodeId = $this->assertWikiRouteNode($course, $request);
-        $session = $this->getWikiSession($this->entityManager, $request);
-        $this->assertWikiSessionBelongsToCourse($session, $course);
-        $group = $this->getWikiGroup($this->entityManager, $request);
-        $this->assertWikiGroupBelongsToContext($group, $course, $session);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->wikiHelper->assertToolEnabled($course);
+        $nodeId = $this->wikiHelper->assertRouteNode($course, $request);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->wikiHelper->assertSessionBelongsToCourse($session, $course);
+        $group = $this->cidReqHelper->getDoctrineGroupEntity();
+        $this->wikiHelper->assertGroupBelongsToContext($group, $course, $session);
 
-        if (!$this->canReadWikiContext($this->security, $this->settingsManager, $course, $session, $group)) {
+        if (!$this->wikiHelper->canRead($course, $session, $group)) {
             throw new AccessDeniedHttpException('You are not allowed to view Wiki history in this context.');
         }
 
@@ -97,24 +93,18 @@ final readonly class WikiPageHistoryProvider implements ProviderInterface
             throw new NotFoundHttpException('The requested Wiki page was not found in the current context.');
         }
 
-        $studentView = $this->isWikiStudentView($request);
-        $canManage = !$studentView && $this->canManageWikiContext(
-            $this->entityManager,
-            $this->security,
-            $this->settingsManager,
+        $studentView = $this->studentViewHelper->isActive();
+        $canManage = !$studentView && $this->wikiHelper->canManage(
             $course,
             $session,
             $group,
         );
-        $this->assertWikiPageVisible($this->security, $latest, $canManage);
+        $this->wikiHelper->assertPageVisible($latest, $canManage);
 
         $isInheritedFromCourse = $sessionId > 0 && 0 === $sourceSessionId;
         $canRestore = !$studentView
             && !$isInheritedFromCourse
-            && $this->canEditWikiPage(
-                $this->entityManager,
-                $this->security,
-                $this->settingsManager,
+            && $this->wikiHelper->canEditPage(
                 $course,
                 $session,
                 $group,
@@ -127,8 +117,7 @@ final readonly class WikiPageHistoryProvider implements ProviderInterface
             $sourceSessionId,
         );
         $users = $this->getUsers($versions);
-        $strictFiltering = $this->isWikiCourseSettingEnabled(
-            $this->entityManager,
+        $strictFiltering = $this->wikiHelper->isCourseSettingEnabled(
             $course,
             'wiki_html_strict_filtering',
             false,
@@ -146,9 +135,6 @@ final readonly class WikiPageHistoryProvider implements ProviderInterface
         $history->currentIid = null !== $latest->getIid() ? (int) $latest->getIid() : null;
         $history->currentVersion = (int) $latest->getVersion();
         $history->canRestore = $canRestore;
-        $history->csrfToken = $canRestore
-            ? (string) $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID)
-            : '';
         $history->versions = array_map(
             fn (CWiki $version): array => $this->buildVersionSummary($version, $users, $latest),
             $versions,

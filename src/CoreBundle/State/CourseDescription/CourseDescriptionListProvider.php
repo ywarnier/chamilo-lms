@@ -12,16 +12,15 @@ use Chamilo\CoreBundle\ApiResource\CourseDescription\CourseDescriptionList;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\CourseDescriptionHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CCourseDescription;
 use Chamilo\CourseBundle\Repository\CCourseDescriptionRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 use const COURSEMANAGERLOWSECURITY;
 use const ENT_QUOTES;
@@ -32,15 +31,14 @@ use const ENT_SUBSTITUTE;
  */
 final readonly class CourseDescriptionListProvider implements ProviderInterface
 {
-    use CourseDescriptionAccessHelperTrait;
-
     public function __construct(
-        private RequestStack $requestStack,
-        private EntityManagerInterface $entityManager,
+        private CidReqHelper $cidReqHelper,
         private CCourseDescriptionRepository $courseDescriptionRepository,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private StudentViewHelper $studentViewHelper,
+        private CourseDescriptionHelper $courseDescriptionHelper,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -49,37 +47,24 @@ final readonly class CourseDescriptionListProvider implements ProviderInterface
      */
     public function provide(Operation $operation, array $uriVariables = [], array $context = []): CourseDescriptionList
     {
-        $request = $this->requestStack->getCurrentRequest();
-        if (!$request instanceof Request) {
-            throw new BadRequestHttpException('The current request is required.');
-        }
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->courseDescriptionHelper->assertToolEnabled($course);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->courseDescriptionHelper->assertSessionBelongsToCourse($session, $course);
 
-        $course = $this->getCourse($request);
-        $this->assertCourseDescriptionToolEnabled($this->entityManager, $course);
-        $session = $this->getSession($request);
-        $this->assertSessionBelongsToCourse($session, $course);
-
-        if (!$this->canReadCourseDescriptions($this->security, $this->settingsManager, $course, $session)) {
+        if (!$this->courseDescriptionHelper->canRead($course, $session)) {
             throw new AccessDeniedHttpException('You are not allowed to view course descriptions in this context.');
         }
 
-        $studentView = $this->isStudentView($request);
-        $canManage = !$studentView && $this->canManageCourseDescriptions(
-            $this->entityManager,
-            $this->security,
-            $this->settingsManager,
-            $course,
-            $session,
-        );
+        // The helper already denies the student view, so the flag is only reported, not applied.
+        $studentView = $this->studentViewHelper->isActive();
+        $canManage = $this->isAllowedToEditHelper->check(coach: true, course: $course, session: $session);
 
         $list = new CourseDescriptionList();
         $list->courseId = (int) $course->getId();
         $list->sessionId = null !== $session ? (int) $session->getId() : null;
         $list->canManage = $canManage;
         $list->studentView = $studentView;
-        $list->csrfToken = $canManage
-            ? (string) $this->csrfTokenManager->getToken(CourseDescriptionItemProvider::CSRF_TOKEN_ID)
-            : '';
         $list->types = $this->getTypes();
         $list->settings = $this->getSettings();
 
@@ -96,36 +81,6 @@ final readonly class CourseDescriptionListProvider implements ProviderInterface
         $list->totalItems = \count($list->items);
 
         return $list;
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
     }
 
     /**
@@ -200,13 +155,8 @@ final readonly class CourseDescriptionListProvider implements ProviderInterface
 
     private function canEditDescription(CCourseDescription $description, Course $course, ?Session $session): bool
     {
-        if (!$this->canManageCourseDescriptions(
-            $this->entityManager,
-            $this->security,
-            $this->settingsManager,
-            $course,
-            $session,
-        ) || !$this->belongsToExactContext($description, $course, $session)) {
+        if (!$this->isAllowedToEditHelper->check(coach: true, course: $course, session: $session)
+            || !$this->belongsToExactContext($description, $course, $session)) {
             return false;
         }
 
@@ -217,13 +167,8 @@ final readonly class CourseDescriptionListProvider implements ProviderInterface
 
     private function canDeleteDescription(CCourseDescription $description, Course $course, ?Session $session): bool
     {
-        if (!$this->canManageCourseDescriptions(
-            $this->entityManager,
-            $this->security,
-            $this->settingsManager,
-            $course,
-            $session,
-        ) || !$this->belongsToExactContext($description, $course, $session)) {
+        if (!$this->isAllowedToEditHelper->check(coach: true, course: $course, session: $session)
+            || !$this->belongsToExactContext($description, $course, $session)) {
             return false;
         }
 
@@ -264,18 +209,5 @@ final readonly class CourseDescriptionListProvider implements ProviderInterface
         $value = $this->settingsManager->getSetting($name, true);
 
         return true === $value || 'true' === strtolower((string) $value) || '1' === (string) $value;
-    }
-
-    private function isStudentView(Request $request): bool
-    {
-        if ($request->query->has('isStudentView')) {
-            return $request->query->getBoolean('isStudentView');
-        }
-
-        if (!$request->hasSession()) {
-            return false;
-        }
-
-        return 'studentview' === $request->getSession()->get('studentview');
     }
 }

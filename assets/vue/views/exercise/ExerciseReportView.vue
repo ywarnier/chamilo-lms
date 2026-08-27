@@ -238,7 +238,7 @@
             <div
               v-if="description"
               class="exercise-report-html text-sm text-gray-700"
-              v-html="description"
+              v-html="displayTranslatedHtml(description)"
             />
           </div>
           <div class="flex flex-wrap gap-2">
@@ -487,6 +487,7 @@
 import { computed, onMounted, reactive, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
 import { useRoute, useRouter } from "vue-router"
+import { useTranslatedHtml } from "../../composables/useTranslatedHtml"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
 import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
@@ -499,6 +500,7 @@ const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 const { requireConfirmation } = useConfirmation()
+const { displayTranslatedHtml } = useTranslatedHtml()
 
 const isLoading = ref(false)
 const isBulkActionLoading = ref(false)
@@ -518,8 +520,6 @@ const lockedByGradebook = ref(false)
 const canBulkDelete = ref(false)
 const canCleanResults = ref(false)
 const canBulkRecalculate = ref(false)
-const bulkActionToken = ref("")
-const emailActionToken = ref("")
 const isCleanFormVisible = ref(false)
 const isExportFormVisible = ref(false)
 const cleanBeforeDateValue = ref("")
@@ -681,8 +681,6 @@ async function loadReport() {
     canBulkDelete.value = true === response.canBulkDelete
     canCleanResults.value = true === response.canCleanResults
     canBulkRecalculate.value = true === response.canBulkRecalculate
-    bulkActionToken.value = response.bulkActionToken || ""
-    emailActionToken.value = response.emailActionToken || ""
   } catch (error) {
     console.error("Error loading exercise report", error)
     errorMessage.value = t("Could not load exercise report")
@@ -828,7 +826,6 @@ async function emailAllAttempts() {
     const response = await exerciseService.emailExerciseRuntimeReportAttempts(
       {
         node: String(route.params.node || ""),
-        submittedCsrfToken: emailActionToken.value,
       },
       getReportParams(),
       exerciseId,
@@ -869,7 +866,6 @@ async function runBulkAction(action, extraPayload = {}) {
     const response = await exerciseService.runExerciseRuntimeReportBulkAction(
       {
         action,
-        submittedCsrfToken: bulkActionToken.value,
         ...extraPayload,
       },
       getContextParams(),

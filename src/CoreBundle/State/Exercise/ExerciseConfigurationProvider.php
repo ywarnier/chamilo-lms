@@ -13,14 +13,18 @@ use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ExtraField;
 use Chamilo\CoreBundle\Entity\ExtraFieldOptions;
 use Chamilo\CoreBundle\Entity\ExtraFieldValues;
-use Chamilo\CoreBundle\Entity\GradebookCategory;
 use Chamilo\CoreBundle\Entity\GradebookLink;
 use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\Skill;
 use Chamilo\CoreBundle\Entity\SkillRelItem;
+use Chamilo\CoreBundle\Helpers\AiFeatureAccessHelper;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\CourseHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
 use Chamilo\CoreBundle\Settings\SettingsManager;
-use Chamilo\CourseBundle\Entity\CLpItem;
+use Chamilo\CoreBundle\State\Gradebook\GradebookLinkResourceResolver;
 use Chamilo\CourseBundle\Entity\CQuiz;
 use Chamilo\CourseBundle\Entity\CQuizCategory;
 use Chamilo\CourseBundle\Entity\CQuizQuestion;
@@ -30,36 +34,34 @@ use Chamilo\CourseBundle\Repository\CQuizRepository;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProviderInterface<ExerciseConfiguration>
  */
 final readonly class ExerciseConfigurationProvider implements ProviderInterface
 {
-    private const CSRF_TOKEN_ID = 'exercise_configuration';
     private const FEEDBACK_TYPE_DIRECT = 1;
     private const FEEDBACK_TYPE_EXAM = 2;
     private const FEEDBACK_TYPE_POPUP = 3;
     private const FEEDBACK_TYPE_PROGRESSIVE_ADAPTIVE = 4;
-    private const LP_ITEM_TYPE_QUIZ = 'quiz';
     private const MEDIA_QUESTION = 15;
     private const PAGE_BREAK = 31;
     private const SKILL_ITEM_TYPE_EXERCISE = 1;
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CQuizRepository $quizRepository,
-        private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private GradebookLinkManager $gradebookLinkManager,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
+        private AiFeatureAccessHelper $aiFeatureAccessHelper,
+        private CourseHelper $courseHelper,
     ) {}
 
     /**
@@ -73,9 +75,9 @@ final readonly class ExerciseConfigurationProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
-        if (!$this->canManageExercises()) {
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        if (!$this->isAllowedToEditHelper->check(coach: true)) {
             throw new AccessDeniedHttpException('You are not allowed to manage exercises in this context.');
         }
 
@@ -95,9 +97,8 @@ final readonly class ExerciseConfigurationProvider implements ProviderInterface
         $configuration->mode = 'create';
         $configuration->canCreate = true;
         $configuration->canEdit = false;
-        $configuration->csrfToken = (string) $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID);
-        $configuration->settings = $this->getSettings();
-        $configuration->options = $this->getOptions($course, null);
+        $configuration->settings = $this->getSettings($course);
+        $configuration->options = $this->getOptions($course, $session, null);
         $configuration->listUrl = '';
         $configuration->questionsUrl = '';
         $configuration->maxAttempt = 0;
@@ -142,7 +143,7 @@ final readonly class ExerciseConfigurationProvider implements ProviderInterface
         $configuration->skillIds = $this->getSelectedSkillIds($quiz);
         $configuration->extraFieldValues = $this->getExerciseExtraFieldValues($quiz);
         $configuration->extraNotification = '';
-        $configuration->lockedFields = $this->getLockedFieldsForEdit($quiz);
+        $configuration->lockedFields = [];
         $configuration->startTime = $this->formatDateForInput($quiz->getStartTime());
         $configuration->endTime = $this->formatDateForInput($quiz->getEndTime());
         $configuration->duration = $quiz->getDuration();
@@ -156,7 +157,7 @@ final readonly class ExerciseConfigurationProvider implements ProviderInterface
         $configuration->preventBackwards = 1 === $quiz->getPreventBackwards();
         $configuration->hideAttemptsTable = $quiz->isHideAttemptsTable();
         $configuration->autoLaunch = $quiz->isAutoLaunch();
-        $gradebookLink = $this->getExerciseGradebookLink($quiz, $course);
+        $gradebookLink = $this->getExerciseGradebookLink($quiz, $course, $session);
         $configuration->addToGradebook = $gradebookLink instanceof GradebookLink;
         $configuration->gradebookCategoryId = $gradebookLink instanceof GradebookLink ? (int) $gradebookLink->getCategory()->getId() : null;
         $configuration->gradebookWeight = $gradebookLink instanceof GradebookLink ? (int) round($gradebookLink->getWeight()) : 100;
@@ -184,9 +185,8 @@ final readonly class ExerciseConfigurationProvider implements ProviderInterface
         $configuration->textWhenFinishedFailure = (string) $quiz->getTextWhenFinishedFailure();
         $configuration->canCreate = true;
         $configuration->canEdit = true;
-        $configuration->csrfToken = (string) $this->csrfTokenManager->getToken(self::CSRF_TOKEN_ID);
-        $configuration->settings = $this->getSettings();
-        $configuration->options = $this->getOptions($course, $quiz);
+        $configuration->settings = $this->getSettings($course);
+        $configuration->options = $this->getOptions($course, $session, $quiz);
         $configuration->listUrl = '';
         $configuration->questionsUrl = $this->buildLegacyQuestionsUrl($quiz, $course, $session);
 
@@ -238,9 +238,16 @@ final readonly class ExerciseConfigurationProvider implements ProviderInterface
     /**
      * @return array<string, mixed>
      */
-    private function getSettings(): array
+    private function getSettings(Course $course): array
     {
+        $exerciseGeneratorEnabled = $this->aiFeatureAccessHelper->isFeatureEnabledForCourse(
+            'exercise_generator',
+            (int) $course->getId(),
+        );
+
         return [
+            'showBuyCoursesUpgradeCta' => !$exerciseGeneratorEnabled
+                && $this->courseHelper->shouldOfferBuyCoursesExerciseGeneratorUpgrade($course),
             'allowExerciseCategories' => $this->isSettingEnabled('exercise.allow_exercise_categories'),
             'allowShowPreviousButtonSetting' => $this->isSettingEnabled('exercise.allow_quiz_show_previous_button_setting'),
             'allowQuizResultsPageConfig' => $this->isSettingEnabled('exercise.allow_quiz_results_page_config'),
@@ -257,7 +264,7 @@ final readonly class ExerciseConfigurationProvider implements ProviderInterface
     /**
      * @return array<string, array<int, array<string, mixed>>>
      */
-    private function getOptions(Course $course, ?CQuiz $quiz): array
+    private function getOptions(Course $course, ?Session $session, ?CQuiz $quiz): array
     {
         return [
             'typeOptions' => [
@@ -265,7 +272,7 @@ final readonly class ExerciseConfigurationProvider implements ProviderInterface
                 ['value' => CQuiz::ONE_PER_PAGE, 'label' => 'One question per page'],
             ],
             'categoryOptions' => $this->getCategoryOptions($course),
-            'gradebookCategoryOptions' => $this->getGradebookCategoryOptions($course),
+            'gradebookCategoryOptions' => $this->getGradebookCategoryOptions($course, $session),
             'languageOptions' => $this->getResourceLanguageOptions(),
             'skillOptions' => $this->getSkillOptions(),
             'extraFieldDefinitions' => $this->getExtraFieldDefinitions(),
@@ -494,50 +501,6 @@ final readonly class ExerciseConfigurationProvider implements ProviderInterface
         return true === $value || 1 === $value || '1' === (string) $value || 'on' === strtolower((string) $value);
     }
 
-    /**
-     * Legacy freezes these fields only when the exercise is linked to a learning path
-     * and the platform does not explicitly allow editing it there.
-     *
-     * @return array<int, string>
-     */
-    private function getLockedFieldsForEdit(CQuiz $quiz): array
-    {
-        if (
-            null === $quiz->getIid()
-            || $this->isSettingEnabled('lp.force_edit_exercise_in_lp')
-            || !$this->isExerciseLinkedToLearningPath((int) $quiz->getIid())
-        ) {
-            return [];
-        }
-
-        return [
-            'random',
-            'maxAttempt',
-            'propagateNeg',
-            'enableTimeControl',
-            'expiredTime',
-            'reviewAnswers',
-        ];
-    }
-
-    private function isExerciseLinkedToLearningPath(int $exerciseId): bool
-    {
-        return null !== $this->entityManager->createQueryBuilder()
-            ->select('lpItem.iid')
-            ->from(CLpItem::class, 'lpItem')
-            ->andWhere('lpItem.itemType = :itemType')
-            ->andWhere('lpItem.path = :exerciseId OR lpItem.ref = :exerciseId')
-            ->setParameter('itemType', self::LP_ITEM_TYPE_QUIZ, Types::STRING)
-            ->setParameter('exerciseId', (string) $exerciseId, Types::STRING)
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-
-    /**
-     * @return array<int, array<string, string>>
-     */
     private function getResourceLanguageOptions(): array
     {
         $languages = $this->entityManager->getRepository(Language::class)->findBy(
@@ -921,59 +884,27 @@ final readonly class ExerciseConfigurationProvider implements ProviderInterface
         return $items;
     }
 
-    private function getExerciseGradebookLink(CQuiz $quiz, Course $course): ?GradebookLink
+    private function getExerciseGradebookLink(CQuiz $quiz, Course $course, ?Session $session): ?GradebookLink
     {
         $exerciseId = (int) ($quiz->getIid() ?? 0);
         if ($exerciseId <= 0) {
             return null;
         }
 
-        $link = $this->entityManager->createQueryBuilder()
-            ->select('link', 'category')
-            ->from(GradebookLink::class, 'link')
-            ->innerJoin('link.category', 'category')
-            ->andWhere('link.type = :type')
-            ->andWhere('link.refId = :exerciseId')
-            ->andWhere('IDENTITY(link.course) = :courseId')
-            ->setParameter('type', 1, Types::INTEGER)
-            ->setParameter('exerciseId', $exerciseId, Types::INTEGER)
-            ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-
-        return $link instanceof GradebookLink ? $link : null;
+        return $this->gradebookLinkManager->findLink(
+            $course,
+            $session,
+            GradebookLinkResourceResolver::LINK_EXERCISE,
+            $exerciseId,
+        );
     }
 
     /**
      * @return array<int, array<string, mixed>>
      */
-    private function getGradebookCategoryOptions(Course $course): array
+    private function getGradebookCategoryOptions(Course $course, ?Session $session): array
     {
-        $categories = $this->entityManager->createQueryBuilder()
-            ->select('category')
-            ->from(GradebookCategory::class, 'category')
-            ->andWhere('IDENTITY(category.course) = :courseId')
-            ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
-            ->orderBy('category.title', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
-
-        $items = [];
-        foreach ($categories as $category) {
-            if (!$category instanceof GradebookCategory || null === $category->getId()) {
-                continue;
-            }
-
-            $items[] = [
-                'value' => (int) $category->getId(),
-                'label' => $category->getTitle(),
-            ];
-        }
-
-        return $items;
+        return $this->gradebookLinkManager->getCategoryOptions($course, $session);
     }
 
     /**
@@ -992,42 +923,6 @@ final readonly class ExerciseConfigurationProvider implements ProviderInterface
             ),
             static fn (int $value): bool => $value > 0
         ));
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
     }
 
     private function isProgressiveAdaptiveSettingEnabled(): bool

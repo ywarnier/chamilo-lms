@@ -20,6 +20,7 @@ use Chamilo\CoreBundle\Entity\TrackEExercise;
 use Chamilo\CoreBundle\Entity\User;
 use Chamilo\CoreBundle\Entity\Usergroup;
 use Chamilo\CoreBundle\Entity\UsergroupRelUser;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Repository\ExtraFieldValuesRepository;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CGroup;
@@ -43,7 +44,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /** @implements ProviderInterface<LearningPathReporting> */
 final readonly class LearningPathReportingProvider implements ProviderInterface
@@ -55,9 +55,9 @@ final readonly class LearningPathReportingProvider implements ProviderInterface
         private RequestStack $requestStack,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private CGroupRepository $groupRepository,
         private ExtraFieldValuesRepository $extraFieldValuesRepository,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     /**
@@ -72,9 +72,9 @@ final readonly class LearningPathReportingProvider implements ProviderInterface
         }
 
         $this->assertLearningPathTeacher($this->security);
-        $course = $this->getContextCourse($this->entityManager, $request);
-        $session = $this->getContextSession($this->entityManager, $request, $course);
-        $group = $this->getContextGroup($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $group = $this->getContextGroup($this->entityManager, $this->cidReqHelper, $course);
         $lp = $this->getLearningPath($uriVariables);
         $this->getEditableResourceLink($lp, $course, $session, $group, $this->security);
 
@@ -115,7 +115,6 @@ final readonly class LearningPathReportingProvider implements ProviderInterface
         $result->showTeachers = $showTeachers;
         $result->groupFilter = $groupFilter;
         $result->groupOptions = $this->getGroupOptions($course, $session, $result->allowUserGroups);
-        $result->csrfToken = $this->csrfTokenManager->getToken('learning_path_action')->getValue();
 
         foreach ($users as $userId => $entry) {
             $user = $entry['user'];
@@ -1066,13 +1065,8 @@ final readonly class LearningPathReportingProvider implements ProviderInterface
 
     private function buildGeneralReportingUrl(Course $course, ?Session $session, int $userId): string
     {
-        return '/main/my_space/myStudents.php?'.http_build_query([
-            'details' => 'true',
-            'cid' => (int) $course->getId(),
+        return '/reporting/learners/'.$userId.'/courses/'.(int) $course->getId().'?'.http_build_query([
             'sid' => (int) ($session?->getId() ?? 0),
-            'course' => $course->getCode(),
-            'origin' => 'tracking_course',
-            'student' => $userId,
         ]);
     }
 

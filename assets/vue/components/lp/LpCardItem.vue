@@ -31,7 +31,6 @@ const props = defineProps({
   ringDash: { type: Function, required: true },
   ringValue: { type: Function, required: true },
   buildDates: { type: Function, required: true },
-  csrfToken: { type: String, default: "" },
 })
 const emit = defineEmits(["export-chamilo", "export-pdf", "management-changed", "visibility-changed"])
 
@@ -41,10 +40,6 @@ const routeCtx = computed(() => ({
   node: Number(route.params?.node ?? 0) || undefined,
   gid: Number(route.query?.gid ?? 0),
 }))
-
-const routeStudentViewEnabled = computed(() =>
-  ["1", "true", "yes", "on"].includes(String(route.query.isStudentView || "").toLowerCase()),
-)
 
 const managementQuery = computed(() =>
   Object.fromEntries(
@@ -65,8 +60,6 @@ const openRoute = computed(() => ({
     Object.entries({
       ...routeCtx.value,
       node: undefined,
-      isStudentView: "true",
-      temporaryStudentView: routeStudentViewEnabled.value ? undefined : "true",
     }).filter(([, value]) => value !== undefined && value !== null && value !== ""),
   ),
 }))
@@ -187,14 +180,13 @@ const managementParams = computed(() => ({
 }))
 
 const onManage = async (action, extra = {}) => {
-  if (!props.csrfToken || !manageableInContext.value) {
+  if (!props.canEdit || !manageableInContext.value) {
     return
   }
 
   try {
     await lpService.manageLearningPath(props.lp.iid, managementParams.value, {
       action,
-      csrfToken: props.csrfToken,
       ...extra,
     })
     emit("management-changed")
@@ -248,8 +240,8 @@ const seriousGameAction = computed(() => ({
 const autoLaunchAction = computed(() => ({
   label:
     Number(props.lp?.autolaunch) === 1 ? t("Disable learning path auto-launch") : t("Enable learning path auto-launch"),
-  icon: Number(props.lp?.autolaunch) === 1 ? "autolunch" : "autolunch-off",
-  disabled: !props.csrfToken || !manageableInContext.value,
+  icon: Number(props.lp?.autolaunch) === 1 ? "autolaunch" : "autolaunch-off",
+  disabled: !props.canEdit || !manageableInContext.value,
   command: () => onManage("toggle_auto_launch", { enabled: Number(props.lp?.autolaunch) !== 1 }),
 }))
 
@@ -265,7 +257,7 @@ const advancedAccessUrl = computed(() => {
 })
 
 const onToggleVisibility = async () => {
-  if (!props.csrfToken || isLpSubscriptionMode.value) {
+  if (!props.canEdit || isLpSubscriptionMode.value) {
     return
   }
 
@@ -279,7 +271,6 @@ const onToggleVisibility = async () => {
       },
       {
         visible: !isLpVisible.value,
-        csrfToken: props.csrfToken,
       },
     )
     emit("visibility-changed")
@@ -300,7 +291,7 @@ const visibilityAction = computed(() => {
   return {
     label: isLpVisible.value ? t("Hide") : t("Show"),
     icon: isLpVisible.value ? "eye-on" : "eye-off",
-    disabled: !props.csrfToken,
+    disabled: !props.canEdit,
   }
 })
 
@@ -483,7 +474,7 @@ const progressTextClass = computed(() =>
                 style="bottom: calc(-100% + 2.5rem)"
               >
                 <button
-                  :disabled="!manageableInContext || !csrfToken"
+                  :disabled="!manageableInContext"
                   class="block w-full whitespace-nowrap rounded px-3 py-2 text-left hover:bg-gray-15 disabled:opacity-50"
                   type="button"
                   @click="publishAction.command"
@@ -492,7 +483,7 @@ const progressTextClass = computed(() =>
                 </button>
                 <button
                   v-if="!isCStudioLearningPath"
-                  :disabled="!manageableInContext || !csrfToken"
+                  :disabled="!manageableInContext"
                   class="block w-full whitespace-nowrap rounded px-3 py-2 text-left hover:bg-gray-15 disabled:opacity-50"
                   type="button"
                   @click="attemptModeAction.command"
@@ -510,7 +501,7 @@ const progressTextClass = computed(() =>
                 <div class="my-2 border-t border-gray-25"></div>
                 <button
                   v-if="securityStore.isAdmin && isScormLearningPath"
-                  :disabled="!manageableInContext || !csrfToken"
+                  :disabled="!manageableInContext"
                   class="block w-full whitespace-nowrap rounded px-3 py-2 text-left hover:bg-gray-15 disabled:opacity-50"
                   type="button"
                   @click="debugAction.command"
@@ -519,7 +510,7 @@ const progressTextClass = computed(() =>
                 </button>
                 <button
                   v-if="canSeriousGame"
-                  :disabled="!manageableInContext || !csrfToken"
+                  :disabled="!manageableInContext"
                   class="block w-full whitespace-nowrap rounded px-3 py-2 text-left hover:bg-gray-15 disabled:opacity-50"
                   type="button"
                   @click="seriousGameAction.command"
@@ -528,7 +519,7 @@ const progressTextClass = computed(() =>
                 </button>
                 <button
                   v-if="canAutoLaunch"
-                  :disabled="!manageableInContext || !csrfToken"
+                  :disabled="!manageableInContext"
                   class="block w-full whitespace-nowrap rounded px-3 py-2 text-left hover:bg-gray-15 disabled:opacity-50"
                   type="button"
                   @click="autoLaunchAction.command"
@@ -583,7 +574,7 @@ const progressTextClass = computed(() =>
                 </router-link>
                 <button
                   v-if="canCopyLearningPath && !isCStudioLearningPath"
-                  :disabled="!manageableInContext || !csrfToken"
+                  :disabled="!manageableInContext"
                   class="block w-full whitespace-nowrap rounded px-3 py-2 text-left hover:bg-gray-15 disabled:opacity-50"
                   type="button"
                   @click="onCopy"
@@ -710,7 +701,7 @@ const progressTextClass = computed(() =>
 
         <BaseButton
           v-if="canCopyLearningPath && !isCStudioLearningPath"
-          :disabled="!manageableInContext || !csrfToken"
+          :disabled="!manageableInContext"
           :label="t('Copy')"
           icon="copy"
           only-icon
@@ -790,7 +781,7 @@ const progressTextClass = computed(() =>
                 style="bottom: calc(-100% + 2.5rem)"
               >
                 <button
-                  :disabled="!manageableInContext || !csrfToken"
+                  :disabled="!manageableInContext"
                   class="block w-full whitespace-nowrap rounded px-3 py-2 text-left hover:bg-gray-15 disabled:opacity-50"
                   type="button"
                   @click="publishAction.command"
@@ -799,7 +790,7 @@ const progressTextClass = computed(() =>
                 </button>
                 <button
                   v-if="!isCStudioLearningPath"
-                  :disabled="!manageableInContext || !csrfToken"
+                  :disabled="!manageableInContext"
                   class="block w-full whitespace-nowrap rounded px-3 py-2 text-left hover:bg-gray-15 disabled:opacity-50"
                   type="button"
                   @click="attemptModeAction.command"
@@ -817,7 +808,7 @@ const progressTextClass = computed(() =>
                 <div class="my-2 border-t border-gray-25"></div>
                 <button
                   v-if="securityStore.isAdmin && isScormLearningPath"
-                  :disabled="!manageableInContext || !csrfToken"
+                  :disabled="!manageableInContext"
                   class="block w-full whitespace-nowrap rounded px-3 py-2 text-left hover:bg-gray-15 disabled:opacity-50"
                   type="button"
                   @click="debugAction.command"
@@ -826,7 +817,7 @@ const progressTextClass = computed(() =>
                 </button>
                 <button
                   v-if="canSeriousGame"
-                  :disabled="!manageableInContext || !csrfToken"
+                  :disabled="!manageableInContext"
                   class="block w-full whitespace-nowrap rounded px-3 py-2 text-left hover:bg-gray-15 disabled:opacity-50"
                   type="button"
                   @click="seriousGameAction.command"

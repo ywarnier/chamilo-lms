@@ -23,6 +23,7 @@ if (!is_file(__DIR__ . '/config.php')) {
 }
 require_once __DIR__ . '/config.php';
 $apiKey = $translationAPIKey ?? '';
+$model = $translationModel ?? 'grok-4.6'; 
 
 /**
  * Chamilo Gettext auto-translator using Grok (grok-4-1-fast-non-reasoning)
@@ -96,6 +97,7 @@ function getLanguageName(string $code): string {
         'eo'    => 'Esperanto',
         'es'    => 'Spanish',
         'es_MX' => 'Spanish (Mexico)',
+	'et'    => 'Estonian',
         'eu_ES' => 'Basque (Spain)',
         'fa_AF' => 'Persian (Afghanistan)',
         'fa_IR' => 'Persian (Iran)',
@@ -111,6 +113,7 @@ function getLanguageName(string $code): string {
         'hu_HU' => 'Hungarian',
         'hy'    => 'Armenian',
         'id_ID' => 'Indonesian',
+	'is_IS' => 'Icelandic',
         'it'    => 'Italian',
         'ja'    => 'Japanese',
         'ka_GE' => 'Georgian',
@@ -120,7 +123,9 @@ function getLanguageName(string $code): string {
         'lv_LV' => 'Latvian',
         'mk_MK' => 'Macedonian',
         'ms_MY' => 'Malay (Malaysia)',
+	'mt'    => 'Maltese',
         'my_MM' => 'Burmese (Myanmar)',
+	'nb_NO' => 'Bokmal (Norway)',
         'ne'    => 'Nepali (Nepal)',
         'nl'    => 'Dutch',
         'nn_NO' => 'Norwegian Nynorsk',
@@ -540,6 +545,7 @@ function logAction(string $logFile, string $lang, string $msgid, string $action)
 function callGrokTranslateBatch(
     string $apiUrl,
     string $apiKey,
+    string $model,
     string $targetLangCode,
     string $targetLangName,
     array $batchItems
@@ -579,7 +585,7 @@ EOT;
         . json_encode($inputList, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
     $payload = [
-        'model'    => 'grok-4-1-fast-non-reasoning',
+        'model'    => $model,
         'messages' => [
             ['role' => 'system', 'content' => $systemPrompt],
             ['role' => 'user',   'content' => $userPrompt],
@@ -867,6 +873,19 @@ foreach ($langCodes as $lang) {
 
     $entryIndex = 0;
 
+    // Progress is noisy when printed on every 50-entry batch even though most
+    // batches make no change (nothing needed translating). Only print it as an
+    // occasional heartbeat (every 1000 entries) or right before an API call is
+    // about to be made, so the log shows where we were when something actually happened.
+    $lastProgressLoggedAt = 0;
+    $logProgress = function () use (&$lastProgressLoggedAt, &$processedCount, $totalTerms, $lang) {
+        if ($processedCount === $lastProgressLoggedAt) {
+            return;
+        }
+        $lastProgressLoggedAt = $processedCount;
+        eprintln("[{$lang}] Progress: {$processedCount} / {$totalTerms} entries processed.", true);
+    };
+
     // Helper to write current state to disk (used on success AND on failure)
     $writeCurrentState = function (?Throwable $error = null) use (
         &$targetTranslations,
@@ -895,9 +914,8 @@ foreach ($langCodes as $lang) {
 
             if ($entry['isHeader'] || $entry['hasPlural']) {
                 $processedCount++;
-                if ($processedCount % 50 === 0) {
-                    eprintln("[{$lang}] Progress: {$processedCount} / {$totalTerms} entries processed (header/plurals included).",
-                        true);
+                if ($processedCount % 1000 === 0) {
+                    $logProgress();
                 }
                 continue;
             }
@@ -937,6 +955,7 @@ foreach ($langCodes as $lang) {
                 // Send batch when full
                 if (count($pendingBatch) >= $batchSize) {
                     $apiBatchCount++;
+                    $logProgress();
                     eprintln("[{$lang}] Sending batch {$apiBatchCount} to Grok API ("
                         .count($pendingBatch)." terms).", true);
 
@@ -945,6 +964,7 @@ foreach ($langCodes as $lang) {
                         $translations = callGrokTranslateBatch(
                             $apiUrl,
                             $apiKey,
+			    $model,
                             $lang,
                             $targetLangName,
                             $pendingBatch
@@ -1006,14 +1026,15 @@ foreach ($langCodes as $lang) {
             }
 
             $processedCount++;
-            if ($processedCount % 50 === 0) {
-                eprintln("[{$lang}] Progress: {$processedCount} / {$totalTerms} entries processed.", true);
+            if ($processedCount % 1000 === 0) {
+                $logProgress();
             }
         }
 
         // Final batch (if any)
         if (!empty($pendingBatch) && $apiBatchCount < $maxBatches) {
             $apiBatchCount++;
+            $logProgress();
             eprintln("[{$lang}] Sending final batch {$apiBatchCount} to Grok API ("
                 .count($pendingBatch)." terms).", true);
 

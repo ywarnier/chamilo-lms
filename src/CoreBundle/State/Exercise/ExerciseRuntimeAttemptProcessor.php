@@ -14,6 +14,9 @@ use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\TrackEAttempt;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
+use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CLpItem;
 use Chamilo\CourseBundle\Entity\CLpItemView;
@@ -75,11 +78,14 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
     private const LEGACY_RUNTIME_REASON_UNSUPPORTED_QUESTION = 'This exercise contains a question type that requires a different test player.';
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
+        private StudentViewHelper $studentViewHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CQuizRepository $quizRepository,
         private Security $security,
         private SettingsManager $settingsManager,
+        private UserHelper $userHelper,
     ) {}
 
     /**
@@ -97,9 +103,9 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
-        $canManagePermission = $this->canManageExercises();
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $canManagePermission = $this->userHelper->isTeacherOfCurrentCourse();
         $runsAsLearner = !$canManagePermission || $this->isLearnerRuntimeRequest($request);
 
         if (!$canManagePermission && !$this->canViewExercises()) {
@@ -114,7 +120,7 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
         $quiz = $this->getExerciseFromCurrentContext($exerciseId, $course, $session, $canManagePermission);
 
         if ($canManagePermission && !$runsAsLearner) {
-            return $this->createTeacherPreviewResponse($quiz, $course, $session, $request);
+            return $this->createTeacherPreviewResponse($operation, $quiz, $course, $session, $request);
         }
 
         $user = $this->security->getUser();
@@ -122,8 +128,22 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
             throw new AccessDeniedHttpException('A valid authenticated user is required.');
         }
 
+        $questionIds = $this->buildQuestionList($quiz);
+        if ([] === $questionIds) {
+            return $this->createBlockedResponse(
+                $operation,
+                $quiz,
+                $course,
+                $session,
+                $request,
+                'This exercise has no questions.',
+                []
+            );
+        }
+
         if ($this->requiresLegacyQuestionSelection($quiz)) {
             return $this->createLegacyRequiredResponse(
+                $operation,
                 $quiz,
                 $course,
                 $session,
@@ -134,6 +154,7 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
 
         if ($this->hasUnsupportedRuntimeQuestionType($quiz)) {
             return $this->createLegacyRequiredResponse(
+                $operation,
                 $quiz,
                 $course,
                 $session,
@@ -142,8 +163,13 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
             );
         }
 
-        if ((int) $quiz->getRandomByCategory() > 0 && (int) $quiz->getRandom() <= 0) {
+        if (
+            self::QUESTION_SELECTION_RANDOM === (int) ($quiz->getQuestionSelectionType() ?? 0)
+            && (int) $quiz->getRandomByCategory() > 0
+            && 0 === (int) $quiz->getRandom()
+        ) {
             return $this->createLegacyRequiredResponse(
+                $operation,
                 $quiz,
                 $course,
                 $session,
@@ -154,11 +180,12 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
 
         $incompleteAttempt = $this->findIncompleteAttempt($quiz, $course, $session, $user, $request);
         if ($incompleteAttempt instanceof TrackEExercise) {
-            return $this->normalizeAttemptResponse($quiz, $course, $session, $request, $incompleteAttempt, 'Attempt resumed');
+            return $this->normalizeAttemptResponse($operation, $quiz, $course, $session, $request, $incompleteAttempt, 'Attempt resumed');
         }
 
         if ($this->isSettingEnabled('exercise.exercises_disable_new_attempts')) {
             return $this->createBlockedResponse(
+                $operation,
                 $quiz,
                 $course,
                 $session,
@@ -170,6 +197,7 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
 
         if (!$this->canCreateNewAttempt($quiz, $course, $session, $user, $request)) {
             return $this->createLegacyRequiredResponse(
+                $operation,
                 $quiz,
                 $course,
                 $session,
@@ -178,9 +206,9 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
             );
         }
 
-        $questionIds = $this->buildQuestionList($quiz);
         if ($this->isQuestionLimitPerDayReached($questionIds, $course, $session, $user)) {
             return $this->createBlockedResponse(
+                $operation,
                 $quiz,
                 $course,
                 $session,
@@ -211,63 +239,25 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
         $this->entityManager->persist($attempt);
         $this->entityManager->flush();
 
-        return $this->normalizeAttemptResponse($quiz, $course, $session, $request, $attempt, 'Attempt started');
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
+        return $this->normalizeAttemptResponse($operation, $quiz, $course, $session, $request, $attempt, 'Attempt started');
     }
 
     private function canViewExercises(): bool
     {
         return $this->security->isGranted('ROLE_CURRENT_COURSE_STUDENT')
             || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_STUDENT')
-            || $this->canManageExercises();
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
+            || $this->userHelper->isTeacherOfCurrentCourse();
     }
 
     private function isLearnerRuntimeRequest(Request $request): bool
     {
         $origin = (string) $request->query->get('origin', '');
-        $isStudentView = strtolower(trim((string) $request->query->get('isStudentView', '')));
         $preview = strtolower(trim((string) $request->query->get('preview', '')));
 
         return 'learnpath' === $origin
             || $request->query->has('lp_init')
             || $request->query->has('learnpath_id')
-            || \in_array($isStudentView, ['1', 'true', 'yes'], true)
-            || str_starts_with($isStudentView, 'true')
+            || $this->studentViewHelper->isActive()
             || \in_array($preview, ['1', 'true', 'yes'], true)
             || str_starts_with($preview, 'true');
     }
@@ -618,14 +608,18 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
 
         $selectionType = (int) ($quiz->getQuestionSelectionType() ?? 0);
         $randomCount = (int) $quiz->getRandom();
-        if ((int) $quiz->getRandomByCategory() > 0 && 0 !== $randomCount) {
-            return $this->buildRandomByCategoryQuestionList($quiz, $relations, $randomCount);
-        }
 
         if ($selectionType >= self::QUESTION_SELECTION_CATEGORIES_ORDERED_QUESTIONS_ORDERED
             && $selectionType <= self::QUESTION_SELECTION_CATEGORIES_RANDOM_QUESTIONS_RANDOM
         ) {
             return $this->buildCategoryMatrixQuestionList($quiz, $relations, $selectionType);
+        }
+
+        if (self::QUESTION_SELECTION_RANDOM === $selectionType
+            && (int) $quiz->getRandomByCategory() > 0
+            && 0 !== $randomCount
+        ) {
+            return $this->buildRandomByCategoryQuestionList($quiz, $relations, $randomCount);
         }
 
         $mustShuffle = self::QUESTION_SELECTION_RANDOM === $selectionType;
@@ -1073,10 +1067,10 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
         return (new DateTime())->modify(\sprintf('+%d minutes', $expiredMinutes));
     }
 
-    private function createTeacherPreviewResponse(CQuiz $quiz, Course $course, ?Session $session, Request $request): ExerciseRuntimeAttempt
+    private function createTeacherPreviewResponse(Operation $operation, CQuiz $quiz, Course $course, ?Session $session, Request $request): ExerciseRuntimeAttempt
     {
         $questionIds = $this->buildQuestionList($quiz);
-        $response = $this->createBaseResponse($quiz, $course, $session, $request, $questionIds);
+        $response = $this->createBaseResponse($operation, $quiz, $course, $session, $request, $questionIds);
         $response->success = true;
         $response->preview = true;
         $response->message = 'Teacher preview does not create a tracked attempt.';
@@ -1085,9 +1079,9 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
         return $response;
     }
 
-    private function createLegacyRequiredResponse(CQuiz $quiz, Course $course, ?Session $session, Request $request, string $message): ExerciseRuntimeAttempt
+    private function createLegacyRequiredResponse(Operation $operation, CQuiz $quiz, Course $course, ?Session $session, Request $request, string $message): ExerciseRuntimeAttempt
     {
-        $response = $this->createBaseResponse($quiz, $course, $session, $request, $this->buildQuestionList($quiz));
+        $response = $this->createBaseResponse($operation, $quiz, $course, $session, $request, $this->buildQuestionList($quiz));
         $response->success = false;
         $response->usesLegacyRuntime = true;
         $response->message = $message;
@@ -1099,9 +1093,9 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
     /**
      * @param array<int, int> $questionIds
      */
-    private function createBlockedResponse(CQuiz $quiz, Course $course, ?Session $session, Request $request, string $message, array $questionIds): ExerciseRuntimeAttempt
+    private function createBlockedResponse(Operation $operation, CQuiz $quiz, Course $course, ?Session $session, Request $request, string $message, array $questionIds): ExerciseRuntimeAttempt
     {
-        $response = $this->createBaseResponse($quiz, $course, $session, $request, $questionIds);
+        $response = $this->createBaseResponse($operation, $quiz, $course, $session, $request, $questionIds);
         $response->success = false;
         $response->usesLegacyRuntime = false;
         $response->message = $message;
@@ -1111,14 +1105,14 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
         return $response;
     }
 
-    private function normalizeAttemptResponse(CQuiz $quiz, Course $course, ?Session $session, Request $request, TrackEExercise $attempt, string $message): ExerciseRuntimeAttempt
+    private function normalizeAttemptResponse(Operation $operation, CQuiz $quiz, Course $course, ?Session $session, Request $request, TrackEExercise $attempt, string $message): ExerciseRuntimeAttempt
     {
         $questionIds = $this->parseQuestionIds((string) $attempt->getDataTracking());
         if ([] === $questionIds) {
             $questionIds = $this->buildQuestionList($quiz);
         }
 
-        $response = $this->createBaseResponse($quiz, $course, $session, $request, $questionIds);
+        $response = $this->createBaseResponse($operation, $quiz, $course, $session, $request, $questionIds);
         $response->success = true;
         $response->attemptId = (int) $attempt->getExeId();
         $response->attemptNumber = $this->getAttemptNumber($attempt);
@@ -1208,7 +1202,7 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
     /**
      * @param array<int, int> $questionIds
      */
-    private function createBaseResponse(CQuiz $quiz, Course $course, ?Session $session, Request $request, array $questionIds): ExerciseRuntimeAttempt
+    private function createBaseResponse(Operation $operation, CQuiz $quiz, Course $course, ?Session $session, Request $request, array $questionIds): ExerciseRuntimeAttempt
     {
         $response = new ExerciseRuntimeAttempt();
         $response->exerciseId = (int) $quiz->getIid();
@@ -1219,7 +1213,7 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
         $response->canNavigatePrevious = false;
         $response->canNavigateNext = \count($questionIds) > 1;
         $response->canFinish = \count($questionIds) > 0;
-        $response->legacyUrls = $this->getLegacyUrls($quiz, $course, $session, $request);
+        $response->legacyUrls = $this->getLegacyUrls($operation, $quiz, $course, $session, $request);
 
         return $response;
     }
@@ -1276,23 +1270,68 @@ final readonly class ExerciseRuntimeAttemptProcessor implements ProcessorInterfa
         return $savedAnswers;
     }
 
+    private function isEmbeddedRuntimeWithoutLearnpathItem(Request $request): bool
+    {
+        if ('learnpath' !== $request->query->getString('origin') || !$request->query->getBoolean('embedded')) {
+            return false;
+        }
+
+        return $request->query->getInt('learnpath_id') <= 0
+            && $request->query->getInt('lp_id') <= 0
+            && $request->query->getInt('learnpath_item_id') <= 0
+            && $request->query->getInt('lp_item_id') <= 0
+            && $request->query->getInt('item_id') <= 0
+            && $request->query->getInt('learnpath_item_view_id') <= 0
+            && $request->query->getInt('lp_item_view_id') <= 0;
+    }
+
     /**
      * @return array<string, string>
      */
-    private function getLegacyUrls(CQuiz $quiz, Course $course, ?Session $session, Request $request): array
+    private function getLegacyUrls(Operation $operation, CQuiz $quiz, Course $course, ?Session $session, Request $request): array
     {
         $baseParams = [
             'exerciseId' => (int) $quiz->getIid(),
             'cid' => (int) $course->getId(),
             'sid' => (int) ($session?->getId() ?? 0),
-            'gid' => $request->query->getInt('gid'),
+            'gid' => (int) $this->cidReqHelper->getGroupId(),
+            'legacy' => 1,
         ];
 
-        foreach (['origin', 'learnpath_id', 'learnpath_item_id', 'learnpath_item_view_id'] as $key) {
+        foreach (
+            [
+                'origin',
+                'learnpath_id',
+                'learnpath_item_id',
+                'learnpath_item_view_id',
+                'lp_id',
+                'lp_init',
+                'item_id',
+                'returnToLp',
+                'embedded',
+                'gradebook',
+                'isStudentView',
+                'preview',
+                'attemptId',
+            ] as $key
+        ) {
             $value = $request->query->get($key);
             if (null !== $value && '' !== (string) $value) {
                 $baseParams[$key] = (string) $value;
             }
+        }
+
+        if ($this->isEmbeddedRuntimeWithoutLearnpathItem($request)) {
+            $baseParams['origin'] = 'embeddable';
+            unset(
+                $baseParams['learnpath_id'],
+                $baseParams['learnpath_item_id'],
+                $baseParams['learnpath_item_view_id'],
+                $baseParams['lp_id'],
+                $baseParams['lp_init'],
+                $baseParams['item_id'],
+                $baseParams['returnToLp'],
+            );
         }
 
         return [

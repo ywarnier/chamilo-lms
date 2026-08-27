@@ -9,6 +9,7 @@ namespace Chamilo\CoreBundle\ApiResource\Wiki;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
 use Chamilo\CoreBundle\State\Wiki\WikiReportProvider;
@@ -22,9 +23,6 @@ use Symfony\Component\Serializer\Attribute\Groups;
             openapi: new Operation(
                 summary: 'Read Wiki page lists, search results and statistics',
                 parameters: [
-                    new Parameter(name: 'cid', in: 'query', required: true, schema: ['type' => 'integer']),
-                    new Parameter(name: 'sid', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'gid', in: 'query', required: false, schema: ['type' => 'integer']),
                     new Parameter(name: 'node', in: 'query', required: true, schema: ['type' => 'integer']),
                     new Parameter(name: 'report', in: 'query', required: true, schema: ['type' => 'string']),
                     new Parameter(name: 'page', in: 'query', required: false, schema: ['type' => 'integer']),
@@ -38,12 +36,26 @@ use Symfony\Component\Serializer\Attribute\Groups;
                     new Parameter(name: 'matchAllCategories', in: 'query', required: false, schema: ['type' => 'boolean']),
                     new Parameter(name: 'target', in: 'query', required: false, schema: ['type' => 'string']),
                     new Parameter(name: 'userId', in: 'query', required: false, schema: ['type' => 'integer']),
-                    new Parameter(name: 'isStudentView', in: 'query', required: false, schema: ['type' => 'boolean']),
                 ],
             ),
             security: "is_granted('IS_AUTHENTICATED_FULLY')",
             name: 'get_wiki_report',
             provider: WikiReportProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
         ),
     ],
     normalizationContext: ['groups' => ['wiki_report:read']],
@@ -86,9 +98,6 @@ final class WikiReport
 
     #[Groups(['wiki_report:read'])]
     public bool $allChangesSubscribed = false;
-
-    #[Groups(['wiki_report:read'])]
-    public string $managementCsrfToken = '';
 
     #[Groups(['wiki_report:read'])]
     public bool $studentView = false;

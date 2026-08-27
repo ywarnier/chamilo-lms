@@ -10,11 +10,14 @@ use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\ApiResource\Exercise\ExerciseList;
 use Chamilo\CoreBundle\Entity\Course;
-use Chamilo\CoreBundle\Entity\GradebookLink;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
 use Chamilo\CoreBundle\Repository\ResourceLinkRepository;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
 use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\State\Gradebook\GradebookLinkResourceResolver;
 use Chamilo\CourseBundle\Entity\CLpItem;
 use Chamilo\CourseBundle\Entity\CQuiz;
 use Chamilo\CourseBundle\Entity\CQuizAnswer;
@@ -28,20 +31,16 @@ use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProcessorInterface<ExerciseList, ExerciseList>
  */
 final readonly class ExerciseListActionProcessor implements ProcessorInterface
 {
-    private const CSRF_TOKEN_ID = 'exercise_list_action';
     private const ACTION_COPY = 'copy';
     private const ACTION_DELETE = 'delete';
     private const ACTION_TOGGLE_VISIBILITY = 'toggle_visibility';
@@ -52,13 +51,13 @@ final readonly class ExerciseListActionProcessor implements ProcessorInterface
     private const ACTION_BULK_DEACTIVATE = 'bulk_deactivate';
     private const ACTION_BULK_DELETE = 'bulk_delete';
     private const VISIBILITY_PUBLISHED = 2;
-    private const LINK_TYPE_EXERCISE = 1;
     private const LP_ITEM_TYPE_QUIZ = 'quiz';
     private const MATCHING = 4;
     private const MATCHING_DRAGGABLE = 19;
     private const MATCHING_DRAGGABLE_COMBINATION = 25;
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CQuizRepository $quizRepository,
@@ -66,7 +65,8 @@ final readonly class ExerciseListActionProcessor implements ProcessorInterface
         private ResourceLinkRepository $resourceLinkRepository,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private GradebookLinkManager $gradebookLinkManager,
+        private IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -84,14 +84,12 @@ final readonly class ExerciseListActionProcessor implements ProcessorInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $this->validateCsrfToken($data->submittedCsrfToken);
-
-        if (!$this->canManageExercises()) {
+        if (!$this->isAllowedToEditHelper->check(coach: true)) {
             throw new AccessDeniedHttpException('You are not allowed to manage exercises in this context.');
         }
 
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         $action = strtolower(trim($data->action));
 
         if (self::ACTION_CLEAN_ALL_RESULTS === $action) {
@@ -246,42 +244,6 @@ final readonly class ExerciseListActionProcessor implements ProcessorInterface
         $this->quizRepository->setVisibilityDraft($quiz, $course, $session);
     }
 
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
-    }
-
-    private function canManageExercises(): bool
-    {
-        return $this->security->isGranted('ROLE_CURRENT_COURSE_TEACHER')
-            || $this->security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
-    }
-
     private function canRunRestrictedAction(): bool
     {
         if (!$this->isSettingEnabled('exercise.limit_exercise_teacher_access')) {
@@ -430,10 +392,17 @@ final readonly class ExerciseListActionProcessor implements ProcessorInterface
             throw new AccessDeniedHttpException('You are not allowed to delete this exercise.');
         }
 
-        if ($this->isGradebookLocked((int) $quiz->getIid(), $course)) {
+        $exerciseId = (int) $quiz->getIid();
+        if ($this->isGradebookLocked($exerciseId, $course, $session)) {
             throw new AccessDeniedHttpException('This exercise is locked by the gradebook.');
         }
 
+        $this->gradebookLinkManager->removeLinks(
+            $course,
+            $session,
+            GradebookLinkResourceResolver::LINK_EXERCISE,
+            $exerciseId,
+        );
         $this->resourceLinkRepository->removeByResourceInContext($quiz, $course, $session);
 
         return 'Exercise deleted';
@@ -487,7 +456,7 @@ final readonly class ExerciseListActionProcessor implements ProcessorInterface
         }
 
         $exerciseId = (int) $quiz->getIid();
-        if ($this->isGradebookLocked($exerciseId, $course)) {
+        if ($this->isGradebookLocked($exerciseId, $course, $session)) {
             throw new AccessDeniedHttpException('This exercise is locked by the gradebook.');
         }
 
@@ -535,7 +504,7 @@ final readonly class ExerciseListActionProcessor implements ProcessorInterface
 
         $exerciseIds = array_values(array_filter(
             $this->getExerciseIdsFromCurrentContext($course, $session),
-            fn (int $exerciseId): bool => !$this->isGradebookLocked($exerciseId, $course),
+            fn (int $exerciseId): bool => !$this->isGradebookLocked($exerciseId, $course, $session),
         ));
 
         if ([] === $exerciseIds) {
@@ -643,33 +612,14 @@ final readonly class ExerciseListActionProcessor implements ProcessorInterface
         ));
     }
 
-    private function isGradebookLocked(int $exerciseId, Course $course): bool
+    private function isGradebookLocked(int $exerciseId, Course $course, ?Session $session): bool
     {
-        if ($this->security->isGranted('ROLE_ADMIN')) {
-            return false;
-        }
-
-        if (!$this->isSettingEnabled('gradebook.gradebook_locking_enabled')) {
-            return false;
-        }
-
-        $lockedLink = $this->entityManager->createQueryBuilder()
-            ->select('link.id')
-            ->from(GradebookLink::class, 'link')
-            ->andWhere('link.locked = :locked')
-            ->andWhere('link.refId = :exerciseId')
-            ->andWhere('link.type = :linkType')
-            ->andWhere('IDENTITY(link.course) = :courseId')
-            ->setParameter('locked', 1, Types::INTEGER)
-            ->setParameter('exerciseId', $exerciseId, Types::INTEGER)
-            ->setParameter('linkType', self::LINK_TYPE_EXERCISE, Types::INTEGER)
-            ->setParameter('courseId', (int) $course->getId(), Types::INTEGER)
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-
-        return null !== $lockedLink;
+        return $this->gradebookLinkManager->isResourceLocked(
+            $course,
+            $session,
+            GradebookLinkResourceResolver::LINK_EXERCISE,
+            $exerciseId,
+        );
     }
 
     private function duplicateQuestion(CQuizQuestion $sourceQuestion, Course $course, ?Session $session, int $position): CQuizQuestion
@@ -863,12 +813,5 @@ final readonly class ExerciseListActionProcessor implements ProcessorInterface
     private function isSettingEnabled(string $name): bool
     {
         return 'true' === $this->settingsManager->getSetting($name, true);
-    }
-
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(self::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('Invalid CSRF token.');
-        }
     }
 }

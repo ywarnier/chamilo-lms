@@ -37,6 +37,14 @@
       @click="goToNewDocument"
     />
     <BaseButton
+      v-if="showOnlyofficeCreateButton"
+      :label="`${t('New document')} (ONLYOFFICE)`"
+      icon="onlyoffice"
+      only-icon
+      type="success"
+      @click="goToNewOnlyofficeDocument"
+    />
+    <BaseButton
       v-if="showUploadButton"
       :label="t('Upload')"
       icon="file-upload"
@@ -467,6 +475,24 @@
           {{ usageQuotaSummary.availablePercentLabel }}
         </div>
       </div>
+
+      <p
+        v-if="usageQuotaSummary.showUpgradeCta"
+        class="mt-3 rounded border border-yellow-200 bg-yellow-50 p-3 text-xs text-yellow-900"
+      >
+        {{ t("Space is limited through your course properties. To increase your limit, get a") }}
+        <a
+          class="font-semibold text-primary underline"
+          href="/resources/courses/new"
+        >
+          {{ t("pro plan") }}
+        </a>
+        {{
+          t(
+            "and import this course's backup through Course Maintenance to your new paid course, or open a ticket to get your course converted into a pro course once you've acquired this plan.",
+          )
+        }}
+      </p>
     </div>
 
     <BaseChart :data="usageData" />
@@ -877,6 +903,10 @@ const onlyofficeEditorPath = computed(() => {
   return String(platformConfigStore.plugins?.onlyoffice?.editorPath || "/plugin/Onlyoffice/editor.php")
 })
 
+const showOnlyofficeCreateButton = computed(() => {
+  return securityStore.isAuthenticated && onlyofficePluginEnabled.value && Boolean(unref(showNewDocumentButton))
+})
+
 const onlyofficeSupportedExtensions = new Set([
   "doc",
   "docx",
@@ -974,6 +1004,22 @@ function openWithOnlyoffice(doc) {
   window.open(url, "_blank", "noopener,noreferrer")
 }
 
+function goToNewOnlyofficeDocument() {
+  const sp = new URLSearchParams({
+    cid: String(unref(cid) || 0),
+    sid: String(unref(sid) || 0),
+    gid: String(unref(gid) || 0),
+    returnUrl: window.location.href,
+  })
+
+  const parentResourceNodeId = Number(route.params.node || route.query.node || 0)
+  if (Number.isInteger(parentResourceNodeId) && parentResourceNodeId > 0) {
+    sp.set("parentResourceNodeId", String(parentResourceNodeId))
+  }
+
+  window.location.href = `/plugin/Onlyoffice/create.php?${sp.toString()}`
+}
+
 /**
  * Local loading flag to show the table spinner immediately.
  * This prevents the "empty table" impression while the store is still preparing the request.
@@ -1001,6 +1047,11 @@ function resetTableStateForFolderChange() {
     ...options.value,
     page: 1,
   }
+
+  store.commit("documents/updateField", {
+    path: "resetList",
+    value: true,
+  })
 
   unselectAll()
 }
@@ -1074,7 +1125,7 @@ onMounted(async () => {
     nodeId = route.query.node
   }
 
-  await store.dispatch("resourcenode/findResourceNode", { id: `/api/resource_nodes/${nodeId}` })
+  await store.dispatch("resourcenode/findResourceNode", { id: `/api/resource_nodes/${nodeId}`, cid, sid, gid })
 
   options.value.itemsPerPage = resolveDefaultRows(0)
   options.value.page = 1
@@ -1114,7 +1165,7 @@ watch(totalItems, (n) => {
 
 watch(
   () => [route.name, route.params.node, route.query.node, unref(cid), unref(sid), unref(gid)],
-  ([routeName]) => {
+  async ([routeName]) => {
     let nodeId = route.params.node
     if (isEmpty(nodeId)) {
       nodeId = route.query.node
@@ -1127,8 +1178,7 @@ watch(
     resetTableStateForFolderChange()
 
     const finderParams = { id: `/api/resource_nodes/${nodeId}`, cid, sid, gid }
-    store.dispatch("resourcenode/findResourceNode", finderParams)
-
+    await store.dispatch("resourcenode/findResourceNode", finderParams)
     if ("DocumentsList" === routeName) {
       triggerTableLoad()
     }
@@ -2213,7 +2263,9 @@ const usageQuotaSummary = computed(() => {
       return `${rounded} MB`
     }
 
-    return `${String(rounded).replace(/\.0+$/, "").replace(/(\.\d*?)0+$/, "$1")} MB`
+    return `${String(rounded)
+      .replace(/\.0+$/, "")
+      .replace(/(\.\d*?)0+$/, "$1")} MB`
   }
 
   function formatPercent(value) {
@@ -2229,7 +2281,9 @@ const usageQuotaSummary = computed(() => {
       return `${rounded}%`
     }
 
-    return `${String(rounded).replace(/\.0+$/, "").replace(/(\.\d*?)0+$/, "$1")}%`
+    return `${String(rounded)
+      .replace(/\.0+$/, "")
+      .replace(/(\.\d*?)0+$/, "$1")}%`
   }
 
   const usedBytes = Number(q.usedBytes ?? 0)
@@ -2240,9 +2294,9 @@ const usageQuotaSummary = computed(() => {
     usedLabel: formatBytesAsMb(usedBytes),
     availableLabel: formatBytesAsMb(availableBytes),
     availablePercentLabel: formatPercent(q.availablePercent),
+    showUpgradeCta: Boolean(q.showUpgradeCta),
   }
 })
-
 
 function consumeAiSavedToast() {
   if (String(route.query.ai_saved || "") !== "1") {

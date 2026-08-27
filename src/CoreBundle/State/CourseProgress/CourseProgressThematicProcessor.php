@@ -7,12 +7,14 @@ declare(strict_types=1);
 namespace Chamilo\CoreBundle\State\CourseProgress;
 
 use ApiPlatform\Metadata\Operation;
-use ApiPlatform\Metadata\Put;
+use ApiPlatform\Metadata\Patch;
 use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\ApiResource\CourseProgress\CourseProgressThematic;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Language;
 use Chamilo\CoreBundle\Entity\Session;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\CourseProgressHelper;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CourseBundle\Entity\CThematic;
 use Chamilo\CourseBundle\Repository\CThematicRepository;
@@ -23,8 +25,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 use const COURSEMANAGERLOWSECURITY;
 use const ENT_QUOTES;
@@ -35,15 +35,14 @@ use const ENT_SUBSTITUTE;
  */
 final readonly class CourseProgressThematicProcessor implements ProcessorInterface
 {
-    use CourseProgressAccessHelperTrait;
-
     public function __construct(
+        private CidReqHelper $cidReqHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CThematicRepository $thematicRepository,
         private Security $security,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private CourseProgressHelper $courseProgressHelper,
     ) {}
 
     /**
@@ -61,24 +60,15 @@ final readonly class CourseProgressThematicProcessor implements ProcessorInterfa
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourseProgressCourse($request, $this->entityManager);
-        $this->assertCourseProgressToolEnabled($this->entityManager, $course);
-        $session = $this->getCourseProgressSession($request, $this->entityManager);
-        $this->assertSessionBelongsToCourse($session, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->courseProgressHelper->assertToolEnabled($course);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->courseProgressHelper->assertSessionBelongsToCourse($session, $course);
 
-        if ($this->isCourseProgressStudentView($request, (int) $course->getId())
-            || !$this->canManageCourseProgress(
-                $this->entityManager,
-                $this->security,
-                $this->settingsManager,
-                $course,
-                $session,
-            )
-        ) {
+        if (!$this->courseProgressHelper->canManage($course, $session)) {
             throw new AccessDeniedHttpException('You are not allowed to manage course progress in this context.');
         }
 
-        $this->validateCsrfToken($data->csrfToken);
         $title = trim($data->title);
         $content = trim($data->content);
 
@@ -87,7 +77,7 @@ final readonly class CourseProgressThematicProcessor implements ProcessorInterfa
         }
 
         $thematic = null;
-        if ($operation instanceof Put) {
+        if ($operation instanceof Patch) {
             $thematicId = isset($uriVariables['iid']) ? (int) $uriVariables['iid'] : 0;
             $thematic = $this->getEditableThematic($thematicId, $course, $session);
         }
@@ -128,7 +118,7 @@ final readonly class CourseProgressThematicProcessor implements ProcessorInterfa
             throw new NotFoundHttpException('The requested thematic was not found.');
         }
 
-        if (!$this->thematicBelongsToExactContext($thematic, $course, $session)) {
+        if (!$this->courseProgressHelper->thematicBelongsToExactContext($thematic, $course, $session)) {
             throw new AccessDeniedHttpException('The requested thematic does not belong to the current course context.');
         }
 
@@ -138,13 +128,6 @@ final readonly class CourseProgressThematicProcessor implements ProcessorInterfa
         }
 
         return $thematic;
-    }
-
-    private function validateCsrfToken(string $token): void
-    {
-        if (!$this->csrfTokenManager->isTokenValid(new CsrfToken(CourseProgressThematicProvider::CSRF_TOKEN_ID, $token))) {
-            throw new AccessDeniedHttpException('The security token is invalid.');
-        }
     }
 
     private function sanitizeTitle(string $title): string
@@ -209,7 +192,6 @@ final readonly class CourseProgressThematicProcessor implements ProcessorInterfa
         $item->title = $thematic->getTitle();
         $item->content = (string) $thematic->getContent();
         $item->language = null !== $language ? (string) $language->getIsocode() : '';
-        $item->csrfToken = (string) $this->csrfTokenManager->getToken(CourseProgressThematicProvider::CSRF_TOKEN_ID);
         $item->canEdit = true;
         $item->isNew = false;
         $item->settings = [

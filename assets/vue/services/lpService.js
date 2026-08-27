@@ -20,17 +20,7 @@ const getLearningPath = async (lpId) => {
 /** Builds the Vue learner runtime URL. */
 const buildRuntimeUrl = (
   lpId,
-  {
-    cid,
-    sid = 0,
-    gid = 0,
-    node,
-    gradebook = 0,
-    origin = "learnpath",
-    isStudentView = "true",
-    itemId = 0,
-    temporaryStudentView = "",
-  } = {},
+  { cid, sid = 0, gid = 0, node, gradebook = 0, origin = "learnpath", isStudentView = "true", itemId = 0 } = {},
 ) => {
   const qs = new URLSearchParams({
     sid: Number(sid),
@@ -46,10 +36,6 @@ const buildRuntimeUrl = (
 
   if (Number(itemId) > 0) {
     qs.set("item_id", Number(itemId))
-  }
-
-  if (String(temporaryStudentView) !== "") {
-    qs.set("temporaryStudentView", String(temporaryStudentView))
   }
 
   return `/resources/lp/${Number(node)}/${Number(lpId)}/runtime?${qs.toString()}`
@@ -133,7 +119,7 @@ const generateAiLearningPath = async (params, payload) =>
 const saveAiLearningPath = async (params, payload) =>
   await baseService.post("/api/learning_paths/ai-generator", payload, {}, { params: cleanParams(params) })
 
-/** Fetches the CSRF token used by modern LP write actions. */
+/** Fetches the LP action settings for the current context. */
 const getActionToken = async (params = {}) => {
   return await baseService.get("/api/learning_paths/action-token", cleanParams(params))
 }
@@ -245,8 +231,8 @@ const updateBuilderItem = async (lpId, itemId, params, payload, extraFiles = {})
   })
 }
 
-const deleteBuilderItem = async (lpId, itemId, params, payload) =>
-  await baseService.post(`/api/learning_path_builder_items/${itemId}/delete`, { ...payload, lpId }, {}, {
+const deleteBuilderItem = async (lpId, itemId, params) =>
+  await baseService.post(`/api/learning_path_builder_items/${itemId}/delete`, { lpId }, {}, {
     params: cleanParams(params),
   })
 
@@ -295,10 +281,10 @@ const updateCategory = async (categoryId, params, payload) =>
     params: cleanParams(params),
   })
 
-const deleteCategory = async (categoryId, params, csrfToken) =>
+const deleteCategory = async (categoryId, params) =>
   await baseService.post(
     `/api/learning_path_categories/${categoryId}/manage-action`,
-    { action: "delete", csrfToken },
+    { action: "delete" },
     {},
     { params: cleanParams(params) },
   )

@@ -8,9 +8,9 @@ namespace Chamilo\CoreBundle\Service\Exercise;
 
 use ApiPlatform\Metadata\Get;
 use Chamilo\CoreBundle\ApiResource\Exercise\ExerciseRuntimeResult;
-use Chamilo\CoreBundle\Entity\Course;
-use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\TrackEExercise;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CoreBundle\State\Exercise\ExerciseRuntimeResultProvider;
 use DateTimeImmutable;
 use DateTimeInterface;
@@ -35,6 +35,8 @@ final readonly class ExerciseRuntimeAttemptPdfService
     public function __construct(
         private ExerciseRuntimeResultProvider $resultProvider,
         private EntityManagerInterface $entityManager,
+        private SettingsManager $settingsManager,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     public function exportAttemptPdf(int $exerciseId, int $attemptId, Request $request): Response
@@ -87,8 +89,8 @@ final readonly class ExerciseRuntimeAttemptPdfService
 
     private function getAttempt(int $exerciseId, int $attemptId, Request $request): TrackEExercise
     {
-        $course = $this->getCourse($request);
-        $session = $this->getSession($request);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
 
         $queryBuilder = $this->entityManager->createQueryBuilder()
             ->select('attempt', 'user')
@@ -118,36 +120,6 @@ final readonly class ExerciseRuntimeAttemptPdfService
         }
 
         return $attempt;
-    }
-
-    private function getCourse(Request $request): Course
-    {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('A valid course id is required.');
-        }
-
-        $course = $this->entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new BadRequestHttpException('The requested course was not found.');
-        }
-
-        return $course;
-    }
-
-    private function getSession(Request $request): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $this->entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new BadRequestHttpException('The requested session was not found.');
-        }
-
-        return $session;
     }
 
     private function renderHtml(ExerciseRuntimeResult $result, TrackEExercise $attempt): string
@@ -281,7 +253,7 @@ final readonly class ExerciseRuntimeAttemptPdfService
             'draggable' => $this->renderDraggableAnswer($answer),
             'calculated' => $this->renderCalculatedAnswer($answer),
             'hotspot' => $this->renderHotspotAnswer($answer),
-            'free_answer', 'annotation', 'upload_answer', 'oral_expression' => $this->renderManualAnswer($answer),
+            'free_answer', 'annotation', 'upload_answer', 'oral_expression', 'onlyoffice' => $this->renderManualAnswer($answer),
             default => $this->renderGenericAnswer($answer),
         };
     }
@@ -610,13 +582,37 @@ final readonly class ExerciseRuntimeAttemptPdfService
 
     private function buildFileName(ExerciseRuntimeResult $result, TrackEExercise $attempt): string
     {
-        $safeTitle = preg_replace('/[^A-Za-z0-9_-]+/', '-', $this->text($result->title)) ?: 'exercise-attempt';
-        $safeTitle = trim($safeTitle, '-');
+        $safeTitle = $this->safeFileSegment($this->text($result->title));
         if ('' === $safeTitle) {
             $safeTitle = 'exercise-attempt';
         }
 
-        return strtolower($safeTitle).'-attempt-'.(int) $attempt->getExeId().'.pdf';
+        $fileName = strtolower($safeTitle).'-attempt-'.(int) $attempt->getExeId().'.pdf';
+        if (!$this->shouldIncludeOfficialCode()) {
+            return $fileName;
+        }
+
+        $officialCode = $this->safeFileSegment((string) ($attempt->getUser()->getOfficialCode() ?? ''));
+        if ('' === $officialCode) {
+            return $fileName;
+        }
+
+        return $officialCode.'-'.$fileName;
+    }
+
+    private function shouldIncludeOfficialCode(): bool
+    {
+        return 'true' === $this->settingsManager->getSetting(
+            'exercise.quiz_result_pdf_export_include_official_code_in_file_name',
+            true,
+        );
+    }
+
+    private function safeFileSegment(string $value): string
+    {
+        $segment = preg_replace('/[^A-Za-z0-9_-]+/', '-', $value) ?: '';
+
+        return trim($segment, '-');
     }
 
     private function nl2br(mixed $value): string

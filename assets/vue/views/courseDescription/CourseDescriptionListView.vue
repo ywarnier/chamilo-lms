@@ -1,23 +1,18 @@
 <template>
   <section class="space-y-6">
-    <BaseToolbar
-      v-if="canManage"
-      class="mb-4 border-b border-gray-25 bg-white"
-    >
-      <template #start>
+    <SectionHeader :title="t('Course Description')">
+      <template v-if="canManage">
         <BaseButton
           v-for="type in toolbarTypes"
           :key="type.value"
           :icon="type.icon"
           :label="t(type.label)"
-          only-icon
-          size="large"
-          type="primary-text"
-          class="!flex !h-12 !w-12 !items-center !justify-center !rounded-xl !p-0 [&_.p-button-icon]:!text-2xl"
           :route="getToolbarRoute(type.value)"
+          only-icon
+          type="primary-text"
         />
       </template>
-    </BaseToolbar>
+    </SectionHeader>
 
     <div
       v-if="successMessage"
@@ -82,7 +77,7 @@
           <div class="flex min-w-0 items-center gap-2">
             <div
               class="min-w-0 flex-1 break-words text-lg font-semibold text-gray-90"
-              v-html="description.title || getDescriptionTypeLabel(description.descriptionType)"
+              v-html="displayTranslatedHtml(description.title || getDescriptionTypeLabel(description.descriptionType))"
             ></div>
             <BaseIcon
               v-if="description.sessionId"
@@ -117,7 +112,7 @@
         <div
           v-if="description.content"
           class="break-words"
-          v-html="description.content"
+          v-html="displayTranslatedHtml(description.content)"
         ></div>
         <p
           v-else
@@ -137,13 +132,16 @@ import { useRoute } from "vue-router"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseCard from "../../components/basecomponents/BaseCard.vue"
 import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
-import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue"
 import { useConfirmation } from "../../composables/useConfirmation"
 import courseDescriptionService from "../../services/courseDescriptionService"
+import { useTranslatedHtml } from "../../composables/useTranslatedHtml"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
 
 const { t } = useI18n()
 const route = useRoute()
 const { requireConfirmation } = useConfirmation()
+const { displayTranslatedHtml } = useTranslatedHtml()
 
 const descriptions = ref([])
 const isLoading = ref(false)
@@ -152,7 +150,6 @@ const actionErrorMessage = ref("")
 const successMessage = ref("")
 const canManage = ref(false)
 const types = ref([])
-const csrfToken = ref("")
 const deletingId = ref(null)
 
 const descriptionTypeLabels = {
@@ -197,9 +194,6 @@ function getContextParams() {
     params.gid = gid
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    params.isStudentView = getQueryValue(route.query.isStudentView)
-  }
 
   return params
 }
@@ -280,11 +274,7 @@ async function deleteDescription(description) {
   successMessage.value = ""
 
   try {
-    await courseDescriptionService.remove(
-      description.iid,
-      { csrfToken: csrfToken.value },
-      getContextParams(),
-    )
+    await courseDescriptionService.remove(description.iid, getContextParams())
 
     descriptions.value = descriptions.value.filter((item) => item.iid !== description.iid)
     successMessage.value = t("Description has been deleted")
@@ -308,7 +298,6 @@ async function loadDescriptions() {
     descriptions.value = Array.isArray(response.items) ? response.items : []
     canManage.value = Boolean(response.canManage)
     types.value = Array.isArray(response.types) ? response.types : []
-    csrfToken.value = response.csrfToken || ""
   } catch (error) {
     console.error("Error loading course descriptions", error)
     errorMessage.value =
@@ -320,8 +309,7 @@ async function loadDescriptions() {
 
 onMounted(loadDescriptions)
 
-watch(
-  () => [route.query.cid, route.query.sid, route.query.gid, route.query.isStudentView],
-  loadDescriptions,
-)
+useStudentViewRefresh(loadDescriptions)
+
+watch(() => [route.query.cid, route.query.sid, route.query.gid], loadDescriptions)
 </script>

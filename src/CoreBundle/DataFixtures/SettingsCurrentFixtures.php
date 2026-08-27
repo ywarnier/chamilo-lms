@@ -1340,6 +1340,11 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'title' => 'Display official code in exercises results',
                     'comment' => "Whether to show the students' official code in the exercises results reports",
                 ],
+                [
+                    'name' => 'quiz_result_pdf_export_include_official_code_in_file_name',
+                    'title' => 'Include official code in exported quiz result PDF file name',
+                    'comment' => "Whether to include the student's official code in the file name when exporting a quiz result to PDF",
+                ],
             ],
             'security' => [
                 [
@@ -2008,6 +2013,11 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'title' => 'Enable Multi-Level Attendance Grading',
                     'comment' => 'Allows grading attendance with multiple levels instead of a simple present/absent system.',
                 ],
+                [
+                    'name' => 'attendance_add_official_code',
+                    'title' => "Show students' official code in attendance sheets",
+                    'comment' => "Whether to display the students' official code alongside their name in attendance sheets and lists.",
+                ],
             ],
             'display' => [
                 [
@@ -2395,6 +2405,11 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'name' => 'scorm_api_username_as_student_id',
                     'title' => 'Use username as student_id in SCORM communication',
                     'comment' => '',
+                ],
+                [
+                    'name' => 'scorm_complete_on_leave_when_incomplete',
+                    'title' => 'Complete SCO on leave when status stays incomplete',
+                    'comment' => "Some SCORM packages only ever call LMSSetValue(cmi.core.lesson_status, 'incomplete') once and never send a real terminal status nor a meaningful LMSFinish(). Enable this to let Chamilo treat that lingering 'incomplete' the same as no status at all, resolving completion when the learner leaves the SCO.",
                 ],
                 [
                     'name' => 'scorm_lms_update_sco_status_all_time',
@@ -3070,6 +3085,18 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
             ],
             'security' => [
                 [
+                    'name' => 'session_expiration_warning_enabled',
+                    'title' => 'Enable session expiration warning',
+                    'comment' => 'Show a warning to authenticated users before their server-side session expires.',
+                    'selected_value' => 'false',
+                ],
+                [
+                    'name' => 'session_expiration_warning_seconds',
+                    'title' => 'Session expiration warning time',
+                    'comment' => 'Number of seconds before session expiration when the warning is displayed. The default is 180 seconds.',
+                    'selected_value' => '180',
+                ],
+                [
                     'name' => 'proxy_settings',
                     'title' => 'Proxy settings',
                     'comment' => 'Some features of Chamilo will connect to the exterior from the server. For example to make sure an external content exists when creating a link or showing an embedded page in the learning path. If your Chamilo server uses a proxy to get out of its network, this would be the place to configure it.',
@@ -3428,6 +3455,11 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'title' => 'Hide legal accept checkbox in Terms and Conditions page',
                     'comment' => 'If set to true, removes the "I have read and accept" checkbox in the Terms and Conditions page flow.',
                 ],
+                [
+                    'name' => 'allow_invitation_registration',
+                    'title' => 'Allow registration via course invitation links',
+                    'comment' => 'When enabled, a teacher/admin can send a one-time invitation link from a course\'s Users tool that lets an unregistered person reach the registration form and register even while general self-registration (allow_registration) is disabled.',
+                ],
             ],
             'work' => [
                 [
@@ -3459,6 +3491,11 @@ class SettingsCurrentFixtures extends Fixture implements FixtureGroupInterface
                     'name' => 'assignment_prevent_duplicate_upload',
                     'title' => 'Prevent duplicate uploads in assignments',
                     'comment' => '',
+                ],
+                [
+                    'name' => 'add_fullname_in_file_download',
+                    'title' => 'Add student fullname in file download name',
+                    'comment' => 'Add the student full name to assignment file names when downloading individual submissions or assignment packages.',
                 ],
                 [
                     'name' => 'block_student_publication_add_documents',

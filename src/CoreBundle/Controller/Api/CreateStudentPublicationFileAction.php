@@ -33,7 +33,7 @@ class CreateStudentPublicationFileAction extends BaseResourceFileAction
         Security $security,
         SettingsManager $settingsManager
     ): CStudentPublication {
-        $cid = (int) $request->query->get('cid', 0);
+        $cid = (int) $request->query->get('cid', '0');
         if ($cid > 0) {
             $course = $em->getRepository(Course::class)->find($cid);
             if (!$course || !$security->isGranted(CourseVoter::VIEW, $course)) {
@@ -42,6 +42,7 @@ class CreateStudentPublicationFileAction extends BaseResourceFileAction
         }
 
         $fileExistsOption = $request->request->get('fileExistsOption', 'rename');
+        $resourceLinkList = $this->buildResourceLinkListFromContext($request, []);
 
         $studentPublication = new CStudentPublication();
 
@@ -51,7 +52,10 @@ class CreateStudentPublicationFileAction extends BaseResourceFileAction
             $request,
             $em,
             $fileExistsOption,
-            $translator
+            $translator,
+            null,
+            null,
+            $resourceLinkList,
         );
 
         $studentPublication->setTitle($result['title']);

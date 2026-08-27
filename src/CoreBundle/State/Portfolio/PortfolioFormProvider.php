@@ -19,6 +19,7 @@ use Chamilo\CoreBundle\Entity\PortfolioRelTag;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\User;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Helpers\UserHelper;
 use Chamilo\CoreBundle\Repository\ExtraFieldValuesRepository;
 use Chamilo\CoreBundle\Repository\Node\PortfolioRepository;
@@ -32,7 +33,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProviderInterface<PortfolioForm>
@@ -50,7 +50,7 @@ final readonly class PortfolioFormProvider implements ProviderInterface
         private Security $security,
         private UserHelper $userHelper,
         private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     /**
@@ -65,8 +65,8 @@ final readonly class PortfolioFormProvider implements ProviderInterface
         }
 
         $currentUser = $this->getPortfolioCurrentUser($this->userHelper);
-        $course = $this->getPortfolioCourse($this->entityManager, $request);
-        $session = $this->getPortfolioSession($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->getDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
         if ($course instanceof Course && !$this->canReadPortfolioCourse(
             $this->security,
             $this->userHelper,
@@ -121,7 +121,6 @@ final readonly class PortfolioFormProvider implements ProviderInterface
         $result->titleAsHtml = $this->portfolioBoolean(
             $this->settingsManager->getSetting('editor.save_titles_as_html', true),
         );
-        $result->csrfToken = $this->csrfTokenManager->getToken('portfolio_action')->getValue();
         $result->categories = $this->loadCategories();
         $result->templates = $this->loadTemplates($currentUser, $course, $session);
         $result->tags = $course instanceof Course ? $this->loadTags($course, $session) : [];

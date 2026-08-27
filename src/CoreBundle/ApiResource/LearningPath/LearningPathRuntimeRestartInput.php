@@ -9,9 +9,9 @@ namespace Chamilo\CoreBundle\ApiResource\LearningPath;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
 use Chamilo\CoreBundle\State\LearningPath\LearningPathRuntimeRestartProcessor;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ApiResource(
     operations: [
@@ -23,6 +23,21 @@ use Symfony\Component\Serializer\Attribute\Groups;
             output: false,
             read: false,
             name: 'restart_learning_path_runtime',
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: LearningPathRuntimeRestartProcessor::class,
         ),
     ],
@@ -32,9 +47,6 @@ final class LearningPathRuntimeRestartInput
 {
     #[ApiProperty(identifier: true)]
     public ?int $lpId = null;
-
-    #[Groups(['learning_path_runtime_restart:write'])]
-    public string $csrfToken = '';
 
     public function getLpId(): ?int
     {

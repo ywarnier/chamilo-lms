@@ -20,6 +20,7 @@ use Chamilo\CoreBundle\Repository\ResourceNodeRepository;
 use Chamilo\CoreBundle\Repository\ResourceWithLinkInterface;
 use Chamilo\CoreBundle\Repository\TrackEDownloadsRepository;
 use Chamilo\CoreBundle\Security\Authorization\Voter\ResourceNodeVoter;
+use Chamilo\CoreBundle\Service\Html\TranslateHtmlLanguageService;
 use Chamilo\CoreBundle\Settings\SettingsManager;
 use Chamilo\CoreBundle\Tool\ToolChain;
 use Chamilo\CoreBundle\Traits\ControllerTrait;
@@ -46,17 +47,23 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Mime\MimeTypes;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 use ZipStream\Option\Archive;
 use ZipStream\ZipStream;
 
+use const ENT_HTML5;
+use const ENT_QUOTES;
 use const JSON_HEX_AMP;
 use const JSON_HEX_APOS;
 use const JSON_HEX_QUOT;
 use const JSON_HEX_TAG;
+use const PATHINFO_EXTENSION;
 use const PHP_EOL;
+use const PHP_QUERY_RFC3986;
+use const PHP_URL_QUERY;
 
 /**
  * @author Julio Montoya <gugli100@gmail.com>.
@@ -73,7 +80,8 @@ class ResourceController extends AbstractResourceController implements CourseCon
         private readonly UserHelper $userHelper,
         private readonly ResourceNodeRepository $resourceNodeRepository,
         private readonly ResourceFileRepository $resourceFileRepository,
-        private readonly CourseToolAccessTracker $courseToolAccessTracker
+        private readonly CourseToolAccessTracker $courseToolAccessTracker,
+        private readonly TranslateHtmlLanguageService $translateHtmlLanguageService
     ) {}
 
     #[Route(path: '/{tool}/{type}/{id}/disk_space', methods: ['GET', 'POST'], name: 'chamilo_core_resource_disk_space')]
@@ -174,6 +182,14 @@ class ResourceController extends AbstractResourceController implements CourseCon
         $resourceFile = null;
         if ($resourceFileId) {
             $resourceFile = $this->resourceFileRepository->find($resourceFileId);
+
+            // The selected file must belong to the resource node in the path; otherwise the
+            // resourceFileId parameter is an IDOR oracle for arbitrary resource files.
+            if ($resourceFile instanceof ResourceFile
+                && $resourceFile->getResourceNode()?->getId() !== $resourceNode->getId()
+            ) {
+                throw new FileNotFoundException($this->trans('Resource file not found for the given resource node'));
+            }
         }
 
         $resourceFile ??= $resourceFileHelper->resolveResourceFileByAccessUrl($resourceNode);
@@ -669,6 +685,23 @@ class ResourceController extends AbstractResourceController implements CourseCon
             return $this->json(['error' => 'Variant not found'], Response::HTTP_NOT_FOUND);
         }
 
+        $resourceNode = $variant->getResourceNode();
+        if (null === $resourceNode) {
+            throw new NotFoundHttpException();
+        }
+
+        // Require edit permission on the owning resource node (admins pass via ROLE_ADMIN).
+        $this->denyAccessUnlessGranted(
+            ResourceNodeVoter::EDIT,
+            $resourceNode,
+            $this->trans('Unauthorised access to resource')
+        );
+
+        // Only genuine access-URL variants may be removed here, never a primary resource file.
+        if (null === $variant->getAccessUrl()) {
+            throw new NotFoundHttpException();
+        }
+
         $em->remove($variant);
         $em->flush();
 
@@ -700,9 +733,21 @@ class ResourceController extends AbstractResourceController implements CourseCon
             }
         }
 
+        // Restored legacy/MBZ resources can carry a generic text/plain or octet-stream
+        // MIME even when the original filename clearly identifies an image. Normalize only
+        // image extensions here so /view can use the image pipeline without changing stored data.
+        $mimeType = $this->normalizeImageMimeType($mimeType, (string) $fileName);
+
         // Defense-in-depth: social post attachments must never render HTML inline (XSS mitigation).
         // This covers files uploaded before the MIME-type allowlist was introduced.
         $isSocialAttachment = 'social_post_attachments' === (string) $request->attributes->get('type');
+
+        // Such files are always delivered as a neutral download, so the browser can never
+        // execute them in the Chamilo origin, whatever the requested mode is.
+        $forceSocialHtmlDownload = $isSocialAttachment && str_contains($mimeType, 'html');
+        if ($forceSocialHtmlDownload) {
+            $mimeType = 'application/octet-stream';
+        }
 
         // SVG: sanitize before serving in any mode (view or download).
         // Glide is raster-only and cannot process SVG; sanitization strips embedded scripts regardless of how the file was stored.
@@ -734,7 +779,7 @@ class ResourceController extends AbstractResourceController implements CourseCon
 
             case 'show':
             default:
-                $forceDownload = false;
+                $forceDownload = $forceSocialHtmlDownload;
 
                 // If it's an image then send it to Glide.
                 if (str_contains($mimeType, 'image')) {
@@ -778,6 +823,7 @@ class ResourceController extends AbstractResourceController implements CourseCon
                     }
 
                     $content = $this->injectGlossaryJs($request, $content, $resourceNode);
+                    $content = $this->appendLearningPathContextToEmbeddedDocumentUrls($content, $request);
 
                     $response = new Response();
                     $disposition = $response->headers->makeDisposition(
@@ -787,12 +833,13 @@ class ResourceController extends AbstractResourceController implements CourseCon
                     $response->headers->set('Content-Disposition', $disposition);
                     $response->headers->set('Content-Type', 'text/html; charset=UTF-8');
 
-                    // Translate HTML: show only spans matching the user language.
+                    // Translate HTML: show only spans matching the viewer's language, falling
+                    // back to the course language, then the platform default language, then
+                    // whichever language is present, so the document is never rendered blank.
                     if ('true' === $this->getSettingsManager()->getSetting('editor.translate_html')) {
-                        $user = $this->userHelper->getCurrent();
+                        $locale = $this->resolveTranslateHtmlLocale($content);
 
-                        if (null !== $user) {
-                            $locale = (string) $user->getLocale();
+                        if (null !== $locale) {
                             $localeJson = json_encode(
                                 $locale,
                                 JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT
@@ -922,6 +969,11 @@ class ResourceController extends AbstractResourceController implements CourseCon
 
         $response->headers->set('Content-Disposition', $disposition);
         $response->headers->set('Content-Type', $mimeType ?: 'application/octet-stream');
+
+        if ($forceSocialHtmlDownload) {
+            $response->headers->set('X-Content-Type-Options', 'nosniff');
+        }
+
         $response->headers->set('Content-Length', (string) $length);
         $response->headers->set('Accept-Ranges', 'bytes');
         $response->headers->set('Content-Range', "bytes $start-$end/$fileSize");
@@ -930,6 +982,147 @@ class ResourceController extends AbstractResourceController implements CourseCon
         );
 
         return $response;
+    }
+
+    /**
+     * Recover a usable image MIME from the original filename when persisted metadata is generic.
+     *
+     * This is intentionally restricted to image/* candidates. It fixes restored images that were
+     * persisted as text/plain/application/octet-stream without changing how arbitrary files render.
+     */
+    private function normalizeImageMimeType(string $mimeType, string $fileName): string
+    {
+        $baseMimeType = strtolower(trim((string) strtok($mimeType, ';')));
+        if (!\in_array($baseMimeType, ['', 'text/plain', 'application/octet-stream'], true)) {
+            return $mimeType;
+        }
+
+        $extension = strtolower((string) pathinfo($fileName, PATHINFO_EXTENSION));
+        if ('' === $extension) {
+            return $mimeType;
+        }
+
+        foreach (MimeTypes::getDefault()->getMimeTypes($extension) as $candidate) {
+            if (str_starts_with($candidate, 'image/')) {
+                return $candidate;
+            }
+        }
+
+        return $mimeType;
+    }
+
+    /**
+     * Propagate LP context to embedded document-file URLs while rendering an LP HTML document.
+     *
+     * The LP runtime already opens the main document with cid/lp_id/item_id query parameters.
+     * Embedded images use their own /r/document/files/{uuid}/view requests, so they do not inherit
+     * that query string. Hidden documents used only inside a learning path therefore fail the
+     * ResourceNodeVoter check for real students. Rewriting only the response HTML keeps the stored
+     * document untouched while giving embedded resources the same verified course/LP context.
+     */
+    private function appendLearningPathContextToEmbeddedDocumentUrls(string $html, Request $request): string
+    {
+        if ('' === $html) {
+            return $html;
+        }
+
+        $lpId = $request->query->getInt('lp_id');
+        $lpItemId = $request->query->getInt('lp_item_id');
+        if ($lpItemId <= 0) {
+            $lpItemId = $request->query->getInt('item_id');
+        }
+        $origin = strtolower(trim((string) $request->query->get('origin', '')));
+
+        if ($lpId <= 0 && $lpItemId <= 0 && 'learnpath' !== $origin) {
+            return $html;
+        }
+
+        $context = ['origin' => 'learnpath'];
+        foreach (['cid', 'sid', 'gid'] as $key) {
+            $value = $request->query->getInt($key);
+            if ($value > 0) {
+                $context[$key] = $value;
+            }
+        }
+        if ($lpId > 0) {
+            $context['lp_id'] = $lpId;
+        }
+        if ($lpItemId > 0) {
+            $context['lp_item_id'] = $lpItemId;
+        }
+
+        $pattern = '#(?P<prefix>(?:src|href)\s*=\s*["\\\'])(?P<url>(?:(?:https?:)?//[^"\\\']+)?/r/document/files/[0-9a-fA-F-]{36}/view(?:\?[^"\\\']*)?)(?P<suffix>["\\\'])#i';
+
+        return preg_replace_callback(
+            $pattern,
+            static function (array $matches) use ($context): string {
+                $url = html_entity_decode((string) ($matches['url'] ?? ''), ENT_QUOTES | ENT_HTML5);
+                if ('' === $url) {
+                    return $matches[0];
+                }
+
+                $fragment = '';
+                $fragmentPos = strpos($url, '#');
+                if (false !== $fragmentPos) {
+                    $fragment = substr($url, $fragmentPos);
+                    $url = substr($url, 0, $fragmentPos);
+                }
+
+                $query = (string) (parse_url($url, PHP_URL_QUERY) ?? '');
+                $existing = [];
+                if ('' !== $query) {
+                    parse_str($query, $existing);
+                }
+
+                $missing = array_diff_key($context, $existing);
+                if ([] === $missing) {
+                    return $matches[0];
+                }
+
+                $separator = str_contains($url, '?') ? '&' : '?';
+                $url .= $separator.http_build_query($missing, '', '&', PHP_QUERY_RFC3986).$fragment;
+
+                return (string) ($matches['prefix'] ?? '')
+                    .htmlspecialchars($url, ENT_QUOTES | ENT_HTML5)
+                    .(string) ($matches['suffix'] ?? '');
+            },
+            $html
+        ) ?? $html;
+    }
+
+    /**
+     * Resolves which language translate_html should show for this document:
+     * the viewer's own locale, else the course language, else the platform
+     * default language, else whichever language is actually present in the
+     * document — so the caller can always inject a locale that matches at
+     * least one block, and the document is never rendered blank.
+     */
+    private function resolveTranslateHtmlLocale(string $content): ?string
+    {
+        $presentLanguages = $this->translateHtmlLanguageService->inspect($content)['presentLanguages'];
+
+        if ([] === $presentLanguages) {
+            return null;
+        }
+
+        $user = $this->userHelper->getCurrent();
+        $course = $this->getCourse();
+
+        $candidates = [
+            $user?->getLocale(),
+            $course?->getCourseLanguage(),
+            (string) $this->getSettingsManager()->getSetting('language.platform_language'),
+        ];
+
+        foreach ($candidates as $candidate) {
+            if (null !== $candidate && '' !== $candidate
+                && $this->translateHtmlLanguageService->containsMatchingLanguage($presentLanguages, $candidate)
+            ) {
+                return $candidate;
+            }
+        }
+
+        return $presentLanguages[0];
     }
 
     private function injectGlossaryJs(

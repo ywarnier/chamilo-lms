@@ -17,7 +17,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[IsGranted('ROLE_ADMIN')]
@@ -44,7 +43,6 @@ class CourseListController extends AbstractController
 
     public function __construct(
         private readonly EntityManagerInterface $em,
-        private readonly CsrfTokenManagerInterface $csrfTokenManager,
         private readonly AccessUrlHelper $accessUrlHelper,
         private readonly CourseRelUserRepository $courseRelUserRepository,
     ) {}
@@ -52,8 +50,8 @@ class CourseListController extends AbstractController
     #[Route('', name: 'admin_course_list_data', methods: ['GET'])]
     public function list(Request $request): JsonResponse
     {
-        $page = max(1, (int) $request->query->get('page', 1));
-        $limit = max(1, min(200, (int) $request->query->get('limit', 20)));
+        $page = max(1, (int) $request->query->get('page', '1'));
+        $limit = max(1, min(200, (int) $request->query->get('limit', '20')));
         $sortField = (string) $request->query->get('sortField', 'title');
         $sortOrder = 'DESC' === strtoupper((string) $request->query->get('sortOrder', 'ASC')) ? 'DESC' : 'ASC';
         $view = (string) $request->query->get('view', 'simple');
@@ -190,7 +188,6 @@ class CourseListController extends AbstractController
         return $this->json([
             'items' => $items,
             'total' => $total,
-            'csrfToken' => $this->csrfTokenManager->getToken('admin_course_list')->getValue(),
         ]);
     }
 

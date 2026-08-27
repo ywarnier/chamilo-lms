@@ -232,7 +232,7 @@ class IndexBlocksController extends BaseController
         ];
         $items[] = [
             'class' => 'item-user-add',
-            'url' => '/main/admin/user_add.php',
+            'route' => ['name' => 'AdminUserAdd'],
             'label' => $this->translator->trans('Add a user'),
         ];
 
@@ -297,23 +297,26 @@ class IndexBlocksController extends BaseController
             ];
 
             if ('true' === $this->settingsManager->getSetting('session.limit_session_admin_role')) {
+                // Matched by 'class', not 'url': both surviving items ('item-user-list',
+                // 'item-user-add') are route-based (no 'url' key at all), so matching on
+                // 'url' silently dropped them both here.
                 $items = array_filter($items, function (array $item) {
-                    $urls = [
-                        '/admin/user-list',
-                        '/main/admin/user_add.php',
+                    $classes = [
+                        'item-user-list',
+                        'item-user-add',
                     ];
 
-                    return \in_array($item['url'], $urls, true);
+                    return \in_array($item['class'], $classes, true);
                 });
             }
 
             if ('true' === $this->settingsManager->getSetting('session.limit_session_admin_list_users')) {
                 $items = array_filter($items, function (array $item): bool {
-                    $urls = [
-                        '/admin/user-list',
+                    $classes = [
+                        'item-user-list',
                     ];
 
-                    return !\in_array($item['url'], $urls, true);
+                    return !\in_array($item['class'], $classes, true);
                 });
             }
 
@@ -445,7 +448,7 @@ class IndexBlocksController extends BaseController
         ];
         $items[] = [
             'class' => 'item-question-bank',
-            'url' => '/main/admin/questions.php',
+            'route' => ['name' => 'AdminQuestionBank'],
             'label' => $this->translator->trans('Questions'),
         ];
         $items[] = [
@@ -533,10 +536,14 @@ class IndexBlocksController extends BaseController
         ];
 
         if ($this->isGlobalAdmin) {
+            // The legacy "Configure multiple access URL" entry is intentionally not
+            // listed here anymore: it's reachable from the button on the Multi URLs
+            // dashboard itself (assets/vue/views/admin/MultiUrlList.vue), so this
+            // panel only needs the one entry point into that feature.
             $items[] = [
                 'class' => 'item-access-url',
-                'url' => '/main/admin/access_urls.php',
-                'label' => $this->translator->trans('Configure multiple access URL'),
+                'route' => ['name' => 'AdminMultiUrlList'],
+                'label' => $this->translator->trans('Multi URLs'),
             ];
         }
 
@@ -657,13 +664,9 @@ class IndexBlocksController extends BaseController
             'label' => $this->translator->trans('Clean temporary files'),
         ];
 
-        /*$items[] = [
-            'url' => '/main/admin/periodic_export.php',
-            'label' => $this->translator->$this->trans('Periodic export'),
-        ];*/
         $items[] = [
             'class' => 'item-system-status',
-            'url' => '/main/admin/system_status.php',
+            'route' => ['name' => 'AdminSystemStatus'],
             'label' => $this->translator->trans('System status'),
         ];
         $items[] = [
@@ -1035,13 +1038,13 @@ class IndexBlocksController extends BaseController
         if (api_is_admin_in_all_active_urls()) {
             $items[] = [
                 'className' => 'item-health-check-admin-urls text-success',
-                'url' => '/main/admin/access_urls.php',
+                'url' => '/admin/urls/manage',
                 'label' => $this->translator->trans('All URLs have at least one admin assigned'),
             ];
         } else {
             $items[] = [
                 'className' => 'item-health-check-admin-urls text-error',
-                'url' => '/main/admin/access_url_edit_users_to_url.php',
+                'url' => '/admin/urls/assign-users',
                 'label' => $this->translator->trans('At least one URL has no admin assigned'),
             ];
         }

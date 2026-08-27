@@ -279,6 +279,8 @@ define('LOG_PLATFORM_LANGUAGE', 'default_platform_language');
 define('LOG_PLUGIN_UPLOAD', 'plugin_upload');
 define('LOG_PLUGIN_ENABLE', 'plugin_enable');
 define('LOG_PLUGIN_SETTINGS_CHANGE', 'plugin_settings_change');
+define('LOG_SECURITY_FILE_INTEGRITY_SCAN', 'security_file_integrity_scan');
+define('LOG_SECURITY_FILE_INTEGRITY_SCAN_RESULT', 'security_file_integrity_scan_result_array');
 define('LOG_CAREER_ID', 'career_id');
 define('LOG_PROMOTION_ID', 'promotion_id');
 define('LOG_GRADEBOOK_LOCKED', 'gradebook_locked');
@@ -389,6 +391,7 @@ define('LINK_ATTENDANCE', 7);
 define('LINK_SURVEY', 8);
 define('LINK_HOTPOTATOES', 9);
 define('LINK_PORTFOLIO', 10);
+define('LINK_FORUM_PARTICIPATION', 11);
 
 // Score display types constants
 define('SCORE_DIV', 1); // X / Y
@@ -5724,8 +5727,18 @@ function api_global_admin_can_edit_admin(
     $iam_a_global_admin = api_is_global_platform_admin($userId);
     $user_is_global_admin = api_is_global_platform_admin($admin_id_to_check);
 
+    // A global admin who is not registered in the topmost URL of a tree (i.e. scoped to a
+    // subtree) must not be able to edit ANOTHER global admin -- that would let them, for
+    // example, change the password of an unrestricted admin and take over that account.
+    // Editing their own profile is unaffected either way.
+    if ($iam_a_global_admin && $user_is_global_admin && (int) $admin_id_to_check !== (int) $userId) {
+        $currentUser = api_get_user_entity($userId);
+
+        return null !== $currentUser && Container::getAccessUrlScopeHelper()->isUnrestricted($currentUser);
+    }
+
     if ($iam_a_global_admin) {
-        // Global admin can edit everything
+        // Global admin can edit everything else.
         return true;
     }
 
@@ -5779,6 +5792,28 @@ function api_protect_global_admin_script()
     }
 
     return true;
+}
+
+/**
+ * Whether the given user (the current user, by default) may grant ROLE_GLOBAL_ADMIN to
+ * someone else, or to themselves: only a global admin registered in the topmost access URL
+ * of a tree may do this -- one scoped to a subtree may not, even though they hold the role
+ * themselves.
+ *
+ * @param int $userId
+ *
+ * @return bool
+ */
+function api_can_grant_global_admin_role($userId = 0)
+{
+    $userId = empty($userId) ? api_get_user_id() : (int) $userId;
+    $user = api_get_user_entity($userId);
+
+    if (null === $user) {
+        return false;
+    }
+
+    return Container::getAccessUrlScopeHelper()->canGrantGlobalAdminRole($user);
 }
 
 /**
@@ -6027,11 +6062,32 @@ function api_is_multiple_url_enabled(): bool
 /**
  * Returns a md5 unique id.
  *
+ * The value is derived from the current time and is therefore predictable, so
+ * it must not be used as a secret. For security tokens (password reset, e-mail
+ * confirmation, ...) use api_generate_secure_token() instead.
+ *
  * @todo add more parameters
  */
 function api_get_unique_id()
 {
     return md5(time().uniqid().api_get_user_id().api_get_course_id().api_get_session_id());
+}
+
+/**
+ * Generates a cryptographically secure, unpredictable random token, suitable
+ * for use as a secret (password reset links, e-mail confirmation links, ...).
+ *
+ * Unlike api_get_unique_id(), the returned value is not derived from the clock.
+ *
+ * @param int $bytes Number of random bytes to read (a floor of 16 is enforced)
+ *
+ * @return string
+ */
+function api_generate_secure_token($bytes = 32)
+{
+    $bytes = max(16, (int) $bytes);
+
+    return bin2hex(random_bytes($bytes));
 }
 
 /**

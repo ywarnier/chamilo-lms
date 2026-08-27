@@ -11,26 +11,20 @@ use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\ResourceNode;
 use Chamilo\CoreBundle\Entity\Session;
-use Chamilo\CoreBundle\Entity\SessionRelCourse;
 use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CourseBundle\Entity\CGroup;
 use Doctrine\ORM\EntityManagerInterface;
 use JsonException;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 use const JSON_THROW_ON_ERROR;
 
 trait LearningPathStateHelperTrait
 {
-    private const string ACTION_TOKEN_INTENTION = 'learning_path_action';
-
     /**
      * @return array<string, mixed>
      */
@@ -47,24 +41,6 @@ trait LearningPathStateHelperTrait
         }
 
         return $data;
-    }
-
-    private function validateActionToken(CsrfTokenManagerInterface $csrfTokenManager, mixed $token): void
-    {
-        if (!\is_string($token) || '' === trim($token)) {
-            throw new BadRequestHttpException('Missing CSRF token.');
-        }
-
-        if (!$csrfTokenManager->isTokenValid(new CsrfToken(self::ACTION_TOKEN_INTENTION, $token))) {
-            throw new AccessDeniedHttpException('Invalid CSRF token.');
-        }
-    }
-
-    private function isStudentViewRequest(RequestStack $requestStack): bool
-    {
-        $value = strtolower(trim((string) $requestStack->getCurrentRequest()?->query->get('isStudentView', 'false')));
-
-        return \in_array($value, ['1', 'true', 'yes', 'on'], true);
     }
 
     private function assertLearningPathTeacher(Security $security): void
@@ -86,53 +62,21 @@ trait LearningPathStateHelperTrait
             || $security->isGranted('ROLE_CURRENT_COURSE_SESSION_TEACHER');
     }
 
-    private function getContextCourse(EntityManagerInterface $entityManager, Request $request): Course
+    /**
+     * SessionVoter proves the course/session pairing for students and course coaches, but not
+     * for general coaches or admins. Assert it before persisting a resource link, so an
+     * unrelated pair can never be written.
+     */
+    private function assertSessionBelongsToCourse(?Session $session, Course $course): void
     {
-        $courseId = $request->query->getInt('cid');
-        if ($courseId <= 0) {
-            throw new BadRequestHttpException('Missing course id.');
+        if (!$session instanceof Session || $session->hasCourse($course)) {
+            return;
         }
 
-        $course = $entityManager->getRepository(Course::class)->find($courseId);
-        if (!$course instanceof Course) {
-            throw new NotFoundHttpException('Course not found.');
-        }
-
-        return $course;
+        throw new AccessDeniedHttpException('The requested session is not linked to this course.');
     }
 
-    private function getContextSession(EntityManagerInterface $entityManager, Request $request, Course $course): ?Session
-    {
-        $sessionId = $request->query->getInt('sid');
-        if ($sessionId <= 0) {
-            return null;
-        }
-
-        $session = $entityManager->getRepository(Session::class)->find($sessionId);
-        if (!$session instanceof Session) {
-            throw new NotFoundHttpException('Session not found.');
-        }
-
-        $sessionCourse = $entityManager->getRepository(SessionRelCourse::class)->findOneBy([
-            'course' => $course,
-            'session' => $session,
-        ]);
-
-        if (!$sessionCourse instanceof SessionRelCourse) {
-            throw new AccessDeniedHttpException('The requested session is not linked to this course.');
-        }
-
-        return $session;
-    }
-
-    private function getContextGroup(EntityManagerInterface $entityManager, Request $request, Course $course): ?CGroup
-    {
-        $groupId = $request->query->getInt('gid');
-
-        return $groupId > 0 ? $this->findValidatedGroup($entityManager, $groupId, $course) : null;
-    }
-
-    private function getValidatedGroupFromContext(
+    private function getContextGroup(
         EntityManagerInterface $entityManager,
         CidReqHelper $cidReqHelper,
         Course $course,

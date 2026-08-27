@@ -171,8 +171,8 @@
 <script setup>
 import { computed, reactive, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
-import { useToast } from "primevue/usetoast"
 import { useRoute } from "vue-router"
+import { useNotification } from "../../composables/notification"
 import { useConfirmation } from "../../composables/useConfirmation"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseCard from "../../components/basecomponents/BaseCard.vue"
@@ -186,7 +186,7 @@ import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue"
 import portfolioService from "../../services/portfolioService"
 
 const { t } = useI18n()
-const toast = useToast()
+const { showSuccessNotification, showWarningNotification, showErrorNotification } = useNotification()
 const route = useRoute()
 const { requireConfirmation } = useConfirmation()
 
@@ -195,7 +195,7 @@ const isSaving = ref(false)
 const errorMessage = ref("")
 const dialogVisible = ref(false)
 const editingId = ref(null)
-const data = reactive({ categories: [], tags: [], canManageCategories: false, canManageTags: false, csrfTokenValue: "" })
+const data = reactive({ categories: [], tags: [], canManageCategories: false, canManageTags: false })
 const editor = reactive({ title: "", description: "", parentId: null, visible: true })
 const descriptionEditorConfig = { toolbar: "undo redo | bold italic underline | bullist numlist | link unlink", menubar: false, height: 180 }
 
@@ -265,7 +265,7 @@ async function loadData() {
 
 async function saveEntity() {
   if (!editor.title.trim()) {
-    toast.add({ severity: "warn", summary: t("Warning"), detail: t("Title is required"), life: 4000 })
+    showWarningNotification(t("Title is required"))
     return
   }
   isSaving.value = true
@@ -278,15 +278,14 @@ async function saveEntity() {
         title: editor.title,
         description: editor.description,
         visible: editor.visible,
-        csrfToken: data.csrfTokenValue,
       },
       contextParams(),
     )
     dialogVisible.value = false
-    toast.add({ severity: "success", summary: t("Success"), detail: t("Saved"), life: 3000 })
+    showSuccessNotification(t("Saved"))
     await loadData()
   } catch (error) {
-    toast.add({ severity: "error", summary: t("Error"), detail: errorText(error), life: 5000 })
+    showErrorNotification(error)
   } finally {
     isSaving.value = false
   }
@@ -294,13 +293,10 @@ async function saveEntity() {
 
 async function toggleCategory(row) {
   try {
-    await portfolioService.managementAction(
-      { action: "toggle_category", entityId: row.id, csrfToken: data.csrfTokenValue },
-      contextParams(),
-    )
+    await portfolioService.managementAction({ action: "toggle_category", entityId: row.id }, contextParams())
     await loadData()
   } catch (error) {
-    toast.add({ severity: "error", summary: t("Error"), detail: errorText(error), life: 5000 })
+    showErrorNotification(error)
   }
 }
 
@@ -313,14 +309,13 @@ function confirmDelete(row) {
           {
             action: isCategories.value ? "delete_category" : "delete_tag",
             entityId: row.id,
-            csrfToken: data.csrfTokenValue,
           },
           contextParams(),
         )
-        toast.add({ severity: "success", summary: t("Success"), detail: t("Deleted"), life: 3000 })
+        showSuccessNotification(t("Deleted"))
         await loadData()
       } catch (error) {
-        toast.add({ severity: "error", summary: t("Error"), detail: errorText(error), life: 5000 })
+        showErrorNotification(error)
       }
     },
   })

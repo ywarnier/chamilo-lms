@@ -40,7 +40,7 @@
               :label="t('Add')"
               only-icon
               size="normal"
-              :route="{ name: 'TicketCreate', query: { project_id: String(selectedProjectId) } }"
+              :route="{ name: 'TicketCreate', query: ticketCreateQuery }"
               type="success"
             />
 
@@ -86,6 +86,11 @@
           </div>
         </template>
       </BaseToolbar>
+
+      <BaseRouteTabs
+        :selected-tab="selectedTicketTab"
+        :tabs="ticketTabs"
+      />
 
       <form
         v-if="isSearchVisible"
@@ -142,7 +147,7 @@
             name="ticket_status_id"
             option-label="label"
             option-value="id"
-            :options="statuses"
+            :options="statusFilterOptions"
           />
 
           <BaseSelect
@@ -258,7 +263,7 @@
               <div class="min-w-0">
                 <router-link
                   class="break-words font-semibold text-primary hover:underline"
-                  :to="{ name: 'TicketDetail', params: { id: data.id } }"
+                  :to="{ name: 'TicketDetail', params: { id: data.id }, query: route.query }"
                 >
                   {{ data.code }}
                 </router-link>
@@ -349,13 +354,14 @@
 </template>
 
 <script setup>
-import { computed, onMounted, reactive, ref } from "vue"
+import { computed, onMounted, reactive, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
 import { useRoute, useRouter } from "vue-router"
 import Column from "primevue/column"
 import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
 import BaseInputText from "../../components/basecomponents/BaseInputText.vue"
+import BaseRouteTabs from "../../components/basecomponents/BaseRouteTabs.vue"
 import BaseSelect from "../../components/basecomponents/BaseSelect.vue"
 import BaseTable from "../../components/basecomponents/BaseTable.vue"
 import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue"
@@ -388,7 +394,6 @@ const isAdmin = ref(false)
 const canViewAll = ref(false)
 const canCreate = ref(false)
 const selectedProjectId = ref(0)
-const csrfToken = ref("")
 
 const emptyFilters = () => ({
   projectId: Number(route.query.project_id || 0) || null,
@@ -404,6 +409,53 @@ const emptyFilters = () => ({
 
 const filters = reactive(emptyFilters())
 const pendingFilters = reactive(emptyFilters())
+
+const ticketView = computed(() => {
+  const requestedView = String(route.query.view || "")
+  if (requestedView === "closed" || requestedView === "active") {
+    return requestedView
+  }
+
+  return Number(route.query.status_id || 0) === 4 ? "closed" : "active"
+})
+
+const selectedTicketTab = computed(() => (ticketView.value === "closed" ? 1 : 0))
+
+const ticketTabs = computed(() => [
+  {
+    title: t("Active"),
+    to: { name: "TicketList", query: buildTicketTabQuery("active") },
+  },
+  {
+    title: t("Closed"),
+    to: { name: "TicketList", query: buildTicketTabQuery("closed") },
+  },
+])
+
+const statusFilterOptions = computed(() =>
+  statuses.value.filter((status) => {
+    const isClosed = Number(status.id) === 4 || String(status.code) === "4"
+    return ticketView.value === "closed" ? isClosed : !isClosed
+  }),
+)
+
+const ticketContextQuery = computed(() => {
+  const query = {}
+  const courseId = Number(route.query.cid || route.query.course_id || 0)
+  const sessionId = Number(route.query.sid || route.query.session_id || 0)
+  const groupId = Number(route.query.gid || 0)
+
+  if (courseId > 0) query.cid = String(courseId)
+  if (sessionId > 0) query.sid = String(sessionId)
+  if (groupId > 0) query.gid = String(groupId)
+
+  return query
+})
+
+const ticketCreateQuery = computed(() => ({
+  ...ticketContextQuery.value,
+  project_id: String(selectedProjectId.value),
+}))
 
 const assigneeOptions = computed(() => [
   {
@@ -428,7 +480,10 @@ const hasActiveFilters = computed(() =>
 )
 
 const exportUrl = computed(() => {
-  const params = new URLSearchParams({ projectId: String(selectedProjectId.value) })
+  const params = new URLSearchParams({
+    projectId: String(selectedProjectId.value),
+    view: ticketView.value,
+  })
   if (filters.keyword) params.set("keyword", filters.keyword)
   if (filters.categoryId) params.set("categoryId", String(filters.categoryId))
   if (filters.statusId) params.set("statusId", String(filters.statusId))
@@ -443,6 +498,17 @@ const exportUrl = computed(() => {
 
 onMounted(loadTickets)
 
+watch(ticketView, (view, previousView) => {
+  if (view === previousView) {
+    return
+  }
+
+  filters.statusId = null
+  pendingFilters.statusId = null
+  currentPage.value = 1
+  loadTickets()
+})
+
 async function loadTickets() {
   isLoading.value = true
   errorMessage.value = ""
@@ -450,6 +516,7 @@ async function loadTickets() {
   try {
     const response = await ticketService.getList({
       projectId: filters.projectId || undefined,
+      view: ticketView.value,
       page: currentPage.value,
       itemsPerPage: rows.value,
       keyword: filters.keyword || undefined,
@@ -475,7 +542,6 @@ async function loadTickets() {
     canViewAll.value = Boolean(response.canViewAll)
     canCreate.value = Boolean(response.canCreate)
     selectedProjectId.value = Number(response.projectId || 0)
-    csrfToken.value = response.csrfToken || ""
 
     if (!filters.projectId && selectedProjectId.value) {
       filters.projectId = selectedProjectId.value
@@ -540,8 +606,15 @@ function handleSort(event) {
   loadTickets()
 }
 
+function buildTicketTabQuery(view) {
+  const query = { ...route.query, view }
+  delete query.status_id
+
+  return query
+}
+
 function syncRouteQuery() {
-  const query = {}
+  const query = { ...ticketContextQuery.value, view: ticketView.value }
 
   if (filters.projectId) query.project_id = String(filters.projectId)
   if (filters.keyword) query.keyword = filters.keyword
@@ -567,7 +640,7 @@ async function closeOldTickets() {
   if (isClosingOldTickets.value) return
   isClosingOldTickets.value = true
   try {
-    const response = await ticketService.closeOldTickets(csrfToken.value)
+    const response = await ticketService.closeOldTickets()
     showSuccessNotification(`${response.message || t("Update successful")} (${Number(response.count || 0)})`)
     await loadTickets()
   } catch (error) {
@@ -597,12 +670,24 @@ function formatDate(value) {
     return "-"
   }
 
-  const intlLocale = String(locale.value || "en-US").replace(/_/g, "-")
+  // Only the first segment is a real BCP-47 primary language subtag (e.g.
+  // "fr" out of "fr_FR"). Some accounts carry a corrupted locale value (e.g.
+  // legacy "fr_69" instead of "fr_FR"), and passing that whole string to
+  // Intl.DateTimeFormat throws a RangeError that would otherwise crash this
+  // component's render with no visible error.
+  const intlLocale = String(locale.value || "en-US").split(/[_-]/)[0] || "en"
 
-  return new Intl.DateTimeFormat(intlLocale, {
-    dateStyle: "medium",
-    timeStyle: "short",
-  }).format(date)
+  try {
+    return new Intl.DateTimeFormat(intlLocale, {
+      dateStyle: "medium",
+      timeStyle: "short",
+    }).format(date)
+  } catch {
+    return new Intl.DateTimeFormat("en", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    }).format(date)
+  }
 }
 
 function statusClass(code) {

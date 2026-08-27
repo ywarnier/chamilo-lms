@@ -4,8 +4,11 @@
       <BaseButton
         class="exercise-question-toolbar__button"
         :label="backButtonLabel"
-        :route="learningPathContext ? null : { name: 'ExerciseList', params: route.params, query: getContextParams() }"
-        :to-url="learningPathContext ? learningPathBackUrl : null"
+        :route="
+          learningPathContext
+            ? learningPathBackRoute
+            : { name: 'ExerciseList', params: route.params, query: getContextParams() }
+        "
         icon="back"
         only-icon
         size="small"
@@ -292,7 +295,7 @@
                           </h3>
                           <div
                             class="prose prose-sm max-w-none text-gray-90"
-                            v-html="question.title"
+                            v-html="displayTranslatedHtml(question.title)"
                           />
                         </div>
                         <div class="text-sm font-semibold text-gray-70">
@@ -303,7 +306,7 @@
                       <div
                         v-if="hasHtmlContent(question.description)"
                         class="prose prose-sm max-w-none rounded bg-white p-3 text-gray-80"
-                        v-html="question.description"
+                        v-html="displayTranslatedHtml(question.description)"
                       />
 
                       <div
@@ -367,7 +370,7 @@
                                 <td class="border border-gray-20 px-2 py-2 align-top">
                                   <div
                                     class="prose prose-sm max-w-none"
-                                    v-html="item.answer"
+                                    v-html="displayTranslatedHtml(item.answer)"
                                   />
                                 </td>
                                 <td class="border border-gray-20 px-2 py-2 align-top">{{ t(item.hotspotTypeLabel || item.hotspotType) }}</td>
@@ -390,7 +393,7 @@
                       >
                         <div
                           class="prose prose-sm max-w-none rounded bg-white p-3 text-gray-80"
-                          v-html="question.fillBlanks.text"
+                          v-html="displayTranslatedHtml(question.fillBlanks.text)"
                         />
                         <div class="flex flex-wrap gap-2 text-xs font-semibold">
                           <span class="rounded-full bg-gray-15 px-2 py-1 text-gray-80">
@@ -444,7 +447,7 @@
                         <div
                           v-if="hasHtmlContent(question.fillBlanks.comment)"
                           class="prose prose-sm max-w-none rounded bg-white p-3 text-gray-80"
-                          v-html="question.fillBlanks.comment"
+                          v-html="displayTranslatedHtml(question.fillBlanks.comment)"
                         />
                       </div>
 
@@ -493,20 +496,20 @@
                                 <td class="border border-gray-20 px-2 py-2 align-top">
                                   <div
                                     class="prose prose-sm max-w-none"
-                                    v-html="pair.answer"
+                                    v-html="displayTranslatedHtml(pair.answer)"
                                   />
                                 </td>
                                 <td class="border border-gray-20 px-2 py-2 align-top">
                                   <span class="font-semibold text-gray-90">{{ pair.optionLabel }}</span>
                                   <div
                                     class="prose prose-sm max-w-none"
-                                    v-html="pair.optionAnswer"
+                                    v-html="displayTranslatedHtml(pair.optionAnswer)"
                                   />
                                 </td>
                                 <td class="border border-gray-20 px-2 py-2 align-top">
                                   <div
                                     class="prose prose-sm max-w-none"
-                                    v-html="pair.comment"
+                                    v-html="displayTranslatedHtml(pair.comment)"
                                   />
                                 </td>
                                 <td
@@ -553,7 +556,7 @@
                                 <td class="border border-gray-20 px-2 py-2 align-top">
                                   <div
                                     class="prose prose-sm max-w-none"
-                                    v-html="item.answer"
+                                    v-html="displayTranslatedHtml(item.answer)"
                                   />
                                 </td>
                                 <td class="border border-gray-20 px-2 py-2 text-center align-top">
@@ -605,13 +608,13 @@
                               <td class="border border-gray-20 px-2 py-2 align-top">
                                 <div
                                   class="prose prose-sm max-w-none"
-                                  v-html="answer.answer"
+                                  v-html="displayTranslatedHtml(answer.answer)"
                                 />
                               </td>
                               <td class="border border-gray-20 px-2 py-2 align-top">
                                 <div
                                   class="prose prose-sm max-w-none"
-                                  v-html="answer.comment"
+                                  v-html="displayTranslatedHtml(answer.comment)"
                                 />
                               </td>
                               <td class="border border-gray-20 px-2 py-2 text-right align-top">
@@ -641,10 +644,12 @@ import BaseButton from "../../components/basecomponents/BaseButton.vue"
 import BaseIcon from "../../components/basecomponents/BaseIcon.vue"
 import exerciseService from "../../services/exerciseService"
 import { useConfirmation } from "../../composables/useConfirmation"
+import { useTranslatedHtml } from "../../composables/useTranslatedHtml"
 
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const { displayTranslatedHtml } = useTranslatedHtml()
 const { requireConfirmation } = useConfirmation()
 
 const isLoading = ref(false)
@@ -656,7 +661,6 @@ const questionCount = ref(0)
 const totalScore = ref(0)
 const questionTypes = ref([])
 const questions = ref([])
-const csrfToken = ref("")
 const canRecycleQuestions = ref(true)
 const isReadOnlyFromLearningPath = ref(false)
 const learningPathReadOnlyMessage = ref(
@@ -670,7 +674,7 @@ const summaryText = computed(() =>
   formatTranslatedText("{0} questions, for a total score (all questions) of {1}.", [questionCount.value, formatScore(totalScore.value)]),
 )
 const learningPathContext = computed(() => isLearningPathContext())
-const learningPathBackUrl = computed(() => buildLearningPathBackUrl())
+const learningPathBackRoute = computed(() => buildLearningPathBackRoute())
 const backButtonLabel = computed(() => (learningPathContext.value ? t("Back to learning path") : t("Return to exercises list")))
 
 function getQueryValue(value) {
@@ -684,7 +688,19 @@ function getContextParams() {
     gid: getQueryValue(route.query.gid),
   }
 
-  for (const key of ["origin", "lp_id", "learnpath_id", "node", "type", "returnToLp", "isStudentView", "gradebook"]) {
+  for (const key of [
+    "origin",
+    "lp_id",
+    "learnpath_id",
+    "node",
+    "parent",
+    "lp_parent_id",
+    "lp_item_id",
+    "type",
+    "returnToLp",
+    "gradebook",
+    "lpTool",
+  ]) {
     const value = getQueryValue(route.query[key])
     if (value !== undefined && value !== null && String(value) !== "") {
       params[key] = value
@@ -702,20 +718,35 @@ function isLearningPathContext() {
   return lpId > 0 && (origin === "learnpath" || ["1", "true", "yes"].includes(returnToLp))
 }
 
-function buildLearningPathBackUrl() {
-  const params = new URLSearchParams()
-  params.set("action", "build")
-  params.set("type", getQueryValue(route.query.type) || "step")
-  params.set("lp_id", getQueryValue(route.query.lp_id) || getQueryValue(route.query.learnpath_id) || "0")
+function buildLearningPathBackRoute() {
+  const lpId = Number(getQueryValue(route.query.lp_id) || getQueryValue(route.query.learnpath_id) || 0)
+  const node = Number(getQueryValue(route.query.node) || route.params.node || 0)
+  const query = {}
 
-  for (const key of ["cid", "sid", "gid", "gradebook", "origin", "node", "isStudentView"]) {
+  for (const key of ["cid", "sid", "gid", "gradebook"]) {
     const value = getQueryValue(route.query[key])
     if (value !== undefined && value !== null && String(value) !== "") {
-      params.set(key, String(value))
+      query[key] = value
     }
   }
 
-  return `/main/lp/lp_controller.php?${params.toString()}#resource_tab-2`
+  query.lpTool = String(getQueryValue(route.query.lpTool) || "tests")
+
+  const parentId = Number(getQueryValue(route.query.lp_parent_id) || getQueryValue(route.query.parent) || 0)
+  if (parentId > 0) {
+    query.parent = parentId
+  }
+
+  const lpItemId = Number(getQueryValue(route.query.lp_item_id) || 0)
+  if (lpItemId > 0) {
+    query.item_id = lpItemId
+  }
+
+  return {
+    name: "LpBuilder",
+    params: { node, lpId },
+    query,
+  }
 }
 
 function buildQueryString(params = {}) {
@@ -761,7 +792,7 @@ function isVueQuestionType(questionTypeOrId) {
     return true
   }
 
-  return [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31].includes(getQuestionTypeId(questionTypeOrId))
+  return [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31].includes(getQuestionTypeId(questionTypeOrId))
 }
 
 function questionTypeHelp(questionTypeOrId) {
@@ -1076,7 +1107,6 @@ async function runQuestionAction(payload) {
     await exerciseService.saveExerciseQuestionAction(
       {
         exerciseId,
-        submittedCsrfToken: csrfToken.value,
         ...payload,
       },
       getContextParams(),
@@ -1110,12 +1140,11 @@ async function finishLearningPathCreation() {
     await exerciseService.attachExerciseToLearningPath(
       {
         exerciseId,
-        submittedCsrfToken: csrfToken.value,
       },
       getContextParams(),
       exerciseId,
     )
-    window.location.href = learningPathBackUrl.value
+    await router.push(learningPathBackRoute.value)
   } catch (error) {
     console.error("Error adding exercise to learning path", error)
     errorMessage.value = error?.response?.data?.detail || error?.response?.data?.["hydra:description"] || t("Could not add the exercise to the learning path")
@@ -1143,7 +1172,6 @@ async function loadQuestionSelector() {
     questionTypes.value = Array.isArray(response.questionTypes) ? response.questionTypes : []
     questions.value = Array.isArray(response.questions) ? response.questions : []
     canRecycleQuestions.value = response.canRecycleQuestions !== false
-    csrfToken.value = response.csrfToken || ""
   } catch (error) {
     console.error("Error loading exercise questions", error)
     errorMessage.value = t("Could not load exercise questions")

@@ -13,20 +13,20 @@ use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\User;
-use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\CourseProgressHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
 use Chamilo\CourseBundle\Entity\CThematic;
 use Chamilo\CourseBundle\Entity\CThematicAdvance;
 use Chamilo\CourseBundle\Entity\CThematicPlan;
 use Chamilo\CourseBundle\Repository\CThematicRepository;
 use DateTimeInterface;
-use Doctrine\ORM\EntityManagerInterface;
 use IntlDateFormatter;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 use const COURSEMANAGERLOWSECURITY;
 use const ENT_QUOTES;
@@ -37,15 +37,13 @@ use const ENT_SUBSTITUTE;
  */
 final readonly class CourseProgressListProvider implements ProviderInterface
 {
-    use CourseProgressAccessHelperTrait;
-
     public function __construct(
+        private CidReqHelper $cidReqHelper,
+        private StudentViewHelper $studentViewHelper,
         private RequestStack $requestStack,
-        private EntityManagerInterface $entityManager,
         private CThematicRepository $thematicRepository,
         private Security $security,
-        private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
+        private CourseProgressHelper $courseProgressHelper,
     ) {}
 
     /**
@@ -59,23 +57,18 @@ final readonly class CourseProgressListProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getCourseProgressCourse($request, $this->entityManager);
-        $this->assertCourseProgressToolEnabled($this->entityManager, $course);
-        $session = $this->getCourseProgressSession($request, $this->entityManager);
-        $this->assertSessionBelongsToCourse($session, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->courseProgressHelper->assertToolEnabled($course);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->courseProgressHelper->assertSessionBelongsToCourse($session, $course);
 
-        if (!$this->canReadCourseProgress($this->security, $this->settingsManager, $course, $session)) {
+        if (!$this->courseProgressHelper->canRead($course, $session)) {
             throw new AccessDeniedHttpException('You are not allowed to view course progress in this context.');
         }
 
-        $studentView = $this->isCourseProgressStudentView($request, (int) $course->getId());
-        $canManage = !$studentView && $this->canManageCourseProgress(
-            $this->entityManager,
-            $this->security,
-            $this->settingsManager,
-            $course,
-            $session,
-        );
+        // The helper already denies the student view, so the flag is only reported, not applied.
+        $studentView = $this->studentViewHelper->isActive();
+        $canManage = $this->courseProgressHelper->canManage($course, $session);
 
         $list = new CourseProgressList();
         $list->courseId = (int) $course->getId();
@@ -83,12 +76,6 @@ final readonly class CourseProgressListProvider implements ProviderInterface
         $list->canManage = $canManage;
         $list->studentView = $studentView;
         $list->totalAverage = $this->thematicRepository->calculateTotalAverageForCourse($course, $session);
-        $list->csrfToken = $canManage
-            ? (string) $this->csrfTokenManager->getToken(CourseProgressThematicProvider::CSRF_TOKEN_ID)
-            : '';
-        $list->completionCsrfToken = $canManage
-            ? (string) $this->csrfTokenManager->getToken(CourseProgressCompletionProcessor::CSRF_TOKEN_ID)
-            : '';
 
         $dateFormatter = $this->createDateFormatter($request);
         $thematics = $this->thematicRepository->getThematicListForCourse($course, $session);
@@ -144,7 +131,7 @@ final readonly class CourseProgressListProvider implements ProviderInterface
         }
 
         $sourceSession = $contextLink?->getSession();
-        $belongsToExactContext = $this->thematicBelongsToExactContext($thematic, $course, $session);
+        $belongsToExactContext = $this->courseProgressHelper->thematicBelongsToExactContext($thematic, $course, $session);
         $canEdit = $canManage
             && $belongsToExactContext
             && null !== $resourceNode

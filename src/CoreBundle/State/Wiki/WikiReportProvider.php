@@ -8,12 +8,13 @@ namespace Chamilo\CoreBundle\State\Wiki;
 
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
-use Chamilo\CoreBundle\ApiResource\Wiki\WikiPageAction;
 use Chamilo\CoreBundle\ApiResource\Wiki\WikiReport;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\User;
-use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\StudentViewHelper;
+use Chamilo\CoreBundle\Helpers\WikiHelper;
 use Chamilo\CourseBundle\Entity\CGroup;
 use Chamilo\CourseBundle\Entity\CWiki;
 use Chamilo\CourseBundle\Entity\CWikiCategory;
@@ -29,7 +30,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 use const DATE_ATOM;
 
@@ -38,8 +38,6 @@ use const DATE_ATOM;
  */
 final readonly class WikiReportProvider implements ProviderInterface
 {
-    use WikiAccessHelperTrait;
-
     private const string REPORT_ALL = 'all';
     private const string REPORT_RECENT = 'recent';
     private const string REPORT_SEARCH = 'search';
@@ -56,14 +54,15 @@ final readonly class WikiReportProvider implements ProviderInterface
     private const int MAX_ITEMS_PER_PAGE = 100;
 
     public function __construct(
+        private CidReqHelper $cidReqHelper,
+        private StudentViewHelper $studentViewHelper,
         private RequestStack $requestStack,
         private EntityManagerInterface $entityManager,
         private CWikiRepository $wikiRepository,
         private Security $security,
-        private SettingsManager $settingsManager,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private WikiPageRenderer $renderer,
         private WikiCategoryService $categoryService,
+        private WikiHelper $wikiHelper,
     ) {}
 
     /**
@@ -77,23 +76,20 @@ final readonly class WikiReportProvider implements ProviderInterface
             throw new BadRequestHttpException('The current request is required.');
         }
 
-        $course = $this->getWikiCourse($this->entityManager, $request);
-        $this->assertWikiToolEnabled($this->entityManager, $course);
-        $nodeId = $this->assertWikiRouteNode($course, $request);
-        $session = $this->getWikiSession($this->entityManager, $request);
-        $this->assertWikiSessionBelongsToCourse($session, $course);
-        $group = $this->getWikiGroup($this->entityManager, $request);
-        $this->assertWikiGroupBelongsToContext($group, $course, $session);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $this->wikiHelper->assertToolEnabled($course);
+        $nodeId = $this->wikiHelper->assertRouteNode($course, $request);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->wikiHelper->assertSessionBelongsToCourse($session, $course);
+        $group = $this->cidReqHelper->getDoctrineGroupEntity();
+        $this->wikiHelper->assertGroupBelongsToContext($group, $course, $session);
 
-        if (!$this->canReadWikiContext($this->security, $this->settingsManager, $course, $session, $group)) {
+        if (!$this->wikiHelper->canRead($course, $session, $group)) {
             throw new AccessDeniedHttpException('You are not allowed to read Wiki reports in this context.');
         }
 
-        $studentView = $this->isWikiStudentView($request);
-        $canManage = !$studentView && $this->canManageWikiContext(
-            $this->entityManager,
-            $this->security,
-            $this->settingsManager,
+        $studentView = $this->studentViewHelper->isActive();
+        $canManage = !$studentView && $this->wikiHelper->canManage(
             $course,
             $session,
             $group,
@@ -117,10 +113,7 @@ final readonly class WikiReportProvider implements ProviderInterface
         $taskPageIds = $this->getTaskPageIds($courseId, $latestVersions);
         $users = $this->getUsersById($allVersions);
         $addLock = $this->wikiRepository->findContextAddLock($courseId, $groupId, $sessionId);
-        $canCreate = !$studentView && $this->canCreateWikiPage(
-            $this->entityManager,
-            $this->security,
-            $this->settingsManager,
+        $canCreate = !$studentView && $this->wikiHelper->canCreatePage(
             $course,
             $session,
             $group,
@@ -148,11 +141,7 @@ final readonly class WikiReportProvider implements ProviderInterface
                 $groupId,
                 (int) $currentUser->getId(),
             );
-        $report->managementCsrfToken = $canManage
-            ? (string) $this->csrfTokenManager->getToken(WikiPageAction::CSRF_TOKEN_ID)
-            : '';
-        $categoriesEnabled = $this->isWikiCourseSettingEnabled(
-            $this->entityManager,
+        $categoriesEnabled = $this->wikiHelper->isCourseSettingEnabled(
             $course,
             'wiki_categories_enabled',
             false,
@@ -161,10 +150,7 @@ final readonly class WikiReportProvider implements ProviderInterface
         $report->categoriesEnabled = $categoriesEnabled;
         $report->canManageCategories = $categoriesEnabled
             && !$studentView
-            && $this->canManageWikiContext(
-                $this->entityManager,
-                $this->security,
-                $this->settingsManager,
+            && $this->wikiHelper->canManage(
                 $course,
                 $session,
                 null,
@@ -531,10 +517,7 @@ final readonly class WikiReportProvider implements ProviderInterface
             'visible' => 1 === $wiki->getVisibility(),
             'canEdit' => $allowEdit
                 && !$studentView
-                && $this->canEditWikiPage(
-                    $this->entityManager,
-                    $this->security,
-                    $this->settingsManager,
+                && $this->wikiHelper->canEditPage(
                     $course,
                     $session,
                     $group,

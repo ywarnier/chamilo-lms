@@ -289,6 +289,7 @@
               />
 
               <BaseSelect
+                v-if="gradebookCategoryOptions.length > 1"
                 id="category_id"
                 v-model="form.gradebookCategoryId"
                 :disabled="!form.gradebookEnabled"
@@ -359,7 +360,6 @@
           >
             {{ t("Profile field selection is available only for non-anonymous surveys.") }}
           </div>
-
         </div>
       </BaseAdvancedSettingsButton>
 
@@ -424,7 +424,6 @@ const firstInvalidFieldId = ref("")
 const questionUrl = ref("")
 const settings = ref({})
 const options = ref({})
-const csrfToken = ref("")
 const showAdvancedSettings = ref(false)
 
 const form = ref(createEmptyForm())
@@ -502,7 +501,6 @@ function getContextParams(extra = {}) {
     lpItemId: getQueryValue(route.query.lpItemId || route.query.lp_item_id),
     type: getQueryValue(route.query.type),
     returnToLp: getQueryValue(route.query.returnToLp),
-    isStudentView: getQueryValue(route.query.isStudentView),
     parent: getQueryValue(route.query.parent),
     node: getQueryValue(route.query.node),
     gradebook: getQueryValue(route.query.gradebook),
@@ -606,6 +604,24 @@ function requiredLabel(label) {
   return `${label} *`
 }
 
+function getApiErrorMessage(error, fallbackMessage) {
+  const data = error?.response?.data
+
+  if (typeof data?.error === "string" && data.error.trim()) {
+    return data.error
+  }
+
+  if (typeof data?.detail === "string" && data.detail.trim()) {
+    return data.detail
+  }
+
+  if (typeof data?.message === "string" && data.message.trim()) {
+    return data.message
+  }
+
+  return fallbackMessage
+}
+
 function toDate(value) {
   if (!value) {
     return null
@@ -666,7 +682,9 @@ function normalizeForm(data) {
 
   settings.value = data.settings || {}
   options.value = data.options || {}
-  csrfToken.value = data.csrfToken || ""
+  if (!form.value.gradebookCategoryId && gradebookCategoryOptions.value.length) {
+    form.value.gradebookCategoryId = gradebookCategoryOptions.value[0].value
+  }
   questionUrl.value = data.questionUrl || ""
 }
 
@@ -675,11 +693,14 @@ async function loadConfiguration() {
   errorMessage.value = ""
 
   try {
-    const data = await surveyService.getSurveyConfiguration(getContextParams(), isEditMode.value ? surveyId.value : null)
+    const data = await surveyService.getSurveyConfiguration(
+      getContextParams(),
+      isEditMode.value ? surveyId.value : null,
+    )
     normalizeForm(data)
   } catch (error) {
     console.error("Error loading survey configuration", error)
-    errorMessage.value = error?.response?.data?.detail || t("Could not load survey configuration")
+    errorMessage.value = getApiErrorMessage(error, t("Could not load survey configuration"))
   } finally {
     isLoading.value = false
   }
@@ -740,7 +761,6 @@ function buildPayload() {
     duration: durationValue.value > 0 ? durationValue.value : null,
     availableFrom: toPayloadDate(form.value.availableFrom),
     availableUntil: toPayloadDate(form.value.availableUntil),
-    csrfToken: csrfToken.value,
   }
 
   if (payload.anonymous || !payload.showFormProfile) {
@@ -793,7 +813,6 @@ async function submitForm() {
     )
 
     questionUrl.value = saved.questionUrl || questionUrl.value
-    csrfToken.value = saved.csrfToken || csrfToken.value
 
     if (isEditMode.value && isLearningPathContext.value) {
       await router.push(buildLearningPathBuilderRoute())
@@ -824,7 +843,7 @@ async function submitForm() {
     await scrollToFeedback("success")
   } catch (error) {
     console.error("Error saving survey configuration", error)
-    errorMessage.value = error?.response?.data?.detail || t("Could not save survey configuration")
+    errorMessage.value = getApiErrorMessage(error, t("Could not save survey configuration"))
     await scrollToFeedback()
   } finally {
     isSaving.value = false

@@ -230,7 +230,6 @@ const route = useRoute()
 const { requireConfirmation } = useConfirmation()
 
 const categories = ref([])
-const csrfToken = ref("")
 const isLoading = ref(false)
 const isSaving = ref(false)
 const isImporting = ref(false)
@@ -274,7 +273,6 @@ async function loadCategories() {
   try {
     const response = await exerciseService.getExerciseCategories(props.categoryType, getContextParams())
     categories.value = Array.isArray(response.items) ? response.items : []
-    csrfToken.value = response.csrfToken || ""
   } catch (error) {
     console.error("Error loading exercise categories", error)
     errorMessage.value = t("Could not load categories")
@@ -379,7 +377,6 @@ async function importCategories() {
       {
         action: "import_csv",
         csvContent,
-        submittedCsrfToken: csrfToken.value,
       },
       getContextParams(),
     )
@@ -394,7 +391,7 @@ async function importCategories() {
   } catch (error) {
     console.error("Error importing exercise categories", error)
     errorMessage.value =
-      error?.response?.data?.hydra?.description || error?.response?.data?.detail || t("Could not import categories")
+      error?.response?.data?.detail || error?.response?.data?.["hydra:description"] || t("Could not import categories")
   } finally {
     isImporting.value = false
   }
@@ -419,7 +416,6 @@ async function saveCategory() {
         categoryId: editingCategoryId.value,
         categoryTitle: title,
         description: form.description,
-        submittedCsrfToken: csrfToken.value,
       },
       getContextParams(),
     )
@@ -427,7 +423,8 @@ async function saveCategory() {
     await loadCategories()
   } catch (error) {
     console.error("Error saving exercise category", error)
-    errorMessage.value = error?.response?.data?.hydra?.description || error?.response?.data?.detail || t("Could not save category")
+    errorMessage.value =
+      error?.response?.data?.detail || error?.response?.data?.["hydra:description"] || t("Could not save category")
   } finally {
     isSaving.value = false
   }
@@ -451,14 +448,14 @@ async function deleteCategory(category) {
       {
         action: "delete",
         categoryId: Number(category.id || 0),
-        submittedCsrfToken: csrfToken.value,
       },
       getContextParams(),
     )
     await loadCategories()
   } catch (error) {
     console.error("Error deleting exercise category", error)
-    errorMessage.value = error?.response?.data?.hydra?.description || error?.response?.data?.detail || t("Could not delete category")
+    errorMessage.value =
+      error?.response?.data?.detail || error?.response?.data?.["hydra:description"] || t("Could not delete category")
   } finally {
     isSaving.value = false
   }

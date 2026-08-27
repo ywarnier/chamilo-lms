@@ -9,11 +9,9 @@ namespace Chamilo\CoreBundle\State\Forum;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
 use Chamilo\CoreBundle\ApiResource\Forum\ForumGradingOptions;
-use Chamilo\CoreBundle\Entity\GradebookCategory;
-use Chamilo\CoreBundle\Repository\GradeBookCategoryRepository;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\RequestStack;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 /**
@@ -24,10 +22,9 @@ final class ForumGradingOptionsProvider implements ProviderInterface
     use ForumStateHelperTrait;
 
     public function __construct(
-        private readonly RequestStack $requestStack,
-        private readonly EntityManagerInterface $entityManager,
-        private readonly Security $security,
-        private readonly GradeBookCategoryRepository $gradeBookCategoryRepository,
+        private readonly GradebookLinkManager $gradebookLinkManager,
+        private readonly CidReqHelper $cidReqHelper,
+        private readonly IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     /**
@@ -36,58 +33,21 @@ final class ForumGradingOptionsProvider implements ProviderInterface
      */
     public function provide(Operation $operation, array $uriVariables = [], array $context = []): ForumGradingOptions
     {
-        $request = $this->requestStack->getCurrentRequest();
-        if (null === $request) {
-            return ForumGradingOptions::fromCategories([]);
-        }
-
-        if (!$this->canManageForumsInCurrentView($this->security, $request)) {
+        if (!$this->isAllowedToEditHelper->check(coach: true)) {
             throw new AccessDeniedHttpException('You are not allowed to manage forum grading.');
         }
 
-        $course = $this->getCourse($this->entityManager, $request);
-        $session = $this->getSession($this->entityManager, $request);
-        $courseId = (int) $course->getId();
-        $sessionId = null === $session ? null : (int) $session->getId();
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
 
-        $this->gradeBookCategoryRepository->createDefaultCategory($courseId, $sessionId);
-
-        return ForumGradingOptions::fromCategories(
-            $this->formatGradebookCategories(
-                $this->gradeBookCategoryRepository->getCategoriesForCourse($courseId, $sessionId)
-            )
+        $categories = array_map(
+            static fn (array $option): array => [
+                'id' => $option['value'],
+                'title' => $option['label'],
+            ],
+            $this->gradebookLinkManager->getCategoryOptions($course, $session),
         );
-    }
 
-    /**
-     * @param GradebookCategory[] $categories
-     *
-     * @return array<int, array<string, mixed>>
-     */
-    private function formatGradebookCategories(array $categories): array
-    {
-        $options = [];
-        foreach ($categories as $category) {
-            if (!$category instanceof GradebookCategory) {
-                continue;
-            }
-
-            $options[] = [
-                'id' => $category->getId(),
-                'title' => $this->getGradebookCategoryLabel($category),
-            ];
-        }
-
-        return $options;
-    }
-
-    private function getGradebookCategoryLabel(GradebookCategory $category): string
-    {
-        $parent = $category->getParent();
-        if ($parent instanceof GradebookCategory) {
-            return $parent->getTitle().' / '.$category->getTitle();
-        }
-
-        return 'Default';
+        return ForumGradingOptions::fromCategories($categories);
     }
 }

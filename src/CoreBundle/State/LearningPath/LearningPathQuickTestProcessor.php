@@ -10,6 +10,7 @@ use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\ApiResource\LearningPath\LearningPathBuilderQuickTestInput;
 use Chamilo\CoreBundle\Entity\ResourceLink;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
 use Chamilo\CoreBundle\Service\LearningPath\LearningPathQuickTestService;
 use Chamilo\CourseBundle\Entity\CDocument;
 use Chamilo\CourseBundle\Entity\CLp;
@@ -28,7 +29,6 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Lock\LockFactory;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /** @implements ProcessorInterface<LearningPathBuilderQuickTestInput, LearningPathBuilderQuickTestInput> */
 final readonly class LearningPathQuickTestProcessor implements ProcessorInterface
@@ -39,12 +39,12 @@ final readonly class LearningPathQuickTestProcessor implements ProcessorInterfac
         private EntityManagerInterface $entityManager,
         private RequestStack $requestStack,
         private Security $security,
-        private CsrfTokenManagerInterface $csrfTokenManager,
         private LockFactory $lockFactory,
         private CLpRepository $lpRepository,
         private CLpItemRepository $lpItemRepository,
         private CDocumentRepository $documentRepository,
         private LearningPathQuickTestService $quickTestService,
+        private CidReqHelper $cidReqHelper,
     ) {}
 
     /**
@@ -67,11 +67,11 @@ final readonly class LearningPathQuickTestProcessor implements ProcessorInterfac
         }
 
         $this->assertLearningPathTeacher($this->security);
-        $this->validateActionToken($this->csrfTokenManager, $data->csrfToken);
 
-        $course = $this->getContextCourse($this->entityManager, $request);
-        $session = $this->getContextSession($this->entityManager, $request, $course);
-        $group = $this->getContextGroup($this->entityManager, $request, $course);
+        $course = $this->cidReqHelper->requireDoctrineCourseEntity();
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->assertSessionBelongsToCourse($session, $course);
+        $group = $this->getContextGroup($this->entityManager, $this->cidReqHelper, $course);
 
         $lp = $this->lpRepository->find($data->lpId);
         if (!$lp instanceof CLp) {

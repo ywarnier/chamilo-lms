@@ -10,6 +10,7 @@ use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
 use ApiPlatform\OpenApi\Model\RequestBody;
@@ -31,25 +32,22 @@ use Symfony\Component\Serializer\Attribute\Groups;
                         required: true,
                         schema: ['type' => 'integer'],
                     ),
-                    new Parameter(
-                        name: 'cid',
-                        in: 'query',
-                        description: 'Course id',
-                        required: true,
-                        schema: ['type' => 'integer'],
-                    ),
-                    new Parameter(
-                        name: 'sid',
-                        in: 'query',
-                        description: 'Session id',
-                        required: false,
-                        schema: ['type' => 'integer'],
-                    ),
                 ],
             ),
             security: "is_granted('IS_AUTHENTICATED_FULLY')",
             name: 'get_forum_thread_grading',
             provider: ForumThreadGradingProvider::class,
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+            ],
         ),
         new Patch(
             uriTemplate: '/forum_threads/{threadId}/grading',
@@ -67,9 +65,8 @@ use Symfony\Component\Serializer\Attribute\Groups;
                                     'weight' => ['type' => 'number'],
                                     'title' => ['type' => 'string'],
                                     'peerQualify' => ['type' => 'boolean'],
-                                    'csrfToken' => ['type' => 'string'],
                                 ],
-                                'required' => ['enabled', 'csrfToken'],
+                                'required' => ['enabled'],
                             ],
                         ],
                     ]),
@@ -79,6 +76,21 @@ use Symfony\Component\Serializer\Attribute\Groups;
             input: ForumThreadGradingInput::class,
             read: false,
             name: 'update_forum_thread_grading',
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: ForumThreadGradingProcessor::class,
         ),
         new Patch(
@@ -93,9 +105,8 @@ use Symfony\Component\Serializer\Attribute\Groups;
                                 'properties' => [
                                     'userId' => ['type' => 'integer'],
                                     'score' => ['type' => 'number'],
-                                    'csrfToken' => ['type' => 'string'],
                                 ],
-                                'required' => ['userId', 'score', 'csrfToken'],
+                                'required' => ['userId', 'score'],
                             ],
                         ],
                     ]),
@@ -105,6 +116,21 @@ use Symfony\Component\Serializer\Attribute\Groups;
             input: ForumThreadScoreInput::class,
             read: false,
             name: 'save_forum_thread_score',
+            parameters: [
+                'cid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Course identifier',
+                    required: true,
+                ),
+                'sid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Session identifier',
+                ),
+                'gid' => new QueryParameter(
+                    schema: ['type' => 'integer'],
+                    description: 'Group identifier',
+                ),
+            ],
             processor: ForumThreadGradingProcessor::class,
         ),
     ],

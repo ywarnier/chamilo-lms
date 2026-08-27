@@ -1,5 +1,7 @@
 <template>
   <section class="space-y-6">
+    <SectionHeader :title="t('Wiki')" />
+
     <BaseToolbar class="border-b border-gray-25 bg-white">
       <template #start>
         <div class="flex items-center gap-2">
@@ -622,6 +624,8 @@ import BaseSelect from "../../components/basecomponents/BaseSelect.vue";
 import BaseTable from "../../components/basecomponents/BaseTable.vue";
 import BaseToolbar from "../../components/basecomponents/BaseToolbar.vue";
 import wikiService from "../../services/wikiService";
+import { useStudentViewRefresh } from "../../composables/useStudentViewRefresh"
+import SectionHeader from "../../components/layout/SectionHeader.vue"
 
 const { t } = useI18n();
 const route = useRoute();
@@ -910,7 +914,6 @@ function createEmptyReport() {
     allChangesSubscribed: false,
     categoriesEnabled: false,
     canManageCategories: false,
-    managementCsrfToken: "",
     page: 1,
     itemsPerPage: 20,
     totalItems: 0,
@@ -951,9 +954,6 @@ function getSharedQuery() {
     query.gid = gid;
   }
 
-  if (Object.prototype.hasOwnProperty.call(route.query, "isStudentView")) {
-    query.isStudentView = getQueryValue(route.query.isStudentView);
-  }
 
   return query;
 }
@@ -1187,11 +1187,7 @@ async function deletePage(item) {
   errorMessage.value = "";
 
   try {
-    await wikiService.deletePage(
-      Number(item.pageId),
-      getManagementParams(),
-      reportData.managementCsrfToken,
-    );
+    await wikiService.deletePage(Number(item.pageId), getManagementParams());
     await loadReport();
   } catch (error) {
     console.error("Error deleting Wiki page", error);
@@ -1209,7 +1205,6 @@ async function changeContextSubscription() {
     await wikiService.setContextSubscription(
       !reportData.allChangesSubscribed,
       getManagementParams(),
-      reportData.managementCsrfToken,
     );
     await loadReport();
   } catch (error) {
@@ -1232,10 +1227,7 @@ async function deleteWiki() {
   errorMessage.value = "";
 
   try {
-    await wikiService.deleteContext(
-      getManagementParams(),
-      reportData.managementCsrfToken,
-    );
+    await wikiService.deleteContext(getManagementParams());
     await router.push(getPageRoute("index"));
   } catch (error) {
     console.error("Error deleting Wiki context", error);
@@ -1281,5 +1273,7 @@ async function loadReport() {
 }
 
 onMounted(loadReport);
+
+useStudentViewRefresh(loadReport);
 watch(() => route.fullPath, loadReport);
 </script>

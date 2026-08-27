@@ -10,12 +10,13 @@ use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProcessorInterface;
 use Chamilo\CoreBundle\Entity\Course;
 use Chamilo\CoreBundle\Entity\CourseRelUser;
-use Chamilo\CoreBundle\Entity\GradebookCategory;
-use Chamilo\CoreBundle\Entity\GradebookLink;
 use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\SessionRelCourseRelUser;
 use Chamilo\CoreBundle\Entity\User;
-use Chamilo\CoreBundle\Settings\SettingsManager;
+use Chamilo\CoreBundle\Helpers\CidReqHelper;
+use Chamilo\CoreBundle\Helpers\IsAllowedToEditHelper;
+use Chamilo\CoreBundle\Service\Gradebook\GradebookLinkManager;
+use Chamilo\CoreBundle\State\Gradebook\GradebookLinkResourceResolver;
 use Chamilo\CourseBundle\Entity\CForum;
 use Chamilo\CourseBundle\Entity\CForumPost;
 use Chamilo\CourseBundle\Entity\CForumThread;
@@ -33,7 +34,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * @implements ProcessorInterface<mixed, JsonResponse>
@@ -45,15 +45,14 @@ final class ForumThreadGradingProcessor implements ProcessorInterface
     use ForumStateHelperTrait;
     use ForumWriteHelperTrait;
 
-    private const int LINK_FORUM_THREAD = 5;
-
     public function __construct(
         private readonly RequestStack $requestStack,
         private readonly EntityManagerInterface $entityManager,
         private readonly CForumThreadRepository $threadRepository,
         private readonly Security $security,
-        private readonly CsrfTokenManagerInterface $csrfTokenManager,
-        private readonly SettingsManager $settingsManager,
+        private readonly GradebookLinkManager $gradebookLinkManager,
+        private readonly CidReqHelper $cidReqHelper,
+        private readonly IsAllowedToEditHelper $isAllowedToEditHelper,
     ) {}
 
     public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): JsonResponse
@@ -75,13 +74,14 @@ final class ForumThreadGradingProcessor implements ProcessorInterface
     {
         $this->assertTeacher($this->security);
         $payload = $this->getJsonData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
 
         $thread = $this->getThread($uriVariables, $request);
         $this->assertEditableForumResource($thread->getResourceNode(), $this->security);
 
-        $course = $this->getCourse($this->entityManager, $request);
-        $this->assertForumThreadNotLockedByGradebook($this->entityManager, $this->settingsManager, $this->security, $course, $thread);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->assertSessionBelongsToCourse($session, $course);
+        $this->assertForumThreadNotLockedByGradebook($this->gradebookLinkManager, $course, $session, $thread);
         $enabled = $this->getBoolean($payload, 'enabled');
 
         if (!$enabled) {
@@ -91,10 +91,12 @@ final class ForumThreadGradingProcessor implements ProcessorInterface
                 ->setThreadWeight(0)
                 ->setThreadPeerQualify(false)
             ;
-            $link = $this->findGradebookLink($course, $thread);
-            if ($link instanceof GradebookLink) {
-                $this->entityManager->remove($link);
-            }
+            $this->gradebookLinkManager->removeLinks(
+                $course,
+                $session,
+                GradebookLinkResourceResolver::LINK_FORUM_THREAD,
+                (int) $thread->getIid(),
+            );
 
             $this->entityManager->persist($thread);
             $this->entityManager->flush();
@@ -109,10 +111,7 @@ final class ForumThreadGradingProcessor implements ProcessorInterface
         }
 
         $categoryId = $this->getRequiredInt($payload, 'categoryId');
-        $category = $this->entityManager->getRepository(GradebookCategory::class)->find($categoryId);
-        if (!$category instanceof GradebookCategory || $category->getCourse()->getId() !== $course->getId()) {
-            throw new BadRequestHttpException('Invalid gradebook category.');
-        }
+        $this->gradebookLinkManager->requireCategory($course, $session, $categoryId, true);
 
         $maxScore = $this->getPositiveFloat($payload, 'maxScore');
         $weight = $this->getPositiveFloat($payload, 'weight');
@@ -128,19 +127,16 @@ final class ForumThreadGradingProcessor implements ProcessorInterface
             ->setThreadPeerQualify($this->getBoolean($payload, 'peerQualify'))
         ;
 
-        $link = $this->findGradebookLink($course, $thread) ?? new GradebookLink();
-        $link
-            ->setType(self::LINK_FORUM_THREAD)
-            ->setRefId((int) $thread->getIid())
-            ->setCourse($course)
-            ->setCategory($category)
-            ->setWeight($weight)
-            ->setVisible(1)
-            ->setLocked(0)
-        ;
+        $link = $this->gradebookLinkManager->upsertLink(
+            $course,
+            $session,
+            GradebookLinkResourceResolver::LINK_FORUM_THREAD,
+            (int) $thread->getIid(),
+            $categoryId,
+            $weight,
+        );
 
         $this->entityManager->persist($thread);
-        $this->entityManager->persist($link);
         $this->entityManager->flush();
 
         $this->registerForumEventLog('update-thread-grading', 'thread', (string) $thread->getIid());
@@ -148,7 +144,7 @@ final class ForumThreadGradingProcessor implements ProcessorInterface
         return new JsonResponse([
             'threadId' => $thread->getIid(),
             'enabled' => true,
-            'categoryId' => $category->getId(),
+            'categoryId' => $link->getCategory()->getId(),
             'title' => $thread->getThreadTitleQualify(),
             'maxScore' => $thread->getThreadQualifyMax(),
             'weight' => $thread->getThreadWeight(),
@@ -163,7 +159,6 @@ final class ForumThreadGradingProcessor implements ProcessorInterface
     private function saveThreadScore(Request $request, array $uriVariables): JsonResponse
     {
         $payload = $this->getJsonData($request);
-        $this->validateCsrfToken($this->csrfTokenManager, $payload['csrfToken'] ?? null);
 
         $thread = $this->getThread($uriVariables, $request);
         if ($thread->getThreadQualifyMax() <= 0) {
@@ -177,16 +172,17 @@ final class ForumThreadGradingProcessor implements ProcessorInterface
             throw new NotFoundHttpException('User not found.');
         }
 
-        $course = $this->getCourse($this->entityManager, $request);
-        $session = $this->getSession($this->entityManager, $request);
+        $course = $this->getCourse($this->cidReqHelper);
+        $session = $this->cidReqHelper->getDoctrineSessionEntity();
+        $this->assertSessionBelongsToCourse($session, $course);
         $qualifyUser = $this->security->getUser();
         if (!$qualifyUser instanceof User) {
             throw new AccessDeniedHttpException('A valid user is required.');
         }
 
-        $this->assertForumThreadNotLockedByGradebook($this->entityManager, $this->settingsManager, $this->security, $course, $thread);
+        $this->assertForumThreadNotLockedByGradebook($this->gradebookLinkManager, $course, $session, $thread);
 
-        $canManage = $this->canManageForumsInCurrentView($this->security, $request);
+        $canManage = $this->isAllowedToEditHelper->check(coach: true);
         if ($canManage) {
             $this->assertEditableForumResource($thread->getResourceNode(), $this->security);
         } elseif (!$this->canScoreThreadAsPeer($thread, $course, $session, $user, $qualifyUser)) {
@@ -359,15 +355,6 @@ final class ForumThreadGradingProcessor implements ProcessorInterface
         }
 
         return $thread;
-    }
-
-    private function findGradebookLink(Course $course, CForumThread $thread): ?GradebookLink
-    {
-        return $this->entityManager->getRepository(GradebookLink::class)->findOneBy([
-            'course' => $course,
-            'type' => self::LINK_FORUM_THREAD,
-            'refId' => (int) $thread->getIid(),
-        ]);
     }
 
     /**
