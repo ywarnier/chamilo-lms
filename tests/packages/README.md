@@ -8,7 +8,7 @@ git lfs track '*.chunk'
 
 Split:
 ```
-split -b 49M {version}.tar.gz {version} --additional-suffix=.chunk
+split -b 49M {version}.tar.gz {version} --additional-suffix=.chunk.txt
 rm {version}.tar.gz
 git add {version}*
 git commit -m "Misc: Add chunks of packaged {version}" .
