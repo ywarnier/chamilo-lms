@@ -127,16 +127,27 @@ class CourseRestorer
 
     /**
      * The course-object.
+     *
+     * @var Course|stdClass
      */
     public $course;
-    public $destination_course_info;
+
+    /**
+     * @var array<string, mixed>
+     */
+    public array $destination_course_info = [];
 
     /**
      * What to do with files with same name (FILE_SKIP, FILE_RENAME, FILE_OVERWRITE).
      */
-    public $file_option;
-    public $set_tools_invisible_by_default;
-    public $skip_content;
+    public int $file_option;
+
+    public bool $set_tools_invisible_by_default;
+
+    /**
+     * @var array<string, mixed>
+     */
+    public array $skip_content;
 
     // Track if documents were already restored during this restore run.
     private bool $documentsRestored = false;
@@ -148,8 +159,10 @@ class CourseRestorer
 
     /**
      * Restore order (keep existing order; docs first).
+     *
+     * @var array<int, string>
      */
-    public $tools_to_restore = [
+    public array $tools_to_restore = [
         'documents',
         'announcements',
         'attendance',
@@ -177,26 +190,28 @@ class CourseRestorer
 
     /**
      * Setting per tool.
+     *
+     * @var array<string, mixed>
      */
-    public $tool_copy_settings = [];
+    public array $tool_copy_settings = [];
 
     /**
      * If true adds the text "copy" in the title of an item (only for LPs right now).
      */
-    public $add_text_in_items = false;
+    public bool $add_text_in_items = false;
 
-    public $destination_course_id;
+    public ?int $destination_course_id = null;
     public bool $copySessionContent = false;
 
     /**
      * Optional course origin id (legacy).
      */
-    private $course_origin_id;
+    private ?int $course_origin_id = null;
 
     /**
      * First teacher (owner) used for forums/posts.
      */
-    private $first_teacher_id = 0;
+    private int $first_teacher_id = 0;
 
     private array $htmlFoldersByCourseDir = [];
 
