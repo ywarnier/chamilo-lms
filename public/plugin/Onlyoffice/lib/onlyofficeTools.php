@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * (c) Copyright Ascensio System SIA 2025.
  *
@@ -14,7 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-class OnlyofficeTools
+class onlyofficeTools
 {
     /**
      * Return button-link to onlyoffice editor for file.
@@ -32,7 +35,7 @@ class OnlyofficeTools
 
         $urlToEdit = api_get_path(WEB_PLUGIN_PATH).'Onlyoffice/editor.php';
 
-        $extension = strtolower(pathinfo($document_data['title'], PATHINFO_EXTENSION));
+        $extension = strtolower(pathinfo($document_data['title'], \PATHINFO_EXTENSION));
 
         $canEdit = null !== $documentManager->getFormatInfo($extension) ? $documentManager->getFormatInfo($extension)->isEditable() : false;
         $canView = null !== $documentManager->getFormatInfo($extension) ? $documentManager->getFormatInfo($extension)->isViewable() : false;
@@ -41,7 +44,7 @@ class OnlyofficeTools
         if (!empty($groupId)) {
             $urlToEdit = $urlToEdit.'?groupId='.$groupId.'&';
         } else {
-            $urlToEdit = $urlToEdit.'?';
+            $urlToEdit .= '?';
         }
 
         $documentId = $document_data['id'];
@@ -88,7 +91,7 @@ class OnlyofficeTools
 
         $docInfo = DocumentManager::get_document_data_by_id($documentId, $courseInfo['code'], false, $sessionId);
 
-        $extension = strtolower(pathinfo($document_data['title'], PATHINFO_EXTENSION));
+        $extension = strtolower(pathinfo($document_data['title'], \PATHINFO_EXTENSION));
         $canView = null !== $documentManager->getFormatInfo($extension) ? $documentManager->getFormatInfo($extension)->isViewable() : false;
 
         $isGroupAccess = false;
@@ -100,7 +103,7 @@ class OnlyofficeTools
 
             $urlToEdit = $urlToEdit.'?groupId='.$groupId.'&';
         } else {
-            $urlToEdit = $urlToEdit.'?';
+            $urlToEdit .= '?';
         }
 
         $isAllowToEdit = api_is_allowed_to_edit(true, true);
@@ -152,6 +155,8 @@ class OnlyofficeTools
 
     /**
      * Return path to OnlyOffice viewer for a given file.
+     *
+     * @param mixed $fileReference
      */
     public static function getPathToView($fileReference, bool $showHeaders = true, ?int $exeId = null, ?int $questionId = null, bool $isReadOnly = false): string
     {
@@ -179,7 +184,7 @@ class OnlyofficeTools
                 return '';
             }
 
-            $extension = strtolower(pathinfo($docInfo['path'], PATHINFO_EXTENSION));
+            $extension = strtolower(pathinfo($docInfo['path'], \PATHINFO_EXTENSION));
             $canView = null !== $documentManager->getFormatInfo($extension) ? $documentManager->getFormatInfo($extension)->isViewable() : false;
 
             $isGroupAccess = false;
@@ -254,7 +259,7 @@ class OnlyofficeTools
         }
 
         $docPath = str_replace('\\', '/', $docPath);
-        if (false !== strpos($docPath, "\0")) {
+        if (str_contains($docPath, "\0")) {
             return null;
         }
 
@@ -270,7 +275,7 @@ class OnlyofficeTools
             return null;
         }
 
-        if (0 !== strpos($realPath, $baseDir.DIRECTORY_SEPARATOR)) {
+        if (!str_starts_with($realPath, $baseDir.\DIRECTORY_SEPARATOR)) {
             return null;
         }
 
@@ -305,7 +310,7 @@ class OnlyofficeTools
      */
     public static function isSupportedFormat(string $fileName): bool
     {
-        $extension = strtolower((string) pathinfo($fileName, PATHINFO_EXTENSION));
+        $extension = strtolower((string) pathinfo($fileName, \PATHINFO_EXTENSION));
 
         if (!preg_match('/^[a-z0-9]{1,10}$/', $extension)) {
             return false;
@@ -329,6 +334,8 @@ class OnlyofficeTools
      * The document server is the only legitimate source of a new revision, and
      * restricting the scheme also prevents the content from being read through a
      * PHP stream wrapper (data://, file://, php://...).
+     *
+     * @param mixed $url
      */
     public static function isAllowedDocumentServerUrl($url, OnlyofficeAppsettings $appSettings): bool
     {
@@ -336,12 +343,12 @@ class OnlyofficeTools
             return false;
         }
 
-        $scheme = strtolower((string) parse_url($url, PHP_URL_SCHEME));
+        $scheme = strtolower((string) parse_url($url, \PHP_URL_SCHEME));
         if (!in_array($scheme, ['http', 'https'], true)) {
             return false;
         }
 
-        $host = strtolower((string) parse_url($url, PHP_URL_HOST));
+        $host = strtolower((string) parse_url($url, \PHP_URL_HOST));
         if ('' === $host) {
             return false;
         }
@@ -354,7 +361,7 @@ class OnlyofficeTools
         ];
 
         foreach ($serverUrls as $serverUrl) {
-            $serverHost = strtolower((string) parse_url((string) $serverUrl, PHP_URL_HOST));
+            $serverHost = strtolower((string) parse_url((string) $serverUrl, \PHP_URL_HOST));
             if ('' !== $serverHost) {
                 $allowedHosts[] = $serverHost;
             }

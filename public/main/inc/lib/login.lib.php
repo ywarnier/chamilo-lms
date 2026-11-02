@@ -1,10 +1,12 @@
 <?php
+
 /* For licensing terms, see /license.txt */
 
 use Chamilo\CoreBundle\Entity\User;
 use Chamilo\CoreBundle\Entity\UserAuthSource;
 use Chamilo\CoreBundle\Framework\Container;
 use ChamiloSession as Session;
+use Doctrine\DBAL\Exception;
 
 /**
  * Class Login.
@@ -33,7 +35,7 @@ class Login
             if ($by_username) {
                 $token = self::generateResetToken($user['id']);
                 if ($token) {
-                    $reset_link = $portal_url."main/auth/lostPassword.php?reset=".$token."&id=".$user['id'];
+                    $reset_link = $portal_url.'main/auth/lostPassword.php?reset='.$token.'&id='.$user['id'];
                     $reset_link = Display::url($reset_link, $reset_link);
                 } else {
                     $reset_link = get_lang('Pass')." : $user[password]";
@@ -49,7 +51,7 @@ class Login
                 foreach ($user as $this_user) {
                     $token = self::generateResetToken($this_user['id']);
                     if ($token) {
-                        $reset_link = $portal_url."main/auth/lostPassword.php?reset=".$token."&id=".$this_user['id'];
+                        $reset_link = $portal_url.'main/auth/lostPassword.php?reset='.$token.'&id='.$this_user['id'];
                         $reset_link = Display::url($reset_link, $reset_link);
                     } else {
                         $reset_link = get_lang('Pass')." : $this_user[password]";
@@ -80,7 +82,8 @@ class Login
     /**
      * This function sends the actual password to the user.
      *
-     * @param int $user
+     * @param int   $user
+     * @param mixed $by_username
      *
      * @return string
      *
@@ -88,7 +91,7 @@ class Login
      */
     public static function send_password_to_user($user, $by_username = false)
     {
-        $email_subject = "[".api_get_setting('siteName')."] ".get_lang('Login request'); // SUBJECT
+        $email_subject = '['.api_get_setting('siteName').'] '.get_lang('Login request'); // SUBJECT
 
         if ($by_username) { // Show only for lost password
             $user_account_list = self::get_user_account_list($user, false, $by_username); // BODY
@@ -100,30 +103,28 @@ class Login
 
         $portal_url = Container::getAccessUrlUtil()->getCurrentBaseUrl();
 
-        $email_body = get_lang('This is your information to connect to')." ".$portal_url."\n\n$user_account_list";
+        $email_body = get_lang('This is your information to connect to').' '.$portal_url."\n\n$user_account_list";
         // SEND MESSAGE
         if (1 == api_mail_html('', $email_to, $email_subject, $email_body)) {
             return get_lang('Your password has been reset');
-        } else {
-            $admin_email = Display:: encrypted_mailto_link(
-                api_get_setting('emailAdministrator'),
-                api_get_person_name(
-                    api_get_setting('administratorName'),
-                    api_get_setting('administratorSurname')
-                )
-            );
-
-            return sprintf(
-                get_lang('This platform was unable to send the email. Please contact %s for more information.'),
-                $admin_email
-            );
         }
+        $admin_email = Display::encrypted_mailto_link(
+            api_get_setting('emailAdministrator'),
+            api_get_person_name(
+                api_get_setting('administratorName'),
+                api_get_setting('administratorSurname')
+            )
+        );
+
+        return sprintf(
+            get_lang('This platform was unable to send the email. Please contact %s for more information.'),
+            $admin_email
+        );
     }
 
     /**
      * Handle encrypted password, send an email to a user with his password.
      *
-     * @param array $user
      * @param bool $by_username
      *
      * @return string
@@ -132,7 +133,7 @@ class Login
      */
     public static function handle_encrypted_password(array $user, $by_username = false)
     {
-        $email_subject = "[".api_get_setting('siteName')."] ".get_lang('Login request'); // SUBJECT
+        $email_subject = '['.api_get_setting('siteName').'] '.get_lang('Login request'); // SUBJECT
 
         if ($by_username) {
             // Show only for lost password
@@ -147,9 +148,9 @@ class Login
         $email_body .= get_lang('Your password is encrypted for security reasons. Thus, after pressing the link an e-mail will be sent to you again with your password.');
         $email_body .= "\n\n".
             get_lang('Sincerely').",\n".
-            api_get_setting('administratorName')." ".
+            api_get_setting('administratorName').' '.
             api_get_setting('administratorSurname')."\n".
-            get_lang('Portal Admin')." - ".
+            get_lang('Portal Admin').' - '.
             api_get_setting('siteName');
 
         $email_body = nl2br($email_body);
@@ -163,28 +164,26 @@ class Login
 
         if (1 == $result) {
             return get_lang('Your password has been emailed to you.');
-        } else {
-            $admin_email = Display:: encrypted_mailto_link(
-                api_get_setting('emailAdministrator'),
-                api_get_person_name(
-                    api_get_setting('administratorName'),
-                    api_get_setting('administratorSurname')
-                )
-            );
-            $message = sprintf(
-                get_lang('This platform was unable to send the email. Please contact %s for more information.'),
-                $admin_email
-            );
-
-            return $message;
         }
+        $admin_email = Display::encrypted_mailto_link(
+            api_get_setting('emailAdministrator'),
+            api_get_person_name(
+                api_get_setting('administratorName'),
+                api_get_setting('administratorSurname')
+            )
+        );
+
+        return sprintf(
+            get_lang('This platform was unable to send the email. Please contact %s for more information.'),
+            $admin_email
+        );
     }
 
-    public static function sendResetEmail(User $user)
+    public static function sendResetEmail(User $user): void
     {
         $uniqueId = api_generate_secure_token();
         $user->setConfirmationToken($uniqueId);
-        $user->setPasswordRequestedAt(new \DateTime());
+        $user->setPasswordRequestedAt(new DateTime());
 
         Database::getManager()->persist($user);
         Database::getManager()->flush();
@@ -223,7 +222,7 @@ class Login
 
         $token = api_generate_secure_token();
         $userEntity->setConfirmationToken($token);
-        $userEntity->setPasswordRequestedAt(new \DateTime());
+        $userEntity->setPasswordRequestedAt(new DateTime());
 
         Database::getManager()->persist($userEntity);
         Database::getManager()->flush();
@@ -235,6 +234,8 @@ class Login
      * Gets the secret word.
      *
      * @deprecated Use generateResetToken() instead
+     *
+     * @param mixed $add
      */
     public static function get_secret_word($add)
     {
@@ -245,6 +246,10 @@ class Login
      * Resets a password using a secure, time-limited token.
      *
      * @author Olivier Cauberghe <olivier.cauberghe@UGent.be>, Ghent University
+     *
+     * @param mixed $secret
+     * @param mixed $id
+     * @param mixed $by_username
      */
     public static function reset_password($secret, $id, $by_username = false)
     {
@@ -308,9 +313,10 @@ class Login
      * @global bool   $is_allowedCreateCourse
      * @global object $_user
      *
-     * @param bool $reset
+     * @param bool  $reset
+     * @param mixed $user_id
      */
-    public static function init_user($user_id, $reset)
+    public static function init_user($user_id, $reset): void
     {
         global $is_platformAdmin;
         global $is_allowedCreateCourse;
@@ -358,8 +364,8 @@ class Login
                     $_user['theme'] = $userEntity->getTheme();
                     $_user['status'] = $userEntity->getStatus();
 
-                    $is_platformAdmin = (bool) (!is_null($uData['is_admin']));
-                    $is_allowedCreateCourse = (bool) ((1 == $userEntity->getStatus()) or (api_get_setting('drhCourseManagerRights') and 4 == $userEntity->getStatus()));
+                    $is_platformAdmin = (bool) (null !== $uData['is_admin']);
+                    $is_allowedCreateCourse = (bool) ((1 == $userEntity->getStatus()) || (api_get_setting('drhCourseManagerRights') && 4 == $userEntity->getStatus()));
                     ConditionalLogin::check_conditions($uData);
 
                     Session::write('_user', $_user);
@@ -368,7 +374,7 @@ class Login
                     Session::write('is_allowedCreateCourse', $is_allowedCreateCourse);
                 } else {
                     header('location:'.api_get_path(WEB_PATH));
-                    //exit("WARNING UNDEFINED UID !! ");
+                    // exit("WARNING UNDEFINED UID !! ");
                 }
             } else { // no uid => logout or Anonymous
                 Session::erase('_user');
@@ -390,7 +396,8 @@ class Login
      * @param string $username (email or username)
      *
      * @return array|bool
-     * @throws \Doctrine\DBAL\Exception
+     *
+     * @throws Exception
      */
     public static function get_user_accounts_by_username($username)
     {

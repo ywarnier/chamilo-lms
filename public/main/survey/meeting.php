@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /* For licensing terms, see /license.txt */
 
 use Chamilo\CoreBundle\Enums\ActionIcon;
@@ -39,11 +41,11 @@ if (!empty($invitationcode) || !api_is_allowed_to_edit()) {
     $survey_invitation = Database::fetch_assoc($result);
     if ($survey_invitation) {
         $invitedUser = (string) $survey_invitation['user_id'];
-    // The "auto" invitation codes are derived from public data (the user id and the survey code),
-    // so, unlike the random codes sent by mail, they cannot act as a shared secret. When such a
-    // code belongs to a platform user, only that very user is allowed to use it. Codes issued to
-    // non-authenticated visitors (user 0) carry no identity to check against.
-        if (0 === strpos((string) $survey_invitation['invitation_code'], 'auto-')
+        // The "auto" invitation codes are derived from public data (the user id and the survey code),
+        // so, unlike the random codes sent by mail, they cannot act as a shared secret. When such a
+        // code belongs to a platform user, only that very user is allowed to use it. Codes issued to
+        // non-authenticated visitors (user 0) carry no identity to check against.
+        if (str_starts_with((string) $survey_invitation['invitation_code'], 'auto-')
             && ctype_digit($invitedUser)
             && (int) $invitedUser > 0
             && (int) $invitedUser !== (int) api_get_user_id()
@@ -120,6 +122,7 @@ if (isset($_POST) && !empty($_POST)) {
 
     Display::addFlash(Display::return_message(get_lang('Saved.')));
     header('Location: '.$url);
+
     exit;
 }
 
@@ -130,7 +133,7 @@ $row = 0;
 $column = 0;
 $answerList = [];
 
-$table->setHeaderContents($row, $column, "");
+$table->setHeaderContents($row, $column, '');
 $column++;
 foreach ($questions as $item) {
     $questionId = $item->getIid();
@@ -152,7 +155,7 @@ foreach ($questions as $item) {
     $startTime = isset($date[1]) && !empty($date[1]) ? sprintf(get_lang('From %s'), $date[1]) : '';
     $endTime = isset($endDate[1]) && !empty($endDate[1]) ? sprintf(get_lang('To %s'), $endDate[1]) : '';
 
-    if (isset($date[1]) && isset($endDate[1])) {
+    if (isset($date[1], $endDate[1])) {
         if ($date[1] === $endDate[1]) {
             $startTime = '';
             $endTime = '';
@@ -289,7 +292,7 @@ if (api_is_allowed_to_edit()) {
     $actions .= Display::url(
         Display::getMdiIcon(ActionIcon::DELETE, 'ch-tool-icon', null, ICON_SIZE_MEDIUM, get_lang('Delete survey')),
         api_get_path(WEB_CODE_PATH).'survey/survey_list.php?'.api_get_cidreq().'&action=delete&survey_id='.$surveyId,
-        ['onclick' => 'javascript:if(!confirm(\''.addslashes(api_htmlentities(get_lang('Delete survey').'?', ENT_QUOTES)).'\')) return false;']
+        ['onclick' => 'javascript:if(!confirm(\''.addslashes(api_htmlentities(get_lang('Delete survey').'?', \ENT_QUOTES)).'\')) return false;']
     );
     $actions .= Display::url(
         Display::getMdiIcon(StateIcon::MAIL_NOTIFICATION, 'ch-tool-icon', null, ICON_SIZE_MEDIUM, get_lang('Publish')),

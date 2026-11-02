@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /* For licensing terms, see /license.txt */
 
 use Chamilo\CoreBundle\Entity\UserAuthSource;
@@ -65,18 +67,18 @@ if ($accessUrlUtil->isMultiple()) {
     }
 }
 
-$sql = "SELECT
+$sql = 'SELECT
             u.id 	AS UserId,
             u.lastname 	AS LastName,
             u.firstname 	AS FirstName,
             u.email 		AS Email,
             u.username	AS UserName,
-            ".(('none' !== $encryption) ? " " : "u.password AS Password, ")."
+            '.(('none' !== $encryption) ? ' ' : 'u.password AS Password, ').'
             u.status		AS Status,
             u.official_code	AS OfficialCode,
             u.phone		AS Phone,
-            u.created_at AS RegistrationDate";
-if (strlen($course_code) > 0) {
+            u.created_at AS RegistrationDate';
+if ('' !== $course_code) {
     $sql .= "   FROM $userTable u
                 INNER JOIN $course_user_table cu
                 ON (u.id = cu.user_id)
@@ -88,7 +90,7 @@ if (strlen($course_code) > 0) {
                     $extraUrlCondition
 					ORDER BY lastname,firstname";
     $filename = 'export_users_'.$course_code.'_'.api_get_local_time();
-} elseif (strlen($courseSessionCode) > 0) {
+} elseif ('' !== $courseSessionCode) {
     $sql .= "   FROM $userTable u
                 INNER JOIN $session_course_user_table scu
                 ON (u.id = scu.user_id)
@@ -123,7 +125,7 @@ if (strlen($course_code) > 0) {
 				ORDER BY lastname,firstname";
         }
     } else {
-        $sql .= " FROM $userTable u WHERE u.active <> ".USER_SOFT_DELETED." ORDER BY lastname,firstname";
+        $sql .= " FROM $userTable u WHERE u.active <> ".USER_SOFT_DELETED.' ORDER BY lastname,firstname';
     }
     $filename = 'export_users_'.api_get_local_time();
 }
@@ -167,7 +169,7 @@ if ('1' == $export['addcsvheader'] && 'csv' === $export['file_type']) {
 $res = Database::query($sql);
 while ($user = Database::fetch_assoc($res)) {
     $userEntity = api_get_user_entity($user['UserId']);
-    $studentData = UserManager:: get_extra_user_data(
+    $studentData = UserManager::get_extra_user_data(
         $user['UserId'],
         true,
         false
@@ -193,13 +195,20 @@ while ($user = Database::fetch_assoc($res)) {
 switch ($fileType) {
     case 'xml':
         Export::arrayToXml($data, $filename, 'Contact', 'Contacts');
+
         exit;
+
         break;
+
     case 'csv':
         Export::arrayToCsv($data, $filename);
+
         exit;
+
     case 'xls':
         Export::arrayToXls($data, $filename);
+
         exit;
+
         break;
 }

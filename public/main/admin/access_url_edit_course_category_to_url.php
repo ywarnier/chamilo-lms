@@ -1,7 +1,7 @@
 <?php
 /* For licensing terms, see /license.txt */
 
-/**
+/*
  * Edit course categories (user groups) assigned to an Access URL.
  */
 
@@ -9,6 +9,7 @@ use Chamilo\CoreBundle\Enums\ActionIcon;
 use Chamilo\CoreBundle\Framework\Container;
 
 $cidReset = true;
+
 require_once __DIR__.'/../inc/global.inc.php';
 
 $xajax = new xajax();
@@ -23,6 +24,7 @@ $this_section = SECTION_PLATFORM_ADMIN;
 api_protect_global_admin_script();
 if (!api_get_multiple_access_url()) {
     header('Location: index.php');
+
     exit;
 }
 
@@ -88,8 +90,10 @@ if (isset($_POST['form_sent']) && $_POST['form_sent']) {
         if (0 == $access_url_id) {
             Display::addFlash(Display::return_message(get_lang('Select a URL')));
             header('Location: access_url_edit_users_to_url.php?');
+
             exit;
-        } elseif (is_array($list)) {
+        }
+        if (is_array($list)) {
             UrlManager::updateUrlRelCourseCategory($list, $access_url_id);
             Display::addFlash(Display::return_message(get_lang('Update successful')));
         }
@@ -144,22 +148,23 @@ $urlList = Container::getAccessUrlRepository()->findAll();
 $url_selected = '';
 
 foreach ($urlList as $url) {
-  if ($url->getId() == $access_url_id) {
-    $url_selected = $url->getUrl();
-    break;
-  }
+    if ($url->getId() == $access_url_id) {
+        $url_selected = $url->getUrl();
+
+        break;
+    }
 }
 ?>
     <div class="flex space-x-2 border-gray-300 pb-2 mb-4">
         <a href="<?php echo api_get_self(); ?>?add_type=unique&access_url_id=<?php echo $access_url_id; ?>"
-           class="text-sm px-4 py-2 transition <?php echo $add_type === 'unique'
+           class="text-sm px-4 py-2 transition <?php echo 'unique' === $add_type
                ? 'border-b-2 border-primary text-primary font-semibold'
                : 'text-gray-500 hover:text-primary'; ?>">
             <?php echo get_lang('Single registration'); ?>
         </a>
 
         <a href="<?php echo api_get_self(); ?>?add_type=multiple&access_url_id=<?php echo $access_url_id; ?>"
-           class="text-sm px-4 py-2 transition <?php echo $add_type === 'multiple'
+           class="text-sm px-4 py-2 transition <?php echo 'multiple' === $add_type
                ? 'border-b-2 border-primary text-primary font-semibold'
                : 'text-gray-500 hover:text-primary'; ?>">
             <?php echo get_lang('Multiple registration'); ?>
@@ -174,13 +179,15 @@ foreach ($urlList as $url) {
             <label for="access_url_id" class="block text-sm font-bold text-gray-800 mb-1"><?php echo get_lang('Select URL'); ?></label>
             <select name="access_url_id" id="access_url_id" onchange="send()" class="w-full p-2 border border-gray-300 rounded-md">
                 <option value="0">-- <?php echo get_lang('Select URL'); ?> -- </option>
-                <?php foreach ($urlList as $url): ?>
-                    <?php if (1 == $url->getActive()): ?>
-                        <option value="<?php echo $url->getId(); ?>" <?php if ($url->getId() == $access_url_id) echo 'selected'; ?>>
+                <?php foreach ($urlList as $url) { ?>
+                    <?php if (1 == $url->getActive()) { ?>
+                        <option value="<?php echo $url->getId(); ?>" <?php if ($url->getId() == $access_url_id) {
+                            echo 'selected';
+                        } ?>>
                             <?php echo $url->getUrl(); ?>
                         </option>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+                    <?php } ?>
+                <?php } ?>
             </select>
         </div>
 
@@ -189,25 +196,25 @@ foreach ($urlList as $url) {
                 <label class="block text-sm font-semibold text-gray-700 mb-2">
                     <?php echo get_lang('Course categories available'); ?>
                 </label>
-                <?php if ($ajax_search): ?>
+                <?php if ($ajax_search) { ?>
                     <input type="text" id="course_to_add"
                            class="w-full mb-2 p-2 border border-gray-300 rounded-md"
                            onkeyup="xajax_searchCourseCategoryAjax(this.value,document.formulaire.access_url_id.options[document.formulaire.access_url_id.selectedIndex].value)" />
                     <div id="ajax_list_courses"></div>
-                <?php else: ?>
+                <?php } else { ?>
                     <select id="origin_users" name="no_course_list[]" multiple size="15"
                             class="w-full h-[400px] p-2 border border-gray-300 rounded-md">
-                        <?php foreach ($noUserGroupList as $noItem): ?>
+                        <?php foreach ($noUserGroupList as $noItem) { ?>
                             <option value="<?php echo $noItem['id']; ?>">
                                 <?php echo $noItem['title']; ?>
                             </option>
-                        <?php endforeach; ?>
+                        <?php } ?>
                     </select>
-                <?php endif; ?>
+                <?php } ?>
             </div>
 
             <div class="flex flex-col items-center justify-center gap-4 my-6">
-                <?php if (!$ajax_search): ?>
+                <?php if (!$ajax_search) { ?>
                     <button type="button"
                             onclick="moveItem(
               document.getElementById('origin_users'),
@@ -223,14 +230,14 @@ foreach ($urlList as $url) {
                             class="rounded-full bg-secondary p-2 hover:bg-secondary/80 focus:outline-none focus:ring">
                         <i class="mdi mdi-rewind-outline text-white text-2xl"></i>
                     </button>
-                <?php else: ?>
+                <?php } else { ?>
                     <button type="button"
                             onclick="remove_item(document.getElementById('destination_users'))"
                             class="rounded-full bg-danger p-2 hover:bg-danger/80 focus:outline-none focus:ring"
-                            title="<?php echo get_lang('Remove from selection') ?>">
+                            title="<?php echo get_lang('Remove from selection'); ?>">
                         <i class="mdi mdi-close text-white text-2xl"></i>
                     </button>
-                <?php endif; ?>
+                <?php } ?>
             </div>
 
             <div>
@@ -239,11 +246,11 @@ foreach ($urlList as $url) {
                 </label>
                 <select id="destination_users" name="course_list[]" multiple size="15"
                         class="w-full h-[400px] p-2 border border-gray-300 rounded-md">
-                    <?php foreach ($userGroupList as $item): ?>
+                    <?php foreach ($userGroupList as $item) { ?>
                         <option value="<?php echo $item['id']; ?>">
                             <?php echo $item['title']; ?>
                         </option>
-                    <?php endforeach; ?>
+                    <?php } ?>
                 </select>
             </div>
         </div>

@@ -1,7 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 /* For licensing terms, see /license.txt */
-/**
+/*
  * This script lists the necessary variables that allow the installation
  * system to know in which version is the current Chamilo install. This
  * script should be overwritten with each upgrade of Chamilo. It is not

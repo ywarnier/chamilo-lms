@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /* For licensing terms, see /license.txt */
 
 use Chamilo\CoreBundle\Framework\Container;
@@ -20,6 +22,7 @@ $lpItemRepo = Container::getLpItemRepository();
 $lp = null;
 if (!empty($lpId)) {
     $lpId = (int) $lpId;
+
     /** @var CLp $lp */
     $lp = $lpRepo->find($lpId);
     // Reject a learning path that is not linked to the current course.
@@ -38,12 +41,12 @@ switch ($action) {
         session_write_close();
         $lpItems = [];
         if ($lp) {
-            $entries      = learnpath::get_flat_ordered_items_list($lp, 0, true);
-            $lpItemRepo   = Container::getLpItemRepository();
+            $entries = learnpath::get_flat_ordered_items_list($lp, 0, true);
+            $lpItemRepo = Container::getLpItemRepository();
             $documentRepo = Container::getDocumentRepository();
 
             foreach ($entries as $entry) {
-                $iid           = (int) $entry['iid'];
+                $iid = (int) $entry['iid'];
                 $exportAllowed = !empty($entry['export_allowed']);
                 if (!$exportAllowed) {
                     continue;
@@ -51,7 +54,7 @@ switch ($action) {
 
                 /** @var CLpItem|null $item */
                 $item = $lpItemRepo->find($iid);
-                if (!$item || $item->getItemType() !== 'document') {
+                if (!$item || 'document' !== $item->getItemType()) {
                     continue;
                 }
 
@@ -62,23 +65,25 @@ switch ($action) {
 
                 try {
                     $content = $documentRepo->getResourceFileContent($doc);
-                    if (!is_string($content) || stripos(ltrim($content), '<') !== 0) {
+                    if (!is_string($content) || 0 !== stripos(ltrim($content), '<')) {
                         continue;
                     }
 
                     $lpItems[] = [
-                        'id'    => $item->getIid(),
+                        'id' => $item->getIid(),
                         'title' => $item->getTitle(),
                     ];
-                } catch (\Throwable $e) {
+                } catch (Throwable $e) {
                     // Skip silently
                 }
             }
         }
 
         header('Content-Type: application/json');
-        echo json_encode(['items' => $lpItems], JSON_UNESCAPED_UNICODE);
+        echo json_encode(['items' => $lpItems], \JSON_UNESCAPED_UNICODE);
+
         exit;
+
     case 'get_lp_list_by_course':
         $course_id = (isset($_GET['course_id']) && !empty($_GET['course_id'])) ? (int) $_GET['course_id'] : 0;
         $session_id = (isset($_GET['session_id']) && !empty($_GET['session_id'])) ? (int) $_GET['session_id'] : 0;
@@ -102,7 +107,9 @@ switch ($action) {
             }
         }
         echo json_encode($data);
+
         break;
+
     case 'get_documents':
         $folderId = isset($_GET['folder_id']) ? $_GET['folder_id'] : null;
         if (empty($folderId)) {
@@ -124,7 +131,9 @@ switch ($action) {
             $folderId,
             false
         );
+
         break;
+
     case 'add_lp_item':
         if (!api_is_allowed_to_edit(null, true)) {
             exit;
@@ -142,17 +151,22 @@ switch ($action) {
             $title = $_REQUEST['title'] ?? '';
             $type = $_REQUEST['type'] ?? '';
             $id = $_REQUEST['id'] ?? 0;
+
             switch ($type) {
                 case TOOL_QUIZ:
                     $title = Exercise::format_title_variable($title);
+
                     break;
+
                 case TOOL_DOCUMENT:
                 case 'video':
                     $repo = Container::getDocumentRepository();
+
                     /** @var CDocument $document */
                     $document = $repo->getResourceFromResourceNode($id);
                     $id = $document->getIid();
                     $title = $document->getTitle();
+
                     break;
             }
 
@@ -173,10 +187,13 @@ switch ($action) {
             );
 
             echo $itemId;
+
             exit;
-            //echo $learningPath->getBuildTree(true);
+            // echo $learningPath->getBuildTree(true);
         }
+
         break;
+
     case 'update_lp_item_order':
         if (api_is_allowed_to_edit(null, true)) {
             // Close the session as we don't need it any further
@@ -193,7 +210,9 @@ switch ($action) {
 
             echo Display::return_message(get_lang('Saved'), 'confirm');
         }
+
         break;
+
     case 'get_lp_item_tree':
         if (api_is_allowed_to_edit(null, true)) {
             $parent = $lpItemRepo->getRootItem($lpId);
@@ -202,15 +221,21 @@ switch ($action) {
                 echo $learningPath->getBuildTree(true, true);
             }
         }
+
         exit;
+
         break;
+
     case 'delete_item':
         if (api_is_allowed_to_edit(null, true) && learnpath::isItemSecurityTokenValid()) {
             $learningPath = new learnpath($lp, api_get_course_info(), api_get_user_id());
             $learningPath->delete_item($_REQUEST['id']);
         }
+
         exit;
+
         break;
+
     case 'record_audio':
         if (false == api_is_allowed_to_edit(null, true)) {
             exit;
@@ -255,39 +280,45 @@ switch ($action) {
                     $lpItem->add_audio_from_documents($newDocId);
                     $data = DocumentManager::get_document_data_by_id($newDocId, $course_info['code']);
                     echo $data['document_url'];
+
                     exit;
                 }
             }
         }
 
         break;
+
     case 'update_gamification':
         // moved inside lp_nav.php
         exit;
         $lp = Session::read('oLP');
 
         break;
+
     case 'check_item_position':
         // loaded in lp_nav.php
         exit;
+
         /** @var learnpath $lp */
         $lp = Session::read('oLP');
         // Close the session as we don't need it any further
         session_write_close();
-        $lpItemId = isset($_GET['lp_item']) ? intval($_GET['lp_item']) : 0;
+        $lpItemId = isset($_GET['lp_item']) ? (int) ($_GET['lp_item']) : 0;
         if ($lp) {
             $position = $lp->isFirstOrLastItem($lpItemId);
             echo json_encode($position);
         }
+
         break;
+
     case 'get_parent_names':
-        $newItemId = isset($_GET['new_item']) ? intval($_GET['new_item']) : 0;
+        $newItemId = isset($_GET['new_item']) ? (int) ($_GET['new_item']) : 0;
 
         if (!$newItemId) {
             break;
         }
 
-        /** @var \learnpath $lp */
+        /** @var learnpath $lp */
         $lp = Session::read('oLP');
         // Close the session as we don't need it any further
         session_write_close();
@@ -298,7 +329,9 @@ switch ($action) {
         }
 
         echo $response;
+
         break;
+
     case 'get_item_prerequisites':
         /** @var learnpath $lp */
         $lp = Session::read('oLP');
@@ -316,19 +349,24 @@ switch ($action) {
         $result = $lp->prerequisites_match($itemId);
         if ($result) {
             echo '1';
+
             exit;
         }
 
         if (!empty($lp->error)) {
             echo $lp->error;
+
             exit;
         }
 
         echo get_lang('This learning object cannot display because the course prerequisites are not completed. This happens when a course imposes that you follow it step by step or get a minimum score in tests before you reach the next steps.');
+
         exit;
+
     case 'add_lp_ai':
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        if ('POST' !== $_SERVER['REQUEST_METHOD']) {
             echo json_encode(['success' => false, 'text' => 'Invalid request method.']);
+
             exit;
         }
 
@@ -337,10 +375,11 @@ switch ($action) {
 
         if (!isset($requestData['lp_data']) || !isset($requestData['course_code'])) {
             echo json_encode(['success' => false, 'text' => 'Invalid AI response data.']);
+
             exit;
         }
 
-        $aiAssisted = isset($requestData['ai_assisted']) && (int) $requestData['ai_assisted'] === 1;
+        $aiAssisted = isset($requestData['ai_assisted']) && 1 === (int) $requestData['ai_assisted'];
         $aiProvider = null;
         if (isset($requestData['ai_provider'])) {
             $aiProvider = trim((string) $requestData['ai_provider']);
@@ -365,18 +404,20 @@ switch ($action) {
         }
 
         echo json_encode($result);
+
         exit;
+
     case 'filter_visible_lp_categories':
         header('Content-Type: application/json; charset=utf-8');
 
-        $idsParam  = isset($_GET['ids']) ? (string) $_GET['ids'] : '';
-        $ids       = array_filter(array_map('intval', explode(',', $idsParam)));
-        $courseId  = isset($_GET['cid']) ? (int) $_GET['cid'] : (int) api_get_course_int_id();
+        $idsParam = isset($_GET['ids']) ? (string) $_GET['ids'] : '';
+        $ids = array_filter(array_map('intval', explode(',', $idsParam)));
+        $courseId = isset($_GET['cid']) ? (int) $_GET['cid'] : (int) api_get_course_int_id();
         $sessionId = isset($_GET['sid']) ? (int) $_GET['sid'] : (int) api_get_session_id();
 
-        $course  = api_get_course_entity($courseId);
+        $course = api_get_course_entity($courseId);
         $session = $sessionId ? api_get_session_entity($sessionId) : null;
-        $user    = api_get_user_entity();
+        $user = api_get_user_entity();
 
         $repo = Container::getLpCategoryRepository();
 
@@ -393,19 +434,21 @@ switch ($action) {
             }
         }
 
-        echo json_encode(['ids' => $visibleIds], JSON_UNESCAPED_UNICODE);
+        echo json_encode(['ids' => $visibleIds], \JSON_UNESCAPED_UNICODE);
+
         exit;
+
     case 'lp_visibility_map':
         header('Content-Type: application/json; charset=UTF-8');
 
-        $courseId  = isset($_GET['cid']) ? (int) $_GET['cid'] : api_get_course_int_id();
+        $courseId = isset($_GET['cid']) ? (int) $_GET['cid'] : api_get_course_int_id();
         $sessionId = isset($_GET['sid']) ? (int) $_GET['sid'] : api_get_session_id();
 
-        $course  = api_get_course_entity($courseId);
+        $course = api_get_course_entity($courseId);
         $session = $sessionId ? Container::getSessionRepository()->find($sessionId) : null;
 
         $rawIds = (string) ($_GET['lp_ids'] ?? '');
-        $ids = array_values(array_filter(array_map('intval', preg_split('/[,\s]+/', $rawIds)), static fn($x) => $x > 0));
+        $ids = array_values(array_filter(array_map('intval', preg_split('/[,\s]+/', $rawIds)), static fn ($x) => $x > 0));
 
         $repo = Container::getLpRepository();
         $userId = api_get_user_id();
@@ -415,13 +458,16 @@ switch ($action) {
             $lp = $repo->find($id);
             if (!$lp) {
                 $map[(string) $id] = false;
+
                 continue;
             }
             $map[(string) $id] = (bool) learnpath::is_lp_visible_for_student($lp, $userId, $course, $session);
         }
 
-        echo json_encode(['map' => $map], JSON_UNESCAPED_UNICODE);
+        echo json_encode(['map' => $map], \JSON_UNESCAPED_UNICODE);
+
         exit;
+
     default:
         echo '';
 }

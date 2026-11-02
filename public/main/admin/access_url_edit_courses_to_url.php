@@ -1,7 +1,7 @@
 <?php
 /* For licensing terms, see /license.txt */
 
-/**
+/*
  * @author Julio Montoya <gugli100@gmail.com>
  */
 
@@ -19,33 +19,35 @@ function search_courses($needle, $id)
     static $lastNeedle = '';
     $response = new xajaxResponse();
 
-    if (trim($needle) === '' || $needle === $lastNeedle) {
+    if ('' === trim($needle) || $needle === $lastNeedle) {
         return $response;
     }
 
     $lastNeedle = $needle;
-    $results = \UrlManager::searchCoursesByTitleOrCode($needle);
+    $results = UrlManager::searchCoursesByTitleOrCode($needle);
     $output = '';
     $i = 0;
 
     foreach ($results as $course) {
         $i++;
         if ($i <= 10) {
-            $label = htmlspecialchars($course['title']) . ' (' . htmlspecialchars($course['code']) . ')';
+            $label = htmlspecialchars($course['title']).' ('.htmlspecialchars($course['code']).')';
             $output .= '
                 <div class="hover:bg-gray-100 p-2 rounded cursor-pointer transition"
-                     onclick="add_user_to_url(' . $course['id'] . ', \'' . addslashes($label) . '\')">
-                    <div class="font-medium text-sm text-gray-800">' . $course['title'] . '</div>
-                    <div class="text-xs text-gray-500">' . $course['code'] . '</div>
+                     onclick="add_user_to_url('.$course['id'].', \''.addslashes($label).'\')">
+                    <div class="font-medium text-sm text-gray-800">'.$course['title'].'</div>
+                    <div class="text-xs text-gray-500">'.$course['code'].'</div>
                 </div>
             ';
         } else {
             $output .= '<div class="text-xs text-gray-400 italic mt-1">...</div>';
+
             break;
         }
     }
 
     $response->addAssign('ajax_list_courses', 'innerHTML', api_utf8_encode($output));
+
     return $response;
 }
 $xajax->registerFunction('search_courses');
@@ -57,6 +59,7 @@ $this_section = SECTION_PLATFORM_ADMIN;
 api_protect_global_admin_script();
 if (!api_get_multiple_access_url()) {
     header('Location: index.php');
+
     exit;
 }
 
@@ -117,8 +120,10 @@ if (isset($_POST['form_sent']) && $_POST['form_sent']) {
         if (0 == $access_url_id) {
             Display::addFlash(Display::return_message(get_lang('Select a URL')));
             header('Location: access_url_edit_courses_to_url.php?');
+
             exit;
-        } elseif (is_array($course_list)) {
+        }
+        if (is_array($course_list)) {
             UrlManager::update_urls_rel_course($course_list, $access_url_id);
             Display::addFlash(Display::return_message(get_lang('Courses updated successfully')));
         }
@@ -178,14 +183,14 @@ $urlList = Container::getAccessUrlRepository()->findAll();
 ?>
     <div class="flex space-x-2 border-gray-300 pb-2 mb-4">
         <a href="<?php echo api_get_self(); ?>?add_type=unique&access_url_id=<?php echo $access_url_id; ?>"
-           class="text-sm px-4 py-2 transition <?php echo $add_type === 'unique'
+           class="text-sm px-4 py-2 transition <?php echo 'unique' === $add_type
                ? 'border-b-2 border-primary text-primary font-semibold'
                : 'text-gray-500 hover:text-primary'; ?>">
             <?php echo get_lang('Single registration'); ?>
         </a>
 
         <a href="<?php echo api_get_self(); ?>?add_type=multiple&access_url_id=<?php echo $access_url_id; ?>"
-           class="text-sm px-4 py-2 transition <?php echo $add_type === 'multiple'
+           class="text-sm px-4 py-2 transition <?php echo 'multiple' === $add_type
                ? 'border-b-2 border-primary text-primary font-semibold'
                : 'text-gray-500 hover:text-primary'; ?>">
             <?php echo get_lang('Multiple registration'); ?>
@@ -200,21 +205,21 @@ $urlList = Container::getAccessUrlRepository()->findAll();
         <option value="0">-- <?php echo get_lang('Select URL'); ?> -- </option>
         <?php
         $url_selected = '';
-        foreach ($urlList as $url) {
-            $checked = '';
-            if (!empty($access_url_id)) {
-                if ($url->getId() == $access_url_id) {
-                    $checked = 'selected=true';
-                    $url_selected = $url->getUrl();
-                }
-            }
-            if (1 == $url->getActive()) {
-                ?>
+foreach ($urlList as $url) {
+    $checked = '';
+    if (!empty($access_url_id)) {
+        if ($url->getId() == $access_url_id) {
+            $checked = 'selected=true';
+            $url_selected = $url->getUrl();
+        }
+    }
+    if (1 == $url->getActive()) {
+        ?>
                 <option <?php echo $checked; ?> value="<?php echo $url->getId(); ?>"> <?php echo $url->getUrl(); ?></option>
             <?php
-            }
-        }
-        ?>
+    }
+}
+?>
     </select>
     <br /><br />
     <input type="hidden" name="form_sent" value="1" />
@@ -232,7 +237,7 @@ $urlList = Container::getAccessUrlRepository()->findAll();
 
         <div class="flex justify-between gap-4">
             <div id="content_source" class="w-1/2">
-                <?php if ($ajax_search): ?>
+                <?php if ($ajax_search) { ?>
                     <input
                         type="text"
                         id="course_to_add"
@@ -241,25 +246,25 @@ $urlList = Container::getAccessUrlRepository()->findAll();
                         placeholder="<?php echo get_lang('Search courses'); ?>"
                     />
                     <div id="ajax_list_courses" class="text-sm text-gray-600"></div>
-                <?php else: ?>
+                <?php } else { ?>
                     <select id="origin_users" name="no_course_list[]" multiple size="15"
                             class="w-full min-h-[360px] border rounded">
-                        <?php foreach ($no_course_list as $no_course): ?>
+                        <?php foreach ($no_course_list as $no_course) { ?>
                             <option value="<?php echo $no_course['id']; ?>">
                                 <?php echo $no_course['title'].' ('.$no_course['code'].')'; ?>
                             </option>
-                        <?php endforeach; ?>
+                        <?php } ?>
                     </select>
-                <?php endif; ?>
+                <?php } ?>
             </div>
 
             <div class="flex flex-col justify-center items-center gap-2">
-                <?php if ($ajax_search): ?>
+                <?php if ($ajax_search) { ?>
                     <button type="button" onclick="remove_item(document.getElementById('destination_users'))"
                             class="rounded-full bg-danger p-2 hover:bg-danger/80 focus:outline-none focus:ring">
                         <i class="mdi mdi-close text-white text-2xl"></i>
                     </button>
-                <?php else: ?>
+                <?php } else { ?>
                     <button type="button" onclick="moveItem(document.getElementById('origin_users'), document.getElementById('destination_users'))"
                             class="rounded-full bg-primary p-2 hover:bg-primary/80 focus:outline-none focus:ring">
                         <i class="mdi mdi-fast-forward-outline text-white text-2xl"></i>
@@ -268,18 +273,18 @@ $urlList = Container::getAccessUrlRepository()->findAll();
                             class="rounded-full bg-secondary p-2 hover:bg-secondary/80 focus:outline-none focus:ring">
                         <i class="mdi mdi-rewind-outline text-white text-2xl"></i>
                     </button>
-                <?php endif; ?>
+                <?php } ?>
             </div>
 
             <div class="w-1/2">
                 <select id="destination_users" name="course_list[]" multiple size="15"
                         class="w-full min-h-[360px] border rounded">
-                    <?php foreach ($course_list as $course):
+                    <?php foreach ($course_list as $course) {
                         $courseInfo = api_get_course_info_by_id($course['id']); ?>
                         <option value="<?php echo $course['id']; ?>">
                             <?php echo $course['title'].' ('.$courseInfo['code'].')'; ?>
                         </option>
-                    <?php endforeach; ?>
+                    <?php } ?>
                 </select>
             </div>
         </div>
@@ -287,8 +292,8 @@ $urlList = Container::getAccessUrlRepository()->findAll();
         <div class="mt-4 text-center">
             <?php
             $label = get_lang('Save');
-            echo '<button class="btn btn--primary" onclick="valide()">'.$label.'</button>';
-            ?>
+echo '<button class="btn btn--primary" onclick="valide()">'.$label.'</button>';
+?>
         </div>
     </div>
 

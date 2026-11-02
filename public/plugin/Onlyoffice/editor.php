@@ -18,9 +18,9 @@
 require_once __DIR__.'/../../main/inc/global.inc.php';
 
 use Chamilo\CoreBundle\Entity\ResourceNode;
-use Chamilo\CoreBundle\Security\Authorization\Voter\ResourceNodeVoter;
 use Chamilo\CoreBundle\Framework\Container;
 use Chamilo\CoreBundle\Repository\ResourceNodeRepository;
+use Chamilo\CoreBundle\Security\Authorization\Voter\ResourceNodeVoter;
 use Chamilo\CourseBundle\Entity\CDocument;
 use ChamiloSession as Session;
 
@@ -118,6 +118,7 @@ if (!empty($docPath)) {
         onlyofficeEditorLog('ERROR', 'Invalid document path', [
             'docPath' => $docPath,
         ]);
+
         exit('Error: Document not found.');
     }
 
@@ -145,7 +146,7 @@ if (!empty($docPath)) {
         $isReadOnly = 1;
     }
 
-    $extension = strtolower((string) pathinfo($filePath, PATHINFO_EXTENSION));
+    $extension = strtolower((string) pathinfo($filePath, \PATHINFO_EXTENSION));
     $newDocPath = $docPath;
     $userFilePath = $filePath;
 
@@ -426,6 +427,7 @@ if (empty($docInfo) || empty($fileId)) {
         'docId' => $docId,
         'docPath' => $docPath,
     ]);
+
     exit('Error: Document not found.');
 }
 
@@ -503,6 +505,7 @@ $config = onlyofficeEditorConfigToArray($config);
 
 if (empty($config) || !is_array($config)) {
     onlyofficeEditorLog('ERROR', 'Failed to generate editor configuration');
+
     exit('Error: Failed to generate the configuration for ONLYOFFICE.');
 }
 
@@ -590,7 +593,7 @@ sendOnlyofficeEditorNoCacheHeaders();
 
 ?>
     <!DOCTYPE html>
-    <html lang="<?php echo htmlspecialchars((string) $langCode, ENT_QUOTES, 'UTF-8'); ?>">
+    <html lang="<?php echo htmlspecialchars((string) $langCode, \ENT_QUOTES, 'UTF-8'); ?>">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -611,14 +614,14 @@ sendOnlyofficeEditorNoCacheHeaders();
                 font-family: Arial, sans-serif;
             }
         </style>
-        <script type="text/javascript" src="<?php echo htmlspecialchars((string) $docApiUrl, ENT_QUOTES, 'UTF-8'); ?>"></script>
+        <script type="text/javascript" src="<?php echo htmlspecialchars((string) $docApiUrl, \ENT_QUOTES, 'UTF-8'); ?>"></script>
     </head>
     <body>
     <div id="<?php echo $editorContainerId; ?>"></div>
 
     <script type="text/javascript">
         (function () {
-            const config = <?php echo json_encode($config, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>;
+            const config = <?php echo json_encode($config, \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE); ?>;
             const errorPage = <?php echo json_encode(api_get_path(WEB_PLUGIN_PATH).'Onlyoffice/error.php'); ?>;
             const saveAsUrl = <?php echo json_encode(api_get_path(WEB_PLUGIN_PATH).'Onlyoffice/ajax/saveas.php'); ?>;
             const folderId = <?php echo json_encode((int) ($docInfo['parent_id'] ?? 0)); ?>;
@@ -629,9 +632,9 @@ sendOnlyofficeEditorNoCacheHeaders();
             const isMobileAgent = <?php echo json_encode((bool) $isMobileAgent); ?>;
             const debugEnabled = <?php echo json_encode((bool) ONLYOFFICE_EDITOR_LOG_ENABLED); ?>;
             const saveAsCsrfToken = <?php echo json_encode($saveAsCsrfToken); ?>;
-            const safeReturnUrl = <?php echo json_encode($returnUrl, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>;
+            const safeReturnUrl = <?php echo json_encode($returnUrl, \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE); ?>;
             const isEmbeddedEditor = <?php echo json_encode((bool) $isLearnpathEmbedded); ?>;
-            const fallbackHomeUrl = <?php echo json_encode(api_get_path(WEB_PATH), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>;
+            const fallbackHomeUrl = <?php echo json_encode(api_get_path(WEB_PATH), \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE); ?>;
 
             const isEditableMode = !!(
                 config &&
@@ -948,9 +951,10 @@ function resolveDocumentSourceFromC2ForEditor(int $docId): ?array
     }
 
     $storagePath = '';
+
     try {
         $storagePath = (string) $resourceNodeRepository->getFilename($resourceFile);
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         onlyofficeEditorLog('WARNING', 'Failed to resolve storage path', [
             'message' => $e->getMessage(),
         ]);
@@ -997,7 +1001,7 @@ function getEntityManagerForOnlyofficeEditor()
                 return $doctrine->getManager();
             }
         }
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         onlyofficeEditorLog('WARNING', 'Failed to resolve entity manager from container', [
             'message' => $e->getMessage(),
         ]);
@@ -1006,7 +1010,7 @@ function getEntityManagerForOnlyofficeEditor()
     if (class_exists('Database') && method_exists('Database', 'getManager')) {
         try {
             return Database::getManager();
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             onlyofficeEditorLog('WARNING', 'Database::getManager failed', [
                 'message' => $e->getMessage(),
             ]);
@@ -1032,7 +1036,7 @@ function getResourceNodeRepositoryForOnlyofficeEditor(): ?ResourceNodeRepository
             }
 
             $serviceIds = [
-                'Chamilo\\CoreBundle\\Repository\\ResourceNodeRepository',
+                'Chamilo\CoreBundle\Repository\ResourceNodeRepository',
                 'chamilo.repository.resource_node',
             ];
 
@@ -1048,7 +1052,7 @@ function getResourceNodeRepositoryForOnlyofficeEditor(): ?ResourceNodeRepository
                 }
             }
         }
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         onlyofficeEditorLog('WARNING', 'Failed to resolve ResourceNodeRepository', [
             'message' => $e->getMessage(),
         ]);
@@ -1059,6 +1063,8 @@ function getResourceNodeRepositoryForOnlyofficeEditor(): ?ResourceNodeRepository
 
 /**
  * Build a version token from database timestamps for C2 documents.
+ *
+ * @param mixed $entityManager
  */
 function buildOnlyofficeVersionTokenFromDatabase($entityManager, int $resourceNodeId, int $resourceFileId, int $size, string $storagePath): string
 {
@@ -1085,8 +1091,8 @@ function buildOnlyofficeVersionTokenFromDatabase($entityManager, int $resourceNo
             'storagePath' => $storagePath,
         ];
 
-        return substr(hash('sha256', (string) json_encode($seed, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)), 0, 20);
-    } catch (\Throwable $e) {
+        return substr(hash('sha256', (string) json_encode($seed, \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE)), 0, 20);
+    } catch (Throwable $e) {
         onlyofficeEditorLog('WARNING', 'Failed to build DB version token', [
             'message' => $e->getMessage(),
         ]);
@@ -1259,7 +1265,7 @@ function shouldOpenOnlyofficeInReadOnlyMode(string $extension, ?int $isReadOnly,
         return false;
     }
 
-    if (\in_array($extension, ['pdf'], true)) {
+    if (in_array($extension, ['pdf'], true)) {
         return true;
     }
 
@@ -1287,7 +1293,7 @@ function onlyofficeEditorConfigToArray(mixed $config): array
         return $config;
     }
 
-    $json = json_encode($config, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    $json = json_encode($config, \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE);
     if (false === $json) {
         return [];
     }
@@ -1299,6 +1305,9 @@ function onlyofficeEditorConfigToArray(mixed $config): array
 
 /**
  * Refresh editor token after final config changes.
+ *
+ * @param mixed $jwtManager
+ * @param mixed $appSettings
  */
 function refreshOnlyofficeEditorToken(array $config, $jwtManager, $appSettings): array
 {
@@ -1315,10 +1324,10 @@ function refreshOnlyofficeEditorToken(array $config, $jwtManager, $appSettings):
 
     try {
         $token = (string) $jwtManager->encode($payload, $appSettings->getJwtKey());
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         try {
             $token = (string) $jwtManager->encode($payload);
-        } catch (\Throwable $inner) {
+        } catch (Throwable $inner) {
             onlyofficeEditorLog('WARNING', 'Failed to refresh editor JWT token', [
                 'message' => $inner->getMessage(),
             ]);
@@ -1389,7 +1398,7 @@ function isOnlyofficeSafeInternalUrl(string $url): bool
         return false;
     }
 
-    if (!filter_var($url, FILTER_VALIDATE_URL)) {
+    if (!filter_var($url, \FILTER_VALIDATE_URL)) {
         return false;
     }
 
@@ -1489,7 +1498,7 @@ function onlyofficeEditorLog(string $level, string $message, array $context = []
     $line = 'ONLYOFFICE EDITOR: '.$level.' - '.$message;
 
     if (!empty($context)) {
-        $json = json_encode($context, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $json = json_encode($context, \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE);
         if (false !== $json) {
             $line .= ' | '.$json;
         }

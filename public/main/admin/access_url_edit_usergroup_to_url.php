@@ -1,7 +1,7 @@
 <?php
 /* For licensing terms, see /license.txt */
 
-/**
+/*
  * @author Julio Montoya <gugli100@gmail.com>
  */
 
@@ -9,6 +9,7 @@ use Chamilo\CoreBundle\Enums\ActionIcon;
 use Chamilo\CoreBundle\Framework\Container;
 
 $cidReset = true;
+
 require_once __DIR__.'/../inc/global.inc.php';
 
 $this_section = SECTION_PLATFORM_ADMIN;
@@ -16,6 +17,7 @@ api_protect_global_admin_script();
 
 if (!api_get_multiple_access_url()) {
     header('Location: index.php');
+
     exit;
 }
 
@@ -41,20 +43,20 @@ if (!empty($_POST['form_sent'])) {
         $course_list = [];
     }
 
-    if ((int) $_POST['form_sent'] === 1) {
-        if ((int) $access_url_id === 0) {
+    if (1 === (int) $_POST['form_sent']) {
+        if (0 === (int) $access_url_id) {
             Display::addFlash(Display::return_message(get_lang('Select a URL')));
             header('Location: access_url_edit_usergroup_to_url.php');
+
             exit;
-        } else {
-            UrlManager::update_urls_rel_usergroup($course_list, (int) $access_url_id);
-            Display::addFlash(Display::return_message(get_lang('Update successful')));
         }
+        UrlManager::update_urls_rel_usergroup($course_list, (int) $access_url_id);
+        Display::addFlash(Display::return_message(get_lang('Update successful')));
     }
 }
 
-$userGroups      = UrlManager::get_url_rel_usergroup_data();
-$userGroupList   = [];
+$userGroups = UrlManager::get_url_rel_usergroup_data();
+$userGroupList = [];
 $noUserGroupList = [];
 
 foreach ($userGroups as $item) {
@@ -66,9 +68,9 @@ foreach ($userGroups as $item) {
 $noUserGroupList = $userGroup->getUserGroupNotInList(array_keys($userGroupList), $access_url_id);
 $urlList = Container::getAccessUrlRepository()->findAll();
 
-$totalGroups         = count($userGroupList) + count($noUserGroupList);
+$totalGroups = count($userGroupList) + count($noUserGroupList);
 $totalAssignedGroups = count($userGroupList);
-$totalAvailable      = count($noUserGroupList);
+$totalAvailable = count($noUserGroupList);
 
 Display::display_header($tool_name);
 
@@ -92,9 +94,9 @@ Display::page_subheader2($tool_name);
 <p class="text-sm text-gray-600 mb-4">
     <?php
     echo get_lang('Total groups').': '.$totalGroups.' · ';
-    echo get_lang('Groups assigned to URL').': '.$totalAssignedGroups.' · ';
-    echo get_lang('Available groups').': '.$totalAvailable;
-    ?>
+echo get_lang('Groups assigned to URL').': '.$totalAssignedGroups.' · ';
+echo get_lang('Available groups').': '.$totalAvailable;
+?>
 </p>
 
 <form
@@ -117,13 +119,15 @@ Display::page_subheader2($tool_name);
             class="w-1/2 rounded-md border border-gray-300 bg-white p-2 shadow-sm focus:border-primary focus:ring-primary"
         >
             <option value="0"><?php echo get_lang('Select URL'); ?></option>
-            <?php foreach ($urlList as $url): ?>
-                <?php if (1 == $url->getActive()): ?>
-                    <option value="<?php echo $url->getId(); ?>" <?php if ($url->getId() == $access_url_id) echo 'selected'; ?>>
+            <?php foreach ($urlList as $url) { ?>
+                <?php if (1 == $url->getActive()) { ?>
+                    <option value="<?php echo $url->getId(); ?>" <?php if ($url->getId() == $access_url_id) {
+                        echo 'selected';
+                    } ?>>
                         <?php echo $url->getUrl(); ?>
                     </option>
-                <?php endif; ?>
-            <?php endforeach; ?>
+                <?php } ?>
+            <?php } ?>
         </select>
     </div>
 
@@ -147,11 +151,11 @@ Display::page_subheader2($tool_name);
                 size="15"
                 class="w-full h-[400px] rounded-md border border-gray-300 p-2 text-sm focus:outline-none"
             >
-                <?php foreach ($noUserGroupList as $noItem): ?>
+                <?php foreach ($noUserGroupList as $noItem) { ?>
                     <option value="<?php echo $noItem['id']; ?>">
                         <?php echo $noItem['title']; ?>
                     </option>
-                <?php endforeach; ?>
+                <?php } ?>
             </select>
         </div>
 
@@ -190,11 +194,11 @@ Display::page_subheader2($tool_name);
                 size="15"
                 class="w-full h-[400px] rounded-md border border-gray-300 p-2 text-sm focus:outline-none"
             >
-                <?php foreach ($userGroupList as $item): ?>
+                <?php foreach ($userGroupList as $item) { ?>
                     <option value="<?php echo $item['id']; ?>">
                         <?php echo $item['title']; ?>
                     </option>
-                <?php endforeach; ?>
+                <?php } ?>
             </select>
         </div>
     </div>

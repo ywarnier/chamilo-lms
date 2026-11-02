@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /* For licensing terms, see /license.txt */
 
 use Chamilo\CoreBundle\Entity\Session;
@@ -14,7 +16,7 @@ $this_section = SECTION_PLATFORM_ADMIN;
 
 api_protect_admin_script(true);
 
-$session_id = isset($_GET['session_id']) ? intval($_GET['session_id']) : 0;
+$session_id = isset($_GET['session_id']) ? (int) ($_GET['session_id']) : 0;
 
 $formSent = 0;
 $errorMsg = '';
@@ -107,7 +109,7 @@ if (isset($_POST['formSent'])) {
 
             if (!file_exists($archivePath.'index.html')) {
                 $fp = fopen($archivePath.'index.html', 'w');
-                fputs($fp, '<html><head></head><body></body></html>');
+                fwrite($fp, '<html><head></head><body></body></html>');
                 fclose($fp);
             }
 
@@ -119,7 +121,7 @@ if (isset($_POST['formSent'])) {
 
             $cvs = false;
             $fp = fopen($archivePath.$archiveFile, 'w');
-            fputs($fp, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Sessions>\n");
+            fwrite($fp, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Sessions>\n");
         }
 
         while ($row = Database::fetch_array($result)) {
@@ -178,7 +180,7 @@ if (isset($_POST['formSent'])) {
                     $coachs[] = $row_coachs['username'];
                 }
 
-                $coachs = implode(",", $coachs);
+                $coachs = implode(',', $coachs);
 
                 if ($cvs) {
                     $courses .= str_replace(';', ',', $rowCourses['code']);
@@ -256,23 +258,29 @@ if (isset($_POST['formSent'])) {
 
             if (!$cvs) {
                 $add .= "\t</Session>\n";
-                fputs($fp, $add);
+                fwrite($fp, $add);
             }
         }
 
         switch ($file_type) {
             case 'xml':
-                fputs($fp, "</Sessions>\n");
+                fwrite($fp, "</Sessions>\n");
                 fclose($fp);
                 $errorMsg = get_lang('The users list has been exported.').'<br/>
                 <a class="btn btn--plain" href="'.$archiveURL.$archiveFile.'">'.get_lang('Download the file').'</a>';
+
                 break;
+
             case 'csv':
                 Export::arrayToCsv($sessionListToExport, $archiveFile);
+
                 exit;
+
             case 'xls':
                 Export::arrayToXls($sessionListToExport, $archiveFile);
+
                 exit;
+
                 break;
         }
     }
@@ -281,7 +289,7 @@ if (isset($_POST['formSent'])) {
 // display the header
 Display::display_header($tool_name);
 
-//select of sessions
+// select of sessions
 $sql = "SELECT id, title FROM $tblSession ORDER BY title";
 
 if (api_is_multiple_url_enabled()) {
@@ -303,7 +311,7 @@ $actions = '<a href="/admin/session-list">'.
 echo Display::toolbarAction('toolbar', [$actions]);
 
 if (!empty($errorMsg)) {
-    echo Display::return_message($errorMsg, 'normal', false); //main API
+    echo Display::return_message($errorMsg, 'normal', false); // main API
 }
 
 $form = new FormValidator('session_export', 'post', api_get_self());

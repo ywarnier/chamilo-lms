@@ -1,8 +1,8 @@
 <?php
+
 /* For licensing terms, see /license.txt */
 
 use Chamilo\CoreBundle\Entity\ExtraField as EntityExtraField;
-use Chamilo\CoreBundle\Entity\ExtraFieldValues as EntityExtraFieldValues;
 use Chamilo\CoreBundle\Entity\GradebookCategory;
 use Chamilo\CoreBundle\Entity\GradebookCertificate;
 use Chamilo\CoreBundle\Entity\Session as SessionEntity;
@@ -15,12 +15,15 @@ use Chamilo\CoreBundle\Event\Events;
 use Chamilo\CoreBundle\Event\UserCreatedEvent;
 use Chamilo\CoreBundle\Event\UserUpdatedEvent;
 use Chamilo\CoreBundle\Framework\Container;
-use Chamilo\CoreBundle\Repository\LanguageRepository;
-use Chamilo\CoreBundle\Repository\Node\UserRepository;
 use Chamilo\CoreBundle\Helpers\NameConventionHelper;
+use Chamilo\CoreBundle\Repository\LanguageRepository;
 use ChamiloSession as Session;
+use Doctrine\ORM\Exception\ORMException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 /**
  * This library provides functions for user management.
@@ -46,9 +49,7 @@ class UserManager
     public const USER_FIELD_TYPE_FILE = 13;
     public const USER_FIELD_TYPE_MOBILE_PHONE_NUMBER = 14;
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * Validates the password.
@@ -67,7 +68,7 @@ class UserManager
      * @param int    $userId
      * @param string $password
      */
-    public static function updatePassword($userId, $password)
+    public static function updatePassword($userId, $password): void
     {
         $user = api_get_user_entity($userId);
         $user->setPlainPassword($password);
@@ -79,20 +80,20 @@ class UserManager
      *
      * @param string $firstName
      * @param string $lastName
-     * @param int    $status (1 for course tutor, 5 for student, 6 for anonymous)
+     * @param int    $status                  (1 for course tutor, 5 for student, 6 for anonymous)
      * @param string $email
      * @param string $loginName
      * @param string $password
-     * @param string $officialCode Any official code (optional)
-     * @param string $language User language    (optional)
-     * @param string $phone Phone number    (optional)
-     * @param string $pictureUri Picture URI        (optional)
-     * @param ?array $authSources Authentication source (defaults to 'platform', dependind on constant)
-     * @param string $expirationDate Account expiration date (optional, defaults to null)
-     * @param int    $active Whether the account is enabled or disabled by default
-     * @param int    $hrDeptId The department of HR in which the user is registered (defaults to 0)
-     * @param array  $extra Extra fields (labels must be prefixed by "extra_")
-     * @param string $encryptMethod Used if password is given encrypted. Set to an empty string by default
+     * @param string $officialCode            Any official code (optional)
+     * @param string $language                User language    (optional)
+     * @param string $phone                   Phone number    (optional)
+     * @param string $pictureUri              Picture URI        (optional)
+     * @param ?array $authSources             Authentication source (defaults to 'platform', dependind on constant)
+     * @param string $expirationDate          Account expiration date (optional, defaults to null)
+     * @param int    $active                  Whether the account is enabled or disabled by default
+     * @param int    $hrDeptId                The department of HR in which the user is registered (defaults to 0)
+     * @param array  $extra                   Extra fields (labels must be prefixed by "extra_")
+     * @param string $encryptMethod           Used if password is given encrypted. Set to an empty string by default
      * @param bool   $sendMail
      * @param bool   $isAdmin
      * @param string $address
@@ -103,15 +104,19 @@ class UserManager
      * @param string $redirectToURLAfterLogin
      *
      * @return mixed new user id - if the new user creation succeeds, false otherwise
-     * @throws \Doctrine\DBAL\Exception
-     * @throws \Doctrine\ORM\Exception\ORMException
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     *
+     * @throws Doctrine\DBAL\Exception
+     * @throws ORMException
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     *
      * @desc The function tries to retrieve user id from the session.
      * If it exists, the current user id is the creator id. If a problem arises,
+     *
      * @assert ('Sam','Gamegie',5,'sam@example.com','jo','jo') > 1
      * @assert ('Pippin','Took',null,null,'jo','jo') === false
+     *
      * @author Hugues Peeters <peeters@ipm.ucl.ac.be>,
      * @author Roan Embrechts <roan_embrechts@yahoo.com>
      */
@@ -189,7 +194,7 @@ class UserManager
 
         $hostingLimitUsers = get_hosting_limit($access_url_id, 'users');
 
-        if ($hostingLimitUsers !== null && $hostingLimitUsers > 0) {
+        if (null !== $hostingLimitUsers && $hostingLimitUsers > 0) {
             $num = self::get_number_of_users();
             if ($num >= $hostingLimitUsers) {
                 api_warn_hosting_contact('users');
@@ -207,7 +212,7 @@ class UserManager
         if (1 === $status) {
             $hostingLimitTeachers = get_hosting_limit($access_url_id, 'teachers');
 
-            if ($hostingLimitTeachers !== null && $hostingLimitTeachers > 0) {
+            if (null !== $hostingLimitTeachers && $hostingLimitTeachers > 0) {
                 $num = self::get_number_of_users(1);
                 if ($num >= $hostingLimitTeachers) {
                     Display::addFlash(
@@ -280,11 +285,11 @@ class UserManager
         $user->setRoleFromStatus($status);
         $dobStr = $_POST['date_of_birth'] ?? null;
         if ($dobStr) {
-            $dob = \DateTime::createFromFormat('Y-m-d', $dobStr)
-                ?: \DateTime::createFromFormat('d/m/Y', $dobStr)
-                    ?: \DateTime::createFromFormat('d-m-Y', $dobStr);
+            $dob = DateTime::createFromFormat('Y-m-d', $dobStr)
+                ?: DateTime::createFromFormat('d/m/Y', $dobStr)
+                    ?: DateTime::createFromFormat('d-m-Y', $dobStr);
 
-            if ($dob instanceof \DateTime) {
+            if ($dob instanceof DateTime) {
                 $user->setDateOfBirth($dob);
             }
         }
@@ -296,6 +301,7 @@ class UserManager
             Display::addFlash(
                 Display::return_message(get_lang('There happened an unknown error. Please contact the platform administrator.'))
             );
+
             return false;
         }
 
@@ -395,8 +401,8 @@ class UserManager
 
             $emailBodyTemplate = '';
             if (!empty($emailTemplate)) {
-                if (isset($emailTemplate['content_registration_platform.tpl']) &&
-                    !empty($emailTemplate['content_registration_platform.tpl'])
+                if (isset($emailTemplate['content_registration_platform.tpl'])
+                    && !empty($emailTemplate['content_registration_platform.tpl'])
                 ) {
                     $emailBodyTemplate = $mailTemplateManager->parseTemplate(
                         $emailTemplate['content_registration_platform.tpl'],
@@ -415,9 +421,9 @@ class UserManager
             if (true === $twoEmail) {
                 // Keep existing 2-email behavior (no structural changes)
                 $emailBody = $tpl->render('@ChamiloCore/Mailer/Legacy/new_user_first_email_confirmation.html.twig');
-                if (!empty($emailBodyTemplate) &&
-                    isset($emailTemplate['new_user_first_email_confirmation.tpl']) &&
-                    !empty($emailTemplate['new_user_first_email_confirmation.tpl'])
+                if (!empty($emailBodyTemplate)
+                    && isset($emailTemplate['new_user_first_email_confirmation.tpl'])
+                    && !empty($emailTemplate['new_user_first_email_confirmation.tpl'])
                 ) {
                     $emailBody = $mailTemplateManager->parseTemplate(
                         $emailTemplate['new_user_first_email_confirmation.tpl'],
@@ -440,9 +446,9 @@ class UserManager
                 );
 
                 $emailBody = $tpl->render('@ChamiloCore/Mailer/Legacy/new_user_second_email_confirmation.html.twig');
-                if (!empty($emailBodyTemplate) &&
-                    isset($emailTemplate['new_user_second_email_confirmation.tpl']) &&
-                    !empty($emailTemplate['new_user_second_email_confirmation.tpl'])
+                if (!empty($emailBodyTemplate)
+                    && isset($emailTemplate['new_user_second_email_confirmation.tpl'])
+                    && !empty($emailTemplate['new_user_second_email_confirmation.tpl'])
                 ) {
                     $emailBody = $mailTemplateManager->parseTemplate(
                         $emailTemplate['new_user_second_email_confirmation.tpl'],
@@ -543,11 +549,11 @@ class UserManager
             }
 
             /** @var TranslatorInterface $translator */
-            $translator   = Container::$container->get('translator');
+            $translator = Container::$container->get('translator');
             $currentLocale = $translator->getLocale();
 
             $visibleCoreFields = [];
-            $visibleExtraVars  = [];
+            $visibleExtraVars = [];
 
             if ($form) {
                 $formNames = [];
@@ -567,7 +573,7 @@ class UserManager
                 $visibleCoreFields = array_values(array_intersect($cfgCore, $formNames));
 
                 foreach ($formNames as $n) {
-                    if (strpos($n, 'extra_') === 0) {
+                    if (str_starts_with($n, 'extra_')) {
                         $visibleExtraVars[] = substr($n, 6);
                     }
                 }
@@ -581,7 +587,7 @@ class UserManager
                     $adminLocale = $adminData['locale'] ?? 'en_US';
                     $translator->setLocale($adminLocale);
 
-                    $profileHtml      = self::renderRegistrationProfileHtml(
+                    $profileHtml = self::renderRegistrationProfileHtml(
                         $user,
                         $extra ?? [],
                         $adminLocale,
@@ -592,9 +598,9 @@ class UserManager
 
                     $paramsAdmin = [
                         'complete_name' => stripslashes(api_get_person_name($firstName, $lastName)),
-                        'user_added'    => $user,
-                        'link'          => Display::url($url, $url),
-                        'form'          => $profileHtml,
+                        'user_added' => $user,
+                        'link' => Display::url($url, $url),
+                        'form' => $profileHtml,
                         'user_language' => $userLanguageName,
                     ];
 
@@ -637,8 +643,9 @@ class UserManager
      * Accepts ISO 639-1/2 codes (e.g. "en", "es", "eng"). If $iso is null or the
      * code is unknown, an empty string is returned.
      *
-     * @param string|null $iso Two- or three-letter ISO 639 language code.
-     * @return string          Language name in English (e.g. "English", "Spanish").
+     * @param string|null $iso two- or three-letter ISO 639 language code
+     *
+     * @return string Language name in English (e.g. "English", "Spanish").
      */
     private static function resolveLanguageName(?string $iso): string
     {
@@ -648,7 +655,7 @@ class UserManager
 
         /** @var LanguageRepository $langRepo */
         $langRepo = Container::$container->get(LanguageRepository::class);
-        $entity   = $langRepo->findOneBy(['isocode' => $iso]);
+        $entity = $langRepo->findOneBy(['isocode' => $iso]);
 
         return $entity ? $entity->getOriginalName() : $iso;
     }
@@ -656,11 +663,10 @@ class UserManager
     /**
      * Build the “profile” HTML (core + dynamic extra fields) for the admin email, located in $adminLocale.
      *
-     * @param User $user
-     * @param array $extraParams Raw POST values from registration (keys: "extra_*").
-     * @param string $adminLocale e.g. "es_ES", "fr_FR".
-     * @param array $visibleCoreFields Visible core names (email, firstname, status, date_of_birth, etc.)
-     * @param array $visibleExtraVars Visible extra variables (without the "extra_" prefix)
+     * @param array  $extraParams       raw POST values from registration (keys: "extra_*")
+     * @param string $adminLocale       e.g. "es_ES", "fr_FR".
+     * @param array  $visibleCoreFields Visible core names (email, firstname, status, date_of_birth, etc.)
+     * @param array  $visibleExtraVars  Visible extra variables (without the "extra_" prefix)
      */
     private static function renderRegistrationProfileHtml(
         User $user,
@@ -669,7 +675,7 @@ class UserManager
         array $visibleCoreFields = [],
         array $visibleExtraVars = []
     ): string {
-        $showAllCore  = empty($visibleCoreFields);
+        $showAllCore = empty($visibleCoreFields);
         $showAllExtra = empty($visibleExtraVars);
 
         $coreVisible = array_fill_keys($visibleCoreFields, true);
@@ -705,20 +711,20 @@ class UserManager
         }
 
         if ($showAllCore || !empty($coreVisible['status'])) {
-            $statusLabel = ((int) $user->getStatus() === COURSEMANAGER)
+            $statusLabel = (COURSEMANAGER === (int) $user->getStatus())
                 ? get_lang('Teach courses', $adminLocale)
                 : get_lang('Follow courses', $adminLocale);
             $corePairs[get_lang('What do you want to do?', $adminLocale)] = $statusLabel;
         }
 
-        if (($showAllCore || !empty($coreVisible['date_of_birth'])) &&
-            $user->getDateOfBirth() instanceof \DateTimeInterface
+        if (($showAllCore || !empty($coreVisible['date_of_birth']))
+            && $user->getDateOfBirth() instanceof DateTimeInterface
         ) {
             $corePairs[get_lang('Date of birth', $adminLocale)] = $user->getDateOfBirth()->format('Y-m-d');
         }
 
-        $efv = new \ExtraFieldValue('user');
-        $ef  = new \ExtraField('user');
+        $efv = new ExtraFieldValue('user');
+        $ef = new ExtraField('user');
 
         $extraPairs = [];
         $presentVars = [];
@@ -726,8 +732,8 @@ class UserManager
 
         if (is_array($rows)) {
             foreach ($rows as $row) {
-                $fieldId   = (int)$row['id'];
-                $variable  = (string)$row['variable'];
+                $fieldId = (int) $row['id'];
+                $variable = (string) $row['variable'];
                 $presentVars[$variable] = true;
 
                 if (!$showAllExtra && empty($extraVisible[$variable])) {
@@ -743,59 +749,67 @@ class UserManager
                     $val = $row['value'];
                 }
 
-                $type = (int)$row['value_type'];
-                if ($type === \ExtraField::FIELD_TYPE_CHECKBOX) {
-                    $val = ((string)$val === '1') ? get_lang('Yes', $adminLocale) : get_lang('No', $adminLocale);
+                $type = (int) $row['value_type'];
+                if (ExtraField::FIELD_TYPE_CHECKBOX === $type) {
+                    $val = ('1' === (string) $val) ? get_lang('Yes', $adminLocale) : get_lang('No', $adminLocale);
                 }
-                if ($type === \ExtraField::FIELD_TYPE_TAG && is_array($val)) {
-                    $val = implode(', ', array_map(fn($t) => is_array($t) ? (string)($t['value'] ?? '') : (string)$t, $val));
+                if (ExtraField::FIELD_TYPE_TAG === $type && is_array($val)) {
+                    $val = implode(', ', array_map(fn ($t) => is_array($t) ? (string) ($t['value'] ?? '') : (string) $t, $val));
                 }
                 if (is_string($val)) {
-                    $val = str_replace(['<br />','<br>','<br/>'], ', ', $val);
+                    $val = str_replace(['<br />', '<br>', '<br/>'], ', ', $val);
                 }
 
                 $label = !empty($row['display_text'])
                     ? get_lang($row['display_text'], $adminLocale)
-                    : get_lang(ucwords(str_replace('_',' ',$variable)), $adminLocale);
+                    : get_lang(ucwords(str_replace('_', ' ', $variable)), $adminLocale);
 
-                if ($val !== '' && $val !== null) {
-                    $extraPairs[$label] = (string)$val;
+                if ('' !== $val && null !== $val) {
+                    $extraPairs[$label] = (string) $val;
                 }
             }
         }
 
         foreach ($extraParams as $k => $v) {
-            if (strpos($k, 'extra_') !== 0) continue;
+            if (!str_starts_with($k, 'extra_')) {
+                continue;
+            }
             $variable = substr($k, 6);
-            if (isset($presentVars[$variable])) continue;
-            if (!$showAllExtra && empty($extraVisible[$variable])) continue;
+            if (isset($presentVars[$variable])) {
+                continue;
+            }
+            if (!$showAllExtra && empty($extraVisible[$variable])) {
+                continue;
+            }
 
             $def = $ef->get_handler_field_info_by_field_variable($variable);
             $label = $def && !empty($def['display_text'])
                 ? get_lang($def['display_text'], $adminLocale)
-                : get_lang(ucwords(str_replace('_',' ',$variable)), $adminLocale);
+                : get_lang(ucwords(str_replace('_', ' ', $variable)), $adminLocale);
 
             $val = $v;
             if (is_array($val)) {
                 $val = implode(', ', array_map('strval', $val));
-            } elseif ($val === '1') {
+            } elseif ('1' === $val) {
                 $val = get_lang('Yes', $adminLocale);
-            } elseif ($val === '0') {
+            } elseif ('0' === $val) {
                 $val = get_lang('No', $adminLocale);
             }
 
-            if ($val !== '' && $val !== null) {
-                $extraPairs[$label] = (string)$val;
+            if ('' !== $val && null !== $val) {
+                $extraPairs[$label] = (string) $val;
             }
         }
 
         $html = '<div class="form-horizontal">';
         foreach ($corePairs as $k => $v) {
-            if ($v === '' || $v === null) continue;
-            $html .= '<div>'.$k.': '.\Security::remove_XSS((string)$v).'</div>';
+            if ('' === $v || null === $v) {
+                continue;
+            }
+            $html .= '<div>'.$k.': '.Security::remove_XSS((string) $v).'</div>';
         }
         foreach ($extraPairs as $k => $v) {
-            $html .= '<div>'.$k.': '.\Security::remove_XSS((string)$v).'</div>';
+            $html .= '<div>'.$k.': '.Security::remove_XSS((string) $v).'</div>';
         }
         $html .= '</div>';
 
@@ -836,7 +850,7 @@ class UserManager
         $res = Database::query($sql);
         while ($course = Database::fetch_object($res)) {
             $sql = "SELECT id FROM $table_course_user
-                    WHERE status=1 AND c_id = ".intval($course->c_id);
+                    WHERE status=1 AND c_id = ".(int) $course->c_id;
             $res2 = Database::query($sql);
             if (1 == Database::num_rows($res2)) {
                 return false;
@@ -883,27 +897,29 @@ class UserManager
             $em = Database::getManager();
             $rows = $em->createQuery(
                 'SELECT u.id
-                     FROM ' . User::class . ' u
+                     FROM '.User::class.' u
                      WHERE u.creatorId = :oldCreator AND u.id <> :fallbackId'
             )
                 ->setParameter('oldCreator', $user_id)
                 ->setParameter('fallbackId', $fallbackId)
-                ->getScalarResult();
+                ->getScalarResult()
+            ;
 
             $affectedIds = array_map(
-                static fn(array $r): int => (int) $r['id'],
+                static fn (array $r): int => (int) $r['id'],
                 $rows
             );
 
             $em->createQuery(
-                'UPDATE ' . User::class . ' u
+                'UPDATE '.User::class.' u
                  SET u.creatorId = :newCreator
                  WHERE u.creatorId = :oldCreator AND u.id <> :fallbackId'
             )
                 ->setParameter('newCreator', $fallbackId)
                 ->setParameter('oldCreator', $user_id)
                 ->setParameter('fallbackId', $fallbackId)
-                ->execute();
+                ->execute()
+            ;
         }
 
         $repository->deleteUser($user, $destroy);
@@ -920,13 +936,13 @@ class UserManager
             // Log one event per affected user AFTER the deletion
             if (!empty($affectedIds) && $fallbackId && $fallbackId !== $user_id) {
                 $nowUtc = api_get_utc_datetime();
-                $actor  = api_get_user_id();
+                $actor = api_get_user_id();
                 foreach ($affectedIds as $affectedId) {
                     Event::addEvent(
                         LOG_USER_CREATOR_DELETED,
                         LOG_USER_ID,
                         [
-                            'user_id'        => $affectedId,
+                            'user_id' => $affectedId,
                             'old_creator_id' => $user_id,
                             'new_creator_id' => $fallbackId,
                         ],
@@ -952,6 +968,7 @@ class UserManager
      * @author Laurent Opprecht
      *
      * @uses \UserManager::delete_user() to actually delete each user
+     *
      * @assert (null) === false
      * @assert (-1) === false
      * @assert (array(-1)) === false
@@ -985,6 +1002,7 @@ class UserManager
      * @return bool
      *
      * @author Laurent Opprecht
+     *
      * @assert (null) === false
      * @assert (array(-1)) === false
      */
@@ -1017,10 +1035,12 @@ class UserManager
      * - UserManager::activate_users(array(1, 2, 3));.
      *
      * @param array|int IDs of the users to enable
+     * @param mixed $ids
      *
      * @return bool
      *
      * @author Laurent Opprecht
+     *
      * @assert (null) === false
      * @assert (array(-1)) === false
      */
@@ -1055,7 +1075,7 @@ class UserManager
      * @param string $lastname        The user's lastname
      * @param string $username        The user's username (login)
      * @param string $password        The user's password
-     * @param string $auth_sources     The authentication source (default: "platform")
+     * @param string $auth_sources    The authentication source (default: "platform")
      * @param string $email           The user's e-mail address
      * @param int    $status          The user's status
      * @param string $official_code   The user's official code (usually just an internal institutional code)
@@ -1074,6 +1094,7 @@ class UserManager
      * @param array  $emailTemplate
      *
      * @return bool|int False on error, or the user ID if the user information was updated
+     *
      * @assert (false, false, false, false, false, false, false, false, false, false, false, false, false) === false
      */
     public static function update_user(
@@ -1141,7 +1162,7 @@ class UserManager
 
         $change_active = 0;
         $isUserActive = $user->isActive();
-        if ($active != USER_SOFT_DELETED) {
+        if (USER_SOFT_DELETED != $active) {
             if ($isUserActive != $active) {
                 $change_active = 1;
             }
@@ -1159,7 +1180,7 @@ class UserManager
 
         if (!empty($expiration_date)) {
             $expiration_date = api_get_utc_datetime($expiration_date);
-            $expiration_date = new \DateTime($expiration_date, new DateTimeZone('UTC'));
+            $expiration_date = new DateTime($expiration_date, new DateTimeZone('UTC'));
         }
 
         $previousStatus = $user->getStatus();
@@ -1190,7 +1211,7 @@ class UserManager
             $user->addAuthSourceByAuthentication($authSource, $accessUrl);
         }
 
-        if (!is_null($password)) {
+        if (null !== $password) {
             $user->setPlainPassword($password);
         }
 
@@ -1252,9 +1273,9 @@ class UserManager
 
             $mailTemplateManager = new MailTemplateManager();
 
-            if (!empty($emailTemplate) &&
-                isset($emailTemplate['user_edit_content.tpl']) &&
-                !empty($emailTemplate['user_edit_content.tpl'])
+            if (!empty($emailTemplate)
+                && isset($emailTemplate['user_edit_content.tpl'])
+                && !empty($emailTemplate['user_edit_content.tpl'])
             ) {
                 $userInfo = api_get_user_info($user_id);
                 $emailBody = $mailTemplateManager->parseTemplate($emailTemplate['user_edit_content.tpl'], $userInfo);
@@ -1290,10 +1311,12 @@ class UserManager
      * Disables a user.
      *
      * @param int User id
+     * @param mixed $user_id
      *
      * @return bool
      *
      * @uses \UserManager::change_active_state() to actually disable the user
+     *
      * @assert (0) === false
      */
     public static function disable($user_id)
@@ -1310,10 +1333,12 @@ class UserManager
      * Enable a user.
      *
      * @param int User id
+     * @param mixed $user_id
      *
      * @return bool
      *
      * @uses \UserManager::change_active_state() to actually disable the user
+     *
      * @assert (0) === false
      */
     public static function enable($user_id)
@@ -1333,8 +1358,11 @@ class UserManager
      *
      * @param string Original user id
      * @param string Original field name
+     * @param mixed $original_user_id_value
+     * @param mixed $original_user_id_name
      *
      * @return int User id
+     *
      * @assert ('0','---') === 0
      */
     public static function get_user_id_from_original_id(
@@ -1430,6 +1458,7 @@ class UserManager
      *
      * @author Julio Montoya Armas
      * @author Ivan Tcholakov, 2009 - rework about internationalization.
+     *
      * @assert ('','') === false
      * @assert ('a','b') === 'ab'
      */
@@ -1445,7 +1474,7 @@ class UserManager
             0,
             1
         );
-        //Looking for a space in the lastname
+        // Looking for a space in the lastname
         $pos = api_strpos($lastname, ' ');
         if (false !== $pos) {
             $lastname = api_substr($lastname, 0, $pos);
@@ -1480,7 +1509,7 @@ class UserManager
      */
     public static function create_unique_username($firstname, $lastname = null)
     {
-        if (is_null($lastname)) {
+        if (null === $lastname) {
             // In this case the actual input parameter $firstname should contain ASCII-letters and digits only.
             // For making this method tolerant of mistakes,
             // let us transliterate and purify the suggested input username anyway.
@@ -1499,17 +1528,15 @@ class UserManager
             $username = $temp_username;
         }
 
-        $username = URLify::transliterate($username);
-
-        return $username;
+        return URLify::transliterate($username);
     }
 
     /**
      * Modifies a given username accordingly to the specification for valid characters and length.
      *
-     * @param $username string          The input username
-     * @param bool $strict (optional)   When this flag is TRUE, the result is guaranteed for full compliance,
-     *                     otherwise compliance may be partial. The default value is FALSE.
+     * @param string $username The input username
+     * @param bool   $strict   (optional)   When this flag is TRUE, the result is guaranteed for full compliance,
+     *                         otherwise compliance may be partial. The default value is FALSE.
      *
      * @return string the resulting purified username
      */
@@ -1524,9 +1551,7 @@ class UserManager
             $return = URLify::transliterate($return);
 
             // We want everything transliterate() does except converting @ to '(at)'. This is a hack to avoid this.
-            $return = str_replace(' (at) ', '@', $return);
-
-            return $return;
+            return str_replace(' (at) ', '@', $return);
         }
 
         // 1. Applying the shallow purifier.
@@ -1612,7 +1637,7 @@ class UserManager
      * @param string $order
      * @param string $limit
      *
-     * @return array $result student information
+     * @return array student information
      */
     public static function get_user_list_by_ids($ids = [], $active = null, $order = null, $limit = null)
     {
@@ -1626,16 +1651,16 @@ class UserManager
 
         $tbl_user = Database::get_main_table(TABLE_MAIN_USER);
         $sql = "SELECT * FROM $tbl_user WHERE id IN ($ids)";
-        if (!is_null($active)) {
+        if (null !== $active) {
             $sql .= ' AND active='.($active ? '1' : '0');
         }
 
-        if (!is_null($order)) {
+        if (null !== $order) {
             $order = Database::escape_string($order);
             $sql .= ' ORDER BY '.$order;
         }
 
-        if (!is_null($limit)) {
+        if (null !== $limit) {
             $limit = Database::escape_string($limit);
             $sql .= ' LIMIT '.$limit;
         }
@@ -1652,8 +1677,11 @@ class UserManager
     /**
      * Get a list of users of which the given conditions match with an = 'cond'.
      *
-     * @param array $conditions a list of condition (example : status=>STUDENT)
-     * @param array $order_by   a list of fields on which sort
+     * @param array      $conditions a list of condition (example : status=>STUDENT)
+     * @param array      $order_by   a list of fields on which sort
+     * @param mixed      $limit_from
+     * @param mixed      $limit_to
+     * @param null|mixed $idCampus
      *
      * @return array an array with all users of the platform
      *
@@ -1681,7 +1709,7 @@ class UserManager
                       ON (user.id = url_user.user_id)
                       WHERE url_user.access_url_id = $urlId";
         } else {
-            $sql .= " WHERE 1=1 ";
+            $sql .= ' WHERE 1=1 ';
         }
 
         if (count($conditions) > 0) {
@@ -1738,10 +1766,10 @@ class UserManager
                       ON (user.id = url_user.user_id)
                       WHERE url_user.access_url_id = $urlId";
         } else {
-            $sql .= " WHERE 1=1 ";
+            $sql .= ' WHERE 1=1 ';
         }
 
-        $sql .= " AND status <> ".ANONYMOUS." ";
+        $sql .= ' AND status <> '.ANONYMOUS.' ';
 
         if (count($conditions) > 0) {
             foreach ($conditions as $field => $value) {
@@ -1751,7 +1779,7 @@ class UserManager
             }
         }
 
-        $sql .= str_replace("\'", "'", Database::escape_string($extraConditions));
+        $sql .= str_replace("\\'", "'", Database::escape_string($extraConditions));
 
         if (!empty($order_by) && count($order_by) > 0) {
             $sql .= ' ORDER BY '.Database::escape_string(implode(',', $order_by));
@@ -1851,9 +1879,9 @@ class UserManager
         }
 
         if ($limit > 0) {
-            $sql_query .= ' LIMIT '.intval($limit);
+            $sql_query .= ' LIMIT '.(int) $limit;
             if ($offset > 0) {
-                $sql_query .= ' OFFSET '.intval($offset);
+                $sql_query .= ' OFFSET '.(int) $offset;
             }
         }
 
@@ -1885,7 +1913,7 @@ class UserManager
         }
 
         $userPath = "users/$id/";
-        if (api_get_setting('split_users_upload_directory') === 'true') {
+        if ('true' === api_get_setting('split_users_upload_directory')) {
             $userPath = 'users/'.substr((string) $id, 0, 1).'/'.$id.'/';
             // In exceptional cases, on some portals, the intermediate base user
             // directory might not have been created. Make sure it is before
@@ -1894,6 +1922,7 @@ class UserManager
             $rootPath = api_get_path(SYS_PATH).'../app/upload/users/'.substr((string) $id, 0, 1);
             if (!is_dir($rootPath)) {
                 $perm = api_get_permissions_for_new_directories();
+
                 try {
                     mkdir($rootPath, $perm);
                 } catch (Exception $e) {
@@ -1901,13 +1930,18 @@ class UserManager
                 }
             }
         }
+
         switch ($type) {
             case 'system': // Base: absolute system path.
                 $userPath = api_get_path(SYS_PATH).'../app/upload/'.$userPath;
+
                 break;
+
             case 'web': // Base: absolute web path.
                 $userPath = api_get_path(WEB_PATH).'../app/upload/'.$userPath;
+
                 break;
+
             case 'last': // Only the last part starting with users/
                 break;
         }
@@ -1941,16 +1975,23 @@ class UserManager
         switch ($size) {
             case USER_IMAGE_SIZE_SMALL:
                 $width = 32;
+
                 break;
+
             case USER_IMAGE_SIZE_MEDIUM:
                 $width = 64;
+
                 break;
+
             case USER_IMAGE_SIZE_BIG:
                 $width = 128;
+
                 break;
+
             case USER_IMAGE_SIZE_ORIGINAL:
             default:
                 $width = 0;
+
                 break;
         }
 
@@ -1970,93 +2011,81 @@ class UserManager
         }
 
         return $url.$paramsToString;
-
         /*
-        // Make sure userInfo is defined. Otherwise, define it!
-        if (empty($userInfo) || !is_array($userInfo) || 0 == count($userInfo)) {
-            if (empty($user_id)) {
-                return '';
-            } else {
-                $userInfo = api_get_user_info($user_id);
-            }
-        }
-
-        $imageWebPath = self::get_user_picture_path_by_id(
-            $user_id,
-            'web',
-            $userInfo
-        );
-        $pictureWebFile = $imageWebPath['file'];
-        $pictureWebDir = $imageWebPath['dir'];
-
-        $pictureAnonymousSize = '128';
-        $gravatarSize = 22;
-        $realSizeName = 'small_';
-
-        switch ($size) {
-            case USER_IMAGE_SIZE_SMALL:
-                $pictureAnonymousSize = '32';
-                $realSizeName = 'small_';
-                $gravatarSize = 32;
-                break;
-            case USER_IMAGE_SIZE_MEDIUM:
-                $pictureAnonymousSize = '64';
-                $realSizeName = 'medium_';
-                $gravatarSize = 64;
-                break;
-            case USER_IMAGE_SIZE_ORIGINAL:
-                $pictureAnonymousSize = '128';
-                $realSizeName = '';
-                $gravatarSize = 128;
-                break;
-            case USER_IMAGE_SIZE_BIG:
-                $pictureAnonymousSize = '128';
-                $realSizeName = 'big_';
-                $gravatarSize = 128;
-                break;
-        }
-
-        $gravatarEnabled = api_get_setting('gravatar_enabled');
-        $anonymousPath = Display::returnIconPath('unknown.png', $pictureAnonymousSize);
-        if ('unknown.jpg' == $pictureWebFile || empty($pictureWebFile)) {
-            if ('true' === $gravatarEnabled) {
-                $file = self::getGravatar(
-                    $imageWebPath['email'],
-                    $gravatarSize,
-                    api_get_setting('gravatar_type')
-                );
-
-                if ($addRandomId) {
-                    $file .= '&rand='.uniqid();
-                }
-
-                return $file;
-            }
-
-            return $anonymousPath;
-        }
-
-        if ($addRandomId) {
-            $picture .= '?rand='.uniqid();
-        }
-
-        return $picture;*/
+         * // Make sure userInfo is defined. Otherwise, define it!
+         * if (empty($userInfo) || !is_array($userInfo) || 0 == count($userInfo)) {
+         * if (empty($user_id)) {
+         * return '';
+         * } else {
+         * $userInfo = api_get_user_info($user_id);
+         * }
+         * }
+         * $imageWebPath = self::get_user_picture_path_by_id(
+         * $user_id,
+         * 'web',
+         * $userInfo
+         * );
+         * $pictureWebFile = $imageWebPath['file'];
+         * $pictureWebDir = $imageWebPath['dir'];
+         * $pictureAnonymousSize = '128';
+         * $gravatarSize = 22;
+         * $realSizeName = 'small_';
+         * switch ($size) {
+         * case USER_IMAGE_SIZE_SMALL:
+         * $pictureAnonymousSize = '32';
+         * $realSizeName = 'small_';
+         * $gravatarSize = 32;
+         * break;
+         * case USER_IMAGE_SIZE_MEDIUM:
+         * $pictureAnonymousSize = '64';
+         * $realSizeName = 'medium_';
+         * $gravatarSize = 64;
+         * break;
+         * case USER_IMAGE_SIZE_ORIGINAL:
+         * $pictureAnonymousSize = '128';
+         * $realSizeName = '';
+         * $gravatarSize = 128;
+         * break;
+         * case USER_IMAGE_SIZE_BIG:
+         * $pictureAnonymousSize = '128';
+         * $realSizeName = 'big_';
+         * $gravatarSize = 128;
+         * break;
+         * }
+         * $gravatarEnabled = api_get_setting('gravatar_enabled');
+         * $anonymousPath = Display::returnIconPath('unknown.png', $pictureAnonymousSize);
+         * if ('unknown.jpg' == $pictureWebFile || empty($pictureWebFile)) {
+         * if ('true' === $gravatarEnabled) {
+         * $file = self::getGravatar(
+         * $imageWebPath['email'],
+         * $gravatarSize,
+         * api_get_setting('gravatar_type')
+         * );
+         * if ($addRandomId) {
+         * $file .= '&rand='.uniqid();
+         * }
+         * return $file;
+         * }
+         * return $anonymousPath;
+         * }
+         * if ($addRandomId) {
+         * $picture .= '?rand='.uniqid();
+         * }
+         * return $picture;*/
     }
 
     /**
      * Creates new user photos in various sizes of a user, or deletes user photos.
      * Note: This method relies on configuration setting from main/inc/conf/profile.conf.php.
      *
-     * @param int    $user_id the user internal identification number
-     * @param string $file    The common file name for the newly created photos.
-     *                        It will be checked and modified for compatibility with the file system.
-     *                        If full name is provided, path component is ignored.
-     *                        If an empty name is provided, then old user photos are deleted only,
+     * @param string $file The common file name for the newly created photos.
+     *                     It will be checked and modified for compatibility with the file system.
+     *                     If full name is provided, path component is ignored.
+     *                     If an empty name is provided, then old user photos are deleted only,
      *
      * @see     UserManager::delete_user_picture() as the prefered way for deletion.
      *
-     * @param string $source_file    the full system name of the image from which user photos will be created
-     * @param string $cropParameters Optional string that contents "x,y,width,height" of a cropped image format
+     * @param mixed $userId
      *
      * @return bool Returns the resulting common file name of created images which usually should be stored in database.
      *              When deletion is requested returns empty string.
@@ -2104,6 +2133,7 @@ class UserManager
      * out because they'll have to be re-read afterwards anyway.
      *
      * @deprecated This method is being removed from chamilo 2.0
+     *
      * @param int  $user_id    User id
      * @param bool $force      Optional parameter to force building after a removal request
      * @param bool $showDelete
@@ -2123,7 +2153,6 @@ class UserManager
         }
 
         return false;
-
         $production_dir = self::getUserPathById($user_id, 'web');
         $del_image = Display::returnIconPath('delete.png');
         $add_image = Display::returnIconPath('archive.png');
@@ -2165,17 +2194,16 @@ class UserManager
     public static function get_user_productions($user_id)
     {
         return [];
-
         $production_repository = self::getUserPathById($user_id, 'system');
         $productions = [];
 
         if (is_dir($production_repository)) {
             $handle = opendir($production_repository);
             while ($file = readdir($handle)) {
-                if ('.' == $file ||
-                    '..' == $file ||
-                    '.htaccess' == $file ||
-                    is_dir($production_repository.$file)
+                if ('.' == $file
+                    || '..' == $file
+                    || '.htaccess' == $file
+                    || is_dir($production_repository.$file)
                 ) {
                     // skip current/parent directory and .htaccess
                     continue;
@@ -2204,14 +2232,12 @@ class UserManager
     {
         throw new Exception('remove_user_production');
         /*$production_path = self::get_user_picture_path_by_id($user_id, 'system');
-        $production_file = $production_path['dir'].$production;
-        if (is_file($production_file)) {
-            unlink($production_file);
-
-            return true;
-        }
-
-        return false;*/
+         * $production_file = $production_path['dir'].$production;
+         * if (is_file($production_file)) {
+         * unlink($production_file);
+         * return true;
+         * }
+         * return false;*/
     }
 
     /**
@@ -2244,6 +2270,12 @@ class UserManager
      * @param    string    Sorting direction
      * @param    bool    Optional. Whether we get all the fields or just the visible ones
      * @param    int        Optional. Whether we get all the fields with field_filter 1 or 0 or everything
+     * @param mixed      $from
+     * @param mixed      $number_of_items
+     * @param mixed      $column
+     * @param mixed      $direction
+     * @param mixed      $all_visibility
+     * @param null|mixed $field_filter
      *
      * @return array Extra fields details (e.g. $list[2]['type'], $list[4]['options'][2]['title']
      */
@@ -2275,15 +2307,15 @@ class UserManager
         $extraFieldType = EntityExtraField::USER_FIELD_TYPE;
         $sqlf = "SELECT * FROM $t_uf WHERE item_type = $extraFieldType ";
         if (!$all_visibility) {
-            $sqlf .= " AND visible_to_self = 1 ";
+            $sqlf .= ' AND visible_to_self = 1 ';
         }
-        if (!is_null($field_filter)) {
+        if (null !== $field_filter) {
             $field_filter = (int) $field_filter;
             $sqlf .= " AND filter = $field_filter ";
         }
-        $sqlf .= " ORDER BY `".$columns[$column]."` $sort_direction ";
+        $sqlf .= ' ORDER BY `'.$columns[$column]."` $sort_direction ";
         if (0 != $number_of_items) {
-            $sqlf .= " LIMIT ".intval($from).','.intval($number_of_items);
+            $sqlf .= ' LIMIT '.(int) $from.','.(int) $number_of_items;
         }
         $resf = Database::query($sqlf);
         if (Database::num_rows($resf) > 0) {
@@ -2303,8 +2335,8 @@ class UserManager
                 ];
 
                 $sqlo = "SELECT * FROM $t_ufo
-                         WHERE field_id = ".$rowf['id']."
-                         ORDER BY option_order ASC";
+                         WHERE field_id = ".$rowf['id'].'
+                         ORDER BY option_order ASC';
                 $reso = Database::query($sqlo);
                 if (Database::num_rows($reso) > 0) {
                     while ($rowo = Database::fetch_array($reso)) {
@@ -2326,9 +2358,9 @@ class UserManager
      * Creates a new extra field.
      *
      * @param string $variable    Field's internal variable name
-     * @param int    $fieldType   Field's type
      * @param string $displayText Field's language var name
      * @param string $default     Field's default value
+     * @param mixed  $valueType
      *
      * @return int
      */
@@ -2371,6 +2403,11 @@ class UserManager
      * @param    bool    Whether to prefix the fields indexes with "extra_" (might be used by formvalidator)
      * @param    bool    Whether to return invisible fields as well
      * @param    bool    Whether to split multiple-selection fields or not
+     * @param mixed      $user_id
+     * @param mixed      $prefix
+     * @param mixed      $allVisibility
+     * @param mixed      $splitMultiple
+     * @param null|mixed $fieldFilter
      *
      * @return array Array of fields => value for the given user
      */
@@ -2393,8 +2430,8 @@ class UserManager
         $sql = "SELECT f.id as id, f.variable as fvar, f.value_type as type
                 FROM $t_uf f
                 WHERE
-                    item_type = ".EntityExtraField::USER_FIELD_TYPE."
-                ";
+                    item_type = ".EntityExtraField::USER_FIELD_TYPE.'
+                ';
         $filter_cond = '';
 
         if (!$allVisibility) {
@@ -2421,7 +2458,7 @@ class UserManager
                 } else {
                     $sqlu = "SELECT field_value as fval
                             FROM $t_ufv
-                            WHERE field_id=".$row['id']." AND item_id = ".$user_id;
+                            WHERE field_id=".$row['id'].' AND item_id = '.$user_id;
                     $resu = Database::query($sqlu);
                     // get default value
                     $sql_df = "SELECT default_value as fval_df FROM $t_uf
@@ -2463,6 +2500,11 @@ class UserManager
     /** Get extra user data by field.
      * @param int    user ID
      * @param string the internal variable name of the field
+     * @param mixed $user_id
+     * @param mixed $field_variable
+     * @param mixed $prefix
+     * @param mixed $all_visibility
+     * @param mixed $splitmultiple
      *
      * @return array with extra data info of a user i.e array('field_variable'=>'value');
      */
@@ -2488,11 +2530,11 @@ class UserManager
                 WHERE f.variable = '$field_variable' ";
 
         if (!$all_visibility) {
-            $sql .= " AND f.visible_to_self = 1 ";
+            $sql .= ' AND f.visible_to_self = 1 ';
         }
 
-        $sql .= " AND item_type = ".EntityExtraField::USER_FIELD_TYPE;
-        $sql .= " ORDER BY f.field_order ";
+        $sql .= ' AND item_type = '.EntityExtraField::USER_FIELD_TYPE;
+        $sql .= ' ORDER BY f.field_order ';
 
         $res = Database::query($sql);
         if (Database::num_rows($res) > 0) {
@@ -2501,9 +2543,9 @@ class UserManager
                          INNER JOIN $t_uf f
                          ON (v.field_id = f.id)
                          WHERE
-                            item_type = ".EntityExtraField::USER_FIELD_TYPE." AND
-                            field_id = ".$row['id']." AND
-                            item_id = ".$user_id;
+                            item_type = ".EntityExtraField::USER_FIELD_TYPE.' AND
+                            field_id = '.$row['id'].' AND
+                            item_id = '.$user_id;
                 $resu = Database::query($sqlu);
                 $fval = '';
                 if (Database::num_rows($resu) > 0) {
@@ -2569,7 +2611,7 @@ class UserManager
      *
      * @param int $fieldId the ID of the field we want to know everything of
      *
-     * @return array $return containing all th information about the extra profile field
+     * @return array containing all th information about the extra profile field
      *
      * @author Julio Montoya
      *
@@ -2679,9 +2721,7 @@ class UserManager
      */
     public static function get_extra_user_data_for_tags($variable)
     {
-        $data = self::get_extra_field_tags_information_by_name($variable);
-
-        return $data;
+        return self::get_extra_field_tags_information_by_name($variable);
     }
 
     /**
@@ -2720,7 +2760,7 @@ class UserManager
         $dqlSelect = ' COUNT(DISTINCT s.id) ';
 
         if (!$getCount) {
-            $dqlSelect = " DISTINCT
+            $dqlSelect = ' DISTINCT
                 s.id,
                 s.title,
                 s.accessStartDate AS access_start_date,
@@ -2734,7 +2774,7 @@ class UserManager
                 s.coachAccessEndDate AS coach_access_end_date,
                 CASE WHEN s.accessEndDate IS NULL THEN 1 ELSE 0 END HIDDEN _isFieldNull
                 , s.position AS position
-            ";
+            ';
         }
 
         // A single OR operation on scu.user = :user OR s.generalCoach = :user
@@ -2753,7 +2793,7 @@ class UserManager
             INNER JOIN ChamiloCoreBundle:AccessUrlRelSession AS url WITH url.session = s.id
             LEFT JOIN ChamiloCoreBundle:SessionCategory AS sc WITH s.category = sc
             INNER JOIN ChamiloCoreBundle:SessionRelUser AS su WITH su.session = s
-            WHERE (su.user = :user AND su.relationType = ".SessionEntity::GENERAL_COACH.") AND url.url = :url ";
+            WHERE (su.user = :user AND su.relationType = ".SessionEntity::GENERAL_COACH.') AND url.url = :url ';
 
         // Default order
         $order = 'ORDER BY sc.title, s.title';
@@ -2771,13 +2811,16 @@ class UserManager
 
         // Order by dates according to settings
         $orderBySettings = api_get_setting('session.my_courses_session_order', true);
-        if (!empty($orderBySettings) && isset($orderBySettings['field']) && isset($orderBySettings['order'])) {
+        if (!empty($orderBySettings) && isset($orderBySettings['field'], $orderBySettings['order'])) {
             $field = $orderBySettings['field'];
             $orderSetting = $orderBySettings['order'];
+
             switch ($field) {
                 case 'start_date':
                     $order = " ORDER BY s.accessStartDate $orderSetting";
+
                     break;
+
                 case 'end_date':
                     $order = " ORDER BY s.accessEndDate $orderSetting ";
                     if ('asc' == $orderSetting) {
@@ -2785,10 +2828,13 @@ class UserManager
                         // https://stackoverflow.com/questions/12652034/how-can-i-order-by-null-in-dql
                         $order = ' ORDER BY _isFieldNull asc, s.accessEndDate asc';
                     }
+
                     break;
+
                 case 'name':
                 case 'title':
                     $order = " ORDER BY s.title $orderSetting ";
+
                     break;
             }
         }
@@ -2835,8 +2881,6 @@ class UserManager
 
         $collapsable = ('true' === api_get_setting('session.allow_user_session_collapsable'));
 
-
-
         $extraField = new ExtraFieldValue('session');
         $collapsableLink = api_get_path(WEB_PATH).'user_portal.php?action=collapse_session';
 
@@ -2863,10 +2907,9 @@ class UserManager
                     } else {
                         if (empty($row['access_end_date'])) {
                             continue;
-                        } else {
-                            if ($row['access_end_date'] > $now) {
-                                continue;
-                            }
+                        }
+                        if ($row['access_end_date'] > $now) {
+                            continue;
                         }
                     }
                 } else {
@@ -2882,8 +2925,8 @@ class UserManager
                                 continue;
                             }
                         } else {
-                            if (isset($row['access_end_date']) &&
-                                !empty($row['access_end_date'])
+                            if (isset($row['access_end_date'])
+                                && !empty($row['access_end_date'])
                             ) {
                                 if ($row['access_end_date'] <= $now) {
                                     continue;
@@ -2942,6 +2985,7 @@ class UserManager
                 case SESSION_VISIBLE:
                 case SESSION_AVAILABLE:
                     break;
+
                 case SESSION_INVISIBLE:
                     if (false === $ignore_visibility_for_admins) {
                         continue 2;
@@ -2981,8 +3025,8 @@ class UserManager
     /**
      * Gives a list of [session_id-course_code] => [status] for the current user.
      *
-     * @param  int  $user_id
-     * @param  int  $sessionLimit
+     * @param int $user_id
+     * @param int $sessionLimit
      *
      * @return array list of statuses (session_id-course_code => status)
      *
@@ -3095,7 +3139,6 @@ class UserManager
                 ORDER BY su.access_start_date, su.access_end_date, s.title
                 $sessionLimitRestriction
         ";
-
 
         $result = Database::query($sql);
         if (Database::num_rows($result) > 0) {
@@ -3394,7 +3437,7 @@ class UserManager
                 }
             }
         } else {
-            //check if user is general coach for this session
+            // check if user is general coach for this session
             if ($session && $session->hasUserAsGeneralCoach($user)) {
                 $courseList = SessionManager::get_course_list_by_session_id($session_id);
                 if (!empty($courseList)) {
@@ -3419,7 +3462,7 @@ class UserManager
                 // The session course list doesn't have any position,
                 // then order the course list by course code
                 $list = array_column($myCourseList, 'course_code');
-                array_multisort($myCourseList, SORT_ASC, $list);
+                array_multisort($myCourseList, \SORT_ASC, $list);
             }
         }
 
@@ -3458,74 +3501,70 @@ class UserManager
     /**
      * Get the users files upload from his share_folder.
      *
-     * @param string $user_id      User ID
-     * @param string $course       course directory
-     * @param string $resourceType resource type: images, all
+     * @param string $user_id     User ID
+     * @param mixed  $api_service
      *
      * @return string
      */
     /*public static function get_user_upload_files_by_course(
-        $user_id,
-        $course,
-        $resourceType = 'all'
-    ) {
-        $return = '';
-        $user_id = (int) $user_id;
-
-        if (!empty($user_id) && !empty($course)) {
-            $path = api_get_path(SYS_COURSE_PATH).$course.'/document/shared_folder/sf_user_'.$user_id.'/';
-            $web_path = api_get_path(WEB_COURSE_PATH).$course.'/document/shared_folder/sf_user_'.$user_id.'/';
-            $file_list = [];
-
-            if (is_dir($path)) {
-                $handle = opendir($path);
-                while ($file = readdir($handle)) {
-                    if ('.' == $file || '..' == $file || '.htaccess' == $file || is_dir($path.$file)) {
-                        continue; // skip current/parent directory and .htaccess
-                    }
-                    $file_list[] = $file;
-                }
-                if (count($file_list) > 0) {
-                    $return = "<h4>$course</h4>";
-                    $return .= '<ul class="thumbnails">';
-                }
-                $extensionList = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tif'];
-                foreach ($file_list as $file) {
-                    if ('all' == $resourceType) {
-                        $return .= '<li>
-                            <a href="'.$web_path.urlencode($file).'" target="_blank">'.htmlentities($file).'</a></li>';
-                    } elseif ('images' == $resourceType) {
-                        //get extension
-                        $ext = explode('.', $file);
-                        if (isset($ext[1]) && in_array($ext[1], $extensionList)) {
-                            $return .= '<li class="span2">
-                                            <a class="thumbnail" href="'.$web_path.urlencode($file).'" target="_blank">
-                                                <img src="'.$web_path.urlencode($file).'" >
-                                            </a>
-                                        </li>';
-                        }
-                    }
-                }
-                if (count($file_list) > 0) {
-                    $return .= '</ul>';
-                }
-            }
-        }
-
-        return $return;
-    }*/
+     * $user_id,
+     * $course,
+     * $resourceType = 'all'
+     * ) {
+     * $return = '';
+     * $user_id = (int) $user_id;
+     * if (!empty($user_id) && !empty($course)) {
+     * $path = api_get_path(SYS_COURSE_PATH).$course.'/document/shared_folder/sf_user_'.$user_id.'/';
+     * $web_path = api_get_path(WEB_COURSE_PATH).$course.'/document/shared_folder/sf_user_'.$user_id.'/';
+     * $file_list = [];
+     * if (is_dir($path)) {
+     * $handle = opendir($path);
+     * while ($file = readdir($handle)) {
+     * if ('.' == $file || '..' == $file || '.htaccess' == $file || is_dir($path.$file)) {
+     * continue; // skip current/parent directory and .htaccess
+     * }
+     * $file_list[] = $file;
+     * }
+     * if (count($file_list) > 0) {
+     * $return = "<h4>$course</h4>";
+     * $return .= '<ul class="thumbnails">';
+     * }
+     * $extensionList = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tif'];
+     * foreach ($file_list as $file) {
+     * if ('all' == $resourceType) {
+     * $return .= '<li>
+     * <a href="'.$web_path.urlencode($file).'" target="_blank">'.htmlentities($file).'</a></li>';
+     * } elseif ('images' == $resourceType) {
+     * //get extension
+     * $ext = explode('.', $file);
+     * if (isset($ext[1]) && in_array($ext[1], $extensionList)) {
+     * $return .= '<li class="span2">
+     * <a class="thumbnail" href="'.$web_path.urlencode($file).'" target="_blank">
+     * <img src="'.$web_path.urlencode($file).'" >
+     * </a>
+     * </li>';
+     * }
+     * }
+     * }
+     * if (count($file_list) > 0) {
+     * $return .= '</ul>';
+     * }
+     * }
+     * }
+     * return $return;
+     * }*/
 
     /**
      * Gets the API key (or keys) and return them into an array.
      *
-     * @param int     Optional user id (defaults to the result of api_get_user_id())
+     * @param int    $user_id     Optional user id (defaults to the result of api_get_user_id())
      * @param string $api_service
      *
      * @return mixed Non-indexed array containing the list of API keys for this user, or FALSE on error
      */
     public static function get_api_keys($user_id = null, $api_service = 'default')
     {
-        if ($user_id != strval(intval($user_id))) {
+        if ($user_id != (string) ((int) $user_id)) {
             return false;
         }
         if (empty($user_id)) {
@@ -3543,7 +3582,7 @@ class UserManager
         $res = Database::query($sql);
         if (false === $res) {
             return false;
-        } //error during query
+        } // error during query
         $num = Database::num_rows($res);
         if (0 == $num) {
             return false;
@@ -3560,13 +3599,14 @@ class UserManager
      * Adds a new API key to the users' account.
      *
      * @param   int     Optional user ID (defaults to the results of api_get_user_id())
-     * @param string $api_service
+     * @param string     $api_service
+     * @param null|mixed $user_id
      *
      * @return bool True on success, false on failure
      */
     public static function add_api_key($user_id = null, $api_service = 'default')
     {
-        if ($user_id != strval(intval($user_id))) {
+        if ($user_id != (string) ((int) $user_id)) {
             return false;
         }
         if (empty($user_id)) {
@@ -3585,7 +3625,7 @@ class UserManager
         $res = Database::query($sql);
         if (false === $res) {
             return false;
-        } //error during query
+        } // error during query
         $num = Database::insert_id();
 
         return 0 == $num ? false : $num;
@@ -3595,12 +3635,13 @@ class UserManager
      * Deletes an API key from the user's account.
      *
      * @param   int     API key's internal ID
+     * @param mixed $key_id
      *
      * @return bool True on success, false on failure
      */
     public static function delete_api_key($key_id)
     {
-        if ($key_id != strval(intval($key_id))) {
+        if ($key_id != (string) ((int) $key_id)) {
             return false;
         }
         if (false === $key_id) {
@@ -3611,7 +3652,7 @@ class UserManager
         $res = Database::query($sql);
         if (false === $res) {
             return false;
-        } //error during query
+        } // error during query
         $num = Database::num_rows($res);
         if (1 !== $num) {
             return false;
@@ -3620,7 +3661,7 @@ class UserManager
         $res = Database::query($sql);
         if (false === $res) {
             return false;
-        } //error during query
+        } // error during query
 
         return true;
     }
@@ -3630,12 +3671,14 @@ class UserManager
      *
      * @param   int     user ID (defaults to the results of api_get_user_id())
      * @param   string  API key's internal ID
+     * @param mixed $user_id
+     * @param mixed $api_service
      *
      * @return int num
      */
     public static function update_api_key($user_id, $api_service)
     {
-        if ($user_id != strval(intval($user_id))) {
+        if ($user_id != (string) ((int) $user_id)) {
             return false;
         }
         if (false === $user_id) {
@@ -3664,12 +3707,14 @@ class UserManager
     /**
      * @param   int     user ID (defaults to the results of api_get_user_id())
      * @param   string    API key's internal ID
+     * @param mixed $user_id
+     * @param mixed $api_service
      *
      * @return int row ID, or return false if not found
      */
     public static function get_api_key_id($user_id, $api_service)
     {
-        if ($user_id != strval(intval($user_id))) {
+        if ($user_id != (string) ((int) $user_id)) {
             return false;
         }
         if (false === $user_id) {
@@ -3695,6 +3740,7 @@ class UserManager
      * Checks if a user_id is platform admin.
      *
      * @param   int user ID
+     * @param mixed $user_id
      *
      * @return bool True if is admin, false otherwise
      *
@@ -3716,12 +3762,12 @@ class UserManager
     /**
      * Get the total count of users.
      *
-     * @param ?int $status Status of users to be counted
+     * @param ?int $status        Status of users to be counted
      * @param ?int $access_url_id Access URL ID (optional)
-     * @param ?int $active
      *
      * @return mixed Number of users or false on error
-     * @throws \Doctrine\DBAL\Exception
+     *
+     * @throws Doctrine\DBAL\Exception
      */
     public static function get_number_of_users(
         ?int $status = 0,
@@ -3789,7 +3835,7 @@ class UserManager
      * @param string $tag
      * @param int    $field_id      field_id
      * @param string $return_format how we are going to result value in array or in a string (json)
-     * @param $limit
+     * @param mixed  $limit
      *
      * @return mixed
      */
@@ -3929,9 +3975,9 @@ class UserManager
 
         if (is_array($user_tags) && count($user_tags) > 0) {
             return implode(', ', $tag_tmp);
-        } else {
-            return '';
         }
+
+        return '';
     }
 
     /**
@@ -3947,7 +3993,7 @@ class UserManager
         $table_user_tag = Database::get_main_table(TABLE_MAIN_TAG);
         $tag = Database::escape_string($tag);
         $field_id = (int) $field_id;
-        //with COLLATE latin1_bin to select query in a case sensitive mode
+        // with COLLATE latin1_bin to select query in a case sensitive mode
         $sql = "SELECT id FROM $table_user_tag
                 WHERE tag LIKE '$tag' AND field_id = $field_id";
         $result = Database::query($sql);
@@ -3955,9 +4001,9 @@ class UserManager
             $row = Database::fetch_assoc($result);
 
             return $row['id'];
-        } else {
-            return 0;
         }
+
+        return 0;
     }
 
     /**
@@ -3980,9 +4026,9 @@ class UserManager
             $row = Database::fetch_assoc($result);
 
             return $row['id'];
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -4012,25 +4058,25 @@ class UserManager
          *
          */
 
-        //this is a new tag
+        // this is a new tag
         if (0 == $tag_id) {
-            //the tag doesn't exist
+            // the tag doesn't exist
             $sql = "INSERT INTO $table_user_tag (tag, field_id,count) VALUES ('$tag','$field_id', count + 1)";
             Database::query($sql);
             $last_insert_id = Database::insert_id();
         } else {
-            //the tag exists we update it
+            // the tag exists we update it
             $sql = "UPDATE $table_user_tag SET count = count + 1 WHERE id  = $tag_id";
             Database::query($sql);
             $last_insert_id = $tag_id;
         }
 
         if (!empty($last_insert_id) && (0 != $last_insert_id)) {
-            //we insert the relationship user-tag
+            // we insert the relationship user-tag
             $sql = "SELECT tag_id FROM $table_user_tag_values
                     WHERE user_id = $user_id AND tag_id = $last_insert_id ";
             $result = Database::query($sql);
-            //if the relationship does not exist we create it
+            // if the relationship does not exist we create it
             if (0 == Database::num_rows($result)) {
                 $sql = "INSERT INTO $table_user_tag_values SET user_id = $user_id, tag_id = $last_insert_id";
                 Database::query($sql);
@@ -4048,7 +4094,7 @@ class UserManager
      * @param int $user_id
      * @param int $field_id
      */
-    public static function delete_user_tags($user_id, $field_id)
+    public static function delete_user_tags($user_id, $field_id): void
     {
         // database table definition
         $table_user_tag = Database::get_main_table(TABLE_MAIN_TAG);
@@ -4152,11 +4198,11 @@ class UserManager
         $table_user_tag_values = Database::get_main_table(TABLE_MAIN_USER_REL_TAG);
         $access_url_rel_user_table = Database::get_main_table(TABLE_MAIN_ACCESS_URL_REL_USER);
 
-        $field_id = intval($field_id);
-        $from = intval($from);
-        $number_of_items = intval($number_of_items);
+        $field_id = (int) $field_id;
+        $from = (int) $from;
+        $number_of_items = (int) $number_of_items;
 
-        $where_field = "";
+        $where_field = '';
         $where_extra_fields = self::get_search_form_where_extra_fields();
         if (0 != $field_id) {
             $where_field = " field_id = $field_id AND ";
@@ -4164,9 +4210,9 @@ class UserManager
 
         // all the information of the field
         if ($getCount) {
-            $select = "SELECT count(DISTINCT u.id) count";
+            $select = 'SELECT count(DISTINCT u.id) count';
         } else {
-            $select = "SELECT DISTINCT u.id, u.username, firstname, lastname, email, tag, picture_uri";
+            $select = 'SELECT DISTINCT u.id, u.username, firstname, lastname, email, tag, picture_uri';
         }
 
         $sql = " $select
@@ -4177,16 +4223,16 @@ class UserManager
                 ON (u.id AND uv.user_id AND uv.user_id = url_rel_user.user_id)
                 LEFT JOIN $table_user_tag ut ON (uv.tag_id = ut.id)
                 WHERE
-                    ($where_field tag LIKE '".Database::escape_string($tag."%")."') OR
+                    ($where_field tag LIKE '".Database::escape_string($tag.'%')."') OR
                     (
-                        u.firstname LIKE '".Database::escape_string("%".$tag."%")."' OR
-                        u.lastname LIKE '".Database::escape_string("%".$tag."%")."' OR
-                        u.username LIKE '".Database::escape_string("%".$tag."%")."' OR
-                        concat(u.firstname, ' ', u.lastname) LIKE '".Database::escape_string("%".$tag."%")."' OR
-                        concat(u.lastname, ' ', u.firstname) LIKE '".Database::escape_string("%".$tag."%")."'
+                        u.firstname LIKE '".Database::escape_string('%'.$tag.'%')."' OR
+                        u.lastname LIKE '".Database::escape_string('%'.$tag.'%')."' OR
+                        u.username LIKE '".Database::escape_string('%'.$tag.'%')."' OR
+                        concat(u.firstname, ' ', u.lastname) LIKE '".Database::escape_string('%'.$tag.'%')."' OR
+                        concat(u.lastname, ' ', u.firstname) LIKE '".Database::escape_string('%'.$tag.'%')."'
                      )
-                     ".(!empty($where_extra_fields) ? $where_extra_fields : '')."
-                     AND url_rel_user.access_url_id=".api_get_current_access_url_id();
+                     ".(!empty($where_extra_fields) ? $where_extra_fields : '').'
+                     AND url_rel_user.access_url_id='.api_get_current_access_url_id();
 
         $keyword_active = true;
         // only active users
@@ -4194,8 +4240,8 @@ class UserManager
             $sql .= " AND u.active='1'";
         }
         // avoid anonymous
-        $sql .= " AND u.status <> 6 ";
-        $sql .= " ORDER BY username";
+        $sql .= ' AND u.status <> 6 ';
+        $sql .= ' ORDER BY username';
         $sql .= " LIMIT $from , $number_of_items";
 
         $result = Database::query($sql);
@@ -4282,8 +4328,8 @@ class UserManager
             if (is_array($finalResult) && count($finalResult) > 0) {
                 $whereFilter = " AND u.id IN  ('".implode("','", $finalResult)."') ";
             } else {
-                //no results
-                $whereFilter = " AND u.id  = -1 ";
+                // no results
+                $whereFilter = ' AND u.id  = -1 ';
             }
 
             return $whereFilter;
@@ -4295,11 +4341,12 @@ class UserManager
     /**
      * Show the search form.
      *
-     * @param string $query the value of the search box
-     *
-     * @throws Exception
+     * @param string $query         the value of the search box
+     * @param mixed  $defaultParams
      *
      * @return string HTML form
+     *
+     * @throws Exception
      */
     public static function get_search_form($query, $defaultParams = [])
     {
@@ -4513,7 +4560,7 @@ class UserManager
         $userId = (int) $userId;
         $limitCondition = '';
 
-        if (isset($from) && isset($numberItems)) {
+        if (isset($from, $numberItems)) {
             $from = (int) $from;
             $numberItems = (int) $numberItems;
             $limitCondition = "LIMIT $from, $numberItems";
@@ -4524,23 +4571,23 @@ class UserManager
 
         $userConditions = '';
         if (!empty($userStatus)) {
-            $userConditions .= ' AND u.status = '.intval($userStatus);
+            $userConditions .= ' AND u.status = '.(int) $userStatus;
         }
 
-        $select = " SELECT DISTINCT u.id user_id, u.username, u.lastname, u.firstname, u.email ";
+        $select = ' SELECT DISTINCT u.id user_id, u.username, u.lastname, u.firstname, u.email ';
         if ($getOnlyUserId) {
-            $select = " SELECT DISTINCT u.id user_id";
+            $select = ' SELECT DISTINCT u.id user_id';
         }
 
-        $masterSelect = "SELECT DISTINCT * FROM ";
+        $masterSelect = 'SELECT DISTINCT * FROM ';
 
         if ($getCount) {
-            $masterSelect = "SELECT COUNT(DISTINCT(user_id)) as count FROM ";
-            $select = " SELECT DISTINCT(u.id) user_id";
+            $masterSelect = 'SELECT COUNT(DISTINCT(user_id)) as count FROM ';
+            $select = ' SELECT DISTINCT(u.id) user_id';
         }
 
-        if (!is_null($active)) {
-            $active = intval($active);
+        if (null !== $active) {
+            $active = (int) $active;
             $userConditions .= " AND u.active = $active ";
         }
 
@@ -4590,15 +4637,17 @@ class UserManager
                     friend_user_id = '$userId' AND
                     relation_type = '".UserRelUser::USER_RELATION_TYPE_RRHH."'
                 ";
+
                 break;
+
             case COURSEMANAGER:
                 $drhConditions .= " AND
                     friend_user_id = '$userId' AND
                     relation_type = '".UserRelUser::USER_RELATION_TYPE_RRHH."'
                 ";
 
-                $sessionConditionsTeacher = " AND
-                    (scu.status = ".SessionEntity::COURSE_COACH." AND scu.user_id = '$userId')
+                $sessionConditionsTeacher = ' AND
+                    (scu.status = '.SessionEntity::COURSE_COACH." AND scu.user_id = '$userId')
                 ";
 
                 if ($checkSessionVisibility) {
@@ -4627,8 +4676,8 @@ class UserManager
                                     $tbl_session_rel_access_url session_rel_access_rel_user
                                     ON session_rel_access_rel_user.session_id = s.id
                                     INNER JOIN $tbl_session_rel_user sru ON s.id = sru.session_id
-                                    WHERE access_url_id = ".$urlId."
-                                        AND (sru.relation_type = ".SessionEntity::GENERAL_COACH."
+                                    WHERE access_url_id = ".$urlId.'
+                                        AND (sru.relation_type = '.SessionEntity::GENERAL_COACH."
                                         AND sru.user_id = $userId)
                                 ) OR sru.session_id IN (
                                     SELECT DISTINCT(s.id) FROM $tbl_session s
@@ -4652,17 +4701,21 @@ class UserManager
                             WHERE user_id = $userId AND status = ".COURSEMANAGER."
                         )
                         $userConditions
-                    )"
-                ;
+                    )";
+
                 break;
+
             case STUDENT_BOSS:
                 $drhConditions = " AND friend_user_id = $userId AND relation_type = ".UserRelUser::USER_RELATION_TYPE_BOSS;
+
                 break;
+
             case HRM_REQUEST:
                 $drhConditions .= " AND
                     friend_user_id = '$userId' AND
                     relation_type = '".UserRelUser::USER_RELATION_TYPE_HRM_REQUEST."'
                 ";
+
                 break;
         }
 
@@ -4697,9 +4750,9 @@ class UserManager
         $orderBy = null;
         if (false == $getOnlyUserId) {
             if (api_is_western_name_order()) {
-                $orderBy .= " ORDER BY firstname, lastname ";
+                $orderBy .= ' ORDER BY firstname, lastname ';
             } else {
-                $orderBy .= " ORDER BY lastname, firstname ";
+                $orderBy .= ' ORDER BY lastname, firstname ';
             }
 
             if (!empty($column) && !empty($direction)) {
@@ -4765,7 +4818,7 @@ class UserManager
      *
      * @param array $usersId List of user IDs from whom to remove all relations requests with HRM
      */
-    public static function clearHrmRequestsForUser(User $hrmId, $usersId)
+    public static function clearHrmRequestsForUser(User $hrmId, $usersId): void
     {
         $users = implode(', ', $usersId);
         Database::getManager()
@@ -4773,7 +4826,8 @@ class UserManager
                 DELETE FROM ChamiloCoreBundle:UserRelUser uru
                 WHERE uru.friendUserId = :hrm_id AND uru.relationType = :relation_type AND uru.userId IN (:users_ids)
             ')
-            ->execute(['hrm_id' => $hrmId, 'relation_type' => UserRelUser::USER_RELATION_TYPE_HRM_REQUEST, 'users_ids' => $users]);
+            ->execute(['hrm_id' => $hrmId, 'relation_type' => UserRelUser::USER_RELATION_TYPE_HRM_REQUEST, 'users_ids' => $users])
+        ;
     }
 
     /**
@@ -4868,12 +4922,10 @@ class UserManager
     /**
      * This function checks if a user is followed by provided human resources managers.
      *
-     * @param int $user_id
      * @param int $hr_dept_id Human resources manager
      *
-     * @return bool
      * @throws Exception
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Doctrine\DBAL\Exception
      */
     public static function is_user_followed_by_drh(int $user_id, int $hr_dept_id): bool
     {
@@ -4896,11 +4948,10 @@ class UserManager
     /**
      * Return the user id of teacher or session administrator.
      *
-     * @param array $courseInfo
-     *
      * @return int The user id, or 0 if the session ID was negative
+     *
      * @throws Exception
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Doctrine\DBAL\Exception
      */
     public static function get_user_id_of_course_admin_or_session_admin(array $courseInfo): int
     {
@@ -4928,12 +4979,12 @@ class UserManager
                 $row = Database::fetch_array($rs);
 
                 return (int) $row['uid'];
-            } else {
-                $my_num_rows = $num_rows;
-
-                return (int) Database::result($rs, $my_num_rows - 1, 'uid');
             }
-        } elseif ($session > 0) {
+            $my_num_rows = $num_rows;
+
+            return (int) Database::result($rs, $my_num_rows - 1, 'uid');
+        }
+        if ($session > 0) {
             $sql = 'SELECT u.id as uid FROM '.$table_user.' u
                     INNER JOIN '.$table_session_course_user.' sru
                     ON sru.user_id = u.id
@@ -4973,7 +5024,7 @@ class UserManager
         $rs = Database::query($sql);
         $row = Database::fetch_array($rs);
 
-        if (!isset($row['path_certificate']) || '' == $row['path_certificate'] || is_null($row['path_certificate'])) {
+        if (!isset($row['path_certificate']) || '' == $row['path_certificate'] || null === $row['path_certificate']) {
             return false;
         }
 
@@ -5049,9 +5100,9 @@ class UserManager
     {
         $table = Database::get_main_table(TABLE_MAIN_SESSION_COURSE_USER);
         // Protect data
-        $user_id = intval($user_id);
-        $courseId = intval($courseId);
-        $session_id = intval($session_id);
+        $user_id = (int) $user_id;
+        $courseId = (int) $courseId;
+        $session_id = (int) $session_id;
         $result = false;
 
         $sql = "SELECT session_id FROM $table
@@ -5097,7 +5148,7 @@ class UserManager
         return $icon_link;
     }
 
-    public static function addUserAsAdmin(User $user)
+    public static function addUserAsAdmin(User $user): void
     {
         $userId = $user->getId();
 
@@ -5111,7 +5162,7 @@ class UserManager
         Container::getUserRepository()->updateUser($user, true);
     }
 
-    public static function removeUserAdmin(User $user)
+    public static function removeUserAdmin(User $user): void
     {
         $userId = (int) $user->getId();
         if (self::is_admin($userId)) {
@@ -5144,7 +5195,8 @@ class UserManager
             )
             ->setParameter('from', $fromIsocode)
             ->setParameter('to', $toIsocode)
-            ->execute();
+            ->execute()
+        ;
     }
 
     /**
@@ -5232,7 +5284,7 @@ class UserManager
 
                 $bossLanguage = $bossInfo['locale'];
                 $sql = "INSERT IGNORE INTO $userRelUserTable (user_id, friend_user_id, relation_type)
-                        VALUES ($studentId, $bossId, ".UserRelUser::USER_RELATION_TYPE_BOSS.")";
+                        VALUES ($studentId, $bossId, ".UserRelUser::USER_RELATION_TYPE_BOSS.')';
                 $insertId = Database::query($sql);
 
                 if ($insertId) {
@@ -5399,7 +5451,7 @@ class UserManager
     /**
      * Get the boss user ID from a followed user id.
      *
-     * @param $userId
+     * @param mixed $userId
      *
      * @return bool
      */
@@ -5488,7 +5540,7 @@ class UserManager
      */
     public static function getUserProfileLink($userInfo)
     {
-        if (isset($userInfo) && isset($userInfo['user_id'])) {
+        if (isset($userInfo, $userInfo['user_id'])) {
             return Display::url(
                 $userInfo['complete_name_with_username'],
                 $userInfo['profile_url']
@@ -5536,8 +5588,8 @@ SQL;
     public static function getUserSubscriptionTab($optionSelected = 1)
     {
         $allowAdmin = api_get_setting('workflows.allow_user_course_subscription_by_course_admin');
-        if (('true' === $allowAdmin && api_is_allowed_to_edit()) ||
-            api_is_platform_admin()
+        if (('true' === $allowAdmin && api_is_allowed_to_edit())
+            || api_is_platform_admin()
         ) {
             $userPath = api_get_path(WEB_CODE_PATH).'user/';
 
@@ -5633,7 +5685,7 @@ SQL;
      *
      * @param int $userId User ID
      */
-    public static function loginDelete($userId)
+    public static function loginDelete($userId): void
     {
         $online_table = Database::get_main_table(TABLE_STATISTIC_TRACK_E_ONLINE);
         $userId = (int) $userId;
@@ -5666,8 +5718,8 @@ SQL;
     /**
      * Check if user is teacher of a student based in their courses.
      *
-     * @param $teacherId
-     * @param $studentId
+     * @param mixed $teacherId
+     * @param mixed $studentId
      *
      * @return array
      */
@@ -5723,7 +5775,7 @@ SQL;
      *
      * @throws Exception
      */
-    public static function sendUserConfirmationMail(User $user)
+    public static function sendUserConfirmationMail(User $user): void
     {
         $uniqueId = api_generate_secure_token();
         $user->setConfirmationToken($uniqueId);
@@ -5782,17 +5834,17 @@ SQL;
         $allowDelete = ('true' === api_get_setting('session.allow_delete_user_for_session_admin'));
 
         $message = '';
-        if (api_is_platform_admin() ||
-            ($allowDelete && api_is_session_admin())
+        if (api_is_platform_admin()
+            || ($allowDelete && api_is_session_admin())
         ) {
             $userEntity = api_get_user_entity($userId);
             $currentUserId = api_get_user_id();
 
-            if ($userEntity &&
-                api_global_admin_can_edit_admin($userId, null, $allowDelete)
+            if ($userEntity
+                && api_global_admin_can_edit_admin($userId, null, $allowDelete)
             ) {
-                if ($userId != $currentUserId &&
-                    Container::getUserAnonymizationHelper()->anonymize($userEntity)
+                if ($userId != $currentUserId
+                    && Container::getUserAnonymizationHelper()->anonymize($userEntity)
                 ) {
                     $message = Display::return_message(
                         sprintf(get_lang("User %s's information anonymized."), $userEntity->getFullNameWithUsername()),
@@ -5833,8 +5885,8 @@ SQL;
             return $message;
         }
 
-        if (api_is_platform_admin() ||
-            ($allowDelete && api_is_session_admin())
+        if (api_is_platform_admin()
+            || ($allowDelete && api_is_session_admin())
         ) {
             if (api_global_admin_can_edit_admin($userId, null, $allowDelete)) {
                 if (self::delete_user($userId, $destroy)) {
@@ -5858,28 +5910,28 @@ SQL;
     {
         self::create_extra_field(
             'request_for_legal_agreement_consent_removal_justification',
-            1, //text
+            1, // text
             'Request for legal agreement consent removal justification	',
             ''
         );
 
         self::create_extra_field(
             'request_for_delete_account_justification',
-            1, //text
+            1, // text
             'Request for delete account justification',
             ''
         );
 
         $extraFieldId = self::create_extra_field(
             'request_for_legal_agreement_consent_removal',
-            1, //text
+            1, // text
             'Request for legal agreement consent removal',
             ''
         );
 
         $extraFieldIdDeleteAccount = self::create_extra_field(
             'request_for_delete_account',
-            1, //text
+            1, // text
             'Request for delete user account',
             ''
         );
@@ -5893,7 +5945,7 @@ SQL;
     /**
      * @param int $userId
      */
-    public static function cleanUserRequestsOfRemoval($userId)
+    public static function cleanUserRequestsOfRemoval($userId): void
     {
         $userId = (int) $userId;
 
@@ -5920,9 +5972,9 @@ SQL;
     /**
      * @param int $searchYear
      *
-     * @throws Exception
-     *
      * @return array
+     *
+     * @throws Exception
      */
     public static function getSubscribedSessionsByYear(array $userInfo, $searchYear)
     {
@@ -6034,9 +6086,9 @@ SQL;
      * @param array $sessionsList Session list from UserManager::getSubscribedSessionsByYear
      * @param int   $searchYear
      *
-     * @throws Exception
-     *
      * @return array
+     *
+     * @throws Exception
      */
     public static function getSessionsCalendarByYear(array $sessionsList, $searchYear)
     {
@@ -6216,6 +6268,7 @@ SQL;
      * @param int $active  Enable or disable
      *
      * @return bool True on success, false on failure
+     *
      * @assert (-1,0) === false
      * @assert (1,1) === true
      */
@@ -6253,6 +6306,7 @@ SQL;
      * @param array  $atts  Optional, additional key/value attributes to include in the IMG tag
      *
      * @return string containing either just a URL or a complete image tag
+     *
      * @source http://gravatar.com/site/implement/images/php/
      */
     private static function getGravatar(
@@ -6285,8 +6339,9 @@ SQL;
      * This function is resource intensive.
      *
      * @return array
+     *
      * @throws Exception
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Doctrine\DBAL\Exception
      */
     public static function countUsersWhoFinishedCourses()
     {
@@ -6312,7 +6367,8 @@ SQL;
                 $courses[$row['code']]['subscribed']++;
                 $entityManager = Database::getManager();
                 $repository = $entityManager->getRepository(GradebookCategory::class);
-                //todo check when have more than 1 gradebook
+
+                // todo check when have more than 1 gradebook
                 /** @var GradebookCategory $gradebook */
                 $gradebook = $repository->findOneBy(['course' => $row['cid']]);
                 if (!empty($gradebook)) {
@@ -6326,6 +6382,7 @@ SQL;
                 }
             }
         }
+
         return $courses;
     }
 
@@ -6334,8 +6391,9 @@ SQL;
      * This function is resource intensive.
      *
      * @return array
+     *
      * @throws Exception
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Doctrine\DBAL\Exception
      */
     public static function countUsersWhoFinishedCoursesInSessions()
     {
@@ -6430,18 +6488,17 @@ SQL;
             $userId,
             'ask_new_password'
         );
-        if (!empty($askPassword) && isset($askPassword['ask_new_password']) &&
-            1 === (int) $askPassword['ask_new_password']
+        if (!empty($askPassword) && isset($askPassword['ask_new_password'])
+            && 1 === (int) $askPassword['ask_new_password']
         ) {
             $uniqueId = api_generate_secure_token();
             $userObj = api_get_user_entity($userId);
             $userObj->setConfirmationToken($uniqueId);
-            $userObj->setPasswordRequestedAt(new \DateTime());
+            $userObj->setPasswordRequestedAt(new DateTime());
             Database::getManager()->persist($userObj);
             Database::getManager()->flush();
             $url = api_get_path(WEB_CODE_PATH).'auth/reset.php?token='.$uniqueId;
             api_location($url);
         }
     }
-
 }

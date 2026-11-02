@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 /* For licensing terms, see /license.txt */
 
-/**
+/*
  * This file has been intentionally blanked.
  *
  * It only held check_download_survey(), included by main/document/download.php (which does not exist in

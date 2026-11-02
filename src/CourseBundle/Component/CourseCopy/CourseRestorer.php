@@ -15,11 +15,14 @@ use Chamilo\CoreBundle\Entity\GradebookLink;
 use Chamilo\CoreBundle\Entity\GradeModel;
 use Chamilo\CoreBundle\Entity\ResourceLink;
 use Chamilo\CoreBundle\Entity\Room;
+use Chamilo\CoreBundle\Entity\Session;
 use Chamilo\CoreBundle\Entity\Session as SessionEntity;
 use Chamilo\CoreBundle\Entity\Tool;
 use Chamilo\CoreBundle\Framework\Container;
 use Chamilo\CoreBundle\Helpers\ChamiloHelper;
 use Chamilo\CoreBundle\Repository\AssetRepository;
+use Chamilo\CoreBundle\Repository\CStudentPublicationRepository;
+use Chamilo\CoreBundle\Repository\ResourceLinkRepository;
 use Chamilo\CoreBundle\Repository\ResourceNodeRepository;
 use Chamilo\CoreBundle\Tool\User;
 use Chamilo\CourseBundle\Entity\CAnnouncement;
@@ -77,17 +80,26 @@ use learnpath;
 use PhpZip\ZipFile;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use ReflectionMethod;
+use SplFileInfo;
 use stdClass;
 use SurveyManager;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Throwable;
+use Traversable;
+use ZipArchive;
 
+use const ENT_HTML5;
+use const ENT_QUOTES;
 use const FILEINFO_MIME_TYPE;
+use const FILTER_VALIDATE_BOOLEAN;
+use const GLOB_ONLYDIR;
 use const JSON_PARTIAL_OUTPUT_ON_ERROR;
 use const JSON_UNESCAPED_SLASHES;
 use const JSON_UNESCAPED_UNICODE;
 use const PATHINFO_EXTENSION;
+use const PHP_URL_PATH;
 
 /**
  * Class CourseRestorer.
@@ -107,15 +119,31 @@ class CourseRestorer
 
     /**
      * The course-object.
+     *
+     * @var object
      */
     public $course;
+
+    /**
+     * @var array
+     */
     public $destination_course_info;
 
     /**
      * What to do with files with same name (FILE_SKIP, FILE_RENAME, FILE_OVERWRITE).
+     *
+     * @var int
      */
     public $file_option;
+
+    /**
+     * @var bool
+     */
     public $set_tools_invisible_by_default;
+
+    /**
+     * @var array
+     */
     public $skip_content;
 
     // Track if documents were already restored during this restore run.
@@ -123,6 +151,8 @@ class CourseRestorer
 
     /**
      * Restore order (keep existing order; docs first).
+     *
+     * @var string[]
      */
     public $tools_to_restore = [
         'documents',
@@ -150,24 +180,35 @@ class CourseRestorer
 
     /**
      * Setting per tool.
+     *
+     * @var array
      */
     public $tool_copy_settings = [];
 
     /**
      * If true adds the text "copy" in the title of an item (only for LPs right now).
+     *
+     * @var bool
      */
     public $add_text_in_items = false;
 
+    /**
+     * @var int
+     */
     public $destination_course_id;
     public bool $copySessionContent = false;
 
     /**
      * Optional course origin id (legacy).
+     *
+     * @var int|null
      */
     private $course_origin_id;
 
     /**
      * First teacher (owner) used for forums/posts.
+     *
+     * @var int
      */
     private $first_teacher_id = 0;
 
@@ -183,15 +224,15 @@ class CourseRestorer
      */
     public function __construct($course)
     {
-        $this->course = $course ?: (object)[];
+        $this->course = $course ?: (object) [];
 
         $code = (string) ($this->course->code ?? '');
-        if ($code === '') {
+        if ('' === $code) {
             $code = api_get_course_id();
             $this->course->code = $code;
         }
 
-        $courseInfo = $code !== '' ? api_get_course_info($code) : api_get_course_info();
+        $courseInfo = '' !== $code ? api_get_course_info($code) : api_get_course_info();
         $this->course_origin_id = !empty($courseInfo) ? $courseInfo['real_id'] : null;
 
         $this->file_option = FILE_RENAME;
@@ -277,12 +318,14 @@ class CourseRestorer
         if (!empty($teacher_list)) {
             foreach ($teacher_list as $t) {
                 $this->first_teacher_id = (int) $t['user_id'];
+
                 break;
             }
         }
 
         if (empty($this->course)) {
             $this->dlog('No source course found');
+
             return false;
         }
 
@@ -309,7 +352,7 @@ class CourseRestorer
         $this->debug_course_resources_simple(null);
         $deferredTools = ['gradebook'];
         $tools = $this->tools_to_restore ?? [];
-        if (!is_array($tools)) {
+        if (!\is_array($tools)) {
             $tools = (array) $tools;
         }
 
@@ -317,7 +360,7 @@ class CourseRestorer
         $toolsLater = [];
 
         foreach ($tools as $tool) {
-            if (in_array($tool, $deferredTools, true)) {
+            if (\in_array($tool, $deferredTools, true)) {
                 $toolsLater[] = $tool;
             } else {
                 $toolsNow[] = $tool;
@@ -334,6 +377,7 @@ class CourseRestorer
             $fn = 'restore_'.$tool;
             if (!method_exists($this, $fn)) {
                 $this->dlog('Restore method not found for tool (skipping)', ['tool' => $tool, 'method' => $fn]);
+
                 return;
             }
 
@@ -342,9 +386,9 @@ class CourseRestorer
             try {
                 // call with the number of params the method actually accepts
                 $args = [$session_id, $respect_base_content, $destination_course_code];
-                $ref = new \ReflectionMethod($this, $fn);
+                $ref = new ReflectionMethod($this, $fn);
                 $argc = $ref->getNumberOfParameters();
-                $callArgs = array_slice($args, 0, $argc);
+                $callArgs = \array_slice($args, 0, $argc);
 
                 $this->dlog('Calling restore method', [
                     'tool' => $tool,
@@ -466,6 +510,7 @@ class CourseRestorer
         // Avoid double-restore in the same run (LP restore calls documents again).
         if ($this->documentsRestored) {
             $this->dlog('restore_documents: already restored in this run, skipping');
+
             return;
         }
 
@@ -482,6 +527,7 @@ class CourseRestorer
         foreach ($bucketCandidates as $cand) {
             if (isset($this->course->resources[$cand]) && \is_array($this->course->resources[$cand])) {
                 $docBucketKey = $cand;
+
                 break;
             }
         }
@@ -495,7 +541,7 @@ class CourseRestorer
         }
 
         /** @var array $docResources */
-        $docResources =& $this->course->resources[$docBucketKey];
+        $docResources = &$this->course->resources[$docBucketKey];
 
         if (empty($docResources)) {
             $this->dlog('restore_documents: document bucket is empty', ['bucket' => $docBucketKey]);
@@ -504,25 +550,25 @@ class CourseRestorer
         }
 
         try {
-            if (\method_exists($this->course, 'has_resources') && \defined('RESOURCE_DOCUMENT')) {
+            if (method_exists($this->course, 'has_resources') && \defined('RESOURCE_DOCUMENT')) {
                 if (!$this->course->has_resources(RESOURCE_DOCUMENT)) {
                     $this->dlog('restore_documents: resource map did not declare documents; restoring anyway', [
                         'bucket' => $docBucketKey,
                     ]);
                 }
             }
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $this->dlog('restore_documents: has_resources check failed; restoring anyway', [
                 'bucket' => $docBucketKey,
-                'err'    => $e->getMessage(),
+                'err' => $e->getMessage(),
             ]);
         }
 
-        $courseInfo   = $this->destination_course_info;
-        $docRepo      = Container::getDocumentRepository();
+        $courseInfo = $this->destination_course_info;
+        $docRepo = Container::getDocumentRepository();
         $courseEntity = api_get_course_entity($this->destination_course_id);
-        $session      = api_get_session_entity((int) $session_id);
-        $group        = api_get_group_entity(0);
+        $session = api_get_session_entity((int) $session_id);
+        $group = api_get_group_entity(0);
 
         $DBG = function (string $msg, array $ctx = []): void {
             error_log('[RESTORE:DOCS] '.$msg.(empty($ctx) ? '' : ' '.json_encode($ctx)));
@@ -546,14 +592,14 @@ class CourseRestorer
         // Resolve the import root deterministically:
         $resolveImportRoot = function (): string {
             $metaRoot = (string) ($this->course->resources['__meta']['archiver_root'] ?? '');
-            if ($metaRoot !== '' && is_dir($metaRoot) && (is_file($metaRoot.'/course_info.dat') || is_dir($metaRoot.'/document'))) {
+            if ('' !== $metaRoot && is_dir($metaRoot) && (is_file($metaRoot.'/course_info.dat') || is_dir($metaRoot.'/document'))) {
                 $this->dlog('resolveImportRoot: using meta.archiver_root', ['dir' => $metaRoot]);
 
                 return rtrim($metaRoot, '/');
             }
 
             $bp = (string) ($this->course->backup_path ?? '');
-            if ($bp !== '') {
+            if ('' !== $bp) {
                 if (is_dir($bp) && (is_file($bp.'/course_info.dat') || is_dir($bp.'/document'))) {
                     $this->dlog('resolveImportRoot: using backup_path (dir)', ['dir' => $bp]);
 
@@ -561,12 +607,12 @@ class CourseRestorer
                 }
 
                 if (is_file($bp) && preg_match('/\.zip$/i', $bp)) {
-                    $base = dirname($bp);
+                    $base = \dirname($bp);
                     $cands = glob($base.'/CourseArchiver_*', GLOB_ONLYDIR) ?: [];
                     if (empty($cands) && is_dir($base)) {
                         $tmp = array_diff(scandir($base) ?: [], ['.', '..']);
                         foreach ($tmp as $name) {
-                            if (strpos($name, 'CourseArchiver_') === 0 && is_dir($base.'/'.$name)) {
+                            if (str_starts_with($name, 'CourseArchiver_') && is_dir($base.'/'.$name)) {
                                 $cands[] = $base.'/'.$name;
                             }
                         }
@@ -592,7 +638,7 @@ class CourseRestorer
                 if (empty($cands)) {
                     $tmp = array_diff(scandir($scanBase) ?: [], ['.', '..']);
                     foreach ($tmp as $name) {
-                        if (strpos($name, 'CourseArchiver_') === 0 && is_dir($scanBase.'/'.$name)) {
+                        if (str_starts_with($name, 'CourseArchiver_') && is_dir($scanBase.'/'.$name)) {
                             $cands[] = $scanBase.'/'.$name;
                         }
                     }
@@ -616,14 +662,14 @@ class CourseRestorer
         };
 
         $backupRoot = $resolveImportRoot();
-        $copyMode   = $backupRoot === '';
-        $srcRoot    = $copyMode ? null : ($backupRoot.'/');
+        $copyMode = '' === $backupRoot;
+        $srcRoot = $copyMode ? null : ($backupRoot.'/');
 
         $this->dlog('restore_documents: begin', [
-            'bucket'  => $docBucketKey,
-            'files'   => \count($docResources),
+            'bucket' => $docBucketKey,
+            'files' => \count($docResources),
             'session' => (int) $session_id,
-            'mode'    => $copyMode ? 'copy' : 'import',
+            'mode' => $copyMode ? 'copy' : 'import',
             'srcRoot' => $srcRoot,
         ]);
 
@@ -636,8 +682,8 @@ class CourseRestorer
 
                 $em = Container::getEntityManager();
 
-                /** @var \Chamilo\CoreBundle\Repository\ResourceLinkRepository $linkRepo */
-                $linkRepo = $em->getRepository(\Chamilo\CoreBundle\Entity\ResourceLink::class);
+                /** @var ResourceLinkRepository $linkRepo */
+                $linkRepo = $em->getRepository(ResourceLink::class);
 
                 $child = $docRepo->find($childDocIid);
                 if (!$child || null === $child->getResourceNode()) {
@@ -667,7 +713,7 @@ class CourseRestorer
 
                     $DBG('rl.parent.synced', ['iid' => $childDocIid, 'parentIid' => $parentFolderDocIid]);
                 }
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 $DBG('rl.parent.sync.failed', ['iid' => $childDocIid, 'err' => $e->getMessage()]);
             }
         };
@@ -678,7 +724,7 @@ class CourseRestorer
             if ($doc && method_exists($doc, 'getPath')) {
                 $p = (string) $doc->getPath();
 
-                return $p !== '' && $p[0] === '/' ? $p : '/'.$p;
+                return '' !== $p && '/' === $p[0] ? $p : '/'.$p;
             }
 
             return '';
@@ -693,23 +739,23 @@ class CourseRestorer
                 }
 
                 $em = Container::getEntityManager();
-                $rlRepo = $em->getRepository(\Chamilo\CoreBundle\Entity\ResourceLink::class);
+                $rlRepo = $em->getRepository(ResourceLink::class);
 
                 $link = $rlRepo->findOneBy([
                     'resourceNode' => $doc->getResourceNode(),
-                    'course'       => $courseEntity,
-                    'session'      => $session,
-                    'group'        => $groupCtx,
+                    'course' => $courseEntity,
+                    'session' => $session,
+                    'group' => $groupCtx,
                 ]);
 
                 if ($link && method_exists($link, 'getVisibility') && method_exists($link, 'setVisibility')) {
-                    if ((int) $link->getVisibility() !== 0) {
+                    if (0 !== (int) $link->getVisibility()) {
                         $link->setVisibility(0);
                         $em->flush();
                         $DBG('learning_path.hidden', ['iid' => $docIid]);
                     }
                 }
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 $DBG('learning_path.hide.failed', ['iid' => $docIid, 'err' => $e->getMessage()]);
             }
         };
@@ -737,7 +783,7 @@ class CourseRestorer
                 if (preg_match('#^/certificates/[^/]+/[^/]+(?:/(.*))?$#i', $rel, $m)) {
                     $rest = $m[1] ?? '';
 
-                    return $rest === '' ? '/' : '/'.ltrim($rest, '/');
+                    return '' === $rest ? '/' : '/'.ltrim($rest, '/');
                 }
 
                 if (preg_match('#^/certificates/(.*)$#i', $rel, $m)) {
@@ -750,11 +796,11 @@ class CourseRestorer
                 $course = $m[2];
                 $rest = $m[3] ?? '';
 
-                $hostLooksLikeHostname = ($host === 'localhost') || str_contains($host, '.');
+                $hostLooksLikeHostname = ('localhost' === $host) || str_contains($host, '.');
                 $courseLooksLikeCode = (bool) preg_match('/^[A-Za-z0-9_\-]{3,}$/', $course);
 
                 if ($hostLooksLikeHostname && $courseLooksLikeCode) {
-                    return $rest === '' ? '/' : '/'.ltrim($rest, '/');
+                    return '' === $rest ? '/' : '/'.ltrim($rest, '/');
                 }
             }
 
@@ -782,15 +828,15 @@ class CourseRestorer
                 $start = 1;
             }
 
-            $accum    = '';
+            $accum = '';
             $parentId = 0;
 
             for ($i = $start; $i < \count($parts); $i++) {
-                $seg   = $parts[$i];
+                $seg = $parts[$i];
                 $accum = $accum.'/'.$seg;
 
                 $parentRes = $parentId ? $docRepo->find($parentId) : $courseEntity;
-                $title     = $seg;
+                $title = $seg;
 
                 $existing = $docRepo->findCourseResourceByTitle(
                     $title,
@@ -802,6 +848,7 @@ class CourseRestorer
 
                 if ($existing) {
                     $parentId = method_exists($existing, 'getIid') ? $existing->getIid() : 0;
+
                     continue;
                 }
 
@@ -845,7 +892,7 @@ class CourseRestorer
             }
 
             $peek = (string) @file_get_contents($filePath, false, null, 0, 2048);
-            if ($peek === '') {
+            if ('' === $peek) {
                 return false;
             }
 
@@ -878,7 +925,7 @@ class CourseRestorer
 
             if ($copyMode && !empty($item->source_id)) {
                 $rel = $getLogicalPathFromSource($item->source_id);
-                if ($rel === '') {
+                if ('' === $rel) {
                     $rel = '/'.ltrim(substr($item->path, 8), '/');
                 }
             } else {
@@ -887,13 +934,14 @@ class CourseRestorer
 
             $rel = $normalizeRel($rel);
 
-            if ($rel === '/' || $rel === '') {
+            if ('/' === $rel || '' === $rel) {
                 continue;
             }
 
             $firstSeg = strtolower((string) (explode('/', trim($rel, '/'))[0] ?? ''));
             if (\in_array($firstSeg, $alwaysSkipTopFolders, true)) {
                 $this->dlog('restore_documents: skipping reserved folder', ['folder' => $firstSeg, 'rel' => $rel]);
+
                 continue;
             }
 
@@ -901,8 +949,8 @@ class CourseRestorer
                 continue;
             }
 
-            $parts    = array_values(array_filter(explode('/', $rel)));
-            $accum    = '';
+            $parts = array_values(array_filter(explode('/', $rel)));
+            $accum = '';
             $parentId = 0;
 
             foreach ($parts as $i => $seg) {
@@ -910,6 +958,7 @@ class CourseRestorer
 
                 if (isset($folders[$accum])) {
                     $parentId = $folders[$accum];
+
                     continue;
                 }
 
@@ -973,11 +1022,11 @@ class CourseRestorer
 
         //    Pass A: non-HTML files (build URL maps)
         //    Pass B: HTML files (rewrite using URL maps)
-        $urlMapByRel  = [];
+        $urlMapByRel = [];
         $urlMapByBase = [];
 
         $addToMaps = function (string $srcRelKey, int $iid) use (&$urlMapByRel, &$urlMapByBase, $docRepo): void {
-            if ($srcRelKey === '' || $iid <= 0) {
+            if ('' === $srcRelKey || $iid <= 0) {
                 return;
             }
 
@@ -996,7 +1045,7 @@ class CourseRestorer
             }
 
             $base = basename($srcRelKey);
-            if ($base !== '' && (!isset($urlMapByBase[$base]) || !$urlMapByBase[$base])) {
+            if ('' !== $base && (!isset($urlMapByBase[$base]) || !$urlMapByBase[$base])) {
                 $urlMapByBase[$base] = $url;
             }
         };
@@ -1105,7 +1154,7 @@ class CourseRestorer
 
             if ($copyMode && !empty($item->source_id)) {
                 $rel = $getLogicalPathFromSource($item->source_id);
-                if ($rel === '') {
+                if ('' === $rel) {
                     $rel = '/'.ltrim(substr((string) $item->path, 8), '/');
                 }
             } else {
@@ -1123,7 +1172,7 @@ class CourseRestorer
             }
 
             $parentRel = rtrim(\dirname($rel), '/');
-            $parentId  = $folders[$parentRel] ?? 0;
+            $parentId = $folders[$parentRel] ?? 0;
             if (!$parentId) {
                 $parentId = $ensureFolder($parentRel);
                 $folders[$parentRel] = $parentId;
@@ -1131,7 +1180,7 @@ class CourseRestorer
 
             $parentRes = $parentId ? $docRepo->find($parentId) : $courseEntity;
 
-            $baseTitle  = (string) $rawTitle;
+            $baseTitle = (string) $rawTitle;
             $finalTitle = $baseTitle;
 
             $findExisting = function (string $t) use ($docRepo, $parentRes, $courseEntity, $session, $groupCtx) {
@@ -1149,10 +1198,10 @@ class CourseRestorer
                     return;
                 }
 
-                $pi   = pathinfo($baseTitle);
+                $pi = pathinfo($baseTitle);
                 $name = $pi['filename'] ?? $baseTitle;
-                $ext2 = (isset($pi['extension']) && $pi['extension'] !== '') ? '.'.$pi['extension'] : '';
-                $i    = 1;
+                $ext2 = (isset($pi['extension']) && '' !== $pi['extension']) ? '.'.$pi['extension'] : '';
+                $i = 1;
 
                 while ($findExisting($finalTitle)) {
                     $finalTitle = $name.'_'.$i.$ext2;
@@ -1161,12 +1210,12 @@ class CourseRestorer
             }
 
             if (basename($rel) !== $finalTitle) {
-                $rel = ($parentRel === '' || $parentRel === '/')
+                $rel = ('' === $parentRel || '/' === $parentRel)
                     ? '/'.$finalTitle
                     : $parentRel.'/'.$finalTitle;
             }
 
-            $content  = '';
+            $content = '';
             $realPath = '';
 
             if ($isHtml) {
@@ -1187,9 +1236,9 @@ class CourseRestorer
                 $content = $rew['html'];
 
                 $DBG('html.rewrite', [
-                    'file'     => $finalTitle,
+                    'file' => $finalTitle,
                     'replaced' => (int) ($rew['replaced'] ?? 0),
-                    'misses'   => (int) ($rew['misses'] ?? 0),
+                    'misses' => (int) ($rew['misses'] ?? 0),
                 ]);
             } else {
                 $realPath = $srcPath;
@@ -1234,9 +1283,9 @@ class CourseRestorer
         }
 
         $this->dlog('restore_documents: end', [
-            'bucket'     => $docBucketKey,
-            'mapByRel'   => \count($urlMapByRel),
-            'mapByBase'  => \count($urlMapByBase),
+            'bucket' => $docBucketKey,
+            'mapByRel' => \count($urlMapByRel),
+            'mapByBase' => \count($urlMapByBase),
         ]);
 
         $this->documentsRestored = true;
@@ -1256,8 +1305,9 @@ class CourseRestorer
         // Resolve the real bucket key (so we write destination_id back consistently).
         $bucketKey = null;
         foreach ($bucketKeys as $k) {
-            if (isset($this->course->resources[$k]) && is_array($this->course->resources[$k])) {
+            if (isset($this->course->resources[$k]) && \is_array($this->course->resources[$k])) {
                 $bucketKey = $k;
+
                 break;
             }
         }
@@ -1265,6 +1315,7 @@ class CourseRestorer
         $bag = $bucketKey ? ($this->course->resources[$bucketKey] ?? []) : [];
         if (empty($bag)) {
             $this->dlog('restore_forum_category: empty bag');
+
             return;
         }
 
@@ -1277,6 +1328,7 @@ class CourseRestorer
             $this->dlog('restore_forum_category: missing destination course entity', [
                 'course_id' => (int) $this->destination_course_id,
             ]);
+
             return;
         }
 
@@ -1286,7 +1338,7 @@ class CourseRestorer
         $resolvedSid = (int) ($sessionEntity?->getId() ?? 0);
 
         $this->dlog('restore_forum_category: begin', [
-            'count' => count($bag),
+            'count' => \count($bag),
             'session_arg' => (int) $session_id,
             'resolved_sid' => $resolvedSid,
             'bucket' => (string) $bucketKey,
@@ -1300,7 +1352,8 @@ class CourseRestorer
                 ->innerJoin('n.resourceLinks', 'l')
                 ->andWhere('l.course = :course')->setParameter('course', $courseEntity)
                 ->andWhere('c.title = :title')->setParameter('title', $title)
-                ->setMaxResults(1);
+                ->setMaxResults(1)
+            ;
 
             if ($sess) {
                 $qb->andWhere('l.session = :session')->setParameter('session', $sess);
@@ -1316,7 +1369,7 @@ class CourseRestorer
         };
 
         foreach ($bag as $srcCatId => $res) {
-            if (!is_object($res)) {
+            if (!\is_object($res)) {
                 continue;
             }
 
@@ -1324,10 +1377,10 @@ class CourseRestorer
                 continue;
             }
 
-            $obj = is_object($res->obj ?? null) ? $res->obj : (object) [];
+            $obj = \is_object($res->obj ?? null) ? $res->obj : (object) [];
 
             $title = trim((string) ($obj->cat_title ?? $obj->title ?? ''));
-            if ($title === '') {
+            if ('' === $title) {
                 $title = 'Forum category #'.(int) $srcCatId;
             }
 
@@ -1342,7 +1395,7 @@ class CourseRestorer
             if ($existing) {
                 $destIid = (int) $existing->getIid();
 
-                if ((int) ($this->file_option ?? FILE_RENAME) === FILE_SKIP) {
+                if (FILE_SKIP === (int) ($this->file_option ?? FILE_RENAME)) {
                     $this->course->resources[$bucketKey][$srcCatId] ??= new stdClass();
                     $this->course->resources[$bucketKey][$srcCatId]->destination_id = $destIid;
                     $res->destination_id = $destIid;
@@ -1353,10 +1406,11 @@ class CourseRestorer
                         'title' => $title,
                         'resolved_sid' => $resolvedSid,
                     ]);
+
                     continue;
                 }
 
-                if ((int) ($this->file_option ?? FILE_RENAME) === FILE_OVERWRITE) {
+                if (FILE_OVERWRITE === (int) ($this->file_option ?? FILE_RENAME)) {
                     $existing->setCatComment($comment);
                     $em->flush();
 
@@ -1370,6 +1424,7 @@ class CourseRestorer
                         'title' => $title,
                         'resolved_sid' => $resolvedSid,
                     ]);
+
                     continue;
                 }
 
@@ -1407,7 +1462,7 @@ class CourseRestorer
         }
 
         $this->dlog('restore_forum_category: done', [
-            'count' => count($bag),
+            'count' => \count($bag),
             'resolved_sid' => $resolvedSid,
         ]);
     }
@@ -1422,8 +1477,9 @@ class CourseRestorer
         // Resolve bucket key for forums (so we write destination_id back consistently).
         $forumBucketKey = null;
         foreach ($forumBucketKeys as $k) {
-            if (isset($this->course->resources[$k]) && is_array($this->course->resources[$k])) {
+            if (isset($this->course->resources[$k]) && \is_array($this->course->resources[$k])) {
                 $forumBucketKey = $k;
+
                 break;
             }
         }
@@ -1431,16 +1487,17 @@ class CourseRestorer
         $forumsBag = $forumBucketKey ? ($this->course->resources[$forumBucketKey] ?? []) : [];
         if (empty($forumsBag)) {
             $this->dlog('restore_forums: empty forums bag');
+
             return;
         }
 
         $topicsBag = $this->getBag(['thread', 'Forum_Topic', 'forum_topic', 'FORUM_TOPIC']);
-        $postsBag  = $this->getBag(['post', 'Forum_Post', 'forum_post', 'FORUM_POST']);
+        $postsBag = $this->getBag(['post', 'Forum_Post', 'forum_post', 'FORUM_POST']);
 
         // Index threads by source forum_id (one pass).
         $threadsByForum = [];
         foreach ($topicsBag as $srcThreadId => $topicRes) {
-            if (!is_object($topicRes) || !is_object($topicRes->obj)) {
+            if (!\is_object($topicRes) || !\is_object($topicRes->obj)) {
                 continue;
             }
             $fid = (int) ($topicRes->obj->forum_id ?? 0);
@@ -1452,7 +1509,7 @@ class CourseRestorer
         // Index posts by source thread_id (one pass).
         $postsByThread = [];
         foreach ($postsBag as $srcPostId => $postRes) {
-            if (!is_object($postRes) || !is_object($postRes->obj)) {
+            if (!\is_object($postRes) || !\is_object($postRes->obj)) {
                 continue;
             }
             $tid = (int) ($postRes->obj->thread_id ?? 0);
@@ -1471,6 +1528,7 @@ class CourseRestorer
             $this->dlog('restore_forums: missing destination course entity', [
                 'course_id' => (int) $this->destination_course_id,
             ]);
+
             return;
         }
 
@@ -1482,8 +1540,9 @@ class CourseRestorer
         $catBucketKeys = ['Forum_Category', 'forum_category', 'ForumCategory', 'FORUM_CATEGORY'];
         $catBucketKey = null;
         foreach ($catBucketKeys as $k) {
-            if (isset($this->course->resources[$k]) && is_array($this->course->resources[$k])) {
+            if (isset($this->course->resources[$k]) && \is_array($this->course->resources[$k])) {
                 $catBucketKey = $k;
+
                 break;
             }
         }
@@ -1498,11 +1557,11 @@ class CourseRestorer
         }
 
         $this->dlog('restore_forums: begin', [
-            'forums' => count($forumsBag),
+            'forums' => \count($forumsBag),
             'session_arg' => (int) $sessionId,
             'resolved_sid' => $resolvedSid,
             'forum_bucket' => (string) $forumBucketKey,
-            'cat_map_count' => count($catMap),
+            'cat_map_count' => \count($catMap),
             'policy' => (int) ($this->file_option ?? -1),
         ]);
 
@@ -1513,7 +1572,8 @@ class CourseRestorer
                 ->andWhere('l.course = :course')->setParameter('course', $courseEntity)
                 ->andWhere('f.forumCategory = :cat')->setParameter('cat', $category)
                 ->andWhere('f.title = :title')->setParameter('title', $title)
-                ->setMaxResults(1);
+                ->setMaxResults(1)
+            ;
 
             if ($sessionEntity) {
                 $qb->andWhere('l.session = :session')->setParameter('session', $sessionEntity);
@@ -1531,7 +1591,8 @@ class CourseRestorer
                 ->innerJoin('n.resourceLinks', 'l')
                 ->andWhere('l.course = :course')->setParameter('course', $courseEntity)
                 ->andWhere('c.title = :title')->setParameter('title', 'General')
-                ->setMaxResults(1);
+                ->setMaxResults(1)
+            ;
 
             if ($sessionEntity) {
                 $qb->andWhere('l.session = :session')->setParameter('session', $sessionEntity);
@@ -1557,7 +1618,7 @@ class CourseRestorer
         };
 
         foreach ($forumsBag as $srcForumId => $forumRes) {
-            if (!is_object($forumRes) || !is_object($forumRes->obj)) {
+            if (!\is_object($forumRes) || !\is_object($forumRes->obj)) {
                 continue;
             }
 
@@ -1580,7 +1641,7 @@ class CourseRestorer
             }
 
             $title = trim((string) ($p['forum_title'] ?? ''));
-            if ($title === '') {
+            if ('' === $title) {
                 $title = 'Forum #'.(int) $srcForumId;
             }
 
@@ -1594,7 +1655,7 @@ class CourseRestorer
 
                 $policy = (int) ($this->file_option ?? FILE_RENAME);
 
-                if ($policy === FILE_SKIP) {
+                if (FILE_SKIP === $policy) {
                     $this->course->resources[$forumBucketKey][$srcForumId] ??= new stdClass();
                     $this->course->resources[$forumBucketKey][$srcForumId]->destination_id = $dstForumIid;
                     $forumRes->destination_id = $dstForumIid;
@@ -1605,10 +1666,11 @@ class CourseRestorer
                         'title' => $title,
                         'resolved_sid' => $resolvedSid,
                     ]);
+
                     continue;
                 }
 
-                if ($policy === FILE_OVERWRITE) {
+                if (FILE_OVERWRITE === $policy) {
                     // Safe overwrite: update forum fields, avoid duplicating threads/posts.
                     $existingForum->setForumComment($forumComment);
                     $existingForum->setAllowAnonymous((int) ($p['allow_anonymous'] ?? 0));
@@ -1635,6 +1697,7 @@ class CourseRestorer
                         'title' => $title,
                         'resolved_sid' => $resolvedSid,
                     ]);
+
                     continue;
                 }
 
@@ -1697,7 +1760,7 @@ class CourseRestorer
         }
 
         $this->dlog('restore_forums: done', [
-            'forums' => count($forumsBag),
+            'forums' => \count($forumsBag),
             'resolved_sid' => $resolvedSid,
         ]);
     }
@@ -1709,8 +1772,9 @@ class CourseRestorer
     {
         $topicsBag = $this->getBag(['thread', 'Forum_Topic', 'forum_topic', 'FORUM_TOPIC']);
         $topicRes = $topicsBag[$srcThreadId] ?? null;
-        if (!$topicRes || !is_object($topicRes->obj)) {
+        if (!$topicRes || !\is_object($topicRes->obj)) {
             $this->dlog('restore_topic: missing topic object', ['src_thread_id' => $srcThreadId]);
+
             return null;
         }
 
@@ -1729,6 +1793,7 @@ class CourseRestorer
         $forum = $forumRepo->find($dstForumId);
         if (!$forum) {
             $this->dlog('restore_topic: destination forum not found', ['dst_forum_id' => $dstForumId]);
+
             return null;
         }
 
@@ -1747,7 +1812,8 @@ class CourseRestorer
             ->setThreadWeight((float) ($p['thread_weight'] ?? 0))
             ->setThreadPeerQualify((bool) ($p['thread_peer_qualify'] ?? false))
             ->setParent($forum)
-            ->addCourseLink($course, $session);
+            ->addCourseLink($course, $session)
+        ;
 
         $threadRepo->create($thread);
         $em->flush();
@@ -1769,7 +1835,7 @@ class CourseRestorer
             // Fallback scan (only if caller didn't pass indexed post IDs)
             $srcPostIds = [];
             foreach ($postsBag as $srcPostId => $postRes) {
-                if (!is_object($postRes) || !is_object($postRes->obj)) {
+                if (!\is_object($postRes) || !\is_object($postRes->obj)) {
                     continue;
                 }
                 if ((int) ($postRes->obj->thread_id ?? 0) === $srcThreadId) {
@@ -1780,13 +1846,14 @@ class CourseRestorer
 
         // Sort by post_date then id (stable)
         usort($srcPostIds, function (int $a, int $b) use ($postsBag): int {
-            $pa = is_object($postsBag[$a]->obj ?? null) ? (array) $postsBag[$a]->obj : [];
-            $pb = is_object($postsBag[$b]->obj ?? null) ? (array) $postsBag[$b]->obj : [];
+            $pa = \is_object($postsBag[$a]->obj ?? null) ? (array) $postsBag[$a]->obj : [];
+            $pb = \is_object($postsBag[$b]->obj ?? null) ? (array) $postsBag[$b]->obj : [];
             $da = (string) ($pa['post_date'] ?? '');
             $db = (string) ($pb['post_date'] ?? '');
             if ($da === $db) {
                 return $a <=> $b;
             }
+
             return strcmp($da, $db);
         });
 
@@ -1797,7 +1864,7 @@ class CourseRestorer
         // Second pass: ensure parents are linked even if order was weird
         foreach ($srcPostIds as $srcPostId) {
             $postRes = $postsBag[$srcPostId] ?? null;
-            if (!$postRes || !is_object($postRes->obj)) {
+            if (!$postRes || !\is_object($postRes->obj)) {
                 continue;
             }
 
@@ -1807,8 +1874,8 @@ class CourseRestorer
                 continue;
             }
 
-            $dstChildId = (int) (($this->course->resources['post'][$srcPostId]->destination_id ?? 0));
-            $dstParentId = (int) (($this->course->resources['post'][$srcParentId]->destination_id ?? 0));
+            $dstChildId = (int) ($this->course->resources['post'][$srcPostId]->destination_id ?? 0);
+            $dstParentId = (int) ($this->course->resources['post'][$srcParentId]->destination_id ?? 0);
 
             if ($dstChildId > 0 && $dstParentId > 0) {
                 $child = $postRepo->find($dstChildId);
@@ -1839,8 +1906,9 @@ class CourseRestorer
     {
         $postsBag = $this->getBag(['post', 'Forum_Post', 'forum_post', 'FORUM_POST']);
         $postRes = $postsBag[$srcPostId] ?? null;
-        if (!$postRes || !is_object($postRes->obj)) {
+        if (!$postRes || !\is_object($postRes->obj)) {
             $this->dlog('restore_post: missing post object', ['src_post_id' => $srcPostId]);
+
             return null;
         }
 
@@ -1874,7 +1942,7 @@ class CourseRestorer
         $postDate = $this->toUtcDateTime($p['post_date'] ?? null) ?: new DateTime(api_get_utc_datetime(), new DateTimeZone('UTC'));
 
         $status = (int) ($p['status'] ?? CForumPost::STATUS_VALIDATED);
-        if (!in_array($status, [CForumPost::STATUS_VALIDATED, CForumPost::STATUS_WAITING_MODERATION, CForumPost::STATUS_REJECTED], true)) {
+        if (!\in_array($status, [CForumPost::STATUS_VALIDATED, CForumPost::STATUS_WAITING_MODERATION, CForumPost::STATUS_REJECTED], true)) {
             $status = CForumPost::STATUS_VALIDATED;
         }
 
@@ -1891,7 +1959,8 @@ class CourseRestorer
             ->setVisible($visible)
             ->setStatus($status)
             ->setParent($thread)
-            ->addCourseLink($course, $session);
+            ->addCourseLink($course, $session)
+        ;
 
         $postRepo->create($post);
         $em->flush();
@@ -1923,6 +1992,7 @@ class CourseRestorer
 
         if (0 === (int) $id) {
             $this->dlog('restore_link_category: source category id=0 (no category), returning 0', []);
+
             return 0;
         }
 
@@ -1938,12 +2008,14 @@ class CourseRestorer
         foreach ($candidateKeys as $k) {
             if (isset($resources[$k]) && \is_array($resources[$k])) {
                 $catKey = $k;
+
                 break;
             }
         }
 
         if (null === $catKey) {
             $this->dlog('restore_link_category: no category bucket found in course->resources', []);
+
             return 0;
         }
 
@@ -1990,6 +2062,7 @@ class CourseRestorer
                 'asked_id' => $iid,
                 'bucket' => $catKey,
             ]);
+
             return 0;
         }
 
@@ -2037,6 +2110,7 @@ class CourseRestorer
                 $link = $cand->getFirstResourceLinkFromCourseSession($course, $session);
                 if (null !== $link) {
                     $existing = $cand;
+
                     break;
                 }
             }
@@ -2098,6 +2172,7 @@ class CourseRestorer
                             $link = $cand->getFirstResourceLinkFromCourseSession($course, $session);
                             if (null !== $link) {
                                 $taken = true;
+
                                 break;
                             }
                         }
@@ -2115,6 +2190,7 @@ class CourseRestorer
                         'src_cat_id' => $iid,
                         'base_title' => $base,
                     ]);
+
                     return 0;
                 }
             }
@@ -2202,6 +2278,7 @@ class CourseRestorer
             $this->dlog('restore_links: invalid bucket type, aborting', [
                 'bucket_type' => \gettype($items),
             ]);
+
             return;
         }
 
@@ -2246,6 +2323,7 @@ class CourseRestorer
                 $this->dlog('restore_links: skipping invalid legacy item (not object)', [
                     'src_link_id' => $oldLinkId,
                 ]);
+
                 continue;
             }
 
@@ -2255,6 +2333,7 @@ class CourseRestorer
                     'src_link_id' => $oldLinkId,
                     'dst_link_id' => $mapped,
                 ]);
+
                 continue;
             }
 
@@ -2285,6 +2364,7 @@ class CourseRestorer
                     'src_link_id' => $oldLinkId,
                     'extra_keys' => isset($link->extra) ? implode(',', array_keys((array) $link->extra)) : '',
                 ]);
+
                 continue;
             }
 
@@ -2316,6 +2396,7 @@ class CourseRestorer
                         'title' => $title,
                         'url' => $url,
                     ]);
+
                     continue;
                 }
 
@@ -2366,6 +2447,7 @@ class CourseRestorer
                             'src_link_id' => $oldLinkId,
                             'base_title' => $base,
                         ]);
+
                         continue 2;
                     }
                 }
@@ -2466,6 +2548,7 @@ class CourseRestorer
         foreach ($candidates as $k) {
             if (!empty($resources[$k]) && \is_array($resources[$k])) {
                 $bagKey = $k;
+
                 break;
             }
         }
@@ -2474,23 +2557,24 @@ class CourseRestorer
             $this->dlog('restore_tool_intro: no matching bucket found', [
                 'available_keys' => array_keys((array) $resources),
             ]);
+
             return;
         }
 
         $sessionId = (int) $sessionId;
         $this->dlog('restore_tool_intro: begin', [
             'bucket' => $bagKey,
-            'count'  => \count($resources[$bagKey]),
+            'count' => \count($resources[$bagKey]),
             'session_id' => $sessionId,
         ]);
 
-        $em      = Database::getManager();
-        $course  = api_get_course_entity($this->destination_course_id);
+        $em = Database::getManager();
+        $course = api_get_course_entity($this->destination_course_id);
         $session = $sessionId ? api_get_session_entity($sessionId) : null;
 
-        $toolRepo   = $em->getRepository(Tool::class);
-        $cToolRepo  = $em->getRepository(CTool::class);
-        $introRepo  = $em->getRepository(CToolIntro::class);
+        $toolRepo = $em->getRepository(Tool::class);
+        $cToolRepo = $em->getRepository(CTool::class);
+        $introRepo = $em->getRepository(CToolIntro::class);
 
         foreach ($resources[$bagKey] as $rawId => $tIntro) {
             $toolKey = trim((string) ($tIntro->id ?? ''));
@@ -2508,6 +2592,7 @@ class CourseRestorer
                     'tool' => $toolKey,
                     'dst_id' => $mapped,
                 ]);
+
                 continue;
             }
 
@@ -2525,23 +2610,24 @@ class CourseRestorer
             }
             if (!$toolEntity) {
                 $this->dlog('restore_tool_intro: missing Tool entity, skipping', ['tool' => $toolKey]);
+
                 continue;
             }
 
             // Ensure CTool exists for destination course/session context
             $cTool = $cToolRepo->findOneBy([
-                'course'  => $course,
+                'course' => $course,
                 'session' => $session,
-                'title'   => $toolKey,
+                'title' => $toolKey,
             ]);
 
             if (!$cTool) {
                 // Try to reuse base tool position if it exists
                 $position = 1;
                 $baseTool = $cToolRepo->findOneBy([
-                    'course'  => $course,
+                    'course' => $course,
                     'session' => null,
-                    'title'   => $toolKey,
+                    'title' => $toolKey,
                 ]);
                 if ($baseTool) {
                     $position = (int) $baseTool->getPosition();
@@ -2554,7 +2640,8 @@ class CourseRestorer
                     ->setSession($session)
                     ->setPosition($position)
                     ->setParent($course)
-                    ->addCourseLink($course, $session);
+                    ->addCourseLink($course, $session)
+                ;
                 $em->persist($cTool);
                 $em->flush();
 
@@ -2593,7 +2680,8 @@ class CourseRestorer
                 $intro = (new CToolIntro())
                     ->setCourseTool($cTool)
                     ->setIntroText($introHtml)
-                    ->setParent($course);
+                    ->setParent($course)
+                ;
                 $intro->addCourseLink($course, $session);
 
                 $em->persist($intro);
@@ -2631,6 +2719,7 @@ class CourseRestorer
         foreach ($candidates as $cand) {
             if (isset($resources[$cand]) && \is_array($resources[$cand])) {
                 $bagKey = $cand;
+
                 break;
             }
         }
@@ -2639,6 +2728,7 @@ class CourseRestorer
             $this->dlog('restore_events: no event bucket found', [
                 'available_keys' => \is_array($resources) ? array_keys($resources) : [],
             ]);
+
             return;
         }
 
@@ -2647,6 +2737,7 @@ class CourseRestorer
 
         if (0 === $count) {
             $this->dlog('restore_events: empty bucket', ['bucket' => $bagKey]);
+
             return;
         }
 
@@ -2672,18 +2763,19 @@ class CourseRestorer
         };
 
         $toDateTime = function ($value): ?DateTime {
-            if ($value instanceof \DateTime) {
+            if ($value instanceof DateTime) {
                 return $value;
             }
 
-            if ($value instanceof \DateTimeInterface) {
+            if ($value instanceof DateTimeInterface) {
                 return new DateTime($value->format('Y-m-d H:i:s'));
             }
 
-            if (\is_numeric($value)) {
+            if (is_numeric($value)) {
                 try {
                     $dt = new DateTime('@'.(int) $value);
                     $dt->setTimezone(new DateTimeZone('UTC'));
+
                     return $dt;
                 } catch (Throwable) {
                     return null;
@@ -2719,6 +2811,7 @@ class CourseRestorer
                     'src_id' => (int) $oldId,
                     'dst_id' => $mapped,
                 ]);
+
                 continue;
             }
 
@@ -2767,6 +2860,7 @@ class CourseRestorer
                         $this->course->resources[$bagKey][$oldId] ??= new stdClass();
                         $this->course->resources[$bagKey][$oldId]->destination_id = $destId;
                         $this->restoreEventAttachments($raw, $existing, $originPath, $attachRepo, $em);
+
                         continue 2;
 
                     case FILE_OVERWRITE:
@@ -2786,6 +2880,7 @@ class CourseRestorer
                         $this->course->resources[$bagKey][$oldId] ??= new stdClass();
                         $this->course->resources[$bagKey][$oldId]->destination_id = (int) $existing->getIid();
                         $this->restoreEventAttachments($raw, $existing, $originPath, $attachRepo, $em);
+
                         continue 2;
 
                     case FILE_RENAME:
@@ -2797,6 +2892,7 @@ class CourseRestorer
                             $candidate = $base.' ('.(++$i).')';
                         }
                         $title = $candidate;
+
                         break;
                 }
             }
@@ -2930,8 +3026,6 @@ class CourseRestorer
 
     /**
      * Restore course descriptions.
-     *
-     * @param mixed $session_id
      */
     public function restore_course_descriptions(int $sessionId = 0): void
     {
@@ -2942,7 +3036,7 @@ class CourseRestorer
         $sessionId = (int) $sessionId;
 
         $items = $this->course->resources[RESOURCE_COURSEDESCRIPTION] ?? [];
-        $count = is_array($items) ? count($items) : 0;
+        $count = \is_array($items) ? \count($items) : 0;
 
         $this->dlog('restore_course_descriptions: begin', [
             'count' => $count,
@@ -2950,9 +3044,9 @@ class CourseRestorer
         ]);
 
         /** @var EntityManagerInterface $em */
-        $em = \Database::getManager();
+        $em = Database::getManager();
 
-        $repo = \Chamilo\CoreBundle\Framework\Container::getCourseDescriptionRepository();
+        $repo = Container::getCourseDescriptionRepository();
 
         // ✅ IMPORTANT: Use the Doctrine entity FQCN explicitly (avoid CourseCopy\Course collision)
         $courseEntity = null;
@@ -2978,6 +3072,7 @@ class CourseRestorer
                 'destination_course_id' => $destinationCourseId,
                 'destination_course_code' => (string) ($this->destination_course_code ?? $this->destination_code ?? ''),
             ]);
+
             return;
         }
 
@@ -2992,7 +3087,7 @@ class CourseRestorer
         $policy = 1;
         $rawPolicy = $this->file_option ?? null;
 
-        if (is_int($rawPolicy) || ctype_digit((string) $rawPolicy)) {
+        if (\is_int($rawPolicy) || ctype_digit((string) $rawPolicy)) {
             $policy = (int) $rawPolicy;
         } else {
             $raw = strtoupper(trim((string) $rawPolicy));
@@ -3005,23 +3100,24 @@ class CourseRestorer
             }
         }
 
-        if (defined('FILE_SKIP') && $rawPolicy === FILE_SKIP) {
+        if (\defined('FILE_SKIP') && FILE_SKIP === $rawPolicy) {
             $policy = 1;
-        } elseif (defined('FILE_RENAME') && $rawPolicy === FILE_RENAME) {
+        } elseif (\defined('FILE_RENAME') && FILE_RENAME === $rawPolicy) {
             $policy = 2;
-        } elseif (defined('FILE_OVERWRITE') && $rawPolicy === FILE_OVERWRITE) {
+        } elseif (\defined('FILE_OVERWRITE') && FILE_OVERWRITE === $rawPolicy) {
             $policy = 3;
         }
 
-        if (!in_array($policy, [1, 2, 3], true)) {
+        if (!\in_array($policy, [1, 2, 3], true)) {
             $this->dlog('restore_course_descriptions: invalid file_option, defaulting to SKIP', [
                 'raw' => $rawPolicy,
             ]);
             $policy = 1;
         }
 
-        if (!is_array($items)) {
+        if (!\is_array($items)) {
             $this->dlog('restore_course_descriptions: invalid resource list, aborting', []);
+
             return;
         }
 
@@ -3060,7 +3156,7 @@ class CourseRestorer
                     $existingTitles[$ttl] = true;
                 }
             }
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $this->dlog('restore_course_descriptions: failed to preload existing, continuing', [
                 'error' => $e->getMessage(),
             ]);
@@ -3076,10 +3172,11 @@ class CourseRestorer
         foreach ($items as $oldId => $cd) {
             $oldId = (int) $oldId;
 
-            if (!is_object($cd)) {
+            if (!\is_object($cd)) {
                 $this->dlog('restore_course_descriptions: skipping invalid item (not object)', [
                     'src_id' => $oldId,
                 ]);
+
                 continue;
             }
 
@@ -3089,6 +3186,7 @@ class CourseRestorer
                     'src_id' => $oldId,
                     'dst_id' => $mapped,
                 ]);
+
                 continue;
             }
 
@@ -3125,6 +3223,7 @@ class CourseRestorer
                     ]);
 
                     $skipped++;
+
                     continue;
                 }
 
@@ -3155,6 +3254,7 @@ class CourseRestorer
                     ]);
 
                     $updated++;
+
                     continue;
                 }
 
@@ -3171,6 +3271,7 @@ class CourseRestorer
                             'base_title' => $base,
                             'type' => $type,
                         ]);
+
                         continue 2;
                     }
                 }
@@ -3243,7 +3344,7 @@ class CourseRestorer
 
         $sessionId = (int) $sessionId;
         $items = $this->course->resources[RESOURCE_ANNOUNCEMENT] ?? [];
-        $count = is_array($items) ? count($items) : 0;
+        $count = \is_array($items) ? \count($items) : 0;
 
         $this->dlog('restore_announcements: begin', [
             'count' => $count,
@@ -3251,7 +3352,7 @@ class CourseRestorer
         ]);
 
         /** @var EntityManagerInterface $em */
-        $em = \Database::getManager();
+        $em = Database::getManager();
 
         // Resolve destination course entity safely (avoid CourseCopy\Course collisions).
         $courseEntity = null;
@@ -3277,19 +3378,20 @@ class CourseRestorer
                 'destination_course_id' => $destinationCourseId,
                 'destination_course_code' => (string) ($this->destination_course_code ?? $this->destination_code ?? ''),
             ]);
+
             return;
         }
 
         $sessionEntity = $sessionId > 0 ? api_get_session_entity($sessionId) : null;
         $groupEntity = null;
 
-        $annRepo = \Chamilo\CoreBundle\Framework\Container::getAnnouncementRepository();
+        $annRepo = Container::getAnnouncementRepository();
 
         // Normalize file_option (supports constants and numeric fallback 1/2/3).
         $policy = 1;
         $rawPolicy = $this->file_option ?? null;
 
-        if (is_int($rawPolicy) || ctype_digit((string) $rawPolicy)) {
+        if (\is_int($rawPolicy) || ctype_digit((string) $rawPolicy)) {
             $policy = (int) $rawPolicy;
         } else {
             $raw = strtoupper(trim((string) $rawPolicy));
@@ -3302,15 +3404,15 @@ class CourseRestorer
             }
         }
 
-        if (defined('FILE_SKIP') && $rawPolicy === FILE_SKIP) {
+        if (\defined('FILE_SKIP') && FILE_SKIP === $rawPolicy) {
             $policy = 1;
-        } elseif (defined('FILE_RENAME') && $rawPolicy === FILE_RENAME) {
+        } elseif (\defined('FILE_RENAME') && FILE_RENAME === $rawPolicy) {
             $policy = 2;
-        } elseif (defined('FILE_OVERWRITE') && $rawPolicy === FILE_OVERWRITE) {
+        } elseif (\defined('FILE_OVERWRITE') && FILE_OVERWRITE === $rawPolicy) {
             $policy = 3;
         }
 
-        if (!in_array($policy, [1, 2, 3], true)) {
+        if (!\in_array($policy, [1, 2, 3], true)) {
             $this->dlog('restore_announcements: invalid file_option, defaulting to SKIP', [
                 'raw' => $rawPolicy,
             ]);
@@ -3325,6 +3427,7 @@ class CourseRestorer
 
         // Preload existing announcements by title in this course/session
         $existingByTitle = [];
+
         try {
             $qb = $annRepo->getResourcesByCourse($courseEntity, $sessionEntity);
             $existing = $qb->getQuery()->getResult();
@@ -3338,7 +3441,7 @@ class CourseRestorer
                     $existingByTitle[$t] = $e;
                 }
             }
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $this->dlog('restore_announcements: failed to preload existing announcements, continuing', [
                 'error' => $e->getMessage(),
             ]);
@@ -3351,18 +3454,20 @@ class CourseRestorer
         $renamed = 0;
         $attachmentsCreated = 0;
 
-        if (!is_array($items)) {
+        if (!\is_array($items)) {
             $this->dlog('restore_announcements: invalid resource list, aborting', []);
+
             return;
         }
 
         foreach ($items as $oldId => $a) {
             $oldId = (int) $oldId;
 
-            if (!is_object($a)) {
+            if (!\is_object($a)) {
                 $this->dlog('restore_announcements: skipping invalid item (not object)', [
                     'src_id' => $oldId,
                 ]);
+
                 continue;
             }
 
@@ -3372,6 +3477,7 @@ class CourseRestorer
                     'src_id' => $oldId,
                     'dst_id' => $mapped,
                 ]);
+
                 continue;
             }
 
@@ -3387,8 +3493,8 @@ class CourseRestorer
             $endDate = null;
             if ('' !== $rawDate) {
                 try {
-                    $endDate = new \DateTime($rawDate);
-                } catch (\Throwable) {
+                    $endDate = new DateTime($rawDate);
+                } catch (Throwable) {
                     $endDate = null;
                     $this->dlog('restore_announcements: invalid end date, ignoring', [
                         'src_id' => $oldId,
@@ -3422,6 +3528,7 @@ class CourseRestorer
                     );
 
                     $skipped++;
+
                     continue;
                 }
 
@@ -3437,6 +3544,7 @@ class CourseRestorer
                                 'src_id' => $oldId,
                                 'base_title' => $base,
                             ]);
+
                             continue 2;
                         }
                     }
@@ -3475,7 +3583,7 @@ class CourseRestorer
 
             $entity->setEmailSent((bool) $emailSent);
 
-            if ($endDate instanceof \DateTimeInterface) {
+            if ($endDate instanceof DateTimeInterface) {
                 $entity->setEndDate($endDate);
             } elseif ('overwrite' === $mode) {
                 $entity->setEndDate(null);
@@ -3527,22 +3635,24 @@ class CourseRestorer
      * Restore announcement attachments (metadata).
      * - Creates missing CAnnouncementAttachment rows
      * - Avoids duplicates (path|filename)
-     * - Tries to verify file existence inside the extracted package (import mode)
+     * - Tries to verify file existence inside the extracted package (import mode).
+     *
+     * @param mixed $groupEntity
      */
     private function restoreAnnouncementAttachments(
-        object                              $payload,
-        CAnnouncement                       $announcement,
-        CourseEntity                        $courseEntity,
-        ?\Chamilo\CoreBundle\Entity\Session $sessionEntity,
-                                            $groupEntity,
-        string                              $originPath,
-        EntityManagerInterface              $em
+        object $payload,
+        CAnnouncement $announcement,
+        CourseEntity $courseEntity,
+        ?Session $sessionEntity,
+        $groupEntity,
+        string $originPath,
+        EntityManagerInterface $em
     ): int {
         $created = 0;
         $attachments = [];
 
         $payloadData = [];
-        if (isset($payload->obj) && is_object($payload->obj)) {
+        if (isset($payload->obj) && \is_object($payload->obj)) {
             $payloadData = (array) $payload->obj;
         } else {
             $payloadData = (array) $payload;
@@ -3550,21 +3660,21 @@ class CourseRestorer
 
         $rawAttachments = $payloadData['attachments'] ?? ($payload->attachments ?? []);
 
-        if ($rawAttachments instanceof \Traversable) {
+        if ($rawAttachments instanceof Traversable) {
             $rawAttachments = iterator_to_array($rawAttachments);
-        } elseif (is_object($rawAttachments)) {
+        } elseif (\is_object($rawAttachments)) {
             $rawAttachments = get_object_vars($rawAttachments);
         }
 
-        if (is_array($rawAttachments)) {
+        if (\is_array($rawAttachments)) {
             foreach ($rawAttachments as $row) {
-                if ($row instanceof \Traversable) {
+                if ($row instanceof Traversable) {
                     $row = iterator_to_array($row);
-                } elseif (is_object($row)) {
+                } elseif (\is_object($row)) {
                     $row = get_object_vars($row);
                 }
 
-                if (!is_array($row)) {
+                if (!\is_array($row)) {
                     continue;
                 }
 
@@ -3592,7 +3702,7 @@ class CourseRestorer
             $attachments[] = [
                 'path' => trim((string) ($payloadData['attachment_path'] ?? $payload->attachment_path ?? '')),
                 'filename' => trim((string) ($payloadData['attachment_filename'] ?? $payload->attachment_filename ?? '')),
-                'size' => (int) (($payloadData['attachment_size'] ?? $payload->attachment_size ?? 0)),
+                'size' => (int) ($payloadData['attachment_size'] ?? $payload->attachment_size ?? 0),
                 'comment' => (string) ($payloadData['attachment_comment'] ?? $payload->attachment_comment ?? ''),
                 'asset_relpath' => '',
             ];
@@ -3622,7 +3732,7 @@ class CourseRestorer
             }
         }
 
-        $attachRepo = \Chamilo\CoreBundle\Framework\Container::getAnnouncementAttachmentRepository();
+        $attachRepo = Container::getAnnouncementAttachmentRepository();
 
         foreach ($attachments as $row) {
             $p = trim((string) $row['path']);
@@ -3694,6 +3804,7 @@ class CourseRestorer
     {
         if (!$this->course->has_resources(RESOURCE_QUIZ)) {
             error_log('RESTORE_QUIZ: No quiz resources in backup.');
+
             return;
         }
 
@@ -3716,6 +3827,7 @@ class CourseRestorer
                 return $this->rewriteHtmlForCourse((string) $html, (int) $session_id, $dbgTag);
             } catch (Throwable $e) {
                 error_log('RESTORE_QUIZ: rewriteHtmlForCourse failed: '.$e->getMessage());
+
                 return (string) $html;
             }
         };
@@ -3731,6 +3843,7 @@ class CourseRestorer
         foreach ($resources[RESOURCE_QUIZ] as $id => $quizWrap) {
             if ((int) ($this->course->resources[RESOURCE_QUIZ][$id]->destination_id ?? 0) > 0) {
                 $this->dlog('RESTORE_QUIZ: already mapped, skipping', ['src_quiz_id' => (int) $id]);
+
                 continue;
             }
             $quiz = isset($quizWrap->obj) ? $quizWrap->obj : $quizWrap;
@@ -3757,6 +3870,7 @@ class CourseRestorer
             if (-1 === (int) $id) {
                 $this->course->resources[RESOURCE_QUIZ][$id]->destination_id = -1;
                 error_log('RESTORE_QUIZ: Skipping virtual quiz (id=-1).');
+
                 continue;
             }
 
@@ -3828,6 +3942,7 @@ class CourseRestorer
                     $qid = $this->restore_quiz_question((int) $question_id, (int) $session_id);
                     if (!$qid) {
                         error_log('RESTORE_QUIZ: restore_quiz_question returned 0 for src_question_id='.(int) $question_id);
+
                         continue;
                     }
 
@@ -3840,6 +3955,7 @@ class CourseRestorer
                     $questionEntity = $em->getRepository(CQuizQuestion::class)->find($qid);
                     if (!$questionEntity) {
                         error_log('RESTORE_QUIZ: Question entity not found after insert. qid='.(int) $qid);
+
                         continue;
                     }
 
@@ -3906,7 +4022,7 @@ class CourseRestorer
 
             try {
                 return $this->rewriteHtmlForCourse((string) $html, (int) $session_id, $tag);
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 return (string) $html;
             }
         };
@@ -4019,6 +4135,7 @@ class CourseRestorer
                 foreach ($destinationAnswersByIdText as $candidateId => $text) {
                     if ($text === $needle) {
                         $newDestinationCorrectId = (int) $candidateId;
+
                         break;
                     }
                 }
@@ -4037,7 +4154,7 @@ class CourseRestorer
             $newOptionIdsByOldId = [];
             $options = $question->question_options ?? [];
 
-            if (\is_iterable($options)) {
+            if (is_iterable($options)) {
                 foreach ($options as $optionItem) {
                     $oldId = null;
                     $name = '';
@@ -4220,6 +4337,7 @@ class CourseRestorer
                 $isMandatory = isset($surveyObj->is_mandatory) ? (bool) $surveyObj->is_mandatory : false;
 
                 $existing = null;
+
                 try {
                     $candidate = $surveyRepo->findOneBy(['code' => $code, 'lang' => $lang]);
                     if ($candidate instanceof CSurvey) {
@@ -4236,6 +4354,7 @@ class CourseRestorer
                     switch ($this->file_option) {
                         case FILE_SKIP:
                             $this->course->resources[RESOURCE_SURVEY][$legacySurveyId]->destination_id = (int) $existing->getIid();
+
                             continue 2;
 
                         case FILE_RENAME:
@@ -4246,15 +4365,18 @@ class CourseRestorer
                                 $try = $base.(++$i);
                             }
                             $code = $try;
+
                             break;
 
                         case FILE_OVERWRITE:
                             SurveyManager::deleteSurvey($existing);
                             $em->flush();
+
                             break;
 
                         default:
                             $this->course->resources[RESOURCE_SURVEY][$legacySurveyId]->destination_id = (int) $existing->getIid();
+
                             continue 2;
                     }
                 }
@@ -4341,7 +4463,6 @@ class CourseRestorer
                 foreach ($questionIds as $legacyQid) {
                     $this->restore_survey_question((int) $legacyQid, $newId, $sid);
                 }
-
             } catch (Throwable $e) {
                 error_log('COURSE_DEBUG: restore_surveys: failed: '.$e->getMessage());
             }
@@ -4361,6 +4482,7 @@ class CourseRestorer
 
         if (!$qWrap || !\is_object($qWrap)) {
             $this->debug && error_log("COURSE_DEBUG: restore_survey_question: legacy question $id not found.");
+
             return 0;
         }
 
@@ -4375,6 +4497,7 @@ class CourseRestorer
         $survey = $surveyRepo->find((int) $survey_id);
         if (!$survey instanceof CSurvey) {
             $this->debug && error_log("COURSE_DEBUG: restore_survey_question: target survey $survey_id not found.");
+
             return 0;
         }
 
@@ -4447,6 +4570,7 @@ class CourseRestorer
             return (int) $question->getIid();
         } catch (Throwable $e) {
             error_log('COURSE_DEBUG: restore_survey_question: failed: '.$e->getMessage());
+
             return 0;
         }
     }
@@ -4518,11 +4642,11 @@ class CourseRestorer
         $logp = 'RESTORE_SCORM_ZIP: ';
 
         $getBucket = function (string $type) {
-            if (!empty($this->course->resources[$type]) && is_array($this->course->resources[$type])) {
+            if (!empty($this->course->resources[$type]) && \is_array($this->course->resources[$type])) {
                 return $this->course->resources[$type];
             }
             foreach ($this->course->resources ?? [] as $k => $v) {
-                if (is_string($k) && strtolower($k) === strtolower($type) && is_array($v)) {
+                if (\is_string($k) && strtolower($k) === strtolower($type) && \is_array($v)) {
                     return $v;
                 }
             }
@@ -4536,11 +4660,11 @@ class CourseRestorer
             $path = trim($path, '/');
 
             if (str_starts_with($path, 'document/scorm/')) {
-                $path = substr($path, strlen('document/scorm/'));
+                $path = substr($path, \strlen('document/scorm/'));
             } elseif (str_starts_with($path, 'documents/scorm/')) {
-                $path = substr($path, strlen('documents/scorm/'));
+                $path = substr($path, \strlen('documents/scorm/'));
             } elseif (str_starts_with($path, 'scorm/')) {
-                $path = substr($path, strlen('scorm/'));
+                $path = substr($path, \strlen('scorm/'));
             }
 
             $path = trim($path, '/');
@@ -4563,12 +4687,14 @@ class CourseRestorer
         $courseInfo = $this->destination_course_info;
         if (empty($courseInfo) || empty($courseInfo['real_id'])) {
             error_log($logp.'missing courseInfo/real_id');
+
             return;
         }
 
         $courseEntity = api_get_course_entity((int) $courseInfo['real_id']);
         if (!$courseEntity) {
             error_log($logp.'api_get_course_entity failed');
+
             return;
         }
 
@@ -4608,6 +4734,7 @@ class CourseRestorer
 
             if (empty($pkg['zip'])) {
                 error_log($logp.'No package (zip/folder) found for a SCORM entry');
+
                 continue;
             }
 
@@ -4626,6 +4753,7 @@ class CourseRestorer
                 $lpEntity = $lpId > 0 ? $lpRepo->find($lpId) : null;
                 if (!$lpEntity instanceof CLp) {
                     error_log($logp.'Destination LP not found for SCORM entry');
+
                     continue;
                 }
 
@@ -4677,7 +4805,8 @@ class CourseRestorer
                         ->setOriginalName(basename($zipAbs))
                         ->setMimeType('application/zip')
                         ->setCompressed(true)
-                        ->setFile($assetUpload);
+                        ->setFile($assetUpload)
+                    ;
 
                     $em->persist($asset);
                     $em->flush();
@@ -4698,7 +4827,7 @@ class CourseRestorer
                 }
 
                 $cleanTitle = preg_replace('/\s+/', ' ', trim(str_replace(['/', '\\'], '-', (string) $lpTitle))) ?: 'Untitled';
-                $folderTitleBase = sprintf('SCORM - %d - %s', $lpId ?: 0, $cleanTitle);
+                $folderTitleBase = \sprintf('SCORM - %d - %s', $lpId ?: 0, $cleanTitle);
                 $folderTitle = $folderTitleBase;
 
                 $exists = $docRepo->findChildNodeByTitle($lpTop, $folderTitle);
@@ -4742,7 +4871,7 @@ class CourseRestorer
                     $courseEntity,
                     $lpFolder,
                     $traceUpload,
-                    sprintf('SCORM ZIP for LP #%d', $lpId),
+                    \sprintf('SCORM ZIP for LP #%d', $lpId),
                     ResourceLink::VISIBILITY_DRAFT,
                     $session
                 );
@@ -4768,20 +4897,20 @@ class CourseRestorer
         $this->ensureDepsBagsFromSnapshot();
         $all = $this->getAllResources(); // Uses snapshot if available
 
-        $docBag  = $all[RESOURCE_DOCUMENT] ?? [];
+        $docBag = $all[RESOURCE_DOCUMENT] ?? [];
         $quizBag = $all[RESOURCE_QUIZ] ?? [];
         $linkBag = $all[RESOURCE_LINK] ?? [];
         $survBag = $all[RESOURCE_SURVEY] ?? [];
         $workBag = $all[RESOURCE_WORK] ?? [];
-        $forumB  = $all['forum'] ?? [];
+        $forumB = $all['forum'] ?? [];
 
         $this->dlog('LP: deps (after ensure/snapshot)', [
-            'document'            => \count($docBag),
-            'quiz'                => \count($quizBag),
-            'link'                => \count($linkBag),
+            'document' => \count($docBag),
+            'quiz' => \count($quizBag),
+            'link' => \count($linkBag),
             'student_publication' => \count($workBag),
-            'survey'              => \count($survBag),
-            'forum'               => \count($forumB),
+            'survey' => \count($survBag),
+            'forum' => \count($forumB),
         ]);
 
         // Quick exit if no LPs selected
@@ -4798,27 +4927,27 @@ class CourseRestorer
 
         // Map normalized resource types to bags (no extra validations)
         $type2bags = [
-            'document'            => ['document', RESOURCE_DOCUMENT],
-            'quiz'                => ['quiz', RESOURCE_QUIZ],
-            'exercise'            => ['quiz', RESOURCE_QUIZ],
-            'link'                => ['link', RESOURCE_LINK],
-            'weblink'             => ['link', RESOURCE_LINK],
-            'url'                 => ['link', RESOURCE_LINK],
-            'work'                => ['works', RESOURCE_WORK],
+            'document' => ['document', RESOURCE_DOCUMENT],
+            'quiz' => ['quiz', RESOURCE_QUIZ],
+            'exercise' => ['quiz', RESOURCE_QUIZ],
+            'link' => ['link', RESOURCE_LINK],
+            'weblink' => ['link', RESOURCE_LINK],
+            'url' => ['link', RESOURCE_LINK],
+            'work' => ['works', RESOURCE_WORK],
             'student_publication' => ['works', RESOURCE_WORK],
-            'survey'              => ['survey', RESOURCE_SURVEY],
-            'forum'               => ['forum', 'forum'],
+            'survey' => ['survey', RESOURCE_SURVEY],
+            'forum' => ['forum', 'forum'],
             // scorm/sco are not resolved here
         ];
 
         // ID collectors per dependency kind
         $need = [
             RESOURCE_DOCUMENT => [],
-            RESOURCE_QUIZ     => [],
-            RESOURCE_LINK     => [],
-            RESOURCE_WORK     => [],
-            RESOURCE_SURVEY   => [],
-            'forum'           => [],
+            RESOURCE_QUIZ => [],
+            RESOURCE_LINK => [],
+            RESOURCE_WORK => [],
+            RESOURCE_SURVEY => [],
+            'forum' => [],
         ];
 
         $takeId = static function ($v) {
@@ -4826,14 +4955,14 @@ class CourseRestorer
                 return null;
             }
 
-            return \ctype_digit((string) $v) ? (int) $v : null;
+            return ctype_digit((string) $v) ? (int) $v : null;
         };
 
         // Collect deps from LP items
         foreach ($lpBag as $srcLpId => $lpWrap) {
             $items = \is_array($lpWrap->items ?? null) ? $lpWrap->items : [];
             foreach ($items as $it) {
-                $itype = \strtolower((string) ($it['item_type'] ?? ''));
+                $itype = strtolower((string) ($it['item_type'] ?? ''));
                 $raw = $it['path'] ?? ($it['ref'] ?? ($it['identifierref'] ?? ''));
                 $id = $takeId($raw);
 
@@ -4853,7 +4982,7 @@ class CourseRestorer
         foreach ($lpBag as $srcLpId => $lpWrap) {
             $linked = \is_array($lpWrap->linked_resources ?? null) ? $lpWrap->linked_resources : [];
             foreach ($linked as $k => $ids) {
-                $kk = \strtolower((string) $k);
+                $kk = strtolower((string) $k);
                 if (isset($type2bags[$kk])) {
                     [, $bag] = $type2bags[$kk];
                 } else {
@@ -4938,12 +5067,12 @@ class CourseRestorer
         }
 
         $this->dlog('LP: minimal deps prepared', [
-            'document'            => \count($this->course->resources[RESOURCE_DOCUMENT] ?? []),
-            'quiz'                => \count($this->course->resources[RESOURCE_QUIZ] ?? []),
-            'link'                => \count($this->course->resources[RESOURCE_LINK] ?? []),
+            'document' => \count($this->course->resources[RESOURCE_DOCUMENT] ?? []),
+            'quiz' => \count($this->course->resources[RESOURCE_QUIZ] ?? []),
+            'link' => \count($this->course->resources[RESOURCE_LINK] ?? []),
             'student_publication' => \count($this->course->resources[RESOURCE_WORK] ?? []),
-            'survey'              => \count($this->course->resources[RESOURCE_SURVEY] ?? []),
-            'forum'               => \count($this->course->resources['forum'] ?? []),
+            'survey' => \count($this->course->resources[RESOURCE_SURVEY] ?? []),
+            'forum' => \count($this->course->resources['forum'] ?? []),
         ]);
 
         // Restore ONLY those minimal bags ---
@@ -4983,11 +5112,11 @@ class CourseRestorer
         $lpCatRepo = method_exists(Container::class, 'getLpCategoryRepository') ? Container::getLpCategoryRepository() : null;
 
         // Optional repos for title fallbacks (defensive)
-        $quizRepo  = method_exists(Container::class, 'getQuizRepository') ? Container::getQuizRepository() : null;
-        $linkRepo  = method_exists(Container::class, 'getLinkRepository') ? Container::getLinkRepository() : null;
+        $quizRepo = method_exists(Container::class, 'getQuizRepository') ? Container::getQuizRepository() : null;
+        $linkRepo = method_exists(Container::class, 'getLinkRepository') ? Container::getLinkRepository() : null;
         $forumRepo = method_exists(Container::class, 'getForumRepository') ? Container::getForumRepository() : null;
         $surveyRepo = method_exists(Container::class, 'getSurveyRepository') ? Container::getSurveyRepository() : null;
-        $workRepo  = method_exists(Container::class, 'getStudentPublicationRepository') ? Container::getStudentPublicationRepository() : null;
+        $workRepo = method_exists(Container::class, 'getStudentPublicationRepository') ? Container::getStudentPublicationRepository() : null;
 
         $getDst = function (string $bag, $legacyId): int {
             $wrap = $this->course->resources[$bag][$legacyId] ?? null;
@@ -5010,7 +5139,7 @@ class CourseRestorer
                 );
 
                 return ($hit && method_exists($hit, 'getIid')) ? (int) $hit->getIid() : 0;
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 $this->dlog('LP: document title lookup failed', ['title' => $title, 'err' => $e->getMessage()]);
 
                 return 0;
@@ -5030,7 +5159,7 @@ class CourseRestorer
                         : $quizRepo->findOneBy(['title' => $title]);
 
                     return ($hit && method_exists($hit, 'getIid')) ? (int) $hit->getIid() : 0;
-                } catch (\Throwable $e) {
+                } catch (Throwable $e) {
                     return 0;
                 }
             },
@@ -5045,7 +5174,7 @@ class CourseRestorer
                         : $linkRepo->findOneBy(['title' => $title]);
 
                     return ($hit && method_exists($hit, 'getIid')) ? (int) $hit->getIid() : 0;
-                } catch (\Throwable $e) {
+                } catch (Throwable $e) {
                     return 0;
                 }
             },
@@ -5060,7 +5189,7 @@ class CourseRestorer
                         : ($forumRepo->findOneBy(['forum_title' => $title]) ?? $forumRepo->findOneBy(['title' => $title]));
 
                     return ($hit && method_exists($hit, 'getIid')) ? (int) $hit->getIid() : 0;
-                } catch (\Throwable $e) {
+                } catch (Throwable $e) {
                     return 0;
                 }
             },
@@ -5075,7 +5204,7 @@ class CourseRestorer
                         : $surveyRepo->findOneBy(['title' => $title]);
 
                     return ($hit && method_exists($hit, 'getIid')) ? (int) $hit->getIid() : 0;
-                } catch (\Throwable $e) {
+                } catch (Throwable $e) {
                     return 0;
                 }
             },
@@ -5090,20 +5219,20 @@ class CourseRestorer
                         : $workRepo->findOneBy(['title' => $title]);
 
                     return ($hit && method_exists($hit, 'getIid')) ? (int) $hit->getIid() : 0;
-                } catch (\Throwable $e) {
+                } catch (Throwable $e) {
                     return 0;
                 }
             },
         ];
 
         $resolvePath = function (array $it) use ($getDst, $findDocIidByTitle, $findByTitle): string {
-            $itype = \strtolower((string) ($it['item_type'] ?? ''));
+            $itype = strtolower((string) ($it['item_type'] ?? ''));
             $raw = $it['path'] ?? ($it['ref'] ?? ($it['identifierref'] ?? ''));
-            $title = \trim((string) ($it['title'] ?? ''));
+            $title = trim((string) ($it['title'] ?? ''));
 
             switch ($itype) {
                 case 'document':
-                    $refId = \ctype_digit((string) ($it['ref'] ?? '')) ? (int) $it['ref'] : 0;
+                    $refId = ctype_digit((string) ($it['ref'] ?? '')) ? (int) $it['ref'] : 0;
                     if ($refId > 0) {
                         $nid = $getDst(RESOURCE_DOCUMENT, $refId);
                         if ($nid) {
@@ -5111,7 +5240,7 @@ class CourseRestorer
                         }
                     }
 
-                    $rawId = \ctype_digit((string) $raw) ? (int) $raw : 0;
+                    $rawId = ctype_digit((string) $raw) ? (int) $raw : 0;
                     if ($rawId > 0) {
                         $nid = $getDst(RESOURCE_DOCUMENT, $rawId);
                         if ($nid) {
@@ -5119,19 +5248,19 @@ class CourseRestorer
                         }
                     }
 
-                    $normalizedRaw = \ltrim(\str_replace('\\', '/', (string) $raw), '/');
-                    if ('' !== $normalizedRaw && \str_starts_with($normalizedRaw, 'document/')) {
+                    $normalizedRaw = ltrim(str_replace('\\', '/', (string) $raw), '/');
+                    if ('' !== $normalizedRaw && str_starts_with($normalizedRaw, 'document/')) {
                         return $normalizedRaw;
                     }
 
-                    $lookupTitle = '' !== $title ? $title : \basename($normalizedRaw !== '' ? $normalizedRaw : (string) $raw);
+                    $lookupTitle = '' !== $title ? $title : basename('' !== $normalizedRaw ? $normalizedRaw : (string) $raw);
                     $maybe = $findDocIidByTitle($lookupTitle);
 
                     return $maybe ? (string) $maybe : '';
 
                 case 'quiz':
                 case 'exercise':
-                    $id = \ctype_digit((string) $raw) ? (int) $raw : 0;
+                    $id = ctype_digit((string) $raw) ? (int) $raw : 0;
                     $nid = $id ? $getDst(RESOURCE_QUIZ, $id) : 0;
                     if ($nid) {
                         return (string) $nid;
@@ -5143,7 +5272,7 @@ class CourseRestorer
                 case 'link':
                 case 'weblink':
                 case 'url':
-                    $id = \ctype_digit((string) $raw) ? (int) $raw : 0;
+                    $id = ctype_digit((string) $raw) ? (int) $raw : 0;
                     $nid = $id ? $getDst(RESOURCE_LINK, $id) : 0;
                     if ($nid) {
                         return (string) $nid;
@@ -5154,7 +5283,7 @@ class CourseRestorer
 
                 case 'work':
                 case 'student_publication':
-                    $id = \ctype_digit((string) $raw) ? (int) $raw : 0;
+                    $id = ctype_digit((string) $raw) ? (int) $raw : 0;
                     $nid = $id ? $getDst(RESOURCE_WORK, $id) : 0;
                     if ($nid) {
                         return (string) $nid;
@@ -5164,7 +5293,7 @@ class CourseRestorer
                     return $nid ? (string) $nid : '';
 
                 case 'survey':
-                    $id = \ctype_digit((string) $raw) ? (int) $raw : 0;
+                    $id = ctype_digit((string) $raw) ? (int) $raw : 0;
                     $nid = $id ? $getDst(RESOURCE_SURVEY, $id) : 0;
                     if ($nid) {
                         return (string) $nid;
@@ -5174,7 +5303,7 @@ class CourseRestorer
                     return $nid ? (string) $nid : '';
 
                 case 'forum':
-                    $id = \ctype_digit((string) $raw) ? (int) $raw : 0;
+                    $id = ctype_digit((string) $raw) ? (int) $raw : 0;
                     $nid = $id ? $getDst('forum', $id) : 0;
                     if ($nid) {
                         return (string) $nid;
@@ -5191,14 +5320,15 @@ class CourseRestorer
 
         foreach ($lpBag as $srcLpId => $lpWrap) {
             // Support both object and array wrappers
-            $title  = (string) ($lpWrap->title ?? $lpWrap->name ?? ('LP '.$srcLpId));
-            $desc   = (string) ($lpWrap->description ?? '');
+            $title = (string) ($lpWrap->title ?? $lpWrap->name ?? ('LP '.$srcLpId));
+            $desc = (string) ($lpWrap->description ?? '');
             $lpType = (int) ($lpWrap->lp_type ?? $lpWrap->type ?? ($lpWrap->lpType ?? 1));
 
             $lp = (new CLp())
                 ->setLpType($lpType)
                 ->setTitle($title)
-                ->setParent($courseEnt);
+                ->setParent($courseEnt)
+            ;
 
             // Optional: hydrate more LP fields (safe via method_exists)
             if (method_exists($lp, 'setRef') && isset($lpWrap->ref)) {
@@ -5286,6 +5416,7 @@ class CourseRestorer
             foreach ($items as $it) {
                 if (isset($it['level']) || isset($it['lvl'])) {
                     $hasLevel = true;
+
                     break;
                 }
             }
@@ -5301,10 +5432,10 @@ class CourseRestorer
                     $lvl = (int) ($it['level'] ?? $it['lvl'] ?? 0);
                     $pItem = $parents[$lvl] ?? $root;
 
-                    $itype   = (string) ($it['item_type'] ?? 'dir');
+                    $itype = (string) ($it['item_type'] ?? 'dir');
                     $itTitle = (string) ($it['title'] ?? '');
-                    $path    = $resolvePath($it);
-                    $ref     = (string) ($it['ref'] ?? ($it['identifier'] ?? ''));
+                    $path = $resolvePath($it);
+                    $ref = (string) ($it['ref'] ?? ($it['identifier'] ?? ''));
 
                     $item = (new CLpItem())
                         ->setLp($lp)
@@ -5313,7 +5444,8 @@ class CourseRestorer
                         ->setTitle($itTitle)
                         ->setPath($path)
                         ->setRef($ref)
-                        ->setDisplayOrder(++$order);
+                        ->setDisplayOrder(++$order)
+                    ;
 
                     // Optional fields (only if present in payload)
                     if (isset($it['description']) && method_exists($item, 'setDescription')) {
@@ -5322,10 +5454,10 @@ class CourseRestorer
                     if (isset($it['min_score']) && method_exists($item, 'setMinScore')) {
                         $item->setMinScore((float) $it['min_score']);
                     }
-                    if (array_key_exists('max_score', $it) && method_exists($item, 'setMaxScore')) {
+                    if (\array_key_exists('max_score', $it) && method_exists($item, 'setMaxScore')) {
                         $item->setMaxScore(null !== $it['max_score'] ? (float) $it['max_score'] : 0.0);
                     }
-                    if (array_key_exists('mastery_score', $it) && method_exists($item, 'setMasteryScore')) {
+                    if (\array_key_exists('mastery_score', $it) && method_exists($item, 'setMasteryScore')) {
                         if (null !== $it['mastery_score']) {
                             $item->setMasteryScore((float) $it['mastery_score']);
                         }
@@ -5371,7 +5503,7 @@ class CourseRestorer
 
                 // Sort children lists by "display_order" if present (fallback to legacy id)
                 foreach ($children as $pId => $list) {
-                    \usort($list, function (int $a, int $b) use ($byId): int {
+                    usort($list, function (int $a, int $b) use ($byId): int {
                         $da = (int) ($byId[$a]['display_order'] ?? $a);
                         $db = (int) ($byId[$b]['display_order'] ?? $b);
 
@@ -5400,10 +5532,10 @@ class CourseRestorer
                             continue;
                         }
 
-                        $itype   = (string) ($it['item_type'] ?? 'dir');
+                        $itype = (string) ($it['item_type'] ?? 'dir');
                         $itTitle = (string) ($it['title'] ?? '');
-                        $path    = $resolvePath($it);
-                        $ref     = (string) ($it['ref'] ?? ($it['identifier'] ?? ''));
+                        $path = $resolvePath($it);
+                        $ref = (string) ($it['ref'] ?? ($it['identifier'] ?? ''));
 
                         $order = isset($it['display_order']) ? (int) $it['display_order'] : (++$fallbackOrder);
 
@@ -5414,7 +5546,8 @@ class CourseRestorer
                             ->setTitle($itTitle)
                             ->setPath($path)
                             ->setRef($ref)
-                            ->setDisplayOrder($order);
+                            ->setDisplayOrder($order)
+                        ;
 
                         // Optional fields (only if present in payload)
                         if (isset($it['description']) && method_exists($item, 'setDescription')) {
@@ -5423,10 +5556,10 @@ class CourseRestorer
                         if (isset($it['min_score']) && method_exists($item, 'setMinScore')) {
                             $item->setMinScore((float) $it['min_score']);
                         }
-                        if (array_key_exists('max_score', $it) && method_exists($item, 'setMaxScore')) {
+                        if (\array_key_exists('max_score', $it) && method_exists($item, 'setMaxScore')) {
                             $item->setMaxScore(null !== $it['max_score'] ? (float) $it['max_score'] : 0.0);
                         }
-                        if (array_key_exists('mastery_score', $it) && method_exists($item, 'setMasteryScore')) {
+                        if (\array_key_exists('mastery_score', $it) && method_exists($item, 'setMasteryScore')) {
                             if (null !== $it['mastery_score']) {
                                 $item->setMasteryScore((float) $it['mastery_score']);
                             }
@@ -5481,8 +5614,8 @@ class CourseRestorer
 
             $this->dlog('LP: items created', [
                 'lp_iid' => (int) $lp->getIid(),
-                'items'  => (int) $createdCount,
-                'title'  => $title,
+                'items' => (int) $createdCount,
+                'title' => $title,
             ]);
         }
     }
@@ -5490,15 +5623,17 @@ class CourseRestorer
     /**
      * Normalize file policy to: 1=SKIP, 2=RENAME, 3=OVERWRITE.
      * Accepts ints, numeric strings, "FILE_SKIP|FILE_RENAME|FILE_OVERWRITE", or constants.
+     *
+     * @param mixed $rawPolicy
      */
     private function normalizeFilePolicy($rawPolicy): int
     {
         $policy = 1;
 
-        if (\is_int($rawPolicy) || \ctype_digit((string) $rawPolicy)) {
+        if (\is_int($rawPolicy) || ctype_digit((string) $rawPolicy)) {
             $policy = (int) $rawPolicy;
         } else {
-            $raw = \strtoupper(\trim((string) $rawPolicy));
+            $raw = strtoupper(trim((string) $rawPolicy));
             if ('FILE_SKIP' === $raw) {
                 $policy = 1;
             } elseif ('FILE_RENAME' === $raw) {
@@ -5508,11 +5643,11 @@ class CourseRestorer
             }
         }
 
-        if (\defined('FILE_SKIP') && $rawPolicy === FILE_SKIP) {
+        if (\defined('FILE_SKIP') && FILE_SKIP === $rawPolicy) {
             $policy = 1;
-        } elseif (\defined('FILE_RENAME') && $rawPolicy === FILE_RENAME) {
+        } elseif (\defined('FILE_RENAME') && FILE_RENAME === $rawPolicy) {
             $policy = 2;
-        } elseif (\defined('FILE_OVERWRITE') && $rawPolicy === FILE_OVERWRITE) {
+        } elseif (\defined('FILE_OVERWRITE') && FILE_OVERWRITE === $rawPolicy) {
             $policy = 3;
         }
 
@@ -5535,6 +5670,7 @@ class CourseRestorer
     {
         if (!$this->course->has_resources(RESOURCE_GLOSSARY)) {
             $this->dlog('restore_glossary: no glossary resources in backup, skipping', []);
+
             return;
         }
 
@@ -5598,11 +5734,12 @@ class CourseRestorer
         $setMapped = function (int $legacyId, int $destIid) use (&$items): void {
             if (isset($items[$legacyId]) && \is_object($items[$legacyId])) {
                 $items[$legacyId]->destination_id = $destIid;
+
                 return;
             }
 
             // Fallback if legacy entry isn't an object
-            $items[$legacyId] ??= new \stdClass();
+            $items[$legacyId] ??= new stdClass();
             $items[$legacyId]->destination_id = $destIid;
         };
 
@@ -5614,6 +5751,7 @@ class CourseRestorer
                     $this->dlog('restore_glossary: skipping invalid legacy item (not object)', [
                         'src_id' => $legacyId,
                     ]);
+
                     continue;
                 }
 
@@ -5623,12 +5761,13 @@ class CourseRestorer
                         'src_id' => $legacyId,
                         'dst_id' => $mapped,
                     ]);
+
                     continue;
                 }
 
                 // build_glossary created a Glossary legacy object (not mkLegacyItem),
                 // so prefer ->name / ->title / ->description, but keep fallbacks.
-                $title = \trim((string) ($gls->name ?? $gls->title ?? ($gls->extra['title'] ?? '')));
+                $title = trim((string) ($gls->name ?? $gls->title ?? ($gls->extra['title'] ?? '')));
                 if ('' === $title) {
                     $title = 'Glossary term';
                 }
@@ -5650,6 +5789,7 @@ class CourseRestorer
                             'dst_id' => $destIid,
                             'title' => $title,
                         ]);
+
                         continue;
                     }
 
@@ -5675,6 +5815,7 @@ class CourseRestorer
                             'dst_id' => $destIid,
                             'title' => $title,
                         ]);
+
                         continue;
                     }
 
@@ -5691,6 +5832,7 @@ class CourseRestorer
                                     'src_id' => $legacyId,
                                     'base_title' => $base,
                                 ]);
+
                                 continue 2;
                             }
                         }
@@ -5729,11 +5871,12 @@ class CourseRestorer
                     'dst_id' => $destIid,
                     'title' => $title,
                 ]);
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 $this->dlog('restore_glossary: failed (ignored)', [
                     'src_id' => $legacyId,
                     'error' => $e->getMessage(),
                 ]);
+
                 continue;
             }
         }
@@ -5755,16 +5898,17 @@ class CourseRestorer
     public function restore_wiki($sessionId = 0): void
     {
         $bucketKey = null;
-        if (isset($this->course->resources[RESOURCE_WIKI]) && is_array($this->course->resources[RESOURCE_WIKI])) {
+        if (isset($this->course->resources[RESOURCE_WIKI]) && \is_array($this->course->resources[RESOURCE_WIKI])) {
             $bucketKey = RESOURCE_WIKI;
-        } elseif (isset($this->course->resources['wiki']) && is_array($this->course->resources['wiki'])) {
+        } elseif (isset($this->course->resources['wiki']) && \is_array($this->course->resources['wiki'])) {
             $bucketKey = 'wiki';
         }
 
-        $bag = $bucketKey !== null ? ($this->course->resources[$bucketKey] ?? []) : [];
+        $bag = null !== $bucketKey ? ($this->course->resources[$bucketKey] ?? []) : [];
 
         if (empty($bag)) {
             $this->dlog('restore_wiki: empty bag');
+
             return;
         }
 
@@ -5783,6 +5927,7 @@ class CourseRestorer
             $this->dlog('restore_wiki: missing destination course entity', [
                 'course_id' => (int) $this->destination_course_id,
             ]);
+
             return;
         }
 
@@ -5798,7 +5943,7 @@ class CourseRestorer
         $confCreatedForPage = [];
 
         $this->dlog('restore_wiki: begin', [
-            'count' => count($bag),
+            'count' => \count($bag),
             'session_arg' => (int) $sessionId,
             'resolved_sid' => $sid,
             'bucket' => (string) $bucketKey,
@@ -5807,7 +5952,7 @@ class CourseRestorer
 
         $resolveBasePageId = function (string $reflink, int $groupId) use ($repo, $cid, &$basePageIdCache): int {
             $key = $reflink.'|'.$groupId;
-            if (array_key_exists($key, $basePageIdCache)) {
+            if (\array_key_exists($key, $basePageIdCache)) {
                 return (int) $basePageIdCache[$key];
             }
 
@@ -5818,7 +5963,8 @@ class CourseRestorer
                 ->andWhere('COALESCE(w.sessionId,0) = 0')
                 ->addOrderBy('w.version', 'DESC')
                 ->addOrderBy('w.iid', 'DESC')
-                ->setMaxResults(1);
+                ->setMaxResults(1)
+            ;
 
             /** @var CWiki|null $base */
             $base = $qb->getQuery()->getOneOrNullResult();
@@ -5834,7 +5980,7 @@ class CourseRestorer
         };
 
         foreach ($bag as $legacyId => $res) {
-            if (!is_object($res)) {
+            if (!\is_object($res)) {
                 continue;
             }
 
@@ -5845,10 +5991,11 @@ class CourseRestorer
                     'destination_id' => (int) $destId,
                     'resolved_sid' => $sid,
                 ]);
+
                 continue;
             }
 
-            $obj = is_object($res->obj ?? null) ? $res->obj : (object) [];
+            $obj = \is_object($res->obj ?? null) ? $res->obj : (object) [];
             $src = !empty((array) $obj) ? $obj : $res;
 
             try {
@@ -5903,7 +6050,8 @@ class CourseRestorer
                     ->select('w.iid')
                     ->andWhere('w.cId = :cid')->setParameter('cid', $cid)
                     ->andWhere('w.reflink = :r')->setParameter('r', $reflink)
-                    ->andWhere('COALESCE(w.groupId,0) = :gid')->setParameter('gid', $groupId);
+                    ->andWhere('COALESCE(w.groupId,0) = :gid')->setParameter('gid', $groupId)
+                ;
 
                 if ($sid > 0) {
                     $qbExists->andWhere('COALESCE(w.sessionId,0) = :sid')->setParameter('sid', $sid);
@@ -5921,7 +6069,8 @@ class CourseRestorer
                                 ->andWhere('w.reflink = :r')->setParameter('r', $reflink)
                                 ->andWhere('COALESCE(w.groupId,0) = :gid')->setParameter('gid', $groupId)
                                 ->orderBy('w.version', 'DESC')
-                                ->setMaxResults(1);
+                                ->setMaxResults(1)
+                            ;
 
                             if ($sid > 0) {
                                 $qbLast->andWhere('COALESCE(w.sessionId,0) = :sid')->setParameter('sid', $sid);
@@ -5947,6 +6096,7 @@ class CourseRestorer
                                 'page_id' => $destPageId,
                                 'resolved_sid' => $sid,
                             ]);
+
                             continue 2;
 
                         case FILE_RENAME:
@@ -5960,7 +6110,8 @@ class CourseRestorer
                                     ->andWhere('w.cId = :cid')->setParameter('cid', $cid)
                                     ->andWhere('w.reflink = :r')->setParameter('r', $slug)
                                     ->andWhere('COALESCE(w.groupId,0) = :gid')->setParameter('gid', $groupId)
-                                    ->setMaxResults(1);
+                                    ->setMaxResults(1)
+                                ;
 
                                 if ($sid > 0) {
                                     $qb->andWhere('COALESCE(w.sessionId,0) = :sid')->setParameter('sid', $sid);
@@ -5985,13 +6136,15 @@ class CourseRestorer
                                 'title' => $rawTitle,
                                 'resolved_sid' => $sid,
                             ]);
+
                             break;
 
                         case FILE_OVERWRITE:
                             $qbAll = $repo->createQueryBuilder('w')
                                 ->andWhere('w.cId = :cid')->setParameter('cid', $cid)
                                 ->andWhere('w.reflink = :r')->setParameter('r', $reflink)
-                                ->andWhere('COALESCE(w.groupId,0) = :gid')->setParameter('gid', $groupId);
+                                ->andWhere('COALESCE(w.groupId,0) = :gid')->setParameter('gid', $groupId)
+                            ;
 
                             if ($sid > 0) {
                                 $qbAll->andWhere('COALESCE(w.sessionId,0) = :sid')->setParameter('sid', $sid);
@@ -6008,6 +6161,7 @@ class CourseRestorer
                                 'reflink' => $reflink,
                                 'resolved_sid' => $sid,
                             ]);
+
                             break;
 
                         default:
@@ -6161,7 +6315,7 @@ class CourseRestorer
         }
 
         $this->dlog('restore_wiki: done', [
-            'count' => count($bag),
+            'count' => \count($bag),
             'resolved_sid' => $sid,
         ]);
     }
@@ -6174,16 +6328,17 @@ class CourseRestorer
     public function restore_attendance($sessionId = 0): void
     {
         $bucketKey = null;
-        if (isset($this->course->resources[RESOURCE_ATTENDANCE]) && is_array($this->course->resources[RESOURCE_ATTENDANCE])) {
+        if (isset($this->course->resources[RESOURCE_ATTENDANCE]) && \is_array($this->course->resources[RESOURCE_ATTENDANCE])) {
             $bucketKey = RESOURCE_ATTENDANCE;
-        } elseif (isset($this->course->resources['attendance']) && is_array($this->course->resources['attendance'])) {
+        } elseif (isset($this->course->resources['attendance']) && \is_array($this->course->resources['attendance'])) {
             $bucketKey = 'attendance';
         }
 
-        $bag = $bucketKey !== null ? ($this->course->resources[$bucketKey] ?? []) : [];
+        $bag = null !== $bucketKey ? ($this->course->resources[$bucketKey] ?? []) : [];
 
         if (empty($bag)) {
             $this->debug && error_log('COURSE_DEBUG: restore_attendance: empty bag.');
+
             return;
         }
 
@@ -6193,6 +6348,7 @@ class CourseRestorer
         $courseEntity = api_get_course_entity($this->destination_course_id);
         if (!$courseEntity instanceof CourseEntity) {
             $this->debug && error_log('COURSE_DEBUG: restore_attendance: missing destination course entity.');
+
             return;
         }
 
@@ -6205,7 +6361,8 @@ class CourseRestorer
                 ->innerJoin('n.resourceLinks', 'l')
                 ->andWhere('l.course = :course')->setParameter('course', $courseEntity)
                 ->andWhere('resource.title = :title')->setParameter('title', $title)
-                ->setMaxResults(1);
+                ->setMaxResults(1)
+            ;
 
             if ($sessionEntity) {
                 $qb->andWhere('l.session = :session')->setParameter('session', $sessionEntity);
@@ -6217,7 +6374,7 @@ class CourseRestorer
         };
 
         $makeUniqueTitle = function (string $base) use ($findExisting): string {
-            $base = trim($base) !== '' ? $base : 'Attendance';
+            $base = '' !== trim($base) ? $base : 'Attendance';
             if (!$findExisting($base)) {
                 return $base;
             }
@@ -6233,14 +6390,14 @@ class CourseRestorer
 
         foreach ($bag as $legacyId => $att) {
             try {
-                if (!is_object($att)) {
+                if (!\is_object($att)) {
                     continue;
                 }
 
                 $payload = [];
-                if (isset($att->params) && is_array($att->params)) {
+                if (isset($att->params) && \is_array($att->params)) {
                     $payload = $att->params;
-                } elseif (isset($att->obj) && is_object($att->obj)) {
+                } elseif (isset($att->obj) && \is_object($att->obj)) {
                     $payload = (array) $att->obj;
                 } else {
                     $payload = (array) $att;
@@ -6273,14 +6430,15 @@ class CourseRestorer
                 if ($existing) {
                     $dstIid = (int) $existing->getIid();
 
-                    if ($policy === FILE_SKIP) {
+                    if (FILE_SKIP === $policy) {
                         $this->course->resources[$bucketKey][$legacyId] ??= new stdClass();
                         $this->course->resources[$bucketKey][$legacyId]->destination_id = $dstIid;
                         $att->destination_id = $dstIid;
+
                         continue;
                     }
 
-                    if ($policy === FILE_OVERWRITE) {
+                    if (FILE_OVERWRITE === $policy) {
                         $existing
                             ->setTitle($title)
                             ->setDescription($desc)
@@ -6289,7 +6447,8 @@ class CourseRestorer
                             ->setAttendanceQualifyMax($qualMax)
                             ->setAttendanceWeight($weight)
                             ->setLocked($locked)
-                            ->setRequireUnique($requireUnique);
+                            ->setRequireUnique($requireUnique)
+                        ;
 
                         foreach ($existing->getCalendars() as $oldCal) {
                             $em->remove($oldCal);
@@ -6319,7 +6478,8 @@ class CourseRestorer
                         ->setAttendanceQualifyMax($qualMax)
                         ->setAttendanceWeight($weight)
                         ->setLocked($locked)
-                        ->setRequireUnique($requireUnique);
+                        ->setRequireUnique($requireUnique)
+                    ;
 
                     $a->setParent($courseEntity);
                     $a->setCreator(api_get_user_entity());
@@ -6336,30 +6496,30 @@ class CourseRestorer
                 }
 
                 $calList = [];
-                if (isset($payload['attendance_calendar']) && is_array($payload['attendance_calendar'])) {
+                if (isset($payload['attendance_calendar']) && \is_array($payload['attendance_calendar'])) {
                     $calList = $payload['attendance_calendar'];
-                } elseif (isset($payload['attendance_calendar_list']) && is_array($payload['attendance_calendar_list'])) {
+                } elseif (isset($payload['attendance_calendar_list']) && \is_array($payload['attendance_calendar_list'])) {
                     $calList = $payload['attendance_calendar_list'];
-                } elseif (isset($payload['calendars']) && is_array($payload['calendars'])) {
+                } elseif (isset($payload['calendars']) && \is_array($payload['calendars'])) {
                     $calList = $payload['calendars'];
-                } elseif (isset($att->attendance_calendar) && is_array($att->attendance_calendar)) {
+                } elseif (isset($att->attendance_calendar) && \is_array($att->attendance_calendar)) {
                     $calList = $att->attendance_calendar;
-                } elseif (isset($att->attendance_calendar_list) && is_array($att->attendance_calendar_list)) {
+                } elseif (isset($att->attendance_calendar_list) && \is_array($att->attendance_calendar_list)) {
                     $calList = $att->attendance_calendar_list;
-                } elseif (isset($att->calendars) && is_array($att->calendars)) {
+                } elseif (isset($att->calendars) && \is_array($att->calendars)) {
                     $calList = $att->calendars;
-                } elseif (isset($att->obj) && is_object($att->obj)) {
-                    if (isset($att->obj->attendance_calendar) && is_array($att->obj->attendance_calendar)) {
+                } elseif (isset($att->obj) && \is_object($att->obj)) {
+                    if (isset($att->obj->attendance_calendar) && \is_array($att->obj->attendance_calendar)) {
                         $calList = $att->obj->attendance_calendar;
-                    } elseif (isset($att->obj->attendance_calendar_list) && is_array($att->obj->attendance_calendar_list)) {
+                    } elseif (isset($att->obj->attendance_calendar_list) && \is_array($att->obj->attendance_calendar_list)) {
                         $calList = $att->obj->attendance_calendar_list;
-                    } elseif (isset($att->obj->calendars) && is_array($att->obj->calendars)) {
+                    } elseif (isset($att->obj->calendars) && \is_array($att->obj->calendars)) {
                         $calList = $att->obj->calendars;
                     }
                 }
 
                 foreach ($calList as $c) {
-                    $c = is_array($c) ? $c : (array) $c;
+                    $c = \is_array($c) ? $c : (array) $c;
 
                     $rawDate = $c['date_time'] ?? $c['dateTime'] ?? $c['datetime'] ?? $c['start_date'] ?? null;
                     if (null === $rawDate || '' === trim((string) $rawDate)) {
@@ -6369,14 +6529,15 @@ class CourseRestorer
                     $dt = $this->toUtcDateTime($rawDate);
                     $done = (bool) ($c['done_attendance'] ?? $c['doneAttendance'] ?? false);
                     $blocked = (bool) ($c['blocked'] ?? false);
-                    $duration = array_key_exists('duration', $c) ? (null !== $c['duration'] ? (int) $c['duration'] : null) : null;
+                    $duration = \array_key_exists('duration', $c) ? (null !== $c['duration'] ? (int) $c['duration'] : null) : null;
 
                     $cal = (new CAttendanceCalendar())
                         ->setAttendance($target)
                         ->setDateTime($dt)
                         ->setDoneAttendance($done)
                         ->setBlocked($blocked)
-                        ->setDuration($duration);
+                        ->setDuration($duration)
+                    ;
 
                     $em->persist($cal);
                 }
@@ -6384,6 +6545,7 @@ class CourseRestorer
                 $em->flush();
             } catch (Throwable $e) {
                 error_log('COURSE_DEBUG: restore_attendance: failed: '.$e->getMessage());
+
                 continue;
             }
         }
@@ -6397,16 +6559,17 @@ class CourseRestorer
     public function restore_thematic($sessionId = 0): void
     {
         $bucketKey = null;
-        if (isset($this->course->resources[RESOURCE_THEMATIC]) && is_array($this->course->resources[RESOURCE_THEMATIC])) {
+        if (isset($this->course->resources[RESOURCE_THEMATIC]) && \is_array($this->course->resources[RESOURCE_THEMATIC])) {
             $bucketKey = RESOURCE_THEMATIC;
-        } elseif (isset($this->course->resources['thematic']) && is_array($this->course->resources['thematic'])) {
+        } elseif (isset($this->course->resources['thematic']) && \is_array($this->course->resources['thematic'])) {
             $bucketKey = 'thematic';
         }
 
-        $bag = $bucketKey !== null ? ($this->course->resources[$bucketKey] ?? []) : [];
+        $bag = null !== $bucketKey ? ($this->course->resources[$bucketKey] ?? []) : [];
 
         if (empty($bag)) {
             $this->debug && error_log('COURSE_DEBUG: restore_thematic: empty bag.');
+
             return;
         }
 
@@ -6416,6 +6579,7 @@ class CourseRestorer
         $courseEntity = api_get_course_entity($this->destination_course_id);
         if (!$courseEntity instanceof CourseEntity) {
             $this->debug && error_log('COURSE_DEBUG: restore_thematic: missing destination course entity.');
+
             return;
         }
 
@@ -6428,7 +6592,8 @@ class CourseRestorer
                 ->innerJoin('n.resourceLinks', 'l')
                 ->andWhere('l.course = :course')->setParameter('course', $courseEntity)
                 ->andWhere('resource.title = :title')->setParameter('title', $title)
-                ->setMaxResults(1);
+                ->setMaxResults(1)
+            ;
 
             if ($sessionEntity) {
                 $qb->andWhere('l.session = :session')->setParameter('session', $sessionEntity);
@@ -6440,7 +6605,7 @@ class CourseRestorer
         };
 
         $makeUniqueTitle = function (string $base) use ($findExisting): string {
-            $base = trim($base) !== '' ? $base : 'Thematic';
+            $base = '' !== trim($base) ? $base : 'Thematic';
             if (!$findExisting($base)) {
                 return $base;
             }
@@ -6456,14 +6621,14 @@ class CourseRestorer
 
         foreach ($bag as $legacyId => $t) {
             try {
-                if (!is_object($t)) {
+                if (!\is_object($t)) {
                     continue;
                 }
 
                 $payload = [];
-                if (isset($t->params) && is_array($t->params)) {
+                if (isset($t->params) && \is_array($t->params)) {
                     $payload = $t->params;
-                } elseif (isset($t->obj) && is_object($t->obj)) {
+                } elseif (isset($t->obj) && \is_object($t->obj)) {
                     $payload = (array) $t->obj;
                 } else {
                     $payload = (array) $t;
@@ -6491,14 +6656,15 @@ class CourseRestorer
                 if ($existing) {
                     $dstIid = (int) $existing->getIid();
 
-                    if ($policy === FILE_SKIP) {
+                    if (FILE_SKIP === $policy) {
                         $this->course->resources[$bucketKey][$legacyId] ??= new stdClass();
                         $this->course->resources[$bucketKey][$legacyId]->destination_id = $dstIid;
                         $t->destination_id = $dstIid;
+
                         continue;
                     }
 
-                    if ($policy === FILE_OVERWRITE) {
+                    if (FILE_OVERWRITE === $policy) {
                         $existing->setTitle($title)->setContent($content)->setActive($active);
 
                         foreach ($existing->getAdvances() as $oldAdv) {
@@ -6526,7 +6692,8 @@ class CourseRestorer
                     $thematic = (new CThematic())
                         ->setTitle($title)
                         ->setContent($content)
-                        ->setActive($active);
+                        ->setActive($active)
+                    ;
 
                     $thematic->setParent($courseEntity);
                     $thematic->setCreator(api_get_user_entity());
@@ -6541,28 +6708,28 @@ class CourseRestorer
                 }
 
                 $advList = [];
-                if (isset($payload['thematic_advance_list']) && is_array($payload['thematic_advance_list'])) {
+                if (isset($payload['thematic_advance_list']) && \is_array($payload['thematic_advance_list'])) {
                     $advList = $payload['thematic_advance_list'];
-                } elseif (isset($payload['thematic_advances']) && is_array($payload['thematic_advances'])) {
+                } elseif (isset($payload['thematic_advances']) && \is_array($payload['thematic_advances'])) {
                     $advList = $payload['thematic_advances'];
-                } elseif (isset($payload['advances']) && is_array($payload['advances'])) {
+                } elseif (isset($payload['advances']) && \is_array($payload['advances'])) {
                     $advList = $payload['advances'];
-                } elseif (isset($t->thematic_advance_list) && is_array($t->thematic_advance_list)) {
+                } elseif (isset($t->thematic_advance_list) && \is_array($t->thematic_advance_list)) {
                     $advList = $t->thematic_advance_list;
-                } elseif (isset($t->thematic_advance) && is_array($t->thematic_advance)) {
+                } elseif (isset($t->thematic_advance) && \is_array($t->thematic_advance)) {
                     $advList = $t->thematic_advance;
-                } elseif (isset($t->obj) && is_object($t->obj)) {
-                    if (isset($t->obj->thematic_advance_list) && is_array($t->obj->thematic_advance_list)) {
+                } elseif (isset($t->obj) && \is_object($t->obj)) {
+                    if (isset($t->obj->thematic_advance_list) && \is_array($t->obj->thematic_advance_list)) {
                         $advList = $t->obj->thematic_advance_list;
-                    } elseif (isset($t->obj->thematic_advance) && is_array($t->obj->thematic_advance)) {
+                    } elseif (isset($t->obj->thematic_advance) && \is_array($t->obj->thematic_advance)) {
                         $advList = $t->obj->thematic_advance;
-                    } elseif (isset($t->obj->advances) && is_array($t->obj->advances)) {
+                    } elseif (isset($t->obj->advances) && \is_array($t->obj->advances)) {
                         $advList = $t->obj->advances;
                     }
                 }
 
                 foreach ($advList as $adv) {
-                    $adv = is_array($adv) ? $adv : (array) $adv;
+                    $adv = \is_array($adv) ? $adv : (array) $adv;
 
                     $advContent = (string) ($adv['content'] ?? '');
                     $advContent = $this->rewriteHtmlForCourse($advContent, (int) $sessionId, '[thematic.advance]');
@@ -6577,7 +6744,8 @@ class CourseRestorer
                         ->setContent($advContent)
                         ->setStartDate($startDate)
                         ->setDuration($duration)
-                        ->setDoneAdvance($doneAdvance);
+                        ->setDoneAdvance($doneAdvance)
+                    ;
 
                     $srcAttId = (int) ($adv['attendance_id'] ?? 0);
                     if ($srcAttId > 0) {
@@ -6602,28 +6770,28 @@ class CourseRestorer
                 }
 
                 $planList = [];
-                if (isset($payload['thematic_plan_list']) && is_array($payload['thematic_plan_list'])) {
+                if (isset($payload['thematic_plan_list']) && \is_array($payload['thematic_plan_list'])) {
                     $planList = $payload['thematic_plan_list'];
-                } elseif (isset($payload['thematic_plans']) && is_array($payload['thematic_plans'])) {
+                } elseif (isset($payload['thematic_plans']) && \is_array($payload['thematic_plans'])) {
                     $planList = $payload['thematic_plans'];
-                } elseif (isset($payload['plans']) && is_array($payload['plans'])) {
+                } elseif (isset($payload['plans']) && \is_array($payload['plans'])) {
                     $planList = $payload['plans'];
-                } elseif (isset($t->thematic_plan_list) && is_array($t->thematic_plan_list)) {
+                } elseif (isset($t->thematic_plan_list) && \is_array($t->thematic_plan_list)) {
                     $planList = $t->thematic_plan_list;
-                } elseif (isset($t->thematic_plan) && is_array($t->thematic_plan)) {
+                } elseif (isset($t->thematic_plan) && \is_array($t->thematic_plan)) {
                     $planList = $t->thematic_plan;
-                } elseif (isset($t->obj) && is_object($t->obj)) {
-                    if (isset($t->obj->thematic_plan_list) && is_array($t->obj->thematic_plan_list)) {
+                } elseif (isset($t->obj) && \is_object($t->obj)) {
+                    if (isset($t->obj->thematic_plan_list) && \is_array($t->obj->thematic_plan_list)) {
                         $planList = $t->obj->thematic_plan_list;
-                    } elseif (isset($t->obj->thematic_plan) && is_array($t->obj->thematic_plan)) {
+                    } elseif (isset($t->obj->thematic_plan) && \is_array($t->obj->thematic_plan)) {
                         $planList = $t->obj->thematic_plan;
-                    } elseif (isset($t->obj->plans) && is_array($t->obj->plans)) {
+                    } elseif (isset($t->obj->plans) && \is_array($t->obj->plans)) {
                         $planList = $t->obj->plans;
                     }
                 }
 
                 foreach ($planList as $pl) {
-                    $pl = is_array($pl) ? $pl : (array) $pl;
+                    $pl = \is_array($pl) ? $pl : (array) $pl;
 
                     $plTitle = trim((string) ($pl['title'] ?? ''));
                     if ('' === $plTitle) {
@@ -6639,7 +6807,8 @@ class CourseRestorer
                         ->setThematic($thematic)
                         ->setTitle($plTitle)
                         ->setDescription($plDesc)
-                        ->setDescriptionType($descType);
+                        ->setDescriptionType($descType)
+                    ;
 
                     $em->persist($plan);
                 }
@@ -6647,6 +6816,7 @@ class CourseRestorer
                 $em->flush();
             } catch (Throwable $e) {
                 error_log('COURSE_DEBUG: restore_thematic: failed: '.$e->getMessage());
+
                 continue;
             }
         }
@@ -6654,6 +6824,8 @@ class CourseRestorer
 
     /**
      * Normalize any value (string|DateTimeInterface|timestamp|null) into a UTC DateTime.
+     *
+     * @param mixed $value
      */
     private function toUtcDateTime($value): DateTime
     {
@@ -6661,23 +6833,26 @@ class CourseRestorer
 
         if ($value instanceof DateTimeInterface) {
             $dt = DateTimeImmutable::createFromInterface($value)->setTimezone($tz);
+
             return new DateTime($dt->format('Y-m-d H:i:s'), $tz);
         }
 
-        if (is_int($value) || (is_string($value) && ctype_digit($value))) {
+        if (\is_int($value) || (\is_string($value) && ctype_digit($value))) {
             $ts = (int) $value;
             $dt = (new DateTimeImmutable('@'.$ts))->setTimezone($tz);
+
             return new DateTime($dt->format('Y-m-d H:i:s'), $tz);
         }
 
         $s = trim((string) $value);
-        if ($s === '') {
+        if ('' === $s) {
             return new DateTime('now', $tz);
         }
 
         try {
             $dt = new DateTime($s, $tz);
             $dt->setTimezone($tz);
+
             return $dt;
         } catch (Throwable) {
             return new DateTime('now', $tz);
@@ -6690,12 +6865,12 @@ class CourseRestorer
     private function resolveDestinationIid(string $bucket, int $srcId): int
     {
         $bag = $this->course->resources[$bucket] ?? [];
-        if (isset($bag[$srcId]) && is_object($bag[$srcId]) && !empty($bag[$srcId]->destination_id)) {
+        if (isset($bag[$srcId]) && \is_object($bag[$srcId]) && !empty($bag[$srcId]->destination_id)) {
             return (int) $bag[$srcId]->destination_id;
         }
 
         foreach ($bag as $key => $res) {
-            if (!is_object($res)) {
+            if (!\is_object($res)) {
                 continue;
             }
             $p = (array) ($res->params ?? []);
@@ -6721,7 +6896,7 @@ class CourseRestorer
         }
 
         /** @var EntityManagerInterface $em */
-        $em = \Database::getManager();
+        $em = Database::getManager();
 
         $copyOnlySessionItems = (bool) (
             $this->course->copy_only_session_items
@@ -6732,6 +6907,7 @@ class CourseRestorer
         // If user asked to copy only session items, never restore works for sid=0.
         if ($copyOnlySessionItems && 0 === (int) $sessionId) {
             $this->dlog('restore_works: skipped base restore because copy_only_session_items is enabled', []);
+
             return;
         }
 
@@ -6760,13 +6936,14 @@ class CourseRestorer
                 'destination_course_id' => (int) ($this->destination_course_id ?? 0),
                 'destination_course_code' => (string) ($this->destination_course_code ?? $this->destination_code ?? ''),
             ]);
+
             return;
         }
 
         $sessionEntity = $sessionId ? api_get_session_entity((int) $sessionId) : null;
 
-        /** @var \Chamilo\CoreBundle\Repository\CStudentPublicationRepository $pubRepo */
-        $pubRepo = \Chamilo\CoreBundle\Framework\Container::getStudentPublicationRepository();
+        /** @var CStudentPublicationRepository $pubRepo */
+        $pubRepo = Container::getStudentPublicationRepository();
 
         $FILE_SKIP = \defined('FILE_SKIP') ? (int) FILE_SKIP : 1;
         $FILE_RENAME = \defined('FILE_RENAME') ? (int) FILE_RENAME : 2;
@@ -6786,7 +6963,7 @@ class CourseRestorer
                 if (!$pub->getFirstResourceLinkFromCourseSession($courseEntity, $sessionEntity)) {
                     $pub->addCourseLink($courseEntity, $sessionEntity);
                 }
-            } catch (\Throwable) {
+            } catch (Throwable) {
                 // Ignore link creation failures.
             }
 
@@ -6813,7 +6990,7 @@ class CourseRestorer
                         $em->flush();
                     }
                 }
-            } catch (\Throwable) {
+            } catch (Throwable) {
                 // Ignore base-link removal failures.
             }
         };
@@ -6884,7 +7061,7 @@ class CourseRestorer
 
                 $readField = static function (string $key, array ...$bags) {
                     foreach ($bags as $bag) {
-                        if (array_key_exists($key, $bag)) {
+                        if (\array_key_exists($key, $bag)) {
                             return $bag[$key];
                         }
                     }
@@ -6907,12 +7084,13 @@ class CourseRestorer
                         'src_iid' => $sourceIid,
                         'dst_iid' => $alreadyDst,
                     ]);
+
                     continue;
                 }
 
                 // Dedupe within this call (in case build produced duplicates).
                 if (isset($mappedBySource[$sourceIid])) {
-                    $this->course->resources[RESOURCE_WORK][$legacyId] ??= new \stdClass();
+                    $this->course->resources[RESOURCE_WORK][$legacyId] ??= new stdClass();
                     $this->course->resources[RESOURCE_WORK][$legacyId]->destination_id = (int) $mappedBySource[$sourceIid];
 
                     $this->dlog('restore_works: duplicate source entry ignored', [
@@ -6920,6 +7098,7 @@ class CourseRestorer
                         'src_iid' => $sourceIid,
                         'dst_iid' => (int) $mappedBySource[$sourceIid],
                     ]);
+
                     continue;
                 }
 
@@ -6932,17 +7111,25 @@ class CourseRestorer
                 $rawDescription = (string) ($readField('description', $p, $root, $legacyObj) ?? '');
                 $rewrittenDescription = $this->rewriteHtmlForCourse($rawDescription, (int) $sessionId, '[work.description]');
 
-                $enableQualification = filter_var(($p['enable_qualification'] ?? false), FILTER_VALIDATE_BOOLEAN);
-                $addToCalendar = filter_var(($p['add_to_calendar'] ?? false), FILTER_VALIDATE_BOOLEAN);
+                $enableQualification = filter_var($p['enable_qualification'] ?? false, FILTER_VALIDATE_BOOLEAN);
+                $addToCalendar = filter_var($p['add_to_calendar'] ?? false, FILTER_VALIDATE_BOOLEAN);
 
                 $expiresOn = null;
                 if (!empty($p['expires_on'])) {
-                    try { $expiresOn = new \DateTime((string) $p['expires_on']); } catch (\Throwable) { $expiresOn = null; }
+                    try {
+                        $expiresOn = new DateTime((string) $p['expires_on']);
+                    } catch (Throwable) {
+                        $expiresOn = null;
+                    }
                 }
 
                 $endsOn = null;
                 if (!empty($p['ends_on'])) {
-                    try { $endsOn = new \DateTime((string) $p['ends_on']); } catch (\Throwable) { $endsOn = null; }
+                    try {
+                        $endsOn = new DateTime((string) $p['ends_on']);
+                    } catch (Throwable) {
+                        $endsOn = null;
+                    }
                 }
 
                 if ($expiresOn && $endsOn && $endsOn < $expiresOn) {
@@ -6953,8 +7140,8 @@ class CourseRestorer
                 $qualification = isset($p['qualification']) ? (float) $p['qualification'] : 0.0;
                 $allowText = isset($p['allow_text_assignment']) ? (int) $p['allow_text_assignment'] : 0;
 
-                $defaultVisibility = filter_var(($p['default_visibility'] ?? false), FILTER_VALIDATE_BOOLEAN);
-                $studentMayDelete = filter_var(($p['student_delete_own_publication'] ?? false), FILTER_VALIDATE_BOOLEAN);
+                $defaultVisibility = filter_var($p['default_visibility'] ?? false, FILTER_VALIDATE_BOOLEAN);
+                $studentMayDelete = filter_var($p['student_delete_own_publication'] ?? false, FILTER_VALIDATE_BOOLEAN);
 
                 $extensions = isset($p['extensions']) ? trim((string) $p['extensions']) : '';
                 $extensions = '' !== $extensions ? $extensions : null;
@@ -6976,7 +7163,7 @@ class CourseRestorer
                         $dstIid = (int) $existing->getIid();
                         $mappedBySource[$sourceIid] = $dstIid;
 
-                        $this->course->resources[RESOURCE_WORK][$legacyId] ??= new \stdClass();
+                        $this->course->resources[RESOURCE_WORK][$legacyId] ??= new stdClass();
                         $this->course->resources[RESOURCE_WORK][$legacyId]->destination_id = $dstIid;
 
                         $ensureSessionOnlyLink($existing);
@@ -6987,6 +7174,7 @@ class CourseRestorer
                             'dst_iid' => $dstIid,
                             'title' => (string) $existing->getTitle(),
                         ]);
+
                         continue;
                     }
 
@@ -6998,6 +7186,7 @@ class CourseRestorer
 
                             if (!$dup) {
                                 $title = $candidate;
+
                                 break;
                             }
 
@@ -7008,6 +7197,7 @@ class CourseRestorer
                                     'src_iid' => $sourceIid,
                                     'base_title' => $baseTitle,
                                 ]);
+
                                 continue 2;
                             }
                         }
@@ -7054,13 +7244,13 @@ class CourseRestorer
                         try {
                             $link = $pub->getFirstResourceLink();
                             if ($link) {
-                                $eventTitle = sprintf(get_lang('Handing over of task %s'), $pub->getTitle());
+                                $eventTitle = \sprintf(get_lang('Handing over of task %s'), $pub->getTitle());
 
                                 $content = (string) $pub->getDescription();
                                 $content = $this->rewriteHtmlForCourse($content, (int) $sessionId, '[work.calendar]');
 
-                                $start = $expiresOn ? clone $expiresOn : new \DateTime('now', new \DateTimeZone('UTC'));
-                                $end = $expiresOn ? clone $expiresOn : new \DateTime('now', new \DateTimeZone('UTC'));
+                                $start = $expiresOn ? clone $expiresOn : new DateTime('now', new DateTimeZone('UTC'));
+                                $end = $expiresOn ? clone $expiresOn : new DateTime('now', new DateTimeZone('UTC'));
 
                                 $event = (new CCalendarEvent())
                                     ->setTitle($eventTitle)
@@ -7079,7 +7269,7 @@ class CourseRestorer
                                 $assignment->setEventCalendarId((int) $event->getIid());
                                 $em->flush();
                             }
-                        } catch (\Throwable $e) {
+                        } catch (Throwable $e) {
                             $this->dlog('restore_works: calendar failed (ignored)', [
                                 'src_id' => $legacyId,
                                 'dst_iid' => (int) $pub->getIid(),
@@ -7091,7 +7281,7 @@ class CourseRestorer
                     $dstIid = (int) $pub->getIid();
                     $mappedBySource[$sourceIid] = $dstIid;
 
-                    $this->course->resources[RESOURCE_WORK][$legacyId] ??= new \stdClass();
+                    $this->course->resources[RESOURCE_WORK][$legacyId] ??= new stdClass();
                     $this->course->resources[RESOURCE_WORK][$legacyId]->destination_id = $dstIid;
 
                     $this->dlog('restore_works: created', [
@@ -7125,7 +7315,7 @@ class CourseRestorer
                 $dstIid = (int) $existing->getIid();
                 $mappedBySource[$sourceIid] = $dstIid;
 
-                $this->course->resources[RESOURCE_WORK][$legacyId] ??= new \stdClass();
+                $this->course->resources[RESOURCE_WORK][$legacyId] ??= new stdClass();
                 $this->course->resources[RESOURCE_WORK][$legacyId]->destination_id = $dstIid;
 
                 $this->dlog('restore_works: overwritten', [
@@ -7134,11 +7324,12 @@ class CourseRestorer
                     'dst_iid' => $dstIid,
                     'title' => (string) $existing->getTitle(),
                 ]);
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 $this->dlog('restore_works: failed', [
                     'src_id' => $legacyId,
                     'err' => $e->getMessage(),
                 ]);
+
                 continue;
             }
         }
@@ -7271,7 +7462,7 @@ class CourseRestorer
         // Make sure referenced assets exist physically under the extracted backup root.
         $this->materializeMissingHtmlAssetsFromZip($html, $courseDir, $srcRoot, $DBG);
 
-        if (!isset($this->htmlFoldersByCourseDir[$courseDir]) || !is_array($this->htmlFoldersByCourseDir[$courseDir])) {
+        if (!isset($this->htmlFoldersByCourseDir[$courseDir]) || !\is_array($this->htmlFoldersByCourseDir[$courseDir])) {
             $this->htmlFoldersByCourseDir[$courseDir] = [];
         }
 
@@ -7316,6 +7507,7 @@ class CourseRestorer
 
                 if (!empty($folders[$currentPath])) {
                     $parentId = (int) $folders[$currentPath];
+
                     continue;
                 }
 
@@ -7333,6 +7525,7 @@ class CourseRestorer
                     $parentId = (int) $existing->getIid();
                     $folders[$currentPath] = $parentId;
                     $DBG('html.ensureFolder.reuse', ['path' => $currentPath, 'iid' => $parentId]);
+
                     continue;
                 }
 
@@ -7365,7 +7558,7 @@ class CourseRestorer
                     $DBG('html.ensureFolder.error', [
                         'path' => $currentPath,
                         'message' => $e->getMessage(),
-                        'class' => get_class($e),
+                        'class' => $e::class,
                     ]);
                 }
             }
@@ -7414,8 +7607,8 @@ class CourseRestorer
             $byBase = $map['byBase'] ?? [];
 
             $DBG('html.rewrite.map', [
-                'byRel' => is_array($byRel) ? count($byRel) : 0,
-                'byBase' => is_array($byBase) ? count($byBase) : 0,
+                'byRel' => \is_array($byRel) ? \count($byRel) : 0,
+                'byBase' => \is_array($byBase) ? \count($byBase) : 0,
             ]);
 
             $result = ChamiloHelper::rewriteLegacyCourseUrlsWithMap($html, $courseDir, $byRel, $byBase);
@@ -7455,7 +7648,7 @@ class CourseRestorer
         } catch (Throwable $e) {
             $DBG('html.rewrite.error', [
                 'message' => $e->getMessage(),
-                'class' => get_class($e),
+                'class' => $e::class,
             ]);
         }
 
@@ -7556,7 +7749,7 @@ class CourseRestorer
             $normalizedRel,
         ])));
 
-        $zip = new \ZipArchive();
+        $zip = new ZipArchive();
         if (true !== $zip->open($zipPath)) {
             $DBG('html.rewrite.zip.open_failed', [
                 'rel' => $requestedRel,
@@ -7569,8 +7762,9 @@ class CourseRestorer
         $entryName = null;
 
         foreach ($candidateRels as $candidateRel) {
-            if (false !== $zip->locateName($candidateRel, \ZipArchive::FL_NOCASE)) {
+            if (false !== $zip->locateName($candidateRel, ZipArchive::FL_NOCASE)) {
                 $entryName = $candidateRel;
+
                 break;
             }
         }
@@ -7593,6 +7787,7 @@ class CourseRestorer
                         || str_ends_with(strtolower($normalizedName), strtolower($suffix))
                     ) {
                         $entryName = $name;
+
                         break 2;
                     }
                 }
@@ -7638,7 +7833,7 @@ class CourseRestorer
         }
 
         $target = rtrim($srcRoot, '/').'/'.$targetRel;
-        $targetDir = dirname($target);
+        $targetDir = \dirname($target);
 
         if (!is_dir($targetDir) && !@mkdir($targetDir, api_get_permissions_for_new_directories(), true) && !is_dir($targetDir)) {
             $DBG('html.rewrite.zip.mkdir_failed', [
@@ -7662,7 +7857,7 @@ class CourseRestorer
         // The alias path also comes from the (untrusted) requested rel — confine it too.
         if ($requestedRel !== $targetRel && $this->isSafeBackupPath($requestedRel, 'document')) {
             $aliasTarget = rtrim($srcRoot, '/').'/'.$requestedRel;
-            $aliasDir = dirname($aliasTarget);
+            $aliasDir = \dirname($aliasTarget);
 
             if (!is_dir($aliasDir)) {
                 @mkdir($aliasDir, api_get_permissions_for_new_directories(), true);
@@ -7731,6 +7926,7 @@ class CourseRestorer
                     'rel' => $rel,
                     'abs' => $abs,
                 ]);
+
                 continue;
             }
 
@@ -7746,6 +7942,11 @@ class CourseRestorer
     /**
      * Fallback HTML rewrite for legacy document URLs when the helper map finds nothing.
      * This is more permissive and only depends on the /document/ segment.
+     *
+     * @param mixed $docRepo
+     * @param mixed $courseEntity
+     * @param mixed $sessionEntity
+     * @param mixed $groupEntity
      */
     private function rewriteHtmlDocumentUrlsFallback(
         string $html,
@@ -7820,7 +8021,7 @@ class CourseRestorer
                 $rel = $this->normalizeImportedDocumentRelativePath($rel);
 
                 $ext = strtolower((string) pathinfo($rel, PATHINFO_EXTENSION));
-                if ('' === $ext || in_array($ext, ['html', 'htm'], true)) {
+                if ('' === $ext || \in_array($ext, ['html', 'htm'], true)) {
                     return $m[0];
                 }
 
@@ -7842,7 +8043,7 @@ class CourseRestorer
                 }
 
                 $logicalRel = '/'.ltrim(preg_replace('#^document/#i', '', $rel) ?: $rel, '/');
-                $parentRelPath = dirname($logicalRel);
+                $parentRelPath = \dirname($logicalRel);
                 if ('.' === $parentRelPath || '' === $parentRelPath) {
                     $parentRelPath = '/';
                 }
@@ -7872,7 +8073,7 @@ class CourseRestorer
                             'url' => $newUrl,
                         ]);
 
-                        return sprintf('%s="%s"', $attr, htmlspecialchars($newUrl, ENT_QUOTES | ENT_HTML5));
+                        return \sprintf('%s="%s"', $attr, htmlspecialchars($newUrl, ENT_QUOTES | ENT_HTML5));
                     }
                 }
 
@@ -7925,7 +8126,7 @@ class CourseRestorer
                     'url' => $newUrl,
                 ]);
 
-                return sprintf('%s="%s"', $attr, htmlspecialchars($newUrl, ENT_QUOTES | ENT_HTML5));
+                return \sprintf('%s="%s"', $attr, htmlspecialchars($newUrl, ENT_QUOTES | ENT_HTML5));
             },
             $html
         ) ?? $html;
@@ -7964,6 +8165,8 @@ class CourseRestorer
 
     /**
      * Given a RESOURCE_* bucket and legacy id, return destination id (if that item was restored).
+     *
+     * @param mixed $type
      */
     private function gb_resolveDestinationId($type, int $legacyId): int
     {
@@ -8092,6 +8295,7 @@ class CourseRestorer
 
         if (!$this->course->has_resources(RESOURCE_GRADEBOOK)) {
             $this->dlog('restore_gradebook: no gradebook resources');
+
             return;
         }
 
@@ -8309,17 +8513,19 @@ class CourseRestorer
 
                     if ($linkType <= 0 || $legacyRef <= 0) {
                         $this->dlog('restore_gradebook: skipping link (missing type/ref)', $l);
+
                         continue;
                     }
 
                     $resourceType = $this->gb_guessResourceTypeByLinkType($linkType);
                     $newRefId = $this->gb_resolveDestinationId($resourceType, $legacyRef);
 
-                    if ($resourceType === null) {
+                    if (null === $resourceType) {
                         $this->dlog('restore_gradebook: skipping link (type not mapped)', [
                             'type' => $linkType,
                             'legacyRef' => $legacyRef,
                         ]);
+
                         continue;
                     }
 
@@ -8329,6 +8535,7 @@ class CourseRestorer
                             'legacyRef' => $legacyRef,
                             'resourceType' => (string) $resourceType,
                         ]);
+
                         continue;
                     }
 
@@ -8432,7 +8639,7 @@ class CourseRestorer
         $backupPath = rtrim((string) ($this->course->backup_path ?? ''), '/');
 
         if ('' !== $backupPath) {
-            if (!empty($this->course->resources[RESOURCE_SCORM]) && is_array($this->course->resources[RESOURCE_SCORM])) {
+            if (!empty($this->course->resources[RESOURCE_SCORM]) && \is_array($this->course->resources[RESOURCE_SCORM])) {
                 foreach ($this->course->resources[RESOURCE_SCORM] as $sc) {
                     $src = isset($sc->source_lp_id) ? (int) $sc->source_lp_id : 0;
                     $dst = isset($sc->lp_id_dest) ? (int) $sc->lp_id_dest : 0;
@@ -8536,7 +8743,7 @@ class CourseRestorer
 
         $outStream = @fopen($tmp, 'wb');
         if (false === $outStream) {
-            if (is_resource($in)) {
+            if (\is_resource($in)) {
                 fclose($in);
             }
 
@@ -8545,7 +8752,7 @@ class CourseRestorer
 
         stream_copy_to_stream($in, $outStream);
 
-        if (is_resource($in)) {
+        if (\is_resource($in)) {
             fclose($in);
         }
         fclose($outStream);
@@ -8812,11 +9019,11 @@ class CourseRestorer
         try {
             if (method_exists(CourseArchiver::class, 'getBackupDir')) {
                 $dir = rtrim(CourseArchiver::getBackupDir(), '/');
-                if ($dir !== '') {
+                if ('' !== $dir) {
                     return $dir;
                 }
             }
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
         }
 
         return rtrim(api_get_path(SYS_ARCHIVE_PATH), '/').'/course_backups';
@@ -8832,9 +9039,9 @@ class CourseRestorer
 
         // 1) Preferred: __meta.archiver_root (extracted CourseArchiver folder)
         $meta = $this->course->resources['__meta'] ?? null;
-        if (is_array($meta) && !empty($meta['archiver_root'])) {
+        if (\is_array($meta) && !empty($meta['archiver_root'])) {
             $candidates[] = (string) $meta['archiver_root'];
-        } elseif (is_object($meta) && !empty($meta->archiver_root)) {
+        } elseif (\is_object($meta) && !empty($meta->archiver_root)) {
             $candidates[] = (string) $meta->archiver_root;
         }
 
@@ -8842,16 +9049,16 @@ class CourseRestorer
         if (method_exists($this, 'resolveImportRoot')) {
             try {
                 $resolved = $this->resolveImportRoot();
-                if (is_array($resolved) && !empty($resolved['dir'])) {
+                if (\is_array($resolved) && !empty($resolved['dir'])) {
                     $candidates[] = (string) $resolved['dir'];
-                } elseif (is_string($resolved) && '' !== $resolved) {
+                } elseif (\is_string($resolved) && '' !== $resolved) {
                     $candidates[] = $resolved;
                 }
             } catch (Throwable $e) {
                 if (null !== $DBG) {
                     $DBG('html.sourceRoot.resolveImportRoot.error', [
                         'message' => $e->getMessage(),
-                        'class' => get_class($e),
+                        'class' => $e::class,
                     ]);
                 }
             }
@@ -8873,6 +9080,7 @@ class CourseRestorer
                 if (null !== $DBG) {
                     $DBG('html.sourceRoot.selected', ['srcRoot' => $candidate, 'reason' => 'has_document_dir']);
                 }
+
                 return $candidate;
             }
 
@@ -8882,6 +9090,7 @@ class CourseRestorer
                 if (null !== $DBG) {
                     $DBG('html.sourceRoot.selected', ['srcRoot' => $srcRoot, 'reason' => 'root_contains_courseDir']);
                 }
+
                 return $srcRoot;
             }
         }
@@ -8902,7 +9111,7 @@ class CourseRestorer
     {
         foreach ($keys as $k) {
             $bag = $this->course->resources[$k] ?? null;
-            if (!empty($bag) && is_array($bag)) {
+            if (!empty($bag) && \is_array($bag)) {
                 return $bag;
             }
         }
@@ -8913,7 +9122,7 @@ class CourseRestorer
     /**
      * Best-effort resolver for SCORM package zip.
      * - If $srcLpId > 0: uses existing findScormPackageForLp()
-     * - Else: uses scorm bucket entry path/name (folder or zip)
+     * - Else: uses scorm bucket entry path/name (folder or zip).
      *
      * @return array{zip:string,temp:bool}
      */
@@ -8973,11 +9182,11 @@ class CourseRestorer
 
         $normalizedFolder = $folder;
         if (str_starts_with($normalizedFolder, 'document/scorm/')) {
-            $normalizedFolder = substr($normalizedFolder, strlen('document/scorm/'));
+            $normalizedFolder = substr($normalizedFolder, \strlen('document/scorm/'));
         } elseif (str_starts_with($normalizedFolder, 'documents/scorm/')) {
-            $normalizedFolder = substr($normalizedFolder, strlen('documents/scorm/'));
+            $normalizedFolder = substr($normalizedFolder, \strlen('documents/scorm/'));
         } elseif (str_starts_with($normalizedFolder, 'scorm/')) {
-            $normalizedFolder = substr($normalizedFolder, strlen('scorm/'));
+            $normalizedFolder = substr($normalizedFolder, \strlen('scorm/'));
         }
         $normalizedFolder = trim($normalizedFolder, '/');
 
@@ -9023,33 +9232,35 @@ class CourseRestorer
      */
     private function zipDirectoryToTemp(string $dirAbs, string $prefix): array
     {
-        if (!class_exists(\ZipArchive::class)) {
+        if (!class_exists(ZipArchive::class)) {
             error_log('RESTORE_SCORM_ZIP: ZipArchive is not available, cannot zip directory');
+
             return ['zip' => '', 'temp' => false];
         }
 
         $tmp = rtrim(sys_get_temp_dir(), '/').'/'.$prefix.'_'.uniqid('', true).'.zip';
 
-        $zip = new \ZipArchive();
-        if (true !== $zip->open($tmp, \ZipArchive::CREATE | \ZipArchive::OVERWRITE)) {
+        $zip = new ZipArchive();
+        if (true !== $zip->open($tmp, ZipArchive::CREATE | ZipArchive::OVERWRITE)) {
             return ['zip' => '', 'temp' => false];
         }
 
         $dirAbs = rtrim($dirAbs, '/');
-        $baseLen = strlen($dirAbs) + 1;
+        $baseLen = \strlen($dirAbs) + 1;
 
-        $it = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($dirAbs, \FilesystemIterator::SKIP_DOTS),
-            \RecursiveIteratorIterator::SELF_FIRST
+        $it = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($dirAbs, FilesystemIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::SELF_FIRST
         );
 
         foreach ($it as $fs) {
-            /** @var \SplFileInfo $fs */
+            /** @var SplFileInfo $fs */
             $abs = $fs->getPathname();
             $rel = substr($abs, $baseLen);
 
             if ($fs->isDir()) {
                 $zip->addEmptyDir(rtrim($rel, '/'));
+
                 continue;
             }
 
@@ -9068,6 +9279,7 @@ class CourseRestorer
     {
         if (!\is_array($this->course->resources ?? null)) {
             $this->course->resources = [];
+
             return;
         }
 
@@ -9084,6 +9296,7 @@ class CourseRestorer
         foreach ($candidates as $k) {
             if (isset($r[$k]) && \is_array($r[$k]) && \count($r[$k]) > 0) {
                 $found = $k;
+
                 break;
             }
         }
@@ -9092,11 +9305,11 @@ class CourseRestorer
             return;
         }
 
-        if (\defined('RESOURCE_DOCUMENT') && $found !== RESOURCE_DOCUMENT) {
-            $r[RESOURCE_DOCUMENT] =& $r[$found];
+        if (\defined('RESOURCE_DOCUMENT') && RESOURCE_DOCUMENT !== $found) {
+            $r[RESOURCE_DOCUMENT] = &$r[$found];
         }
-        $r['documents'] =& $r[$found];
-        $r['document']  =& $r[$found];
+        $r['documents'] = &$r[$found];
+        $r['document'] = &$r[$found];
     }
 
     private function normalizeImportedDocumentRelativePath(string $rel): string
@@ -9149,7 +9362,7 @@ class CourseRestorer
 
         if ('' !== $originPath) {
             $originPath = rtrim($originPath, '/');
-            $uploadBase = dirname($originPath);
+            $uploadBase = \dirname($originPath);
 
             if ('' !== $path) {
                 $normalizedPath = ltrim(str_replace('\\', '/', $path), '/');
@@ -9227,8 +9440,8 @@ class CourseRestorer
 
         $matches = [];
 
-        $iterator = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($docRoot, \FilesystemIterator::SKIP_DOTS)
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($docRoot, FilesystemIterator::SKIP_DOTS)
         );
 
         foreach ($iterator as $file) {
@@ -9247,7 +9460,7 @@ class CourseRestorer
                 continue;
             }
 
-            $candidate = ltrim(substr($fullPath, strlen($rootPrefix)), '/');
+            $candidate = ltrim(substr($fullPath, \strlen($rootPrefix)), '/');
             if (!str_starts_with(strtolower($candidate), 'document/')) {
                 continue;
             }
@@ -9257,17 +9470,17 @@ class CourseRestorer
 
         $matches = array_values(array_unique($matches));
 
-        if (1 === count($matches)) {
+        if (1 === \count($matches)) {
             return $matches[0];
         }
 
-        $requestedDir = trim(str_replace('\\', '/', dirname($rel)), '/');
+        $requestedDir = trim(str_replace('\\', '/', \dirname($rel)), '/');
         if ('.' === $requestedDir) {
             $requestedDir = '';
         }
 
         foreach ($matches as $candidate) {
-            $candidateDir = trim(str_replace('\\', '/', dirname($candidate)), '/');
+            $candidateDir = trim(str_replace('\\', '/', \dirname($candidate)), '/');
 
             if ('' !== $requestedDir && str_ends_with(strtolower($candidateDir), strtolower($requestedDir))) {
                 return $candidate;

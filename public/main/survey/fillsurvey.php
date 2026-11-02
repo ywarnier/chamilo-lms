@@ -184,7 +184,7 @@ $isInvitedUser = $currentUserId > 0 && (string) $currentUserId === $invitedUser;
 // so, unlike the random codes sent by mail, they cannot act as a shared secret. When such a
 // code belongs to a platform user, only that very user is allowed to use it. Codes issued to
 // non-authenticated visitors (user 0) carry no identity to check against.
-if (0 === strpos((string) $survey_invitation['invitation_code'], 'auto-')
+if (str_starts_with((string) $survey_invitation['invitation_code'], 'auto-')
     && ctype_digit($invitedUser)
     && (int) $invitedUser > 0
     && !$isInvitedUser
@@ -207,7 +207,6 @@ if (1 == (int) $survey->getAnonymous()) {
         $surveyUserFromSession = $answerUserKey;
     }
 }
-
 
 // Block if already answered (meeting polls, type 3, are always accessible within the date range)
 if (
@@ -715,7 +714,7 @@ if ((isset($_GET['show']) && '' != $_GET['show']) || isset($_POST['personality']
                           ON survey_question.iid = survey_question_option.question_id
                         WHERE survey_question NOT LIKE '%{{%'
                           AND survey_question.survey_id = '".$surveyId."'
-                          AND survey_question.iid IN (".implode(',', $paged_questions[(int)$_GET['show']]).')
+                          AND survey_question.iid IN (".implode(',', $paged_questions[(int) $_GET['show']]).')
                         ORDER BY survey_question.sort, survey_question_option.sort ASC';
             }
 

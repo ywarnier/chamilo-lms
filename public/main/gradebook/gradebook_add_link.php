@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /* For licensing terms, see /license.txt */
 
 use Chamilo\CoreBundle\Enums\ActionIcon;
@@ -61,6 +63,7 @@ if ($typeform->validate() && isset($_GET['newtypeselected'])) {
         .'&typeselected='.(int) $typeform->exportValue('select_link')
         .'&course_code='.Security::remove_XSS($_GET['course_code']).'&'.api_get_cidreq()
     );
+
     exit;
 }
 
@@ -97,7 +100,7 @@ if (isset($typeSelected) && '0' != $typeSelected) {
         $global_weight = $category[0]->get_weight();
         $link->set_weight($addvalues['weight_mask']);
 
-        if (isset($addvalues['min_score']) && $addvalues['min_score'] !== '') {
+        if (isset($addvalues['min_score']) && '' !== $addvalues['min_score']) {
             $link->set_min_score(api_float_val($addvalues['min_score']));
         }
 
@@ -149,11 +152,12 @@ if (isset($typeSelected) && '0' != $typeSelected) {
         $addvalue_result = !empty($addvalues['addresult']) ? $addvalues['addresult'] : [];
         if (1 == $addvalue_result) {
             header('Location: gradebook_add_result.php?selecteval='.$link->get_ref_id().'&'.api_get_cidreq());
-            exit;
-        } else {
-            header('Location: '.Category::getUrl().'linkadded=&selectcat='.$selectCat);
+
             exit;
         }
+        header('Location: '.Category::getUrl().'linkadded=&selectcat='.$selectCat);
+
+        exit;
     }
 }
 

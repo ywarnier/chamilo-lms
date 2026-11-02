@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /* For licensing terms, see /license.txt */
 
 require_once __DIR__.'/../inc/global.inc.php';
@@ -50,6 +52,7 @@ if ($edit_result_form->validate()) {
         if (empty($resultList)) {
             continue;
         }
+
         /** @var Result $result */
         $result = $resultList[0];
 
@@ -82,6 +85,7 @@ if ($edit_result_form->validate()) {
     }
     Display::addFlash(Display::return_message(get_lang('All results have been edited')));
     header('Location: gradebook_view_result.php?selecteval='.$select_eval.'&'.api_get_cidreq());
+
     exit;
 }
 

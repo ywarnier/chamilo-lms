@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * (c) Copyright Ascensio System SIA 2025.
  *
@@ -150,14 +152,17 @@ switch ($type) {
     case 'track':
         sendNoCacheHeaders();
         @header('Content-Type: application/json');
+
         exit(json_encode(track()));
 
     case 'download':
         download();
+
         exit;
 
     case 'empty':
         emptyFile();
+
         exit;
 
     default:
@@ -221,7 +226,7 @@ function track(): array
 
     $status = (int) ($data['status'] ?? 0);
 
-    if (\in_array($status, [1, 4], true)) {
+    if (in_array($status, [1, 4], true)) {
         onlyofficeLog('INFO', 'Ignored callback status', ['status' => $status]);
 
         return ['error' => 0];
@@ -234,13 +239,13 @@ function track(): array
         return ['error' => 1];
     }
 
-    if (\in_array($status, [3, 7], true)) {
+    if (in_array($status, [3, 7], true)) {
         onlyofficeLog('WARNING', 'Document server reported save error', ['status' => $status]);
 
         return ['error' => 0];
     }
 
-    if (!\in_array($status, [2, 6], true)) {
+    if (!in_array($status, [2, 6], true)) {
         onlyofficeLog('INFO', 'Ignored callback status', ['status' => $status]);
 
         return ['error' => 0];
@@ -367,7 +372,7 @@ function download(): void
         'filePath' => $resolved['filePath'] ?? '',
     ]);
 
-    if (!empty($resolved['stream']) && \is_resource($resolved['stream'])) {
+    if (!empty($resolved['stream']) && is_resource($resolved['stream'])) {
         fpassthru($resolved['stream']);
         fclose($resolved['stream']);
 
@@ -568,9 +573,10 @@ function resolveDocumentSourceFromC2(int $docId, int $courseId = 0): ?array
     }
 
     $storagePath = '';
+
     try {
         $storagePath = (string) $resourceNodeRepository->getFilename($resourceFile);
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         onlyofficeLog('WARNING', 'Failed to resolve storage filename', [
             'message' => $e->getMessage(),
         ]);
@@ -578,7 +584,7 @@ function resolveDocumentSourceFromC2(int $docId, int $courseId = 0): ?array
 
     try {
         $stream = $resourceNodeRepository->getResourceNodeFileStream($resourceNode, $resourceFile);
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         onlyofficeLog('ERROR', 'Failed to open resource stream', [
             'message' => $e->getMessage(),
         ]);
@@ -586,7 +592,7 @@ function resolveDocumentSourceFromC2(int $docId, int $courseId = 0): ?array
         return null;
     }
 
-    if (!\is_resource($stream)) {
+    if (!is_resource($stream)) {
         onlyofficeLog('ERROR', 'Resource stream is not available', [
             'docId' => $docId,
             'resourceNodeId' => (int) $resourceNode->getId(),
@@ -636,7 +642,7 @@ function writeResolvedDocumentContent(array $resolved, string $content): bool
     if (!empty($resolved['filePath'])) {
         $filePath = (string) $resolved['filePath'];
 
-        if (false === @file_put_contents($filePath, $content, LOCK_EX)) {
+        if (false === @file_put_contents($filePath, $content, \LOCK_EX)) {
             return false;
         }
 
@@ -656,7 +662,7 @@ function writeResolvedDocumentContent(array $resolved, string $content): bool
                 if ($filesystem->fileExists($storagePath)) {
                     $filesystem->delete($storagePath);
                 }
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 onlyofficeLog('WARNING', 'Flysystem delete before write failed', [
                     'storagePath' => $storagePath,
                     'message' => $e->getMessage(),
@@ -672,7 +678,7 @@ function writeResolvedDocumentContent(array $resolved, string $content): bool
             ]);
 
             return true;
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             onlyofficeLog('ERROR', 'Flysystem write failed', [
                 'storagePath' => $storagePath,
                 'message' => $e->getMessage(),
@@ -741,7 +747,7 @@ function syncResolvedDocumentMetadata(array $resolved, ?int $contentSize = null)
             'size' => $size,
             'mimeType' => $mimeType,
         ]);
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         onlyofficeLog('WARNING', 'Metadata sync failed', [
             'message' => $e->getMessage(),
         ]);
@@ -750,8 +756,11 @@ function syncResolvedDocumentMetadata(array $resolved, ?int $contentSize = null)
 
 /**
  * Validate JWT from ONLYOFFICE document server.
+ *
+ * @param mixed $jwtManager
+ * @param mixed $appSettings
  */
-function validateDocumentServerToken(array $data, $jwtManager, $appSettings): object|array|null
+function validateDocumentServerToken(array $data, $jwtManager, $appSettings): array|object|null
 {
     if (!$jwtManager->isJwtEnabled()) {
         return null;
@@ -783,7 +792,7 @@ function validateDocumentServerToken(array $data, $jwtManager, $appSettings): ob
         }
 
         return null;
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         return ['__error' => '403 Access denied'];
     }
 }
@@ -814,15 +823,15 @@ function fetchRemoteBinary(string $url): ?string
         $ch = curl_init($url);
 
         if (false !== $ch) {
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 120);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($ch, \CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, \CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($ch, \CURLOPT_CONNECTTIMEOUT, 20);
+            curl_setopt($ch, \CURLOPT_TIMEOUT, 120);
+            curl_setopt($ch, \CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, \CURLOPT_SSL_VERIFYHOST, false);
 
             $content = curl_exec($ch);
-            $httpCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $httpCode = (int) curl_getinfo($ch, \CURLINFO_HTTP_CODE);
             $error = curl_error($ch);
 
             curl_close($ch);
@@ -839,7 +848,7 @@ function fetchRemoteBinary(string $url): ?string
         }
     }
 
-    $scheme = strtolower((string) parse_url($url, PHP_URL_SCHEME));
+    $scheme = strtolower((string) parse_url($url, \PHP_URL_SCHEME));
     if (!in_array($scheme, ['http', 'https'], true)) {
         return null;
     }
@@ -903,7 +912,7 @@ function getEntityManager()
 
                 onlyofficeLog('DEBUG', 'Entity manager resolved from container', [
                     'serviceId' => 'doctrine.orm.entity_manager',
-                    'class' => get_class($entityManager),
+                    'class' => $entityManager::class,
                 ]);
 
                 return $entityManager;
@@ -915,13 +924,13 @@ function getEntityManager()
 
                 onlyofficeLog('DEBUG', 'Entity manager resolved from doctrine service', [
                     'serviceId' => 'doctrine',
-                    'class' => get_class($entityManager),
+                    'class' => $entityManager::class,
                 ]);
 
                 return $entityManager;
             }
         }
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         onlyofficeLog('WARNING', 'Doctrine container access failed', [
             'message' => $e->getMessage(),
         ]);
@@ -932,11 +941,11 @@ function getEntityManager()
             $entityManager = Database::getManager();
 
             onlyofficeLog('DEBUG', 'Entity manager resolved from Database::getManager', [
-                'class' => get_class($entityManager),
+                'class' => $entityManager::class,
             ]);
 
             return $entityManager;
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             onlyofficeLog('WARNING', 'Database::getManager failed', [
                 'message' => $e->getMessage(),
             ]);
@@ -964,7 +973,7 @@ function getResourceNodeRepository(): ?ResourceNodeRepository
             }
 
             $serviceIds = [
-                'Chamilo\\CoreBundle\\Repository\\ResourceNodeRepository',
+                'Chamilo\CoreBundle\Repository\ResourceNodeRepository',
                 'chamilo.repository.resource_node',
             ];
 
@@ -984,7 +993,7 @@ function getResourceNodeRepository(): ?ResourceNodeRepository
                 }
             }
         }
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         onlyofficeLog('WARNING', 'ResourceNodeRepository access failed', [
             'message' => $e->getMessage(),
         ]);
@@ -1011,7 +1020,7 @@ function buildSafeDownloadFilename(string $filename): string
  */
 function getMimeTypeFromFilename(string $filename): string
 {
-    $extension = strtolower((string) pathinfo($filename, PATHINFO_EXTENSION));
+    $extension = strtolower((string) pathinfo($filename, \PATHINFO_EXTENSION));
 
     return match ($extension) {
         'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
@@ -1052,7 +1061,7 @@ function onlyofficeLog(string $level, string $message, array $context = []): voi
     $line = 'ONLYOFFICE CALLBACK: '.$level.' - '.$message;
 
     if (!empty($context)) {
-        $json = json_encode($context, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $json = json_encode($context, \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE);
         if (false !== $json) {
             $line .= ' | '.$json;
         }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /* For licensing terms, see /license.txt */
 
 use Chamilo\CoreBundle\Enums\ActionIcon;
@@ -9,8 +11,8 @@ require_once __DIR__.'/../inc/global.inc.php';
 api_block_anonymous_users();
 GradebookUtils::block_students();
 $tbl_grade_links = Database::get_main_table(TABLE_MAIN_GRADEBOOK_LINK);
-//selected name of database
-//$course_id = GradebookUtils::get_course_id_by_link_id($_GET['editlink']);
+// selected name of database
+// $course_id = GradebookUtils::get_course_id_by_link_id($_GET['editlink']);
 $course_id = api_get_course_int_id();
 $tbl_forum_thread = Database::get_course_table(TABLE_FORUM_THREAD);
 $tbl_attendance = Database::get_course_table(TABLE_ATTENDANCE);
@@ -18,10 +20,11 @@ $em = Database::getManager();
 
 // The link to edit is always a database id: never trust the value coming from the URL as-is.
 $linkId = isset($_GET['editlink']) ? (int) $_GET['editlink'] : 0;
-$linkarray = LinkFactory :: load($linkId);
+$linkarray = LinkFactory::load($linkId);
 if (empty($linkarray)) {
     api_not_allowed(true);
 }
+
 /** @var AbstractLink $link */
 $link = $linkarray[0];
 // The link has to belong to the course of the request.
@@ -37,7 +40,7 @@ $course_code = api_get_course_id();
 $session_id = api_get_session_id();
 
 if (0 == $session_id) {
-    $cats = Category:: load(
+    $cats = Category::load(
         null,
         null,
         $course_id,
@@ -45,7 +48,7 @@ if (0 == $session_id) {
         null,
         $session_id,
         null
-    ); //already init
+    ); // already init
 } else {
     $cats = Category::loadSessionCategories(null, $session_id);
 }
@@ -68,12 +71,12 @@ if ($form->validate()) {
         $link->set_category_id($values['select_gradebook']);
     }
     $link->set_visible(1);
-    if (isset($values['min_score']) && $values['min_score'] !== '') {
+    if (isset($values['min_score']) && '' !== $values['min_score']) {
         $link->set_min_score(api_float_val($values['min_score']));
     }
     $link->save();
 
-    //Update weight for attendance
+    // Update weight for attendance
     $sql = 'SELECT ref_id FROM '.$tbl_grade_links.'
             WHERE id = '.$linkId.' AND type='.LINK_ATTENDANCE;
     $rs_attendance = Database::query($sql);
@@ -86,7 +89,7 @@ if ($form->validate()) {
         Database::query($sql);
     }
 
-    //Update weight into forum thread
+    // Update weight into forum thread
     $sql = 'UPDATE '.$tbl_forum_thread.' SET
                 thread_weight = '.api_float_val($final_weight).'
             WHERE
@@ -96,7 +99,7 @@ if ($form->validate()) {
             )';
     Database::query($sql);
 
-    //Update weight into student publication(work)
+    // Update weight into student publication(work)
     $em
         ->createQuery('
             UPDATE ChamiloCourseBundle:CStudentPublication w
@@ -110,7 +113,8 @@ if ($form->validate()) {
             'final_weight' => $final_weight,
             'link' => $linkId,
             'type' => LINK_STUDENTPUBLICATION,
-        ]);
+        ])
+    ;
 
     $logInfo = [
         'tool' => TOOL_GRADEBOOK,
@@ -122,6 +126,7 @@ if ($form->validate()) {
     Event::registerLog($logInfo);
 
     header('Location: '.Category::getUrl().'linkedited=&selectcat='.$link->get_category_id());
+
     exit;
 }
 

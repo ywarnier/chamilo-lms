@@ -1,6 +1,9 @@
 <?php
+
+declare(strict_types=1);
 /* For license terms, see /license.txt */
 
+use Chamilo\CoreBundle\Entity\User;
 use Chamilo\CoreBundle\Framework\Container;
 
 require_once __DIR__.'/../inc/global.inc.php';
@@ -49,12 +52,13 @@ if ($form->validate()) {
 
     // Never look up an empty token: it would match any row left with an empty
     // confirmation token instead of failing.
-    /** @var \Chamilo\CoreBundle\Entity\User|null $user */
+    /** @var User|null $user */
     $user = '' !== $token ? Container::getUserRepository()->findUserByConfirmationToken($token) : null;
     if ($user) {
         if (!$user->isPasswordRequestNonExpired($ttl)) {
             Display::addFlash(Display::return_message(get_lang('Link expired, please try again.')), 'warning');
             header('Location: '.api_get_path(WEB_CODE_PATH).'auth/lostPassword.php');
+
             exit;
         }
 
@@ -77,12 +81,12 @@ if ($form->validate()) {
 
         Display::addFlash(Display::return_message(get_lang('Update successful')));
         header('Location: '.api_get_path(WEB_PATH));
+
         exit;
-    } else {
-        Display::addFlash(
-            Display::return_message(get_lang('Link expired, please try again.'))
-        );
     }
+    Display::addFlash(
+        Display::return_message(get_lang('Link expired, please try again.'))
+    );
 }
 
 $tpl = new Template(null);

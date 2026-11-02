@@ -15,6 +15,7 @@ use PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer;
 use PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer;
 use PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer;
 use PhpCsFixer\Fixer\DoctrineAnnotation\DoctrineAnnotationArrayAssignmentFixer;
+use PhpCsFixer\Fixer\DoctrineAnnotation\DoctrineAnnotationSpacesFixer;
 use PhpCsFixer\Fixer\FunctionNotation\FopenFlagsFixer;
 use PhpCsFixer\Fixer\FunctionNotation\VoidReturnFixer;
 use PhpCsFixer\Fixer\Import\GlobalNamespaceImportFixer;
@@ -24,9 +25,12 @@ use PhpCsFixer\Fixer\Operator\NotOperatorWithSuccessorSpaceFixer;
 use PhpCsFixer\Fixer\Phpdoc\NoEmptyPhpdocFixer;
 use PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocNoPackageFixer;
+use PhpCsFixer\Fixer\Phpdoc\PhpdocTypesOrderFixer;
+use PhpCsFixer\Fixer\PhpUnit\PhpUnitInternalClassFixer;
 use PhpCsFixer\Fixer\PhpUnit\PhpUnitTestClassRequiresCoversFixer;
 use PhpCsFixer\Fixer\ReturnNotation\NoUselessReturnFixer;
 use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
+use PhpCsFixer\Fixer\StringNotation\ExplicitStringVariableFixer;
 use SlevomatCodingStandard\Sniffs\Commenting\UselessFunctionDocCommentSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff;
 use Symplify\CodingStandard\Fixer\ArrayNotation\ArrayListItemNewlineFixer;
@@ -84,7 +88,7 @@ return static function (ECSConfig $ecsConfig): void {
         __DIR__.'/src',
         __DIR__.'/tests/CoreBundle',
         __DIR__.'/tests/CourseBundle',
-        //__DIR__.'/public/main/admin',
+        // __DIR__.'/public/main/admin',
     ]);
 
     $ecsConfig->skip([
@@ -94,23 +98,31 @@ return static function (ECSConfig $ecsConfig): void {
         __DIR__.'/src/DataFixtures/*',
         __DIR__.'/src/CoreBundle/Entity/ResourceInterface.php',
         IncrementStyleFixer::class => 'post',
+        // Legacy libraries loaded on almost every request: they pass loosely typed values (null, numeric
+        // strings) to native functions, so strict types would turn those calls into TypeErrors.
+        DeclareStrictTypesFixer::class => [
+            __DIR__.'/public/main/inc/lib/api.lib.php',
+            __DIR__.'/public/main/inc/lib/course.lib.php',
+            __DIR__.'/public/main/inc/lib/login.lib.php',
+            __DIR__.'/public/main/inc/lib/usermanager.lib.php',
+        ],
         PropertyTypeHintSniff::class.'.'.PropertyTypeHintSniff::CODE_MISSING_TRAVERSABLE_TYPE_HINT_SPECIFICATION,
         PropertyTypeHintSniff::class.'.'.PropertyTypeHintSniff::CODE_MISSING_NATIVE_TYPE_HINT,
-        PhpCsFixer\Fixer\PhpUnit\PhpUnitInternalClassFixer::class,
+        PhpUnitInternalClassFixer::class,
         DoctrineAnnotationArrayAssignmentFixer::class,
         SingleLineCommentStyleFixer::class,
         NotOperatorWithSuccessorSpaceFixer::class,
-        //\PhpCsFixer\Fixer\Phpdoc\PhpdocOrderFixer::class,
-        PhpCsFixer\Fixer\Phpdoc\PhpdocTypesOrderFixer::class,
-        PhpCsFixer\Fixer\DoctrineAnnotation\DoctrineAnnotationSpacesFixer::class,
-        PhpCsFixer\Fixer\StringNotation\ExplicitStringVariableFixer::class,
+        // \PhpCsFixer\Fixer\Phpdoc\PhpdocOrderFixer::class,
+        PhpdocTypesOrderFixer::class,
+        DoctrineAnnotationSpacesFixer::class,
+        ExplicitStringVariableFixer::class,
         ClassAttributesSeparationFixer::class,
         FopenFlagsFixer::class,
         ArrayOpenerAndCloserNewlineFixer::class,
         ArrayListItemNewlineFixer::class,
         StandaloneLineInMultilineArrayFixer::class,
-        //UnusedVariableSniff::class . '.ignoreUnusedValuesWhenOnlyKeysAreUsedInForeach' => true,
-        //UnusedVariableSniff::class => 'ignoreUnusedValuesWhenOnlyKeysAreUsedInForeach',
+        // UnusedVariableSniff::class . '.ignoreUnusedValuesWhenOnlyKeysAreUsedInForeach' => true,
+        // UnusedVariableSniff::class => 'ignoreUnusedValuesWhenOnlyKeysAreUsedInForeach',
         AssignmentInConditionSniff::class.'.FoundInWhileCondition',
         AssignmentInConditionSniff::class.'.Found',
         PhpUnitTestClassRequiresCoversFixer::class,
